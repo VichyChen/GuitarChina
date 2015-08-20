@@ -16,7 +16,14 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    [[GCNetworkManager manager] getHotThreadSuccess:^(GCHotThread *hotThread) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    
     return YES;
 }
 
