@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0459E2C21B85D0500030AF52 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459E2C11B85D0500030AF52 /* BaseViewController.m */; };
 		0459E2C51B85D0630030AF52 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459E2C41B85D0630030AF52 /* BaseTableViewController.m */; };
+		0459E2C91B85D4570030AF52 /* HotThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459E2C81B85D4570030AF52 /* HotThread.m */; };
 		425FB2E51B84C23B00B6A89B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E41B84C23B00B6A89B /* main.m */; };
 		425FB2E81B84C23B00B6A89B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E71B84C23B00B6A89B /* AppDelegate.m */; };
 		425FB2EB1B84C23B00B6A89B /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E91B84C23B00B6A89B /* GuitarChina.xcdatamodeld */; };
@@ -35,6 +36,8 @@
 		0459E2C11B85D0500030AF52 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		0459E2C31B85D0630030AF52 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
 		0459E2C41B85D0630030AF52 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
+		0459E2C71B85D4570030AF52 /* HotThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotThread.h; sourceTree = "<group>"; };
+		0459E2C81B85D4570030AF52 /* HotThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotThread.m; sourceTree = "<group>"; };
 		425FB2DF1B84C23B00B6A89B /* GuitarChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FB2E31B84C23B00B6A89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		425FB2E41B84C23B00B6A89B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -73,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0459E2C61B85D3F40030AF52 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0459E2C71B85D4570030AF52 /* HotThread.h */,
+				0459E2C81B85D4570030AF52 /* HotThread.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		425FB2D61B84C23B00B6A89B = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +106,7 @@
 		425FB2E11B84C23B00B6A89B /* GuitarChina */ = {
 			isa = PBXGroup;
 			children = (
+				0459E2C61B85D3F40030AF52 /* Model */,
 				4282605C1B84CA51007CBCF4 /* Network */,
 				425FB2E61B84C23B00B6A89B /* AppDelegate.h */,
 				425FB2E71B84C23B00B6A89B /* AppDelegate.m */,
@@ -250,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				425FB2EB1B84C23B00B6A89B /* GuitarChina.xcdatamodeld in Sources */,
+				0459E2C91B85D4570030AF52 /* HotThread.m in Sources */,
 				0459E2C21B85D0500030AF52 /* BaseViewController.m in Sources */,
 				425FB2E81B84C23B00B6A89B /* AppDelegate.m in Sources */,
 				0459E2C51B85D0630030AF52 /* BaseTableViewController.m in Sources */,
