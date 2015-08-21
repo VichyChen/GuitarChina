@@ -17,8 +17,8 @@
 		425FB2F31B84C23B00B6A89B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F21B84C23B00B6A89B /* Images.xcassets */; };
 		425FB2F61B84C23B00B6A89B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */; };
 		425FB3021B84C23B00B6A89B /* GuitarChinaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB3011B84C23B00B6A89B /* GuitarChinaTests.m */; };
-		427DC48A1B861BC100554EF8 /* GCHotThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 427DC4891B861BC100554EF8 /* GCHotThread.m */; };
 		428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 428260671B84CE03007CBCF4 /* GCNetworkManager.m */; };
+		42F4689C1B8779B30010DA70 /* GCHotThreadArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4689B1B8779B30010DA70 /* GCHotThreadArray.m */; };
 		CEFC34C235C11966848A8595 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F829F5DD46C688C9B2385EC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -53,12 +53,12 @@
 		425FB2FB1B84C23B00B6A89B /* GuitarChinaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuitarChinaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FB3001B84C23B00B6A89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		425FB3011B84C23B00B6A89B /* GuitarChinaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuitarChinaTests.m; sourceTree = "<group>"; };
-		427DC4881B861BC100554EF8 /* GCHotThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCHotThread.h; path = ../../../../../Documents/GCHotThread.h; sourceTree = "<group>"; };
-		427DC4891B861BC100554EF8 /* GCHotThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCHotThread.m; path = ../../../../../Documents/GCHotThread.m; sourceTree = "<group>"; };
 		428260591B84C533007CBCF4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		428260631B84CDCF007CBCF4 /* GCNetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkAPI.h; sourceTree = "<group>"; };
 		428260661B84CE03007CBCF4 /* GCNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkManager.h; sourceTree = "<group>"; };
 		428260671B84CE03007CBCF4 /* GCNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNetworkManager.m; sourceTree = "<group>"; };
+		42F4689A1B8779B30010DA70 /* GCHotThreadArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadArray.h; sourceTree = "<group>"; };
+		42F4689B1B8779B30010DA70 /* GCHotThreadArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadArray.m; sourceTree = "<group>"; };
 		AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,15 +81,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0459E2C61B85D3F40030AF52 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				427DC4881B861BC100554EF8 /* GCHotThread.h */,
-				427DC4891B861BC100554EF8 /* GCHotThread.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		0F41C248D61EFD30EA073F7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +112,7 @@
 		425FB2E11B84C23B00B6A89B /* GuitarChina */ = {
 			isa = PBXGroup;
 			children = (
-				0459E2C61B85D3F40030AF52 /* Model */,
+				42F468991B87797C0010DA70 /* Models */,
 				4282605C1B84CA51007CBCF4 /* Network */,
 				425FB2E61B84C23B00B6A89B /* AppDelegate.h */,
 				425FB2E71B84C23B00B6A89B /* AppDelegate.m */,
@@ -175,6 +166,15 @@
 				428260671B84CE03007CBCF4 /* GCNetworkManager.m */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		42F468991B87797C0010DA70 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				42F4689A1B8779B30010DA70 /* GCHotThreadArray.h */,
+				42F4689B1B8779B30010DA70 /* GCHotThreadArray.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AB640BEDEDAD0ED6AD1E1485 /* Pods */ = {
@@ -322,11 +322,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				425FB2EB1B84C23B00B6A89B /* GuitarChina.xcdatamodeld in Sources */,
+				42F4689C1B8779B30010DA70 /* GCHotThreadArray.m in Sources */,
 				0459E2C21B85D0500030AF52 /* BaseViewController.m in Sources */,
 				425FB2E81B84C23B00B6A89B /* AppDelegate.m in Sources */,
 				0459E2C51B85D0630030AF52 /* BaseTableViewController.m in Sources */,
 				425FB2EE1B84C23B00B6A89B /* ViewController.m in Sources */,
-				427DC48A1B861BC100554EF8 /* GCHotThread.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,
 				425FB2E51B84C23B00B6A89B /* main.m in Sources */,
 			);

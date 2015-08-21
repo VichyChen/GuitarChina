@@ -17,12 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [[GCNetworkManager manager] getHotThreadSuccess:^(GCHotThread *hotThread) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
-    
+//    [[GCNetworkManager manager] getHotThreadSuccess:^(GCHotThread *hotThread) {
+//        
+//    } failure:^(NSError *error) {
+//        
+//    }];
+//    
     
     return YES;
 }

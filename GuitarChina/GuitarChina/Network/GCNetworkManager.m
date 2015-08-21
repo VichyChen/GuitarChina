@@ -69,22 +69,22 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 
 #pragma mark - Public Methods
 
-- (AFHTTPRequestOperation *)getHotThreadSuccess:(void (^)(GCHotThread *hotThread))success
+- (AFHTTPRequestOperation *)getHotThreadSuccess:(void (^)(GCHotThreadArray *hotThread))success
                                         failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_HOTTHREAD parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", operation.responseString);
-        GCHotThread *model = [[GCHotThread alloc] init];
+        GCHotThreadArray *model = [[GCHotThreadArray alloc] init];
         success(model);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];
 }
 
-- (AFHTTPRequestOperation *)getForumIndexSuccess:(void (^)(GCHotThread *hotThread))success
+- (AFHTTPRequestOperation *)getForumIndexSuccess:(void (^)(GCHotThreadArray *hotThread))success
                                          failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_FORUMINDEX parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", operation.responseString);
-        GCHotThread *model = [[GCHotThread alloc] init];
+        GCHotThreadArray *model = [[GCHotThreadArray alloc] init];
         success(model);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
@@ -94,11 +94,11 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 - (AFHTTPRequestOperation *)getForumDisplayWithForumID:(NSString *)forumID
                                              pageIndex:(NSInteger)pageIndex
                                               pageSize:(NSInteger)pageSize
-                                               Success:(void (^)(GCHotThread *hotThread))success
+                                               Success:(void (^)(GCHotThreadArray *hotThread))success
                                                failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_FORUMDISPLAY(forumID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", operation.responseString);
-        GCHotThread *model = [[GCHotThread alloc] init];
+        GCHotThreadArray *model = [[GCHotThreadArray alloc] init];
         success(model);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
@@ -108,11 +108,11 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 - (AFHTTPRequestOperation *)getViewThreadWithThreadID:(NSString *)threadID
                                             pageIndex:(NSInteger)pageIndex
                                              pageSize:(NSInteger)pageSize
-                                              Success:(void (^)(GCHotThread *hotThread))success
+                                              Success:(void (^)(GCHotThreadArray *hotThread))success
                                               failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", operation.responseString);
-        GCHotThread *model = [[GCHotThread alloc] init];
+        GCHotThreadArray *model = [[GCHotThreadArray alloc] init];
         success(model);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
