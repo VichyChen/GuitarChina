@@ -69,23 +69,21 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 
 #pragma mark - Public Methods
 
-- (AFHTTPRequestOperation *)getHotThreadSuccess:(void (^)(GCHotThreadArray *hotThread))success
+- (AFHTTPRequestOperation *)getHotThreadSuccess:(void (^)(GCHotThreadArray *array))success
                                         failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_HOTTHREAD parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", operation.responseString);
-        GCHotThreadArray *model = [[GCHotThreadArray alloc] init];
-        success(model);
+        GCHotThreadArray *array = [[GCHotThreadArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
+        success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];
 }
 
-- (AFHTTPRequestOperation *)getForumIndexSuccess:(void (^)(GCHotThreadArray *hotThread))success
+- (AFHTTPRequestOperation *)getForumIndexSuccess:(void (^)(GCForumIndexArray *array))success
                                          failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_FORUMINDEX parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", operation.responseString);
-        GCHotThreadArray *model = [[GCHotThreadArray alloc] init];
-        success(model);
+        GCForumIndexArray *array = [[GCForumIndexArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
+        success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];

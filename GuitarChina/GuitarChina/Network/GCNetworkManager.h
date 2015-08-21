@@ -9,17 +9,18 @@
 #import <Foundation/Foundation.h>
 
 #import "GCHotThreadArray.h"
+#import "GCForumIndexArray.h"
 
 @interface GCNetworkManager : NSObject
 
 + (instancetype)manager;
 
 //获取热帖
-- (AFHTTPRequestOperation *)getHotThreadSuccess:(void (^)(GCHotThreadArray *hotThread))success
+- (AFHTTPRequestOperation *)getHotThreadSuccess:(void (^)(GCHotThreadArray *array))success
                                         failure:(void (^)(NSError *error))failure;
 
 //获取论坛模块列表
-- (AFHTTPRequestOperation *)getForumIndexSuccess:(void (^)(GCHotThreadArray *hotThread))success
+- (AFHTTPRequestOperation *)getForumIndexSuccess:(void (^)(GCForumIndexArray *hotThread))success
                                          failure:(void (^)(NSError *error))failure;
 
 //根据论坛模块id获取帖子列表

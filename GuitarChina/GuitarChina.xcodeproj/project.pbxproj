@@ -19,6 +19,7 @@
 		425FB3021B84C23B00B6A89B /* GuitarChinaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB3011B84C23B00B6A89B /* GuitarChinaTests.m */; };
 		428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 428260671B84CE03007CBCF4 /* GCNetworkManager.m */; };
 		42F4689C1B8779B30010DA70 /* GCHotThreadArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4689B1B8779B30010DA70 /* GCHotThreadArray.m */; };
+		42F4689F1B8790C10010DA70 /* GCForumIndexArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4689E1B8790C10010DA70 /* GCForumIndexArray.m */; };
 		CEFC34C235C11966848A8595 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F829F5DD46C688C9B2385EC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		428260671B84CE03007CBCF4 /* GCNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNetworkManager.m; sourceTree = "<group>"; };
 		42F4689A1B8779B30010DA70 /* GCHotThreadArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadArray.h; sourceTree = "<group>"; };
 		42F4689B1B8779B30010DA70 /* GCHotThreadArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadArray.m; sourceTree = "<group>"; };
+		42F4689D1B8790C10010DA70 /* GCForumIndexArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexArray.h; sourceTree = "<group>"; };
+		42F4689E1B8790C10010DA70 /* GCForumIndexArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexArray.m; sourceTree = "<group>"; };
 		AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +176,8 @@
 			children = (
 				42F4689A1B8779B30010DA70 /* GCHotThreadArray.h */,
 				42F4689B1B8779B30010DA70 /* GCHotThreadArray.m */,
+				42F4689D1B8790C10010DA70 /* GCForumIndexArray.h */,
+				42F4689E1B8790C10010DA70 /* GCForumIndexArray.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 				0459E2C51B85D0630030AF52 /* BaseTableViewController.m in Sources */,
 				425FB2EE1B84C23B00B6A89B /* ViewController.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,
+				42F4689F1B8790C10010DA70 /* GCForumIndexArray.m in Sources */,
 				425FB2E51B84C23B00B6A89B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
