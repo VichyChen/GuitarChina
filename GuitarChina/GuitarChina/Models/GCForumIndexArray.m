@@ -8,15 +8,22 @@
 
 #import "GCForumIndexArray.h"
 
-@implementation GCForumIndexNotice
+@implementation GCForumIndexNoticeModel
 
 @end
 
 
-@implementation GCForumIndexGroup
+@implementation GCForumIndexGroupModel
 
 @end
 
+@implementation GCForumGroupModel
+
+@end
+
+@implementation GCForumModel
+
+@end
 
 @implementation GCForumIndexArray
 
