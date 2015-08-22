@@ -25,7 +25,7 @@
 
 @property (nonatomic, copy) NSString *fid;
 @property (nonatomic, copy) NSString *name;
-@property (nonatomic, strong) NSArray *forums;  //GCForumModel
+@property (nonatomic, strong) NSMutableArray *forums;  //GCForumModel
 
 @end
 

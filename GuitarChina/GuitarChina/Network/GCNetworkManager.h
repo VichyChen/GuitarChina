@@ -10,6 +10,8 @@
 
 #import "GCHotThreadArray.h"
 #import "GCForumIndexArray.h"
+#import "GCForumDisplayArray.h"
+#import "GCThreadDetailModel.h"
 
 @interface GCNetworkManager : NSObject
 
@@ -20,21 +22,21 @@
                                         failure:(void (^)(NSError *error))failure;
 
 //获取论坛模块列表
-- (AFHTTPRequestOperation *)getForumIndexSuccess:(void (^)(GCForumIndexArray *hotThread))success
+- (AFHTTPRequestOperation *)getForumIndexSuccess:(void (^)(GCForumIndexArray *array))success
                                          failure:(void (^)(NSError *error))failure;
 
 //根据论坛模块id获取帖子列表
 - (AFHTTPRequestOperation *)getForumDisplayWithForumID:(NSString *)forumID
                                              pageIndex:(NSInteger)pageIndex
                                               pageSize:(NSInteger)pageSize
-                                               Success:(void (^)(GCHotThreadArray *hotThread))success
+                                               Success:(void (^)(GCForumDisplayArray *array))success
                                                failure:(void (^)(NSError *error))failure;
 
 //获取帖子详情
 - (AFHTTPRequestOperation *)getViewThreadWithThreadID:(NSString *)threadID
                                             pageIndex:(NSInteger)pageIndex
                                              pageSize:(NSInteger)pageSize
-                                              Success:(void (^)(GCHotThreadArray *hotThread))success
+                                              Success:(void (^)(GCThreadDetailModel *model))success
                                               failure:(void (^)(NSError *error))failure;
 
 @end

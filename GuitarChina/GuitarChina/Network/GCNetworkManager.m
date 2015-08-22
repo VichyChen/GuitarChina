@@ -82,6 +82,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 - (AFHTTPRequestOperation *)getForumIndexSuccess:(void (^)(GCForumIndexArray *array))success
                                          failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_FORUMINDEX parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", operation.responseString);
         GCForumIndexArray *array = [[GCForumIndexArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
         success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -92,12 +93,10 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 - (AFHTTPRequestOperation *)getForumDisplayWithForumID:(NSString *)forumID
                                              pageIndex:(NSInteger)pageIndex
                                               pageSize:(NSInteger)pageSize
-                                               Success:(void (^)(GCHotThreadArray *hotThread))success
+                                               Success:(void (^)(GCForumDisplayArray *array))success
                                                failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_FORUMDISPLAY(forumID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", operation.responseString);
-        GCHotThreadArray *model = [[GCHotThreadArray alloc] init];
-        success(model);
+        GCForumDisplayArray *array = [[GCForumDisplayArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];        success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];
@@ -106,12 +105,10 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 - (AFHTTPRequestOperation *)getViewThreadWithThreadID:(NSString *)threadID
                                             pageIndex:(NSInteger)pageIndex
                                              pageSize:(NSInteger)pageSize
-                                              Success:(void (^)(GCHotThreadArray *hotThread))success
+                                              Success:(void (^)(GCThreadDetailModel *model))success
                                               failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", operation.responseString);
-        GCHotThreadArray *model = [[GCHotThreadArray alloc] init];
-        success(model);
+        GCThreadDetailModel *model = [[GCThreadDetailModel alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];        success(model);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];

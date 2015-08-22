@@ -17,6 +17,8 @@
 		425FB2F31B84C23B00B6A89B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F21B84C23B00B6A89B /* Images.xcassets */; };
 		425FB2F61B84C23B00B6A89B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */; };
 		425FB3021B84C23B00B6A89B /* GuitarChinaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB3011B84C23B00B6A89B /* GuitarChinaTests.m */; };
+		426E7CA01B88DDEA00BE70D9 /* GCForumDisplayArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 426E7C9F1B88DDEA00BE70D9 /* GCForumDisplayArray.m */; };
+		426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */; };
 		428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 428260671B84CE03007CBCF4 /* GCNetworkManager.m */; };
 		42F4689C1B8779B30010DA70 /* GCHotThreadArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4689B1B8779B30010DA70 /* GCHotThreadArray.m */; };
 		42F4689F1B8790C10010DA70 /* GCForumIndexArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4689E1B8790C10010DA70 /* GCForumIndexArray.m */; };
@@ -54,13 +56,17 @@
 		425FB2FB1B84C23B00B6A89B /* GuitarChinaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuitarChinaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FB3001B84C23B00B6A89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		425FB3011B84C23B00B6A89B /* GuitarChinaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuitarChinaTests.m; sourceTree = "<group>"; };
+		426E7C9D1B88D12500BE70D9 /* GCForumIndexArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexArray.h; sourceTree = "<group>"; };
+		426E7C9E1B88DDEA00BE70D9 /* GCForumDisplayArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayArray.h; sourceTree = "<group>"; };
+		426E7C9F1B88DDEA00BE70D9 /* GCForumDisplayArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayArray.m; sourceTree = "<group>"; };
+		426E7CA41B88E89100BE70D9 /* GCThreadDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailModel.h; sourceTree = "<group>"; };
+		426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailModel.m; sourceTree = "<group>"; };
 		428260591B84C533007CBCF4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		428260631B84CDCF007CBCF4 /* GCNetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkAPI.h; sourceTree = "<group>"; };
 		428260661B84CE03007CBCF4 /* GCNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkManager.h; sourceTree = "<group>"; };
 		428260671B84CE03007CBCF4 /* GCNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNetworkManager.m; sourceTree = "<group>"; };
 		42F4689A1B8779B30010DA70 /* GCHotThreadArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadArray.h; sourceTree = "<group>"; };
 		42F4689B1B8779B30010DA70 /* GCHotThreadArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadArray.m; sourceTree = "<group>"; };
-		42F4689D1B8790C10010DA70 /* GCForumIndexArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexArray.h; sourceTree = "<group>"; };
 		42F4689E1B8790C10010DA70 /* GCForumIndexArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexArray.m; sourceTree = "<group>"; };
 		AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -176,8 +182,12 @@
 			children = (
 				42F4689A1B8779B30010DA70 /* GCHotThreadArray.h */,
 				42F4689B1B8779B30010DA70 /* GCHotThreadArray.m */,
-				42F4689D1B8790C10010DA70 /* GCForumIndexArray.h */,
+				426E7C9D1B88D12500BE70D9 /* GCForumIndexArray.h */,
 				42F4689E1B8790C10010DA70 /* GCForumIndexArray.m */,
+				426E7C9E1B88DDEA00BE70D9 /* GCForumDisplayArray.h */,
+				426E7C9F1B88DDEA00BE70D9 /* GCForumDisplayArray.m */,
+				426E7CA41B88E89100BE70D9 /* GCThreadDetailModel.h */,
+				426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -328,8 +338,10 @@
 			files = (
 				425FB2EB1B84C23B00B6A89B /* GuitarChina.xcdatamodeld in Sources */,
 				42F4689C1B8779B30010DA70 /* GCHotThreadArray.m in Sources */,
+				426E7CA01B88DDEA00BE70D9 /* GCForumDisplayArray.m in Sources */,
 				0459E2C21B85D0500030AF52 /* BaseViewController.m in Sources */,
 				425FB2E81B84C23B00B6A89B /* AppDelegate.m in Sources */,
+				426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */,
 				0459E2C51B85D0630030AF52 /* BaseTableViewController.m in Sources */,
 				425FB2EE1B84C23B00B6A89B /* ViewController.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,

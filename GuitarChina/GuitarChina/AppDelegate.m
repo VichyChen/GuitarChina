@@ -17,12 +17,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [[GCNetworkManager manager] getForumIndexSuccess:^(GCForumIndexArray *hotThread) {
+    [[GCNetworkManager manager] getForumDisplayWithForumID:@"9" pageIndex:1 pageSize:20 Success:^(GCForumDisplayArray *array) {
         
     } failure:^(NSError *error) {
         
     }];
-    
     
     return YES;
 }
