@@ -12,6 +12,10 @@
 #import "GCForumIndexArray.h"
 #import "GCForumDisplayArray.h"
 #import "GCThreadDetailModel.h"
+#import "GCLoginModel.h"
+#import "GCMyFavThreadArray.h"
+#import "GCMyThreadArray.h"
+#import "GCSendReplyModel.h"
 
 @interface GCNetworkManager : NSObject
 
@@ -38,5 +42,26 @@
                                              pageSize:(NSInteger)pageSize
                                               Success:(void (^)(GCThreadDetailModel *model))success
                                               failure:(void (^)(NSError *error))failure;
+
+//登陆
+- (AFHTTPRequestOperation *)postLoginWithUsername:(NSString *)username
+                                         password:(NSString *)password
+                                          Success:(void (^)(GCLoginModel *model))success
+                                          failure:(void (^)(NSError *error))failure;
+
+//我的收藏
+- (AFHTTPRequestOperation *)getMyFavThreadSuccess:(void (^)(GCMyFavThreadArray *array))success
+                                          failure:(void (^)(NSError *error))failure;
+
+//我的主题
+- (AFHTTPRequestOperation *)getMyThreadSuccess:(void (^)(GCMyThreadArray *array))success
+                                       failure:(void (^)(NSError *error))failure;
+
+//回复帖子
+- (AFHTTPRequestOperation *)postReplyWithTid:(NSString *)tid
+                                     message:(NSString *)message
+                                    formhash:(NSString *)formhash
+                                     Success:(void (^)(GCSendReplyModel *model))success
+                                     failure:(void (^)(NSError *error))failure;
 
 @end

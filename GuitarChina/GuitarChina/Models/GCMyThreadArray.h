@@ -1,5 +1,5 @@
 //
-//  GCThreadDetailModel.h
+//  GCMyThreadArray.h
 //  GuitarChina
 //
 //  Created by 陈大捷 on 15/8/23.
@@ -9,11 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "GCBaseModel.h"
 
-@interface GCThreadDetailModel : GCBaseModel
+@interface GCMyThreadModel : GCBaseModel
 
-@property (nonatomic, copy) NSString *fid;
-@property (nonatomic, copy) NSString *ppp;
-@property (nonatomic, copy) NSString *forum_threadpay;
+@end
+
+@interface GCMyThreadArray : GCBaseModel
+
+@property (nonatomic, copy) NSString *perpage;
+
+@property (nonatomic, strong) NSArray *data;    //GCMyThreadModel
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

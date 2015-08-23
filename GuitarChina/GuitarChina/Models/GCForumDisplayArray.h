@@ -7,15 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface GCForumDisplayNoticeModel : NSObject
-
-@property (nonatomic, copy) NSString *newpush;
-@property (nonatomic, copy) NSString *newpm;
-@property (nonatomic, copy) NSString *newprompt;
-@property (nonatomic, copy) NSString *newmypost;
-
-@end
+#import "GCBaseModel.h"
 
 @interface GCForumThreadModel : NSObject
 
@@ -37,22 +29,11 @@
 @end
 
 
-@interface GCForumDisplayArray : NSObject
+@interface GCForumDisplayArray : GCBaseModel
 
-@property (nonatomic, copy) NSString *cookiepre;
-@property (nonatomic, copy) NSString *auth;
-@property (nonatomic, copy) NSString *saltkey;
-@property (nonatomic, copy) NSString *member_uid;
-@property (nonatomic, copy) NSString *member_username;
-@property (nonatomic, copy) NSString *member_avatar;
-@property (nonatomic, copy) NSString *groupid;
-@property (nonatomic, copy) NSString *formhash;
-@property (nonatomic, copy) NSString *ismoderator;
-@property (nonatomic, copy) NSString *readaccess;
 @property (nonatomic, copy) NSString *tpp;
 @property (nonatomic, copy) NSString *page;
 
-@property (nonatomic, strong) GCForumDisplayNoticeModel *notice;
 @property (nonatomic, strong) NSArray *data;    //forum_threadlist
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;

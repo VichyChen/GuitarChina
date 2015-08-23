@@ -15,19 +15,9 @@
 @implementation GCHotThreadArray
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    if (self = [super init]) {
-        self.cookiepre       = [dictionary objectForKey:@"cookiepre"];
-        self.auth            = [dictionary objectForKey:@"auth"];
-        self.saltkey         = [dictionary objectForKey:@"saltkey"];
-        self.member_uid      = [dictionary objectForKey:@"member_uid"];
-        self.member_username = [dictionary objectForKey:@"member_username"];
-        self.member_avatar   = [dictionary objectForKey:@"member_avatar"];
-        self.groupid         = [dictionary objectForKey:@"groupid"];
-        self.formhash        = [dictionary objectForKey:@"formhash"];
-        self.ismoderator     = [dictionary objectForKey:@"ismoderator"];
-        self.readaccess      = [dictionary objectForKey:@"readaccess"];
-        self.perpage         = [dictionary objectForKey:@"perpage"];
-
+    if (self = [super initWithDictionary:dictionary]) {
+        self.perpage = [dictionary objectForKey:@"perpage"];
+        
         NSArray *data = [dictionary objectForKey:@"data"];
         NSMutableArray *array = [[NSMutableArray alloc] init];
         for (NSDictionary *item in data) {

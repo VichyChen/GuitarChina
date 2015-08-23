@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GCBaseModel.h"
 
 @interface GCHotThreadModel : NSObject
 
@@ -71,18 +72,8 @@
 
 @end
 
-@interface GCHotThreadArray : NSObject
+@interface GCHotThreadArray : GCBaseModel
 
-@property (nonatomic, copy) NSString *cookiepre;
-@property (nonatomic, copy) NSString *auth;
-@property (nonatomic, copy) NSString *saltkey;
-@property (nonatomic, copy) NSString *member_uid;
-@property (nonatomic, copy) NSString *member_username;
-@property (nonatomic, copy) NSString *member_avatar;
-@property (nonatomic, copy) NSString *groupid;
-@property (nonatomic, copy) NSString *formhash;
-@property (nonatomic, copy) NSString *ismoderator;
-@property (nonatomic, copy) NSString *readaccess;
 @property (nonatomic, copy) NSString *perpage;
 
 @property (nonatomic, strong) NSArray *data;

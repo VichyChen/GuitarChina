@@ -16,12 +16,29 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    [[GCNetworkManager manager] getForumDisplayWithForumID:@"9" pageIndex:1 pageSize:20 Success:^(GCForumDisplayArray *array) {
+    
+    
+    [[GCNetworkManager manager] postLoginWithUsername:@"Vichy_Chen" password:@"88436658cdj" Success:^(GCLoginModel *model) {
+        
+        [[GCNetworkManager manager] getViewThreadWithThreadID:@"1968603" pageIndex:1 pageSize:100 Success:^(GCThreadDetailModel *model) {
+            
+            [[GCNetworkManager manager] postReplyWithTid:@"1968603" message:@"最后一次哈＝。＝" formhash:model.formhash Success:^(GCSendReplyModel *model) {
+                
+            } failure:^(NSError *error) {
+                
+            }];
+            
+        } failure:^(NSError *error) {
+            
+        }];
         
     } failure:^(NSError *error) {
         
     }];
+    
+    
+    
+    
     
     return YES;
 }

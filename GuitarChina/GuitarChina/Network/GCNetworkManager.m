@@ -47,6 +47,15 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     
     AFHTTPRequestOperation *manager = nil;
     if (type == GCRequestJsonGet) {
+        
+        //        AFHTTPRequestOperationManager *a = [AFHTTPRequestOperationManager manager];
+        //        [a.requestSerializer setValue:@"Guitarchina/724 CFNetwork/711.3.18 Darwin/14.0.0" forHTTPHeaderField:@"User-Agent"];
+        //        manager = [a GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //            responseHandleBlock(operation, responseObject);
+        //        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //            failure(operation, error);
+        //        }];
+        
         manager = [[AFHTTPRequestOperationManager manager] GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             responseHandleBlock(operation, responseObject);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -61,6 +70,11 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
         }];
     }
     else if (type == GCRequestHTTPPOST) {
+        manager = [[AFHTTPRequestOperationManager manager] POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            responseHandleBlock(operation, responseObject);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failure(operation, error);
+        }];
         
     }
     
@@ -72,6 +86,8 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 - (AFHTTPRequestOperation *)getHotThreadSuccess:(void (^)(GCHotThreadArray *array))success
                                         failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_HOTTHREAD parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", operation.responseString);
+        
         GCHotThreadArray *array = [[GCHotThreadArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
         success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -109,6 +125,65 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                                               failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         GCThreadDetailModel *model = [[GCThreadDetailModel alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];        success(model);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+}
+
+- (AFHTTPRequestOperation *)postLoginWithUsername:(NSString *)username
+                                         password:(NSString *)password
+                                          Success:(void (^)(GCLoginModel *model))success
+                                          failure:(void (^)(NSError *error))failure {
+    return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_LGOINSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *parameters = @{ @"username" : username, @"password" : password };
+        [self requestCommonMethod:GCRequestHTTPPOST url:GCNETWORKAPI_POST_LOGIN parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            GCLoginModel *model = [[GCLoginModel alloc] initWithDictionary:responseObject];
+            success(model);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failure(error);
+        }];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+}
+
+- (AFHTTPRequestOperation *)getMyFavThreadSuccess:(void (^)(GCMyFavThreadArray *array))success
+                                          failure:(void (^)(NSError *error))failure {
+    return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_MYFAVTHREAD parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        GCMyFavThreadArray *array = [[GCMyFavThreadArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
+        success(array);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+}
+
+- (AFHTTPRequestOperation *)getMyThreadSuccess:(void (^)(GCMyThreadArray *array))success
+                                       failure:(void (^)(NSError *error))failure {
+    return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_MYTHREAD parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        GCMyThreadArray *array = [[GCMyThreadArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
+        success(array);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+}
+
+- (AFHTTPRequestOperation *)postReplyWithTid:(NSString *)tid
+                                     message:(NSString *)message
+                                    formhash:(NSString *)formhash
+                                     Success:(void (^)(GCSendReplyModel *model))success
+                                     failure:(void (^)(NSError *error))failure {
+    return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_POSTSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *parameters = @{ @"message" : message, @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash };
+        [self requestCommonMethod:GCRequestHTTPPOST url:GCNETWORKAPI_POST_SENDREPLY(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            GCSendReplyModel *model = [[GCSendReplyModel alloc] initWithDictionary:responseObject];
+            success(model);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failure(error);
+        }];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];

@@ -8,10 +8,6 @@
 
 #import "GCForumDisplayArray.h"
 
-@implementation GCForumDisplayNoticeModel
-
-@end
-
 @implementation GCForumThreadModel
 
 @end
@@ -19,28 +15,10 @@
 @implementation GCForumDisplayArray
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-    if (self = [super init]) {
-        self.cookiepre        = [dictionary objectForKey:@"cookiepre"];
-        self.auth             = [dictionary objectForKey:@"auth"];
-        self.saltkey          = [dictionary objectForKey:@"saltkey"];
-        self.member_uid       = [dictionary objectForKey:@"member_uid"];
-        self.member_username  = [dictionary objectForKey:@"member_username"];
-        self.member_avatar    = [dictionary objectForKey:@"member_avatar"];
-        self.groupid          = [dictionary objectForKey:@"groupid"];
-        self.formhash         = [dictionary objectForKey:@"formhash"];
-        self.ismoderator      = [dictionary objectForKey:@"ismoderator"];
-        self.readaccess       = [dictionary objectForKey:@"readaccess"];
+    if (self = [super initWithDictionary:dictionary]) {
         self.tpp              = [dictionary objectForKey:@"tpp"];
         self.page             = [dictionary objectForKey:@"page"];
         
-        NSDictionary *notice = [dictionary objectForKey:@"notice"];
-        GCForumDisplayNoticeModel *noticeModel = [[GCForumDisplayNoticeModel alloc] init];
-        noticeModel.newpush   = [notice objectForKey:@"newpush"];
-        noticeModel.newpm     = [notice objectForKey:@"newpm"];
-        noticeModel.newprompt = [notice objectForKey:@"newprompt"];
-        noticeModel.newmypost = [notice objectForKey:@"newmypost"];
-        self.notice = noticeModel;
-
         NSArray *threads = [dictionary objectForKey:@"forum_threadlist"];
         NSMutableArray *array = [[NSMutableArray alloc] init];
         for (NSDictionary *item in threads) {
