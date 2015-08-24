@@ -26,6 +26,7 @@
 		428F71201B89B21E0023E501 /* GCMyFavThreadArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F711F1B89B21E0023E501 /* GCMyFavThreadArray.m */; };
 		428F71231B89B2830023E501 /* GCMyThreadArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F71221B89B2830023E501 /* GCMyThreadArray.m */; };
 		428F71261B89C0230023E501 /* GCSendReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F71251B89C0230023E501 /* GCSendReplyModel.m */; };
+		429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E720A1B8B5066000469E6 /* GCNewThreadModel.m */; };
 		42F4689C1B8779B30010DA70 /* GCHotThreadArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4689B1B8779B30010DA70 /* GCHotThreadArray.m */; };
 		42F4689F1B8790C10010DA70 /* GCForumIndexArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4689E1B8790C10010DA70 /* GCForumIndexArray.m */; };
 		CEFC34C235C11966848A8595 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F829F5DD46C688C9B2385EC /* libPods.a */; };
@@ -83,6 +84,8 @@
 		428F71221B89B2830023E501 /* GCMyThreadArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyThreadArray.m; sourceTree = "<group>"; };
 		428F71241B89C0230023E501 /* GCSendReplyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSendReplyModel.h; sourceTree = "<group>"; };
 		428F71251B89C0230023E501 /* GCSendReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSendReplyModel.m; sourceTree = "<group>"; };
+		429E72091B8B5066000469E6 /* GCNewThreadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewThreadModel.h; sourceTree = "<group>"; };
+		429E720A1B8B5066000469E6 /* GCNewThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewThreadModel.m; sourceTree = "<group>"; };
 		42F4689A1B8779B30010DA70 /* GCHotThreadArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadArray.h; sourceTree = "<group>"; };
 		42F4689B1B8779B30010DA70 /* GCHotThreadArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadArray.m; sourceTree = "<group>"; };
 		42F4689E1B8790C10010DA70 /* GCForumIndexArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexArray.m; sourceTree = "<group>"; };
@@ -218,6 +221,8 @@
 				428F71221B89B2830023E501 /* GCMyThreadArray.m */,
 				428F71241B89C0230023E501 /* GCSendReplyModel.h */,
 				428F71251B89C0230023E501 /* GCSendReplyModel.m */,
+				429E72091B8B5066000469E6 /* GCNewThreadModel.h */,
+				429E720A1B8B5066000469E6 /* GCNewThreadModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -372,6 +377,7 @@
 				428F71231B89B2830023E501 /* GCMyThreadArray.m in Sources */,
 				426E7CA01B88DDEA00BE70D9 /* GCForumDisplayArray.m in Sources */,
 				428F711A1B89ACB90023E501 /* GCBaseModel.m in Sources */,
+				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
 				428F71201B89B21E0023E501 /* GCMyFavThreadArray.m in Sources */,
 				0459E2C21B85D0500030AF52 /* BaseViewController.m in Sources */,
 				425FB2E81B84C23B00B6A89B /* AppDelegate.m in Sources */,

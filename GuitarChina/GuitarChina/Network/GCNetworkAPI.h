@@ -33,8 +33,13 @@
 //我的主题
 #define GCNETWORKAPI_GET_MYTHREAD [NSString stringWithFormat:@"%@mobile=no&version=1&module=mythread&page=1", GCNETWORKAPI_SERVICE_URL]
 
-//回复前的授权
+//回复、发布主题前的授权
 #define GCNETWORKAPI_GET_POSTSECURE [NSString stringWithFormat:@"%@mobile=no&version=1&module=secure&type=post", GCNETWORKAPI_SERVICE_URL]
 //回复
 #define GCNETWORKAPI_POST_SENDREPLY(tid) [NSString stringWithFormat:@"%@mobile=no&version=1&module=sendreply&seccodeverify=&sechash=&replysubmit=yes&tid=%@", GCNETWORKAPI_SERVICE_URL, (tid)]
+//发布主题
+#define GCNETWORKAPI_NEWTHREAD(fid) [NSString stringWithFormat:@"%@mobile=no&version=1&module=newthread&seccodeverify=&sechash=&topicsubmit=yes&fid=%@", GCNETWORKAPI_SERVICE_URL, (fid)]
+
+//举报
+#define GC_NETWORKAPI_REPORT(tid) [NSString stringWithFormat:@"http://art.365day.tv/api/set.html?act=SetSayReport&say_id=%@&V=1.1.1&F=ios&key=&user_name=&sign=", (tid)]
 

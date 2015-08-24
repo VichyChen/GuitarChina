@@ -18,24 +18,29 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     
-    [[GCNetworkManager manager] postLoginWithUsername:@"Vichy_Chen" password:@"88436658cdj" Success:^(GCLoginModel *model) {
-        
-        [[GCNetworkManager manager] getViewThreadWithThreadID:@"1968603" pageIndex:1 pageSize:100 Success:^(GCThreadDetailModel *model) {
-            
-            [[GCNetworkManager manager] postReplyWithTid:@"1968603" message:@"最后一次哈＝。＝" formhash:model.formhash Success:^(GCSendReplyModel *model) {
-                
-            } failure:^(NSError *error) {
-                
-            }];
-            
-        } failure:^(NSError *error) {
-            
-        }];
+//    [[GCNetworkManager manager] postLoginWithUsername:@"Vichy_Chen" password:@"88436658cdj" Success:^(GCLoginModel *model) {
+//        
+//        [[GCNetworkManager manager] getForumDisplayWithForumID:@"80" pageIndex:1 pageSize:20 Success:^(GCForumDisplayArray *array) {
+//            
+//            [[GCNetworkManager manager] postNewThreadWithFid:@"80" subject:@"发帖子测试下接口，最近在做论坛的客户端" message:@"版主看到此贴可以删掉哈！" type:@"285" formhash:array.formhash Success:^(GCNewThreadModel *model) {
+//                
+//            } failure:^(NSError *error) {
+//                
+//            }];
+//            
+//        } failure:^(NSError *error) {
+//            
+//        }];
+//        
+//    } failure:^(NSError *error) {
+//        
+//    }];
+    
+    [[GCNetworkManager manager] postReportWithTid:@"1970402" text:@"2222"  Success:^{
         
     } failure:^(NSError *error) {
         
     }];
-    
     
     
     

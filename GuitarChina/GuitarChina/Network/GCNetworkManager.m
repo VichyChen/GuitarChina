@@ -189,4 +189,39 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     }];
 }
 
+- (AFHTTPRequestOperation *)postNewThreadWithFid:(NSString *)fid
+                                         subject:(NSString *)subject
+                                         message:(NSString *)message
+                                            type:(NSString *)type
+                                        formhash:(NSString *)formhash
+                                         Success:(void (^)(GCNewThreadModel *model))success
+                                         failure:(void (^)(NSError *error))failure {
+    return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_POSTSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *parameters = @{ @"allownoticeauthor" : @"1", @"message" : message, @"subject" : subject, @"mobiletype" : @"1", @"formhash" : formhash, @"typeid" : type };
+        [self requestCommonMethod:GCRequestHTTPPOST url:GCNETWORKAPI_NEWTHREAD(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"%@", operation.responseString);
+            GCNewThreadModel *model = [[GCNewThreadModel alloc] initWithDictionary:responseObject];
+            success(model);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failure(error);
+        }];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+}
+
+- (AFHTTPRequestOperation *)postReportWithTid:(NSString *)tid
+                                         text:(NSString *)text
+                                      Success:(void (^)(void))success
+                                      failure:(void (^)(NSError *error))failure {
+    NSDictionary *parameters = @{ @"text" : text};
+    return  [self requestCommonMethod:GCRequestHTTPPOST url:GC_NETWORKAPI_REPORT(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", operation.responseString);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+}
+
 @end

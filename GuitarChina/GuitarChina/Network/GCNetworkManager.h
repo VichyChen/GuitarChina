@@ -16,6 +16,7 @@
 #import "GCMyFavThreadArray.h"
 #import "GCMyThreadArray.h"
 #import "GCSendReplyModel.h"
+#import "GCNewThreadModel.h"
 
 @interface GCNetworkManager : NSObject
 
@@ -63,5 +64,20 @@
                                     formhash:(NSString *)formhash
                                      Success:(void (^)(GCSendReplyModel *model))success
                                      failure:(void (^)(NSError *error))failure;
+
+//发布主题
+- (AFHTTPRequestOperation *)postNewThreadWithFid:(NSString *)fid
+                                         subject:(NSString *)subject
+                                         message:(NSString *)message
+                                            type:(NSString *)type
+                                        formhash:(NSString *)formhash
+                                         Success:(void (^)(GCNewThreadModel *model))success
+                                         failure:(void (^)(NSError *error))failure;
+
+//举报
+- (AFHTTPRequestOperation *)postReportWithTid:(NSString *)tid
+                                         text:(NSString *)text
+                                      Success:(void (^)(void))success
+                                      failure:(void (^)(NSError *error))failure;
 
 @end
