@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "GCNavigationController.h"
+#import "HomeViewController.h"
+#import "GCLeftMenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,32 +21,24 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     
-//    [[GCNetworkManager manager] postLoginWithUsername:@"Vichy_Chen" password:@"88436658cdj" Success:^(GCLoginModel *model) {
-//        
-//        [[GCNetworkManager manager] getForumDisplayWithForumID:@"80" pageIndex:1 pageSize:20 Success:^(GCForumDisplayArray *array) {
-//            
-//            [[GCNetworkManager manager] postNewThreadWithFid:@"80" subject:@"发帖子测试下接口，最近在做论坛的客户端" message:@"版主看到此贴可以删掉哈！" type:@"285" formhash:array.formhash Success:^(GCNewThreadModel *model) {
-//                
-//            } failure:^(NSError *error) {
-//                
-//            }];
-//            
-//        } failure:^(NSError *error) {
-//            
-//        }];
-//        
-//    } failure:^(NSError *error) {
-//        
-//    }];
+    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+    GCLeftMenuViewController *leftMenuViewController = [[GCLeftMenuViewController alloc] init];
     
-    [[GCNetworkManager manager] postReportWithTid:@"1970402" text:@"2222"  Success:^{
-        
-    } failure:^(NSError *error) {
-        
-    }];
+    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController
+                                                                    leftMenuViewController:leftMenuViewController
+                                                                   rightMenuViewController:nil];
+    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
+    sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+    sideMenuViewController.delegate = self;
+    sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
+    sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
+    sideMenuViewController.contentViewShadowOpacity = 0.6;
+    sideMenuViewController.contentViewShadowRadius = 12;
+    sideMenuViewController.contentViewShadowEnabled = YES;
+    self.window.rootViewController = sideMenuViewController;
     
-    
-    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

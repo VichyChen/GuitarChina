@@ -18,14 +18,14 @@
 @property (nonatomic, copy) NSString *sortid;
 @property (nonatomic, copy) NSString *readperm;
 @property (nonatomic, copy) NSString *price;
-@property (nonatomic, copy) NSString *author;
-@property (nonatomic, copy) NSString *authorid;
-@property (nonatomic, copy) NSString *subject;
-@property (nonatomic, copy) NSString *dateline;
-@property (nonatomic, copy) NSString *lastpost;
-@property (nonatomic, copy) NSString *lastposter;
-@property (nonatomic, copy) NSString *views;
-@property (nonatomic, copy) NSString *replies;
+@property (nonatomic, copy) NSString *author;   //发帖者
+@property (nonatomic, copy) NSString *authorid; //发帖id
+@property (nonatomic, copy) NSString *subject;  //标题
+@property (nonatomic, copy) NSString *dateline; //发布时间
+@property (nonatomic, copy) NSString *lastpost; //最后回复
+@property (nonatomic, copy) NSString *lastposter; //最后回复id
+@property (nonatomic, copy) NSString *views;    //浏览数
+@property (nonatomic, copy) NSString *replies;  //回复数
 @property (nonatomic, copy) NSString *displayorder;
 @property (nonatomic, copy) NSString *highlight;
 @property (nonatomic, copy) NSString *digest;

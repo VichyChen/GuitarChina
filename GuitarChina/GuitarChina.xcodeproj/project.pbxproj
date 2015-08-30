@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0459E2C21B85D0500030AF52 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459E2C11B85D0500030AF52 /* BaseViewController.m */; };
-		0459E2C51B85D0630030AF52 /* BaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0459E2C41B85D0630030AF52 /* BaseTableViewController.m */; };
+		420D98661B92982C00AEAED3 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98611B92982C00AEAED3 /* RECommonFunctions.m */; };
+		420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98631B92982C00AEAED3 /* RESideMenu.m */; };
+		420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98651B92982C00AEAED3 /* UIViewController+RESideMenu.m */; };
+		420D987F1B929C2B00AEAED3 /* GCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98781B929C2B00AEAED3 /* GCBaseTableViewController.m */; };
+		420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */; };
+		420D98811B929C2B00AEAED3 /* GCLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */; };
+		420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987E1B929C2B00AEAED3 /* GCNavigationController.m */; };
+		420D98861B929CD000AEAED3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98851B929CD000AEAED3 /* HomeViewController.m */; };
+		420D988A1B929D3B00AEAED3 /* ForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98891B929D3B00AEAED3 /* ForumViewController.m */; };
 		425FB2E51B84C23B00B6A89B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E41B84C23B00B6A89B /* main.m */; };
 		425FB2E81B84C23B00B6A89B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E71B84C23B00B6A89B /* AppDelegate.m */; };
 		425FB2EB1B84C23B00B6A89B /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E91B84C23B00B6A89B /* GuitarChina.xcdatamodeld */; };
-		425FB2EE1B84C23B00B6A89B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2ED1B84C23B00B6A89B /* ViewController.m */; };
-		425FB2F11B84C23B00B6A89B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2EF1B84C23B00B6A89B /* Main.storyboard */; };
 		425FB2F31B84C23B00B6A89B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F21B84C23B00B6A89B /* Images.xcassets */; };
 		425FB2F61B84C23B00B6A89B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */; };
 		425FB3021B84C23B00B6A89B /* GuitarChinaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB3011B84C23B00B6A89B /* GuitarChinaTests.m */; };
@@ -43,21 +48,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0459E2C01B85D0500030AF52 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		0459E2C11B85D0500030AF52 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		0459E2C31B85D0630030AF52 /* BaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTableViewController.h; sourceTree = "<group>"; };
-		0459E2C41B85D0630030AF52 /* BaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTableViewController.m; sourceTree = "<group>"; };
 		2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2F829F5DD46C688C9B2385EC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		420D98601B92982C00AEAED3 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		420D98611B92982C00AEAED3 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		420D98621B92982C00AEAED3 /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
+		420D98631B92982C00AEAED3 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
+		420D98641B92982C00AEAED3 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		420D98651B92982C00AEAED3 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
+		420D98771B929C2B00AEAED3 /* GCBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBaseTableViewController.h; sourceTree = "<group>"; };
+		420D98781B929C2B00AEAED3 /* GCBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseTableViewController.m; sourceTree = "<group>"; };
+		420D98791B929C2B00AEAED3 /* GCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBaseViewController.h; sourceTree = "<group>"; };
+		420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseViewController.m; sourceTree = "<group>"; };
+		420D987B1B929C2B00AEAED3 /* GCLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLeftMenuViewController.h; sourceTree = "<group>"; };
+		420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLeftMenuViewController.m; sourceTree = "<group>"; };
+		420D987D1B929C2B00AEAED3 /* GCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNavigationController.h; sourceTree = "<group>"; };
+		420D987E1B929C2B00AEAED3 /* GCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNavigationController.m; sourceTree = "<group>"; };
+		420D98841B929CD000AEAED3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		420D98851B929CD000AEAED3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		420D98881B929D3B00AEAED3 /* ForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumViewController.h; sourceTree = "<group>"; };
+		420D98891B929D3B00AEAED3 /* ForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumViewController.m; sourceTree = "<group>"; };
 		425FB2DF1B84C23B00B6A89B /* GuitarChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FB2E31B84C23B00B6A89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		425FB2E41B84C23B00B6A89B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		425FB2E61B84C23B00B6A89B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		425FB2E71B84C23B00B6A89B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		425FB2EA1B84C23B00B6A89B /* GuitarChina.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GuitarChina.xcdatamodel; sourceTree = "<group>"; };
-		425FB2EC1B84C23B00B6A89B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		425FB2ED1B84C23B00B6A89B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		425FB2F01B84C23B00B6A89B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		425FB2F21B84C23B00B6A89B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		425FB2F51B84C23B00B6A89B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		425FB2FB1B84C23B00B6A89B /* GuitarChinaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuitarChinaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +135,77 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		420D985D1B9297F600AEAED3 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				420D985F1B92982C00AEAED3 /* RESideMenu */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		420D985E1B9297F600AEAED3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		420D985F1B92982C00AEAED3 /* RESideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				420D98601B92982C00AEAED3 /* RECommonFunctions.h */,
+				420D98611B92982C00AEAED3 /* RECommonFunctions.m */,
+				420D98621B92982C00AEAED3 /* RESideMenu.h */,
+				420D98631B92982C00AEAED3 /* RESideMenu.m */,
+				420D98641B92982C00AEAED3 /* UIViewController+RESideMenu.h */,
+				420D98651B92982C00AEAED3 /* UIViewController+RESideMenu.m */,
+			);
+			path = RESideMenu;
+			sourceTree = "<group>";
+		};
+		420D98721B929AA700AEAED3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				420D98761B929C2B00AEAED3 /* Base */,
+				420D98831B929C8500AEAED3 /* Home */,
+				420D98871B929D2000AEAED3 /* Forum */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		420D98761B929C2B00AEAED3 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				420D98771B929C2B00AEAED3 /* GCBaseTableViewController.h */,
+				420D98781B929C2B00AEAED3 /* GCBaseTableViewController.m */,
+				420D98791B929C2B00AEAED3 /* GCBaseViewController.h */,
+				420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */,
+				420D987B1B929C2B00AEAED3 /* GCLeftMenuViewController.h */,
+				420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */,
+				420D987D1B929C2B00AEAED3 /* GCNavigationController.h */,
+				420D987E1B929C2B00AEAED3 /* GCNavigationController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		420D98831B929C8500AEAED3 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				420D98841B929CD000AEAED3 /* HomeViewController.h */,
+				420D98851B929CD000AEAED3 /* HomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		420D98871B929D2000AEAED3 /* Forum */ = {
+			isa = PBXGroup;
+			children = (
+				420D98881B929D3B00AEAED3 /* ForumViewController.h */,
+				420D98891B929D3B00AEAED3 /* ForumViewController.m */,
+			);
+			path = Forum;
+			sourceTree = "<group>";
+		};
 		425FB2D61B84C23B00B6A89B = {
 			isa = PBXGroup;
 			children = (
@@ -142,21 +229,17 @@
 		425FB2E11B84C23B00B6A89B /* GuitarChina */ = {
 			isa = PBXGroup;
 			children = (
-				42F468991B87797C0010DA70 /* Models */,
+				420D985D1B9297F600AEAED3 /* Additions */,
+				420D985E1B9297F600AEAED3 /* Utils */,
 				4282605C1B84CA51007CBCF4 /* Network */,
+				42F468991B87797C0010DA70 /* Models */,
+				420D98721B929AA700AEAED3 /* Controllers */,
 				425FB2E61B84C23B00B6A89B /* AppDelegate.h */,
 				425FB2E71B84C23B00B6A89B /* AppDelegate.m */,
-				425FB2EC1B84C23B00B6A89B /* ViewController.h */,
-				425FB2ED1B84C23B00B6A89B /* ViewController.m */,
-				425FB2EF1B84C23B00B6A89B /* Main.storyboard */,
 				425FB2F21B84C23B00B6A89B /* Images.xcassets */,
 				425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */,
 				425FB2E91B84C23B00B6A89B /* GuitarChina.xcdatamodeld */,
 				425FB2E21B84C23B00B6A89B /* Supporting Files */,
-				0459E2C01B85D0500030AF52 /* BaseViewController.h */,
-				0459E2C11B85D0500030AF52 /* BaseViewController.m */,
-				0459E2C31B85D0630030AF52 /* BaseTableViewController.h */,
-				0459E2C41B85D0630030AF52 /* BaseTableViewController.m */,
 			);
 			path = GuitarChina;
 			sourceTree = "<group>";
@@ -318,7 +401,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				425FB2F11B84C23B00B6A89B /* Main.storyboard in Resources */,
 				425FB2F61B84C23B00B6A89B /* LaunchScreen.xib in Resources */,
 				425FB2F31B84C23B00B6A89B /* Images.xcassets in Resources */,
 			);
@@ -374,16 +456,22 @@
 				425FB2EB1B84C23B00B6A89B /* GuitarChina.xcdatamodeld in Sources */,
 				42F4689C1B8779B30010DA70 /* GCHotThreadArray.m in Sources */,
 				428F711D1B89AD670023E501 /* GCBaseNoticeModel.m in Sources */,
+				420D987F1B929C2B00AEAED3 /* GCBaseTableViewController.m in Sources */,
+				420D98661B92982C00AEAED3 /* RECommonFunctions.m in Sources */,
 				428F71231B89B2830023E501 /* GCMyThreadArray.m in Sources */,
+				420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */,
 				426E7CA01B88DDEA00BE70D9 /* GCForumDisplayArray.m in Sources */,
 				428F711A1B89ACB90023E501 /* GCBaseModel.m in Sources */,
+				420D98861B929CD000AEAED3 /* HomeViewController.m in Sources */,
 				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
+				420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */,
+				420D98811B929C2B00AEAED3 /* GCLeftMenuViewController.m in Sources */,
 				428F71201B89B21E0023E501 /* GCMyFavThreadArray.m in Sources */,
-				0459E2C21B85D0500030AF52 /* BaseViewController.m in Sources */,
 				425FB2E81B84C23B00B6A89B /* AppDelegate.m in Sources */,
+				420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */,
+				420D988A1B929D3B00AEAED3 /* ForumViewController.m in Sources */,
+				420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */,
 				426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */,
-				0459E2C51B85D0630030AF52 /* BaseTableViewController.m in Sources */,
-				425FB2EE1B84C23B00B6A89B /* ViewController.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,
 				428F71171B89A1460023E501 /* GCLoginModel.m in Sources */,
 				42F4689F1B8790C10010DA70 /* GCForumIndexArray.m in Sources */,
@@ -411,14 +499,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		425FB2EF1B84C23B00B6A89B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				425FB2F01B84C23B00B6A89B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

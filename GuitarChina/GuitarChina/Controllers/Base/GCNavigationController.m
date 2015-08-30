@@ -1,18 +1,18 @@
 //
-//  BaseViewController.m
+//  GCNavigationController.m
 //  GuitarChina
 //
-//  Created by mac on 15/8/20.
+//  Created by 陈大捷 on 15/8/30.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "GCNavigationController.h"
 
-@interface BaseViewController ()
+@interface GCNavigationController ()
 
 @end
 
-@implementation BaseViewController
+@implementation GCNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
