@@ -23,7 +23,6 @@
     
     GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
     GCLeftMenuViewController *leftMenuViewController = [[GCLeftMenuViewController alloc] init];
-    
     RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController
                                                                     leftMenuViewController:leftMenuViewController
                                                                    rightMenuViewController:nil];
@@ -35,8 +34,9 @@
     sideMenuViewController.contentViewShadowOpacity = 0.6;
     sideMenuViewController.contentViewShadowRadius = 12;
     sideMenuViewController.contentViewShadowEnabled = YES;
+    sideMenuViewController.contentViewScaleValue = 0.9f;
+    sideMenuViewController.scaleMenuView = NO;
     self.window.rootViewController = sideMenuViewController;
-    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
@@ -65,6 +65,28 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+#pragma mark RESideMenu Delegate
+
+- (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"willShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu didShowMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"didShowMenuViewController: %@", NSStringFromClass([menuViewController class]));
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu willHideMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"willHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu didHideMenuViewController:(UIViewController *)menuViewController
+{
+    NSLog(@"didHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
 }
 
 #pragma mark - Core Data stack

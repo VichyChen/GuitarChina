@@ -16,12 +16,25 @@
 
 @implementation HomeViewController
 
+#pragma mark - life cycle
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+    }
+    return self;
+}
+
+- (void)loadView {
+    [super loadView];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"111";
     self.view.backgroundColor = [UIColor redColor];
-
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Left"
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:self

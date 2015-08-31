@@ -7,6 +7,7 @@
 //
 
 #import "ForumViewController.h"
+#import "RESideMenu.h"
 
 @interface ForumViewController ()
 
@@ -14,11 +15,30 @@
 
 @implementation ForumViewController
 
+#pragma mark - life cycle
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+    }
+    return self;
+}
+
+- (void)loadView {
+    [super loadView];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
     self.title = @"222";
     self.view.backgroundColor = [UIColor greenColor];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Left"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:self
+                                                                            action:@selector(presentLeftMenuViewController:)];
 }
 
 - (void)didReceiveMemoryWarning {
