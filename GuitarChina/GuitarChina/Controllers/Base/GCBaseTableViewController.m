@@ -14,24 +14,65 @@
 
 @implementation GCBaseTableViewController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.tableView.header = ({
+        MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(beginRefresh)];
+        header.lastUpdatedTimeLabel.hidden = YES;
+        header.stateLabel.hidden = YES;
+        header;
+    });
+    if (self.pageIndex == 1) {
+        self.tableView.footer = ({
+            MJRefreshAutoStateFooter *footer = [MJRefreshAutoStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
+            
+            footer;
+        });
+    }
+    
+    [self.tableView.header beginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Public Methods
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)beginRefresh {
+    if (self.refreshBlock) {
+        if (self.pageIndex == 0) {
+            
+        } else {
+            self.pageIndex = 1;
+        }
+        self.refreshBlock();
+    }
 }
-*/
+
+- (void)endRefresh {
+    [self.tableView.header endRefreshing];
+}
+
+- (void)beginFetchMore {
+    if (self.refreshBlock) {
+        if (self.pageIndex != 0) {
+            self.pageIndex++;
+            self.refreshBlock();
+        }
+    }
+}
+
+- (void)endFetchMore {
+    [self.tableView.footer endRefreshing];
+}
 
 @end

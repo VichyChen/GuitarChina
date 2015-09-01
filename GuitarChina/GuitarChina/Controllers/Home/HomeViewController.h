@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCBaseTableViewController.h"
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : GCBaseTableViewController
 
 @end

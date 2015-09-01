@@ -7,7 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MJRefresh.h>
+#import "MJRefresh.h"
 
-@interface GCBaseTableViewController : UIViewController
+@interface GCBaseTableViewController : UITableViewController
+
+@property (nonatomic, copy) NSString *url;
+@property (nonatomic, assign) NSInteger pageIndex;
+
+@property (nonatomic, copy) void (^refreshBlock)();
+@property (nonatomic, copy) void (^fetchMoreBlock)();
+
+- (void)beginFetchMore;
+- (void)endFetchMore;
+
+- (void)beginRefresh;
+- (void)endRefresh;
 
 @end

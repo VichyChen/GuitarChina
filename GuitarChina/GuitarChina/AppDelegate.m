@@ -19,7 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
     GCLeftMenuViewController *leftMenuViewController = [[GCLeftMenuViewController alloc] init];
