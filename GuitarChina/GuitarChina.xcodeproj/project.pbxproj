@@ -31,6 +31,10 @@
 		42657DDC1B99CAA2001F8DFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42657DDE1B99CAA2001F8DFC /* Localizable.strings */; };
 		426E7CA01B88DDEA00BE70D9 /* GCForumDisplayArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 426E7C9F1B88DDEA00BE70D9 /* GCForumDisplayArray.m */; };
 		426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */; };
+		4277FC841B99D5AB002BE7FC /* UIView+UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4277FC831B99D5AB002BE7FC /* UIView+UIFactory.m */; };
+		4277FC871B99E05C002BE7FC /* GCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4277FC861B99E05C002BE7FC /* GCLoginViewController.m */; };
+		4277FC8A1B99E174002BE7FC /* GCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4277FC891B99E174002BE7FC /* GCSettingViewController.m */; };
+		4277FC8D1B99E43F002BE7FC /* GCAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4277FC8C1B99E43F002BE7FC /* GCAboutViewController.m */; };
 		428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 428260671B84CE03007CBCF4 /* GCNetworkManager.m */; };
 		428F71171B89A1460023E501 /* GCLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F71161B89A1460023E501 /* GCLoginModel.m */; };
 		428F711A1B89ACB90023E501 /* GCBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F71191B89ACB90023E501 /* GCBaseModel.m */; };
@@ -106,6 +110,14 @@
 		426E7C9F1B88DDEA00BE70D9 /* GCForumDisplayArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayArray.m; sourceTree = "<group>"; };
 		426E7CA41B88E89100BE70D9 /* GCThreadDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailModel.h; sourceTree = "<group>"; };
 		426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailModel.m; sourceTree = "<group>"; };
+		4277FC821B99D5AB002BE7FC /* UIView+UIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+UIFactory.h"; path = "GuitarChina/UIView+UIFactory.h"; sourceTree = SOURCE_ROOT; };
+		4277FC831B99D5AB002BE7FC /* UIView+UIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+UIFactory.m"; path = "GuitarChina/UIView+UIFactory.m"; sourceTree = SOURCE_ROOT; };
+		4277FC851B99E05C002BE7FC /* GCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLoginViewController.h; sourceTree = "<group>"; };
+		4277FC861B99E05C002BE7FC /* GCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLoginViewController.m; sourceTree = "<group>"; };
+		4277FC881B99E174002BE7FC /* GCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSettingViewController.h; sourceTree = "<group>"; };
+		4277FC891B99E174002BE7FC /* GCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSettingViewController.m; sourceTree = "<group>"; };
+		4277FC8B1B99E43F002BE7FC /* GCAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAboutViewController.h; sourceTree = "<group>"; };
+		4277FC8C1B99E43F002BE7FC /* GCAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAboutViewController.m; sourceTree = "<group>"; };
 		428260591B84C533007CBCF4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		428260631B84CDCF007CBCF4 /* GCNetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkAPI.h; sourceTree = "<group>"; };
 		428260661B84CE03007CBCF4 /* GCNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkManager.h; sourceTree = "<group>"; };
@@ -168,6 +180,8 @@
 		420D985E1B9297F600AEAED3 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4277FC821B99D5AB002BE7FC /* UIView+UIFactory.h */,
+				4277FC831B99D5AB002BE7FC /* UIView+UIFactory.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -193,6 +207,12 @@
 				420D98871B929D2000AEAED3 /* Forum */,
 				420D987B1B929C2B00AEAED3 /* GCLeftMenuViewController.h */,
 				420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */,
+				4277FC851B99E05C002BE7FC /* GCLoginViewController.h */,
+				4277FC861B99E05C002BE7FC /* GCLoginViewController.m */,
+				4277FC881B99E174002BE7FC /* GCSettingViewController.h */,
+				4277FC891B99E174002BE7FC /* GCSettingViewController.m */,
+				4277FC8B1B99E43F002BE7FC /* GCAboutViewController.h */,
+				4277FC8C1B99E43F002BE7FC /* GCAboutViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -502,12 +522,14 @@
 				42F4689C1B8779B30010DA70 /* GCHotThreadArray.m in Sources */,
 				428F711D1B89AD670023E501 /* GCBaseNoticeModel.m in Sources */,
 				420D987F1B929C2B00AEAED3 /* GCBaseTableViewController.m in Sources */,
+				4277FC8D1B99E43F002BE7FC /* GCAboutViewController.m in Sources */,
 				420D98661B92982C00AEAED3 /* RECommonFunctions.m in Sources */,
 				42657DD21B99B637001F8DFC /* GCHotThreadCell.m in Sources */,
 				428F71231B89B2830023E501 /* GCMyThreadArray.m in Sources */,
 				420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */,
 				426E7CA01B88DDEA00BE70D9 /* GCForumDisplayArray.m in Sources */,
 				42657DCC1B99B529001F8DFC /* GCHotThreadViewController.m in Sources */,
+				4277FC841B99D5AB002BE7FC /* UIView+UIFactory.m in Sources */,
 				428F711A1B89ACB90023E501 /* GCBaseModel.m in Sources */,
 				42657DC01B99961A001F8DFC /* GCThreadViewController.m in Sources */,
 				42657DBA1B9983AF001F8DFC /* GCForumDisplayViewController.m in Sources */,
@@ -515,8 +537,10 @@
 				42657DD81B99B6DB001F8DFC /* GCForumDisplayCell.m in Sources */,
 				420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */,
 				420D98811B929C2B00AEAED3 /* GCLeftMenuViewController.m in Sources */,
+				4277FC8A1B99E174002BE7FC /* GCSettingViewController.m in Sources */,
 				428F71201B89B21E0023E501 /* GCMyFavThreadArray.m in Sources */,
 				42657DD51B99B69B001F8DFC /* GCForumIndexCell.m in Sources */,
+				4277FC871B99E05C002BE7FC /* GCLoginViewController.m in Sources */,
 				42657DC41B999EA0001F8DFC /* UIColor+Custom.m in Sources */,
 				42657DBD1B998C49001F8DFC /* GCForumIndexViewController.m in Sources */,
 				425FB2E81B84C23B00B6A89B /* AppDelegate.m in Sources */,

@@ -16,5 +16,6 @@
 
 #import "GCNetworkManager.h"
 #import "UIColor+Custom.h"
+#import "UIView+UIFactory.h"
 
 #endif

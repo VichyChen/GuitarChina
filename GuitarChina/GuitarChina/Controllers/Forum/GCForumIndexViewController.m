@@ -64,6 +64,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GCForumDisplayViewController *controller = [[GCForumDisplayViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 @end

@@ -28,7 +28,7 @@
         tableView.delegate = self;
         tableView.dataSource = self;
         tableView.opaque = NO;
-        tableView.backgroundColor = [UIColor clearColor];
+        tableView.backgroundColor = [UIColor whiteColor];
         tableView.backgroundView = nil;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.bounces = NO;

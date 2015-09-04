@@ -10,4 +10,11 @@
 
 @interface GCHotThreadCell : UITableViewCell
 
+@property (nonatomic, strong) UIImageView *avatarImage;
+@property (nonatomic, strong) UILabel *author;
+@property (nonatomic, strong) UILabel *dateline;
+@property (nonatomic, strong) UILabel *subject;
+@property (nonatomic, strong) UILabel *subject;
+@property (nonatomic, strong) UILabel *subject;
+
 @end

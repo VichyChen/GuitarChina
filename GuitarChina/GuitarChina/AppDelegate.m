@@ -20,7 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-        
+    
     GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:[[GCHotThreadViewController alloc] init]];
     GCLeftMenuViewController *leftMenuViewController = [[GCLeftMenuViewController alloc] init];
     RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController
@@ -34,8 +34,9 @@
     sideMenuViewController.contentViewShadowOpacity = 0.6;
     sideMenuViewController.contentViewShadowRadius = 12;
     sideMenuViewController.contentViewShadowEnabled = YES;
-    sideMenuViewController.contentViewScaleValue = 0.9f;
+    sideMenuViewController.contentViewScaleValue = 1;
     sideMenuViewController.scaleMenuView = NO;
+    sideMenuViewController.fadeMenuView = NO;
     self.window.rootViewController = sideMenuViewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

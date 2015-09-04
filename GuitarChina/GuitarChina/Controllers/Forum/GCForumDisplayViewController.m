@@ -55,9 +55,16 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 60;
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GCThreadViewController *controller = [[GCThreadViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 @end
