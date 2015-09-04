@@ -1,14 +1,14 @@
 //
-//  HomeViewController.h
+//  GCForumIndexViewController.h
 //  GuitarChina
 //
-//  Created by 陈大捷 on 15/8/30.
+//  Created by 陈大捷 on 15/9/4.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "GCBaseTableViewController.h"
 
-@interface HomeViewController : GCBaseTableViewController
+@interface GCForumIndexViewController : GCBaseTableViewController
 
 @end

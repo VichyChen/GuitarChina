@@ -24,6 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
+    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backarrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];//更改背景图片
+    [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-500, 0)
+                                     forBarMetrics:UIBarMetricsDefault];
+    self.navigationItem.backBarButtonItem=backItem;
+
+    
     self.tableView.header = ({
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(beginRefresh)];
         header.lastUpdatedTimeLabel.hidden = YES;
@@ -56,6 +63,9 @@
         }
         self.refreshBlock();
     }
+    else {
+        [self endRefresh];
+    }
 }
 
 - (void)endRefresh {
@@ -74,5 +84,15 @@
 - (void)endFetchMore {
     [self.tableView.footer endRefreshing];
 }
+
+- (void)test111 {
+    UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
+    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backarrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];//更改背景图片
+    [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(0, 0)
+                                     forBarMetrics:UIBarMetricsDefault];
+    self.navigationItem.backBarButtonItem=backItem;
+    
+}
+
 
 @end

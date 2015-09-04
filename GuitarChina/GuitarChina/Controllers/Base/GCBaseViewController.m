@@ -16,7 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
+    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backarrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];//更改背景图片
+    [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-500, 0)
+                                     forBarMetrics:UIBarMetricsDefault];
+    self.navigationItem.backBarButtonItem=backItem;
 }
 
 - (void)didReceiveMemoryWarning {

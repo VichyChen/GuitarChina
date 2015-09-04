@@ -14,14 +14,20 @@
 		420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */; };
 		420D98811B929C2B00AEAED3 /* GCLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */; };
 		420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987E1B929C2B00AEAED3 /* GCNavigationController.m */; };
-		420D98861B929CD000AEAED3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98851B929CD000AEAED3 /* HomeViewController.m */; };
-		420D988A1B929D3B00AEAED3 /* ForumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98891B929D3B00AEAED3 /* ForumViewController.m */; };
 		425FB2E51B84C23B00B6A89B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E41B84C23B00B6A89B /* main.m */; };
 		425FB2E81B84C23B00B6A89B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E71B84C23B00B6A89B /* AppDelegate.m */; };
 		425FB2EB1B84C23B00B6A89B /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E91B84C23B00B6A89B /* GuitarChina.xcdatamodeld */; };
 		425FB2F31B84C23B00B6A89B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F21B84C23B00B6A89B /* Images.xcassets */; };
 		425FB2F61B84C23B00B6A89B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */; };
 		425FB3021B84C23B00B6A89B /* GuitarChinaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB3011B84C23B00B6A89B /* GuitarChinaTests.m */; };
+		42657DBA1B9983AF001F8DFC /* GCForumDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DB91B9983AF001F8DFC /* GCForumDisplayViewController.m */; };
+		42657DBD1B998C49001F8DFC /* GCForumIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DBC1B998C49001F8DFC /* GCForumIndexViewController.m */; };
+		42657DC01B99961A001F8DFC /* GCThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DBF1B99961A001F8DFC /* GCThreadViewController.m */; };
+		42657DC41B999EA0001F8DFC /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DC31B999EA0001F8DFC /* UIColor+Custom.m */; };
+		42657DCC1B99B529001F8DFC /* GCHotThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DCB1B99B529001F8DFC /* GCHotThreadViewController.m */; };
+		42657DD21B99B637001F8DFC /* GCHotThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DD11B99B637001F8DFC /* GCHotThreadCell.m */; };
+		42657DD51B99B69B001F8DFC /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DD41B99B69B001F8DFC /* GCForumIndexCell.m */; };
+		42657DD81B99B6DB001F8DFC /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DD71B99B6DB001F8DFC /* GCForumDisplayCell.m */; };
 		426E7CA01B88DDEA00BE70D9 /* GCForumDisplayArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 426E7C9F1B88DDEA00BE70D9 /* GCForumDisplayArray.m */; };
 		426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */; };
 		428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 428260671B84CE03007CBCF4 /* GCNetworkManager.m */; };
@@ -60,14 +66,10 @@
 		420D98781B929C2B00AEAED3 /* GCBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseTableViewController.m; sourceTree = "<group>"; };
 		420D98791B929C2B00AEAED3 /* GCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBaseViewController.h; sourceTree = "<group>"; };
 		420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseViewController.m; sourceTree = "<group>"; };
-		420D987B1B929C2B00AEAED3 /* GCLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLeftMenuViewController.h; sourceTree = "<group>"; };
-		420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLeftMenuViewController.m; sourceTree = "<group>"; };
+		420D987B1B929C2B00AEAED3 /* GCLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCLeftMenuViewController.h; path = Base/GCLeftMenuViewController.h; sourceTree = "<group>"; };
+		420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCLeftMenuViewController.m; path = Base/GCLeftMenuViewController.m; sourceTree = "<group>"; };
 		420D987D1B929C2B00AEAED3 /* GCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNavigationController.h; sourceTree = "<group>"; };
 		420D987E1B929C2B00AEAED3 /* GCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNavigationController.m; sourceTree = "<group>"; };
-		420D98841B929CD000AEAED3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		420D98851B929CD000AEAED3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		420D98881B929D3B00AEAED3 /* ForumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumViewController.h; sourceTree = "<group>"; };
-		420D98891B929D3B00AEAED3 /* ForumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumViewController.m; sourceTree = "<group>"; };
 		425FB2DF1B84C23B00B6A89B /* GuitarChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FB2E31B84C23B00B6A89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		425FB2E41B84C23B00B6A89B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -79,6 +81,22 @@
 		425FB2FB1B84C23B00B6A89B /* GuitarChinaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuitarChinaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FB3001B84C23B00B6A89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		425FB3011B84C23B00B6A89B /* GuitarChinaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuitarChinaTests.m; sourceTree = "<group>"; };
+		42657DB81B9983AF001F8DFC /* GCForumDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayViewController.h; sourceTree = "<group>"; };
+		42657DB91B9983AF001F8DFC /* GCForumDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayViewController.m; sourceTree = "<group>"; };
+		42657DBB1B998C49001F8DFC /* GCForumIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexViewController.h; sourceTree = "<group>"; };
+		42657DBC1B998C49001F8DFC /* GCForumIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexViewController.m; sourceTree = "<group>"; };
+		42657DBE1B99961A001F8DFC /* GCThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadViewController.h; sourceTree = "<group>"; };
+		42657DBF1B99961A001F8DFC /* GCThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadViewController.m; sourceTree = "<group>"; };
+		42657DC21B999EA0001F8DFC /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
+		42657DC31B999EA0001F8DFC /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
+		42657DCA1B99B529001F8DFC /* GCHotThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadViewController.h; sourceTree = "<group>"; };
+		42657DCB1B99B529001F8DFC /* GCHotThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadViewController.m; sourceTree = "<group>"; };
+		42657DD01B99B637001F8DFC /* GCHotThreadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadCell.h; sourceTree = "<group>"; };
+		42657DD11B99B637001F8DFC /* GCHotThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadCell.m; sourceTree = "<group>"; };
+		42657DD31B99B69B001F8DFC /* GCForumIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexCell.h; sourceTree = "<group>"; };
+		42657DD41B99B69B001F8DFC /* GCForumIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexCell.m; sourceTree = "<group>"; };
+		42657DD61B99B6DB001F8DFC /* GCForumDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayCell.h; sourceTree = "<group>"; };
+		42657DD71B99B6DB001F8DFC /* GCForumDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayCell.m; sourceTree = "<group>"; };
 		426E7C9D1B88D12500BE70D9 /* GCForumIndexArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexArray.h; sourceTree = "<group>"; };
 		426E7C9E1B88DDEA00BE70D9 /* GCForumDisplayArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayArray.h; sourceTree = "<group>"; };
 		426E7C9F1B88DDEA00BE70D9 /* GCForumDisplayArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayArray.m; sourceTree = "<group>"; };
@@ -167,8 +185,10 @@
 			isa = PBXGroup;
 			children = (
 				420D98761B929C2B00AEAED3 /* Base */,
-				420D98831B929C8500AEAED3 /* Home */,
+				42657DC91B99B513001F8DFC /* HotThread */,
 				420D98871B929D2000AEAED3 /* Forum */,
+				420D987B1B929C2B00AEAED3 /* GCLeftMenuViewController.h */,
+				420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,32 +196,29 @@
 		420D98761B929C2B00AEAED3 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				420D98771B929C2B00AEAED3 /* GCBaseTableViewController.h */,
-				420D98781B929C2B00AEAED3 /* GCBaseTableViewController.m */,
 				420D98791B929C2B00AEAED3 /* GCBaseViewController.h */,
 				420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */,
-				420D987B1B929C2B00AEAED3 /* GCLeftMenuViewController.h */,
-				420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */,
+				420D98771B929C2B00AEAED3 /* GCBaseTableViewController.h */,
+				420D98781B929C2B00AEAED3 /* GCBaseTableViewController.m */,
 				420D987D1B929C2B00AEAED3 /* GCNavigationController.h */,
 				420D987E1B929C2B00AEAED3 /* GCNavigationController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
 		};
-		420D98831B929C8500AEAED3 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				420D98841B929CD000AEAED3 /* HomeViewController.h */,
-				420D98851B929CD000AEAED3 /* HomeViewController.m */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		420D98871B929D2000AEAED3 /* Forum */ = {
 			isa = PBXGroup;
 			children = (
-				420D98881B929D3B00AEAED3 /* ForumViewController.h */,
-				420D98891B929D3B00AEAED3 /* ForumViewController.m */,
+				42657DBB1B998C49001F8DFC /* GCForumIndexViewController.h */,
+				42657DBC1B998C49001F8DFC /* GCForumIndexViewController.m */,
+				42657DD31B99B69B001F8DFC /* GCForumIndexCell.h */,
+				42657DD41B99B69B001F8DFC /* GCForumIndexCell.m */,
+				42657DB81B9983AF001F8DFC /* GCForumDisplayViewController.h */,
+				42657DB91B9983AF001F8DFC /* GCForumDisplayViewController.m */,
+				42657DD61B99B6DB001F8DFC /* GCForumDisplayCell.h */,
+				42657DD71B99B6DB001F8DFC /* GCForumDisplayCell.m */,
+				42657DBE1B99961A001F8DFC /* GCThreadViewController.h */,
+				42657DBF1B99961A001F8DFC /* GCThreadViewController.m */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -229,8 +246,9 @@
 		425FB2E11B84C23B00B6A89B /* GuitarChina */ = {
 			isa = PBXGroup;
 			children = (
-				420D985D1B9297F600AEAED3 /* Additions */,
 				420D985E1B9297F600AEAED3 /* Utils */,
+				42657DC11B999B6B001F8DFC /* Resources */,
+				420D985D1B9297F600AEAED3 /* Additions */,
 				4282605C1B84CA51007CBCF4 /* Network */,
 				42F468991B87797C0010DA70 /* Models */,
 				420D98721B929AA700AEAED3 /* Controllers */,
@@ -269,6 +287,26 @@
 				425FB3001B84C23B00B6A89B /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		42657DC11B999B6B001F8DFC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				42657DC21B999EA0001F8DFC /* UIColor+Custom.h */,
+				42657DC31B999EA0001F8DFC /* UIColor+Custom.m */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		42657DC91B99B513001F8DFC /* HotThread */ = {
+			isa = PBXGroup;
+			children = (
+				42657DCA1B99B529001F8DFC /* GCHotThreadViewController.h */,
+				42657DCB1B99B529001F8DFC /* GCHotThreadViewController.m */,
+				42657DD01B99B637001F8DFC /* GCHotThreadCell.h */,
+				42657DD11B99B637001F8DFC /* GCHotThreadCell.m */,
+			);
+			path = HotThread;
 			sourceTree = "<group>";
 		};
 		4282605C1B84CA51007CBCF4 /* Network */ = {
@@ -458,18 +496,24 @@
 				428F711D1B89AD670023E501 /* GCBaseNoticeModel.m in Sources */,
 				420D987F1B929C2B00AEAED3 /* GCBaseTableViewController.m in Sources */,
 				420D98661B92982C00AEAED3 /* RECommonFunctions.m in Sources */,
+				42657DD21B99B637001F8DFC /* GCHotThreadCell.m in Sources */,
 				428F71231B89B2830023E501 /* GCMyThreadArray.m in Sources */,
 				420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */,
 				426E7CA01B88DDEA00BE70D9 /* GCForumDisplayArray.m in Sources */,
+				42657DCC1B99B529001F8DFC /* GCHotThreadViewController.m in Sources */,
 				428F711A1B89ACB90023E501 /* GCBaseModel.m in Sources */,
-				420D98861B929CD000AEAED3 /* HomeViewController.m in Sources */,
+				42657DC01B99961A001F8DFC /* GCThreadViewController.m in Sources */,
+				42657DBA1B9983AF001F8DFC /* GCForumDisplayViewController.m in Sources */,
 				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
+				42657DD81B99B6DB001F8DFC /* GCForumDisplayCell.m in Sources */,
 				420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */,
 				420D98811B929C2B00AEAED3 /* GCLeftMenuViewController.m in Sources */,
 				428F71201B89B21E0023E501 /* GCMyFavThreadArray.m in Sources */,
+				42657DD51B99B69B001F8DFC /* GCForumIndexCell.m in Sources */,
+				42657DC41B999EA0001F8DFC /* UIColor+Custom.m in Sources */,
+				42657DBD1B998C49001F8DFC /* GCForumIndexViewController.m in Sources */,
 				425FB2E81B84C23B00B6A89B /* AppDelegate.m in Sources */,
 				420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */,
-				420D988A1B929D3B00AEAED3 /* ForumViewController.m in Sources */,
 				420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */,
 				426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,

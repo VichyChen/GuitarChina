@@ -7,8 +7,9 @@
 //
 
 #import "GCLeftMenuViewController.h"
-#import "HomeViewController.h"
-#import "ForumViewController.h"
+#import "GCNavigationController.h"
+#import "GCHotThreadViewController.h"
+#import "GCForumIndexViewController.h"
 
 @interface GCLeftMenuViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -47,11 +48,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case 0:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]] animated:YES];
+            [self.sideMenuViewController setContentViewController:[[GCNavigationController alloc] initWithRootViewController:[[GCHotThreadViewController alloc] init]] animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 1:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[[ForumViewController alloc] init]] animated:YES];
+            [self.sideMenuViewController setContentViewController:[[GCNavigationController alloc] initWithRootViewController:[[GCForumIndexViewController alloc] init]] animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         default:
@@ -91,7 +92,7 @@
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
     
-    NSArray *titles = @[@"主页", @"论坛", @"我的主题", @"我的回复", @"关于"];
+    NSArray *titles = @[@"热帖", @"论坛", @"我的主题", @"我的收藏", @"关于"];
     //    NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
     cell.textLabel.text = titles[indexPath.row];
     //    cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];

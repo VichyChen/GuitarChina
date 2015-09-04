@@ -24,4 +24,6 @@
 - (void)beginRefresh;
 - (void)endRefresh;
 
+- (void)test111;
+
 @end

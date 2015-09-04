@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GCNavigationController.h"
-#import "HomeViewController.h"
+#import "GCHotThreadViewController.h"
 #import "GCLeftMenuViewController.h"
 
 @interface AppDelegate ()
@@ -20,8 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+        
+    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:[[GCHotThreadViewController alloc] init]];
     GCLeftMenuViewController *leftMenuViewController = [[GCLeftMenuViewController alloc] init];
     RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController
                                                                     leftMenuViewController:leftMenuViewController
@@ -67,7 +67,7 @@
     [self saveContext];
 }
 
-#pragma mark RESideMenu Delegate
+#pragma mark - RESideMenu Delegate
 
 - (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
 {
