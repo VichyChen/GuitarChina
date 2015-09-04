@@ -9,7 +9,7 @@
 #import "GCHotThreadViewController.h"
 #import "RESideMenu.h"
 #import "GCThreadViewController.h"
-#import "HotThreadCell.h"
+#import "GCHotThreadCell.h"
 
 @implementation GCHotThreadViewController
 
@@ -29,7 +29,7 @@
 - (void)loadView {
     [super loadView];
     
-    self.title = @"热帖";
+    self.title = NSLocalizedString(@"热帖", nil);
 }
 
 - (void)viewDidLoad {
