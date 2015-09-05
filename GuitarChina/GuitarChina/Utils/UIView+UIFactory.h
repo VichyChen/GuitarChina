@@ -11,9 +11,11 @@
 @interface UIView (UIFactory)
 
 // Label
-+ (id)createLabel;
++ (UILabel *)createLabel;
 
-+ (id)createLabel:(CGRect)frame;
++ (UILabel *)createLabel:(CGRect)frame text:(NSString *)text font:(UIFont *)font textColor:(UIColor *)textColor;
+
++ (UILabel *)createLabel:(CGRect)frame text:(NSString *)text font:(UIFont *)font textColor:(UIColor *)textColor numberOfLines:(NSInteger)numberOfLines preferredMaxLayoutWidth:(CGFloat)preferredMaxLayoutWidth;
 
 // TextField
 + (id)createTextFiled;
@@ -37,6 +39,10 @@
             action:(SEL)action
         buttonType:(UIButtonType)type;
 
+//ImageView
++ (UIImageView *)createImageView:(CGRect)frame contentMode:(UIViewContentMode)contentMode;
+
++ (UIImageView *)createImageView:(CGRect)frame image:(UIImage *)image contentMode:(UIViewContentMode)contentMode;
 
 // TableView
 + (id)createTableView:(id<UITableViewDataSource>)dataSource

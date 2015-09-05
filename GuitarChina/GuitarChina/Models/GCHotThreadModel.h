@@ -1,8 +1,8 @@
 //
-//  GCHotThreadArray.h
+//  GCHotThreadModel.h
 //  GuitarChina
 //
-//  Created by 陈大捷 on 15/8/21.
+//  Created by 陈大捷 on 15/9/5.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
@@ -76,7 +76,7 @@
 
 @property (nonatomic, copy) NSString *perpage;
 
-@property (nonatomic, strong) NSArray *data;
+@property (nonatomic, strong) NSMutableArray *data;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

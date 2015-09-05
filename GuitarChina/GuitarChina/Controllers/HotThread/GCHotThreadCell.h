@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCHotThreadModel.h"
 
 @interface GCHotThreadCell : UITableViewCell
 
-@property (nonatomic, strong) UIImageView *avatarImage;
-@property (nonatomic, strong) UILabel *author;
-@property (nonatomic, strong) UILabel *dateline;
-@property (nonatomic, strong) UILabel *subject;
-@property (nonatomic, strong) UILabel *subject;
-@property (nonatomic, strong) UILabel *subject;
+@property (nonatomic, strong) GCHotThreadModel *model;
+
++ (CGFloat)getCellHeightWithModel:(GCHotThreadModel *)model;
 
 @end

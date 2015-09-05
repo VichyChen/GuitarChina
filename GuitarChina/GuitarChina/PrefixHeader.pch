@@ -13,9 +13,15 @@
 #import <Foundation/Foundation.h>
 
 #import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#import "EXTScope.h"
 
 #import "GCNetworkManager.h"
 #import "UIColor+Custom.h"
 #import "UIView+UIFactory.h"
+
+#define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
+#define ScreenWidth ([UIScreen mainScreen].bounds.size.width)
+
 
 #endif

@@ -10,21 +10,32 @@
 
 @implementation UIView (UIFactory)
 
-+ (id)createLabel
-{
-    return [UIView createLabel:CGRectZero];
+#pragma mark - Label
+
++ (UILabel *)createLabel {
+    return [[UILabel alloc] initWithFrame:CGRectZero];
 }
 
-+ (id)createLabel:(CGRect)frame
-{
++ (UILabel *)createLabel:(CGRect)frame text:(NSString *)text font:(UIFont *)font textColor:(UIColor *)textColor {
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
-    label.backgroundColor = [UIColor clearColor];
-//    label.textAlignment = kTextAlignmentCenter;
-    
-        return label;
+    label.text = text;
+    label.font = font;
+    label.textColor = textColor;
+    return label;
 }
 
-#pragma mark TextField
++ (UILabel *)createLabel:(CGRect)frame text:(NSString *)text font:(UIFont *)font textColor:(UIColor *)textColor numberOfLines:(NSInteger)numberOfLines preferredMaxLayoutWidth:(CGFloat)preferredMaxLayoutWidth {
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.text = text;
+    label.font = font;
+    label.textColor = textColor;
+    label.numberOfLines = numberOfLines;
+    label.preferredMaxLayoutWidth = preferredMaxLayoutWidth;
+    return label;
+}
+
+
+#pragma mark - TextField
 
 + (id)createTextFiled
 {
@@ -39,7 +50,7 @@
 + (id)createTextFiled:(CGRect)frame style:(UITextBorderStyle)style
 {
     UITextField *textField = [[UITextField alloc] initWithFrame:frame];
-//    textField.textAlignment = kTextAlignmentCenter;
+    //    textField.textAlignment = kTextAlignmentCenter;
     textField.textColor = [UIColor blackColor];
     textField.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
@@ -49,7 +60,7 @@
 }
 
 
-#pragma mark Button
+#pragma mark - Button
 
 + (id)createButton:(CGRect)frame
 {
@@ -86,8 +97,24 @@
     return btn;
 }
 
+#pragma mark - ImageView
 
-#pragma mark TableView
++ (UIImageView *)createImageView:(CGRect)frame contentMode:(UIViewContentMode)contentMode {
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+    imageView.contentMode = contentMode;
+    
+    return imageView;
+}
+
++ (UIImageView *)createImageView:(CGRect)frame image:(UIImage *)image contentMode:(UIViewContentMode)contentMode {
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:frame];
+    imageView.image = image;
+    imageView.contentMode = contentMode;
+    
+    return imageView;
+}
+
+#pragma mark - TableView
 
 + (id)createTableView:(id<UITableViewDataSource>)dataSource
              delegete:(id<UITableViewDelegate>)delegate

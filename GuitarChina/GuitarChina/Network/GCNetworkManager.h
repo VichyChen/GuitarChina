@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "GCHotThreadArray.h"
+#import "GCHotThreadModel.h"
 #import "GCForumIndexArray.h"
 #import "GCForumDisplayArray.h"
 #import "GCThreadDetailModel.h"

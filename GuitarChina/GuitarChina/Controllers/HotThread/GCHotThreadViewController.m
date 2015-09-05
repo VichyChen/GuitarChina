@@ -11,8 +11,13 @@
 #import "GCThreadViewController.h"
 #import "GCHotThreadCell.h"
 
-@implementation GCHotThreadViewController
+@interface GCHotThreadViewController()
 
+@property (nonatomic, strong) NSMutableArray *data;
+
+@end
+
+@implementation GCHotThreadViewController
 
 #pragma mark - life cycle
 
@@ -20,7 +25,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        //        self.pageIndex = 1;
         [self configureBlock];
     }
     return self;
@@ -47,56 +51,45 @@
 }
 
 - (void)configureBlock {
-    __weak typeof(self) weakself = self;
-    //    self.refreshBlock = ^{
-    //        [[GCNetworkManager manager] getForumDisplayWithForumID:@"128" pageIndex:weakself.pageIndex pageSize:20 Success:^(GCForumDisplayArray *array) {
-    //            if (weakself.pageIndex == 1) {
-    //                NSLog(@"%ld", weakself.pageIndex);
-    //                [weakself endRefresh];
-    //            } else {
-    //                NSLog(@"%ld", weakself.pageIndex);
-    //                [weakself endFetchMore];
-    //            }
-    //        } failure:^(NSError *error) {
-    //
-    //        }];
-    //    };
-    
+    @weakify(self);
     self.refreshBlock = ^{
+        @strongify(self);
         [[GCNetworkManager manager] getHotThreadSuccess:^(GCHotThreadArray *array) {
-            NSLog(@"%ld", weakself.pageIndex);
-            [weakself endRefresh];
-            
+            self.data = array.data;
+            [self.tableView reloadData];
+            [self endRefresh];
         } failure:^(NSError *error) {
-            
         }];
     };
-    
 }
 
+#pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return [self.data count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"111"];
+    static NSString *identifier = @"GCHotThreadCell";
+    GCHotThreadCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"111"];
+        cell = [[GCHotThreadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld", indexPath.row];
+    cell.model = [self.data objectAtIndex:indexPath.row];
     
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return 120;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GCThreadViewController *controller = [[GCThreadViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
 }
 
 @end

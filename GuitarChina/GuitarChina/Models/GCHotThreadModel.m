@@ -1,12 +1,12 @@
 //
-//  GCHotThreadArray.m
+//  GCHotThreadModel.m
 //  GuitarChina
 //
-//  Created by 陈大捷 on 15/8/21.
+//  Created by 陈大捷 on 15/9/5.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCHotThreadArray.h"
+#import "GCHotThreadModel.h"
 
 @implementation GCHotThreadModel
 
