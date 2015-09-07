@@ -17,6 +17,7 @@
 		4219A6641B9A7C70005D2164 /* UIView+UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A6631B9A7C70005D2164 /* UIView+UIFactory.m */; };
 		4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A6671B9A7C78005D2164 /* EXTScope.m */; };
 		4219A66C1B9A8086005D2164 /* GCHotThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A66B1B9A8086005D2164 /* GCHotThreadModel.m */; };
+		423C252C1B9C7FE40069B27B /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 423C252B1B9C7FE40069B27B /* UIView+LayoutHelper.m */; };
 		425FB2E51B84C23B00B6A89B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E41B84C23B00B6A89B /* main.m */; };
 		425FB2E81B84C23B00B6A89B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E71B84C23B00B6A89B /* AppDelegate.m */; };
 		425FB2EB1B84C23B00B6A89B /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E91B84C23B00B6A89B /* GuitarChina.xcdatamodeld */; };
@@ -45,6 +46,8 @@
 		428F71231B89B2830023E501 /* GCMyThreadArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F71221B89B2830023E501 /* GCMyThreadArray.m */; };
 		428F71261B89C0230023E501 /* GCSendReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F71251B89C0230023E501 /* GCSendReplyModel.m */; };
 		429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E720A1B8B5066000469E6 /* GCNewThreadModel.m */; };
+		42F17D591B9DCBF400AF2D11 /* NSString+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F17D581B9DCBF400AF2D11 /* NSString+Tools.m */; };
+		42F17D5C1B9DE2E800AF2D11 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F17D5B1B9DE2E800AF2D11 /* UIImage+Tint.m */; };
 		42F4689F1B8790C10010DA70 /* GCForumIndexArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4689E1B8790C10010DA70 /* GCForumIndexArray.m */; };
 		CEFC34C235C11966848A8595 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F829F5DD46C688C9B2385EC /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -83,6 +86,8 @@
 		4219A6681B9A7C78005D2164 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
 		4219A66A1B9A8086005D2164 /* GCHotThreadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadModel.h; sourceTree = "<group>"; };
 		4219A66B1B9A8086005D2164 /* GCHotThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadModel.m; sourceTree = "<group>"; };
+		423C252A1B9C7FE40069B27B /* UIView+LayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LayoutHelper.h"; sourceTree = "<group>"; };
+		423C252B1B9C7FE40069B27B /* UIView+LayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutHelper.m"; sourceTree = "<group>"; };
 		425FB2DF1B84C23B00B6A89B /* GuitarChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FB2E31B84C23B00B6A89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		425FB2E41B84C23B00B6A89B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -142,6 +147,10 @@
 		428F71251B89C0230023E501 /* GCSendReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSendReplyModel.m; sourceTree = "<group>"; };
 		429E72091B8B5066000469E6 /* GCNewThreadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewThreadModel.h; sourceTree = "<group>"; };
 		429E720A1B8B5066000469E6 /* GCNewThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewThreadModel.m; sourceTree = "<group>"; };
+		42F17D571B9DCBF400AF2D11 /* NSString+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Tools.h"; sourceTree = "<group>"; };
+		42F17D581B9DCBF400AF2D11 /* NSString+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Tools.m"; sourceTree = "<group>"; };
+		42F17D5A1B9DE2E800AF2D11 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
+		42F17D5B1B9DE2E800AF2D11 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		42F4689E1B8790C10010DA70 /* GCForumIndexArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexArray.m; sourceTree = "<group>"; };
 		AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -248,6 +257,12 @@
 				4219A6651B9A7C78005D2164 /* EXTScope */,
 				4219A6621B9A7C70005D2164 /* UIView+UIFactory.h */,
 				4219A6631B9A7C70005D2164 /* UIView+UIFactory.m */,
+				423C252A1B9C7FE40069B27B /* UIView+LayoutHelper.h */,
+				423C252B1B9C7FE40069B27B /* UIView+LayoutHelper.m */,
+				42F17D571B9DCBF400AF2D11 /* NSString+Tools.h */,
+				42F17D581B9DCBF400AF2D11 /* NSString+Tools.m */,
+				42F17D5A1B9DE2E800AF2D11 /* UIImage+Tint.h */,
+				42F17D5B1B9DE2E800AF2D11 /* UIImage+Tint.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -541,14 +556,17 @@
 				42657DD21B99B637001F8DFC /* GCHotThreadCell.m in Sources */,
 				4219A66C1B9A8086005D2164 /* GCHotThreadModel.m in Sources */,
 				428F71231B89B2830023E501 /* GCMyThreadArray.m in Sources */,
+				42F17D5C1B9DE2E800AF2D11 /* UIImage+Tint.m in Sources */,
 				420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */,
 				426E7CA01B88DDEA00BE70D9 /* GCForumDisplayArray.m in Sources */,
 				4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */,
 				42657DCC1B99B529001F8DFC /* GCHotThreadViewController.m in Sources */,
 				428F711A1B89ACB90023E501 /* GCBaseModel.m in Sources */,
 				42657DC01B99961A001F8DFC /* GCThreadViewController.m in Sources */,
+				423C252C1B9C7FE40069B27B /* UIView+LayoutHelper.m in Sources */,
 				42657DBA1B9983AF001F8DFC /* GCForumDisplayViewController.m in Sources */,
 				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
+				42F17D591B9DCBF400AF2D11 /* NSString+Tools.m in Sources */,
 				4219A6641B9A7C70005D2164 /* UIView+UIFactory.m in Sources */,
 				42657DD81B99B6DB001F8DFC /* GCForumDisplayCell.m in Sources */,
 				420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */,
@@ -702,7 +720,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -717,7 +735,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

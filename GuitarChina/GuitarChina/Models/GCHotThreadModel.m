@@ -10,6 +10,32 @@
 
 @implementation GCHotThreadModel
 
+- (NSMutableAttributedString *)lastPosterDetailString {
+    if (!_lastPosterDetailString) {
+        _lastPosterDetailString = [NSMutableAttributedString new];
+        
+        [_lastPosterDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ • 最后回复by %@", _lastpost, _lastposter]]];
+        [_lastPosterDetailString addAttribute:NSForegroundColorAttributeName value:[UIColor LightFontColor] range:NSMakeRange(0, _lastPosterDetailString.length)];
+        
+        //            for (int names = 0; names < 10 && names < _likeList.count; names++) {
+        //                OSCUser *user = _likeList[names];   //_likeList[_likeCount - 1 - names];
+        //
+        //                [_likersDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@、", user.name]]];
+        //            }
+        //            [_likersDetailString deleteCharactersInRange:NSMakeRange(_likersDetailString.length - 1, 1)];
+        //            //设置颜色
+        //            [_likersDetailString addAttribute:NSForegroundColorAttributeName value:[UIColor nameColor] range:NSMakeRange(0, _likersDetailString.length)];
+        //
+        //            if (_likeCount > 10) {
+        //                [_likersDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"等%d人", _likeCount]]];
+        //            }
+        //
+        //            [_likersDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:@"觉得很赞"]];
+        
+    }
+    return _lastPosterDetailString;
+}
+
 @end
 
 @implementation GCHotThreadArray
@@ -32,8 +58,8 @@
             model.author        = [item objectForKey:@"author"];
             model.authorid      = [item objectForKey:@"authorid"];
             model.subject       = [item objectForKey:@"subject"];
-            model.dateline      = [item objectForKey:@"dateline"];
-            model.lastpost      = [item objectForKey:@"lastpost"];
+            model.dateline      = [((NSString *)([item objectForKey:@"dateline"])) replace:@"&nbsp;" toNewString:@""];
+            model.lastpost      = [((NSString *)([item objectForKey:@"lastpost"])) replace:@"&nbsp;" toNewString:@""];
             model.lastposter    = [item objectForKey:@"lastposter"];
             model.views         = [item objectForKey:@"views"];
             model.replies       = [item objectForKey:@"replies"];

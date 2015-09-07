@@ -11,4 +11,6 @@
 
 @interface GCLeftMenuViewController : UIViewController
 
+- (void)configureFirstViewController:(UIViewController *)controller;
+
 @end

@@ -19,6 +19,8 @@
 #import "GCNetworkManager.h"
 #import "UIColor+Custom.h"
 #import "UIView+UIFactory.h"
+#import "NSString+Tools.h"
+#import "UIImage+Tint.h"   
 
 #define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
 #define ScreenWidth ([UIScreen mainScreen].bounds.size.width)

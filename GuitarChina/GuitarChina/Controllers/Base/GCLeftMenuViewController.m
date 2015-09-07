@@ -13,11 +13,29 @@
 
 @interface GCLeftMenuViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong, readwrite, nonatomic) UITableView *tableView;
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) GCHotThreadViewController *hotThreadViewController;
+@property (nonatomic, strong) GCForumIndexViewController *forumIndexViewController;
+
+@property (nonatomic, assign) NSInteger selectedIndex;
 
 @end
 
 @implementation GCLeftMenuViewController
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        _selectedIndex = 0;
+    }
+    return self;
+}
+
+- (void)loadView {
+    [super loadView];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,18 +59,27 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)configureFirstViewController:(UIViewController *)controller {
+    self.hotThreadViewController = (GCHotThreadViewController *)controller;
+}
+
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.selectedIndex == indexPath.row) {
+        [self.sideMenuViewController hideMenuViewController];
+        return;
+    }
+    self.selectedIndex = indexPath.row;
     switch (indexPath.row) {
         case 0:
-            [self.sideMenuViewController setContentViewController:[[GCNavigationController alloc] initWithRootViewController:[[GCHotThreadViewController alloc] init]] animated:YES];
+            [self.sideMenuViewController setContentViewController:[[GCNavigationController alloc] initWithRootViewController:self.hotThreadViewController] animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 1:
-            [self.sideMenuViewController setContentViewController:[[GCNavigationController alloc] initWithRootViewController:[[GCForumIndexViewController alloc] init]] animated:YES];
+            [self.sideMenuViewController setContentViewController:[[GCNavigationController alloc] initWithRootViewController:self.forumIndexViewController] animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         default:
@@ -99,5 +126,26 @@
     
     return cell;
 }
+
+#pragma mark - Getters
+
+- (GCHotThreadViewController *)hotThreadViewController {
+    if (_hotThreadViewController != nil) {
+        return _hotThreadViewController;
+    }
+    _hotThreadViewController = [[GCHotThreadViewController alloc] init];
+
+    return _hotThreadViewController;
+}
+
+- (GCForumIndexViewController *)forumIndexViewController {
+    if (_forumIndexViewController != nil) {
+        return _forumIndexViewController;
+    }
+    _forumIndexViewController = [[GCForumIndexViewController alloc] init];
+    
+    return _forumIndexViewController;
+}
+
 
 @end

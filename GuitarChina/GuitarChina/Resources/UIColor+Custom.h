@@ -10,6 +10,8 @@
 
 @interface UIColor (Custom)
 
-+ (UIColor *)BEFontColor;
++ (UIColor *)FontColor;
+
++ (UIColor *)LightFontColor;
 
 @end

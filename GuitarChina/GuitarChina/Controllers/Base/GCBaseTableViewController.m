@@ -17,6 +17,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.tableView.showsVerticalScrollIndicator = NO;
     }
     return self;
 }

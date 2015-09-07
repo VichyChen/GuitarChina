@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) NSMutableArray *data;
 
+@property (nonatomic, strong) NSMutableArray *dataHeightArray;
+
 @end
 
 @implementation GCHotThreadViewController
@@ -25,6 +27,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        _dataHeightArray = [NSMutableArray array];
         [self configureBlock];
     }
     return self;
@@ -38,12 +41,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Left"
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:self
-                                                                            action:@selector(presentLeftMenuViewController:)];
+    
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame = CGRectMake(0, 0, 25, 25);
+    [leftButton setAdjustsImageWhenHighlighted:YES];
+    UIImage *image = [UIImage imageNamed:@"icon_hamberger"];
+    [leftButton setImage:[image imageWithTintColor:[UIColor FontColor]] forState:UIControlStateNormal];
+    [leftButton setImage:[image imageWithTintColor:[UIColor LightFontColor]] forState:UIControlStateHighlighted];
+    [leftButton addTarget:self action:@selector(presentLeftMenuViewController:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = barItem;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +66,10 @@
         @strongify(self);
         [[GCNetworkManager manager] getHotThreadSuccess:^(GCHotThreadArray *array) {
             self.data = array.data;
+            [self.dataHeightArray removeAllObjects];
+            for (GCHotThreadModel *model in self.data) {
+               [self.dataHeightArray addObject: [NSNumber numberWithFloat:[GCHotThreadCell getCellHeightWithModel:model]]];
+            }
             [self.tableView reloadData];
             [self endRefresh];
         } failure:^(NSError *error) {
@@ -83,7 +97,8 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 120;
+    NSNumber *height = [self.dataHeightArray objectAtIndex:indexPath.row];
+    return [height floatValue];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

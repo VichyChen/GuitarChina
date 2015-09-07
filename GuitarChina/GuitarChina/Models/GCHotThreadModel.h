@@ -70,6 +70,8 @@
 @property (nonatomic, copy) NSString *rushreply;
 @property (nonatomic, copy) NSString *avatar;
 
+@property (nonatomic, copy) NSMutableAttributedString *lastPosterDetailString;
+
 @end
 
 @interface GCHotThreadArray : GCBaseModel
