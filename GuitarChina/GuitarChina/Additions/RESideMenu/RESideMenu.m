@@ -114,6 +114,8 @@
     _contentViewFadeOutAlpha = 1.0f;
     _contentViewInLandscapeOffsetCenterX = 30.f;
     _contentViewInPortraitOffsetCenterX  = 30.f;
+    _contentViewBorderWidth = 0;
+    _contentViewBorderColor = [UIColor grayColor].CGColor;
     _contentViewScaleValue = 0.7f;
 }
 
@@ -461,6 +463,11 @@
         layer.shadowOffset = self.contentViewShadowOffset;
         layer.shadowOpacity = self.contentViewShadowOpacity;
         layer.shadowRadius = self.contentViewShadowRadius;
+        
+        CALayer *border = [CALayer layer];
+        border.backgroundColor = self.contentViewBorderColor;
+        border.frame = CGRectMake(0, 0, self.contentViewBorderWidth, self.contentViewContainer.frame.size.height);
+        [self.contentViewContainer.layer addSublayer:border];
     }
 }
 

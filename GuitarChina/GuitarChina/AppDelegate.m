@@ -33,10 +33,12 @@
     sideMenuViewController.delegate = self;
     sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
     sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
-    sideMenuViewController.contentViewShadowOpacity = 0.6;
+    sideMenuViewController.contentViewShadowOpacity = 0;
     sideMenuViewController.contentViewShadowRadius = 5;
     sideMenuViewController.contentViewShadowEnabled = YES;
     sideMenuViewController.contentViewScaleValue = 1;
+    sideMenuViewController.contentViewBorderWidth = 0.5;
+    sideMenuViewController.contentViewBorderColor = [UIColor lightGrayColor].CGColor;
     sideMenuViewController.scaleMenuView = NO;
     sideMenuViewController.fadeMenuView = NO;
     self.window.rootViewController = sideMenuViewController;
