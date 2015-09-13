@@ -47,6 +47,8 @@
     self.repliesLabel.frame = CGRectMake(15, 65 + self.subjectLabelHeight, SubjectWidth, 20);
 }
 
+#pragma mark - Private Method
+
 - (void)configureView {
     [self.contentView addSubview:self.avatarImage];
     [self.contentView addSubview:self.authorLabel];
@@ -55,6 +57,8 @@
     [self.contentView addSubview:self.lastPostDetailLabel];
     [self.contentView addSubview:self.repliesLabel];
 }
+
+#pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCHotThreadModel *)model {
     CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.subject fontSize:16 width:SubjectWidth];

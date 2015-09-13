@@ -33,7 +33,6 @@
 		42657DD51B99B69B001F8DFC /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DD41B99B69B001F8DFC /* GCForumIndexCell.m */; };
 		42657DD81B99B6DB001F8DFC /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DD71B99B6DB001F8DFC /* GCForumDisplayCell.m */; };
 		42657DDC1B99CAA2001F8DFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42657DDE1B99CAA2001F8DFC /* Localizable.strings */; };
-		426E7CA01B88DDEA00BE70D9 /* GCForumDisplayArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 426E7C9F1B88DDEA00BE70D9 /* GCForumDisplayArray.m */; };
 		426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */; };
 		4277FC871B99E05C002BE7FC /* GCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4277FC861B99E05C002BE7FC /* GCLoginViewController.m */; };
 		4277FC8A1B99E174002BE7FC /* GCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4277FC891B99E174002BE7FC /* GCSettingViewController.m */; };
@@ -46,9 +45,11 @@
 		428F71231B89B2830023E501 /* GCMyThreadArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F71221B89B2830023E501 /* GCMyThreadArray.m */; };
 		428F71261B89C0230023E501 /* GCSendReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F71251B89C0230023E501 /* GCSendReplyModel.m */; };
 		429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E720A1B8B5066000469E6 /* GCNewThreadModel.m */; };
+		42DA95021BA3B83E001A79B9 /* GCForumIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA95011BA3B83E001A79B9 /* GCForumIndexModel.m */; };
+		42DA95051BA5553C001A79B9 /* GCForumDisplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA95041BA5553C001A79B9 /* GCForumDisplayModel.m */; };
+		42DA95081BA56BDB001A79B9 /* GCThreadReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA95071BA56BDB001A79B9 /* GCThreadReplyCell.m */; };
 		42F17D591B9DCBF400AF2D11 /* NSString+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F17D581B9DCBF400AF2D11 /* NSString+Tools.m */; };
 		42F17D5C1B9DE2E800AF2D11 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F17D5B1B9DE2E800AF2D11 /* UIImage+Tint.m */; };
-		42F4689F1B8790C10010DA70 /* GCForumIndexArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F4689E1B8790C10010DA70 /* GCForumIndexArray.m */; };
 		CEFC34C235C11966848A8595 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F829F5DD46C688C9B2385EC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -117,10 +118,6 @@
 		42657DD71B99B6DB001F8DFC /* GCForumDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayCell.m; sourceTree = "<group>"; };
 		42657DDB1B99CA95001F8DFC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		42657DDD1B99CAA2001F8DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		42657DE01B99CAAF001F8DFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		426E7C9D1B88D12500BE70D9 /* GCForumIndexArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexArray.h; sourceTree = "<group>"; };
-		426E7C9E1B88DDEA00BE70D9 /* GCForumDisplayArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayArray.h; sourceTree = "<group>"; };
-		426E7C9F1B88DDEA00BE70D9 /* GCForumDisplayArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayArray.m; sourceTree = "<group>"; };
 		426E7CA41B88E89100BE70D9 /* GCThreadDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailModel.h; sourceTree = "<group>"; };
 		426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailModel.m; sourceTree = "<group>"; };
 		4277FC851B99E05C002BE7FC /* GCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLoginViewController.h; sourceTree = "<group>"; };
@@ -147,11 +144,17 @@
 		428F71251B89C0230023E501 /* GCSendReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSendReplyModel.m; sourceTree = "<group>"; };
 		429E72091B8B5066000469E6 /* GCNewThreadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewThreadModel.h; sourceTree = "<group>"; };
 		429E720A1B8B5066000469E6 /* GCNewThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewThreadModel.m; sourceTree = "<group>"; };
+		42DA94FF1BA3B23B001A79B9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		42DA95001BA3B83E001A79B9 /* GCForumIndexModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexModel.h; sourceTree = "<group>"; };
+		42DA95011BA3B83E001A79B9 /* GCForumIndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexModel.m; sourceTree = "<group>"; };
+		42DA95031BA5553C001A79B9 /* GCForumDisplayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayModel.h; sourceTree = "<group>"; };
+		42DA95041BA5553C001A79B9 /* GCForumDisplayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayModel.m; sourceTree = "<group>"; };
+		42DA95061BA56BDB001A79B9 /* GCThreadReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadReplyCell.h; sourceTree = "<group>"; };
+		42DA95071BA56BDB001A79B9 /* GCThreadReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadReplyCell.m; sourceTree = "<group>"; };
 		42F17D571B9DCBF400AF2D11 /* NSString+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Tools.h"; sourceTree = "<group>"; };
 		42F17D581B9DCBF400AF2D11 /* NSString+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Tools.m"; sourceTree = "<group>"; };
 		42F17D5A1B9DE2E800AF2D11 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		42F17D5B1B9DE2E800AF2D11 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
-		42F4689E1B8790C10010DA70 /* GCForumIndexArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexArray.m; sourceTree = "<group>"; };
 		AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -247,6 +250,8 @@
 				42657DD71B99B6DB001F8DFC /* GCForumDisplayCell.m */,
 				42657DBE1B99961A001F8DFC /* GCThreadViewController.h */,
 				42657DBF1B99961A001F8DFC /* GCThreadViewController.m */,
+				42DA95061BA56BDB001A79B9 /* GCThreadReplyCell.h */,
+				42DA95071BA56BDB001A79B9 /* GCThreadReplyCell.m */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -383,10 +388,10 @@
 				428F711C1B89AD670023E501 /* GCBaseNoticeModel.m */,
 				4219A66A1B9A8086005D2164 /* GCHotThreadModel.h */,
 				4219A66B1B9A8086005D2164 /* GCHotThreadModel.m */,
-				426E7C9D1B88D12500BE70D9 /* GCForumIndexArray.h */,
-				42F4689E1B8790C10010DA70 /* GCForumIndexArray.m */,
-				426E7C9E1B88DDEA00BE70D9 /* GCForumDisplayArray.h */,
-				426E7C9F1B88DDEA00BE70D9 /* GCForumDisplayArray.m */,
+				42DA95001BA3B83E001A79B9 /* GCForumIndexModel.h */,
+				42DA95011BA3B83E001A79B9 /* GCForumIndexModel.m */,
+				42DA95031BA5553C001A79B9 /* GCForumDisplayModel.h */,
+				42DA95041BA5553C001A79B9 /* GCForumDisplayModel.m */,
 				426E7CA41B88E89100BE70D9 /* GCThreadDetailModel.h */,
 				426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */,
 				428F71151B89A1460023E501 /* GCLoginModel.h */,
@@ -550,15 +555,17 @@
 			files = (
 				425FB2EB1B84C23B00B6A89B /* GuitarChina.xcdatamodeld in Sources */,
 				428F711D1B89AD670023E501 /* GCBaseNoticeModel.m in Sources */,
+				42DA95051BA5553C001A79B9 /* GCForumDisplayModel.m in Sources */,
+				42DA95081BA56BDB001A79B9 /* GCThreadReplyCell.m in Sources */,
 				420D987F1B929C2B00AEAED3 /* GCBaseTableViewController.m in Sources */,
 				4277FC8D1B99E43F002BE7FC /* GCAboutViewController.m in Sources */,
+				42DA95021BA3B83E001A79B9 /* GCForumIndexModel.m in Sources */,
 				420D98661B92982C00AEAED3 /* RECommonFunctions.m in Sources */,
 				42657DD21B99B637001F8DFC /* GCHotThreadCell.m in Sources */,
 				4219A66C1B9A8086005D2164 /* GCHotThreadModel.m in Sources */,
 				428F71231B89B2830023E501 /* GCMyThreadArray.m in Sources */,
 				42F17D5C1B9DE2E800AF2D11 /* UIImage+Tint.m in Sources */,
 				420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */,
-				426E7CA01B88DDEA00BE70D9 /* GCForumDisplayArray.m in Sources */,
 				4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */,
 				42657DCC1B99B529001F8DFC /* GCHotThreadViewController.m in Sources */,
 				428F711A1B89ACB90023E501 /* GCBaseModel.m in Sources */,
@@ -583,7 +590,6 @@
 				426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,
 				428F71171B89A1460023E501 /* GCLoginModel.m in Sources */,
-				42F4689F1B8790C10010DA70 /* GCForumIndexArray.m in Sources */,
 				425FB2E51B84C23B00B6A89B /* main.m in Sources */,
 				428F71261B89C0230023E501 /* GCSendReplyModel.m in Sources */,
 			);
@@ -621,7 +627,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				42657DDD1B99CAA2001F8DFC /* Base */,
-				42657DE01B99CAAF001F8DFC /* en */,
+				42DA94FF1BA3B23B001A79B9 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

@@ -14,6 +14,10 @@
 
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, assign) NSInteger pageIndex;
+@property (nonatomic, assign) NSInteger pageSize;
+
+@property (nonatomic, assign) BOOL hiddenNavigationBarWhenScrollToBottom;
+@property (nonatomic, strong) NSMutableArray *rowHeightArray;
 
 @property (nonatomic, copy) void (^refreshBlock)();
 @property (nonatomic, copy) void (^fetchMoreBlock)();
@@ -23,7 +27,5 @@
 
 - (void)beginRefresh;
 - (void)endRefresh;
-
-- (void)test111;
 
 @end

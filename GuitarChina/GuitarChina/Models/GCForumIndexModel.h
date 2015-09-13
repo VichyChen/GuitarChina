@@ -1,11 +1,10 @@
 //
-//  GCForumIndexArray.h
+//  GCForumIndexModel.h
 //  GuitarChina
 //
-//  Created by 陈大捷 on 15/8/22.
+//  Created by 陈大捷 on 15/9/12.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
-
 #import <Foundation/Foundation.h>
 #import "GCBaseModel.h"
 
@@ -39,7 +38,7 @@
 @property (nonatomic, copy) NSString *setting_bbclosed;
 
 @property (nonatomic, strong) GCForumIndexGroupModel *group;
-@property (nonatomic, strong) NSArray *data;    //GCForumGroupModel
+@property (nonatomic, strong) NSMutableArray *data;    //GCForumGroupModel
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

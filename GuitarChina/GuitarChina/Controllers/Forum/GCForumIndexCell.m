@@ -8,16 +8,47 @@
 
 #import "GCForumIndexCell.h"
 
+@interface GCForumIndexCell()
+
+@property (nonatomic, strong) UIImageView *forumImage;
+@property (nonatomic, strong) UILabel *authorLabel;
+//@property (nonatomic, strong) UILabel *authorLabel;
+
+@end
+
 @implementation GCForumIndexCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self configureView];
+    }
+    return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)layoutSubviews {
+    [super layoutSubviews];
 }
+
+#pragma mark - Private Method
+
+- (void)configureView {
+}
+
+#pragma mark - Class Method
+
++ (CGFloat)getCellHeightWithModel:(GCForumModel *)model {
+
+    return 95;
+}
+
+#pragma mark - Setters
+
+- (void)setModel:(GCForumModel *)model {
+    _model = model;
+}
+
+#pragma mark - Getters
 
 @end

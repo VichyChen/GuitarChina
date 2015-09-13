@@ -1,12 +1,12 @@
 //
-//  GCForumIndexArray.m
+//  GCForumIndexModel.m
 //  GuitarChina
 //
-//  Created by 陈大捷 on 15/8/22.
+//  Created by 陈大捷 on 15/9/12.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCForumIndexArray.h"
+#import "GCForumIndexModel.h"
 
 @implementation GCForumIndexGroupModel
 

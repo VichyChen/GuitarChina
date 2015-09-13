@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCForumDisplayModel.h"
 
 @interface GCForumDisplayCell : UITableViewCell
+
+@property (nonatomic, strong) GCForumThreadModel *model;
+
++ (CGFloat)getCellHeightWithModel:(GCForumThreadModel *)model;
 
 @end

@@ -11,11 +11,12 @@
 #import "GCThreadViewController.h"
 #import "GCHotThreadCell.h"
 
-@interface GCHotThreadViewController()
+@interface GCHotThreadViewController() {
+    NSInteger lastY;
+    NSInteger lastC;
+}
 
 @property (nonatomic, strong) NSMutableArray *data;
-
-@property (nonatomic, strong) NSMutableArray *dataHeightArray;
 
 @end
 
@@ -27,16 +28,15 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _dataHeightArray = [NSMutableArray array];
-        [self configureBlock];
+        self.rowHeightArray = [NSMutableArray array];
     }
     return self;
 }
 
 - (void)loadView {
     [super loadView];
-    
-    self.title = NSLocalizedString(@"热帖", nil);
+
+    self.title = NSLocalizedString(@"Hot Thread", nil);
 }
 
 - (void)viewDidLoad {
@@ -53,7 +53,10 @@
     [leftButton addTarget:self action:@selector(presentLeftMenuViewController:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.leftBarButtonItem = barItem;
-
+    
+    //    self.navigationController.navigationBar.translucent = YES;
+    //    self.tableView.contentInset = UIEdgeInsetsMake(44.0f, 0.0f, 0.0f, 0.0f);
+    [self configureBlock];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,9 +69,9 @@
         @strongify(self);
         [[GCNetworkManager manager] getHotThreadSuccess:^(GCHotThreadArray *array) {
             self.data = array.data;
-            [self.dataHeightArray removeAllObjects];
+            [self.rowHeightArray removeAllObjects];
             for (GCHotThreadModel *model in self.data) {
-               [self.dataHeightArray addObject: [NSNumber numberWithFloat:[GCHotThreadCell getCellHeightWithModel:model]]];
+                [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCHotThreadCell getCellHeightWithModel:model]]];
             }
             [self.tableView reloadData];
             [self endRefresh];
@@ -97,7 +100,7 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSNumber *height = [self.dataHeightArray objectAtIndex:indexPath.row];
+    NSNumber *height = [self.rowHeightArray objectAtIndex:indexPath.row];
     return [height floatValue];
 }
 
@@ -106,5 +109,6 @@
     [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
 
 @end

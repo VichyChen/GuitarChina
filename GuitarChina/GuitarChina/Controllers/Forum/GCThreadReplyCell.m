@@ -1,14 +1,14 @@
 //
-//  GCForumDisplayCell.m
+//  GCThreadReplyCell.m
 //  GuitarChina
 //
-//  Created by 陈大捷 on 15/9/4.
+//  Created by 陈大捷 on 15/9/13.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCForumDisplayCell.h"
+#import "GCThreadReplyCell.h"
 
-@implementation GCForumDisplayCell
+@implementation GCThreadReplyCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -37,9 +37,9 @@
 
 #pragma mark - Setters
 
-- (void)setModel:(GCForumThreadModel *)model {
-    _model = model;
-}
+//- (void)setModel:(GCForumThreadModel *)model {
+//    _model = model;
+//}
 
 #pragma mark - Getters
 

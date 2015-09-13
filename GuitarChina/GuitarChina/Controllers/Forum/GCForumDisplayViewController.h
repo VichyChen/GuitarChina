@@ -11,4 +11,6 @@
 
 @interface GCForumDisplayViewController : GCBaseTableViewController
 
+@property (nonatomic, copy) NSString *fid;
+
 @end

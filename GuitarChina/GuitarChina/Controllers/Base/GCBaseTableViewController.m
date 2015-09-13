@@ -8,7 +8,10 @@
 
 #import "GCBaseTableViewController.h"
 
-@interface GCBaseTableViewController ()
+@interface GCBaseTableViewController () {
+    NSInteger lastContentOffsetY;
+    NSInteger lastPosition;
+}
 
 @end
 
@@ -17,7 +20,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.tableView.showsVerticalScrollIndicator = NO;
+        _hiddenNavigationBarWhenScrollToBottom = YES;
     }
     return self;
 }
@@ -30,7 +33,7 @@
     [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-500, 0)
                                      forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.backBarButtonItem=backItem;
-
+    
     
     self.tableView.header = ({
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(beginRefresh)];
@@ -86,14 +89,31 @@
     [self.tableView.footer endRefreshing];
 }
 
-- (void)test111 {
-    UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
-    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backarrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];//更改背景图片
-    [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(0, 0)
-                                     forBarMetrics:UIBarMetricsDefault];
-    self.navigationItem.backBarButtonItem=backItem;
-    
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (_hiddenNavigationBarWhenScrollToBottom == YES) {
+        if (lastContentOffsetY >= scrollView.contentOffset.y) {
+            lastContentOffsetY = scrollView.contentOffset.y;
+            if (lastPosition != 0) {
+                [UIView animateWithDuration:0.2 animations:^{
+                    self.navigationController.navigationBar.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0.f,0);
+                    lastPosition = 0;
+                }];
+            }
+        } else {
+            NSInteger position = scrollView.contentOffset.y;
+            lastContentOffsetY = position;
+            if (position < 0) {
+                position = 0;
+            }
+            else if (position > 44) {
+                position = 64;
+            }
+            [UIView animateWithDuration:0.25 animations:^{
+                self.navigationController.navigationBar.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0.f,-position);
+            }];
+            lastPosition = -position;
+        }
+    }
 }
-
 
 @end

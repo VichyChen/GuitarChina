@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 #import "GCHotThreadModel.h"
-#import "GCForumIndexArray.h"
-#import "GCForumDisplayArray.h"
+#import "GCForumIndexModel.h"
+#import "GCForumDisplayModel.h"
 #import "GCThreadDetailModel.h"
 #import "GCLoginModel.h"
 #import "GCMyFavThreadArray.h"

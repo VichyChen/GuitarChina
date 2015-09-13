@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCBaseTableViewController.h"
 
-@interface GCThreadViewController : UIViewController
+@interface GCThreadViewController : GCBaseTableViewController
+
+@property (nonatomic, copy) NSString *threadID;
 
 @end

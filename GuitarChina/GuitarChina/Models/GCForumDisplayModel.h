@@ -1,8 +1,8 @@
 //
-//  GCForumDisplayArray.h
+//  GCForumDisplayModel.h
 //  GuitarChina
 //
-//  Created by 陈大捷 on 15/8/23.
+//  Created by 陈大捷 on 15/9/13.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
@@ -34,7 +34,7 @@
 @property (nonatomic, copy) NSString *tpp;
 @property (nonatomic, copy) NSString *page;
 
-@property (nonatomic, strong) NSArray *data;    //forum_threadlist
+@property (nonatomic, strong) NSMutableArray *data;    //forum_threadlist
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
