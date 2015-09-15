@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		046262181BA80F7700E66F03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262161BA80F7700E66F03 /* AppDelegate.m */; };
+		046262191BA80F7700E66F03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262171BA80F7700E66F03 /* main.m */; };
 		420D98661B92982C00AEAED3 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98611B92982C00AEAED3 /* RECommonFunctions.m */; };
 		420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98631B92982C00AEAED3 /* RESideMenu.m */; };
 		420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98651B92982C00AEAED3 /* UIViewController+RESideMenu.m */; };
@@ -18,8 +20,6 @@
 		4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A6671B9A7C78005D2164 /* EXTScope.m */; };
 		4219A66C1B9A8086005D2164 /* GCHotThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A66B1B9A8086005D2164 /* GCHotThreadModel.m */; };
 		423C252C1B9C7FE40069B27B /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 423C252B1B9C7FE40069B27B /* UIView+LayoutHelper.m */; };
-		425FB2E51B84C23B00B6A89B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E41B84C23B00B6A89B /* main.m */; };
-		425FB2E81B84C23B00B6A89B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E71B84C23B00B6A89B /* AppDelegate.m */; };
 		425FB2EB1B84C23B00B6A89B /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 425FB2E91B84C23B00B6A89B /* GuitarChina.xcdatamodeld */; };
 		425FB2F31B84C23B00B6A89B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F21B84C23B00B6A89B /* Images.xcassets */; };
 		425FB2F61B84C23B00B6A89B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */; };
@@ -64,6 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		046262151BA80F7700E66F03 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		046262161BA80F7700E66F03 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		046262171BA80F7700E66F03 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2F829F5DD46C688C9B2385EC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		420D98601B92982C00AEAED3 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
@@ -91,11 +94,8 @@
 		423C252B1B9C7FE40069B27B /* UIView+LayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutHelper.m"; sourceTree = "<group>"; };
 		425FB2DF1B84C23B00B6A89B /* GuitarChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FB2E31B84C23B00B6A89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		425FB2E41B84C23B00B6A89B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		425FB2E61B84C23B00B6A89B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		425FB2E71B84C23B00B6A89B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		425FB2EA1B84C23B00B6A89B /* GuitarChina.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GuitarChina.xcdatamodel; sourceTree = "<group>"; };
-		425FB2F21B84C23B00B6A89B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		425FB2F21B84C23B00B6A89B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		425FB2F51B84C23B00B6A89B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		425FB2FB1B84C23B00B6A89B /* GuitarChinaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuitarChinaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FB3001B84C23B00B6A89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -177,6 +177,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		046262141BA80EFA00E66F03 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				046262171BA80F7700E66F03 /* main.m */,
+				046262151BA80F7700E66F03 /* AppDelegate.h */,
+				046262161BA80F7700E66F03 /* AppDelegate.m */,
+				425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 		0F41C248D61EFD30EA073F7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,11 +322,7 @@
 				4282605C1B84CA51007CBCF4 /* Network */,
 				42F468991B87797C0010DA70 /* Models */,
 				420D98721B929AA700AEAED3 /* Controllers */,
-				425FB2E61B84C23B00B6A89B /* AppDelegate.h */,
-				425FB2E71B84C23B00B6A89B /* AppDelegate.m */,
-				425FB2F21B84C23B00B6A89B /* Images.xcassets */,
-				425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */,
-				425FB2E91B84C23B00B6A89B /* GuitarChina.xcdatamodeld */,
+				046262141BA80EFA00E66F03 /* Others */,
 				425FB2E21B84C23B00B6A89B /* Supporting Files */,
 			);
 			path = GuitarChina;
@@ -325,7 +332,6 @@
 			isa = PBXGroup;
 			children = (
 				425FB2E31B84C23B00B6A89B /* Info.plist */,
-				425FB2E41B84C23B00B6A89B /* main.m */,
 				428260591B84C533007CBCF4 /* PrefixHeader.pch */,
 				42657DDE1B99CAA2001F8DFC /* Localizable.strings */,
 			);
@@ -352,6 +358,7 @@
 		42657DC11B999B6B001F8DFC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				425FB2F21B84C23B00B6A89B /* Images.xcassets */,
 				42657DC21B999EA0001F8DFC /* UIColor+Custom.h */,
 				42657DC31B999EA0001F8DFC /* UIColor+Custom.m */,
 			);
@@ -382,6 +389,7 @@
 		42F468991B87797C0010DA70 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				425FB2E91B84C23B00B6A89B /* GuitarChina.xcdatamodeld */,
 				428F71181B89ACB90023E501 /* GCBaseModel.h */,
 				428F71191B89ACB90023E501 /* GCBaseModel.m */,
 				428F711B1B89AD670023E501 /* GCBaseNoticeModel.h */,
@@ -553,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046262181BA80F7700E66F03 /* AppDelegate.m in Sources */,
 				425FB2EB1B84C23B00B6A89B /* GuitarChina.xcdatamodeld in Sources */,
 				428F711D1B89AD670023E501 /* GCBaseNoticeModel.m in Sources */,
 				42DA95051BA5553C001A79B9 /* GCForumDisplayModel.m in Sources */,
@@ -565,6 +574,7 @@
 				4219A66C1B9A8086005D2164 /* GCHotThreadModel.m in Sources */,
 				428F71231B89B2830023E501 /* GCMyThreadArray.m in Sources */,
 				42F17D5C1B9DE2E800AF2D11 /* UIImage+Tint.m in Sources */,
+				046262191BA80F7700E66F03 /* main.m in Sources */,
 				420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */,
 				4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */,
 				42657DCC1B99B529001F8DFC /* GCHotThreadViewController.m in Sources */,
@@ -584,13 +594,11 @@
 				4277FC871B99E05C002BE7FC /* GCLoginViewController.m in Sources */,
 				42657DC41B999EA0001F8DFC /* UIColor+Custom.m in Sources */,
 				42657DBD1B998C49001F8DFC /* GCForumIndexViewController.m in Sources */,
-				425FB2E81B84C23B00B6A89B /* AppDelegate.m in Sources */,
 				420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */,
 				420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */,
 				426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,
 				428F71171B89A1460023E501 /* GCLoginModel.m in Sources */,
-				425FB2E51B84C23B00B6A89B /* main.m in Sources */,
 				428F71261B89C0230023E501 /* GCSendReplyModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -621,6 +629,7 @@
 				42657DDB1B99CA95001F8DFC /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		42657DDE1B99CAA2001F8DFC /* Localizable.strings */ = {
@@ -818,7 +827,8 @@
 				425FB2EA1B84C23B00B6A89B /* GuitarChina.xcdatamodel */,
 			);
 			currentVersion = 425FB2EA1B84C23B00B6A89B /* GuitarChina.xcdatamodel */;
-			path = GuitarChina.xcdatamodeld;
+			name = GuitarChina.xcdatamodeld;
+			path = ../GuitarChina.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
