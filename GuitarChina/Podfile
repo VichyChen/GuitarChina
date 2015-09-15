@@ -1,11 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-
 pod 'AFNetworking', '~> 2.5'
-pod 'Masonry', '~> 0.6'
-pod 'BlocksKit', '~> 2.2.0'
 pod 'SDWebImage'
-pod 'MBProgressHUD'
 pod 'FMDB'
 pod "DKNightVersion", "~> 0.8.1"
 pod 'FDFullscreenPopGesture', '~> 1.1'
