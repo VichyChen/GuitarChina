@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		046262181BA80F7700E66F03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262161BA80F7700E66F03 /* AppDelegate.m */; };
 		046262191BA80F7700E66F03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262171BA80F7700E66F03 /* main.m */; };
+		0462621C1BA81BFF00E66F03 /* UIView+UICreateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462621B1BA81BFF00E66F03 /* UIView+UICreateFactory.m */; };
 		420D98661B92982C00AEAED3 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98611B92982C00AEAED3 /* RECommonFunctions.m */; };
 		420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98631B92982C00AEAED3 /* RESideMenu.m */; };
 		420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98651B92982C00AEAED3 /* UIViewController+RESideMenu.m */; };
@@ -16,7 +17,6 @@
 		420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */; };
 		420D98811B929C2B00AEAED3 /* GCLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */; };
 		420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987E1B929C2B00AEAED3 /* GCNavigationController.m */; };
-		4219A6641B9A7C70005D2164 /* UIView+UIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A6631B9A7C70005D2164 /* UIView+UIFactory.m */; };
 		4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A6671B9A7C78005D2164 /* EXTScope.m */; };
 		4219A66C1B9A8086005D2164 /* GCHotThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A66B1B9A8086005D2164 /* GCHotThreadModel.m */; };
 		423C252C1B9C7FE40069B27B /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 423C252B1B9C7FE40069B27B /* UIView+LayoutHelper.m */; };
@@ -67,6 +67,8 @@
 		046262151BA80F7700E66F03 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		046262161BA80F7700E66F03 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		046262171BA80F7700E66F03 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0462621A1BA81BFF00E66F03 /* UIView+UICreateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UICreateFactory.h"; sourceTree = "<group>"; };
+		0462621B1BA81BFF00E66F03 /* UIView+UICreateFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UICreateFactory.m"; sourceTree = "<group>"; };
 		2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2F829F5DD46C688C9B2385EC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		420D98601B92982C00AEAED3 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
@@ -83,8 +85,6 @@
 		420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCLeftMenuViewController.m; path = Base/GCLeftMenuViewController.m; sourceTree = "<group>"; };
 		420D987D1B929C2B00AEAED3 /* GCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNavigationController.h; sourceTree = "<group>"; };
 		420D987E1B929C2B00AEAED3 /* GCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNavigationController.m; sourceTree = "<group>"; };
-		4219A6621B9A7C70005D2164 /* UIView+UIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIFactory.h"; sourceTree = "<group>"; };
-		4219A6631B9A7C70005D2164 /* UIView+UIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIFactory.m"; sourceTree = "<group>"; };
 		4219A6661B9A7C78005D2164 /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScope.h; sourceTree = "<group>"; };
 		4219A6671B9A7C78005D2164 /* EXTScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTScope.m; sourceTree = "<group>"; };
 		4219A6681B9A7C78005D2164 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
@@ -271,10 +271,10 @@
 			isa = PBXGroup;
 			children = (
 				4219A6651B9A7C78005D2164 /* EXTScope */,
-				4219A6621B9A7C70005D2164 /* UIView+UIFactory.h */,
-				4219A6631B9A7C70005D2164 /* UIView+UIFactory.m */,
 				423C252A1B9C7FE40069B27B /* UIView+LayoutHelper.h */,
 				423C252B1B9C7FE40069B27B /* UIView+LayoutHelper.m */,
+				0462621A1BA81BFF00E66F03 /* UIView+UICreateFactory.h */,
+				0462621B1BA81BFF00E66F03 /* UIView+UICreateFactory.m */,
 				42F17D571B9DCBF400AF2D11 /* NSString+Tools.h */,
 				42F17D581B9DCBF400AF2D11 /* NSString+Tools.m */,
 				42F17D5A1B9DE2E800AF2D11 /* UIImage+Tint.h */,
@@ -584,12 +584,12 @@
 				42657DBA1B9983AF001F8DFC /* GCForumDisplayViewController.m in Sources */,
 				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
 				42F17D591B9DCBF400AF2D11 /* NSString+Tools.m in Sources */,
-				4219A6641B9A7C70005D2164 /* UIView+UIFactory.m in Sources */,
 				42657DD81B99B6DB001F8DFC /* GCForumDisplayCell.m in Sources */,
 				420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */,
 				420D98811B929C2B00AEAED3 /* GCLeftMenuViewController.m in Sources */,
 				4277FC8A1B99E174002BE7FC /* GCSettingViewController.m in Sources */,
 				428F71201B89B21E0023E501 /* GCMyFavThreadArray.m in Sources */,
+				0462621C1BA81BFF00E66F03 /* UIView+UICreateFactory.m in Sources */,
 				42657DD51B99B69B001F8DFC /* GCForumIndexCell.m in Sources */,
 				4277FC871B99E05C002BE7FC /* GCLoginViewController.m in Sources */,
 				42657DC41B999EA0001F8DFC /* UIColor+Custom.m in Sources */,
