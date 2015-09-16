@@ -11,6 +11,10 @@
 		046262191BA80F7700E66F03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262171BA80F7700E66F03 /* main.m */; };
 		0462621C1BA81BFF00E66F03 /* UIView+UICreateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462621B1BA81BFF00E66F03 /* UIView+UICreateFactory.m */; };
 		046262271BA90C4700E66F03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046262261BA90C4700E66F03 /* Images.xcassets */; };
+		046262321BA94D9300E66F03 /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462622B1BA94D9300E66F03 /* GCForumDisplayCell.m */; };
+		046262331BA94D9300E66F03 /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462622D1BA94D9300E66F03 /* GCForumIndexCell.m */; };
+		046262341BA94D9300E66F03 /* GCHotThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462622F1BA94D9300E66F03 /* GCHotThreadCell.m */; };
+		046262351BA94D9300E66F03 /* GCThreadReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262311BA94D9300E66F03 /* GCThreadReplyCell.m */; };
 		420D98661B92982C00AEAED3 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98611B92982C00AEAED3 /* RECommonFunctions.m */; };
 		420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98631B92982C00AEAED3 /* RESideMenu.m */; };
 		420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98651B92982C00AEAED3 /* UIViewController+RESideMenu.m */; };
@@ -29,9 +33,6 @@
 		42657DC01B99961A001F8DFC /* GCThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DBF1B99961A001F8DFC /* GCThreadViewController.m */; };
 		42657DC41B999EA0001F8DFC /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DC31B999EA0001F8DFC /* UIColor+Custom.m */; };
 		42657DCC1B99B529001F8DFC /* GCHotThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DCB1B99B529001F8DFC /* GCHotThreadViewController.m */; };
-		42657DD21B99B637001F8DFC /* GCHotThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DD11B99B637001F8DFC /* GCHotThreadCell.m */; };
-		42657DD51B99B69B001F8DFC /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DD41B99B69B001F8DFC /* GCForumIndexCell.m */; };
-		42657DD81B99B6DB001F8DFC /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DD71B99B6DB001F8DFC /* GCForumDisplayCell.m */; };
 		42657DDC1B99CAA2001F8DFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42657DDE1B99CAA2001F8DFC /* Localizable.strings */; };
 		426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */; };
 		4277FC871B99E05C002BE7FC /* GCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4277FC861B99E05C002BE7FC /* GCLoginViewController.m */; };
@@ -47,7 +48,6 @@
 		429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E720A1B8B5066000469E6 /* GCNewThreadModel.m */; };
 		42DA95021BA3B83E001A79B9 /* GCForumIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA95011BA3B83E001A79B9 /* GCForumIndexModel.m */; };
 		42DA95051BA5553C001A79B9 /* GCForumDisplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA95041BA5553C001A79B9 /* GCForumDisplayModel.m */; };
-		42DA95081BA56BDB001A79B9 /* GCThreadReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA95071BA56BDB001A79B9 /* GCThreadReplyCell.m */; };
 		42F17D591B9DCBF400AF2D11 /* NSString+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F17D581B9DCBF400AF2D11 /* NSString+Tools.m */; };
 		42F17D5C1B9DE2E800AF2D11 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F17D5B1B9DE2E800AF2D11 /* UIImage+Tint.m */; };
 		CEFC34C235C11966848A8595 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F829F5DD46C688C9B2385EC /* libPods.a */; };
@@ -70,6 +70,14 @@
 		0462621A1BA81BFF00E66F03 /* UIView+UICreateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UICreateFactory.h"; sourceTree = "<group>"; };
 		0462621B1BA81BFF00E66F03 /* UIView+UICreateFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UICreateFactory.m"; sourceTree = "<group>"; };
 		046262261BA90C4700E66F03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		0462622A1BA94D9300E66F03 /* GCForumDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayCell.h; sourceTree = "<group>"; };
+		0462622B1BA94D9300E66F03 /* GCForumDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayCell.m; sourceTree = "<group>"; };
+		0462622C1BA94D9300E66F03 /* GCForumIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexCell.h; sourceTree = "<group>"; };
+		0462622D1BA94D9300E66F03 /* GCForumIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexCell.m; sourceTree = "<group>"; };
+		0462622E1BA94D9300E66F03 /* GCHotThreadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadCell.h; sourceTree = "<group>"; };
+		0462622F1BA94D9300E66F03 /* GCHotThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadCell.m; sourceTree = "<group>"; };
+		046262301BA94D9300E66F03 /* GCThreadReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadReplyCell.h; sourceTree = "<group>"; };
+		046262311BA94D9300E66F03 /* GCThreadReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadReplyCell.m; sourceTree = "<group>"; };
 		2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2F829F5DD46C688C9B2385EC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		420D98601B92982C00AEAED3 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
@@ -110,12 +118,6 @@
 		42657DC31B999EA0001F8DFC /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
 		42657DCA1B99B529001F8DFC /* GCHotThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadViewController.h; sourceTree = "<group>"; };
 		42657DCB1B99B529001F8DFC /* GCHotThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadViewController.m; sourceTree = "<group>"; };
-		42657DD01B99B637001F8DFC /* GCHotThreadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadCell.h; sourceTree = "<group>"; };
-		42657DD11B99B637001F8DFC /* GCHotThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadCell.m; sourceTree = "<group>"; };
-		42657DD31B99B69B001F8DFC /* GCForumIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexCell.h; sourceTree = "<group>"; };
-		42657DD41B99B69B001F8DFC /* GCForumIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexCell.m; sourceTree = "<group>"; };
-		42657DD61B99B6DB001F8DFC /* GCForumDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayCell.h; sourceTree = "<group>"; };
-		42657DD71B99B6DB001F8DFC /* GCForumDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayCell.m; sourceTree = "<group>"; };
 		42657DDB1B99CA95001F8DFC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		42657DDD1B99CAA2001F8DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		426E7CA41B88E89100BE70D9 /* GCThreadDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailModel.h; sourceTree = "<group>"; };
@@ -149,8 +151,6 @@
 		42DA95011BA3B83E001A79B9 /* GCForumIndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexModel.m; sourceTree = "<group>"; };
 		42DA95031BA5553C001A79B9 /* GCForumDisplayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayModel.h; sourceTree = "<group>"; };
 		42DA95041BA5553C001A79B9 /* GCForumDisplayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayModel.m; sourceTree = "<group>"; };
-		42DA95061BA56BDB001A79B9 /* GCThreadReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadReplyCell.h; sourceTree = "<group>"; };
-		42DA95071BA56BDB001A79B9 /* GCThreadReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadReplyCell.m; sourceTree = "<group>"; };
 		42F17D571B9DCBF400AF2D11 /* NSString+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Tools.h"; sourceTree = "<group>"; };
 		42F17D581B9DCBF400AF2D11 /* NSString+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Tools.m"; sourceTree = "<group>"; };
 		42F17D5A1B9DE2E800AF2D11 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
@@ -186,6 +186,29 @@
 				425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		046262281BA94D2B00E66F03 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				046262291BA94D2B00E66F03 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		046262291BA94D2B00E66F03 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0462622A1BA94D9300E66F03 /* GCForumDisplayCell.h */,
+				0462622B1BA94D9300E66F03 /* GCForumDisplayCell.m */,
+				0462622C1BA94D9300E66F03 /* GCForumIndexCell.h */,
+				0462622D1BA94D9300E66F03 /* GCForumIndexCell.m */,
+				0462622E1BA94D9300E66F03 /* GCHotThreadCell.h */,
+				0462622F1BA94D9300E66F03 /* GCHotThreadCell.m */,
+				046262301BA94D9300E66F03 /* GCThreadReplyCell.h */,
+				046262311BA94D9300E66F03 /* GCThreadReplyCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		0F41C248D61EFD30EA073F7A /* Frameworks */ = {
@@ -253,16 +276,10 @@
 			children = (
 				42657DBB1B998C49001F8DFC /* GCForumIndexViewController.h */,
 				42657DBC1B998C49001F8DFC /* GCForumIndexViewController.m */,
-				42657DD31B99B69B001F8DFC /* GCForumIndexCell.h */,
-				42657DD41B99B69B001F8DFC /* GCForumIndexCell.m */,
 				42657DB81B9983AF001F8DFC /* GCForumDisplayViewController.h */,
 				42657DB91B9983AF001F8DFC /* GCForumDisplayViewController.m */,
-				42657DD61B99B6DB001F8DFC /* GCForumDisplayCell.h */,
-				42657DD71B99B6DB001F8DFC /* GCForumDisplayCell.m */,
 				42657DBE1B99961A001F8DFC /* GCThreadViewController.h */,
 				42657DBF1B99961A001F8DFC /* GCThreadViewController.m */,
-				42DA95061BA56BDB001A79B9 /* GCThreadReplyCell.h */,
-				42DA95071BA56BDB001A79B9 /* GCThreadReplyCell.m */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -321,6 +338,7 @@
 				420D985D1B9297F600AEAED3 /* Additions */,
 				4282605C1B84CA51007CBCF4 /* Network */,
 				42F468991B87797C0010DA70 /* Models */,
+				046262281BA94D2B00E66F03 /* Views */,
 				420D98721B929AA700AEAED3 /* Controllers */,
 				046262141BA80EFA00E66F03 /* Others */,
 				425FB2E21B84C23B00B6A89B /* Supporting Files */,
@@ -370,8 +388,6 @@
 			children = (
 				42657DCA1B99B529001F8DFC /* GCHotThreadViewController.h */,
 				42657DCB1B99B529001F8DFC /* GCHotThreadViewController.m */,
-				42657DD01B99B637001F8DFC /* GCHotThreadCell.h */,
-				42657DD11B99B637001F8DFC /* GCHotThreadCell.m */,
 			);
 			path = HotThread;
 			sourceTree = "<group>";
@@ -564,13 +580,13 @@
 				046262181BA80F7700E66F03 /* AppDelegate.m in Sources */,
 				425FB2EB1B84C23B00B6A89B /* GuitarChina.xcdatamodeld in Sources */,
 				428F711D1B89AD670023E501 /* GCBaseNoticeModel.m in Sources */,
+				046262351BA94D9300E66F03 /* GCThreadReplyCell.m in Sources */,
 				42DA95051BA5553C001A79B9 /* GCForumDisplayModel.m in Sources */,
-				42DA95081BA56BDB001A79B9 /* GCThreadReplyCell.m in Sources */,
 				420D987F1B929C2B00AEAED3 /* GCBaseTableViewController.m in Sources */,
 				4277FC8D1B99E43F002BE7FC /* GCAboutViewController.m in Sources */,
 				42DA95021BA3B83E001A79B9 /* GCForumIndexModel.m in Sources */,
 				420D98661B92982C00AEAED3 /* RECommonFunctions.m in Sources */,
-				42657DD21B99B637001F8DFC /* GCHotThreadCell.m in Sources */,
+				046262331BA94D9300E66F03 /* GCForumIndexCell.m in Sources */,
 				4219A66C1B9A8086005D2164 /* GCHotThreadModel.m in Sources */,
 				428F71231B89B2830023E501 /* GCMyThreadArray.m in Sources */,
 				42F17D5C1B9DE2E800AF2D11 /* UIImage+Tint.m in Sources */,
@@ -583,14 +599,14 @@
 				423C252C1B9C7FE40069B27B /* UIView+LayoutHelper.m in Sources */,
 				42657DBA1B9983AF001F8DFC /* GCForumDisplayViewController.m in Sources */,
 				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
+				046262321BA94D9300E66F03 /* GCForumDisplayCell.m in Sources */,
 				42F17D591B9DCBF400AF2D11 /* NSString+Tools.m in Sources */,
-				42657DD81B99B6DB001F8DFC /* GCForumDisplayCell.m in Sources */,
 				420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */,
 				420D98811B929C2B00AEAED3 /* GCLeftMenuViewController.m in Sources */,
 				4277FC8A1B99E174002BE7FC /* GCSettingViewController.m in Sources */,
 				428F71201B89B21E0023E501 /* GCMyFavThreadArray.m in Sources */,
+				046262341BA94D9300E66F03 /* GCHotThreadCell.m in Sources */,
 				0462621C1BA81BFF00E66F03 /* UIView+UICreateFactory.m in Sources */,
-				42657DD51B99B69B001F8DFC /* GCForumIndexCell.m in Sources */,
 				4277FC871B99E05C002BE7FC /* GCLoginViewController.m in Sources */,
 				42657DC41B999EA0001F8DFC /* UIColor+Custom.m in Sources */,
 				42657DBD1B998C49001F8DFC /* GCForumIndexViewController.m in Sources */,
