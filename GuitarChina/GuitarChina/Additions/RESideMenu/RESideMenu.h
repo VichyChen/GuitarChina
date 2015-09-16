@@ -30,6 +30,12 @@
 #define IBInspectable
 #endif
 
+typedef NS_ENUM(NSInteger, ContentViewBorderPosition) {
+    ContentViewBorderPositionLeft,
+    ContentViewBorderPositionRight,
+    ContentViewBorderPositionNone,
+};
+
 @protocol RESideMenuDelegate;
 
 @interface RESideMenu : UIViewController <UIGestureRecognizerDelegate>
@@ -64,6 +70,8 @@
 @property (assign, readwrite, nonatomic) IBInspectable CGFloat contentViewScaleValue;
 @property (assign, readwrite, nonatomic) IBInspectable CGFloat contentViewInLandscapeOffsetCenterX;
 @property (assign, readwrite, nonatomic) IBInspectable CGFloat contentViewInPortraitOffsetCenterX;
+@property (assign, readwrite, nonatomic) IBInspectable BOOL contentViewBorderEnabled;
+@property (assign, readwrite, nonatomic) IBInspectable ContentViewBorderPosition contentViewBorderPosition;
 @property (assign, readwrite, nonatomic) IBInspectable CGFloat contentViewBorderWidth;
 @property (assign, readwrite, nonatomic) IBInspectable CGColorRef contentViewBorderColor;
 @property (assign, readwrite, nonatomic) IBInspectable CGFloat parallaxMenuMinimumRelativeValue;

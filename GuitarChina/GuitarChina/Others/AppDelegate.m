@@ -37,6 +37,8 @@
     sideMenuViewController.contentViewShadowRadius = 5;
     sideMenuViewController.contentViewShadowEnabled = YES;
     sideMenuViewController.contentViewScaleValue = 1;
+    sideMenuViewController.contentViewBorderEnabled = YES;
+    sideMenuViewController.contentViewBorderPosition = ContentViewBorderPositionLeft;
     sideMenuViewController.contentViewBorderWidth = 0.5;
     sideMenuViewController.contentViewBorderColor = [UIColor lightGrayColor].CGColor;
     sideMenuViewController.scaleMenuView = NO;
