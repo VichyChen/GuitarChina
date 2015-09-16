@@ -12,5 +12,6 @@
 @interface GCThreadViewController : GCBaseTableViewController
 
 @property (nonatomic, copy) NSString *threadID;
+@property (nonatomic, copy) NSString *subject;
 
 @end

@@ -58,23 +58,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)configureBlock {
-    @weakify(self);
-    self.refreshBlock = ^{
-        @strongify(self);        
-        [[GCNetworkManager manager] getForumIndexSuccess:^(GCForumIndexArray *array) {
-            self.data = array.data;
-            [self.rowHeightArray removeAllObjects];
-
-            
-            [self.tableView reloadData];
-            [self endRefresh];
-        } failure:^(NSError *error) {
-            
-        }];
-    };
-}
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -120,6 +103,25 @@
     controller.fid = forumModel.fid;
     [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - Private Methods
+
+- (void)configureBlock {
+    @weakify(self);
+    self.refreshBlock = ^{
+        @strongify(self);
+        [[GCNetworkManager manager] getForumIndexSuccess:^(GCForumIndexArray *array) {
+            self.data = array.data;
+            [self.rowHeightArray removeAllObjects];
+            
+            
+            [self.tableView reloadData];
+            [self endRefresh];
+        } failure:^(NSError *error) {
+            
+        }];
+    };
 }
 
 @end

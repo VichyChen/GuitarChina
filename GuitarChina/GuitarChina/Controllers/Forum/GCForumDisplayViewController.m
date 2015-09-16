@@ -46,30 +46,7 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)configureBlock {
-    @weakify(self);
-    self.refreshBlock = ^{
-        @strongify(self);
-        [[GCNetworkManager manager] getForumDisplayWithForumID:self.fid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCForumDisplayArray *array) {
-            if (self.pageIndex == 1) {
-                self.data = array.data;
-//                [self.rowHeightArray removeAllObjects];
-                
-                [self.tableView reloadData];
-                [self endRefresh];
-            } else {
-                for (GCForumThreadModel *model in array.data) {
-                    [self.data addObject:model];
-                }
-                
-                [self.tableView reloadData];
-                [self endFetchMore];
-            }
-        } failure:^(NSError *error) {
-            
-        }];
-    };
-}
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.data count];
@@ -87,6 +64,8 @@
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
 }
@@ -95,9 +74,36 @@
     GCThreadViewController *controller = [[GCThreadViewController alloc] init];
     GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
     controller.threadID = model.tid;
+    controller.subject = model.subject;
     [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+}
+
+#pragma mark - Private Methods
+
+- (void)configureBlock {
+    @weakify(self);
+    self.refreshBlock = ^{
+        @strongify(self);
+        [[GCNetworkManager manager] getForumDisplayWithForumID:self.fid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCForumDisplayArray *array) {
+            if (self.pageIndex == 1) {
+                self.data = array.data;
+                //                [self.rowHeightArray removeAllObjects];
+                
+                [self.tableView reloadData];
+                [self endRefresh];
+            } else {
+                for (GCForumThreadModel *model in array.data) {
+                    [self.data addObject:model];
+                }
+                
+                [self.tableView reloadData];
+                [self endFetchMore];
+            }
+        } failure:^(NSError *error) {
+            
+        }];
+    };
 }
 
 @end

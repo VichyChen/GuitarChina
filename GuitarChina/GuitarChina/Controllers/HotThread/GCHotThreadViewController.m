@@ -63,23 +63,6 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)configureBlock {
-    @weakify(self);
-    self.refreshBlock = ^{
-        @strongify(self);
-        [[GCNetworkManager manager] getHotThreadSuccess:^(GCHotThreadArray *array) {
-            self.data = array.data;
-            [self.rowHeightArray removeAllObjects];
-            for (GCHotThreadModel *model in self.data) {
-                [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCHotThreadCell getCellHeightWithModel:model]]];
-            }
-            [self.tableView reloadData];
-            [self endRefresh];
-        } failure:^(NSError *error) {
-        }];
-    };
-}
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -110,5 +93,23 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - Private Methods
+
+- (void)configureBlock {
+    @weakify(self);
+    self.refreshBlock = ^{
+        @strongify(self);
+        [[GCNetworkManager manager] getHotThreadSuccess:^(GCHotThreadArray *array) {
+            self.data = array.data;
+            [self.rowHeightArray removeAllObjects];
+            for (GCHotThreadModel *model in self.data) {
+                [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCHotThreadCell getCellHeightWithModel:model]]];
+            }
+            [self.tableView reloadData];
+            [self endRefresh];
+        } failure:^(NSError *error) {
+        }];
+    };
+}
 
 @end

@@ -8,14 +8,19 @@
 
 #import "GCThreadViewController.h"
 #import "GCThreadReplyCell.h"
+#import "GCThreadHeaderView.h"
 
 @interface GCThreadViewController ()
+
+@property (nonatomic, strong) GCThreadHeaderView *threadHeaderView;
 
 @property (nonatomic, strong) NSMutableArray *data;
 
 @end
 
 @implementation GCThreadViewController
+
+#pragma mark - life cycle
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -38,6 +43,7 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    [self configureView];
     [self configureBlock];
 }
 
@@ -45,31 +51,7 @@
     [super didReceiveMemoryWarning];
 }
 
-- (void)configureBlock {
-    @weakify(self);
-    self.refreshBlock = ^{
-        @strongify(self);
-        [[GCNetworkManager manager] getViewThreadWithThreadID:self.threadID pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
-//                        if (self.pageIndex == 1) {
-//                            self.data = array.data;
-//                            //                [self.rowHeightArray removeAllObjects];
-//            
-//                            [self.tableView reloadData];
-//                            [self endRefresh];
-//                        } else {
-//                            for (GCForumThreadModel *model in array.data) {
-//                                [self.data addObject:model];
-//                            }
-//            
-//                            [self.tableView reloadData];
-//                            [self endFetchMore];
-//                        }
-
-        } failure:^(NSError *error) {
-            
-        }];
-    };
-}
+#pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.data count];
@@ -87,6 +69,8 @@
     return cell;
 }
 
+#pragma mark - UITableViewDelegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60;
 }
@@ -94,6 +78,49 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+}
+
+#pragma mark - Private Methods
+
+- (void)configureView {
+    //    self.view addSubview:self.threadHeaderView
+}
+
+- (void)configureBlock {
+    @weakify(self);
+    self.refreshBlock = ^{
+        @strongify(self);
+        [[GCNetworkManager manager] getViewThreadWithThreadID:self.threadID pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
+            //                        if (self.pageIndex == 1) {
+            //                            self.data = array.data;
+            //                            //                [self.rowHeightArray removeAllObjects];
+            //
+            //                            [self.tableView reloadData];
+            //                            [self endRefresh];
+            //                        } else {
+            //                            for (GCForumThreadModel *model in array.data) {
+            //                                [self.data addObject:model];
+            //                            }
+            //
+            //                            [self.tableView reloadData];
+            //                            [self endFetchMore];
+            //                        }
+            
+        } failure:^(NSError *error) {
+            
+        }];
+    };
+}
+
+#pragma mark - Getters
+
+- (GCThreadHeaderView *)threadHeaderView {
+    if (_threadHeaderView != nil) {
+        return _threadHeaderView;
+    }
+    _threadHeaderView = [[GCThreadHeaderView alloc] init];
+    
+    return _threadHeaderView;
 }
 
 @end
