@@ -80,4 +80,10 @@
                                       Success:(void (^)(void))success
                                       failure:(void (^)(NSError *error))failure;
 
+//收藏帖子
+- (AFHTTPRequestOperation *)getCollectionWithTid:(NSString *)tid
+                                        formhash:(NSString *)formhash
+                                         Success:(void (^)(void))success
+                                         failure:(void (^)(NSError *error))failure;
+
 @end

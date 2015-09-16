@@ -199,7 +199,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_POSTSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *parameters = @{ @"allownoticeauthor" : @"1", @"message" : message, @"subject" : subject, @"mobiletype" : @"1", @"formhash" : formhash, @"typeid" : type };
-        [self requestCommonMethod:GCRequestHTTPPOST url:GCNETWORKAPI_NEWTHREAD(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self requestCommonMethod:GCRequestHTTPPOST url:GCNETWORKAPI_POST_NEWTHREAD(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"%@", operation.responseString);
             GCNewThreadModel *model = [[GCNewThreadModel alloc] initWithDictionary:responseObject];
             success(model);
@@ -220,6 +220,20 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     return  [self requestCommonMethod:GCRequestHTTPPOST url:GC_NETWORKAPI_REPORT(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", operation.responseString);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+}
+
+//先调用getViewThreadWithThreadID，再调用此方法，结果都是返回failure，根据operation.responseString判断结果吧
+- (AFHTTPRequestOperation *)getCollectionWithTid:(NSString *)tid
+                                            formhash:(NSString *)formhash
+                                              Success:(void (^)(void))success
+                                              failure:(void (^)(NSError *error))failure {
+    return [self requestCommonMethod:GCRequestJsonGet url:GC_NETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@",operation.responseString);
+        success();
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@",operation.responseString);
         failure(error);
     }];
 }

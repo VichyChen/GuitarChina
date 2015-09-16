@@ -8,38 +8,123 @@
 
 #import "GCThreadDetailModel.h"
 
+@implementation GCThreadDetailOptionModel
+
+@end
+
+@implementation GCThreadDetailPostModel
+
+@end
+
 @implementation GCThreadDetailModel
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     if (self = [super initWithDictionary:dictionary]) {
-        self.fid             = [dictionary objectForKey:@"fid"];
-        self.ppp             = [dictionary objectForKey:@"ppp"];
-        self.forum_threadpay = [dictionary objectForKey:@"forum_threadpay"];
         
-//        NSArray *threads = [dictionary objectForKey:@"forum_threadlist"];
-//        NSMutableArray *array = [[NSMutableArray alloc] init];
-//        for (NSDictionary *item in threads) {
-//            GCForumThreadModel *threadModel = [[GCForumThreadModel alloc] init];
-//            threadModel.tid        = [item objectForKey:@"tid"];
-//            threadModel.readperm   = [item objectForKey:@"readperm"];
-//            threadModel.author     = [item objectForKey:@"author"];
-//            threadModel.authorid   = [item objectForKey:@"authorid"];
-//            threadModel.subject    = [item objectForKey:@"subject"];
-//            threadModel.dateline   = [item objectForKey:@"dateline"];
-//            threadModel.lastpost   = [item objectForKey:@"lastpost"];
-//            threadModel.lastposter = [item objectForKey:@"lastposter"];
-//            threadModel.views      = [item objectForKey:@"views"];
-//            threadModel.replies    = [item objectForKey:@"replies"];
-//            threadModel.digest     = [item objectForKey:@"digest"];
-//            threadModel.attachment = [item objectForKey:@"attachment"];
-//            threadModel.dbdateline = [item objectForKey:@"dbdateline"];
-//            threadModel.dblastpost = [item objectForKey:@"dblastpost"];
-//            [array addObject:threadModel];
-//        }
-//        self.data = array;
+        NSDictionary *thread = [dictionary objectForKey:@"thread"];
+        self.tid            = [thread objectForKey:@"tid"];
+        self.fid            = [thread objectForKey:@"fid"];
+        self.posttableid    = [thread objectForKey:@"posttableid"];
+        self.typeidfield    = [thread objectForKey:@"typeid"];
+        self.sortid         = [thread objectForKey:@"sortid"];
+        self.readperm       = [thread objectForKey:@"readperm"];
+        self.price          = [thread objectForKey:@"price"];
+        self.author         = [thread objectForKey:@"author"];
+        self.authorid       = [thread objectForKey:@"authorid"];
+        self.subject        = [thread objectForKey:@"subject"];
+        self.dateline       = [thread objectForKey:@"dateline"];
+        self.lastpost       = [thread objectForKey:@"lastpost"];
+        self.lastposter     = [thread objectForKey:@"lastposter"];
+        self.views          = [thread objectForKey:@"views"];
+        self.replies        = [thread objectForKey:@"replies"];
+        self.displayorder   = [thread objectForKey:@"displayorder"];
+        self.highlight      = [thread objectForKey:@"highlight"];
+        self.digest         = [thread objectForKey:@"digest"];
+        self.rate           = [thread objectForKey:@"rate"];
+        self.special        = [thread objectForKey:@"special"];
+        self.attachment     = [thread objectForKey:@"attachment"];
+        self.moderated      = [thread objectForKey:@"moderated"];
+        self.closed         = [thread objectForKey:@"closed"];
+        self.stickreply     = [thread objectForKey:@"stickreply"];
+        self.recommends     = [thread objectForKey:@"recommends"];
+        self.recommend_add  = [thread objectForKey:@"recommend_add"];
+        self.recommend_sub  = [thread objectForKey:@"recommend_sub"];
+        self.heats          = [thread objectForKey:@"heats"];
+        self.status         = [thread objectForKey:@"status"];
+        self.isgroup        = [thread objectForKey:@"isgroup"];
+        self.favtimes       = [thread objectForKey:@"favtimes"];
+        self.sharetimes     = [thread objectForKey:@"sharetimes"];
+        self.stamp          = [thread objectForKey:@"stamp"];
+        self.icon           = [thread objectForKey:@"icon"];
+        self.pushedaid      = [thread objectForKey:@"pushedaid"];
+        self.cover          = [thread objectForKey:@"cover"];
+        self.replycredit    = [thread objectForKey:@"replycredit"];
+        self.relatebytag    = [thread objectForKey:@"relatebytag"];
+        self.maxposition    = [thread objectForKey:@"maxposition"];
+        self.bgcolor        = [thread objectForKey:@"bgcolor"];
+        self.comments       = [thread objectForKey:@"comments"];
+        self.hidden         = [thread objectForKey:@"hidden"];
+        self.threadtable    = [thread objectForKey:@"threadtable"];
+        self.threadtableid  = [thread objectForKey:@"threadtableid"];
+        self.posttable      = [thread objectForKey:@"posttable"];
+        self.addviews       = [thread objectForKey:@"addviews"];
+        self.allreplies     = [thread objectForKey:@"allreplies"];
+        self.is_archived    = [thread objectForKey:@"is_archived"];
+        self.archiveid      = [thread objectForKey:@"archiveid"];
+        self.subjectenc     = [thread objectForKey:@"subjectenc"];
+        self.short_subject  = [thread objectForKey:@"short_subject"];
+        self.recommendlevel = [thread objectForKey:@"recommendlevel"];
+        self.heatlevel      = [thread objectForKey:@"heatlevel"];
+        self.relay          = [thread objectForKey:@"relay"];
+        
+        NSArray *imagelist = [dictionary objectForKey:@"imagelist"];
+        NSMutableArray *imageArray = [[NSMutableArray alloc] init];
+        for (NSString *item in imagelist) {
+            [imageArray addObject:item];
+        }
+        self.imagelist = imageArray;
+        
+        NSDictionary *threadsortshow = [dictionary objectForKey:@"threadsortshow"];
+        NSArray *optionlist = [threadsortshow objectForKey:@"optionlist"];
+        NSMutableArray *optionArray = [[NSMutableArray alloc] init];
+        for (NSDictionary *item in optionlist) {
+            GCThreadDetailOptionModel *model = [[GCThreadDetailOptionModel alloc] init];
+            model.title    = [item objectForKey:@"title"];
+            model.unit     = [item objectForKey:@"unit"];
+            model.type     = [item objectForKey:@"type"];
+            model.value    = [item objectForKey:@"value"];
+            model.optionid = [item objectForKey:@"optionid"];
+            [optionArray addObject:model];
+        }
+        self.optionlist = optionArray;
+        
+        NSArray *postlist = [dictionary objectForKey:@"postlist"];
+        NSMutableArray *postArray = [[NSMutableArray alloc] init];
+        for (NSDictionary *item in postlist) {
+            GCThreadDetailPostModel *model = [[GCThreadDetailPostModel alloc] init];
+            model.pid          = [item objectForKey:@"pid"];
+            model.tid          = [item objectForKey:@"tid"];
+            model.first        = [item objectForKey:@"first"];
+            model.author       = [item objectForKey:@"author"];
+            model.authorid     = [item objectForKey:@"authorid"];
+            model.dateline     = [item objectForKey:@"dateline"];
+            model.message      = [item objectForKey:@"message"];
+            model.anonymous    = [item objectForKey:@"anonymous"];
+            model.attachment   = [item objectForKey:@"attachment"];
+            model.status       = [item objectForKey:@"status"];
+            model.username     = [item objectForKey:@"username"];
+            model.adminid      = [item objectForKey:@"adminid"];
+            model.groupidfield = [item objectForKey:@"groupidfield"];
+            model.memberstatus = [item objectForKey:@"memberstatus"];
+            model.number       = [item objectForKey:@"number"];
+            model.number       = [item objectForKey:@"number"];
+            [postArray addObject:model];
+        }
+        self.postlist = postArray;
     }
     
     return self;
 }
 
 @end
+
