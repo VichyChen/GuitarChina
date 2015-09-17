@@ -130,20 +130,16 @@
 #pragma mark - Getters
 
 - (GCHotThreadViewController *)hotThreadViewController {
-    if (_hotThreadViewController != nil) {
-        return _hotThreadViewController;
+    if (_hotThreadViewController == nil) {
+        _hotThreadViewController = [[GCHotThreadViewController alloc] init];
     }
-    _hotThreadViewController = [[GCHotThreadViewController alloc] init];
-
     return _hotThreadViewController;
 }
 
 - (GCForumIndexViewController *)forumIndexViewController {
-    if (_forumIndexViewController != nil) {
-        return _forumIndexViewController;
+    if (_forumIndexViewController == nil) {
+        _forumIndexViewController = [[GCForumIndexViewController alloc] init];
     }
-    _forumIndexViewController = [[GCForumIndexViewController alloc] init];
-    
     return _forumIndexViewController;
 }
 

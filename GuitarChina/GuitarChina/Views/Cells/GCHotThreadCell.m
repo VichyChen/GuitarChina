@@ -84,77 +84,65 @@
 #pragma mark - Getters
 
 - (UIImageView *)avatarImage {
-    if (_avatarImage != nil) {
-        return _avatarImage;
+    if (_avatarImage == nil) {
+        _avatarImage = [UIView createImageView:CGRectZero contentMode:UIViewContentModeScaleToFill];
+        _avatarImage.layer.cornerRadius = 5;
+        _avatarImage.layer.masksToBounds = YES;
     }
-    _avatarImage = [UIView createImageView:CGRectZero contentMode:UIViewContentModeScaleToFill];
-    _avatarImage.layer.cornerRadius = 5;
-    _avatarImage.layer.masksToBounds = YES;
-    
     return _avatarImage;
 }
 
 - (UILabel *)authorLabel {
-    if (_authorLabel != nil) {
-        return _authorLabel;
+    if (_authorLabel == nil) {
+        _authorLabel = [UIView createLabel:CGRectZero
+                                      text:@""
+                                      font:[UIFont systemFontOfSize:16]
+                                 textColor:[UIColor FontColor]];
     }
-    _authorLabel = [UIView createLabel:CGRectZero
-                                  text:@""
-                                  font:[UIFont systemFontOfSize:16]
-                             textColor:[UIColor FontColor]];
-    
     return _authorLabel;
 }
 
 - (UILabel *)datelineLabel {
-    if (_datelineLabel != nil) {
-        return _datelineLabel;
+    if (_datelineLabel == nil) {
+        _datelineLabel = [UIView createLabel:CGRectZero
+                                        text:@""
+                                        font:[UIFont systemFontOfSize:14]
+                                   textColor:[UIColor LightFontColor]];
     }
-    _datelineLabel = [UIView createLabel:CGRectZero
-                                    text:@""
-                                    font:[UIFont systemFontOfSize:14]
-                               textColor:[UIColor LightFontColor]];
-    
     return _datelineLabel;
 }
 
 - (UILabel *)subjectLabel {
-    if (_subjectLabel != nil) {
-        return _subjectLabel;
+    if (_subjectLabel == nil) {
+        _subjectLabel = [UIView createLabel:CGRectZero
+                                       text:@""
+                                       font:[UIFont systemFontOfSize:16]
+                                  textColor:[UIColor FontColor]
+                              numberOfLines:0 preferredMaxLayoutWidth:SubjectWidth];
+        _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
-    _subjectLabel = [UIView createLabel:CGRectZero
-                                   text:@""
-                                   font:[UIFont systemFontOfSize:16]
-                              textColor:[UIColor FontColor]
-                          numberOfLines:0 preferredMaxLayoutWidth:SubjectWidth];
-    _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    
     return _subjectLabel;
 }
 
 - (UILabel *)lastPostDetailLabel {
-    if (_lastPostDetailLabel != nil) {
-        return _lastPostDetailLabel;
+    if (_lastPostDetailLabel == nil) {
+        _lastPostDetailLabel = [UIView createLabel:CGRectZero
+                                              text:@""
+                                              font:[UIFont systemFontOfSize:14]
+                                         textColor:[UIColor LightFontColor]];
     }
-    _lastPostDetailLabel = [UIView createLabel:CGRectZero
-                                          text:@""
-                                          font:[UIFont systemFontOfSize:14]
-                                     textColor:[UIColor LightFontColor]];
-    
     return _lastPostDetailLabel;
 }
 
 - (UILabel *)repliesLabel {
-    if (_repliesLabel != nil) {
-        return _repliesLabel;
+    if (_repliesLabel == nil) {
+        _repliesLabel = [UIView createLabel:CGRectZero
+                                       text:@""
+                                       font:[UIFont systemFontOfSize:14]
+                                  textColor:[UIColor LightFontColor]];
+        _repliesLabel.textAlignment = NSTextAlignmentRight;
+        _repliesLabel.hidden = YES;
     }
-    _repliesLabel = [UIView createLabel:CGRectZero
-                                   text:@""
-                                   font:[UIFont systemFontOfSize:14]
-                              textColor:[UIColor LightFontColor]];
-    _repliesLabel.textAlignment = NSTextAlignmentRight;
-    _repliesLabel.hidden = YES;
-    
     return _repliesLabel;
 }
 

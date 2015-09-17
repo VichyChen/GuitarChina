@@ -63,8 +63,8 @@
     if (!cell) {
         cell = [[GCThreadReplyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-//    GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
-//    cell.textLabel.text = model.subject;
+    //    GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
+    //    cell.textLabel.text = model.subject;
     
     return cell;
 }
@@ -115,11 +115,9 @@
 #pragma mark - Getters
 
 - (GCThreadHeaderView *)threadHeaderView {
-    if (_threadHeaderView != nil) {
-        return _threadHeaderView;
+    if (_threadHeaderView == nil) {
+        _threadHeaderView = [[GCThreadHeaderView alloc] init];
     }
-    _threadHeaderView = [[GCThreadHeaderView alloc] init];
-    
     return _threadHeaderView;
 }
 
