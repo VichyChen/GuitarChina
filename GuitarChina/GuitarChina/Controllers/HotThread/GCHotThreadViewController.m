@@ -10,6 +10,7 @@
 #import "RESideMenu.h"
 #import "GCThreadViewController.h"
 #import "GCHotThreadCell.h"
+#import "UIView+CreateRESideMenu.h"
 
 @interface GCHotThreadViewController() {
     NSInteger lastY;
@@ -35,7 +36,7 @@
 
 - (void)loadView {
     [super loadView];
-
+    
     self.title = NSLocalizedString(@"Hot Thread", nil);
 }
 
@@ -89,7 +90,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GCThreadViewController *controller = [[GCThreadViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    GCHotThreadModel *model = [self.data objectAtIndex:indexPath.row];
+    controller.hotThreadModel = model;
+    controller.tid = model.tid;
+    RESideMenu *sideMenuViewController = [UIView createRightRESideMenu:controller];
+    [self.navigationController pushViewController:sideMenuViewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

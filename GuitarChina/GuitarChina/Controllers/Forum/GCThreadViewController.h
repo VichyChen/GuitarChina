@@ -11,7 +11,10 @@
 
 @interface GCThreadViewController : GCBaseTableViewController
 
-@property (nonatomic, copy) NSString *threadID;
-@property (nonatomic, copy) NSString *subject;
+@property (nonatomic, copy) NSString *tid;
+
+@property (nonatomic, strong) GCForumThreadModel *forumThreadModel;
+
+@property (nonatomic, strong) GCHotThreadModel *hotThreadModel;
 
 @end

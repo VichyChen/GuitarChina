@@ -73,8 +73,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GCThreadViewController *controller = [[GCThreadViewController alloc] init];
     GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
-    controller.threadID = model.tid;
-    controller.subject = model.subject;
+    controller.forumThreadModel = model;
+    controller.tid = model.tid;
     [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

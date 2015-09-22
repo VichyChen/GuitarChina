@@ -10,4 +10,7 @@
 
 @interface GCThreadHeaderView : UIView
 
+@property (nonatomic, strong) GCForumThreadModel *forumThreadModel;
+@property (nonatomic, strong) GCHotThreadModel *hotThreadModel;
+
 @end

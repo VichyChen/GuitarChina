@@ -7,6 +7,7 @@
 //
 
 #import "GCThreadViewController.h"
+#import "RESideMenu.h"
 #import "GCThreadReplyCell.h"
 #import "GCThreadHeaderView.h"
 
@@ -40,11 +41,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self configureView];
     [self configureBlock];
+    
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame = CGRectMake(0, 0, 25, 25);
+    [leftButton setAdjustsImageWhenHighlighted:YES];
+    UIImage *image = [UIImage imageNamed:@"icon_hamberger"];
+    [leftButton setImage:[image imageWithTintColor:[UIColor FontColor]] forState:UIControlStateNormal];
+    [leftButton setImage:[image imageWithTintColor:[UIColor LightFontColor]] forState:UIControlStateHighlighted];
+    [leftButton addTarget:self action:@selector(presentRightMenuViewController:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.rightBarButtonItem = barItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,8 +74,8 @@
     if (!cell) {
         cell = [[GCThreadReplyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-    //    GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
-    //    cell.textLabel.text = model.subject;
+    GCThreadDetailPostModel *model = [self.data objectAtIndex:indexPath.row];
+    cell.textLabel.text = model.message;
     
     return cell;
 }
@@ -77,34 +88,38 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
 }
 
 #pragma mark - Private Methods
 
 - (void)configureView {
-    //    self.view addSubview:self.threadHeaderView
+    if (self.forumThreadModel) {
+        [self.threadHeaderView setForumThreadModel:self.forumThreadModel];
+    } else {
+        [self.threadHeaderView setHotThreadModel:self.hotThreadModel];
+    }
+    self.tableView.tableHeaderView = self.threadHeaderView;
 }
 
 - (void)configureBlock {
     @weakify(self);
     self.refreshBlock = ^{
         @strongify(self);
-        [[GCNetworkManager manager] getViewThreadWithThreadID:self.threadID pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
-            //                        if (self.pageIndex == 1) {
-            //                            self.data = array.data;
-            //                            //                [self.rowHeightArray removeAllObjects];
-            //
-            //                            [self.tableView reloadData];
-            //                            [self endRefresh];
-            //                        } else {
-            //                            for (GCForumThreadModel *model in array.data) {
-            //                                [self.data addObject:model];
-            //                            }
-            //
-            //                            [self.tableView reloadData];
-            //                            [self endFetchMore];
-            //                        }
+        [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
+            if (self.pageIndex == 1) {
+                self.data = model.postlist;
+                //                [self.rowHeightArray removeAllObjects];
+                
+                [self.tableView reloadData];
+                [self endRefresh];
+            } else {
+                for (GCThreadDetailPostModel *item in model.postlist) {
+                    [self.data addObject:item];
+                }
+                
+                [self.tableView reloadData];
+                [self endFetchMore];
+            }
             
         } failure:^(NSError *error) {
             
@@ -116,7 +131,7 @@
 
 - (GCThreadHeaderView *)threadHeaderView {
     if (_threadHeaderView == nil) {
-        _threadHeaderView = [[GCThreadHeaderView alloc] init];
+        _threadHeaderView = [[GCThreadHeaderView alloc] initWithFrame:CGRectZero];
     }
     return _threadHeaderView;
 }

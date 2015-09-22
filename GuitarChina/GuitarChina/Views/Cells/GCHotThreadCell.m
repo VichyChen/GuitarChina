@@ -20,7 +20,7 @@
 @property (nonatomic, strong) UILabel *lastPostDetailLabel;
 @property (nonatomic, strong) UILabel *repliesLabel;
 
-//题目高度
+//标题高度
 @property (nonatomic, assign) CGFloat subjectLabelHeight;
 
 @end
