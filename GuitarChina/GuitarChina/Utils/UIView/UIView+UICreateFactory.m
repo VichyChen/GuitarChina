@@ -187,4 +187,44 @@
     return tableView;
 }
 
+#pragma mark - Line
+
++ (UIView *)createHorizontalLine:(CGFloat)length
+                         originX:(CGFloat)originX
+                         originY:(CGFloat)originY {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(originX, originY, length, 1)];
+    view.backgroundColor = [UIColor lightGrayColor];
+    
+    return view;
+}
+
++ (UIView *)createHorizontalLine:(CGFloat)length
+                         originX:(CGFloat)originX
+                         originY:(CGFloat)originY
+                           color:(UIColor *)color {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(originX, originY, length, 1)];
+    view.backgroundColor = color;
+    
+    return view;
+}
+
++ (UIView *)createVerticalLine:(CGFloat)length
+                       originX:(CGFloat)originX
+                       originY:(CGFloat)originY {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(originX, originY, 1, length)];
+    view.backgroundColor = [UIColor lightGrayColor];
+    
+    return view;
+}
+
++ (UIView *)createVerticalLine:(CGFloat)length
+                       originX:(CGFloat)originX
+                       originY:(CGFloat)originY
+                         color:(UIColor *)color {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(originX, originY, 1, length)];
+    view.backgroundColor = color;
+    
+    return view;
+}
+
 @end

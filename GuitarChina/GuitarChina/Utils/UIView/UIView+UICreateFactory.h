@@ -91,4 +91,24 @@
                       dataSource:(id<UITableViewDataSource>)dataSource
                         delegete:(id<UITableViewDelegate>)delegate;
 
+//Line
+
++ (UIView *)createHorizontalLine:(CGFloat)length
+                         originX:(CGFloat)originX
+                         originY:(CGFloat)originY;
+
++ (UIView *)createHorizontalLine:(CGFloat)length
+                         originX:(CGFloat)originX
+                         originY:(CGFloat)originY
+                           color:(UIColor *)color;
+
++ (UIView *)createVerticalLine:(CGFloat)length
+                       originX:(CGFloat)originX
+                       originY:(CGFloat)originY;
+
++ (UIView *)createVerticalLine:(CGFloat)length
+                       originX:(CGFloat)originX
+                       originY:(CGFloat)originY
+                         color:(UIColor *)color;
+
 @end
