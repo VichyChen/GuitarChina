@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042D23991BB29BC3001DE667 /* GCNewThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D23981BB29BC3001DE667 /* GCNewThreadViewController.m */; };
 		046262181BA80F7700E66F03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262161BA80F7700E66F03 /* AppDelegate.m */; };
 		046262191BA80F7700E66F03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262171BA80F7700E66F03 /* main.m */; };
 		046262271BA90C4700E66F03 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046262261BA90C4700E66F03 /* Images.xcassets */; };
@@ -67,6 +68,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		042D23971BB29BC3001DE667 /* GCNewThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewThreadViewController.h; sourceTree = "<group>"; };
+		042D23981BB29BC3001DE667 /* GCNewThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewThreadViewController.m; sourceTree = "<group>"; };
 		046262151BA80F7700E66F03 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		046262161BA80F7700E66F03 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		046262171BA80F7700E66F03 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -315,6 +318,8 @@
 				42657DBC1B998C49001F8DFC /* GCForumIndexViewController.m */,
 				42657DB81B9983AF001F8DFC /* GCForumDisplayViewController.h */,
 				42657DB91B9983AF001F8DFC /* GCForumDisplayViewController.m */,
+				042D23971BB29BC3001DE667 /* GCNewThreadViewController.h */,
+				042D23981BB29BC3001DE667 /* GCNewThreadViewController.m */,
 				42657DBE1B99961A001F8DFC /* GCThreadViewController.h */,
 				42657DBF1B99961A001F8DFC /* GCThreadViewController.m */,
 			);
@@ -638,6 +643,7 @@
 				420D98811B929C2B00AEAED3 /* GCLeftMenuViewController.m in Sources */,
 				4277FC8A1B99E174002BE7FC /* GCSettingViewController.m in Sources */,
 				428F71201B89B21E0023E501 /* GCMyFavThreadArray.m in Sources */,
+				042D23991BB29BC3001DE667 /* GCNewThreadViewController.m in Sources */,
 				046262341BA94D9300E66F03 /* GCHotThreadCell.m in Sources */,
 				04DCD6DB1BB161D000AE3FC1 /* GCThreadDetailRightMenuViewController.m in Sources */,
 				4277FC871B99E05C002BE7FC /* GCLoginViewController.m in Sources */,

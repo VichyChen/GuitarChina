@@ -9,6 +9,7 @@
 #import "GCForumDisplayViewController.h"
 #import "GCThreadViewController.h"
 #import "GCForumDisplayCell.h"
+#import "GCNewThreadViewController.h"
 
 @interface GCForumDisplayViewController ()
 
@@ -40,6 +41,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self configureBlock];
+    
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(newThreadAction)];
+    self.navigationItem.rightBarButtonItem = barItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -105,5 +109,11 @@
         }];
     };
 }
+
+- (void)newThreadAction {
+    GCNewThreadViewController *controller = [[GCNewThreadViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 
 @end

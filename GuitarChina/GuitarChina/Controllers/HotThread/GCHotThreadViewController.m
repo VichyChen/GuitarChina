@@ -93,8 +93,8 @@
     GCHotThreadModel *model = [self.data objectAtIndex:indexPath.row];
     controller.hotThreadModel = model;
     controller.tid = model.tid;
-    RESideMenu *sideMenuViewController = [UIView createRightRESideMenu:controller];
-    [self.navigationController pushViewController:sideMenuViewController animated:YES];
+//    RESideMenu *sideMenuViewController = [UIView createRightRESideMenu:controller];
+    [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
