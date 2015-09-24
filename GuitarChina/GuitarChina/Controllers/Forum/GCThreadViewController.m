@@ -10,12 +10,16 @@
 #import "RESideMenu.h"
 #import "GCThreadReplyCell.h"
 #import "GCThreadHeaderView.h"
+#import "GCThreadDetailRightMenuViewController.h"
+#import "GCLeftMenuViewController.h"
 
 @interface GCThreadViewController ()
 
 @property (nonatomic, strong) GCThreadHeaderView *threadHeaderView;
 
 @property (nonatomic, strong) NSMutableArray *data;
+
+@property (nonatomic, strong) RESideMenu *sideMenuViewController;
 
 @end
 
@@ -56,6 +60,22 @@
     [leftButton addTarget:self action:@selector(presentRightMenuViewController:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.rightBarButtonItem = barItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.sideMenuViewController = ApplicationDelegate.sideMenuViewController;
+    self.sideMenuViewController.rightMenuViewController = [[GCThreadDetailRightMenuViewController alloc] init];
+    self.sideMenuViewController.leftMenuViewController = nil;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+
+    RESideMenu *sideMenuViewController = ApplicationDelegate.sideMenuViewController;
+    sideMenuViewController.rightMenuViewController = nil;
+    self.sideMenuViewController.leftMenuViewController = ApplicationDelegate.leftMenuViewController;
 }
 
 - (void)didReceiveMemoryWarning {

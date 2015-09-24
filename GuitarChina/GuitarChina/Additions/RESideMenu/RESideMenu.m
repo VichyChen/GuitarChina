@@ -467,16 +467,28 @@
         layer.shadowRadius = self.contentViewShadowRadius;
         
         if (self.contentViewBorderEnabled) {
-            CALayer *border = [CALayer layer];
-            border.backgroundColor = self.contentViewBorderColor;
-            if (self.contentViewBorderPosition == ContentViewBorderPositionLeft) {
-                border.frame = CGRectMake(0, 0, self.contentViewBorderWidth, self.contentViewContainer.frame.size.height);
-            } else if (self.contentViewBorderPosition == ContentViewBorderPositionRight) {
-                border.frame = CGRectMake(self.contentViewContainer.frame.size.width - 1, 0, self.contentViewBorderWidth, self.contentViewContainer.frame.size.height);
+            if (self.contentViewBorderPosition == ContentViewBorderPositionLeftAndRight) {
+                CALayer *leftBorder = [CALayer layer];
+                leftBorder.backgroundColor = self.contentViewBorderColor;
+                leftBorder.frame = CGRectMake(-1, 0, self.contentViewBorderWidth, self.contentViewContainer.frame.size.height);
+                [self.contentViewContainer.layer addSublayer:leftBorder];
+                
+                CALayer *rightBorder = [CALayer layer];
+                rightBorder.backgroundColor = self.contentViewBorderColor;
+                rightBorder.frame = CGRectMake(self.contentViewContainer.frame.size.width, 0, self.contentViewBorderWidth, self.contentViewContainer.frame.size.height);
+                [self.contentViewContainer.layer addSublayer:rightBorder];
             } else {
-                border.frame = CGRectZero;
+                CALayer *border = [CALayer layer];
+                border.backgroundColor = self.contentViewBorderColor;
+                if (self.contentViewBorderPosition == ContentViewBorderPositionLeft) {
+                    border.frame = CGRectMake(-1, 0, self.contentViewBorderWidth, self.contentViewContainer.frame.size.height);
+                } else if (self.contentViewBorderPosition == ContentViewBorderPositionRight) {
+                    border.frame = CGRectMake(self.contentViewContainer.frame.size.width, 0, self.contentViewBorderWidth, self.contentViewContainer.frame.size.height);
+                } else {
+                    border.frame = CGRectZero;
+                }
+                [self.contentViewContainer.layer addSublayer:border];
             }
-            [self.contentViewContainer.layer addSublayer:border];
         }
     }
 }
@@ -755,12 +767,15 @@
 
 - (void)setLeftMenuViewController:(UIViewController *)leftMenuViewController
 {
-    if (!_leftMenuViewController) {
-        _leftMenuViewController = leftMenuViewController;
-        return;
-    }
+    //    if (!_leftMenuViewController) {
+    //        _leftMenuViewController = leftMenuViewController;
+    //        return;
+    //    }
     [self hideViewController:_leftMenuViewController];
     _leftMenuViewController = leftMenuViewController;
+    if (!leftMenuViewController) {
+        return;
+    }
     
     [self addChildViewController:self.leftMenuViewController];
     self.leftMenuViewController.view.frame = self.view.bounds;
@@ -780,6 +795,9 @@
     }
     [self hideViewController:_rightMenuViewController];
     _rightMenuViewController = rightMenuViewController;
+    if (!rightMenuViewController) {
+        return;
+    }
     
     [self addChildViewController:self.rightMenuViewController];
     self.rightMenuViewController.view.frame = self.view.bounds;

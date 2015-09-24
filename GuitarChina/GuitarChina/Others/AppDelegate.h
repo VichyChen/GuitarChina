@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "RESideMenu.h"
+#import "GCLeftMenuViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, RESideMenuDelegate>
 
@@ -18,6 +19,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (strong, nonatomic) RESideMenu *sideMenuViewController;
+@property (strong, nonatomic) GCLeftMenuViewController *leftMenuViewController;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

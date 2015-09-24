@@ -34,6 +34,7 @@ typedef NS_ENUM(NSInteger, ContentViewBorderPosition) {
     ContentViewBorderPositionLeft,
     ContentViewBorderPositionRight,
     ContentViewBorderPositionNone,
+    ContentViewBorderPositionLeftAndRight,
 };
 
 @protocol RESideMenuDelegate;

@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "GCNavigationController.h"
 #import "GCHotThreadViewController.h"
-#import "GCLeftMenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -36,27 +35,27 @@
     
     GCHotThreadViewController *hotThreadViewController = [[GCHotThreadViewController alloc] init];
     GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:hotThreadViewController];
-    GCLeftMenuViewController *leftMenuViewController = [[GCLeftMenuViewController alloc] init];
-    [leftMenuViewController configureFirstViewController:hotThreadViewController];
-    RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController
-                                                                    leftMenuViewController:leftMenuViewController
+    self.leftMenuViewController = [[GCLeftMenuViewController alloc] init];
+    [self.leftMenuViewController configureFirstViewController:hotThreadViewController];
+    self.sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController
+                                                                    leftMenuViewController:self.leftMenuViewController
                                                                    rightMenuViewController:nil];
-    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
-    sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
-    sideMenuViewController.delegate = self;
-    sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
-    sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
-    sideMenuViewController.contentViewShadowOpacity = 0;
-    sideMenuViewController.contentViewShadowRadius = 5;
-    sideMenuViewController.contentViewShadowEnabled = YES;
-    sideMenuViewController.contentViewScaleValue = 1;
-    sideMenuViewController.contentViewBorderEnabled = YES;
-    sideMenuViewController.contentViewBorderPosition = ContentViewBorderPositionLeft;
-    sideMenuViewController.contentViewBorderWidth = 0.5;
-    sideMenuViewController.contentViewBorderColor = [UIColor lightGrayColor].CGColor;
-    sideMenuViewController.scaleMenuView = NO;
-    sideMenuViewController.fadeMenuView = NO;
-    self.window.rootViewController = sideMenuViewController;
+    self.sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
+    self.sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+    self.sideMenuViewController.delegate = self;
+    self.sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
+    self.sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
+    self.sideMenuViewController.contentViewShadowOpacity = 0;
+    self.sideMenuViewController.contentViewShadowRadius = 5;
+    self.sideMenuViewController.contentViewShadowEnabled = YES;
+    self.sideMenuViewController.contentViewScaleValue = 1;
+    self.sideMenuViewController.contentViewBorderEnabled = YES;
+    self.sideMenuViewController.contentViewBorderPosition = ContentViewBorderPositionLeftAndRight;
+    self.sideMenuViewController.contentViewBorderWidth = 0.5;
+    self.sideMenuViewController.contentViewBorderColor = [UIColor lightGrayColor].CGColor;
+    self.sideMenuViewController.scaleMenuView = NO;
+    self.sideMenuViewController.fadeMenuView = NO;
+    self.window.rootViewController = self.sideMenuViewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
