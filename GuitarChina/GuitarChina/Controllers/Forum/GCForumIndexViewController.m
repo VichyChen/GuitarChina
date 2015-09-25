@@ -38,8 +38,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //    self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.view.backgroundColor = [UIColor whiteColor];
     
     self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
                                                                   normalColor:[UIColor FontColor]
@@ -114,7 +112,6 @@
         [[GCNetworkManager manager] getForumIndexSuccess:^(GCForumIndexArray *array) {
             self.data = array.data;
             [self.rowHeightArray removeAllObjects];
-            
             
             [self.tableView reloadData];
             [self endRefresh];

@@ -12,10 +12,7 @@
 #import "GCHotThreadCell.h"
 #import "UIView+CreateRESideMenu.h"
 
-@interface GCHotThreadViewController() {
-    NSInteger lastY;
-    NSInteger lastC;
-}
+@interface GCHotThreadViewController()
 
 @property (nonatomic, strong) NSMutableArray *data;
 
@@ -91,7 +88,6 @@
     GCHotThreadModel *model = [self.data objectAtIndex:indexPath.row];
     controller.hotThreadModel = model;
     controller.tid = model.tid;
-    //    RESideMenu *sideMenuViewController = [UIView createRightRESideMenu:controller];
     [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

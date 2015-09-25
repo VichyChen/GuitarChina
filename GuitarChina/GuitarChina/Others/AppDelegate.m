@@ -41,7 +41,7 @@
                                                                     leftMenuViewController:self.leftMenuViewController
                                                                    rightMenuViewController:nil];
     self.sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
-    self.sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+    self.sideMenuViewController.menuPreferredStatusBarStyle = 1;
     self.sideMenuViewController.delegate = self;
     self.sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
     self.sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
