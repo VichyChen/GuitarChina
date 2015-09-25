@@ -36,6 +36,7 @@
     GCHotThreadViewController *hotThreadViewController = [[GCHotThreadViewController alloc] init];
     GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:hotThreadViewController];
     self.leftMenuViewController = [[GCLeftMenuViewController alloc] init];
+    self.rightMenuViewController = [[GCThreadDetailRightMenuViewController alloc] init];
     [self.leftMenuViewController configureFirstViewController:hotThreadViewController];
     self.sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController
                                                                     leftMenuViewController:self.leftMenuViewController

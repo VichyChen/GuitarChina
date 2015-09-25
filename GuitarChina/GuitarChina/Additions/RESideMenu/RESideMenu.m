@@ -566,11 +566,12 @@
     
     if (self.panFromEdge && [gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && !self.visible) {
         CGPoint point = [touch locationInView:gestureRecognizer.view];
-        if (point.x < 20.0 || point.x > self.view.frame.size.width - 20.0) {
-            return YES;
-        } else {
-            return NO;
-        }
+//        if (point.x < 20.0 || point.x > self.view.frame.size.width - 20.0) {
+//            return YES;
+//        } else {
+//            return NO;
+//        }
+        return YES;
     }
     
     return YES;
@@ -789,10 +790,10 @@
 
 - (void)setRightMenuViewController:(UIViewController *)rightMenuViewController
 {
-    if (!_rightMenuViewController) {
-        _rightMenuViewController = rightMenuViewController;
-        return;
-    }
+//    if (!_rightMenuViewController) {
+//        _rightMenuViewController = rightMenuViewController;
+//        return;
+//    }
     [self hideViewController:_rightMenuViewController];
     _rightMenuViewController = rightMenuViewController;
     if (!rightMenuViewController) {

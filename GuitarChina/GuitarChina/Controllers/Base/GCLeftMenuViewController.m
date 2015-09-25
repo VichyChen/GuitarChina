@@ -26,6 +26,9 @@
 
 @property (nonatomic, assign) NSInteger selectedIndex;
 
+@property (nonatomic, copy) NSArray *titleArray;
+@property (nonatomic, copy) NSArray *imageArray;
+
 @end
 
 @implementation GCLeftMenuViewController
@@ -37,6 +40,13 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _selectedIndex = 0;
+        
+        _titleArray = @[NSLocalizedString(@"Hot Thread", nil),
+                        NSLocalizedString(@"Forum", nil),
+                        NSLocalizedString(@"Mine", nil),
+                        NSLocalizedString(@"Setting", nil),
+                        NSLocalizedString(@"More", nil)];
+        _imageArray = @[@"", @"", @"", @"", @""];
     }
     return self;
 }
@@ -63,12 +73,8 @@
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex {
-    return 5;
+    return self.titleArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -83,13 +89,8 @@
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
     
-    NSArray *titles = @[NSLocalizedString(@"Hot Thread", nil),
-                        NSLocalizedString(@"Forum", nil),
-                        NSLocalizedString(@"Mine", nil),
-                        NSLocalizedString(@"Setting", nil),
-                        NSLocalizedString(@"More", nil)];
     //    NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
-    cell.textLabel.text = titles[indexPath.row];
+    cell.textLabel.text = self.titleArray[indexPath.row];
     //    cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
     
     return cell;

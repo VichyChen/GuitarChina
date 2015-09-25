@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "RESideMenu.h"
 #import "GCLeftMenuViewController.h"
+#import "GCThreadDetailRightMenuViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, RESideMenuDelegate>
 
@@ -21,6 +22,9 @@
 
 @property (strong, nonatomic) RESideMenu *sideMenuViewController;
 @property (strong, nonatomic) GCLeftMenuViewController *leftMenuViewController;
+@property (strong, nonatomic) GCThreadDetailRightMenuViewController *rightMenuViewController;
+
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

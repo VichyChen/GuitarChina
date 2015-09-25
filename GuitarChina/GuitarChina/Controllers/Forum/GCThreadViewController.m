@@ -66,7 +66,7 @@
     [super viewWillAppear:animated];
     
     self.sideMenuViewController = ApplicationDelegate.sideMenuViewController;
-    self.sideMenuViewController.rightMenuViewController = [[GCThreadDetailRightMenuViewController alloc] init];
+    self.sideMenuViewController.rightMenuViewController = ApplicationDelegate.rightMenuViewController;
     self.sideMenuViewController.leftMenuViewController = nil;
 }
 
