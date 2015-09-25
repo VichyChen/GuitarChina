@@ -75,7 +75,7 @@
 		046262151BA80F7700E66F03 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		046262161BA80F7700E66F03 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		046262171BA80F7700E66F03 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		046262261BA90C4700E66F03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		046262261BA90C4700E66F03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = "<group>"; };
 		0462622A1BA94D9300E66F03 /* GCForumDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayCell.h; sourceTree = "<group>"; };
 		0462622B1BA94D9300E66F03 /* GCForumDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayCell.m; sourceTree = "<group>"; };
 		0462622C1BA94D9300E66F03 /* GCForumIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexCell.h; sourceTree = "<group>"; };
@@ -410,6 +410,8 @@
 				42F468991B87797C0010DA70 /* Models */,
 				046262281BA94D2B00E66F03 /* Views */,
 				420D98721B929AA700AEAED3 /* Controllers */,
+				425FB2E91B84C23B00B6A89B /* GuitarChina.xcdatamodeld */,
+				046262261BA90C4700E66F03 /* Images.xcassets */,
 				046262141BA80EFA00E66F03 /* Others */,
 				425FB2E21B84C23B00B6A89B /* Supporting Files */,
 			);
@@ -446,7 +448,6 @@
 		42657DC11B999B6B001F8DFC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				046262261BA90C4700E66F03 /* Images.xcassets */,
 				42657DC21B999EA0001F8DFC /* UIColor+Custom.h */,
 				42657DC31B999EA0001F8DFC /* UIColor+Custom.m */,
 			);
@@ -475,7 +476,6 @@
 		42F468991B87797C0010DA70 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				425FB2E91B84C23B00B6A89B /* GuitarChina.xcdatamodeld */,
 				428F71181B89ACB90023E501 /* GCBaseModel.h */,
 				428F71191B89ACB90023E501 /* GCBaseModel.m */,
 				428F711B1B89AD670023E501 /* GCBaseNoticeModel.h */,
@@ -919,8 +919,7 @@
 				425FB2EA1B84C23B00B6A89B /* GuitarChina.xcdatamodel */,
 			);
 			currentVersion = 425FB2EA1B84C23B00B6A89B /* GuitarChina.xcdatamodel */;
-			name = GuitarChina.xcdatamodeld;
-			path = ../GuitarChina.xcdatamodeld;
+			path = GuitarChina.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
