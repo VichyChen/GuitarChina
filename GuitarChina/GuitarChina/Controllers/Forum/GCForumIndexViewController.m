@@ -38,18 +38,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
+    //    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftButton.frame = CGRectMake(0, 0, 25, 25);
-    [leftButton setAdjustsImageWhenHighlighted:YES];
-    UIImage *image = [UIImage imageNamed:@"icon_hamberger"];
-    [leftButton setImage:[image imageWithTintColor:[UIColor FontColor]] forState:UIControlStateNormal];
-    [leftButton setImage:[image imageWithTintColor:[UIColor LightFontColor]] forState:UIControlStateHighlighted];
-    [leftButton addTarget:self action:@selector(presentLeftMenuViewController:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-    self.navigationItem.leftBarButtonItem = barItem;
+    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
+                                                                  normalColor:[UIColor FontColor]
+                                                             highlightedColor:[UIColor redColor]
+                                                                       target:self
+                                                                       action:@selector(presentLeftMenuViewController:)];
     
     [self configureBlock];
 }
@@ -94,8 +90,8 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSNumber *height = [self.dataHeightArray objectAtIndex:indexPath.row];
-//    return [height floatValue];
+    //    NSNumber *height = [self.dataHeightArray objectAtIndex:indexPath.row];
+    //    return [height floatValue];
     return 60;
 }
 

@@ -227,4 +227,24 @@
     return view;
 }
 
+#pragma mark - BarButtonItem
+
++ (UIBarButtonItem *)createCustomBarButtonItem:(NSString *)image
+                                   normalColor:(UIColor *)normalColor
+                              highlightedColor:(UIColor *)highlightedColor
+                                        target:(id)target
+                                        action:(SEL)action {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, 25, 25);
+    button.adjustsImageWhenHighlighted = YES;
+    [button setImage:[[UIImage imageNamed:image] imageWithTintColor:normalColor]
+            forState:UIControlStateNormal];
+    [button setImage:[[UIImage imageNamed:image] imageWithTintColor:highlightedColor]
+            forState:UIControlStateHighlighted];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    return barButtonItem;
+}
+
 @end

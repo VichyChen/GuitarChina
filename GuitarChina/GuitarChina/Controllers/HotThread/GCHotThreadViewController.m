@@ -45,15 +45,11 @@
     self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftButton.frame = CGRectMake(0, 0, 25, 25);
-    [leftButton setAdjustsImageWhenHighlighted:YES];
-    UIImage *image = [UIImage imageNamed:@"icon_hamberger"];
-    [leftButton setImage:[image imageWithTintColor:[UIColor FontColor]] forState:UIControlStateNormal];
-    [leftButton setImage:[image imageWithTintColor:[UIColor LightFontColor]] forState:UIControlStateHighlighted];
-    [leftButton addTarget:self action:@selector(presentLeftMenuViewController:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-    self.navigationItem.leftBarButtonItem = barItem;
+    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
+                                                                  normalColor:[UIColor FontColor]
+                                                             highlightedColor:[UIColor redColor]
+                                                                       target:self
+                                                                       action:@selector(presentLeftMenuViewController:)];
     
     [self configureBlock];
 }
@@ -95,7 +91,7 @@
     GCHotThreadModel *model = [self.data objectAtIndex:indexPath.row];
     controller.hotThreadModel = model;
     controller.tid = model.tid;
-//    RESideMenu *sideMenuViewController = [UIView createRightRESideMenu:controller];
+    //    RESideMenu *sideMenuViewController = [UIView createRightRESideMenu:controller];
     [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

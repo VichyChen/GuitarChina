@@ -111,4 +111,12 @@
                        originY:(CGFloat)originY
                          color:(UIColor *)color;
 
+//BarButtonItem
+
++ (UIBarButtonItem *)createCustomBarButtonItem:(NSString *)image
+                                   normalColor:(UIColor *)normalColor
+                              highlightedColor:(UIColor *)highlightedColor
+                                        target:(id)target
+                                        action:(SEL)action;
+
 @end
