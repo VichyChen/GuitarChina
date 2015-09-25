@@ -20,6 +20,8 @@
 		046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623F1BAAC06800E66F03 /* UIImage+Tint.m */; };
 		046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */; };
 		046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */; };
+		04935B031BB52D5C0010F7C8 /* GCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B021BB52D5C0010F7C8 /* GCMineViewController.m */; };
+		04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B051BB52F460010F7C8 /* GCMoreViewController.m */; };
 		04DCD6D51BB1603D00AE3FC1 /* UIView+CreateRESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DCD6D41BB1603D00AE3FC1 /* UIView+CreateRESideMenu.m */; };
 		04DCD6DB1BB161D000AE3FC1 /* GCThreadDetailRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DCD6DA1BB161D000AE3FC1 /* GCThreadDetailRightMenuViewController.m */; };
 		420D98661B92982C00AEAED3 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98611B92982C00AEAED3 /* RECommonFunctions.m */; };
@@ -92,10 +94,14 @@
 		046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutHelper.m"; sourceTree = "<group>"; };
 		046262421BAAC06800E66F03 /* UIView+UICreateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UICreateFactory.h"; sourceTree = "<group>"; };
 		046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UICreateFactory.m"; sourceTree = "<group>"; };
+		04935B011BB52D5C0010F7C8 /* GCMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMineViewController.h; sourceTree = "<group>"; };
+		04935B021BB52D5C0010F7C8 /* GCMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMineViewController.m; sourceTree = "<group>"; };
+		04935B041BB52F460010F7C8 /* GCMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreViewController.h; sourceTree = "<group>"; };
+		04935B051BB52F460010F7C8 /* GCMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreViewController.m; sourceTree = "<group>"; };
 		04DCD6D31BB1603D00AE3FC1 /* UIView+CreateRESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CreateRESideMenu.h"; sourceTree = "<group>"; };
 		04DCD6D41BB1603D00AE3FC1 /* UIView+CreateRESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CreateRESideMenu.m"; sourceTree = "<group>"; };
-		04DCD6D91BB161D000AE3FC1 /* GCThreadDetailRightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailRightMenuViewController.h; sourceTree = "<group>"; };
-		04DCD6DA1BB161D000AE3FC1 /* GCThreadDetailRightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailRightMenuViewController.m; sourceTree = "<group>"; };
+		04DCD6D91BB161D000AE3FC1 /* GCThreadDetailRightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCThreadDetailRightMenuViewController.h; path = ../GCThreadDetailRightMenuViewController.h; sourceTree = "<group>"; };
+		04DCD6DA1BB161D000AE3FC1 /* GCThreadDetailRightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCThreadDetailRightMenuViewController.m; path = ../GCThreadDetailRightMenuViewController.m; sourceTree = "<group>"; };
 		2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2F829F5DD46C688C9B2385EC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		420D98601B92982C00AEAED3 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
@@ -140,10 +146,10 @@
 		426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailModel.m; sourceTree = "<group>"; };
 		4277FC851B99E05C002BE7FC /* GCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLoginViewController.h; sourceTree = "<group>"; };
 		4277FC861B99E05C002BE7FC /* GCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLoginViewController.m; sourceTree = "<group>"; };
-		4277FC881B99E174002BE7FC /* GCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSettingViewController.h; sourceTree = "<group>"; };
-		4277FC891B99E174002BE7FC /* GCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSettingViewController.m; sourceTree = "<group>"; };
-		4277FC8B1B99E43F002BE7FC /* GCAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAboutViewController.h; sourceTree = "<group>"; };
-		4277FC8C1B99E43F002BE7FC /* GCAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAboutViewController.m; sourceTree = "<group>"; };
+		4277FC881B99E174002BE7FC /* GCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCSettingViewController.h; path = ../GCSettingViewController.h; sourceTree = "<group>"; };
+		4277FC891B99E174002BE7FC /* GCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCSettingViewController.m; path = ../GCSettingViewController.m; sourceTree = "<group>"; };
+		4277FC8B1B99E43F002BE7FC /* GCAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCAboutViewController.h; path = ../GCAboutViewController.h; sourceTree = "<group>"; };
+		4277FC8C1B99E43F002BE7FC /* GCAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCAboutViewController.m; path = ../GCAboutViewController.m; sourceTree = "<group>"; };
 		428260591B84C533007CBCF4 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		428260631B84CDCF007CBCF4 /* GCNetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkAPI.h; sourceTree = "<group>"; };
 		428260661B84CE03007CBCF4 /* GCNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkManager.h; sourceTree = "<group>"; };
@@ -247,6 +253,35 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		04935AFD1BB52C0B0010F7C8 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				4277FC881B99E174002BE7FC /* GCSettingViewController.h */,
+				4277FC891B99E174002BE7FC /* GCSettingViewController.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		04935AFF1BB52D0A0010F7C8 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				04935B011BB52D5C0010F7C8 /* GCMineViewController.h */,
+				04935B021BB52D5C0010F7C8 /* GCMineViewController.m */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		04935B001BB52D270010F7C8 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				04935B041BB52F460010F7C8 /* GCMoreViewController.h */,
+				04935B051BB52F460010F7C8 /* GCMoreViewController.m */,
+				4277FC8B1B99E43F002BE7FC /* GCAboutViewController.h */,
+				4277FC8C1B99E43F002BE7FC /* GCAboutViewController.m */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
 		0F41C248D61EFD30EA073F7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,16 +319,13 @@
 				420D98761B929C2B00AEAED3 /* Base */,
 				42657DC91B99B513001F8DFC /* HotThread */,
 				420D98871B929D2000AEAED3 /* Forum */,
+				04935AFF1BB52D0A0010F7C8 /* Mine */,
+				04935AFD1BB52C0B0010F7C8 /* Setting */,
+				04935B001BB52D270010F7C8 /* More */,
 				420D987B1B929C2B00AEAED3 /* GCLeftMenuViewController.h */,
 				420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */,
 				4277FC851B99E05C002BE7FC /* GCLoginViewController.h */,
 				4277FC861B99E05C002BE7FC /* GCLoginViewController.m */,
-				4277FC881B99E174002BE7FC /* GCSettingViewController.h */,
-				4277FC891B99E174002BE7FC /* GCSettingViewController.m */,
-				4277FC8B1B99E43F002BE7FC /* GCAboutViewController.h */,
-				4277FC8C1B99E43F002BE7FC /* GCAboutViewController.m */,
-				04DCD6D91BB161D000AE3FC1 /* GCThreadDetailRightMenuViewController.h */,
-				04DCD6DA1BB161D000AE3FC1 /* GCThreadDetailRightMenuViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -322,6 +354,8 @@
 				042D23981BB29BC3001DE667 /* GCNewThreadViewController.m */,
 				42657DBE1B99961A001F8DFC /* GCThreadViewController.h */,
 				42657DBF1B99961A001F8DFC /* GCThreadViewController.m */,
+				04DCD6D91BB161D000AE3FC1 /* GCThreadDetailRightMenuViewController.h */,
+				04DCD6DA1BB161D000AE3FC1 /* GCThreadDetailRightMenuViewController.m */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -635,6 +669,7 @@
 				046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */,
 				428F711A1B89ACB90023E501 /* GCBaseModel.m in Sources */,
 				046262441BAAC06800E66F03 /* NSString+Tools.m in Sources */,
+				04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */,
 				42657DC01B99961A001F8DFC /* GCThreadViewController.m in Sources */,
 				42657DBA1B9983AF001F8DFC /* GCForumDisplayViewController.m in Sources */,
 				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
@@ -644,6 +679,7 @@
 				4277FC8A1B99E174002BE7FC /* GCSettingViewController.m in Sources */,
 				428F71201B89B21E0023E501 /* GCMyFavThreadArray.m in Sources */,
 				042D23991BB29BC3001DE667 /* GCNewThreadViewController.m in Sources */,
+				04935B031BB52D5C0010F7C8 /* GCMineViewController.m in Sources */,
 				046262341BA94D9300E66F03 /* GCHotThreadCell.m in Sources */,
 				04DCD6DB1BB161D000AE3FC1 /* GCThreadDetailRightMenuViewController.m in Sources */,
 				4277FC871B99E05C002BE7FC /* GCLoginViewController.m in Sources */,

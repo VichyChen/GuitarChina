@@ -10,6 +10,9 @@
 #import "GCNavigationController.h"
 #import "GCHotThreadViewController.h"
 #import "GCForumIndexViewController.h"
+#import "GCMineViewController.h"
+#import "GCSettingViewController.h"
+#import "GCMoreViewController.h"
 
 @interface GCLeftMenuViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -17,12 +20,17 @@
 
 @property (nonatomic, strong) GCHotThreadViewController *hotThreadViewController;
 @property (nonatomic, strong) GCForumIndexViewController *forumIndexViewController;
+@property (nonatomic, strong) GCMineViewController *mineViewController;
+@property (nonatomic, strong) GCSettingViewController *settingViewController;
+@property (nonatomic, strong) GCMoreViewController *moreViewController;
 
 @property (nonatomic, assign) NSInteger selectedIndex;
 
 @end
 
 @implementation GCLeftMenuViewController
+
+#pragma mark - life cycle
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,18 +48,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];
-        tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
-        tableView.delegate = self;
-        tableView.dataSource = self;
-        tableView.opaque = NO;
-        tableView.backgroundColor = [UIColor whiteColor];
-        tableView.backgroundView = nil;
-        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        tableView.bounces = NO;
-        tableView;
-    });
     [self.view addSubview:self.tableView];
 }
 
@@ -59,14 +55,49 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - Public Methods
+
 - (void)configureFirstViewController:(UIViewController *)controller {
     self.hotThreadViewController = (GCHotThreadViewController *)controller;
 }
 
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex {
+    return 5;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
+        cell.textLabel.textColor = [UIColor blackColor];
+        cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
+        cell.selectedBackgroundView = [[UIView alloc] init];
+    }
+    
+    NSArray *titles = @[NSLocalizedString(@"Hot Thread", nil),
+                        NSLocalizedString(@"Forum", nil),
+                        NSLocalizedString(@"Mine", nil),
+                        NSLocalizedString(@"Setting", nil),
+                        NSLocalizedString(@"More", nil)];
+    //    NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
+    cell.textLabel.text = titles[indexPath.row];
+    //    cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
+    
+    return cell;
+}
+
 #pragma mark - UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.selectedIndex == indexPath.row) {
         [self.sideMenuViewController hideMenuViewController];
@@ -78,56 +109,50 @@
             [self.sideMenuViewController setContentViewController:[[GCNavigationController alloc] initWithRootViewController:self.hotThreadViewController] animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
+            
         case 1:
             [self.sideMenuViewController setContentViewController:[[GCNavigationController alloc] initWithRootViewController:self.forumIndexViewController] animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
+            
+        case 2:
+            [self.sideMenuViewController setContentViewController:[[GCNavigationController alloc] initWithRootViewController:self.mineViewController] animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+            break;
+            
+        case 3:
+            [self.sideMenuViewController setContentViewController:[[GCNavigationController alloc] initWithRootViewController:self.settingViewController] animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+            break;
+            
+        case 4:
+            [self.sideMenuViewController setContentViewController:[[GCNavigationController alloc] initWithRootViewController:self.moreViewController] animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+            break;
+            
         default:
             break;
     }
 }
 
-#pragma mark -- UITableViewDataSource
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 54;
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
-{
-    return 5;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *cellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-        cell.textLabel.textColor = [UIColor blackColor];
-        cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
-        cell.selectedBackgroundView = [[UIView alloc] init];
-    }
-    
-    NSArray *titles = @[@"热帖", @"论坛", @"我的主题", @"我的收藏", @"关于"];
-    //    NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
-    cell.textLabel.text = titles[indexPath.row];
-    //    cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
-    
-    return cell;
-}
-
 #pragma mark - Getters
+
+- (UITableView *)tableView {
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width, 54 * 5)];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.opaque = NO;
+        _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.backgroundView = nil;
+        _tableView.bounces = NO;
+    }
+    return _tableView;
+}
 
 - (GCHotThreadViewController *)hotThreadViewController {
     if (_hotThreadViewController == nil) {
@@ -143,5 +168,25 @@
     return _forumIndexViewController;
 }
 
+- (GCMineViewController *)mineViewController {
+    if (_mineViewController == nil) {
+        _mineViewController = [[GCMineViewController alloc] init];
+    }
+    return _mineViewController;
+}
+
+- (GCSettingViewController *)settingViewController {
+    if (_settingViewController == nil) {
+        _settingViewController = [[GCSettingViewController alloc] init];
+    }
+    return _settingViewController;
+}
+
+- (GCMoreViewController *)moreViewController {
+    if (_moreViewController == nil) {
+        _moreViewController = [[GCMoreViewController alloc] init];
+    }
+    return _moreViewController;
+}
 
 @end

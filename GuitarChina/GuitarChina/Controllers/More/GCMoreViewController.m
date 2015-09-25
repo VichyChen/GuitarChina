@@ -1,29 +1,28 @@
 //
-//  GCSettingViewController.m
+//  GCMoreViewController.m
 //  GuitarChina
 //
-//  Created by 陈大捷 on 15/9/4.
+//  Created by mac on 15/9/25.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCSettingViewController.h"
+#import "GCMoreViewController.h"
 
-@interface GCSettingViewController ()
+@interface GCMoreViewController ()
 
 @end
 
-@implementation GCSettingViewController
+@implementation GCMoreViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = NSLocalizedString(@"Setting", nil);
+    self.title = NSLocalizedString(@"More", nil);
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 @end
