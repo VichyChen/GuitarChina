@@ -15,17 +15,21 @@
 #import "AFNetworking.h"
 #import "UIImageView+WebCache.h"
 #import "EXTScope.h"
+#import "DKNightVersion.h"
 
 #import "GCNetworkManager.h"
 #import "UIColor+Custom.h"
 #import "UIView+UICreateFactory.h"
 #import "NSString+Tools.h"
 #import "UIImage+Tint.h"   
+#import "Util.h"
 
 #define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
 #define ScreenWidth ([UIScreen mainScreen].bounds.size.width)
 #import "AppDelegate.h"
 #define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
-
+#define DeviceiPhone UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
+#define LeftSideMenuOffsetCenterXIniPhone 40.0f //iphone左侧边栏X坐标
+#define LeftSideMenuOffsetCenterXIniPad -(ScreenWidth / 6)   //ipad左侧边栏X坐标
 
 #endif

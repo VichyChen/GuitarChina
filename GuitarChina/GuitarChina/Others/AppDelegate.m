@@ -10,6 +10,7 @@
 #import "GCNavigationController.h"
 #import "GCHotThreadViewController.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -31,35 +32,11 @@
     //
     //    }];
     
-    
-    
-    GCHotThreadViewController *hotThreadViewController = [[GCHotThreadViewController alloc] init];
-    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:hotThreadViewController];
-    self.leftMenuViewController = [[GCLeftMenuViewController alloc] init];
-    self.rightMenuViewController = [[GCThreadDetailRightMenuViewController alloc] init];
-    [self.leftMenuViewController configureFirstViewController:hotThreadViewController];
-    self.sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController
-                                                                    leftMenuViewController:self.leftMenuViewController
-                                                                   rightMenuViewController:nil];
-    self.sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
-    self.sideMenuViewController.menuPreferredStatusBarStyle = 1;
-    self.sideMenuViewController.delegate = self;
-    self.sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
-    self.sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
-    self.sideMenuViewController.contentViewShadowOpacity = 0;
-    self.sideMenuViewController.contentViewShadowRadius = 5;
-    self.sideMenuViewController.contentViewShadowEnabled = YES;
-    self.sideMenuViewController.contentViewScaleValue = 1;
-    self.sideMenuViewController.contentViewBorderEnabled = YES;
-    self.sideMenuViewController.contentViewBorderPosition = ContentViewBorderPositionLeftAndRight;
-    self.sideMenuViewController.contentViewBorderWidth = 0.5;
-    self.sideMenuViewController.contentViewBorderColor = [UIColor lightGrayColor].CGColor;
-    self.sideMenuViewController.scaleMenuView = NO;
-    self.sideMenuViewController.fadeMenuView = NO;
+    //配置左侧边栏
+    [self configureSideMenuViewController];
     self.window.rootViewController = self.sideMenuViewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
     return YES;
 }
 
@@ -186,6 +163,39 @@
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
+    }
+}
+
+#pragma mark - Private Methods
+
+- (void)configureSideMenuViewController {
+    GCHotThreadViewController *hotThreadViewController = [[GCHotThreadViewController alloc] init];
+    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:hotThreadViewController];
+    self.leftMenuViewController = [[GCLeftMenuViewController alloc] init];
+    self.rightMenuViewController = [[GCThreadDetailRightMenuViewController alloc] init];
+    [self.leftMenuViewController configureFirstViewController:hotThreadViewController];
+    self.sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController
+                                                             leftMenuViewController:self.leftMenuViewController
+                                                            rightMenuViewController:nil];
+    self.sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
+    self.sideMenuViewController.menuPreferredStatusBarStyle = 1;
+    self.sideMenuViewController.delegate = self;
+    self.sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
+    self.sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
+    self.sideMenuViewController.contentViewShadowOpacity = 0;
+    self.sideMenuViewController.contentViewShadowRadius = 5;
+    self.sideMenuViewController.contentViewShadowEnabled = YES;
+    self.sideMenuViewController.contentViewScaleValue = 1;
+    self.sideMenuViewController.contentViewBorderEnabled = YES;
+    self.sideMenuViewController.contentViewBorderPosition = ContentViewBorderPositionLeftAndRight;
+    self.sideMenuViewController.contentViewBorderWidth = 0.5;
+    self.sideMenuViewController.contentViewBorderColor = [UIColor lightGrayColor].CGColor;
+    self.sideMenuViewController.scaleMenuView = NO;
+    self.sideMenuViewController.fadeMenuView = NO;
+    if (DeviceiPhone) {
+        self.sideMenuViewController.contentViewInPortraitOffsetCenterX = LeftSideMenuOffsetCenterXIniPhone;
+    } else {
+        self.sideMenuViewController.contentViewInPortraitOffsetCenterX = LeftSideMenuOffsetCenterXIniPad;
     }
 }
 

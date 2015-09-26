@@ -13,18 +13,24 @@
 #import "GCMineViewController.h"
 #import "GCSettingViewController.h"
 #import "GCMoreViewController.h"
+#import "GCLeftMenuCell.h"
 
-@interface GCLeftMenuViewController () <UITableViewDataSource, UITableViewDelegate>
+#define avatarImageViewSize 80
+
+@interface GCLeftMenuViewController () <UITableViewDataSource, UITableViewDelegate> {
+    NSInteger selectedIndex;
+}
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIView *headerView;
+@property (nonatomic, strong) UIImageView *avatarImageView;
+@property (nonatomic, strong) UIView *separatorLine;
 
 @property (nonatomic, strong) GCHotThreadViewController *hotThreadViewController;
 @property (nonatomic, strong) GCForumIndexViewController *forumIndexViewController;
 @property (nonatomic, strong) GCMineViewController *mineViewController;
 @property (nonatomic, strong) GCSettingViewController *settingViewController;
 @property (nonatomic, strong) GCMoreViewController *moreViewController;
-
-@property (nonatomic, assign) NSInteger selectedIndex;
 
 @property (nonatomic, copy) NSArray *titleArray;
 @property (nonatomic, copy) NSArray *imageArray;
@@ -39,14 +45,14 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        _selectedIndex = 0;
+        selectedIndex = 0;
         
         _titleArray = @[NSLocalizedString(@"Hot Thread", nil),
                         NSLocalizedString(@"Forum", nil),
                         NSLocalizedString(@"Mine", nil),
                         NSLocalizedString(@"Setting", nil),
                         NSLocalizedString(@"More", nil)];
-        _imageArray = @[@"", @"", @"", @"", @""];
+        _imageArray = @[@"icon_hotthread", @"icon_forum", @"icon_mine", @"icon_setting", @"icon_more"];
     }
     return self;
 }
@@ -78,20 +84,18 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    static NSString *cellIdentifier = @"GCLeftMenuCell";
+    GCLeftMenuCell *cell = (GCLeftMenuCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-        cell.textLabel.textColor = [UIColor blackColor];
-        cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
-        cell.selectedBackgroundView = [[UIView alloc] init];
+        cell = [[GCLeftMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
-    //    NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
-    cell.textLabel.text = self.titleArray[indexPath.row];
-    //    cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
+    if (DeviceiPhone) {
+        cell.leftImageViewOffsetX = (ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone) / 2 - avatarImageViewSize / 2;
+    } else {
+        cell.leftImageViewOffsetX = (ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad) / 2 - avatarImageViewSize / 2;
+    }
+    cell.titleLabel.text = self.titleArray[indexPath.row];
+    cell.leftImageView.image = [[UIImage imageNamed:self.imageArray[indexPath.row]] imageWithTintColor:[UIColor blackColor]];
     
     return cell;
 }
@@ -99,12 +103,11 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if (self.selectedIndex == indexPath.row) {
+    if (selectedIndex == indexPath.row) {
         [self.sideMenuViewController hideMenuViewController];
         return;
     }
-    self.selectedIndex = indexPath.row;
+    selectedIndex = indexPath.row;
     switch (indexPath.row) {
         case 0:
             [self.sideMenuViewController setContentViewController:[[GCNavigationController alloc] initWithRootViewController:self.hotThreadViewController] animated:YES];
@@ -137,22 +140,69 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 54;
+    return 50;
 }
 
 #pragma mark - Getters
 
 - (UITableView *)tableView {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width, 54 * 5)];
+        CGRect frame;
+        if (DeviceiPhone) {
+            frame = CGRectMake(0, 0, ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone, ScreenHeight);
+        } else {
+            frame = CGRectMake(0, 0, ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad, ScreenHeight);
+        }
+        _tableView = [[UITableView alloc] initWithFrame:frame];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.opaque = NO;
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.backgroundView = nil;
         _tableView.bounces = NO;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.tableHeaderView = self.headerView;
     }
     return _tableView;
+}
+
+- (UIView *)headerView {
+    if (_headerView == nil) {
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 140)];
+        
+        [_headerView addSubview:self.avatarImageView];
+        [_headerView addSubview:self.separatorLine];
+    }
+    return _headerView;
+}
+
+- (UIImageView *)avatarImageView {
+    if (_avatarImageView == nil) {
+        CGRect frame;
+        if (DeviceiPhone) {
+            frame = CGRectMake((ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone) / 2 - avatarImageViewSize / 2, self.headerView.frame.size.height / 2 - 30, avatarImageViewSize, avatarImageViewSize);
+        } else {
+            frame = CGRectMake((ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad) / 2 - avatarImageViewSize / 2, self.headerView.frame.size.height / 2 - 30, avatarImageViewSize, avatarImageViewSize);
+        }
+        _avatarImageView = [UIView createImageView:frame
+                                       contentMode:UIViewContentModeScaleToFill];
+        _avatarImageView.layer.cornerRadius = 5;
+        _avatarImageView.layer.masksToBounds = YES;
+        _avatarImageView.layer.borderWidth = 1;
+        _avatarImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    }
+    return _avatarImageView;
+}
+
+- (UIView *)separatorLine {
+    if (_separatorLine == nil) {
+        _separatorLine = [UIView createHorizontalLine:self.tableView.frame.size.width - 20
+                                              originX:10
+                                              originY:140
+                                                color:[UIColor lightGrayColor]];
+        _separatorLine.alpha = 0.6;
+    }
+    return _separatorLine;
 }
 
 - (GCHotThreadViewController *)hotThreadViewController {

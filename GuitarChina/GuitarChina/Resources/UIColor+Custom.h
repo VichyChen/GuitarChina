@@ -14,4 +14,7 @@
 
 + (UIColor *)LightFontColor;
 
++ (UIColor *)backgroundColor;
+
+
 @end
