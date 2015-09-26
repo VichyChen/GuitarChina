@@ -36,18 +36,17 @@
 
 - (void)loadView {
     [super loadView];
+    
+    [self.view addSubview:self.tableView];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.view addSubview:self.tableView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
 
 #pragma mark - UITableViewDataSource
 

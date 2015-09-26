@@ -33,17 +33,16 @@
 
 - (void)loadView {
     [super loadView];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(newThreadAction)];
+    self.navigationItem.rightBarButtonItem = barItem;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    
     [self configureBlock];
-    
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(newThreadAction)];
-    self.navigationItem.rightBarButtonItem = barItem;
 }
 
 - (void)didReceiveMemoryWarning {

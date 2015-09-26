@@ -41,16 +41,8 @@
     [super loadView];
     
     self.title = @"帖子详情";
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
     self.view.backgroundColor = [UIColor whiteColor];
-    
     [self configureView];
-    [self configureBlock];
-    
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame = CGRectMake(0, 0, 25, 25);
     [leftButton setAdjustsImageWhenHighlighted:YES];
@@ -60,6 +52,12 @@
     [leftButton addTarget:self action:@selector(presentRightMenuViewController:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.rightBarButtonItem = barItem;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self configureBlock];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

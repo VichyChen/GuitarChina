@@ -35,18 +35,17 @@
     [super loadView];
     
     self.title = NSLocalizedString(@"Hot Thread", nil);
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
     self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
-    
     self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
                                                                   normalColor:[UIColor FontColor]
                                                              highlightedColor:[UIColor redColor]
                                                                        target:self
                                                                        action:@selector(presentLeftMenuViewController:)];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     [self configureBlock];
 }

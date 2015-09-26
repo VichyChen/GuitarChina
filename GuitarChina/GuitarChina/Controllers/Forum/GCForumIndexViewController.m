@@ -34,16 +34,15 @@
     
     self.hiddenNavigationBarWhenScrollToBottom = NO;
     self.title = NSLocalizedString(@"Forum", nil);
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
     self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
                                                                   normalColor:[UIColor FontColor]
                                                              highlightedColor:[UIColor redColor]
                                                                        target:self
                                                                        action:@selector(presentLeftMenuViewController:)];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     [self configureBlock];
 }
