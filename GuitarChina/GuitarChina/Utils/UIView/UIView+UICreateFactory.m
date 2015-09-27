@@ -92,9 +92,10 @@
 }
 
 + (UIButton *)createButton:(CGRect)frame
-                buttonType:(UIButtonType)buttonType {
-    UIButton *button = [UIButton buttonWithType:buttonType];
+                      text:(NSString *)text {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
     button.frame = frame;
+    [button setTitle:text forState:UIControlStateNormal];
     
     return button;
 }
@@ -102,18 +103,33 @@
 + (UIButton *)createButton:(CGRect)frame
                     target:(id)target
                     action:(SEL)action {
-    return [UIView createButton:frame
-                     buttonType:UIButtonTypeSystem
-                         target:target
-                         action:action];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    button.frame = frame;
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    
+    return button;
+}
+
++ (UIButton *)createButton:(CGRect)frame
+                      text:(NSString *)text
+                    target:(id)target
+                    action:(SEL)action {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+    button.frame = frame;
+    [button setTitle:text forState:UIControlStateNormal];
+    [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
+    
+    return button;
 }
 
 + (UIButton *)createButton:(CGRect)frame
                 buttonType:(UIButtonType)buttonType
+                      text:(NSString *)text
                     target:(id)target
                     action:(SEL)action {
     UIButton *button = [UIButton buttonWithType:buttonType];
     button.frame = frame;
+    [button setTitle:text forState:UIControlStateNormal];
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     
     return button;

@@ -46,14 +46,20 @@
 + (UIButton *)createButton:(CGRect)frame;
 
 + (UIButton *)createButton:(CGRect)frame
-                buttonType:(UIButtonType)buttonType;
+                      text:(NSString *)text;
 
 + (UIButton *)createButton:(CGRect)frame
                     target:(id)target
                     action:(SEL)action;
 
 + (UIButton *)createButton:(CGRect)frame
+                      text:(NSString *)text
+                    target:(id)target
+                    action:(SEL)action;
+
++ (UIButton *)createButton:(CGRect)frame
                 buttonType:(UIButtonType)buttonType
+                      text:(NSString *)text
                     target:(id)target
                     action:(SEL)action;
 

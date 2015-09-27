@@ -15,7 +15,9 @@
 #import "GCMoreViewController.h"
 #import "GCLeftMenuCell.h"
 
-#define avatarImageViewSize 80
+#define AvatarImageViewSize 80
+#define HeaderViewHeightWhenLogin 160
+#define HeaderViewHeightWhenNotLogin 170
 
 @interface GCLeftMenuViewController () <UITableViewDataSource, UITableViewDelegate> {
     NSInteger selectedIndex;
@@ -25,6 +27,7 @@
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UIImageView *avatarImageView;
 @property (nonatomic, strong) UIView *separatorLine;
+@property (nonatomic, strong) UIButton *loginButton;
 
 @property (nonatomic, strong) GCHotThreadViewController *hotThreadViewController;
 @property (nonatomic, strong) GCForumIndexViewController *forumIndexViewController;
@@ -64,7 +67,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    [self.view addSubview:self.headerView];
     [self.view addSubview:self.tableView];
+    [self updateFrame];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -90,9 +96,9 @@
         cell = [[GCLeftMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     if (DeviceiPhone) {
-        cell.leftImageViewOffsetX = (ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone) / 2 - avatarImageViewSize / 2;
+        cell.leftImageViewOffsetX = (ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone) / 2 - AvatarImageViewSize / 2;
     } else {
-        cell.leftImageViewOffsetX = (ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad) / 2 - avatarImageViewSize / 2;
+        cell.leftImageViewOffsetX = (ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad) / 2 - AvatarImageViewSize / 2;
     }
     cell.titleLabel.text = self.titleArray[indexPath.row];
     cell.leftImageView.image = [[UIImage imageNamed:self.imageArray[indexPath.row]] imageWithTintColor:[UIColor blackColor]];
@@ -143,17 +149,38 @@
     return 50;
 }
 
+#pragma mark - Private Methods
+
+- (void)loginAction:(id)sender {
+    
+}
+
+- (void)updateFrame {
+    //判断是否有登录
+    if (/* DISABLES CODE */ (NO)) {
+        self.headerView.frame = CGRectMake(0, 0, ScreenWidth, HeaderViewHeightWhenLogin);
+        self.loginButton.frame = CGRectZero;
+    } else {
+        self.headerView.frame = CGRectMake(0, 0, ScreenWidth, HeaderViewHeightWhenNotLogin);
+    }
+    if (DeviceiPhone) {
+        self.avatarImageView.frame = CGRectMake((ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone) / 2 - AvatarImageViewSize / 2, 50, AvatarImageViewSize, AvatarImageViewSize);
+        self.tableView.frame = CGRectMake(0, self.headerView.frame.size.height, ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone, ScreenHeight);
+    } else {
+        self.avatarImageView.frame = CGRectMake((ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad) / 2 - AvatarImageViewSize / 2, 50, AvatarImageViewSize, AvatarImageViewSize);
+        self.tableView.frame = CGRectMake(0, self.headerView.frame.size.height, ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad, ScreenHeight);
+    }
+    if (YES) {
+        self.loginButton.frame = CGRectMake(0, self.avatarImageView.center.y + AvatarImageViewSize / 2, self.tableView.frame.size.width, 40);
+    }
+    self.separatorLine.frame = CGRectMake(15, self.headerView.frame.size.height - 1, self.tableView.frame.size.width - 30, 1);
+}
+
 #pragma mark - Getters
 
 - (UITableView *)tableView {
     if (_tableView == nil) {
-        CGRect frame;
-        if (DeviceiPhone) {
-            frame = CGRectMake(0, 0, ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone, ScreenHeight);
-        } else {
-            frame = CGRectMake(0, 0, ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad, ScreenHeight);
-        }
-        _tableView = [[UITableView alloc] initWithFrame:frame];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.opaque = NO;
@@ -161,30 +188,24 @@
         _tableView.backgroundView = nil;
         _tableView.bounces = NO;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.tableHeaderView = self.headerView;
     }
     return _tableView;
 }
 
 - (UIView *)headerView {
     if (_headerView == nil) {
-        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 140)];
+        _headerView = [[UIView alloc] initWithFrame:CGRectZero];
         
         [_headerView addSubview:self.avatarImageView];
         [_headerView addSubview:self.separatorLine];
+        [_headerView addSubview:self.loginButton];
     }
     return _headerView;
 }
 
 - (UIImageView *)avatarImageView {
     if (_avatarImageView == nil) {
-        CGRect frame;
-        if (DeviceiPhone) {
-            frame = CGRectMake((ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone) / 2 - avatarImageViewSize / 2, self.headerView.frame.size.height / 2 - 30, avatarImageViewSize, avatarImageViewSize);
-        } else {
-            frame = CGRectMake((ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad) / 2 - avatarImageViewSize / 2, self.headerView.frame.size.height / 2 - 30, avatarImageViewSize, avatarImageViewSize);
-        }
-        _avatarImageView = [UIView createImageView:frame
+        _avatarImageView = [UIView createImageView:CGRectZero
                                        contentMode:UIViewContentModeScaleToFill];
         _avatarImageView.layer.cornerRadius = 5;
         _avatarImageView.layer.masksToBounds = YES;
@@ -196,13 +217,23 @@
 
 - (UIView *)separatorLine {
     if (_separatorLine == nil) {
-        _separatorLine = [UIView createHorizontalLine:self.tableView.frame.size.width - 20
-                                              originX:10
-                                              originY:140
+        _separatorLine = [UIView createHorizontalLine:0
+                                              originX:0
+                                              originY:0
                                                 color:[UIColor lightGrayColor]];
         _separatorLine.alpha = 0.6;
     }
     return _separatorLine;
+}
+
+- (UIButton *)loginButton {
+    if (_loginButton == nil) {
+        _loginButton = [UIView createButton:CGRectZero
+                                       text:NSLocalizedString(@"login", nil)
+                                     target:self
+                                     action:@selector(loginAction:)];
+    }
+    return _loginButton;
 }
 
 - (GCHotThreadViewController *)hotThreadViewController {
