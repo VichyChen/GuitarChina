@@ -1,14 +1,18 @@
 //
-//  GCThreadDetailRightMenuViewController.m
+//  GCThreadRightMenuViewController.m
 //  GuitarChina
 //
-//  Created by mac on 15/9/22.
+//  Created by mac on 15/9/28.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCThreadDetailRightMenuViewController.h"
+#import "GCThreadRightMenuViewController.h"
+#import "GCThreadRightMenuCell.h"
 
-@interface GCThreadDetailRightMenuViewController () <UITableViewDataSource, UITableViewDelegate>
+#define GCThreadRightMenuCellHeightIniPhone 50
+#define GCThreadRightMenuCellHeightIniPad 60
+
+@interface GCThreadRightMenuViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -17,7 +21,7 @@
 
 @end
 
-@implementation GCThreadDetailRightMenuViewController
+@implementation GCThreadRightMenuViewController
 
 #pragma mark - life cycle
 
@@ -28,8 +32,10 @@
         _titleArray = @[NSLocalizedString(@"Reply", nil),
                         NSLocalizedString(@"Collect", nil),
                         NSLocalizedString(@"Share", nil),
-                        NSLocalizedString(@"Report", nil)];
-        _imageArray = @[@"", @"", @"", @"", @""];
+                        NSLocalizedString(@"Report", nil),
+                        NSLocalizedString(@"Open in Safari", nil),
+                        NSLocalizedString(@"Copy url", nil)];
+        _imageArray = @[@"icon_hotthread", @"icon_hotthread", @"icon_hotthread", @"icon_hotthread", @"icon_hotthread", @"icon_hotthread"];
     }
     return self;
 }
@@ -55,20 +61,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    static NSString *cellIdentifier = @"GCThreadRightMenuCell";
+    GCThreadRightMenuCell *cell = (GCThreadRightMenuCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-        cell.textLabel.textColor = [UIColor blackColor];
-        cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
-        cell.selectedBackgroundView = [[UIView alloc] init];
+        cell = [[GCThreadRightMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
-    //    NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
-    cell.textLabel.text = self.titleArray[indexPath.row];
-    //    cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
+    cell.titleLabel.text = self.titleArray[indexPath.row];
+    cell.iconImageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
     
     return cell;
 }
@@ -97,19 +96,27 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 54;
+    if (DeviceiPhone) {
+        return GCThreadRightMenuCellHeightIniPhone;
+    } else {
+        return GCThreadRightMenuCellHeightIniPad;
+    }
 }
 
 #pragma mark - Getters
 
 - (UITableView *)tableView {
     if (_tableView == nil) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width, 54 * 5)];
+        CGRect frame;
+        if (DeviceiPhone) {
+            frame = CGRectMake(ScreenWidth - (ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone), (ScreenHeight - GCThreadRightMenuCellHeightIniPhone * self.titleArray.count) / 2, ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone, GCThreadRightMenuCellHeightIniPhone * self.titleArray.count);
+        } else {
+            frame = CGRectMake(ScreenWidth - (ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad), (ScreenHeight - GCThreadRightMenuCellHeightIniPad * self.titleArray.count) / 2, ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad, GCThreadRightMenuCellHeightIniPad * self.titleArray.count);
+        }
+        _tableView = [[UITableView alloc] initWithFrame:frame];
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        _tableView.opaque = NO;
         _tableView.backgroundColor = [UIColor whiteColor];
-        _tableView.backgroundView = nil;
         _tableView.bounces = NO;
     }
     return _tableView;

@@ -10,7 +10,6 @@
 #import "RESideMenu.h"
 #import "GCThreadViewController.h"
 #import "GCHotThreadCell.h"
-#import "UIView+CreateRESideMenu.h"
 
 @interface GCHotThreadViewController()
 

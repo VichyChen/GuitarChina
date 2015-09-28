@@ -10,7 +10,7 @@
 #import "RESideMenu.h"
 #import "GCThreadReplyCell.h"
 #import "GCThreadHeaderView.h"
-#import "GCThreadDetailRightMenuViewController.h"
+#import "GCThreadRightMenuViewController.h"
 #import "GCLeftMenuViewController.h"
 
 @interface GCThreadViewController ()

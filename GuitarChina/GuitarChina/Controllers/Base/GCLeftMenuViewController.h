@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCBaseViewController.h"
 #import "RESideMenu.h"
 
-@interface GCLeftMenuViewController : UIViewController
+@interface GCLeftMenuViewController : GCBaseViewController
 
 - (void)configureFirstViewController:(UIViewController *)controller;
 
