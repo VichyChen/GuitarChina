@@ -29,7 +29,7 @@
     [super layoutSubviews];
     NSLog(@"%.f", self.contentView.frame.size.width);
     self.iconImageView.frame = CGRectMake(self.contentView.frame.size.width / 2 - 70, 15, 20, 20);
-    self.titleLabel.frame = CGRectMake(self.iconImageView.frame.origin.x + 30, 15, 120, 20);
+    self.titleLabel.frame = CGRectMake(self.iconImageView.frame.origin.x + 40, 15, 120, 20);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

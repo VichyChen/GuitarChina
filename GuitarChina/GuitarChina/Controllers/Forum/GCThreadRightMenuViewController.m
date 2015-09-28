@@ -35,7 +35,7 @@
                         NSLocalizedString(@"Report", nil),
                         NSLocalizedString(@"Open in Safari", nil),
                         NSLocalizedString(@"Copy url", nil)];
-        _imageArray = @[@"icon_hotthread", @"icon_hotthread", @"icon_hotthread", @"icon_hotthread", @"icon_hotthread", @"icon_hotthread"];
+        _imageArray = @[@"icon_reply", @"icon_collect", @"icon_share", @"icon_report", @"icon_open", @"icon_copy"];
     }
     return self;
 }
@@ -67,7 +67,7 @@
         cell = [[GCThreadRightMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     cell.titleLabel.text = self.titleArray[indexPath.row];
-    cell.iconImageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
+    cell.iconImageView.image = [[UIImage imageNamed:self.imageArray[indexPath.row]] imageWithTintColor:[UIColor blackColor]];
     
     return cell;
 }
