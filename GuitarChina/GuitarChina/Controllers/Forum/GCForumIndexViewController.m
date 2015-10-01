@@ -79,7 +79,7 @@
     }
     GCForumGroupModel *forumGroupModel = [self.data objectAtIndex:indexPath.section];
     GCForumModel *forumModel = [forumGroupModel.forums objectAtIndex:indexPath.row];
-    cell.textLabel.text = forumModel.name;
+    cell.model = forumModel;
     
     return cell;
 }
@@ -89,7 +89,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //    NSNumber *height = [self.dataHeightArray objectAtIndex:indexPath.row];
     //    return [height floatValue];
-    return 60;
+    return 120;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

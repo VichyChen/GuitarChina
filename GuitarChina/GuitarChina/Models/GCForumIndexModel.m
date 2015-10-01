@@ -37,7 +37,15 @@
             forumModel.threads    = [item objectForKey:@"threads"];
             forumModel.posts      = [item objectForKey:@"posts"];
             forumModel.todayposts = [item objectForKey:@"todayposts"];
-            forumModel.descript   = [item objectForKey:@"descript"];
+//            forumModel.descript   = [[NSMutableString alloc ] initWithString :[item objectForKey:@"description"]];
+            NSMutableString *string  = [[NSMutableString alloc ] initWithString :[item objectForKey:@"description"]];
+
+            NSRange range = [string rangeOfString:@"<a href="];
+            if (range.length != 0) {
+                [string insertString:@"<br>" atIndex:range.location];
+            }
+            forumModel.descript = string;
+            
             [forumsDictionary setObject:forumModel forKey:[item objectForKey:@"fid"]];
         }
         

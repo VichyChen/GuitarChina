@@ -27,7 +27,7 @@
 @property (nonatomic, copy) NSString *threads;
 @property (nonatomic, copy) NSString *posts;
 @property (nonatomic, copy) NSString *todayposts;
-@property (nonatomic, copy) NSString *descript;
+@property (nonatomic, copy) NSMutableString *descript;
 
 @end
 

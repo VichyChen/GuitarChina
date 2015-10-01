@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0422C62B1BBD414B00D232FF /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422C62A1BBD414B00D232FF /* RTLabel.m */; };
 		042D23991BB29BC3001DE667 /* GCNewThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D23981BB29BC3001DE667 /* GCNewThreadViewController.m */; };
 		045ED3741BB8F97300790B96 /* GCThreadRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */; };
 		045ED3771BB8FDED00790B96 /* GCThreadRightMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED3761BB8FDED00790B96 /* GCThreadRightMenuCell.m */; };
@@ -72,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0422C6291BBD414B00D232FF /* RTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLabel.h; sourceTree = "<group>"; };
+		0422C62A1BBD414B00D232FF /* RTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLabel.m; sourceTree = "<group>"; };
 		042D23971BB29BC3001DE667 /* GCNewThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewThreadViewController.h; sourceTree = "<group>"; };
 		042D23981BB29BC3001DE667 /* GCNewThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewThreadViewController.m; sourceTree = "<group>"; };
 		045ED3721BB8F97300790B96 /* GCThreadRightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadRightMenuViewController.h; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 		420D985D1B9297F600AEAED3 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				0422C6291BBD414B00D232FF /* RTLabel.h */,
+				0422C62A1BBD414B00D232FF /* RTLabel.m */,
 				420D985F1B92982C00AEAED3 /* RESideMenu */,
 			);
 			path = Additions;
@@ -683,6 +688,7 @@
 				04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */,
 				42657DC01B99961A001F8DFC /* GCThreadViewController.m in Sources */,
 				42657DBA1B9983AF001F8DFC /* GCForumDisplayViewController.m in Sources */,
+				0422C62B1BBD414B00D232FF /* RTLabel.m in Sources */,
 				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
 				045ED3771BB8FDED00790B96 /* GCThreadRightMenuCell.m in Sources */,
 				046262321BA94D9300E66F03 /* GCForumDisplayCell.m in Sources */,

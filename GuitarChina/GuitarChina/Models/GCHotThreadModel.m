@@ -15,25 +15,29 @@
         _lastPosterDetailString = [NSMutableAttributedString new];
         
         [_lastPosterDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ • 最后回复by %@", _lastpost, _lastposter]]];
-        [_lastPosterDetailString addAttribute:NSForegroundColorAttributeName value:[UIColor LightFontColor] range:NSMakeRange(0, _lastPosterDetailString.length)];
-        
-        //            for (int names = 0; names < 10 && names < _likeList.count; names++) {
-        //                OSCUser *user = _likeList[names];   //_likeList[_likeCount - 1 - names];
-        //
-        //                [_likersDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@、", user.name]]];
-        //            }
-        //            [_likersDetailString deleteCharactersInRange:NSMakeRange(_likersDetailString.length - 1, 1)];
-        //            //设置颜色
-        //            [_likersDetailString addAttribute:NSForegroundColorAttributeName value:[UIColor nameColor] range:NSMakeRange(0, _likersDetailString.length)];
-        //
-        //            if (_likeCount > 10) {
-        //                [_likersDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"等%d人", _likeCount]]];
-        //            }
-        //
-        //            [_likersDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:@"觉得很赞"]];
-        
     }
     return _lastPosterDetailString;
+}
+
+- (NSMutableAttributedString *)replyAndViewDetailString {
+    if (!_replyAndViewDetailString) {
+        _replyAndViewDetailString = [NSMutableAttributedString new];
+        
+        [_replyAndViewDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@    %@ ", _replies, _views]]];
+        
+        NSTextAttachment *repliesAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
+        repliesAttachment.image = [[UIImage imageNamed:@"icon_replycount"] imageWithTintColor:[UIColor LightFontColor]];
+        repliesAttachment.bounds = CGRectMake(0, -2, 15, 15);
+        NSAttributedString *repliesAttachmentString = [NSAttributedString attributedStringWithAttachment:repliesAttachment];
+        [_replyAndViewDetailString insertAttributedString:repliesAttachmentString atIndex:_replies.length + 1];
+
+        NSTextAttachment *viewsAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
+        viewsAttachment.image = [[UIImage imageNamed:@"icon_watch"] imageWithTintColor:[UIColor LightFontColor]];
+        viewsAttachment.bounds = CGRectMake(0, -2, 15, 15);
+        NSAttributedString *viewAttachmentString = [NSAttributedString attributedStringWithAttachment:viewsAttachment];
+        [_replyAndViewDetailString insertAttributedString:viewAttachmentString atIndex:_replyAndViewDetailString.length];
+    }
+    return _replyAndViewDetailString;
 }
 
 @end

@@ -9,7 +9,7 @@
 #import "GCHotThreadCell.h"
 #import "UIView+LayoutHelper.h"
 
-#define SubjectWidth ScreenWidth - 25
+#define SubjectWidth ScreenWidth - 28
 
 @interface GCHotThreadCell()
 
@@ -44,7 +44,7 @@
     self.datelineLabel.frame = CGRectMake(65, 33, ScreenWidth - 75, 20);
     self.subjectLabel.frame = CGRectMake(15, 60, SubjectWidth, self.subjectLabelHeight);
     self.lastPostDetailLabel.frame = CGRectMake(15, 65 + self.subjectLabelHeight, SubjectWidth, 20);
-    self.repliesLabel.frame = CGRectMake(15, 65 + self.subjectLabelHeight, SubjectWidth, 20);
+    self.repliesLabel.frame = CGRectMake(15, 10, SubjectWidth, 20);
 }
 
 #pragma mark - Private Method
@@ -78,7 +78,7 @@
     CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:self.subjectLabel.text fontSize:self.subjectLabel.font.pointSize width:SubjectWidth];
     self.subjectLabelHeight = subjectLabelHeight;
     self.lastPostDetailLabel.attributedText = model.lastPosterDetailString;
-    self.repliesLabel.text = model.replies;
+    self.repliesLabel.attributedText = model.replyAndViewDetailString;
 }
 
 #pragma mark - Getters
@@ -141,7 +141,6 @@
                                        font:[UIFont systemFontOfSize:14]
                                   textColor:[UIColor LightFontColor]];
         _repliesLabel.textAlignment = NSTextAlignmentRight;
-        _repliesLabel.hidden = YES;
     }
     return _repliesLabel;
 }

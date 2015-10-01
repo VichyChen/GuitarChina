@@ -34,6 +34,7 @@
                                      forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.backBarButtonItem=backItem;
     
+    [self.tableView setSeparatorInset:(UIEdgeInsetsMake(0, 15, 0, 15))];
     
     self.tableView.header = ({
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(beginRefresh)];
