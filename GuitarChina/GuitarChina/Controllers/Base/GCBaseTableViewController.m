@@ -20,7 +20,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _hiddenNavigationBarWhenScrollToBottom = YES;
+        _hiddenNavigationBarWhenScrollToBottom = NO;
     }
     return self;
 }
