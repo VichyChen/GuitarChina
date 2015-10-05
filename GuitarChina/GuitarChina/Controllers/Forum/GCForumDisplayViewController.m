@@ -27,6 +27,7 @@
     if (self) {
         self.pageIndex = 1;
         self.pageSize = 20;
+        self.rowHeightArray = [NSMutableArray array];
     }
     return self;
 }
@@ -62,7 +63,7 @@
         cell = [[GCForumDisplayCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
-    cell.textLabel.text = model.subject;
+    [cell setModel:model];
     
     return cell;
 }
@@ -70,7 +71,8 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    NSNumber *height = [self.rowHeightArray objectAtIndex:indexPath.row];
+    return [height floatValue];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,15 +93,17 @@
         [[GCNetworkManager manager] getForumDisplayWithForumID:self.fid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCForumDisplayArray *array) {
             if (self.pageIndex == 1) {
                 self.data = array.data;
-                //                [self.rowHeightArray removeAllObjects];
-                
+                [self.rowHeightArray removeAllObjects];
+                for (GCForumThreadModel *model in self.data) {
+                    [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCForumDisplayCell getCellHeightWithModel:model]]];
+                }
                 [self.tableView reloadData];
                 [self endRefresh];
             } else {
                 for (GCForumThreadModel *model in array.data) {
                     [self.data addObject:model];
+                    [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCForumDisplayCell getCellHeightWithModel:model]]];
                 }
-                
                 [self.tableView reloadData];
                 [self endFetchMore];
             }

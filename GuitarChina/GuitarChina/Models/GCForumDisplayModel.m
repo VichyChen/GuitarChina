@@ -10,6 +10,36 @@
 
 @implementation GCForumThreadModel
 
+- (NSMutableAttributedString *)lastPosterDetailString {
+    if (!_lastPosterDetailString) {
+        _lastPosterDetailString = [NSMutableAttributedString new];
+        
+        [_lastPosterDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ • 最后回复 • %@", _lastpost, _lastposter]]];
+    }
+    return _lastPosterDetailString;
+}
+
+- (NSMutableAttributedString *)replyAndViewDetailString {
+    if (!_replyAndViewDetailString) {
+        _replyAndViewDetailString = [NSMutableAttributedString new];
+        
+        [_replyAndViewDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@    %@ ", _replies, _views]]];
+        
+        NSTextAttachment *repliesAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
+        repliesAttachment.image = [[UIImage imageNamed:@"icon_replycount"] imageWithTintColor:[UIColor LightFontColor]];
+        repliesAttachment.bounds = CGRectMake(0, -2, 15, 15);
+        NSAttributedString *repliesAttachmentString = [NSAttributedString attributedStringWithAttachment:repliesAttachment];
+        [_replyAndViewDetailString insertAttributedString:repliesAttachmentString atIndex:_replies.length + 1];
+        
+        NSTextAttachment *viewsAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
+        viewsAttachment.image = [[UIImage imageNamed:@"icon_watch"] imageWithTintColor:[UIColor LightFontColor]];
+        viewsAttachment.bounds = CGRectMake(0, -2, 15, 15);
+        NSAttributedString *viewAttachmentString = [NSAttributedString attributedStringWithAttachment:viewsAttachment];
+        [_replyAndViewDetailString insertAttributedString:viewAttachmentString atIndex:_replyAndViewDetailString.length];
+    }
+    return _replyAndViewDetailString;
+}
+
 @end
 
 @implementation GCForumDisplayArray
@@ -28,8 +58,8 @@
             threadModel.author     = [item objectForKey:@"author"];
             threadModel.authorid   = [item objectForKey:@"authorid"];
             threadModel.subject    = [item objectForKey:@"subject"];
-            threadModel.dateline   = [item objectForKey:@"dateline"];
-            threadModel.lastpost   = [item objectForKey:@"lastpost"];
+            threadModel.dateline      = [((NSString *)([item objectForKey:@"dateline"])) replace:@"&nbsp;" toNewString:@""];
+            threadModel.lastpost      = [((NSString *)([item objectForKey:@"lastpost"])) replace:@"&nbsp;" toNewString:@""];
             threadModel.lastposter = [item objectForKey:@"lastposter"];
             threadModel.views      = [item objectForKey:@"views"];
             threadModel.replies    = [item objectForKey:@"replies"];

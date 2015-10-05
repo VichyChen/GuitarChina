@@ -44,7 +44,7 @@
     self.datelineLabel.frame = CGRectMake(65, 33, ScreenWidth - 75, 20);
     self.subjectLabel.frame = CGRectMake(15, 60, SubjectWidth, self.subjectLabelHeight);
     self.lastPostDetailLabel.frame = CGRectMake(15, 65 + self.subjectLabelHeight, SubjectWidth, 20);
-    self.repliesLabel.frame = CGRectMake(15, 10, SubjectWidth, 20);
+    self.repliesLabel.frame = CGRectMake(15, 8, SubjectWidth, 20);
 }
 
 #pragma mark - Private Method
@@ -118,7 +118,8 @@
                                        text:@""
                                        font:[UIFont systemFontOfSize:16]
                                   textColor:[UIColor FontColor]
-                              numberOfLines:0 preferredMaxLayoutWidth:SubjectWidth];
+                              numberOfLines:0
+                    preferredMaxLayoutWidth:SubjectWidth];
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _subjectLabel;

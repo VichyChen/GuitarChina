@@ -14,7 +14,7 @@
     if (!_lastPosterDetailString) {
         _lastPosterDetailString = [NSMutableAttributedString new];
         
-        [_lastPosterDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ • 最后回复by %@", _lastpost, _lastposter]]];
+        [_lastPosterDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@ • 最后回复 • %@", _lastpost, _lastposter]]];
     }
     return _lastPosterDetailString;
 }

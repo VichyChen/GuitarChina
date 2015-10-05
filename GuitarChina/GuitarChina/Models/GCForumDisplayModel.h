@@ -26,6 +26,9 @@
 @property (nonatomic, copy) NSString *dbdateline;
 @property (nonatomic, copy) NSString *dblastpost;
 
+@property (nonatomic, copy) NSMutableAttributedString *lastPosterDetailString;
+@property (nonatomic, copy) NSMutableAttributedString *replyAndViewDetailString;
+
 @end
 
 
