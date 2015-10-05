@@ -84,7 +84,7 @@
 #pragma mark - Getters
 
 - (UIImageView *)avatarImage {
-    if (_avatarImage == nil) {
+    if (!_avatarImage) {
         _avatarImage = [UIView createImageView:CGRectZero contentMode:UIViewContentModeScaleToFill];
         _avatarImage.layer.cornerRadius = 5;
         _avatarImage.layer.masksToBounds = YES;
@@ -93,7 +93,7 @@
 }
 
 - (UILabel *)authorLabel {
-    if (_authorLabel == nil) {
+    if (!_authorLabel) {
         _authorLabel = [UIView createLabel:CGRectZero
                                       text:@""
                                       font:[UIFont systemFontOfSize:16]
@@ -103,7 +103,7 @@
 }
 
 - (UILabel *)datelineLabel {
-    if (_datelineLabel == nil) {
+    if (!_datelineLabel) {
         _datelineLabel = [UIView createLabel:CGRectZero
                                         text:@""
                                         font:[UIFont systemFontOfSize:14]
@@ -113,7 +113,7 @@
 }
 
 - (UILabel *)subjectLabel {
-    if (_subjectLabel == nil) {
+    if (!_subjectLabel) {
         _subjectLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:16]
@@ -125,7 +125,7 @@
 }
 
 - (UILabel *)lastPostDetailLabel {
-    if (_lastPostDetailLabel == nil) {
+    if (!_lastPostDetailLabel) {
         _lastPostDetailLabel = [UIView createLabel:CGRectZero
                                               text:@""
                                               font:[UIFont systemFontOfSize:14]
@@ -135,7 +135,7 @@
 }
 
 - (UILabel *)repliesLabel {
-    if (_repliesLabel == nil) {
+    if (!_repliesLabel) {
         _repliesLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:14]

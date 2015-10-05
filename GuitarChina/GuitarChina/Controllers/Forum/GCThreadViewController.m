@@ -148,7 +148,7 @@
 #pragma mark - Getters
 
 - (GCThreadHeaderView *)threadHeaderView {
-    if (_threadHeaderView == nil) {
+    if (!_threadHeaderView) {
         _threadHeaderView = [[GCThreadHeaderView alloc] initWithFrame:CGRectZero];
     }
     return _threadHeaderView;

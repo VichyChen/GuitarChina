@@ -29,6 +29,9 @@
 @property (nonatomic, copy) NSString *todayposts;
 @property (nonatomic, copy) NSMutableString *descript;
 
+@property (nonatomic, copy) NSMutableAttributedString *nameString;
+@property (nonatomic, copy) NSMutableAttributedString *forumDetailString;
+
 @end
 
 @interface GCForumIndexArray : GCBaseModel

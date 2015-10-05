@@ -63,7 +63,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"GCThreadRightMenuCell";
     GCThreadRightMenuCell *cell = (GCThreadRightMenuCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
+    if (!cell) {
         cell = [[GCThreadRightMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     cell.titleLabel.text = self.titleArray[indexPath.row];
@@ -106,7 +106,7 @@
 #pragma mark - Getters
 
 - (UITableView *)tableView {
-    if (_tableView == nil) {
+    if (!_tableView) {
         CGRect frame;
         if (DeviceiPhone) {
             frame = CGRectMake(ScreenWidth - (ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone), (ScreenHeight - GCThreadRightMenuCellHeightIniPhone * self.titleArray.count) / 2, ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone, GCThreadRightMenuCellHeightIniPhone * self.titleArray.count);

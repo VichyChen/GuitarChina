@@ -18,6 +18,29 @@
 
 @implementation GCForumModel
 
+- (NSMutableAttributedString *)nameString {
+    if (!_nameString) {
+        
+        _nameString = [[NSMutableAttributedString alloc] initWithData:[_name dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        [_nameString addAttribute:NSFontAttributeName
+                            value:[UIFont systemFontOfSize:16.0]
+                            range:NSMakeRange(0, _nameString.length)];
+        if (![_todayposts isEqualToString:@"0"]) {
+            [_nameString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" (%@)", _todayposts]]];
+        }
+    }
+    return _nameString;
+}
+
+- (NSMutableAttributedString *)forumDetailString {
+    if (!_forumDetailString) {
+        _forumDetailString = [NSMutableAttributedString new];
+        
+        [_forumDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@帖子/%@回复", _threads, _posts]]];
+    }
+    return _forumDetailString;
+}
+
 @end
 
 @implementation GCForumIndexArray
@@ -37,9 +60,9 @@
             forumModel.threads    = [item objectForKey:@"threads"];
             forumModel.posts      = [item objectForKey:@"posts"];
             forumModel.todayposts = [item objectForKey:@"todayposts"];
-//            forumModel.descript   = [[NSMutableString alloc ] initWithString :[item objectForKey:@"description"]];
+            //            forumModel.descript   = [[NSMutableString alloc ] initWithString :[item objectForKey:@"description"]];
             NSMutableString *string  = [[NSMutableString alloc ] initWithString :[item objectForKey:@"description"]];
-
+            
             NSRange range = [string rangeOfString:@"<a href="];
             if (range.length != 0) {
                 [string insertString:@"<br>" atIndex:range.location];

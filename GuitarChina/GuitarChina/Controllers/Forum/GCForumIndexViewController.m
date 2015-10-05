@@ -25,6 +25,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        self.rowHeightDictionary = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -87,9 +88,9 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //    NSNumber *height = [self.dataHeightArray objectAtIndex:indexPath.row];
-    //    return [height floatValue];
-    return 120;
+    NSArray *heightArray = [self.rowHeightDictionary objectForKey:[NSNumber numberWithInteger:indexPath.section]];
+    NSNumber *number = [heightArray objectAtIndex:indexPath.row];
+    return [number floatValue];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,6 +103,22 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+//#pragma mark - UIScrollViewDelegate
+//
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    [super scrollViewDidScroll:scrollView];
+//
+//    if (scrollView == self.tableView)
+//    {
+//        CGFloat sectionHeaderHeight = 120;
+//        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
+//            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+//        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
+//            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+//        }
+//    }
+//}
+
 #pragma mark - Private Methods
 
 - (void)configureBlock {
@@ -110,7 +127,15 @@
         @strongify(self);
         [[GCNetworkManager manager] getForumIndexSuccess:^(GCForumIndexArray *array) {
             self.data = array.data;
-            [self.rowHeightArray removeAllObjects];
+            [self.rowHeightDictionary removeAllObjects];
+            for (int i = 0; i < self.data.count; i++) {
+                GCForumGroupModel *model = (GCForumGroupModel *)self.data[i];
+                NSMutableArray *heightArray = [NSMutableArray array];
+                for (GCForumModel *forumModel in model.forums) {
+                    [heightArray addObject: [NSNumber numberWithFloat:[GCForumIndexCell getCellHeightWithModel:forumModel]]];
+                }
+                [self.rowHeightDictionary setObject:heightArray forKey:[NSNumber numberWithInt:i]];
+            }
             
             [self.tableView reloadData];
             [self endRefresh];

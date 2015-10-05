@@ -14,8 +14,7 @@
 @property (nonatomic, strong) UIImageView *forumImage;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) RTLabel *descriptLabel;
-
-@property (nonatomic, strong) UILabel *threadAndPostLabel;
+@property (nonatomic, strong) UILabel *forumDetailLabel;
 
 @end
 
@@ -33,9 +32,9 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.nameLabel.frame = CGRectMake(15, 15, ScreenWidth - 30, 20);
-    
-    self.descriptLabel.frame = CGRectMake(15, 40, ScreenWidth - 30, 80);
+    self.nameLabel.frame = CGRectMake(15, 10, ScreenWidth - 30, 20);
+    self.forumDetailLabel.frame = CGRectMake(15, 35, ScreenWidth - 30, 20);
+    self.descriptLabel.frame = CGRectMake(15, 60, ScreenWidth - 30, self.descriptLabelHeight);
 }
 
 #pragma mark RTLabel delegate
@@ -51,7 +50,7 @@
     [self.contentView addSubview:self.forumImage];
     [self.contentView addSubview:self.nameLabel];
     [self.contentView addSubview:self.descriptLabel];
-    [self.contentView addSubview:self.threadAndPostLabel];
+    [self.contentView addSubview:self.forumDetailLabel];
     
     self.descriptLabel.delegate = self;
 }
@@ -59,7 +58,12 @@
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCForumModel *)model {
-    return 95;
+    RTLabel *label = [[RTLabel alloc] initWithFrame:CGRectMake(15, 40, ScreenWidth - 30, 0)];
+    label.font = [UIFont systemFontOfSize:15];
+    label.text = model.descript;
+    CGSize labelSize = [label optimumSize];
+    
+    return labelSize.height + 70;
 }
 
 #pragma mark - Setters
@@ -67,18 +71,17 @@
 - (void)setModel:(GCForumModel *)model {
     _model = model;
     
-    self.nameLabel.text = model.name;
-    
-//    NSAttributedString *attrStr = [[NSAttributedString alloc] initWithData:[model.descript dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-//    self.descriptLabel.attributedText = attrStr;
-    
+    self.nameLabel.attributedText = model.nameString;
     self.descriptLabel.text = model.descript;
+    CGSize labelSize = [self.descriptLabel optimumSize];
+    self.descriptLabelHeight = labelSize.height;
+    self.forumDetailLabel.attributedText = model.forumDetailString;
 }
 
 #pragma mark - Getters
 
 - (UILabel *)nameLabel {
-    if (_nameLabel == nil) {
+    if (!_nameLabel) {
         _nameLabel = [UIView createLabel:CGRectZero
                                     text:@""
                                     font:[UIFont systemFontOfSize:16]
@@ -87,40 +90,25 @@
     return _nameLabel;
 }
 
-//- (UILabel *)descriptLabel {
-//    if (_descriptLabel == nil) {
-//        _descriptLabel = [UIView createLabel:CGRectZero
-//                                        text:@""
-//                                        font:[UIFont systemFontOfSize:16]
-//                                   textColor:[UIColor FontColor]
-//                               numberOfLines:0
-//                     preferredMaxLayoutWidth:ScreenWidth - 30];
-//        _descriptLabel.lineBreakMode = NSLineBreakByWordWrapping;
-//        _descriptLabel.backgroundColor = [UIColor redColor];
-//    }
-//    return _descriptLabel;
-//}
-
 - (RTLabel *)descriptLabel {
-    if (_descriptLabel == nil) {
-        _descriptLabel = [[RTLabel alloc] initWithFrame:CGRectZero];
+    if (!_descriptLabel) {
+        _descriptLabel = [[RTLabel alloc] initWithFrame:CGRectMake(15, 40, ScreenWidth - 30, 0)];
+        _descriptLabel.font = [UIFont systemFontOfSize:15];
         _descriptLabel.textColor = [UIColor LightFontColor];
         _descriptLabel.linkAttributes = @{@"color":@"red"};
         _descriptLabel.selectedLinkAttributes = @{@"color":@"red"};
-
-
     }
     return _descriptLabel;
 }
 
-- (UILabel *)threadAndPostLabel {
-    if (_threadAndPostLabel == nil) {
-        _threadAndPostLabel = [UIView createLabel:CGRectZero
-                                             text:@""
-                                             font:[UIFont systemFontOfSize:16]
-                                        textColor:[UIColor FontColor]];
+- (UILabel *)forumDetailLabel {
+    if (!_forumDetailLabel) {
+        _forumDetailLabel = [UIView createLabel:CGRectZero
+                                           text:@""
+                                           font:[UIFont systemFontOfSize:14]
+                                      textColor:[UIColor LightFontColor]];
     }
-    return _threadAndPostLabel;
+    return _forumDetailLabel;
 }
 
 @end

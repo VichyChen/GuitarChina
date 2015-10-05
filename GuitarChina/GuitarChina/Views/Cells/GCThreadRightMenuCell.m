@@ -56,7 +56,7 @@
 #pragma mark - Getters
 
 - (UIImageView *)iconImageView {
-    if (_iconImageView == nil) {
+    if (!_iconImageView) {
         _iconImageView = [UIView createImageView:CGRectZero
                                      contentMode:UIViewContentModeScaleAspectFit];
     }
@@ -64,7 +64,7 @@
 }
 
 - (UILabel *)titleLabel {
-    if (_titleLabel == nil) {
+    if (!_titleLabel) {
         _titleLabel = [UIView createLabel:CGRectZero
                                      text:@""
                                      font:[UIFont systemFontOfSize:18]

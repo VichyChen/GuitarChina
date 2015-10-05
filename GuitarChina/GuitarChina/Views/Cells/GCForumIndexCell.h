@@ -15,4 +15,6 @@
 
 + (CGFloat)getCellHeightWithModel:(GCForumModel *)model;
 
+@property (nonatomic, assign) CGFloat descriptLabelHeight;
+
 @end

@@ -92,7 +92,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"GCLeftMenuCell";
     GCLeftMenuCell *cell = (GCLeftMenuCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
+    if (!cell) {
         cell = [[GCLeftMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     if (DeviceiPhone) {
@@ -179,7 +179,7 @@
 #pragma mark - Getters
 
 - (UITableView *)tableView {
-    if (_tableView == nil) {
+    if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero];
         _tableView.delegate = self;
         _tableView.dataSource = self;
@@ -193,7 +193,7 @@
 }
 
 - (UIView *)headerView {
-    if (_headerView == nil) {
+    if (!_headerView) {
         _headerView = [[UIView alloc] initWithFrame:CGRectZero];
         
         [_headerView addSubview:self.avatarImageView];
@@ -204,7 +204,7 @@
 }
 
 - (UIImageView *)avatarImageView {
-    if (_avatarImageView == nil) {
+    if (!_avatarImageView) {
         _avatarImageView = [UIView createImageView:CGRectZero
                                        contentMode:UIViewContentModeScaleToFill];
         _avatarImageView.layer.cornerRadius = 5;
@@ -216,7 +216,7 @@
 }
 
 - (UIView *)separatorLine {
-    if (_separatorLine == nil) {
+    if (!_separatorLine) {
         _separatorLine = [UIView createHorizontalLine:0
                                               originX:0
                                               originY:0
@@ -227,7 +227,7 @@
 }
 
 - (UIButton *)loginButton {
-    if (_loginButton == nil) {
+    if (!_loginButton) {
         _loginButton = [UIView createButton:CGRectZero
                                        text:NSLocalizedString(@"login", nil)
                                      target:self
@@ -237,35 +237,35 @@
 }
 
 - (GCHotThreadViewController *)hotThreadViewController {
-    if (_hotThreadViewController == nil) {
+    if (!_hotThreadViewController) {
         _hotThreadViewController = [[GCHotThreadViewController alloc] init];
     }
     return _hotThreadViewController;
 }
 
 - (GCForumIndexViewController *)forumIndexViewController {
-    if (_forumIndexViewController == nil) {
+    if (!_forumIndexViewController) {
         _forumIndexViewController = [[GCForumIndexViewController alloc] init];
     }
     return _forumIndexViewController;
 }
 
 - (GCMineViewController *)mineViewController {
-    if (_mineViewController == nil) {
+    if (!_mineViewController) {
         _mineViewController = [[GCMineViewController alloc] init];
     }
     return _mineViewController;
 }
 
 - (GCSettingViewController *)settingViewController {
-    if (_settingViewController == nil) {
+    if (!_settingViewController) {
         _settingViewController = [[GCSettingViewController alloc] init];
     }
     return _settingViewController;
 }
 
 - (GCMoreViewController *)moreViewController {
-    if (_moreViewController == nil) {
+    if (!_moreViewController) {
         _moreViewController = [[GCMoreViewController alloc] init];
     }
     return _moreViewController;
