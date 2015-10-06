@@ -84,7 +84,7 @@
     if (!_nameLabel) {
         _nameLabel = [UIView createLabel:CGRectZero
                                     text:@""
-                                    font:[UIFont systemFontOfSize:16]
+                                    font:[UIFont systemFontOfSize:17]
                                textColor:[UIColor FontColor]];
     }
     return _nameLabel;

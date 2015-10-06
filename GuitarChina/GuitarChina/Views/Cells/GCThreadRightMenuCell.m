@@ -67,7 +67,7 @@
     if (!_titleLabel) {
         _titleLabel = [UIView createLabel:CGRectZero
                                      text:@""
-                                     font:[UIFont systemFontOfSize:18]
+                                     font:[UIFont systemFontOfSize:17]
                                 textColor:[UIColor FontColor]];
     }
     return _titleLabel;
