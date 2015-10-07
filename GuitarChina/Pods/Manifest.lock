@@ -42,7 +42,6 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
-  - MJRefresh (2.4.7)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
@@ -52,7 +51,6 @@ DEPENDENCIES:
   - DKNightVersion (~> 0.8.1)
   - FDFullscreenPopGesture (~> 1.1)
   - FMDB
-  - MJRefresh
   - SDWebImage
 
 SPEC CHECKSUMS:
@@ -60,7 +58,6 @@ SPEC CHECKSUMS:
   DKNightVersion: 5416e74d11f696c6dd0c8f1318cf5871aa6b6070
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
-  MJRefresh: 6eb2f61338f89f64fd628fd43debcf479381ff59
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
 
 COCOAPODS: 0.37.2
