@@ -27,9 +27,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
-    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_arrowBack.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];//更改背景图片
+       UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
+    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backArrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];//更改背景图片
     [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-500, 0)
                                      forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.backBarButtonItem=backItem;
