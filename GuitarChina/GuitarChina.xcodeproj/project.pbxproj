@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0422CDDC1BC6AF70003D2EF5 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422CDDB1BC6AF70003D2EF5 /* KxMenu.m */; };
 		042D23991BB29BC3001DE667 /* GCNewThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D23981BB29BC3001DE667 /* GCNewThreadViewController.m */; };
 		045ED3741BB8F97300790B96 /* GCThreadRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */; };
 		045ED3771BB8FDED00790B96 /* GCThreadRightMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED3761BB8FDED00790B96 /* GCThreadRightMenuCell.m */; };
@@ -125,6 +126,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0422CDDA1BC6AF70003D2EF5 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
+		0422CDDB1BC6AF70003D2EF5 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
 		042D23971BB29BC3001DE667 /* GCNewThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewThreadViewController.h; sourceTree = "<group>"; };
 		042D23981BB29BC3001DE667 /* GCNewThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewThreadViewController.m; sourceTree = "<group>"; };
 		045ED3721BB8F97300790B96 /* GCThreadRightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadRightMenuViewController.h; sourceTree = "<group>"; };
@@ -361,6 +364,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0422CDD91BC6AF70003D2EF5 /* KxMenu */ = {
+			isa = PBXGroup;
+			children = (
+				0422CDDA1BC6AF70003D2EF5 /* KxMenu.h */,
+				0422CDDB1BC6AF70003D2EF5 /* KxMenu.m */,
+			);
+			path = KxMenu;
+			sourceTree = "<group>";
+		};
 		046262281BA94D2B00E66F03 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,6 +488,7 @@
 				046F9E4E1BC60B2A0044EB1D /* RTLabel */,
 				4238886C1BC57CA6002E1625 /* MJRefresh */,
 				423888AC1BC57D0F002E1625 /* DGActivityIndicatorView */,
+				0422CDD91BC6AF70003D2EF5 /* KxMenu */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -1080,6 +1093,7 @@
 				423888FF1BC57D0F002E1625 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
 				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
 				045ED3771BB8FDED00790B96 /* GCThreadRightMenuCell.m in Sources */,
+				0422CDDC1BC6AF70003D2EF5 /* KxMenu.m in Sources */,
 				046262321BA94D9300E66F03 /* GCForumDisplayCell.m in Sources */,
 				420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */,
 				4238890D1BC57D0F002E1625 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
