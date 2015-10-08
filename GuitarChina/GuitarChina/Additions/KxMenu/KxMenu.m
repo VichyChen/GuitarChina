@@ -348,7 +348,7 @@ typedef enum {
      
         if (animated) {
             
-            _contentView.hidden = YES;            
+            _contentView.hidden = YES;
             const CGRect toFrame = (CGRect){self.arrowPoint, 1, 1};
             
             [UIView animateWithDuration:0.2

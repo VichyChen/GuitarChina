@@ -12,6 +12,7 @@
 #import "GCThreadHeaderView.h"
 #import "GCThreadRightMenuViewController.h"
 #import "GCLeftMenuViewController.h"
+#import "KxMenu.h"
 
 @interface GCThreadViewController ()
 
@@ -49,7 +50,7 @@
     UIImage *image = [UIImage imageNamed:@"icon_ellipsis"];
     [leftButton setImage:[image imageWithTintColor:[UIColor FontColor]] forState:UIControlStateNormal];
     [leftButton setImage:[image imageWithTintColor:[UIColor LightFontColor]] forState:UIControlStateHighlighted];
-    [leftButton addTarget:self action:@selector(presentRightMenuViewController:) forControlEvents:UIControlEventTouchUpInside];
+    [leftButton addTarget:self action:@selector(rightBarButtonClickAction:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.rightBarButtonItem = barItem;
 }
@@ -63,17 +64,17 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.sideMenuViewController = ApplicationDelegate.sideMenuViewController;
-    self.sideMenuViewController.rightMenuViewController = ApplicationDelegate.rightMenuViewController;
-    self.sideMenuViewController.leftMenuViewController = nil;
+//    self.sideMenuViewController = ApplicationDelegate.sideMenuViewController;
+//    self.sideMenuViewController.rightMenuViewController = ApplicationDelegate.rightMenuViewController;
+//    self.sideMenuViewController.leftMenuViewController = nil;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 
-    RESideMenu *sideMenuViewController = ApplicationDelegate.sideMenuViewController;
-    sideMenuViewController.rightMenuViewController = nil;
-    self.sideMenuViewController.leftMenuViewController = ApplicationDelegate.leftMenuViewController;
+//    RESideMenu *sideMenuViewController = ApplicationDelegate.sideMenuViewController;
+//    sideMenuViewController.rightMenuViewController = nil;
+//    self.sideMenuViewController.leftMenuViewController = ApplicationDelegate.leftMenuViewController;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,6 +107,68 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - Event Response
+
+- (void)rightBarButtonClickAction:(id)sender {
+    NSArray *menuItems = @[
+      [KxMenuItem menuItem:NSLocalizedString(@"Reply", nil)
+                     image:nil
+                    target:nil
+                    action:@selector(replyAction:)],
+      
+      [KxMenuItem menuItem:NSLocalizedString(@"Collect", nil)
+                     image:[UIImage imageNamed:@"action_icon"]
+                    target:self
+                    action:@selector(collectAction:)],
+      
+      [KxMenuItem menuItem:NSLocalizedString(@"Share", nil)
+                     image:nil
+                    target:self
+                    action:@selector(shareAction:)],
+      
+      [KxMenuItem menuItem:NSLocalizedString(@"Report", nil)
+                     image:[UIImage imageNamed:@"reload"]
+                    target:self
+                    action:@selector(reportAction:)],
+      
+      [KxMenuItem menuItem:NSLocalizedString(@"Open in Safari", nil)
+                     image:[UIImage imageNamed:@"search_icon"]
+                    target:self
+                    action:@selector(safariAction:)],
+      
+      [KxMenuItem menuItem:NSLocalizedString(@"Copy url", nil)
+                     image:[UIImage imageNamed:@"home_icon"]
+                    target:self
+                    action:@selector(copyUrlAction:)],
+      ];
+
+    for (KxMenuItem *item in menuItems) {
+        item.alignment = NSTextAlignmentCenter;
+    }
+    
+    [KxMenu showMenuInView:self.view
+                  fromRect:CGRectMake(ScreenWidth - 50, 20, 44, 44)
+                 menuItems:menuItems];
+}
+
+- (void)replyAction:(id)sender {
+}
+
+- (void)collectAction:(id)sender {
+}
+
+- (void)shareAction:(id)sender {
+}
+
+- (void)reportAction:(id)sender {
+}
+
+- (void)safariAction:(id)sender {
+}
+
+- (void)copyUrlAction:(id)sender {
 }
 
 #pragma mark - Private Methods
