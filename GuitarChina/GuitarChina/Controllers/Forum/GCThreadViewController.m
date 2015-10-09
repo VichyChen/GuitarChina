@@ -95,7 +95,14 @@
     }
     GCThreadDetailPostModel *model = [self.data objectAtIndex:indexPath.row];
 //    cell.textLabel.text = model.message;
-    cell.descriptLabel.text = model.message;
+   
+    // HTML是网页的设计语言
+    // <>表示标记</>
+    // 应用场景:截取网页中的某一部分显示
+    // 例如:网页的完整内容中包含广告!加载完成页面之后,把广告部分的HTML删除,然后再加载
+    // 被很多新闻类的应用程序使用
+    [cell.webView loadHTMLString:model.message baseURL:nil];
+    
     
     return cell;
 }
@@ -187,7 +194,7 @@
     @weakify(self);
     self.refreshBlock = ^{
         @strongify(self);
-        [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
+        [[GCNetworkManager manager] getViewThreadWithThreadID:@"1961535" pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
             if (self.pageIndex == 1) {
                 self.data = model.postlist;
                 //                [self.rowHeightArray removeAllObjects];

@@ -17,4 +17,6 @@
 
 @property (nonatomic, strong) RTLabel *descriptLabel;
 
+@property (nonatomic, strong) UIWebView *webView;
+
 @end

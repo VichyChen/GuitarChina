@@ -110,7 +110,7 @@
             model.dateline     = [item objectForKey:@"dateline"];
 //            model.message      = [item objectForKey:@"message"];
             NSString *string = [item objectForKey:@"message"];
-            string = [string replace:@"static/image/smiley/gc/em" toNewString:@"http://bbs.guitarchina.com/static/image/smiley/gc/em"];
+            string = [string replace:@"src=\"static/image/smiley/gc/em" toNewString:@"src=\"http://bbs.guitarchina.com/static/image/smiley/gc/em"];
             string = [string replace:@"class=\"quote\"" toNewString:@"style=\"background-color: red;border: 1px solid #aaa;display:inline-block;\""];
 
             string = [string replace:@"<blockquote>" toNewString:@""];

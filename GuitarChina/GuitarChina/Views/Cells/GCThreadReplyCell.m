@@ -21,6 +21,13 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self configureView];
+        
+        self.webView = [[UIWebView alloc] init];
+        self.webView.frame = CGRectMake(10, 10, ScreenWidth - 20, 200);
+        self.webView.dataDetectorTypes = UIDataDetectorTypeAll;
+
+        [self.contentView addSubview:self.webView];
+        self.webView.scrollView.scrollEnabled = NO;
     }
     return self;
 }
@@ -28,14 +35,14 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.descriptLabel.frame = CGRectMake(15, 60, ScreenWidth - 30, 250);
-
+//    self.descriptLabel.frame = CGRectMake(15, 60, ScreenWidth - 30, 250);
+    
 }
 
 #pragma mark - Private Method
 
 - (void)configureView {
-    [self.contentView addSubview:self.descriptLabel];
+//    [self.contentView addSubview:self.descriptLabel];
 }
 
 #pragma mark - Class Method
