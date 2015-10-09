@@ -108,7 +108,16 @@
             model.author       = [item objectForKey:@"author"];
             model.authorid     = [item objectForKey:@"authorid"];
             model.dateline     = [item objectForKey:@"dateline"];
-            model.message      = [item objectForKey:@"message"];
+//            model.message      = [item objectForKey:@"message"];
+            NSString *string = [item objectForKey:@"message"];
+            string = [string replace:@"static/image/smiley/gc/em" toNewString:@"http://bbs.guitarchina.com/static/image/smiley/gc/em"];
+            string = [string replace:@"class=\"quote\"" toNewString:@"style=\"background-color: red;border: 1px solid #aaa;display:inline-block;\""];
+
+            string = [string replace:@"<blockquote>" toNewString:@""];
+            string = [string replace:@"</blockquote>" toNewString:@""];
+
+            model.message      = string;
+
             model.anonymous    = [item objectForKey:@"anonymous"];
             model.attachment   = [item objectForKey:@"attachment"];
             model.status       = [item objectForKey:@"status"];
