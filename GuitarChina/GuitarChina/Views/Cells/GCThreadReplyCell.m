@@ -8,6 +8,12 @@
 
 #import "GCThreadReplyCell.h"
 
+@interface GCThreadReplyCell()
+
+//@property (nonatomic, strong) RTLabel *descriptLabel;
+
+@end
+
 @implementation GCThreadReplyCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -21,11 +27,15 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    
+    self.descriptLabel.frame = CGRectMake(15, 60, ScreenWidth - 30, 250);
+
 }
 
 #pragma mark - Private Method
 
 - (void)configureView {
+    [self.contentView addSubview:self.descriptLabel];
 }
 
 #pragma mark - Class Method
@@ -42,5 +52,16 @@
 //}
 
 #pragma mark - Getters
+
+- (RTLabel *)descriptLabel {
+    if (!_descriptLabel) {
+        _descriptLabel = [[RTLabel alloc] initWithFrame:CGRectMake(15, 10, ScreenWidth - 30, 0)];
+        _descriptLabel.font = [UIFont systemFontOfSize:15];
+        _descriptLabel.textColor = [UIColor LightFontColor];
+        _descriptLabel.linkAttributes = @{@"color":@"red"};
+        _descriptLabel.selectedLinkAttributes = @{@"color":@"red"};
+    }
+    return _descriptLabel;
+}
 
 @end

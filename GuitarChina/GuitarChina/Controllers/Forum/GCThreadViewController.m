@@ -94,7 +94,8 @@
         cell = [[GCThreadReplyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     GCThreadDetailPostModel *model = [self.data objectAtIndex:indexPath.row];
-    cell.textLabel.text = model.message;
+//    cell.textLabel.text = model.message;
+    cell.descriptLabel.text = model.message;
     
     return cell;
 }
@@ -102,7 +103,7 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 60;
+    return 300;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

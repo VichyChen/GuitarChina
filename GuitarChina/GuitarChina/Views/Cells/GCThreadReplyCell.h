@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RTLabel.h"
 
 @interface GCThreadReplyCell : UITableViewCell
 
 //@property (nonatomic, strong) GCForumThreadModel *model;
 //
 //+ (CGFloat)getCellHeightWithModel:(GCForumThreadModel *)model;
+
+@property (nonatomic, strong) RTLabel *descriptLabel;
 
 @end

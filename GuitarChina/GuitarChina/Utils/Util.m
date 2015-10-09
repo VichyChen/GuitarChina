@@ -28,4 +28,8 @@
     }
 }
 
++ (void)openUrlInSafari:(NSString *)url {
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
+}
+
 @end

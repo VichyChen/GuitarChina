@@ -42,6 +42,7 @@
 - (void)rtLabel:(id)rtLabel didSelectLinkWithURL:(NSURL*)url
 {
     NSLog(@"did select url %@", url);
+    [Util openUrlInSafari:url.absoluteString];
 }
 
 #pragma mark - Private Method

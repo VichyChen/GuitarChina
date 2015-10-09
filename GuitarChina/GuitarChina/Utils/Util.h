@@ -16,4 +16,7 @@
 //判断当前语言是不是简体中文或者繁体中文
 + (BOOL)getCurrentLanguageIsChinese;
 
+//打开链接
++ (void)openUrlInSafari:(NSString *)url;
+
 @end
