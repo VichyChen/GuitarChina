@@ -7,9 +7,9 @@
 //
 
 #import "GCForumDisplayViewController.h"
-#import "GCThreadViewController.h"
 #import "GCForumDisplayCell.h"
 #import "GCNewThreadViewController.h"
+#import "GCThreadWebViewController.h"
 
 @interface GCForumDisplayViewController ()
 
@@ -76,7 +76,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    GCThreadViewController *controller = [[GCThreadViewController alloc] init];
+    GCThreadWebViewController *controller = [[GCThreadWebViewController alloc] init];
     GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
     controller.forumThreadModel = model;
     controller.tid = model.tid;

@@ -41,14 +41,15 @@
         header.stateLabel.hidden = YES;
         header;
     });
+
     if (self.pageIndex == 1) {
         self.tableView.footer = ({
             MJRefreshAutoStateFooter *footer = [MJRefreshAutoStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
+            footer.automaticallyRefresh = NO;
             
             footer;
         });
     }
-    
     [self.tableView.header beginRefreshing];
 }
 

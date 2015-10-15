@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
     [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backArrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];//更改背景图片
     [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-500, 0)

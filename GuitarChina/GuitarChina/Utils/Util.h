@@ -19,4 +19,13 @@
 //打开链接
 + (void)openUrlInSafari:(NSString *)url;
 
+//获取本地html文件字符串
++ (NSString *)stringByLocalHtmlString:(NSString *)html;
+
+//获取bundle路径字符串
++ (NSString *)bundleBasePathString;
+
+//获取bundleURL
++ (NSURL *)bundleBasePathURL;
+
 @end

@@ -14,6 +14,7 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
     NSString *currentLanguage = [languages objectAtIndex:0];
+    
     return currentLanguage;
 }
 
@@ -30,6 +31,26 @@
 
 + (void)openUrlInSafari:(NSString *)url {
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
+}
+
++ (NSString *)stringByLocalHtmlString:(NSString *)html {
+    NSString *path = [[NSBundle mainBundle] pathForResource:html ofType:@"html"];
+    NSString *string = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    
+    return string;
+}
+
++ (NSString *)bundleBasePathString {
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    
+    return path;
+}
+
++ (NSURL *)bundleBasePathURL {
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    
+    return url;
 }
 
 @end

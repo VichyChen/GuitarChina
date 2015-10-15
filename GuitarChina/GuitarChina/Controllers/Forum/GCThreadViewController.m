@@ -14,7 +14,7 @@
 #import "GCLeftMenuViewController.h"
 #import "KxMenu.h"
 
-@interface GCThreadViewController ()
+@interface GCThreadViewController () <UIWebViewDelegate>
 
 @property (nonatomic, strong) GCThreadHeaderView *threadHeaderView;
 
@@ -34,6 +34,8 @@
     if (self) {
         self.pageIndex = 1;
         self.pageSize = 20;
+        
+        self.rowHeightArray = [NSMutableArray array];
     }
     return self;
 }
@@ -64,17 +66,17 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-//    self.sideMenuViewController = ApplicationDelegate.sideMenuViewController;
-//    self.sideMenuViewController.rightMenuViewController = ApplicationDelegate.rightMenuViewController;
-//    self.sideMenuViewController.leftMenuViewController = nil;
+    //    self.sideMenuViewController = ApplicationDelegate.sideMenuViewController;
+    //    self.sideMenuViewController.rightMenuViewController = ApplicationDelegate.rightMenuViewController;
+    //    self.sideMenuViewController.leftMenuViewController = nil;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-
-//    RESideMenu *sideMenuViewController = ApplicationDelegate.sideMenuViewController;
-//    sideMenuViewController.rightMenuViewController = nil;
-//    self.sideMenuViewController.leftMenuViewController = ApplicationDelegate.leftMenuViewController;
+    
+    //    RESideMenu *sideMenuViewController = ApplicationDelegate.sideMenuViewController;
+    //    sideMenuViewController.rightMenuViewController = nil;
+    //    self.sideMenuViewController.leftMenuViewController = ApplicationDelegate.leftMenuViewController;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,23 +96,77 @@
         cell = [[GCThreadReplyCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     GCThreadDetailPostModel *model = [self.data objectAtIndex:indexPath.row];
-//    cell.textLabel.text = model.message;
-   
-    // HTML是网页的设计语言
-    // <>表示标记</>
-    // 应用场景:截取网页中的某一部分显示
-    // 例如:网页的完整内容中包含广告!加载完成页面之后,把广告部分的HTML删除,然后再加载
-    // 被很多新闻类的应用程序使用
-    [cell.webView loadHTMLString:model.message baseURL:nil];
+    //    cell.indexPath = indexPath;
+    //    cell.messageWebViewHeight = [[self.rowHeightArray objectAtIndex:indexPath.row] floatValue];
+    //    NSLog(@"indexPath.row  %ld", indexPath.row);
     
+    //    NSNumber *num = [self.rowHeightArray objectAtIndex:indexPath.row];
+    //    if ([num floatValue] == 0) {
+    [cell setModel:model];
+    if (cell.messageWebView.superview) {
+        [cell.messageWebView removeFromSuperview];
+    }
+    
+    cell.messageWebView = [[UIWebView alloc] initWithFrame:CGRectZero];
+    cell.messageWebView.dataDetectorTypes = UIDataDetectorTypeLink;
+    cell.messageWebView.scrollView.scrollEnabled = NO;
+    cell.messageWebView.tag = indexPath.row;
+    cell.messageWebView.delegate = self;
+    [cell.messageWebView loadHTMLString:model.message baseURL:nil];
+    cell.messageWebView.frame = CGRectMake(5, 40, ScreenWidth - 10, [[self.rowHeightArray objectAtIndex:indexPath.row] floatValue]);
+    [cell.contentView addSubview:cell.messageWebView];
+    NSLog(@"%.f", [[self.rowHeightArray objectAtIndex:indexPath.row] floatValue]);
+    
+    //    } else {
+    //        cell.authorLabel.text = model.author;
+    //        cell.datelineLabel.text = model.dateline;
+    //        cell.numberLabel.text = model.number;
+    //        cell.messageWebView.delegate = nil;
+    //
+    //        [cell.messageWebView loadHTMLString:model.message baseURL:nil];
+    //    }
+    
+    //    cell.ReloadAction = ^(NSIndexPath *path, CGFloat messageWebViewHeight) {
+    //        NSLog(@"NSIndexPath *path  %ld", path.row);
+    //        NSLog(@"%.f", messageWebViewHeight);
+    //
+    //        if ([[self.rowHeightArray objectAtIndex:path.row] floatValue] == 0) {
+    //
+    //            [self.rowHeightArray replaceObjectAtIndex:path.row withObject:[NSNumber numberWithFloat:messageWebViewHeight]];
+    //            [self.tableView beginUpdates];
+    //            [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:path, nil] withRowAnimation:UITableViewRowAnimationNone];
+    //            [self.tableView endUpdates];
+    //        } else {
+    //
+    //        }
+    //    };
     
     return cell;
+}
+
+
+#pragma mark - UIWebViewDelegate
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    if ([self.rowHeightArray[webView.tag] floatValue] != 0){
+        return;
+    }
+    CGFloat f = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"] floatValue];
+    
+    [self.rowHeightArray replaceObjectAtIndex:webView.tag withObject:[NSNumber numberWithFloat:f]];
+    
+//    [self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:[NSIndexPath indexPathForRow:webView.tag inSection:0], nil] withRowAnimation:UITableViewRowAnimationAutomatic];
+//    [self.tableView endUpdates];
 }
 
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 300;
+    NSNumber *height = [self.rowHeightArray objectAtIndex:indexPath.row];
+    //    NSLog(@"heightForRowAtIndexPath height = %.f, row = %ld", [height floatValue], indexPath.row);
+    return [height floatValue] + 50;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -121,37 +177,37 @@
 
 - (void)rightBarButtonClickAction:(id)sender {
     NSArray *menuItems = @[
-      [KxMenuItem menuItem:NSLocalizedString(@"Reply", nil)
-                     image:nil
-                    target:nil
-                    action:@selector(replyAction:)],
-      
-      [KxMenuItem menuItem:NSLocalizedString(@"Collect", nil)
-                     image:[UIImage imageNamed:@"action_icon"]
-                    target:self
-                    action:@selector(collectAction:)],
-      
-      [KxMenuItem menuItem:NSLocalizedString(@"Share", nil)
-                     image:nil
-                    target:self
-                    action:@selector(shareAction:)],
-      
-      [KxMenuItem menuItem:NSLocalizedString(@"Report", nil)
-                     image:[UIImage imageNamed:@"reload"]
-                    target:self
-                    action:@selector(reportAction:)],
-      
-      [KxMenuItem menuItem:NSLocalizedString(@"Open in Safari", nil)
-                     image:[UIImage imageNamed:@"search_icon"]
-                    target:self
-                    action:@selector(safariAction:)],
-      
-      [KxMenuItem menuItem:NSLocalizedString(@"Copy url", nil)
-                     image:[UIImage imageNamed:@"home_icon"]
-                    target:self
-                    action:@selector(copyUrlAction:)],
-      ];
-
+                           [KxMenuItem menuItem:NSLocalizedString(@"Reply", nil)
+                                          image:nil
+                                         target:nil
+                                         action:@selector(replyAction:)],
+                           
+                           [KxMenuItem menuItem:NSLocalizedString(@"Collect", nil)
+                                          image:[UIImage imageNamed:@"action_icon"]
+                                         target:self
+                                         action:@selector(collectAction:)],
+                           
+                           [KxMenuItem menuItem:NSLocalizedString(@"Share", nil)
+                                          image:nil
+                                         target:self
+                                         action:@selector(shareAction:)],
+                           
+                           [KxMenuItem menuItem:NSLocalizedString(@"Report", nil)
+                                          image:[UIImage imageNamed:@"reload"]
+                                         target:self
+                                         action:@selector(reportAction:)],
+                           
+                           [KxMenuItem menuItem:NSLocalizedString(@"Open in Safari", nil)
+                                          image:[UIImage imageNamed:@"search_icon"]
+                                         target:self
+                                         action:@selector(safariAction:)],
+                           
+                           [KxMenuItem menuItem:NSLocalizedString(@"Copy url", nil)
+                                          image:[UIImage imageNamed:@"home_icon"]
+                                         target:self
+                                         action:@selector(copyUrlAction:)],
+                           ];
+    
     for (KxMenuItem *item in menuItems) {
         item.alignment = NSTextAlignmentCenter;
     }
@@ -194,20 +250,40 @@
     @weakify(self);
     self.refreshBlock = ^{
         @strongify(self);
-        [[GCNetworkManager manager] getViewThreadWithThreadID:@"1961535" pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
+        [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
             if (self.pageIndex == 1) {
                 self.data = model.postlist;
-                //                [self.rowHeightArray removeAllObjects];
+                [self.rowHeightArray removeAllObjects];
+                for (GCThreadDetailPostModel *model in self.data) {
+                    //                    [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCThreadReplyCell getCellHeightWithModel:model]]];
+                    [self.rowHeightArray addObject:[NSNumber numberWithFloat:0]];
+                }
                 
                 [self.tableView reloadData];
                 [self endRefresh];
             } else {
+                int startCount = (int)self.data.count;
                 for (GCThreadDetailPostModel *item in model.postlist) {
                     [self.data addObject:item];
+                    //                    [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCThreadReplyCell getCellHeightWithModel:item]]];
+                    [self.rowHeightArray addObject:[NSNumber numberWithFloat:0]];
                 }
+                int endCount = (int)self.data.count;
+                NSMutableArray *array = [NSMutableArray array];
+                for (int i = startCount; i < endCount; i++) {
+                    [array addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+                }
+                [self.tableView beginUpdates];
+                NSLog(@"numberOfRowsInSection: %d", [self tableView:self.tableView numberOfRowsInSection:0]);
                 
-                [self.tableView reloadData];
+                NSLog(@"%d", self.data.count);
+                [self.tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationAutomatic];
+                [self.tableView endUpdates];
                 [self endFetchMore];
+                
+                
+                //                    [self.tableView reloadData];
+                //                [self endFetchMore];
             }
             
         } failure:^(NSError *error) {

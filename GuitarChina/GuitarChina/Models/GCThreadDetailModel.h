@@ -103,5 +103,6 @@
 @property (nonatomic, strong) NSMutableArray *postlist;    //GCThreadDetailPostModel
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (NSString *)getGCThreadDetailModelHtml;
 
 @end

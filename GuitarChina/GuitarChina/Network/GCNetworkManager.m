@@ -124,6 +124,8 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                                               Success:(void (^)(GCThreadDetailModel *model))success
                                               failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", operation.responseString);
+
         GCThreadDetailModel *model = [[GCThreadDetailModel alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];        success(model);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);

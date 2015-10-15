@@ -8,8 +8,8 @@
 
 #import "GCHotThreadViewController.h"
 #import "RESideMenu.h"
-#import "GCThreadViewController.h"
 #import "GCHotThreadCell.h"
+#import "GCThreadWebViewController.h"
 
 @interface GCHotThreadViewController()
 
@@ -84,7 +84,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    GCThreadViewController *controller = [[GCThreadViewController alloc] init];
+    GCThreadWebViewController *controller = [[GCThreadWebViewController alloc] init];
     GCHotThreadModel *model = [self.data objectAtIndex:indexPath.row];
     controller.hotThreadModel = model;
     controller.tid = model.tid;

@@ -8,15 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "RTLabel.h"
+#import "GCThreadDetailModel.h"
 
 @interface GCThreadReplyCell : UITableViewCell
 
-//@property (nonatomic, strong) GCForumThreadModel *model;
-//
-//+ (CGFloat)getCellHeightWithModel:(GCForumThreadModel *)model;
+@property (nonatomic, strong) GCThreadDetailPostModel *model;
 
-@property (nonatomic, strong) RTLabel *descriptLabel;
++ (CGFloat)getCellHeightWithModel:(GCThreadDetailPostModel *)model;
 
-@property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, assign) CGFloat messageWebViewHeight;
+@property (nonatomic, copy) void (^ReloadAction)(NSIndexPath *, CGFloat);
+
+@property (nonatomic, strong) UILabel *authorLabel;
+@property (nonatomic, strong) UILabel *datelineLabel;
+@property (nonatomic, strong) UIWebView *messageWebView;
+@property (nonatomic, strong) UILabel *numberLabel;
+
 
 @end

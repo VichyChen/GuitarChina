@@ -111,11 +111,11 @@
 //            model.message      = [item objectForKey:@"message"];
             NSString *string = [item objectForKey:@"message"];
             string = [string replace:@"src=\"static/image/smiley/gc/em" toNewString:@"src=\"http://bbs.guitarchina.com/static/image/smiley/gc/em"];
-            string = [string replace:@"class=\"quote\"" toNewString:@"style=\"background-color: red;border: 1px solid #aaa;display:inline-block;\""];
+            string = [string replace:@"class=\"quote\"" toNewString:@"style=\"background-color: white;border: 1px solid #D3DCE2;\""];
 
-            string = [string replace:@"<blockquote>" toNewString:@""];
-            string = [string replace:@"</blockquote>" toNewString:@""];
-
+//            string = [string replace:@"<blockquote>" toNewString:@""];
+//            string = [string replace:@"</blockquote>" toNewString:@""];
+//
             model.message      = string;
 
             model.anonymous    = [item objectForKey:@"anonymous"];
@@ -133,6 +133,19 @@
     }
     
     return self;
+}
+
+- (NSString *)getGCThreadDetailModelHtml {
+    NSMutableString *html = [[NSMutableString alloc] init];
+    NSMutableString *htmlCellString = [[NSMutableString alloc] init];
+    NSString *htmlCell = [Util stringByLocalHtmlString:@"GCThreadWebViewHtmlCell"];
+    for (GCThreadDetailPostModel *item in self.postlist) {
+        [htmlCellString appendFormat:htmlCell, item.author, item.dateline, item.number, item.message];
+    }
+    NSString *htmlPage = [Util stringByLocalHtmlString:@"GCThreadWebViewHtml"];
+    [html appendFormat:htmlPage, htmlCellString];
+    
+    return html;
 }
 
 @end

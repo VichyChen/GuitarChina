@@ -1,0 +1,25 @@
+.author {
+    margin:0 10px 0 0;
+    float:left;
+}
+
+.dateline {
+    margin:0 0 0 0;
+    float:left;
+}
+
+.number {
+    margin:0 0 0 12px;
+    float:right;
+}
+
+.message {
+    margin:10px 12px 0 12px;
+}
+
+.separator {
+    height:1px;
+    background:#D3DCE2;
+    overflow:hidden;
+    margin:10px 10px 10px 10px;
+}
