@@ -9,7 +9,7 @@
 #import "GCHotThreadViewController.h"
 #import "RESideMenu.h"
 #import "GCHotThreadCell.h"
-#import "GCThreadWebViewController.h"
+#import "GCThreadDetailViewController.h"
 
 @interface GCHotThreadViewController()
 
@@ -21,7 +21,7 @@
 
 #pragma mark - life cycle
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -84,7 +84,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    GCThreadWebViewController *controller = [[GCThreadWebViewController alloc] init];
+    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
     GCHotThreadModel *model = [self.data objectAtIndex:indexPath.row];
     controller.hotThreadModel = model;
     controller.tid = model.tid;

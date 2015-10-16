@@ -9,7 +9,7 @@
 #import "GCForumDisplayViewController.h"
 #import "GCForumDisplayCell.h"
 #import "GCNewThreadViewController.h"
-#import "GCThreadWebViewController.h"
+#import "GCThreadDetailViewController.h"
 
 @interface GCForumDisplayViewController ()
 
@@ -21,7 +21,7 @@
 
 #pragma mark - life cycle
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -76,7 +76,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    GCThreadWebViewController *controller = [[GCThreadWebViewController alloc] init];
+    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
     GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
     controller.forumThreadModel = model;
     controller.tid = model.tid;

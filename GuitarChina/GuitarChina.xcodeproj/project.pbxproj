@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0422CDDC1BC6AF70003D2EF5 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422CDDB1BC6AF70003D2EF5 /* KxMenu.m */; };
 		042D23991BB29BC3001DE667 /* GCNewThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D23981BB29BC3001DE667 /* GCNewThreadViewController.m */; };
+		042D346B1BD0ED4300EBDACC /* GCThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D346A1BD0ED4300EBDACC /* GCThreadDetailViewController.m */; };
+		042D346E1BD0ED6000EBDACC /* GCThreadDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D346D1BD0ED6000EBDACC /* GCThreadDetailView.m */; };
 		043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
 		043648DD1BCF90740005162D /* GCThreadWebViewHtmlCell.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */; };
 		043648E01BCF9BD80005162D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043648DF1BCF9BD80005162D /* Images.xcassets */; };
@@ -19,7 +21,6 @@
 		046262331BA94D9300E66F03 /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462622D1BA94D9300E66F03 /* GCForumIndexCell.m */; };
 		046262341BA94D9300E66F03 /* GCHotThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462622F1BA94D9300E66F03 /* GCHotThreadCell.m */; };
 		046262351BA94D9300E66F03 /* GCThreadReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262311BA94D9300E66F03 /* GCThreadReplyCell.m */; };
-		046262391BA9548500E66F03 /* GCThreadHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262381BA9548500E66F03 /* GCThreadHeaderView.m */; };
 		046262441BAAC06800E66F03 /* NSString+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623C1BAAC06800E66F03 /* NSString+Tools.m */; };
 		046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623F1BAAC06800E66F03 /* UIImage+Tint.m */; };
 		046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */; };
@@ -28,7 +29,6 @@
 		046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E661BC6192F0044EB1D /* AppDelegate.m */; };
 		046F9E691BC6192F0044EB1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E671BC6192F0044EB1D /* main.m */; };
 		046F9E6D1BC619560044EB1D /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E6C1BC619560044EB1D /* UIColor+Custom.m */; };
-		0471258E1BCCA17F000C8BC1 /* GCThreadWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0471258D1BCCA17F000C8BC1 /* GCThreadWebViewController.m */; };
 		047125911BCDF478000C8BC1 /* GCThreadWebView.css in Resources */ = {isa = PBXBuildFile; fileRef = 047125901BCDF478000C8BC1 /* GCThreadWebView.css */; };
 		04935B031BB52D5C0010F7C8 /* GCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B021BB52D5C0010F7C8 /* GCMineViewController.m */; };
 		04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B051BB52F460010F7C8 /* GCMoreViewController.m */; };
@@ -100,7 +100,6 @@
 		4260C6971BB64AB700705BE0 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 4260C6961BB64AB700705BE0 /* Util.m */; };
 		42657DBA1B9983AF001F8DFC /* GCForumDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DB91B9983AF001F8DFC /* GCForumDisplayViewController.m */; };
 		42657DBD1B998C49001F8DFC /* GCForumIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DBC1B998C49001F8DFC /* GCForumIndexViewController.m */; };
-		42657DC01B99961A001F8DFC /* GCThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DBF1B99961A001F8DFC /* GCThreadViewController.m */; };
 		42657DCC1B99B529001F8DFC /* GCHotThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DCB1B99B529001F8DFC /* GCHotThreadViewController.m */; };
 		42657DDC1B99CAA2001F8DFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42657DDE1B99CAA2001F8DFC /* Localizable.strings */; };
 		426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */; };
@@ -134,6 +133,10 @@
 		0422CDDB1BC6AF70003D2EF5 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
 		042D23971BB29BC3001DE667 /* GCNewThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewThreadViewController.h; sourceTree = "<group>"; };
 		042D23981BB29BC3001DE667 /* GCNewThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewThreadViewController.m; sourceTree = "<group>"; };
+		042D34691BD0ED4300EBDACC /* GCThreadDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailViewController.h; sourceTree = "<group>"; };
+		042D346A1BD0ED4300EBDACC /* GCThreadDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailViewController.m; sourceTree = "<group>"; };
+		042D346C1BD0ED6000EBDACC /* GCThreadDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailView.h; sourceTree = "<group>"; };
+		042D346D1BD0ED6000EBDACC /* GCThreadDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailView.m; sourceTree = "<group>"; };
 		043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewHtml.html; sourceTree = "<group>"; };
 		043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewHtmlCell.html; sourceTree = "<group>"; };
 		043648DF1BCF9BD80005162D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -151,8 +154,6 @@
 		0462622F1BA94D9300E66F03 /* GCHotThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadCell.m; sourceTree = "<group>"; };
 		046262301BA94D9300E66F03 /* GCThreadReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadReplyCell.h; sourceTree = "<group>"; };
 		046262311BA94D9300E66F03 /* GCThreadReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadReplyCell.m; sourceTree = "<group>"; };
-		046262371BA9548500E66F03 /* GCThreadHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadHeaderView.h; sourceTree = "<group>"; };
-		046262381BA9548500E66F03 /* GCThreadHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadHeaderView.m; sourceTree = "<group>"; };
 		0462623B1BAAC06800E66F03 /* NSString+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Tools.h"; sourceTree = "<group>"; };
 		0462623C1BAAC06800E66F03 /* NSString+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Tools.m"; sourceTree = "<group>"; };
 		0462623E1BAAC06800E66F03 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
@@ -167,8 +168,6 @@
 		046F9E671BC6192F0044EB1D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		046F9E6B1BC619560044EB1D /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
 		046F9E6C1BC619560044EB1D /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
-		0471258C1BCCA17F000C8BC1 /* GCThreadWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadWebViewController.h; sourceTree = "<group>"; };
-		0471258D1BCCA17F000C8BC1 /* GCThreadWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadWebViewController.m; sourceTree = "<group>"; };
 		047125901BCDF478000C8BC1 /* GCThreadWebView.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = GCThreadWebView.css; sourceTree = "<group>"; };
 		04935B011BB52D5C0010F7C8 /* GCMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMineViewController.h; sourceTree = "<group>"; };
 		04935B021BB52D5C0010F7C8 /* GCMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMineViewController.m; sourceTree = "<group>"; };
@@ -316,8 +315,6 @@
 		42657DB91B9983AF001F8DFC /* GCForumDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayViewController.m; sourceTree = "<group>"; };
 		42657DBB1B998C49001F8DFC /* GCForumIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexViewController.h; sourceTree = "<group>"; };
 		42657DBC1B998C49001F8DFC /* GCForumIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexViewController.m; sourceTree = "<group>"; };
-		42657DBE1B99961A001F8DFC /* GCThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadViewController.h; sourceTree = "<group>"; };
-		42657DBF1B99961A001F8DFC /* GCThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadViewController.m; sourceTree = "<group>"; };
 		42657DCA1B99B529001F8DFC /* GCHotThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadViewController.h; sourceTree = "<group>"; };
 		42657DCB1B99B529001F8DFC /* GCHotThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadViewController.m; sourceTree = "<group>"; };
 		42657DDB1B99CA95001F8DFC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -412,8 +409,8 @@
 			isa = PBXGroup;
 			children = (
 				046262291BA94D2B00E66F03 /* Cells */,
-				046262371BA9548500E66F03 /* GCThreadHeaderView.h */,
-				046262381BA9548500E66F03 /* GCThreadHeaderView.m */,
+				042D346C1BD0ED6000EBDACC /* GCThreadDetailView.h */,
+				042D346D1BD0ED6000EBDACC /* GCThreadDetailView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -579,12 +576,10 @@
 				42657DB91B9983AF001F8DFC /* GCForumDisplayViewController.m */,
 				042D23971BB29BC3001DE667 /* GCNewThreadViewController.h */,
 				042D23981BB29BC3001DE667 /* GCNewThreadViewController.m */,
-				42657DBE1B99961A001F8DFC /* GCThreadViewController.h */,
-				42657DBF1B99961A001F8DFC /* GCThreadViewController.m */,
 				045ED3721BB8F97300790B96 /* GCThreadRightMenuViewController.h */,
 				045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */,
-				0471258C1BCCA17F000C8BC1 /* GCThreadWebViewController.h */,
-				0471258D1BCCA17F000C8BC1 /* GCThreadWebViewController.m */,
+				042D34691BD0ED4300EBDACC /* GCThreadDetailViewController.h */,
+				042D346A1BD0ED4300EBDACC /* GCThreadDetailViewController.m */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -1129,17 +1124,17 @@
 				046262441BAAC06800E66F03 /* NSString+Tools.m in Sources */,
 				04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */,
 				423888F41BC57D0F002E1625 /* DGActivityIndicatorBallClipRotatePulseAnimation.m in Sources */,
-				42657DC01B99961A001F8DFC /* GCThreadViewController.m in Sources */,
 				42657DBA1B9983AF001F8DFC /* GCForumDisplayViewController.m in Sources */,
 				423888FF1BC57D0F002E1625 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
 				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
 				045ED3771BB8FDED00790B96 /* GCThreadRightMenuCell.m in Sources */,
 				0422CDDC1BC6AF70003D2EF5 /* KxMenu.m in Sources */,
 				046262321BA94D9300E66F03 /* GCForumDisplayCell.m in Sources */,
-				0471258E1BCCA17F000C8BC1 /* GCThreadWebViewController.m in Sources */,
+				042D346E1BD0ED6000EBDACC /* GCThreadDetailView.m in Sources */,
 				420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */,
 				4238890D1BC57D0F002E1625 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
 				420D98811B929C2B00AEAED3 /* GCLeftMenuViewController.m in Sources */,
+				042D346B1BD0ED4300EBDACC /* GCThreadDetailViewController.m in Sources */,
 				428F71201B89B21E0023E501 /* GCMyFavThreadArray.m in Sources */,
 				042D23991BB29BC3001DE667 /* GCNewThreadViewController.m in Sources */,
 				04935B031BB52D5C0010F7C8 /* GCMineViewController.m in Sources */,
@@ -1160,7 +1155,6 @@
 				4260C6971BB64AB700705BE0 /* Util.m in Sources */,
 				0459674A1BC7A47D000181DE /* RTLabel.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,
-				046262391BA9548500E66F03 /* GCThreadHeaderView.m in Sources */,
 				423888F91BC57D0F002E1625 /* DGActivityIndicatorBallRotateAnimation.m in Sources */,
 				423888A81BC57CA6002E1625 /* MJRefreshConst.m in Sources */,
 				428F71171B89A1460023E501 /* GCLoginModel.m in Sources */,
