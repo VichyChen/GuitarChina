@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 #import "GCNavigationController.h"
 #import "GCHotThreadViewController.h"
-
+#import "GCForumIndexViewController.h"
+#import "GCMineViewController.h"
+#import "GCSettingViewController.h"
 
 @interface AppDelegate ()
 
@@ -33,8 +35,39 @@
     //    }];
     
     //配置左侧边栏
-    [self configureSideMenuViewController];
-    self.window.rootViewController = self.sideMenuViewController;
+//    [self configureSideMenuViewController];
+//    self.window.rootViewController = self.sideMenuViewController;
+    
+    self.tabBarController = [[GCTabBarController alloc]init];
+    
+    GCHotThreadViewController *hotThreadViewController = [[GCHotThreadViewController alloc] init];
+    GCNavigationController *hotThreadNavigationController = [[GCNavigationController alloc] initWithRootViewController:hotThreadViewController];
+    hotThreadNavigationController.tabBarItem.title = NSLocalizedString(@"Hot", nil);
+    hotThreadNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_hot"];
+    hotThreadNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_hot_on"];
+
+    GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] init];
+    GCNavigationController *forumIndexNavigationController = [[GCNavigationController alloc] initWithRootViewController:forumIndexViewController];
+    forumIndexNavigationController.tabBarItem.title = NSLocalizedString(@"Forum", nil);
+    forumIndexNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_forum"];
+    forumIndexNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_forum_on"];
+
+    GCMineViewController *mineViewController = [[GCMineViewController alloc] init];
+    GCNavigationController *mineNavigationController = [[GCNavigationController alloc] initWithRootViewController:mineViewController];
+    mineNavigationController.tabBarItem.title = NSLocalizedString(@"Mine", nil);
+    mineNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_mine"];
+    mineNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_mine_on"];
+
+    GCSettingViewController *settingViewController = [[GCSettingViewController alloc] init];
+    GCNavigationController *settingNavigationController = [[GCNavigationController alloc] initWithRootViewController:settingViewController];
+    settingNavigationController.tabBarItem.title = NSLocalizedString(@"Setting", nil);
+    settingNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_setting"];
+    settingNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_setting_on"];
+
+    self.tabBarController.viewControllers = @[hotThreadNavigationController, forumIndexNavigationController, mineNavigationController, settingNavigationController];
+
+    self.window.rootViewController = self.tabBarController;
+
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

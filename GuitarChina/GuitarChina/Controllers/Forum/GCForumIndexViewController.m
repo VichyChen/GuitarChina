@@ -35,11 +35,11 @@
     
     self.hiddenNavigationBarWhenScrollToBottom = NO;
     self.title = NSLocalizedString(@"Forum", nil);
-    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
-                                                                  normalColor:[UIColor FontColor]
-                                                             highlightedColor:[UIColor redColor]
-                                                                       target:self
-                                                                       action:@selector(presentLeftMenuViewController:)];
+//    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
+//                                                                  normalColor:[UIColor FontColor]
+//                                                             highlightedColor:[UIColor redColor]
+//                                                                       target:self
+//                                                                       action:@selector(presentLeftMenuViewController:)];
 }
 
 - (void)viewDidLoad {
@@ -95,6 +95,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GCForumDisplayViewController *controller = [[GCForumDisplayViewController alloc] init];
+    controller.hidesBottomBarWhenPushed = YES;
     GCForumGroupModel *forumGroupModel = [self.data objectAtIndex:indexPath.section];
     GCForumModel *forumModel = [forumGroupModel.forums objectAtIndex:indexPath.row];
     controller.title = forumModel.name;

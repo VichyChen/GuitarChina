@@ -33,14 +33,14 @@
 - (void)loadView {
     [super loadView];
     
-    self.title = NSLocalizedString(@"Hot Thread", nil);
+    self.title = NSLocalizedString(@"Hot", nil);
     self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
-                                                                  normalColor:[UIColor FontColor]
-                                                             highlightedColor:[UIColor redColor]
-                                                                       target:self
-                                                                       action:@selector(presentLeftMenuViewController:)];
+//    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
+//                                                                  normalColor:[UIColor FontColor]
+//                                                             highlightedColor:[UIColor redColor]
+//                                                                       target:self
+//                                                                       action:@selector(presentLeftMenuViewController:)];
     
 
 }
@@ -85,6 +85,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+    controller.hidesBottomBarWhenPushed = YES;
     GCHotThreadModel *model = [self.data objectAtIndex:indexPath.row];
     controller.hotThreadModel = model;
     controller.tid = model.tid;

@@ -21,12 +21,11 @@
     self.title = NSLocalizedString(@"Setting", nil);
     self.view.backgroundColor = [UIColor whiteColor];
     
-    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
-                                                                  normalColor:[UIColor FontColor]
-                                                             highlightedColor:[UIColor redColor]
-                                                                       target:self
-                                                                       action:@selector(presentLeftMenuViewController:)];
-
+//    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
+//                                                                  normalColor:[UIColor FontColor]
+//                                                             highlightedColor:[UIColor redColor]
+//                                                                       target:self
+//                                                                       action:@selector(presentLeftMenuViewController:)];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -50,7 +50,7 @@
     if (self) {
         selectedIndex = 0;
         
-        _titleArray = @[NSLocalizedString(@"Hot Thread", nil),
+        _titleArray = @[NSLocalizedString(@"Hot", nil),
                         NSLocalizedString(@"Forum", nil),
                         NSLocalizedString(@"Mine", nil),
                         NSLocalizedString(@"Setting", nil),

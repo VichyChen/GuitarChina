@@ -39,11 +39,11 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.avatarImage.frame = CGRectMake(15, 10, 40, 40);
-    self.authorLabel.frame = CGRectMake(65, 8, ScreenWidth - 75, 20);
-    self.datelineLabel.frame = CGRectMake(65, 33, ScreenWidth - 75, 20);
-    self.subjectLabel.frame = CGRectMake(15, 60, SubjectWidth, self.subjectLabelHeight);
-    self.lastPostDetailLabel.frame = CGRectMake(15, 65 + self.subjectLabelHeight, SubjectWidth, 20);
+    self.avatarImage.frame = CGRectMake(20, 10, 40, 40);
+    self.authorLabel.frame = CGRectMake(70, 8, ScreenWidth - 75, 20);
+    self.datelineLabel.frame = CGRectMake(70, 33, ScreenWidth - 75, 20);
+    self.subjectLabel.frame = CGRectMake(20, 60, SubjectWidth, self.subjectLabelHeight);
+    self.lastPostDetailLabel.frame = CGRectMake(20, 65 + self.subjectLabelHeight, SubjectWidth, 20);
     self.repliesLabel.frame = CGRectMake(15, 8, SubjectWidth, 20);
 }
 
@@ -86,8 +86,8 @@
 - (UIImageView *)avatarImage {
     if (!_avatarImage) {
         _avatarImage = [UIView createImageView:CGRectZero contentMode:UIViewContentModeScaleToFill];
-        _avatarImage.layer.cornerRadius = 5;
-        _avatarImage.layer.masksToBounds = YES;
+//        _avatarImage.layer.cornerRadius = 5;
+//        _avatarImage.layer.masksToBounds = YES;
     }
     return _avatarImage;
 }
@@ -97,7 +97,7 @@
         _authorLabel = [UIView createLabel:CGRectZero
                                       text:@""
                                       font:[UIFont systemFontOfSize:16]
-                                 textColor:[UIColor FontColor]];
+                                 textColor:[UIColor colorWithRed:0.302f green:0.557f blue:0.690f alpha:1.00f]];
     }
     return _authorLabel;
 }

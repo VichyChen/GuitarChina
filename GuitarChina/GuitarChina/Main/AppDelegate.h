@@ -11,6 +11,7 @@
 #import "RESideMenu.h"
 #import "GCLeftMenuViewController.h"
 #import "GCThreadRightMenuViewController.h"
+#import "GCTabBarController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, RESideMenuDelegate>
 
@@ -23,6 +24,8 @@
 @property (strong, nonatomic) RESideMenu *sideMenuViewController;
 @property (strong, nonatomic) GCLeftMenuViewController *leftMenuViewController;
 @property (strong, nonatomic) GCThreadRightMenuViewController *rightMenuViewController;
+
+@property (strong, nonatomic) GCTabBarController *tabBarController;
 
 
 - (void)saveContext;
