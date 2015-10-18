@@ -47,7 +47,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"帖子详情";
     self.view.backgroundColor = [UIColor whiteColor];
-    [self configureView];
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame = CGRectMake(0, 0, 25, 25);
     [leftButton setAdjustsImageWhenHighlighted:YES];
@@ -66,6 +65,7 @@
     [self configureBlock];
     
     [self beginRefresh];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -139,7 +139,19 @@
     };
     self.threadDetailView.webViewFetchMoreBlock = ^{
         @strongify(self);
-        [self beginFetchMore];
+        [self beginForward];
+    };
+    self.threadDetailView.pageActionBlock = ^{
+//        @strongify(self);
+
+    };
+    self.threadDetailView.backActionBlock = ^{
+        @strongify(self);
+        [self beginBack];
+    };
+    self.threadDetailView.forwardActionBlock = ^{
+        @strongify(self);
+        [self beginForward];
     };
     [self.view addSubview:self.threadDetailView];
 }
@@ -167,13 +179,30 @@
     });
 }
 
-- (void)beginFetchMore {
+- (void)beginBack {
+    if (self.pageIndex - 1 == 0) {
+        [self.threadDetailView webViewEndFetchMore];
+        return;
+    } else {
+        self.pageIndex--;
+        [self.threadDetailView.pageButton setTitle:[NSString stringWithFormat:@"%ld", self.pageIndex] forState:UIControlStateNormal];
+        self.refreshBlock(^(GCThreadDetailModel *model) {
+            [self.htmlString setString:[model getGCThreadDetailModelHtml]];
+            [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util bundleBasePathURL]];
+            
+            [self.threadDetailView webViewEndFetchMore];
+        });
+    }
+}
+
+- (void)beginForward {
     //    offsetY = self.webView.scrollView.contentOffset.y;
     if (self.pageCount < self.pageIndex + 1) {
         [self.threadDetailView webViewEndFetchMore];
         return;
     } else {
         self.pageIndex++;
+        [self.threadDetailView.pageButton setTitle:[NSString stringWithFormat:@"%ld", self.pageIndex] forState:UIControlStateNormal];
         self.refreshBlock(^(GCThreadDetailModel *model) {
             [self.htmlString setString:[model getGCThreadDetailModelHtml]];
             [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util bundleBasePathURL]];

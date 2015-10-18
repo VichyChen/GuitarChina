@@ -11,10 +11,21 @@
 @interface GCThreadDetailView : UIView
 
 @property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, strong) UIView *toolBarView;
+@property (nonatomic, strong) UIButton *pageButton;
+@property (nonatomic, strong) UIButton *backButton;
+@property (nonatomic, strong) UIButton *forwardButton;
+@property (nonatomic, strong) UIButton *scrollTopButton;
+
+
 @property (nonatomic, copy) void (^webViewRefreshBlock)();
 @property (nonatomic, copy) void (^webViewFetchMoreBlock)();
 - (void)webViewEndRefresh;
 - (void)webViewEndFetchMore;
+
+@property (nonatomic, copy) void (^pageActionBlock)();
+@property (nonatomic, copy) void (^backActionBlock)();
+@property (nonatomic, copy) void (^forwardActionBlock)();
 
 
 @end

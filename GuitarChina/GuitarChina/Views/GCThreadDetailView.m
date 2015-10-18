@@ -18,7 +18,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.frame = CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64);
+        self.frame = CGRectMake(0, 64, ScreenWidth, ScreenHeight);
         [self configureView];
     }
     return self;
@@ -26,6 +26,10 @@
 
 - (void)configureView {
     [self addSubview:self.webView];
+    [self addSubview:self.pageButton];
+    [self addSubview:self.backButton];
+    [self addSubview:self.forwardButton];
+    [self addSubview:self.scrollTopButton];
 }
 
 - (void)beginRefresh {
@@ -43,6 +47,29 @@
 - (void)webViewEndFetchMore {
     [self.webView.scrollView.footer endRefreshing];
 }
+
+- (void)pageAction {
+    if (!self.pageActionBlock) {
+        self.pageActionBlock();
+    }
+}
+
+- (void)backAction {
+    if (self.backActionBlock) {
+        self.backActionBlock();
+    }
+}
+
+- (void)forwardAction {
+    if (self.forwardActionBlock) {
+        self.forwardActionBlock();
+    }
+}
+
+- (void)scrollTopAction {
+    [self.webView.scrollView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+}
+
 
 #pragma mark - Getters
 
@@ -68,5 +95,46 @@
     }
     return _webView;
 }
+
+- (UIButton *)pageButton {
+    if (!_pageButton) {
+        _pageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 22, ScreenHeight - 64 - 44, 44, 44)
+                                      text:@"1"
+                                    target:self
+                                    action:@selector(pageAction)];
+    }
+    return _pageButton;
+}
+
+- (UIButton *)backButton {
+    if (!_backButton) {
+        _backButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 22 - 44, ScreenHeight - 64 - 44, 44, 44)
+                                    target:self
+                                    action:@selector(backAction)];
+        [_backButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+    }
+    return _backButton;
+}
+
+- (UIButton *)forwardButton {
+    if (!_forwardButton) {
+        _forwardButton = [UIView createButton:CGRectMake(ScreenWidth / 2 + 22, ScreenHeight - 64 - 44, 44, 44)
+                                       target:self
+                                       action:@selector(forwardAction)];
+        [_forwardButton setImage:[UIImage imageNamed:@"icon_forward"] forState:UIControlStateNormal];
+    }
+    return _forwardButton;
+}
+
+- (UIButton *)scrollTopButton {
+    if (!_scrollTopButton) {
+        _scrollTopButton = [UIView createButton:CGRectMake(ScreenWidth - 15 - 44, ScreenHeight - 64 - 44, 44, 44)
+                                         target:self
+                                         action:@selector(scrollTopAction)];
+        [_scrollTopButton setImage:[UIImage imageNamed:@"icon_up"] forState:UIControlStateNormal];
+    }
+    return _scrollTopButton;
+}
+
 
 @end
