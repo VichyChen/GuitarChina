@@ -98,7 +98,7 @@
 
 - (UIButton *)pageButton {
     if (!_pageButton) {
-        _pageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 22, ScreenHeight - 64 - 44, 44, 44)
+        _pageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 30, ScreenHeight - 64 - 44, 60, 44)
                                       text:@"1"
                                     target:self
                                     action:@selector(pageAction)];
@@ -108,7 +108,7 @@
 
 - (UIButton *)backButton {
     if (!_backButton) {
-        _backButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 22 - 44, ScreenHeight - 64 - 44, 44, 44)
+        _backButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 30 - 44, ScreenHeight - 64 - 44, 44, 44)
                                     target:self
                                     action:@selector(backAction)];
         [_backButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
@@ -118,7 +118,7 @@
 
 - (UIButton *)forwardButton {
     if (!_forwardButton) {
-        _forwardButton = [UIView createButton:CGRectMake(ScreenWidth / 2 + 22, ScreenHeight - 64 - 44, 44, 44)
+        _forwardButton = [UIView createButton:CGRectMake(ScreenWidth / 2 + 30, ScreenHeight - 64 - 44, 44, 44)
                                        target:self
                                        action:@selector(forwardAction)];
         [_forwardButton setImage:[UIImage imageNamed:@"icon_forward"] forState:UIControlStateNormal];

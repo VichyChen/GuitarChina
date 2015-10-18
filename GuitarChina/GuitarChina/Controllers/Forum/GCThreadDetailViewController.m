@@ -174,7 +174,7 @@
     self.refreshBlock(^(GCThreadDetailModel *model) {
         [self.htmlString setString:[model getGCThreadDetailModelHtml]];
         [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util bundleBasePathURL]];
-        
+        [self.threadDetailView.pageButton setTitle:[NSString stringWithFormat:@"%ld / %ld", self.pageIndex, self.pageCount] forState:UIControlStateNormal];
         [self.threadDetailView webViewEndRefresh];
     });
 }
@@ -185,7 +185,7 @@
         return;
     } else {
         self.pageIndex--;
-        [self.threadDetailView.pageButton setTitle:[NSString stringWithFormat:@"%ld", self.pageIndex] forState:UIControlStateNormal];
+        [self.threadDetailView.pageButton setTitle:[NSString stringWithFormat:@"%ld / %ld", self.pageIndex, self.pageCount] forState:UIControlStateNormal];
         self.refreshBlock(^(GCThreadDetailModel *model) {
             [self.htmlString setString:[model getGCThreadDetailModelHtml]];
             [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util bundleBasePathURL]];
@@ -202,7 +202,7 @@
         return;
     } else {
         self.pageIndex++;
-        [self.threadDetailView.pageButton setTitle:[NSString stringWithFormat:@"%ld", self.pageIndex] forState:UIControlStateNormal];
+        [self.threadDetailView.pageButton setTitle:[NSString stringWithFormat:@"%ld / %ld", self.pageIndex, self.pageCount] forState:UIControlStateNormal];
         self.refreshBlock(^(GCThreadDetailModel *model) {
             [self.htmlString setString:[model getGCThreadDetailModelHtml]];
             [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util bundleBasePathURL]];
