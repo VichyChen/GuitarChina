@@ -110,6 +110,7 @@
                                       text:@"1"
                                     target:self
                                     action:@selector(pageAction)];
+        _pageButton.tintColor = [UIColor GCRedColor];
     }
     return _pageButton;
 }
@@ -120,6 +121,7 @@
                                     target:self
                                     action:@selector(backAction)];
         [_backButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+        _backButton.tintColor = [UIColor GCRedColor];
     }
     return _backButton;
 }
@@ -130,6 +132,7 @@
                                        target:self
                                        action:@selector(forwardAction)];
         [_forwardButton setImage:[UIImage imageNamed:@"icon_forward"] forState:UIControlStateNormal];
+        _forwardButton.tintColor = [UIColor GCRedColor];
     }
     return _forwardButton;
 }
@@ -140,6 +143,7 @@
                                          target:self
                                          action:@selector(scrollTopAction)];
         [_scrollTopButton setImage:[UIImage imageNamed:@"icon_up"] forState:UIControlStateNormal];
+        _scrollTopButton.tintColor = [UIColor GCRedColor];
     }
     return _scrollTopButton;
 }

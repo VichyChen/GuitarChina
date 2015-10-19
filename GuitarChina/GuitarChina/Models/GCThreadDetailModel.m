@@ -102,21 +102,25 @@
         NSMutableArray *postArray = [[NSMutableArray alloc] init];
         for (NSDictionary *item in postlist) {
             GCThreadDetailPostModel *model = [[GCThreadDetailPostModel alloc] init];
+            
+            NSString *string = [item objectForKey:@"message"];
+            string = [string replace:@"src=\"static/image/smiley/gc/em" toNewString:@"src=\"http://bbs.guitarchina.com/static/image/smiley/gc/em"];
+            model.message      = string;
+
+            //处理附件图片，替换<attach>成<img>
+           model.attachmentsList = [item objectForKey:@"attachments"];
+            NSEnumerator * enumeratorKey = [model.attachmentsList keyEnumerator];
+            for (NSString *attachmentKey in enumeratorKey) {
+                model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey] toNewString:[NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" height=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 40, ScreenWidth - 40, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];
+            }
+            
             model.pid          = [item objectForKey:@"pid"];
             model.tid          = [item objectForKey:@"tid"];
             model.first        = [item objectForKey:@"first"];
             model.author       = [item objectForKey:@"author"];
             model.authorid     = [item objectForKey:@"authorid"];
             model.dateline     = [item objectForKey:@"dateline"];
-//            model.message      = [item objectForKey:@"message"];
-            NSString *string = [item objectForKey:@"message"];
-            string = [string replace:@"src=\"static/image/smiley/gc/em" toNewString:@"src=\"http://bbs.guitarchina.com/static/image/smiley/gc/em"];
-            string = [string replace:@"class=\"quote\"" toNewString:@"style=\"background-color: white;border: 1px solid #D3DCE2;\""];
 
-//            string = [string replace:@"<blockquote>" toNewString:@""];
-//            string = [string replace:@"</blockquote>" toNewString:@""];
-//
-            model.message      = string;
 
             model.anonymous    = [item objectForKey:@"anonymous"];
             model.attachment   = [item objectForKey:@"attachment"];
@@ -126,10 +130,11 @@
             model.groupidfield = [item objectForKey:@"groupidfield"];
             model.memberstatus = [item objectForKey:@"memberstatus"];
             model.number       = [item objectForKey:@"number"];
-            model.number       = [item objectForKey:@"number"];
             [postArray addObject:model];
         }
         self.postlist = postArray;
+        
+        
     }
     
     return self;

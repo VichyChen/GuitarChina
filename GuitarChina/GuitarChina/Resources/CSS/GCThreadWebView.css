@@ -2,6 +2,8 @@
     margin:0 10px 0 0;
     float:left;
     color:#4C85A3;
+    font-weight:bold;
+    font-size:16px;
 }
 
 .dateline {
@@ -14,11 +16,25 @@
 .number {
     margin:0 0 0 12px;
     float:right;
+    font-weight:bold;
+    color: white;
+    background-color:#CCCCCC;
+    padding: 3px 5px 3px 5px;
+    border-radius: 10px;
+    display: inline-block;
+    line-height: 10px;
+    font-size:14px;
 }
 
 .message {
     margin:10px 12px 0 12px;
     color:#161819;
+    font-size:17px;
+}
+
+.message a {
+    display: inline-block;
+    padding:0px 5px 0px 5px;
 }
 
 .separator {
@@ -26,4 +42,14 @@
     background:#D3DCE2;
     overflow:hidden;
     margin:10px 10px 10px 10px;
+}
+
+.quote {
+    background-color:#F5F5F5;
+    border:1px solid white;
+    padding:0px 0px 0px 0px
+}
+
+.image {
+    margin:5px 0px 5px 0px;
 }

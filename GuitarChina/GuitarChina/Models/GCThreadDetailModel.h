@@ -38,6 +38,39 @@
 @property (nonatomic, copy) NSString *number;
 @property (nonatomic, copy) NSString *dbdateline;
 
+@property (nonatomic, strong) NSMutableDictionary *attachmentsList;    //GCThreadDetailPostAttachmentsModel
+
+@end
+
+@interface GCThreadDetailPostAttachmentsModel : NSObject
+
+@property (nonatomic, copy) NSString *aid;
+@property (nonatomic, copy) NSString *tid;
+@property (nonatomic, copy) NSString *pid;
+@property (nonatomic, copy) NSString *uid;
+@property (nonatomic, copy) NSString *dateline;
+@property (nonatomic, copy) NSString *filename;
+@property (nonatomic, copy) NSString *filesize;
+@property (nonatomic, copy) NSString *attachment;
+@property (nonatomic, copy) NSString *remote;
+@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *readperm;
+@property (nonatomic, copy) NSString *price;
+@property (nonatomic, copy) NSString *isimage;
+@property (nonatomic, copy) NSString *width;
+@property (nonatomic, copy) NSString *thumb;
+@property (nonatomic, copy) NSString *picid;
+@property (nonatomic, copy) NSString *sha1;
+@property (nonatomic, copy) NSString *ext;
+@property (nonatomic, copy) NSString *imgalt;
+@property (nonatomic, copy) NSString *attachicon;
+@property (nonatomic, copy) NSString *attachsize;
+@property (nonatomic, copy) NSString *attachimg;
+@property (nonatomic, copy) NSString *payed;
+@property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSString *dbdateline;
+@property (nonatomic, copy) NSString *downloads;
+
 @end
 
 @interface GCThreadDetailModel : GCBaseModel
