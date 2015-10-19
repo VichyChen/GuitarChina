@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) UIView *toolBarView;
+@property (nonatomic, strong) UIView *separatorLineView;
 @property (nonatomic, strong) UIButton *pageButton;
 @property (nonatomic, strong) UIButton *backButton;
 @property (nonatomic, strong) UIButton *forwardButton;

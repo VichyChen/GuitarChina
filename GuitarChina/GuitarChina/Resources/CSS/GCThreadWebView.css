@@ -1,11 +1,14 @@
 .author {
     margin:0 10px 0 0;
     float:left;
+    color:#4C85A3;
 }
 
 .dateline {
-    margin:0 0 0 0;
+    margin:2 0 0 0;
     float:left;
+    color:#80888F;
+    font-size:14px;
 }
 
 .number {
@@ -15,6 +18,7 @@
 
 .message {
     margin:10px 12px 0 12px;
+    color:#161819;
 }
 
 .separator {

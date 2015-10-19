@@ -99,7 +99,7 @@
         _authorLabel = [UIView createLabel:CGRectZero
                                       text:@""
                                       font:[UIFont systemFontOfSize:16]
-                                 textColor:[UIColor FontColor]];
+                                 textColor:[UIColor GCFontColor]];
     }
     return _authorLabel;
 }
@@ -109,7 +109,7 @@
         _datelineLabel = [UIView createLabel:CGRectZero
                                         text:@""
                                         font:[UIFont systemFontOfSize:14]
-                                   textColor:[UIColor LightFontColor]];
+                                   textColor:[UIColor GCDeepGrayColor]];
     }
     return _datelineLabel;
 }
@@ -129,7 +129,7 @@
         _numberLabel = [UIView createLabel:CGRectZero
                                       text:@""
                                       font:[UIFont systemFontOfSize:15]
-                                 textColor:[UIColor FontColor]];
+                                 textColor:[UIColor GCFontColor]];
         _numberLabel.textAlignment = NSTextAlignmentRight;
     }
     return _numberLabel;

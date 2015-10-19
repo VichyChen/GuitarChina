@@ -86,7 +86,7 @@
         _nameLabel = [UIView createLabel:CGRectZero
                                     text:@""
                                     font:[UIFont systemFontOfSize:17]
-                               textColor:[UIColor FontColor]];
+                               textColor:[UIColor GCFontColor]];
     }
     return _nameLabel;
 }
@@ -95,7 +95,7 @@
     if (!_descriptLabel) {
         _descriptLabel = [[RTLabel alloc] initWithFrame:CGRectMake(15, 40, ScreenWidth - 30, 0)];
         _descriptLabel.font = [UIFont systemFontOfSize:15];
-        _descriptLabel.textColor = [UIColor LightFontColor];
+        _descriptLabel.textColor = [UIColor GCDeepGrayColor];
         _descriptLabel.linkAttributes = @{@"color":@"red"};
         _descriptLabel.selectedLinkAttributes = @{@"color":@"red"};
     }
@@ -107,7 +107,7 @@
         _forumDetailLabel = [UIView createLabel:CGRectZero
                                            text:@""
                                            font:[UIFont systemFontOfSize:14]
-                                      textColor:[UIColor LightFontColor]];
+                                      textColor:[UIColor GCDeepGrayColor]];
     }
     return _forumDetailLabel;
 }

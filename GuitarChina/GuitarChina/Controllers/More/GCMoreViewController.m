@@ -22,7 +22,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
-                                                                  normalColor:[UIColor FontColor]
+                                                                  normalColor:[UIColor GCFontColor]
                                                              highlightedColor:[UIColor redColor]
                                                                        target:self
                                                                        action:@selector(presentLeftMenuViewController:)];

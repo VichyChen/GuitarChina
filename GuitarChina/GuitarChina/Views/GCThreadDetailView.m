@@ -26,6 +26,7 @@
 
 - (void)configureView {
     [self addSubview:self.webView];
+    [self addSubview:self.separatorLineView];
     [self addSubview:self.pageButton];
     [self addSubview:self.backButton];
     [self addSubview:self.forwardButton];
@@ -94,6 +95,13 @@
         });
     }
     return _webView;
+}
+
+- (UIView *)separatorLineView {
+    if (!_separatorLineView) {
+        _separatorLineView = [UIView createHorizontalLine:ScreenWidth originX:0 originY:ScreenHeight - 64 - 44 color:[UIColor GCGrayLineColor]];
+    }
+    return _separatorLineView;
 }
 
 - (UIButton *)pageButton {

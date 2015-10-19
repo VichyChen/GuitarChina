@@ -25,10 +25,10 @@
 		046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623F1BAAC06800E66F03 /* UIImage+Tint.m */; };
 		046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */; };
 		046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */; };
+		0463E6FA1BD49FBA001F7290 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463E6F91BD49FBA001F7290 /* UIColor+Custom.m */; };
 		046F9E631BC618DC0044EB1D /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E611BC618DC0044EB1D /* GuitarChina.xcdatamodeld */; };
 		046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E661BC6192F0044EB1D /* AppDelegate.m */; };
 		046F9E691BC6192F0044EB1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E671BC6192F0044EB1D /* main.m */; };
-		046F9E6D1BC619560044EB1D /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E6C1BC619560044EB1D /* UIColor+Custom.m */; };
 		047125911BCDF478000C8BC1 /* GCThreadWebView.css in Resources */ = {isa = PBXBuildFile; fileRef = 047125901BCDF478000C8BC1 /* GCThreadWebView.css */; };
 		04935B031BB52D5C0010F7C8 /* GCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B021BB52D5C0010F7C8 /* GCMineViewController.m */; };
 		04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B051BB52F460010F7C8 /* GCMoreViewController.m */; };
@@ -163,12 +163,12 @@
 		046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutHelper.m"; sourceTree = "<group>"; };
 		046262421BAAC06800E66F03 /* UIView+UICreateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UICreateFactory.h"; sourceTree = "<group>"; };
 		046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UICreateFactory.m"; sourceTree = "<group>"; };
+		0463E6F81BD49FBA001F7290 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
+		0463E6F91BD49FBA001F7290 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
 		046F9E621BC618DC0044EB1D /* GuitarChina.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GuitarChina.xcdatamodel; sourceTree = "<group>"; };
 		046F9E651BC6192F0044EB1D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		046F9E661BC6192F0044EB1D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		046F9E671BC6192F0044EB1D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		046F9E6B1BC619560044EB1D /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
-		046F9E6C1BC619560044EB1D /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
 		047125901BCDF478000C8BC1 /* GCThreadWebView.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = GCThreadWebView.css; sourceTree = "<group>"; };
 		04935B011BB52D5C0010F7C8 /* GCMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMineViewController.h; sourceTree = "<group>"; };
 		04935B021BB52D5C0010F7C8 /* GCMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMineViewController.m; sourceTree = "<group>"; };
@@ -459,6 +459,23 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		0463E6F61BD49FBA001F7290 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				0463E6F71BD49FBA001F7290 /* UIColor */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		0463E6F71BD49FBA001F7290 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				0463E6F81BD49FBA001F7290 /* UIColor+Custom.h */,
+				0463E6F91BD49FBA001F7290 /* UIColor+Custom.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
 		046F9E641BC6192F0044EB1D /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -468,15 +485,6 @@
 				425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		046F9E6A1BC619560044EB1D /* UIColor */ = {
-			isa = PBXGroup;
-			children = (
-				046F9E6B1BC619560044EB1D /* UIColor+Custom.h */,
-				046F9E6C1BC619560044EB1D /* UIColor+Custom.m */,
-			);
-			path = UIColor;
 			sourceTree = "<group>";
 		};
 		0471258F1BCDF45B000C8BC1 /* CSS */ = {
@@ -595,7 +603,6 @@
 				0462623A1BAAC06800E66F03 /* Foundation */,
 				0462623D1BAAC06800E66F03 /* UIView */,
 				4219A6651B9A7C78005D2164 /* EXTScope */,
-				046F9E6A1BC619560044EB1D /* UIColor */,
 				4260C6951BB64AB700705BE0 /* Util.h */,
 				4260C6961BB64AB700705BE0 /* Util.m */,
 			);
@@ -862,6 +869,7 @@
 		42657DC11B999B6B001F8DFC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0463E6F61BD49FBA001F7290 /* Color */,
 				043648DE1BCF9BD80005162D /* Image */,
 				043648D91BCF8CF90005162D /* Html */,
 				0471258F1BCDF45B000C8BC1 /* CSS */,
@@ -1073,7 +1081,6 @@
 				423888FD1BC57D0F002E1625 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
 				046262351BA94D9300E66F03 /* GCThreadReplyCell.m in Sources */,
 				423888A51BC57CA6002E1625 /* MJRefreshNormalHeader.m in Sources */,
-				046F9E6D1BC619560044EB1D /* UIColor+Custom.m in Sources */,
 				4260C6941BB63C7700705BE0 /* GCLeftMenuCell.m in Sources */,
 				423888AA1BC57CA6002E1625 /* UIScrollView+MJRefresh.m in Sources */,
 				42DA95051BA5553C001A79B9 /* GCForumDisplayModel.m in Sources */,
@@ -1143,6 +1150,7 @@
 				428F71201B89B21E0023E501 /* GCMyFavThreadArray.m in Sources */,
 				042D23991BB29BC3001DE667 /* GCNewThreadViewController.m in Sources */,
 				04935B031BB52D5C0010F7C8 /* GCMineViewController.m in Sources */,
+				0463E6FA1BD49FBA001F7290 /* UIColor+Custom.m in Sources */,
 				423889071BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
 				046262341BA94D9300E66F03 /* GCHotThreadCell.m in Sources */,
 				4260C68E1BB629DE00705BE0 /* GCSettingViewController.m in Sources */,

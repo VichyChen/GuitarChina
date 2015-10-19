@@ -97,7 +97,7 @@
         _authorLabel = [UIView createLabel:CGRectZero
                                       text:@""
                                       font:[UIFont systemFontOfSize:16]
-                                 textColor:[UIColor colorWithRed:0.302f green:0.557f blue:0.690f alpha:1.00f]];
+                                 textColor:[UIColor GCBlueColor]];
     }
     return _authorLabel;
 }
@@ -107,7 +107,7 @@
         _datelineLabel = [UIView createLabel:CGRectZero
                                         text:@""
                                         font:[UIFont systemFontOfSize:14]
-                                   textColor:[UIColor LightFontColor]];
+                                   textColor:[UIColor GCDeepGrayColor]];
     }
     return _datelineLabel;
 }
@@ -117,7 +117,7 @@
         _subjectLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:17]
-                                  textColor:[UIColor FontColor]
+                                  textColor:[UIColor GCFontColor]
                               numberOfLines:0
                     preferredMaxLayoutWidth:SubjectWidth];
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -130,7 +130,7 @@
         _lastPostDetailLabel = [UIView createLabel:CGRectZero
                                               text:@""
                                               font:[UIFont systemFontOfSize:14]
-                                         textColor:[UIColor LightFontColor]];
+                                         textColor:[UIColor GCDeepGrayColor]];
     }
     return _lastPostDetailLabel;
 }
@@ -140,7 +140,7 @@
         _repliesLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:14]
-                                  textColor:[UIColor LightFontColor]];
+                                  textColor:[UIColor GCDeepGrayColor]];
         _repliesLabel.textAlignment = NSTextAlignmentRight;
     }
     return _repliesLabel;

@@ -68,7 +68,7 @@
         _titleLabel = [UIView createLabel:CGRectZero
                                      text:@""
                                      font:[UIFont systemFontOfSize:17]
-                                textColor:[UIColor FontColor]];
+                                textColor:[UIColor GCFontColor]];
     }
     return _titleLabel;
 }

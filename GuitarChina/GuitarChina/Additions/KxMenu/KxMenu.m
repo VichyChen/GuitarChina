@@ -407,10 +407,10 @@ typedef enum {
     if (!_menuItems.count)
         return nil;
     
-    const CGFloat kMinMenuItemHeight = 32.f;
+    const CGFloat kMinMenuItemHeight = 40.f;
     const CGFloat kMinMenuItemWidth = 32.f;
     const CGFloat kMarginX = 10.f;
-    const CGFloat kMarginY = 2.f;
+    const CGFloat kMarginY = 0.f;
     
     UIFont *titleFont = [KxMenu titleFont];
     if (!titleFont) titleFont = [UIFont systemFontOfSize:16];
@@ -529,7 +529,7 @@ typedef enum {
         if (menuItem.image) {
             
 //            const CGRect imageFrame = {kMarginX * 2, kMarginY, maxImageWidth, maxItemHeight - kMarginY * 2};
-            const CGRect imageFrame = {kMarginX * 2, kMarginY + 5, 20, 20};
+            const CGRect imageFrame = {kMarginX * 2, kMarginY + 10, 20, 20};
             UIImageView *imageView = [[UIImageView alloc] initWithFrame:imageFrame];
             imageView.image = menuItem.image;
             imageView.clipsToBounds = YES;
@@ -546,7 +546,7 @@ typedef enum {
 //            [itemView addSubview:gradientView];
 
             UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(kMarginX * 2 - 10, maxItemHeight + 1, gradientLine.size.width + 20, gradientLine.size.height)];
-            separatorView.backgroundColor = [UIColor lightGrayColor];
+            separatorView.backgroundColor = [UIColor GCGrayLineColor];
             [itemView addSubview:separatorView];
             
             itemY += 2;
@@ -755,7 +755,7 @@ typedef enum {
     const CGRect bodyFrame = {X0, Y0, X1 - X0, Y1 - Y0};
     
     UIBezierPath *borderPath = [UIBezierPath bezierPathWithRoundedRect:bodyFrame
-                                                          cornerRadius:3];
+                                                          cornerRadius:2];
     
     const CGFloat locations[] = {0, 1};
     const CGFloat components[] = {
