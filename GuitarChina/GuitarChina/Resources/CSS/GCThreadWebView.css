@@ -1,3 +1,8 @@
+body a {
+    word-wrap:break-all;
+    word-break:break-all;
+}
+
 .author {
     margin:0 10px 0 0;
     float:left;
@@ -30,7 +35,6 @@
     margin:10px 12px 0 12px;
     color:#161819;
     font-size:17px;
-    word-wrap:break-word;
 }
 
 .message a {
@@ -50,7 +54,6 @@
     border:1px solid white;
     padding:0px 0px 0px 0px;
     color:#999999;
-    word-wrap:break;
 }
 
 .quote blockquote a {
@@ -63,8 +66,6 @@
 
 .options {
     margin:10px 10px 0px 10px;
-    padding:0px 0px 0px 0px;
-    /*    width: 95%;*/
 }
 
 .optionHeader {
@@ -82,10 +83,8 @@
     margin-bottom: 10px;
     empty-cells: show;
     border-collapse: collapse;
-    word-wrap: break-word;
     border-spacing: 4px;
     display: table;
-    /*    background-color:#F5F5F5;*/
 }
 
 .option td {
