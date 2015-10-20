@@ -41,6 +41,14 @@
     self.webViewFetchMoreBlock();
 }
 
+- (void)webViewStartRefresh {
+    [self.webView.scrollView.header beginRefreshing];
+}
+
+- (void)webViewStartFetchMore {
+    [self.webView.scrollView.header beginRefreshing];
+}
+
 - (void)webViewEndRefresh {
     [self.webView.scrollView.header endRefreshing];
 }
@@ -78,8 +86,9 @@
     if (!_webView) {
         _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 44)];
         _webView.dataDetectorTypes = UIDataDetectorTypeLink;
-        _webView.alpha = 0.0;
-        _webView.backgroundColor = [UIColor whiteColor];
+//        _webView.alpha = 0.0;
+        _webView.opaque = NO;
+        _webView.backgroundColor = [UIColor clearColor];
         _webView.scrollView.showsHorizontalScrollIndicator = NO;
         _webView.scrollView.contentSize = CGSizeMake(ScreenWidth, ScreenHeight);
         _webView.scrollView.header = ({

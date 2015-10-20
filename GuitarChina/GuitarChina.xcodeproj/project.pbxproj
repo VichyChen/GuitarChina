@@ -26,6 +26,7 @@
 		046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */; };
 		046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */; };
 		0463E6FA1BD49FBA001F7290 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463E6F91BD49FBA001F7290 /* UIColor+Custom.m */; };
+		0463E6FC1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */; };
 		046F9E631BC618DC0044EB1D /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E611BC618DC0044EB1D /* GuitarChina.xcdatamodeld */; };
 		046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E661BC6192F0044EB1D /* AppDelegate.m */; };
 		046F9E691BC6192F0044EB1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E671BC6192F0044EB1D /* main.m */; };
@@ -165,6 +166,7 @@
 		046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UICreateFactory.m"; sourceTree = "<group>"; };
 		0463E6F81BD49FBA001F7290 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
 		0463E6F91BD49FBA001F7290 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
+		0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewTableHtml.html; sourceTree = "<group>"; };
 		046F9E621BC618DC0044EB1D /* GuitarChina.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GuitarChina.xcdatamodel; sourceTree = "<group>"; };
 		046F9E651BC6192F0044EB1D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		046F9E661BC6192F0044EB1D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 			children = (
 				043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */,
 				043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */,
+				0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */,
 			);
 			path = Html;
 			sourceTree = "<group>";
@@ -1018,6 +1021,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0463E6FC1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html in Resources */,
 				043648DD1BCF90740005162D /* GCThreadWebViewHtmlCell.html in Resources */,
 				425FB2F61B84C23B00B6A89B /* LaunchScreen.xib in Resources */,
 				043648E01BCF9BD80005162D /* Images.xcassets in Resources */,

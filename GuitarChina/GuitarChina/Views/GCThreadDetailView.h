@@ -21,6 +21,9 @@
 
 @property (nonatomic, copy) void (^webViewRefreshBlock)();
 @property (nonatomic, copy) void (^webViewFetchMoreBlock)();
+
+- (void)webViewStartRefresh;
+- (void)webViewStartFetchMore;
 - (void)webViewEndRefresh;
 - (void)webViewEndFetchMore;
 

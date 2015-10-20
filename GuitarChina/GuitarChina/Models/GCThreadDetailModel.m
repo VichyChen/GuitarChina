@@ -97,6 +97,7 @@
             [optionArray addObject:model];
         }
         self.optionlist = optionArray;
+        self.optionsortname = [threadsortshow objectForKey:@"threadsortname"];
         
         NSArray *postlist = [dictionary objectForKey:@"postlist"];
         NSMutableArray *postArray = [[NSMutableArray alloc] init];
@@ -106,12 +107,12 @@
             NSString *string = [item objectForKey:@"message"];
             string = [string replace:@"src=\"static/image/smiley/gc/em" toNewString:@"src=\"http://bbs.guitarchina.com/static/image/smiley/gc/em"];
             model.message      = string;
-
+            
             //处理附件图片，替换<attach>成<img>
-           model.attachmentsList = [item objectForKey:@"attachments"];
+            model.attachmentsList = [item objectForKey:@"attachments"];
             NSEnumerator * enumeratorKey = [model.attachmentsList keyEnumerator];
             for (NSString *attachmentKey in enumeratorKey) {
-                model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey] toNewString:[NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" height=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 40, ScreenWidth - 40, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];
+                model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey] toNewString:[NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 40, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];
             }
             
             model.pid          = [item objectForKey:@"pid"];
@@ -120,8 +121,8 @@
             model.author       = [item objectForKey:@"author"];
             model.authorid     = [item objectForKey:@"authorid"];
             model.dateline     = [item objectForKey:@"dateline"];
-
-
+            
+            
             model.anonymous    = [item objectForKey:@"anonymous"];
             model.attachment   = [item objectForKey:@"attachment"];
             model.status       = [item objectForKey:@"status"];
@@ -133,8 +134,6 @@
             [postArray addObject:model];
         }
         self.postlist = postArray;
-        
-        
     }
     
     return self;
@@ -145,7 +144,20 @@
     NSMutableString *htmlCellString = [[NSMutableString alloc] init];
     NSString *htmlCell = [Util stringByLocalHtmlString:@"GCThreadWebViewHtmlCell"];
     for (GCThreadDetailPostModel *item in self.postlist) {
-        [htmlCellString appendFormat:htmlCell, item.author, item.dateline, item.number, item.message];
+        if ([item.number isEqualToString:@"1"]) {
+            if (self.optionlist.count > 0) {
+                NSMutableString *tableString = [[NSMutableString alloc] init];
+                NSString *tableHtml = [Util stringByLocalHtmlString:@"GCThreadWebViewTableHtml"];
+                NSMutableString *tableRow = [[NSMutableString alloc] init];
+                for (GCThreadDetailOptionModel *option in self.optionlist) {
+                    [tableRow appendFormat:@"<tr><td>%@</td><td>%@</td></tr>", option.title, option.value];
+                }
+                [tableString appendFormat:tableHtml, self.optionsortname, tableRow];
+                [htmlCellString appendFormat:htmlCell, item.author, item.dateline, item.number, tableString, item.message];
+            }
+        } else {
+            [htmlCellString appendFormat:htmlCell, item.author, item.dateline, item.number, @"", item.message];
+        }
     }
     NSString *htmlPage = [Util stringByLocalHtmlString:@"GCThreadWebViewHtml"];
     [html appendFormat:htmlPage, htmlCellString];

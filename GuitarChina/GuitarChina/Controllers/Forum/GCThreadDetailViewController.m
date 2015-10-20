@@ -64,8 +64,8 @@
     [self configureView];
     [self configureBlock];
     
-    [self beginRefresh];
-
+//    [self beginRefresh];
+    [self.threadDetailView webViewStartRefresh];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,10 +75,10 @@
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    self.threadDetailView.webView.alpha = 0.0;
-    [UIView animateWithDuration:0.5 animations:^{
-        self.threadDetailView.webView.alpha = 1.0;
-    }];
+//    self.threadDetailView.webView.alpha = 0.0;
+//    [UIView animateWithDuration:0.5 animations:^{
+//        self.threadDetailView.webView.alpha = 1.0;
+//    }];
     //    self.webView.scrollView.contentOffset = CGPointMake(self.webView.scrollView.contentOffset.x, offsetY);
 }
 
@@ -160,9 +160,7 @@
     @weakify(self);
     self.refreshBlock = ^(void (^success)(GCThreadDetailModel *)){
         @strongify(self);
-//        [[GCNetworkManager manager] getViewThreadWithThreadID:@"1987588" pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
-                [[GCNetworkManager manager] getViewThreadWithThreadID:@"1987628" pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
-//        [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
+        [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
         self.count = [model.replies integerValue];
             self.pageCount = self.count / self.pageSize + 1;
             success(model);

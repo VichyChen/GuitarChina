@@ -131,6 +131,8 @@
 @property (nonatomic, copy) NSString *relay;
 
 @property (nonatomic, strong) NSMutableArray *imagelist;    //NSString
+
+@property (nonatomic, copy) NSString *optionsortname;
 @property (nonatomic, strong) NSMutableArray *optionlist;    //GCThreadDetailOptionModel
 
 @property (nonatomic, strong) NSMutableArray *postlist;    //GCThreadDetailPostModel

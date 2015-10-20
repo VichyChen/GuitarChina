@@ -30,6 +30,7 @@
     margin:10px 12px 0 12px;
     color:#161819;
     font-size:17px;
+    word-wrap:break-word;
 }
 
 .message a {
@@ -47,9 +48,50 @@
 .quote {
     background-color:#F5F5F5;
     border:1px solid white;
-    padding:0px 0px 0px 0px
+    padding:0px 0px 0px 0px;
+    color:#999999;
+    word-wrap:break;
+}
+
+.quote blockquote a {
+    text-decoration:none;
 }
 
 .image {
     margin:5px 0px 5px 0px;
+}
+
+.options {
+    margin:10px 10px 0px 10px;
+    padding:0px 0px 0px 0px;
+    /*    width: 95%;*/
+}
+
+.optionHeader {
+    background-color:#E5EDF2;
+    padding:5px 0px 5px 0px;
+    border-bottom:1px solid #D3DCE2;
+    border-top:1px solid #D3DCE2;
+}
+
+.option {
+    margin:10px auto 10px auto;
+    /*    table-layout: fixed;*/
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 10px;
+    empty-cells: show;
+    border-collapse: collapse;
+    word-wrap: break-word;
+    border-spacing: 4px;
+    display: table;
+    /*    background-color:#F5F5F5;*/
+}
+
+.option td {
+    padding:5px 5px 5px 5px;
+    border-bottom:1px solid gray;
+    border-color: #D3DCE2;
+    color:#161819;
+    min-width:80px;
 }
