@@ -1,6 +1,6 @@
-body a {
-    word-wrap:break-all;
-    word-break:break-all;
+body {
+    word-wrap:break-word;
+    word-break:break-word;
 }
 
 .author {
