@@ -40,6 +40,23 @@
     return _replyAndViewDetailString;
 }
 
+- (NSMutableAttributedString *)subjectString {
+    if (!_subjectString) {
+        _subjectString = [NSMutableAttributedString new];
+        
+        [_subjectString appendAttributedString:[[NSAttributedString alloc] initWithString:_subject]];
+        
+        if (![_attachment isEqualToString:@"0"]) {
+            NSTextAttachment *viewsAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
+            viewsAttachment.image = [[UIImage imageNamed:@"icon_watch"] imageWithTintColor:[UIColor GCDeepGrayColor]];
+            viewsAttachment.bounds = CGRectMake(0, 2, 15, 15);
+            NSAttributedString *viewAttachmentString = [NSAttributedString attributedStringWithAttachment:viewsAttachment];
+            [_subjectString insertAttributedString:viewAttachmentString atIndex:0];
+        }
+    }
+    return _subjectString;
+}
+
 @end
 
 @implementation GCHotThreadArray

@@ -12,4 +12,6 @@
 
 + (CGFloat)calculateLabelHeightWithText:(NSString *)text fontSize:(CGFloat)fontSize width:(CGFloat)width;
 
++ (CGFloat)calculateLabelHeightWithAttributeText:(NSAttributedString *)attributeText rectSize:(CGSize)rectSize;
+
 @end

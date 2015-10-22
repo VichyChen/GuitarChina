@@ -144,17 +144,15 @@
     NSMutableString *htmlCellString = [[NSMutableString alloc] init];
     NSString *htmlCell = [Util stringByLocalHtmlString:@"GCThreadWebViewHtmlCell"];
     for (GCThreadDetailPostModel *item in self.postlist) {
-        if ([item.number isEqualToString:@"1"]) {
-            if (self.optionlist.count > 0) {
-                NSMutableString *tableString = [[NSMutableString alloc] init];
-                NSString *tableHtml = [Util stringByLocalHtmlString:@"GCThreadWebViewTableHtml"];
-                NSMutableString *tableRow = [[NSMutableString alloc] init];
-                for (GCThreadDetailOptionModel *option in self.optionlist) {
-                    [tableRow appendFormat:@"<tr><td>%@</td><td>%@</td></tr>", option.title, option.value];
-                }
-                [tableString appendFormat:tableHtml, self.optionsortname, tableRow];
-                [htmlCellString appendFormat:htmlCell, item.author, item.dateline, item.number, tableString, item.message];
+        if ([item.number isEqualToString:@"1"] && self.optionlist.count > 0) {
+            NSMutableString *tableString = [[NSMutableString alloc] init];
+            NSString *tableHtml = [Util stringByLocalHtmlString:@"GCThreadWebViewTableHtml"];
+            NSMutableString *tableRow = [[NSMutableString alloc] init];
+            for (GCThreadDetailOptionModel *option in self.optionlist) {
+                [tableRow appendFormat:@"<tr><td>%@</td><td>%@</td></tr>", option.title, option.value];
             }
+            [tableString appendFormat:tableHtml, self.optionsortname, tableRow];
+            [htmlCellString appendFormat:htmlCell, item.author, item.dateline, item.number, tableString, item.message];
         } else {
             [htmlCellString appendFormat:htmlCell, item.author, item.dateline, item.number, @"", item.message];
         }

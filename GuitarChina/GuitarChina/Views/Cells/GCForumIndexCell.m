@@ -8,12 +8,13 @@
 
 #import "GCForumIndexCell.h"
 #import "RTLabel.h"
+#import "UIView+LayoutHelper.h"
 
 @interface GCForumIndexCell() <RTLabelDelegate>
 
 @property (nonatomic, strong) UIImageView *forumImage;
 @property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) RTLabel *descriptLabel;
+@property (nonatomic, strong) UILabel *descriptLabel;
 @property (nonatomic, strong) UILabel *forumDetailLabel;
 
 @end
@@ -52,19 +53,19 @@
     [self.contentView addSubview:self.nameLabel];
     [self.contentView addSubview:self.descriptLabel];
     [self.contentView addSubview:self.forumDetailLabel];
-    
-    self.descriptLabel.delegate = self;
 }
 
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCForumModel *)model {
-    RTLabel *label = [[RTLabel alloc] initWithFrame:CGRectMake(15, 40, ScreenWidth - 30, 0)];
-    label.font = [UIFont systemFontOfSize:15];
-    label.text = model.descript;
-    CGSize labelSize = [label optimumSize];
+//    RTLabel *label = [[RTLabel alloc] initWithFrame:CGRectMake(15, 40, ScreenWidth - 30, 0)];
+//    label.font = [UIFont systemFontOfSize:15];
+//    label.text = model.descript;
+//    CGSize labelSize = [label optimumSize];
+    CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:16 width:ScreenWidth - 30];
+    return descriptLabelHeight + 70;
     
-    return labelSize.height + 70;
+//    return labelSize.height + 70;
 }
 
 #pragma mark - Setters
@@ -74,8 +75,8 @@
     
     self.nameLabel.attributedText = model.nameString;
     self.descriptLabel.text = model.descript;
-    CGSize labelSize = [self.descriptLabel optimumSize];
-    self.descriptLabelHeight = labelSize.height;
+   CGFloat labelHeight = [UIView calculateLabelHeightWithText:self.descriptLabel.text fontSize:self.descriptLabel.font.pointSize width:ScreenWidth - 30];
+    self.descriptLabelHeight = labelHeight;
     self.forumDetailLabel.attributedText = model.forumDetailString;
 }
 
@@ -85,19 +86,26 @@
     if (!_nameLabel) {
         _nameLabel = [UIView createLabel:CGRectZero
                                     text:@""
-                                    font:[UIFont systemFontOfSize:17]
-                               textColor:[UIColor GCFontColor]];
+                                    font:[UIFont boldSystemFontOfSize:17]
+                               textColor:[UIColor GCBlueColor]];
     }
     return _nameLabel;
 }
 
-- (RTLabel *)descriptLabel {
+- (UILabel *)descriptLabel {
     if (!_descriptLabel) {
-        _descriptLabel = [[RTLabel alloc] initWithFrame:CGRectMake(15, 40, ScreenWidth - 30, 0)];
-        _descriptLabel.font = [UIFont systemFontOfSize:15];
-        _descriptLabel.textColor = [UIColor GCDeepGrayColor];
-        _descriptLabel.linkAttributes = @{@"color":@"red"};
-        _descriptLabel.selectedLinkAttributes = @{@"color":@"red"};
+//        _descriptLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 40, ScreenWidth - 30, 0)];
+//        _descriptLabel.font = [UIFont systemFontOfSize:16];
+//        _descriptLabel.textColor = [UIColor GCFontColor];
+////        _descriptLabel.linkAttributes = @{@"color":@"red"};
+////        _descriptLabel.selectedLinkAttributes = @{@"color":@"red"};
+        _descriptLabel = [UIView createLabel:CGRectZero
+                                       text:@""
+                                       font:[UIFont systemFontOfSize:16]
+                                  textColor:[UIColor GCFontColor]
+                              numberOfLines:0
+                    preferredMaxLayoutWidth:ScreenWidth - 30];
+        _descriptLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _descriptLabel;
 }

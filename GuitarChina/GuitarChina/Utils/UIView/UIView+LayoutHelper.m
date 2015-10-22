@@ -17,4 +17,11 @@
     return size.height;
 }
 
++ (CGFloat)calculateLabelHeightWithAttributeText:(NSAttributedString *)attributeText rectSize:(CGSize)rectSize {
+    CGSize size=[attributeText boundingRectWithSize:rectSize options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
+    
+    return size.height;
+}
+
+
 @end

@@ -82,8 +82,8 @@
     if (!_authorLabel) {
         _authorLabel = [UIView createLabel:CGRectZero
                                       text:@""
-                                      font:[UIFont systemFontOfSize:16]
-                                 textColor:[UIColor GCFontColor]];
+                                      font:[UIFont boldSystemFontOfSize:16]
+                                 textColor:[UIColor GCBlueColor]];
     }
     return _authorLabel;
 }

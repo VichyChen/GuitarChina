@@ -72,6 +72,8 @@
 
 @property (nonatomic, copy) NSMutableAttributedString *lastPosterDetailString;
 @property (nonatomic, copy) NSMutableAttributedString *replyAndViewDetailString;
+@property (nonatomic, copy) NSMutableAttributedString *subjectString;
+
 @end
 
 @interface GCHotThreadArray : GCBaseModel
