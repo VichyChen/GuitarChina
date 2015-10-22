@@ -3,6 +3,19 @@ body {
     word-break:break-word;
 }
 
+.subject {
+    margin:10px 10px 5px 10px;
+    color:#161819;
+    font-size:17px;
+}
+
+.replyDetail {
+    margin:0px 10px 0px 10px;
+    color:#80888F;
+    font-size:14px;
+    text-align:left;
+}
+
 .author {
     margin:0 10px 0 0;
     float:left;

@@ -8,8 +8,9 @@
 
 #import "GCHotThreadCell.h"
 #import "UIView+LayoutHelper.h"
+#import "GCNetworkAPI.h"
 
-#define SubjectWidth ScreenWidth - 28
+#define SubjectWidth ScreenWidth - 30
 
 @interface GCHotThreadCell()
 
@@ -40,8 +41,8 @@
     [super layoutSubviews];
     
     self.avatarImage.frame = CGRectMake(20, 10, 40, 40);
-    self.authorLabel.frame = CGRectMake(70, 8, ScreenWidth - 75, 20);
-    self.datelineLabel.frame = CGRectMake(70, 33, ScreenWidth - 75, 20);
+    self.authorLabel.frame = CGRectMake(70, 8, ScreenWidth - 70, 20);
+    self.datelineLabel.frame = CGRectMake(70, 33, ScreenWidth - 70, 20);
     self.subjectLabel.frame = CGRectMake(20, 60, SubjectWidth, self.subjectLabelHeight);
     self.lastPostDetailLabel.frame = CGRectMake(20, 65 + self.subjectLabelHeight, SubjectWidth, 20);
     self.repliesLabel.frame = CGRectMake(15, 8, SubjectWidth, 20);
@@ -69,7 +70,8 @@
 
 - (void)setModel:(GCHotThreadModel *)model {
     _model = model;
-    [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:model.avatar]
+    
+    [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_SMALLAVTARIMAGE_URL(model.authorid)]
                         placeholderImage:nil
                                  options:SDWebImageRetryFailed];
     self.authorLabel.text = model.author;

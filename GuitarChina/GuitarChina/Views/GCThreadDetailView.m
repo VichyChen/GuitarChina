@@ -9,7 +9,7 @@
 #import "GCThreadDetailView.h"
 #import "MJRefresh.h"
 
-@interface GCThreadDetailView ()
+@interface GCThreadDetailView () <UIPickerViewDataSource>
 
 @end
 
@@ -31,6 +31,7 @@
     [self addSubview:self.backButton];
     [self addSubview:self.forwardButton];
     [self addSubview:self.scrollTopButton];
+//    [self addSubview:self.pickerView];
 }
 
 - (void)beginRefresh {
@@ -157,5 +158,13 @@
     return _scrollTopButton;
 }
 
+- (UIPickerView *)pickerView {
+    if (!_pickerView) {
+        _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+        _pickerView.hidden = YES;
+        _pickerView.dataSource = self;
+    }
+    return _pickerView;
+}
 
 @end

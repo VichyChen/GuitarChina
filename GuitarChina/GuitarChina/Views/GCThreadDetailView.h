@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIButton *backButton;
 @property (nonatomic, strong) UIButton *forwardButton;
 @property (nonatomic, strong) UIButton *scrollTopButton;
+@property (nonatomic, strong) UIPickerView *pickerView;
 
 
 @property (nonatomic, copy) void (^webViewRefreshBlock)();

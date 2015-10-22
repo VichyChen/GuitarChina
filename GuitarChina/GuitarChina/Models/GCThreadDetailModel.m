@@ -158,7 +158,7 @@
         }
     }
     NSString *htmlPage = [Util stringByLocalHtmlString:@"GCThreadWebViewHtml"];
-    [html appendFormat:htmlPage, htmlCellString];
+    [html appendFormat:htmlPage, self.subject, [NSString stringWithFormat:@"%@回复 %@浏览", self.replies, self.views], htmlCellString];
     
     return html;
 }

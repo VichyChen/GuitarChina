@@ -27,13 +27,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-       UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
+    UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
     [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backArrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];//更改背景图片
     [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-500, 0)
                                      forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.backBarButtonItem=backItem;
     
     [self.tableView setSeparatorInset:(UIEdgeInsetsMake(0, 15, 0, 15))];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.tableView.header = ({
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(beginRefresh)];
@@ -41,7 +42,7 @@
         header.stateLabel.hidden = YES;
         header;
     });
-
+    
     if (self.pageIndex == 1) {
         self.tableView.footer = ({
             MJRefreshAutoStateFooter *footer = [MJRefreshAutoStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
@@ -74,6 +75,9 @@
 }
 
 - (void)endRefresh {
+    if (self.tableView.separatorStyle == UITableViewCellSeparatorStyleNone) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }
     [self.tableView.header endRefreshing];
 }
 

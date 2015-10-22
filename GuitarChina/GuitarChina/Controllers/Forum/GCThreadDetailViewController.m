@@ -9,6 +9,7 @@
 #import "GCThreadDetailViewController.h"
 #import "KxMenu.h"
 #import "GCThreadDetailView.h"
+#import "GCWebViewController.h"
 
 @interface GCThreadDetailViewController () <UIWebViewDelegate> {
     CGFloat offsetY;
@@ -64,7 +65,7 @@
     [self configureView];
     [self configureBlock];
     
-//    [self beginRefresh];
+    //    [self beginRefresh];
     [self.threadDetailView webViewStartRefresh];
 }
 
@@ -74,12 +75,29 @@
 
 #pragma mark - UIWebViewDelegate
 
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    
+}
+
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-//    self.threadDetailView.webView.alpha = 0.0;
-//    [UIView animateWithDuration:0.5 animations:^{
-//        self.threadDetailView.webView.alpha = 1.0;
-//    }];
-    //    self.webView.scrollView.contentOffset = CGPointMake(self.webView.scrollView.contentOffset.x, offsetY);
+    
+}
+
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+        GCWebViewController *controller = [[GCWebViewController alloc] init];
+        controller.urlString = request.mainDocumentURL.absoluteString;
+        [self.navigationController pushViewController:controller animated:YES];
+       
+        return false;
+    }
+    
+    return YES;
 }
 
 #pragma mark - Event Response
@@ -142,8 +160,8 @@
         [self beginForward];
     };
     self.threadDetailView.pageActionBlock = ^{
-//        @strongify(self);
-
+        //        @strongify(self);
+        
     };
     self.threadDetailView.backActionBlock = ^{
         @strongify(self);
@@ -161,7 +179,7 @@
     self.refreshBlock = ^(void (^success)(GCThreadDetailModel *)){
         @strongify(self);
         [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
-        self.count = [model.replies integerValue];
+            self.count = [model.replies integerValue];
             self.pageCount = self.count / self.pageSize + 1;
             success(model);
         } failure:^(NSError *error) {

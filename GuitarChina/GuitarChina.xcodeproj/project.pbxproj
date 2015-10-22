@@ -17,7 +17,6 @@
 		0459674A1BC7A47D000181DE /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045967491BC7A47D000181DE /* RTLabel.m */; };
 		045ED3741BB8F97300790B96 /* GCThreadRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */; };
 		045ED3771BB8FDED00790B96 /* GCThreadRightMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED3761BB8FDED00790B96 /* GCThreadRightMenuCell.m */; };
-		046262321BA94D9300E66F03 /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462622B1BA94D9300E66F03 /* GCForumDisplayCell.m */; };
 		046262331BA94D9300E66F03 /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462622D1BA94D9300E66F03 /* GCForumIndexCell.m */; };
 		046262341BA94D9300E66F03 /* GCHotThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462622F1BA94D9300E66F03 /* GCHotThreadCell.m */; };
 		046262351BA94D9300E66F03 /* GCThreadReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262311BA94D9300E66F03 /* GCThreadReplyCell.m */; };
@@ -27,6 +26,8 @@
 		046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */; };
 		0463E6FA1BD49FBA001F7290 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463E6F91BD49FBA001F7290 /* UIColor+Custom.m */; };
 		0463E6FC1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */; };
+		046694AF1BD91EEE008C8CB3 /* GCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046694AE1BD91EEE008C8CB3 /* GCWebViewController.m */; };
+		046694B11BD93952008C8CB3 /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 046694B01BD93952008C8CB3 /* GCForumDisplayCell.m */; };
 		046F9E631BC618DC0044EB1D /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E611BC618DC0044EB1D /* GuitarChina.xcdatamodeld */; };
 		046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E661BC6192F0044EB1D /* AppDelegate.m */; };
 		046F9E691BC6192F0044EB1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E671BC6192F0044EB1D /* main.m */; };
@@ -149,7 +150,6 @@
 		045ED3751BB8FDED00790B96 /* GCThreadRightMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadRightMenuCell.h; sourceTree = "<group>"; };
 		045ED3761BB8FDED00790B96 /* GCThreadRightMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadRightMenuCell.m; sourceTree = "<group>"; };
 		0462622A1BA94D9300E66F03 /* GCForumDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayCell.h; sourceTree = "<group>"; };
-		0462622B1BA94D9300E66F03 /* GCForumDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayCell.m; sourceTree = "<group>"; };
 		0462622C1BA94D9300E66F03 /* GCForumIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexCell.h; sourceTree = "<group>"; };
 		0462622D1BA94D9300E66F03 /* GCForumIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexCell.m; sourceTree = "<group>"; };
 		0462622E1BA94D9300E66F03 /* GCHotThreadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadCell.h; sourceTree = "<group>"; };
@@ -167,6 +167,9 @@
 		0463E6F81BD49FBA001F7290 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
 		0463E6F91BD49FBA001F7290 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
 		0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewTableHtml.html; sourceTree = "<group>"; };
+		046694AD1BD91EEE008C8CB3 /* GCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCWebViewController.h; sourceTree = "<group>"; };
+		046694AE1BD91EEE008C8CB3 /* GCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCWebViewController.m; sourceTree = "<group>"; };
+		046694B01BD93952008C8CB3 /* GCForumDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayCell.m; sourceTree = "<group>"; };
 		046F9E621BC618DC0044EB1D /* GuitarChina.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GuitarChina.xcdatamodel; sourceTree = "<group>"; };
 		046F9E651BC6192F0044EB1D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		046F9E661BC6192F0044EB1D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -425,7 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				0462622A1BA94D9300E66F03 /* GCForumDisplayCell.h */,
-				0462622B1BA94D9300E66F03 /* GCForumDisplayCell.m */,
+				046694B01BD93952008C8CB3 /* GCForumDisplayCell.m */,
 				0462622C1BA94D9300E66F03 /* GCForumIndexCell.h */,
 				0462622D1BA94D9300E66F03 /* GCForumIndexCell.m */,
 				0462622E1BA94D9300E66F03 /* GCHotThreadCell.h */,
@@ -579,6 +582,8 @@
 				420D987E1B929C2B00AEAED3 /* GCNavigationController.m */,
 				420528131BD2900200C74E27 /* GCTabBarController.h */,
 				420528141BD2900200C74E27 /* GCTabBarController.m */,
+				046694AD1BD91EEE008C8CB3 /* GCWebViewController.h */,
+				046694AE1BD91EEE008C8CB3 /* GCWebViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1110,6 +1115,7 @@
 				428F71231B89B2830023E501 /* GCMyThreadArray.m in Sources */,
 				423889051BC57D0F002E1625 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
 				4238890A1BC57D0F002E1625 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
+				046694AF1BD91EEE008C8CB3 /* GCWebViewController.m in Sources */,
 				423889091BC57D0F002E1625 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */,
 				423888A31BC57CA6002E1625 /* MJRefreshBackStateFooter.m in Sources */,
 				420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */,
@@ -1145,7 +1151,6 @@
 				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
 				045ED3771BB8FDED00790B96 /* GCThreadRightMenuCell.m in Sources */,
 				0422CDDC1BC6AF70003D2EF5 /* KxMenu.m in Sources */,
-				046262321BA94D9300E66F03 /* GCForumDisplayCell.m in Sources */,
 				042D346E1BD0ED6000EBDACC /* GCThreadDetailView.m in Sources */,
 				420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */,
 				4238890D1BC57D0F002E1625 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
@@ -1165,6 +1170,7 @@
 				423889011BC57D0F002E1625 /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */,
 				423888FB1BC57D0F002E1625 /* DGActivityIndicatorBallScaleMultipleAnimation.m in Sources */,
 				42657DBD1B998C49001F8DFC /* GCForumIndexViewController.m in Sources */,
+				046694B11BD93952008C8CB3 /* GCForumDisplayCell.m in Sources */,
 				420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */,
 				423888A11BC57CA6002E1625 /* MJRefreshBackGifFooter.m in Sources */,
 				420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */,
