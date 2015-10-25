@@ -11,12 +11,16 @@
 @interface GCThreadDetailView : UIView
 
 @property (nonatomic, strong) UIWebView *webView;
+
 @property (nonatomic, strong) UIView *toolBarView;
 @property (nonatomic, strong) UIView *separatorLineView;
 @property (nonatomic, strong) UIButton *pageButton;
 @property (nonatomic, strong) UIButton *backButton;
 @property (nonatomic, strong) UIButton *forwardButton;
 @property (nonatomic, strong) UIButton *scrollTopButton;
+
+@property (nonatomic, strong) UIView *pickerContentView;
+@property (nonatomic, strong) UIButton *goButton;
 @property (nonatomic, strong) UIPickerView *pickerView;
 
 
