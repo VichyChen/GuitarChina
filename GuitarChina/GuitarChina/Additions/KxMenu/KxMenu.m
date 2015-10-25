@@ -545,7 +545,7 @@ typedef enum {
 //            gradientView.contentMode = UIViewContentModeLeft;
 //            [itemView addSubview:gradientView];
 
-            UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(kMarginX * 2 - 10, maxItemHeight + 1, gradientLine.size.width + 20, gradientLine.size.height)];
+            UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(kMarginX * 2 - 20, maxItemHeight + 1, gradientLine.size.width + 40, gradientLine.size.height)];
             separatorView.backgroundColor = [UIColor GCGrayLineColor];
             [itemView addSubview:separatorView];
             

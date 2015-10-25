@@ -7,6 +7,7 @@
 //
 
 #import "MJRefreshNormalHeader.h"
+#import "DGActivityIndicatorView.h"
 
 @interface MJRefreshNormalHeader()
 {

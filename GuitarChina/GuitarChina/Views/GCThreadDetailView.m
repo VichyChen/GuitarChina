@@ -101,6 +101,8 @@
         _webView.scrollView.footer = ({
             MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
             footer.automaticallyRefresh = NO;
+            footer.refreshingTitleHidden = YES;
+            [footer setTitle:NSLocalizedString(@"Load more", nil) forState:MJRefreshStateIdle];
             footer;
         });
     }

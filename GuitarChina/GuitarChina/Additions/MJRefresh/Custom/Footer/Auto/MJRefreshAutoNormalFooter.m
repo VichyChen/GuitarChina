@@ -7,36 +7,28 @@
 //
 
 #import "MJRefreshAutoNormalFooter.h"
+#import "DGActivityIndicatorView.h"
 
 @interface MJRefreshAutoNormalFooter()
-@property (weak, nonatomic) UIActivityIndicatorView *loadingView;
+@property (weak, nonatomic) DGActivityIndicatorView *loadingView;
 @end
 
 @implementation MJRefreshAutoNormalFooter
 #pragma mark - 懒加载子控件
-- (UIActivityIndicatorView *)loadingView
+
+- (DGActivityIndicatorView *)loadingView
 {
     if (!_loadingView) {
-        UIActivityIndicatorView *loadingView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:self.activityIndicatorViewStyle];
-        loadingView.hidesWhenStopped = YES;
+        DGActivityIndicatorView *loadingView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeBallClipRotate tintColor:[UIColor lightGrayColor] size:25.0f];
         [self addSubview:_loadingView = loadingView];
     }
     return _loadingView;
 }
 
-- (void)setActivityIndicatorViewStyle:(UIActivityIndicatorViewStyle)activityIndicatorViewStyle
-{
-    _activityIndicatorViewStyle = activityIndicatorViewStyle;
-    
-    self.loadingView = nil;
-    [self setNeedsLayout];
-}
 #pragma makr - 重写父类的方法
 - (void)prepare
 {
     [super prepare];
-    
-    self.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
 }
 
 - (void)placeSubviews
@@ -58,8 +50,10 @@
     
     // 根据状态做事情
     if (state == MJRefreshStateNoMoreData || state == MJRefreshStateIdle) {
+        self.loadingView.hidden = YES;
         [self.loadingView stopAnimating];
     } else if (state == MJRefreshStateRefreshing) {
+        self.loadingView.hidden = NO;
         [self.loadingView startAnimating];
     }
 }
