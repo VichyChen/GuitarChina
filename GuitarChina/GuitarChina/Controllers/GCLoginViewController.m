@@ -7,8 +7,13 @@
 //
 
 #import "GCLoginViewController.h"
+#import "GCLoginView.h"
 
 @interface GCLoginViewController ()
+
+@property (nonatomic, strong) GCLoginView *loginView;
+
+@property (nonatomic, copy) void (^loginBlock)();
 
 @end
 
@@ -16,22 +21,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self configureView];
+    [self configureBlock];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Private Methods
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)configureView {
+    [self.view addSubview:self.loginView];
 }
-*/
+
+- (void)configureBlock {
+    @weakify(self);
+    self.loginBlock = ^{
+        @strongify(self);
+        [[GCNetworkManager manager] postLoginWithUsername:self.loginView.usernameTextField.text password:self.loginView.passwordTextField.text Success:^(GCLoginModel *model) {
+            
+        } failure:^(NSError *error) {
+            
+        }];
+    };
+}
+
+#pragma mark - Getters
+
+- (GCLoginView *)loginView {
+    if (!_loginView) {
+        _loginView = [[GCLoginView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+        @weakify(self);
+        _loginView.loginActionBlock = ^{
+            @strongify(self);
+            self.loginBlock();
+        };
+    }
+    return _loginView;
+}
 
 @end

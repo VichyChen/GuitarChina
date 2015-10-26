@@ -27,6 +27,13 @@
 + (UITextField *)createTextField:(CGRect)frame;
 
 + (UITextField *)createTextField:(CGRect)frame
+                     borderStyle:(UITextBorderStyle)borderStyle;
+
++ (UITextField *)createTextField:(CGRect)frame
+                     borderStyle:(UITextBorderStyle)borderStyle
+                     placeholder:(NSString *)placeholder;
+
++ (UITextField *)createTextField:(CGRect)frame
                      borderStyle:(UITextBorderStyle)borderStyle
                             text:(NSString *)text
                        textColor:(UIColor *)color

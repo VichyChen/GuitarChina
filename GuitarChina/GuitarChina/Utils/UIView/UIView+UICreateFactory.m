@@ -52,6 +52,24 @@
 }
 
 + (UITextField *)createTextField:(CGRect)frame
+                     borderStyle:(UITextBorderStyle)borderStyle {
+    UITextField *textField = [[UITextField alloc] initWithFrame:frame];
+    textField.borderStyle = borderStyle;
+    
+    return textField;
+}
+
++ (UITextField *)createTextField:(CGRect)frame
+                     borderStyle:(UITextBorderStyle)borderStyle
+                     placeholder:(NSString *)placeholder {
+    UITextField *textField = [[UITextField alloc] initWithFrame:frame];
+    textField.borderStyle = borderStyle;
+    textField.placeholder = placeholder;
+    
+    return textField;
+}
+
++ (UITextField *)createTextField:(CGRect)frame
                      borderStyle:(UITextBorderStyle)borderStyle
                             text:(NSString *)text
                        textColor:(UIColor *)color

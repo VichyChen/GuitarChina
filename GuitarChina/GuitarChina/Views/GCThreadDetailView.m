@@ -15,10 +15,10 @@
 
 @implementation GCThreadDetailView
 
-- (instancetype)init {
-    self = [super init];
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
     if (self) {
-        self.frame = CGRectMake(0, 64, ScreenWidth, ScreenHeight);
+//        self.frame = CGRectMake(0, 64, ScreenWidth, ScreenHeight);
         [self configureView];
 //        [self configureGesture];
     }

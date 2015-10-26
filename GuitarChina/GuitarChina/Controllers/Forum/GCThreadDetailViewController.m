@@ -44,7 +44,7 @@
 
 - (void)loadView {
     [super loadView];
-    
+
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"帖子详情";
     self.view.backgroundColor = [UIColor whiteColor];
@@ -146,36 +146,6 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
-    self.threadDetailView = [[GCThreadDetailView alloc] init];
-    self.threadDetailView.webView.delegate = self;
-    @weakify(self);
-    self.threadDetailView.webViewRefreshBlock = ^{
-        @strongify(self);
-        [self beginRefresh];
-    };
-    self.threadDetailView.webViewFetchMoreBlock = ^{
-        @strongify(self);
-        [self beginForward];
-    };
-    self.threadDetailView.pageActionBlock = ^{
-        //        @strongify(self);
-        
-    };
-    self.threadDetailView.backActionBlock = ^{
-        @strongify(self);
-        [self beginBack];
-    };
-    self.threadDetailView.forwardActionBlock = ^{
-        @strongify(self);
-        [self beginForward];
-    };
-    self.threadDetailView.pickerSelectActionBlock = ^(NSInteger page){
-        @strongify(self);
-        if (self.pageIndex != page) {
-            self.pageIndex = page;
-            [self.threadDetailView webViewStartRefresh];
-        }
-    };
     [self.view addSubview:self.threadDetailView];
 }
 
@@ -237,6 +207,42 @@
 }
 
 #pragma mark - Getters
+
+- (GCThreadDetailView *)threadDetailView {
+    if (!_threadDetailView) {
+        _threadDetailView = [[GCThreadDetailView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight)];
+        _threadDetailView.webView.delegate = self;
+        @weakify(self);
+        _threadDetailView.webViewRefreshBlock = ^{
+            @strongify(self);
+            [self beginRefresh];
+        };
+        _threadDetailView.webViewFetchMoreBlock = ^{
+            @strongify(self);
+            [self beginForward];
+        };
+        _threadDetailView.pageActionBlock = ^{
+            //        @strongify(self);
+            
+        };
+        _threadDetailView.backActionBlock = ^{
+            @strongify(self);
+            [self beginBack];
+        };
+        _threadDetailView.forwardActionBlock = ^{
+            @strongify(self);
+            [self beginForward];
+        };
+        _threadDetailView.pickerSelectActionBlock = ^(NSInteger page){
+            @strongify(self);
+            if (self.pageIndex != page) {
+                self.pageIndex = page;
+                [self.threadDetailView webViewStartRefresh];
+            }
+        };
+    }
+    return _threadDetailView;
+}
 
 //- (void)beginFetchMore {
 //    [self.htmlString appendString:@"<div style=\"margin:0 12px 0 12px;\">"];

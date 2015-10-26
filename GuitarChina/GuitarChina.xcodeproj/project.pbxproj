@@ -15,6 +15,7 @@
 		043648DD1BCF90740005162D /* GCThreadWebViewHtmlCell.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */; };
 		043648E01BCF9BD80005162D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043648DF1BCF9BD80005162D /* Images.xcassets */; };
 		0459674A1BC7A47D000181DE /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045967491BC7A47D000181DE /* RTLabel.m */; };
+		045EC4391BDE5E7A008A1901 /* GCLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045EC4381BDE5E7A008A1901 /* GCLoginView.m */; };
 		045ED3741BB8F97300790B96 /* GCThreadRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */; };
 		045ED3771BB8FDED00790B96 /* GCThreadRightMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED3761BB8FDED00790B96 /* GCThreadRightMenuCell.m */; };
 		046262331BA94D9300E66F03 /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462622D1BA94D9300E66F03 /* GCForumIndexCell.m */; };
@@ -145,6 +146,8 @@
 		043648DF1BCF9BD80005162D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		045967481BC7A47D000181DE /* RTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLabel.h; sourceTree = "<group>"; };
 		045967491BC7A47D000181DE /* RTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLabel.m; sourceTree = "<group>"; };
+		045EC4371BDE5E7A008A1901 /* GCLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLoginView.h; sourceTree = "<group>"; };
+		045EC4381BDE5E7A008A1901 /* GCLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLoginView.m; sourceTree = "<group>"; };
 		045ED3721BB8F97300790B96 /* GCThreadRightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadRightMenuViewController.h; sourceTree = "<group>"; };
 		045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadRightMenuViewController.m; sourceTree = "<group>"; };
 		045ED3751BB8FDED00790B96 /* GCThreadRightMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadRightMenuCell.h; sourceTree = "<group>"; };
@@ -420,6 +423,8 @@
 				046262291BA94D2B00E66F03 /* Cells */,
 				042D346C1BD0ED6000EBDACC /* GCThreadDetailView.h */,
 				042D346D1BD0ED6000EBDACC /* GCThreadDetailView.m */,
+				045EC4371BDE5E7A008A1901 /* GCLoginView.h */,
+				045EC4381BDE5E7A008A1901 /* GCLoginView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1109,6 +1114,7 @@
 				046262331BA94D9300E66F03 /* GCForumIndexCell.m in Sources */,
 				423889021BC57D0F002E1625 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
 				4219A66C1B9A8086005D2164 /* GCHotThreadModel.m in Sources */,
+				045EC4391BDE5E7A008A1901 /* GCLoginView.m in Sources */,
 				423888F71BC57D0F002E1625 /* DGActivityIndicatorBallPulseAnimation.m in Sources */,
 				423888A21BC57CA6002E1625 /* MJRefreshBackNormalFooter.m in Sources */,
 				423888F11BC57D0F002E1625 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
