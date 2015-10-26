@@ -36,5 +36,7 @@
 @property (nonatomic, copy) void (^backActionBlock)();
 @property (nonatomic, copy) void (^forwardActionBlock)();
 
+@property (nonatomic, assign) NSInteger pickerViewCount;
+@property (nonatomic, copy) void (^pickerSelectActionBlock)(NSInteger page);
 
 @end

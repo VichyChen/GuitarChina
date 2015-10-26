@@ -65,7 +65,6 @@
     [self configureView];
     [self configureBlock];
     
-    //    [self beginRefresh];
     [self.threadDetailView webViewStartRefresh];
 }
 
@@ -85,7 +84,6 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -93,7 +91,7 @@
         GCWebViewController *controller = [[GCWebViewController alloc] init];
         controller.urlString = request.mainDocumentURL.absoluteString;
         [self.navigationController pushViewController:controller animated:YES];
-       
+        
         return false;
     }
     
@@ -171,6 +169,13 @@
         @strongify(self);
         [self beginForward];
     };
+    self.threadDetailView.pickerSelectActionBlock = ^(NSInteger page){
+        @strongify(self);
+        if (self.pageIndex != page) {
+            self.pageIndex = page;
+            [self.threadDetailView webViewStartRefresh];
+        }
+    };
     [self.view addSubview:self.threadDetailView];
 }
 
@@ -181,6 +186,7 @@
         [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
             self.count = [model.replies integerValue];
             self.pageCount = self.count / self.pageSize + 1;
+            self.threadDetailView.pickerViewCount = self.pageCount;
             success(model);
         } failure:^(NSError *error) {
             

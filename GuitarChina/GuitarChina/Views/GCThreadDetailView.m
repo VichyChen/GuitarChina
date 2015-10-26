@@ -20,23 +20,42 @@
     if (self) {
         self.frame = CGRectMake(0, 64, ScreenWidth, ScreenHeight);
         [self configureView];
+//        [self configureGesture];
     }
     return self;
 }
 
-- (void)configureView {
-    [self addSubview:self.webView];
-    [self addSubview:self.pickerContentView];
-    [self addSubview:self.toolBarView];
+#pragma mark - UIPickerViewDataSource
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
 }
 
-- (void)beginRefresh {
-    self.webViewRefreshBlock();
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return self.pickerViewCount;
 }
 
-- (void)beginFetchMore {
-    self.webViewFetchMoreBlock();
+#pragma mark - UIPickerViewDelegate
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [NSString stringWithFormat:@"%ld", row + 1];
 }
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
+    return 35;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    self.pickerSelectActionBlock(row + 1);
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [self hidePickerContentView];
+}
+
+#pragma mark - Public Methods
 
 - (void)webViewStartRefresh {
     [self.webView.scrollView.header beginRefreshing];
@@ -52,6 +71,43 @@
 
 - (void)webViewEndFetchMore {
     [self.webView.scrollView.footer endRefreshing];
+}
+
+- (void)setPickerViewCount:(NSInteger)pickerViewCount {
+    _pickerViewCount = pickerViewCount;
+    
+    [self.pickerView reloadComponent:0];
+}
+
+#pragma mark - Private Methods
+
+- (void)configureView {
+    [self addSubview:self.webView];
+    [self addSubview:self.pickerContentView];
+    [self addSubview:self.toolBarView];
+}
+
+- (void)configureGesture {
+    UITapGestureRecognizer *gestureRecognizer;
+    gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                action:@selector(hidePickerContentView)];
+    [self addGestureRecognizer:gestureRecognizer];
+}
+
+- (void)hidePickerContentView {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.pickerContentView.frame = CGRectMake(ScreenWidth / 2 - 140, ScreenHeight - 64, 280, 200);
+    }];
+}
+
+#pragma mark - Event Response
+
+- (void)beginRefresh {
+    self.webViewRefreshBlock();
+}
+
+- (void)beginFetchMore {
+    self.webViewFetchMoreBlock();
 }
 
 - (void)pageAction {
@@ -83,37 +139,6 @@
 
 - (void)scrollTopAction {
     [self.webView.scrollView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-}
-#pragma mark - UIPickerViewDataSource
-
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return 3;
-}
-
-#pragma mark - UIPickerViewDelegate
-
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [NSString stringWithFormat:@"%ld", row + 1];
-}
-
-- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
-    return 35;
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    
-}
-
-#pragma mark - UIScrollViewDelegate
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    [UIView animateWithDuration:0.3 animations:^{
-        self.pickerContentView.frame = CGRectMake(ScreenWidth / 2 - 140, ScreenHeight - 64, 280, 200);
-    }];
 }
 
 #pragma mark - Getters
