@@ -18,6 +18,10 @@
 		045EC4391BDE5E7A008A1901 /* GCLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045EC4381BDE5E7A008A1901 /* GCLoginView.m */; };
 		045ED3741BB8F97300790B96 /* GCThreadRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */; };
 		045ED3771BB8FDED00790B96 /* GCThreadRightMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED3761BB8FDED00790B96 /* GCThreadRightMenuCell.m */; };
+		045F2F261BDFBA5D0024C9FC /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F211BDFBA5D0024C9FC /* TFHpple.m */; };
+		045F2F271BDFBA5D0024C9FC /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F231BDFBA5D0024C9FC /* TFHppleElement.m */; };
+		045F2F281BDFBA5D0024C9FC /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F251BDFBA5D0024C9FC /* XPathQuery.m */; };
+		045F2F2A1BDFBAAE0024C9FC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 045F2F291BDFBAAE0024C9FC /* libxml2.dylib */; };
 		046262331BA94D9300E66F03 /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462622D1BA94D9300E66F03 /* GCForumIndexCell.m */; };
 		046262341BA94D9300E66F03 /* GCHotThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462622F1BA94D9300E66F03 /* GCHotThreadCell.m */; };
 		046262351BA94D9300E66F03 /* GCThreadReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262311BA94D9300E66F03 /* GCThreadReplyCell.m */; };
@@ -152,6 +156,13 @@
 		045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadRightMenuViewController.m; sourceTree = "<group>"; };
 		045ED3751BB8FDED00790B96 /* GCThreadRightMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadRightMenuCell.h; sourceTree = "<group>"; };
 		045ED3761BB8FDED00790B96 /* GCThreadRightMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadRightMenuCell.m; sourceTree = "<group>"; };
+		045F2F201BDFBA5D0024C9FC /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		045F2F211BDFBA5D0024C9FC /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		045F2F221BDFBA5D0024C9FC /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		045F2F231BDFBA5D0024C9FC /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		045F2F241BDFBA5D0024C9FC /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		045F2F251BDFBA5D0024C9FC /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
+		045F2F291BDFBAAE0024C9FC /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		0462622A1BA94D9300E66F03 /* GCForumDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayCell.h; sourceTree = "<group>"; };
 		0462622C1BA94D9300E66F03 /* GCForumIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexCell.h; sourceTree = "<group>"; };
 		0462622D1BA94D9300E66F03 /* GCForumIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexCell.m; sourceTree = "<group>"; };
@@ -367,6 +378,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				045F2F2A1BDFBAAE0024C9FC /* libxml2.dylib in Frameworks */,
 				CEFC34C235C11966848A8595 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +427,19 @@
 				045967491BC7A47D000181DE /* RTLabel.m */,
 			);
 			path = RTLabel;
+			sourceTree = "<group>";
+		};
+		045F2F1F1BDFBA490024C9FC /* Hpple */ = {
+			isa = PBXGroup;
+			children = (
+				045F2F201BDFBA5D0024C9FC /* TFHpple.h */,
+				045F2F211BDFBA5D0024C9FC /* TFHpple.m */,
+				045F2F221BDFBA5D0024C9FC /* TFHppleElement.h */,
+				045F2F231BDFBA5D0024C9FC /* TFHppleElement.m */,
+				045F2F241BDFBA5D0024C9FC /* XPathQuery.h */,
+				045F2F251BDFBA5D0024C9FC /* XPathQuery.m */,
+			);
+			path = Hpple;
 			sourceTree = "<group>";
 		};
 		046262281BA94D2B00E66F03 /* Views */ = {
@@ -529,6 +554,7 @@
 		0F41C248D61EFD30EA073F7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				045F2F291BDFBAAE0024C9FC /* libxml2.dylib */,
 				2F829F5DD46C688C9B2385EC /* libPods.a */,
 			);
 			name = Frameworks;
@@ -537,6 +563,7 @@
 		420D985D1B9297F600AEAED3 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				045F2F1F1BDFBA490024C9FC /* Hpple */,
 				045967471BC7A47D000181DE /* RTLabel */,
 				420D985F1B92982C00AEAED3 /* RESideMenu */,
 				4238886C1BC57CA6002E1625 /* MJRefresh */,
@@ -1137,6 +1164,7 @@
 				4238890C1BC57D0F002E1625 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
 				4238889C1BC57CA6002E1625 /* MJRefreshFooter.m in Sources */,
 				423888F51BC57D0F002E1625 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
+				045F2F281BDFBA5D0024C9FC /* XPathQuery.m in Sources */,
 				423889041BC57D0F002E1625 /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
 				4238890B1BC57D0F002E1625 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
 				423888A91BC57CA6002E1625 /* UIScrollView+MJExtension.m in Sources */,
@@ -1188,10 +1216,12 @@
 				423888A81BC57CA6002E1625 /* MJRefreshConst.m in Sources */,
 				428F71171B89A1460023E501 /* GCLoginModel.m in Sources */,
 				428F71261B89C0230023E501 /* GCSendReplyModel.m in Sources */,
+				045F2F271BDFBA5D0024C9FC /* TFHppleElement.m in Sources */,
 				423889111BC57D0F002E1625 /* DGActivityIndicatorView.m in Sources */,
 				046F9E691BC6192F0044EB1D /* main.m in Sources */,
 				420528151BD2900200C74E27 /* GCTabBarController.m in Sources */,
 				423888A61BC57CA6002E1625 /* MJRefreshStateHeader.m in Sources */,
+				045F2F261BDFBA5D0024C9FC /* TFHpple.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "GCNetworkManager.h"
 #import "GCNetworkAPI.h"
+#import "TFHpple.h"
 
 typedef NS_ENUM(NSInteger, GCRequestType) {
     GCRequestJsonGet    = 1,
@@ -77,6 +78,8 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     AFHTTPSessionManager *manager=[AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager.requestSerializer setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36" forHTTPHeaderField:@"User-Agent"];
+    
     [manager GET:url parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         responseHandleBlock(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -250,6 +253,12 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     return [self requestHTMLCommonMethodWithURL:@"http://bbs.guitarchina.com/home.php?mod=space&uid=1627015&do=profile" parameters:nil
                                         success:^(NSURLSessionDataTask *task, id responseObject) {
                                             NSLog(@"HTML: %@", [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding]);
+                                            
+                                            TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
+                                            NSArray *elements  = [xpathParser searchWithXPathQuery:@"//*[@id='pbbs']/li"];                                            NSLog(@"%ld", elements.count);
+                                            TFHppleElement *element = [elements objectAtIndex:0];
+                                            NSString *elementContent = [element content];
+                                            NSLog(@"result = %@",elementContent);
                                             
                                         } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                             
