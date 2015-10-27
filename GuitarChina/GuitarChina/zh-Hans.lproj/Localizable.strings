@@ -21,3 +21,9 @@
 
 "login" = "登录";
 "Load more" = "加载更多...";
+
+"Username" = "账号";
+"Password" = "密码";
+"Enter the username." = "输入账号";
+"Enter the password." = "输入密码";
+"Login" = "登陆";

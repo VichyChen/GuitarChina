@@ -24,10 +24,26 @@
     
     [self configureView];
     [self configureBlock];
+    
+    [self.navigationController.navigationBar setShadowImage:[UIImage imageNamed:@"white.png"] ];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    
+    self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_close"
+                                                                  normalColor:[UIColor GCDeepGrayColor]
+                                                             highlightedColor:[UIColor GCLightGrayColor]
+                                                                       target:self
+                                                                       action:@selector(closeAction)];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - Event Response
+
+- (void)closeAction {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Private Methods
@@ -41,6 +57,8 @@
     self.loginBlock = ^{
         @strongify(self);
         [[GCNetworkManager manager] postLoginWithUsername:self.loginView.usernameTextField.text password:self.loginView.passwordTextField.text Success:^(GCLoginModel *model) {
+            ApplicationDelegate.tabBarController.selectedIndex = 2;
+            [self closeAction];
             
         } failure:^(NSError *error) {
             
@@ -52,12 +70,14 @@
 
 - (GCLoginView *)loginView {
     if (!_loginView) {
-        _loginView = [[GCLoginView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+        _loginView = [[GCLoginView alloc] initWithFrame:CGRectMake(0, 20, ScreenWidth, ScreenHeight)];
         @weakify(self);
         _loginView.loginActionBlock = ^{
             @strongify(self);
             self.loginBlock();
         };
+        _loginView.usernameTextField.text = @"Vichy_Chen";
+        _loginView.passwordTextField.text = @"88436658cdj";
     }
     return _loginView;
 }

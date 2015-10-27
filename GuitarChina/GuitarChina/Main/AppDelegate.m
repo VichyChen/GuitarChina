@@ -37,6 +37,12 @@
     //[self configureSideMenuViewController];
     //self.window.rootViewController = self.sideMenuViewController;
     
+    [[GCNetworkManager manager] getProfileSuccess:^(GCHotThreadArray *array) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
     [self configureTabBarController];
     self.window.rootViewController = self.tabBarController;
 

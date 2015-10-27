@@ -86,4 +86,8 @@
                                          Success:(void (^)(void))success
                                          failure:(void (^)(NSError *error))failure;
 
+
+- (AFHTTPRequestOperation *)getProfileSuccess:(void (^)(GCHotThreadArray *array))success
+                                      failure:(void (^)(NSError *error))failure;
+
 @end

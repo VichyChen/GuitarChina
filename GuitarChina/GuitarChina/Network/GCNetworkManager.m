@@ -12,7 +12,6 @@
 typedef NS_ENUM(NSInteger, GCRequestType) {
     GCRequestJsonGet    = 1,
     GCRequestHTTPPOST   = 2,
-    GCRequestHTTPGET    = 3,
 };
 
 @implementation GCNetworkManager
@@ -47,22 +46,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     
     AFHTTPRequestOperation *manager = nil;
     if (type == GCRequestJsonGet) {
-        
-        //        AFHTTPRequestOperationManager *a = [AFHTTPRequestOperationManager manager];
-        //        [a.requestSerializer setValue:@"Guitarchina/724 CFNetwork/711.3.18 Darwin/14.0.0" forHTTPHeaderField:@"User-Agent"];
-        //        manager = [a GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //            responseHandleBlock(operation, responseObject);
-        //        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //            failure(operation, error);
-        //        }];
-        
-        manager = [[AFHTTPRequestOperationManager manager] GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            responseHandleBlock(operation, responseObject);
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            failure(operation, error);
-        }];
-    }
-    else if (type == GCRequestHTTPGET) {
         manager = [[AFHTTPRequestOperationManager manager] GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             responseHandleBlock(operation, responseObject);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -75,8 +58,30 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(operation, error);
         }];
-        
     }
+    
+    return manager;
+}
+
+- (AFHTTPSessionManager *)requestHTMLCommonMethodWithURL:(NSString *)url
+                                              parameters:(NSDictionary *)parameters
+                                                 success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                                                 failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure  {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    void (^responseHandleBlock)(NSURLSessionDataTask *task, id responseObject) = ^(NSURLSessionDataTask *task, id responseObject) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        success(task, responseObject);
+    };
+    
+    AFHTTPSessionManager *manager=[AFHTTPSessionManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager GET:url parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
+        responseHandleBlock(task, responseObject);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(task, error);
+    }];
     
     return manager;
 }
@@ -125,7 +130,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                                               failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", operation.responseString);
-
+        
         GCThreadDetailModel *model = [[GCThreadDetailModel alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];        success(model);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
@@ -228,9 +233,9 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 
 //先调用getViewThreadWithThreadID，再调用此方法，结果都是返回failure，根据operation.responseString判断结果吧
 - (AFHTTPRequestOperation *)getCollectionWithTid:(NSString *)tid
-                                            formhash:(NSString *)formhash
-                                              Success:(void (^)(void))success
-                                              failure:(void (^)(NSError *error))failure {
+                                        formhash:(NSString *)formhash
+                                         Success:(void (^)(void))success
+                                         failure:(void (^)(NSError *error))failure {
     return [self requestCommonMethod:GCRequestJsonGet url:GC_NETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@",operation.responseString);
         success();
@@ -239,5 +244,17 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
         failure(error);
     }];
 }
+
+- (AFHTTPSessionManager *)getProfileSuccess:(void (^)(GCHotThreadArray *array))success
+                                    failure:(void (^)(NSError *error))failure {
+    return [self requestHTMLCommonMethodWithURL:@"http://bbs.guitarchina.com/home.php?mod=space&uid=1627015&do=profile" parameters:nil
+                                        success:^(NSURLSessionDataTask *task, id responseObject) {
+                                            NSLog(@"HTML: %@", [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding]);
+                                            
+                                        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                            
+                                        }];
+}
+
 
 @end

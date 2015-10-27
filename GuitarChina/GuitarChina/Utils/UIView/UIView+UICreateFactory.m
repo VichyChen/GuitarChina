@@ -55,7 +55,8 @@
                      borderStyle:(UITextBorderStyle)borderStyle {
     UITextField *textField = [[UITextField alloc] initWithFrame:frame];
     textField.borderStyle = borderStyle;
-    
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+
     return textField;
 }
 
@@ -65,6 +66,7 @@
     UITextField *textField = [[UITextField alloc] initWithFrame:frame];
     textField.borderStyle = borderStyle;
     textField.placeholder = placeholder;
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
     return textField;
 }
@@ -79,7 +81,8 @@
     textField.text = text;
     textField.textColor = color;
     textField.placeholder = placeholder;
-    
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+
     return textField;
 }
 
@@ -95,7 +98,8 @@
     textField.textColor = color;
     textField.placeholder = placeholder;
     textField.textAlignment = textAlignment;
-    
+    textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+
     return textField;
 }
 
