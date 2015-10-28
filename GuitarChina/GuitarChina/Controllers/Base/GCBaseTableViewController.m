@@ -52,6 +52,8 @@
         });
     }
     [self.tableView.header beginRefreshing];
+    
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {

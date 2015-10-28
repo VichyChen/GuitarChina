@@ -28,4 +28,13 @@
 //获取bundleURL
 + (NSURL *)bundleBasePathURL;
 
+//时间戳转NSDate
++ (NSDate *)getNSDateWithTimeStamp:(NSString *)stamp;
+
+//时间戳转字符串
++ (NSString *)getDateStringWithTimeStamp:(NSString *)stamp format:(NSString *)format;
+
+//NSDate转字符串
++ (NSString *)getDateStringWithNSDate:(NSDate *)date format:(NSString *)format;
+
 @end

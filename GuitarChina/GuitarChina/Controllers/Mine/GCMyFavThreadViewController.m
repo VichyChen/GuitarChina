@@ -1,23 +1,23 @@
 //
-//  GCMyThreadViewController.m
+//  GCMyFavThreadViewController.m
 //  GuitarChina
 //
 //  Created by mac on 15/10/28.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCMyThreadViewController.h"
-#import "GCMyThreadCell.h"
+#import "GCMyFavThreadViewController.h"
+#import "GCForumIndexCell.h"
 #import "GCThreadDetailViewController.h"
+#import "GCMyFavThreadCell.h"
 
-@interface GCMyThreadViewController ()
+@interface GCMyFavThreadViewController ()
 
 @property (nonatomic, strong) NSMutableArray *data;
 
 @end
 
-@implementation GCMyThreadViewController
-
+@implementation GCMyFavThreadViewController
 
 #pragma mark - life cycle
 
@@ -33,7 +33,7 @@
 - (void)loadView {
     [super loadView];
     
-    self.title = NSLocalizedString(@"My Theme", nil);
+    self.title = NSLocalizedString(@"My Favour", nil);
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
@@ -54,10 +54,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"GCUserThreadCell";
-    GCMyThreadCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    static NSString *identifier = @"GCMyFavThreadCell";
+    GCMyFavThreadCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[GCMyThreadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[GCMyFavThreadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     cell.model = [self.data objectAtIndex:indexPath.row];
     
@@ -73,8 +73,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
-    GCMyThreadModel *model = [self.data objectAtIndex:indexPath.row];
-    controller.tid = model.tid;
+    GCMyFavThreadModel *model = [self.data objectAtIndex:indexPath.row];
+    controller.tid = model.idfield;
     [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -85,16 +85,27 @@
     @weakify(self);
     self.refreshBlock = ^{
         @strongify(self);
-        [[GCNetworkManager manager] getMyThreadSuccess:^(GCMyThreadArray *array) {
+//        [[GCNetworkManager manager] getMyThreadSuccess:^(GCMyThreadArray *array) {
+//            self.data = array.data;
+//            [self.rowHeightArray removeAllObjects];
+//            for (GCMyFavThreadModel *model in self.data) {
+//                [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCMyFavThreadCell getCellHeightWithModel:model]]];
+//            }
+//            [self.tableView reloadData];
+//            [self endRefresh];
+//        } failure:^(NSError *error) {
+//        }];
+        [[GCNetworkManager manager] getMyFavThreadSuccess:^(GCMyFavThreadArray *array) {
             self.data = array.data;
             [self.rowHeightArray removeAllObjects];
-            for (GCMyThreadModel *model in self.data) {
-                [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCMyThreadCell getCellHeightWithModel:model]]];
+            for (GCMyFavThreadModel *model in self.data) {
+                [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCMyFavThreadCell getCellHeightWithModel:model]]];
             }
             [self.tableView reloadData];
             [self endRefresh];
         } failure:^(NSError *error) {
         }];
+
     };
 }
 

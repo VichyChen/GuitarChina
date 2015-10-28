@@ -10,6 +10,21 @@
 
 @implementation GCMyFavThreadModel
 
+- (NSMutableAttributedString *)repliesString {
+    if (!_repliesString) {
+        _repliesString = [NSMutableAttributedString new];
+        
+        [_repliesString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@  ", _replies]]];
+        
+        NSTextAttachment *repliesAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
+        repliesAttachment.image = [[UIImage imageNamed:@"icon_replycount"] imageWithTintColor:[UIColor GCDeepGrayColor]];
+        repliesAttachment.bounds = CGRectMake(0, -2, 15, 15);
+        NSAttributedString *repliesAttachmentString = [NSAttributedString attributedStringWithAttachment:repliesAttachment];
+        [_repliesString insertAttributedString:repliesAttachmentString atIndex:_repliesString.length];
+    }
+    return _repliesString;
+}
+
 @end
 
 @implementation GCMyFavThreadArray
@@ -30,6 +45,7 @@
             model.spaceuid         = [item objectForKey:@"spaceuid"];
             model.title            = [item objectForKey:@"title"];
             model.descriptionfield = [item objectForKey:@"description"];
+            model.dateline         = [item objectForKey:@"dateline"];
             model.icon             = [item objectForKey:@"icon"];
             model.url              = [item objectForKey:@"url"];
             model.replies          = [item objectForKey:@"replies"];

@@ -37,9 +37,9 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.subjectLabel.frame = CGRectMake(15, 10, SubjectWidth, self.subjectLabelHeight);
-    self.datelineLabel.frame = CGRectMake(15, 10 + self.subjectLabelHeight + 5, SubjectWidth, 20);
-    self.repliesLabel.frame = CGRectMake(15, 10 + self.subjectLabelHeight + 5, SubjectWidth, 20);
+    self.datelineLabel.frame = CGRectMake(20, 10, SubjectWidth, 20);
+    self.repliesLabel.frame = CGRectMake(15, 10, SubjectWidth, 20);
+    self.subjectLabel.frame = CGRectMake(20, 40, SubjectWidth, self.subjectLabelHeight);
 }
 
 #pragma mark - Private Method
@@ -54,7 +54,7 @@
 
 + (CGFloat)getCellHeightWithModel:(GCMyThreadModel *)model {
     CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.subject fontSize:17 width:SubjectWidth];
-    return subjectLabelHeight + 45;
+    return subjectLabelHeight + 50;
 }
 
 #pragma mark - Setters

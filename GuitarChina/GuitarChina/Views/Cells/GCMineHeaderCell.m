@@ -31,7 +31,7 @@
     
     self.avatarImage.frame = CGRectMake(15, 10, 80, 80);
     self.userLabel.frame = CGRectMake(110, 10, ScreenWidth - 125, 25);
-    self.separatorViewBottom.frame = CGRectMake(0, 99, ScreenWidth, 1);
+    self.separatorViewBottom.frame = CGRectMake(0, 99.5, ScreenWidth, 0.5);
 }
 
 - (void)configureView {

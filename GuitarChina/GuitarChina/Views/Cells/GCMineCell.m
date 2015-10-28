@@ -29,9 +29,9 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.leftImageView.frame = CGRectMake(15, 9, 25, 25);
-    self.titleLabel.frame = CGRectMake(55, 0, ScreenWidth - 80, 44);
-    self.separatorViewBottom.frame = CGRectMake(0, 43, ScreenWidth, 1);
+    self.leftImageView.frame = CGRectMake(15, 12, 20, 20);
+    self.titleLabel.frame = CGRectMake(50, 0, ScreenWidth - 80, 44);
+    self.separatorViewBottom.frame = CGRectMake(0, 43.5, ScreenWidth, 0.5);
 }
 
 - (void)configureView {
@@ -54,7 +54,7 @@
     if (!_titleLabel) {
         _titleLabel = [UIView createLabel:CGRectZero
                                     text:@"陈大捷"
-                                    font:[UIFont systemFontOfSize:17]
+                                    font:[UIFont systemFontOfSize:16]
                                textColor:[UIColor GCFontColor]];
     }
     return _titleLabel;

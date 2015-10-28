@@ -40,7 +40,7 @@
 
 //#D3DCE2
 + (UIColor *)GCGrayLineColor {
-    return [UIColor colorWithRed:0.845f green:0.877f blue:0.904f alpha:1.00f];
+    return [UIColor colorWithRed:0.850f green:0.850f blue:0.850f alpha:1.00f];
 }
 
 //#E83126

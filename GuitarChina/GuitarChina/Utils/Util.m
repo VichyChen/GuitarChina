@@ -53,4 +53,30 @@
     return url;
 }
 
++ (NSDate *)getNSDateWithTimeStamp:(NSString *)stamp {
+    NSTimeInterval time = [stamp doubleValue];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:time];
+    
+    return date;
+}
+
++ (NSString *)getDateStringWithTimeStamp:(NSString *)stamp format:(NSString *)format {
+    NSTimeInterval time = [stamp intValue];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:time];
+
+    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:format];
+    NSString *dateString = [dateFormat stringFromDate:date];
+    
+    return dateString;
+}
+
++ (NSString *)getDateStringWithNSDate:(NSDate *)date format:(NSString *)format {
+    NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:format];
+    NSString *dateString = [dateFormat stringFromDate:date];
+    
+    return dateString;
+}
+
 @end

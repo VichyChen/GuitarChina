@@ -24,6 +24,8 @@
 @property (nonatomic, copy) NSString *replies;
 @property (nonatomic, copy) NSString *author;
 
+@property (nonatomic, copy) NSMutableAttributedString *repliesString;
+
 @end
 
 @interface GCMyFavThreadArray : GCBaseModel
@@ -31,7 +33,7 @@
 @property (nonatomic, copy) NSString *perpage;
 @property (nonatomic, copy) NSString *count;
 
-@property (nonatomic, strong) NSArray *data;    //GCMyFavThreadModel
+@property (nonatomic, strong) NSMutableArray *data;    //GCMyFavThreadModel
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

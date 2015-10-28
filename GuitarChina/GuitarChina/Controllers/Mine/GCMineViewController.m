@@ -12,6 +12,7 @@
 #import "GCMineOtherViewController.h"
 #import "GCUserInfoViewController.h"
 #import "GCMyThreadViewController.h"
+#import "GCMyFavThreadViewController.h"
 
 @interface GCMineViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -117,7 +118,9 @@
             userThreadViewController.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:userThreadViewController animated:YES];
         } else if (indexPath.row == 1) {//我的收藏
-        
+            GCMyFavThreadViewController *myFavThreadViewController = [[GCMyFavThreadViewController alloc] init];
+            myFavThreadViewController.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:myFavThreadViewController animated:YES];
         } else if (indexPath.row == 2) {//其它
             GCMineOtherViewController *mineOtherViewController = [[GCMineOtherViewController alloc] init];
             mineOtherViewController.hidesBottomBarWhenPushed = YES;
@@ -129,7 +132,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
     view.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 28, ScreenWidth, 1)];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 28, ScreenWidth, 0.5)];
     line.backgroundColor = [UIColor GCGrayLineColor];
     [view addSubview:line];
     

@@ -30,6 +30,8 @@
 		045F2F4B1BE0CAD50024C9FC /* GCMyThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F4A1BE0CAD50024C9FC /* GCMyThreadCell.m */; };
 		045F2F511BE0CBB80024C9FC /* GCMyThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F501BE0CBB80024C9FC /* GCMyThreadViewController.m */; };
 		045F2F571BE0D0D40024C9FC /* GCMyFavThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F561BE0D0D40024C9FC /* GCMyFavThreadModel.m */; };
+		045F2F5A1BE0D1B60024C9FC /* GCMyFavThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F591BE0D1B60024C9FC /* GCMyFavThreadViewController.m */; };
+		045F2F5D1BE10B090024C9FC /* GCMyFavThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F5C1BE10B090024C9FC /* GCMyFavThreadCell.m */; };
 		046262331BA94D9300E66F03 /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462622D1BA94D9300E66F03 /* GCForumIndexCell.m */; };
 		046262341BA94D9300E66F03 /* GCHotThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462622F1BA94D9300E66F03 /* GCHotThreadCell.m */; };
 		046262351BA94D9300E66F03 /* GCThreadReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262311BA94D9300E66F03 /* GCThreadReplyCell.m */; };
@@ -185,6 +187,10 @@
 		045F2F501BE0CBB80024C9FC /* GCMyThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyThreadViewController.m; sourceTree = "<group>"; };
 		045F2F551BE0D0D40024C9FC /* GCMyFavThreadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyFavThreadModel.h; sourceTree = "<group>"; };
 		045F2F561BE0D0D40024C9FC /* GCMyFavThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyFavThreadModel.m; sourceTree = "<group>"; };
+		045F2F581BE0D1B60024C9FC /* GCMyFavThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyFavThreadViewController.h; sourceTree = "<group>"; };
+		045F2F591BE0D1B60024C9FC /* GCMyFavThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyFavThreadViewController.m; sourceTree = "<group>"; };
+		045F2F5B1BE10B090024C9FC /* GCMyFavThreadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyFavThreadCell.h; sourceTree = "<group>"; };
+		045F2F5C1BE10B090024C9FC /* GCMyFavThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyFavThreadCell.m; sourceTree = "<group>"; };
 		0462622A1BA94D9300E66F03 /* GCForumDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayCell.h; sourceTree = "<group>"; };
 		0462622C1BA94D9300E66F03 /* GCForumIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexCell.h; sourceTree = "<group>"; };
 		0462622D1BA94D9300E66F03 /* GCForumIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexCell.m; sourceTree = "<group>"; };
@@ -475,10 +481,10 @@
 		046262291BA94D2B00E66F03 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				0462622A1BA94D9300E66F03 /* GCForumDisplayCell.h */,
-				046694B01BD93952008C8CB3 /* GCForumDisplayCell.m */,
 				0462622C1BA94D9300E66F03 /* GCForumIndexCell.h */,
 				0462622D1BA94D9300E66F03 /* GCForumIndexCell.m */,
+				0462622A1BA94D9300E66F03 /* GCForumDisplayCell.h */,
+				046694B01BD93952008C8CB3 /* GCForumDisplayCell.m */,
 				0462622E1BA94D9300E66F03 /* GCHotThreadCell.h */,
 				0462622F1BA94D9300E66F03 /* GCHotThreadCell.m */,
 				046262301BA94D9300E66F03 /* GCThreadReplyCell.h */,
@@ -493,6 +499,8 @@
 				045F2F2F1BE0770F0024C9FC /* GCMineCell.m */,
 				045F2F491BE0CAD50024C9FC /* GCMyThreadCell.h */,
 				045F2F4A1BE0CAD50024C9FC /* GCMyThreadCell.m */,
+				045F2F5B1BE10B090024C9FC /* GCMyFavThreadCell.h */,
+				045F2F5C1BE10B090024C9FC /* GCMyFavThreadCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -566,6 +574,8 @@
 				045F2F321BE0B0B10024C9FC /* GCMineOtherViewController.m */,
 				045F2F4F1BE0CBB80024C9FC /* GCMyThreadViewController.h */,
 				045F2F501BE0CBB80024C9FC /* GCMyThreadViewController.m */,
+				045F2F581BE0D1B60024C9FC /* GCMyFavThreadViewController.h */,
+				045F2F591BE0D1B60024C9FC /* GCMyFavThreadViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1149,9 +1159,11 @@
 				045ED3741BB8F97300790B96 /* GCThreadRightMenuViewController.m in Sources */,
 				4238889E1BC57CA6002E1625 /* MJRefreshAutoGifFooter.m in Sources */,
 				428F711D1B89AD670023E501 /* GCBaseNoticeModel.m in Sources */,
+				045F2F5A1BE0D1B60024C9FC /* GCMyFavThreadViewController.m in Sources */,
 				423888FD1BC57D0F002E1625 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
 				046262351BA94D9300E66F03 /* GCThreadReplyCell.m in Sources */,
 				045F2F2D1BE076FF0024C9FC /* GCMineHeaderCell.m in Sources */,
+				045F2F5D1BE10B090024C9FC /* GCMyFavThreadCell.m in Sources */,
 				423888A51BC57CA6002E1625 /* MJRefreshNormalHeader.m in Sources */,
 				4260C6941BB63C7700705BE0 /* GCLeftMenuCell.m in Sources */,
 				423888AA1BC57CA6002E1625 /* UIScrollView+MJRefresh.m in Sources */,
