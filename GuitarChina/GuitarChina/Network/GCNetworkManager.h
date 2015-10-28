@@ -13,7 +13,7 @@
 #import "GCForumDisplayModel.h"
 #import "GCThreadDetailModel.h"
 #import "GCLoginModel.h"
-#import "GCMyFavThreadArray.h"
+#import "GCMyFavThreadModel.h"
 #import "GCMyThreadModel.h"
 #import "GCSendReplyModel.h"
 #import "GCNewThreadModel.h"
