@@ -14,6 +14,10 @@
     return [UIColor colorWithRed:0.946f green:0.946f blue:0.946f alpha:1.00f];
 }
 
++ (UIColor *)GCVeryLightGrayBackgroundColor {
+    return [UIColor colorWithRed:0.990f green:0.990f blue:0.990f alpha:1.00f];
+}
+
 //#161819
 + (UIColor *)GCFontColor {
     return [UIColor colorWithRed:0.088f green:0.094f blue:0.100f alpha:1.00f];

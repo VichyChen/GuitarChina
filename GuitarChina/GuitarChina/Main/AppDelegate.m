@@ -37,13 +37,29 @@
     //[self configureSideMenuViewController];
     //self.window.rootViewController = self.sideMenuViewController;
     
-    [[GCNetworkManager manager] getProfileSuccess:^(GCHotThreadArray *array) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
+//    [[GCNetworkManager manager] getProfileSuccess:^(GCHotThreadArray *array) {
+//        
+//    } failure:^(NSError *error) {
+//        
+//    }];
+
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [cookieJar cookies]) {
+        NSLog(@"%@", cookie);
+        if ([cookie.name isEqualToString:@"7DUs_2132_saltkey"]) {
+            [cookieJar deleteCookie:cookie];
+            break;
+        }
+    }
+    
+//    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//    NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
+//    for (id obj in _tmpArray) {
+//        [cookieJar deleteCookie:obj];
+//    }
     
     [self configureTabBarController];
+    self.tabBarController.selectedIndex = 2;
     self.window.rootViewController = self.tabBarController;
 
     self.window.backgroundColor = [UIColor whiteColor];

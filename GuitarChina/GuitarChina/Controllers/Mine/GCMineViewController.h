@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCBaseViewController.h"
 
-@interface GCMineViewController : UIViewController
+@interface GCMineViewController : GCBaseViewController
 
 @end

@@ -6,6 +6,8 @@
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
+
+@end
 #import <Foundation/Foundation.h>
 #import "GCBaseModel.h"
 

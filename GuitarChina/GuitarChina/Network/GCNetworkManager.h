@@ -14,7 +14,7 @@
 #import "GCThreadDetailModel.h"
 #import "GCLoginModel.h"
 #import "GCMyFavThreadArray.h"
-#import "GCMyThreadArray.h"
+#import "GCMyThreadModel.h"
 #import "GCSendReplyModel.h"
 #import "GCNewThreadModel.h"
 

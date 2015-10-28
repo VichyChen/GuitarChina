@@ -12,6 +12,7 @@
 
 + (UIColor *)backgroundColor;
 
++ (UIColor *)GCVeryLightGrayBackgroundColor;
 
 + (UIColor *)GCFontColor;
 
