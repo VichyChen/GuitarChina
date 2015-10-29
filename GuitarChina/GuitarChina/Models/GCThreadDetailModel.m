@@ -7,6 +7,7 @@
 //
 
 #import "GCThreadDetailModel.h"
+#import "GCNetworkAPI.h"
 
 @implementation GCThreadDetailOptionModel
 
@@ -152,9 +153,9 @@
                 [tableRow appendFormat:@"<tr><td>%@</td><td>%@</td></tr>", option.title, option.value];
             }
             [tableString appendFormat:tableHtml, self.optionsortname, tableRow];
-            [htmlCellString appendFormat:htmlCell, item.author, item.dateline, [item.number isEqualToString:@"1"] ? @"楼主" : item.number, tableString, item.message];
+            [htmlCellString appendFormat:htmlCell, GCNETWORKAPI_SMALLAVTARIMAGE_URL(item.authorid),item.author, item.dateline, [item.number isEqualToString:@"1"] ? @"楼主" : item.number, tableString, item.message];
         } else {
-            [htmlCellString appendFormat:htmlCell, item.author, item.dateline, [item.number isEqualToString:@"1"] ? @"楼主" : item.number, @"", item.message];
+            [htmlCellString appendFormat:htmlCell, GCNETWORKAPI_SMALLAVTARIMAGE_URL(item.authorid), item.author, item.dateline, [item.number isEqualToString:@"1"] ? @"楼主" : item.number, @"", item.message];
         }
     }
     NSString *htmlPage = [Util stringByBundleHtmlString:@"GCThreadWebViewHtml"];
