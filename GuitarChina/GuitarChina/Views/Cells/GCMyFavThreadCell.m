@@ -39,10 +39,10 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.avatarImage.frame = CGRectMake(20, 10, 40, 40);
-    self.authorLabel.frame = CGRectMake(70, 8, ScreenWidth - 70, 20);
+    self.avatarImage.frame = CGRectMake(15, 10, 40, 40);
+    self.authorLabel.frame = CGRectMake(65, 8, ScreenWidth - 70, 20);
     self.datelineLabel.frame = CGRectMake(70, 33, ScreenWidth - 70, 20);
-    self.subjectLabel.frame = CGRectMake(20, 60, SubjectWidth, self.subjectLabelHeight);
+    self.subjectLabel.frame = CGRectMake(15, 60, SubjectWidth, self.subjectLabelHeight);
     self.repliesLabel.frame = CGRectMake(15, 8, SubjectWidth, 20);
 }
 

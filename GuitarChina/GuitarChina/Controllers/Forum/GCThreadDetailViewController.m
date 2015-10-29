@@ -46,7 +46,7 @@
     [super loadView];
 
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.title = @"帖子详情";
+    self.title = NSLocalizedString(@"Detail", nil);//@"详情";
     self.view.backgroundColor = [UIColor whiteColor];
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame = CGRectMake(0, 0, 25, 25);

@@ -1,6 +1,7 @@
 body {
     word-wrap:break-word;
     word-break:break-word;
+    overflow:hidden;
 }
 
 .subject {
@@ -48,6 +49,7 @@ body {
     margin:10px 12px 0 12px;
     color:#161819;
     font-size:17px;
+    overflow:hidden;
 }
 
 .message a {

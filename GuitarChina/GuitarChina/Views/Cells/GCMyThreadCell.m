@@ -37,9 +37,9 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.datelineLabel.frame = CGRectMake(20, 10, SubjectWidth, 20);
+    self.datelineLabel.frame = CGRectMake(15, 10, SubjectWidth, 20);
     self.repliesLabel.frame = CGRectMake(15, 10, SubjectWidth, 20);
-    self.subjectLabel.frame = CGRectMake(20, 40, SubjectWidth, self.subjectLabelHeight);
+    self.subjectLabel.frame = CGRectMake(15, 40, SubjectWidth, self.subjectLabelHeight);
 }
 
 #pragma mark - Private Method

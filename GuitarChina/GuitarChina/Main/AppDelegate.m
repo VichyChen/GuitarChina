@@ -37,31 +37,31 @@
     //[self configureSideMenuViewController];
     //self.window.rootViewController = self.sideMenuViewController;
     
-//    [[GCNetworkManager manager] getProfileSuccess:^(GCHotThreadArray *array) {
-//        
-//    } failure:^(NSError *error) {
-//        
-//    }];
-
+    //    [[GCNetworkManager manager] getProfileSuccess:^(GCHotThreadArray *array) {
+    //
+    //    } failure:^(NSError *error) {
+    //
+    //    }];
+    
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     for (NSHTTPCookie *cookie in [cookieJar cookies]) {
         NSLog(@"%@", cookie);
-        if ([cookie.name isEqualToString:@"7DUs_2132_saltkey"]) {
-            [cookieJar deleteCookie:cookie];
-            break;
-        }
+        //        if ([cookie.name isEqualToString:@"7DUs_2132_saltkey"]) {
+        //            [cookieJar deleteCookie:cookie];
+        //            break;
+        //        }
     }
     
-//    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-//    NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
-//    for (id obj in _tmpArray) {
-//        [cookieJar deleteCookie:obj];
-//    }
+    //    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    //    NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
+    //    for (id obj in _tmpArray) {
+    //        [cookieJar deleteCookie:obj];
+    //    }
     
     [self configureTabBarController];
     self.tabBarController.selectedIndex = 2;
     self.window.rootViewController = self.tabBarController;
-
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
@@ -86,8 +86,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    // Saves changes in the application's managed object context before the application terminates.
+    [self saveCookie];
     [self saveContext];
 }
 
@@ -179,6 +178,34 @@
 }
 
 #pragma mark - Core Data Saving support
+
+- (void)saveCookie {
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *nCookies = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray *cookiesURL = [nCookies cookiesForURL:[NSURL URLWithString:@"http://bbs.guitarchina.com/"]];
+    
+    for (id c in cookiesURL)
+    {
+        if ([c isKindOfClass:[NSHTTPCookie class]])
+        {
+            cookie=(NSHTTPCookie *)c;
+            NSDate *expiresDate = [NSDate dateWithTimeIntervalSinceNow:3600*24*30*12]; //当前点后，保存一年左右
+            NSArray *cookies = [NSArray arrayWithObjects:cookie.name, cookie.value, expiresDate, cookie.domain, cookie.path, nil];
+            
+            if(cookies){
+                NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
+                [cookieProperties setObject:[cookies objectAtIndex:0] forKey:NSHTTPCookieName];
+                [cookieProperties setObject:[cookies objectAtIndex:1] forKey:NSHTTPCookieValue];
+                [cookieProperties setObject:[cookies objectAtIndex:2] forKey:NSHTTPCookieExpires];
+                [cookieProperties setObject:[cookies objectAtIndex:3] forKey:NSHTTPCookieDomain];
+                [cookieProperties setObject:[cookies objectAtIndex:4] forKey:NSHTTPCookiePath];
+                
+                NSHTTPCookie *cookieuser = [NSHTTPCookie cookieWithProperties:cookieProperties];
+                [[NSHTTPCookieStorage sharedHTTPCookieStorage]  setCookie:cookieuser];
+            }
+        }
+    }
+}
 
 - (void)saveContext {
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
