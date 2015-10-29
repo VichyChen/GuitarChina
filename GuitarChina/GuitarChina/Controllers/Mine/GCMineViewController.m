@@ -28,7 +28,10 @@
     self.title = NSLocalizedString(@"Mine", nil);
     self.view.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
     
+    self.username = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME];
+    
     [self configureView];
+    [self configureNotification];
 //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
 //    UIButton *button = [UIView createButton:CGRectMake(15, 28, ScreenWidth - 30, 44)
 //                                       text:@"注销账号"
@@ -46,6 +49,10 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
 }
 
 #pragma mark - UITableViewDataSource
@@ -67,6 +74,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         GCMineHeaderCell *cell = [[GCMineHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell.userLabel.text = self.username;
         
         return cell;
     } else if (indexPath.section == 1) {
@@ -79,7 +87,7 @@
             cell.titleLabel.text = NSLocalizedString(@"My Favour", nil);
             cell.leftImageView.image = [UIImage imageNamed:@"icon_star"];
         } else if (indexPath.row == 2) {
-            cell.titleLabel.text = NSLocalizedString(@"Other", nil);
+            cell.titleLabel.text = NSLocalizedString(@"Others", nil);
             cell.leftImageView.image = [UIImage imageNamed:@"icon_info"];
         }
         
@@ -90,7 +98,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"111";
+    return @" ";
 }
 
 #pragma mark - UITableViewDelegate
@@ -145,18 +153,16 @@
     [self.view addSubview:self.tableView];
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-//    
-//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
-//    
-//    UIButton *logOutButton = [UIView createButton:CGRectMake(15, 28, ScreenWidth - 30, 44)
-//                                             text:@"注销账号"
-//                                           target:self
-//                                           action:@selector(logOutAction)];
-//    [view addSubview:logOutButton];
-//    
-//    return view;
-//}
+- (void)configureNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView) name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+}
+
+#pragma mark - Event Response
+
+- (void)refreshView {
+    self.username = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME];
+    [self.tableView reloadData];
+}
 
 #pragma mark - Getters
 
@@ -166,6 +172,7 @@
         _tableView.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableFooterView = [[UIView alloc] init];
+        _tableView.bounces = NO;
         _tableView.dataSource = self;
         _tableView.delegate = self;
     }

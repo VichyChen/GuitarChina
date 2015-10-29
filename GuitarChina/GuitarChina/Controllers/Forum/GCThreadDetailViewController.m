@@ -153,8 +153,9 @@
     @weakify(self);
     self.refreshBlock = ^(void (^success)(GCThreadDetailModel *)){
         @strongify(self);
-        //_tid	__NSCFString *	@"1992416"	0x0000000170227bc0
+        //1992416
         //1993403
+        //1993030
         [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
             self.count = [model.replies integerValue];
             self.pageCount = self.count / self.pageSize + 1;

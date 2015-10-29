@@ -58,6 +58,12 @@
         @strongify(self);
         [[GCNetworkManager manager] postLoginWithUsername:self.loginView.usernameTextField.text password:self.loginView.passwordTextField.text Success:^(GCLoginModel *model) {
             ApplicationDelegate.tabBarController.selectedIndex = 2;
+            
+            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLOGIN];
+            [[NSUserDefaults standardUserDefaults] setObject:self.loginView.usernameTextField.text forKey:kGCLOGINNAME];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
             [self closeAction];
             
         } failure:^(NSError *error) {

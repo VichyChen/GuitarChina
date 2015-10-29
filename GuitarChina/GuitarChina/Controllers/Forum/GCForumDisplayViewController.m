@@ -36,8 +36,15 @@
     [super loadView];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(newThreadAction)];
-    self.navigationItem.rightBarButtonItem = barItem;
+    
+//    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(newThreadAction)];
+//    self.navigationItem.rightBarButtonItem = barItem;
+    
+        self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_edit"
+                                                                      normalColor:[UIColor GCFontColor]
+                                                                 highlightedColor:[UIColor GCFontColor]
+                                                                           target:self
+                                                                           action:@selector(newThreadAction)];
 }
 
 - (void)viewDidLoad {

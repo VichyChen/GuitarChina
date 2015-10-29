@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0408D0921BE1FEB900B3825A /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0408D0911BE1FEB900B3825A /* GCUserProtocolViewController.m */; };
+		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
 		0422CDDC1BC6AF70003D2EF5 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422CDDB1BC6AF70003D2EF5 /* KxMenu.m */; };
 		042D23991BB29BC3001DE667 /* GCNewThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D23981BB29BC3001DE667 /* GCNewThreadViewController.m */; };
 		042D346B1BD0ED4300EBDACC /* GCThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D346A1BD0ED4300EBDACC /* GCThreadDetailViewController.m */; };
@@ -145,6 +147,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0408D0901BE1FEB900B3825A /* GCUserProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserProtocolViewController.h; sourceTree = "<group>"; };
+		0408D0911BE1FEB900B3825A /* GCUserProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserProtocolViewController.m; sourceTree = "<group>"; };
+		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
 		0422CDDA1BC6AF70003D2EF5 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
 		0422CDDB1BC6AF70003D2EF5 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
 		042D23971BB29BC3001DE667 /* GCNewThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewThreadViewController.h; sourceTree = "<group>"; };
@@ -570,12 +575,14 @@
 				04935B021BB52D5C0010F7C8 /* GCMineViewController.m */,
 				045F2F341BE0B6B10024C9FC /* GCUserInfoViewController.h */,
 				045F2F351BE0B6B10024C9FC /* GCUserInfoViewController.m */,
-				045F2F311BE0B0B10024C9FC /* GCMineOtherViewController.h */,
-				045F2F321BE0B0B10024C9FC /* GCMineOtherViewController.m */,
 				045F2F4F1BE0CBB80024C9FC /* GCMyThreadViewController.h */,
 				045F2F501BE0CBB80024C9FC /* GCMyThreadViewController.m */,
 				045F2F581BE0D1B60024C9FC /* GCMyFavThreadViewController.h */,
 				045F2F591BE0D1B60024C9FC /* GCMyFavThreadViewController.m */,
+				045F2F311BE0B0B10024C9FC /* GCMineOtherViewController.h */,
+				045F2F321BE0B0B10024C9FC /* GCMineOtherViewController.m */,
+				0408D0901BE1FEB900B3825A /* GCUserProtocolViewController.h */,
+				0408D0911BE1FEB900B3825A /* GCUserProtocolViewController.m */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -953,6 +960,7 @@
 				043648DE1BCF9BD80005162D /* Image */,
 				043648D91BCF8CF90005162D /* Html */,
 				0471258F1BCDF45B000C8BC1 /* CSS */,
+				0408D0931BE205C100B3825A /* UserProtocol.txt */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1098,6 +1106,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */,
 				0463E6FC1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html in Resources */,
 				043648DD1BCF90740005162D /* GCThreadWebViewHtmlCell.html in Resources */,
 				425FB2F61B84C23B00B6A89B /* LaunchScreen.xib in Resources */,
@@ -1215,6 +1224,7 @@
 				045F2F331BE0B0B10024C9FC /* GCMineOtherViewController.m in Sources */,
 				4238890B1BC57D0F002E1625 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
 				423888A91BC57CA6002E1625 /* UIScrollView+MJExtension.m in Sources */,
+				0408D0921BE1FEB900B3825A /* GCUserProtocolViewController.m in Sources */,
 				046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */,
 				423889081BC57D0F002E1625 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				423888AB1BC57CA6002E1625 /* UIView+MJExtension.m in Sources */,

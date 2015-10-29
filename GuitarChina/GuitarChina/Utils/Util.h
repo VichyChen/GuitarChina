@@ -20,7 +20,10 @@
 + (void)openUrlInSafari:(NSString *)url;
 
 //获取本地html文件字符串
-+ (NSString *)stringByLocalHtmlString:(NSString *)html;
++ (NSString *)stringByBundleHtmlString:(NSString *)html;
+
+//获取本地txt文件字符串
++ (NSString *)stringByBundleTxtString:(NSString *)fileName;
 
 //获取bundle路径字符串
 + (NSString *)bundleBasePathString;
@@ -36,5 +39,10 @@
 
 //NSDate转字符串
 + (NSString *)getDateStringWithNSDate:(NSDate *)date format:(NSString *)format;
+
+#pragma mark - Cookie
+
+//清除cookie
++ (void)clearCookie;
 
 @end

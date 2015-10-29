@@ -33,12 +33,20 @@
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
 }
 
-+ (NSString *)stringByLocalHtmlString:(NSString *)html {
++ (NSString *)stringByBundleHtmlString:(NSString *)html {
     NSString *path = [[NSBundle mainBundle] pathForResource:html ofType:@"html"];
     NSString *string = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
     return string;
 }
+
++ (NSString *)stringByBundleTxtString:(NSString *)fileName {
+    NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"txt"];
+    NSString *string = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    
+    return string;
+}
+
 
 + (NSString *)bundleBasePathString {
     NSString *path = [[NSBundle mainBundle] bundlePath];
@@ -77,6 +85,14 @@
     NSString *dateString = [dateFormat stringFromDate:date];
     
     return dateString;
+}
+
++ (void)clearCookie {
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSArray *_tmpArray = [NSArray arrayWithArray:[cookieJar cookies]];
+    for (id obj in _tmpArray) {
+        [cookieJar deleteCookie:obj];
+    }
 }
 
 @end

@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.delegate = self;
     
     self.tabBar.tintColor = [UIColor GCRedColor];
@@ -31,12 +31,13 @@
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
     if ([viewController.tabBarItem.title isEqualToString:NSLocalizedString(@"Mine", nil)]) {
-        
-        GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
-        GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
-        [self presentViewController:navigationController animated:YES completion:nil];
-        
-        return NO;
+        if (![[[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGIN] isEqualToString:@"1"]) {
+            GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
+            GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
+            [self presentViewController:navigationController animated:YES completion:nil];
+            
+            return NO;
+        }
     }
     
     return YES;

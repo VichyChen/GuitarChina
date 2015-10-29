@@ -4,17 +4,26 @@ body {
     overflow:hidden;
 }
 
-.subject {
+#subject {
     margin:10px 10px 5px 10px;
     color:#161819;
     font-size:17px;
 }
 
-.replyDetail {
+#datelineDetail {
     margin:0px 10px 0px 10px;
     color:#80888F;
     font-size:14px;
+    float:left;
     text-align:left;
+}
+
+#replyDetail {
+    margin:0px 10px 0px 10px;
+    color:#80888F;
+    font-size:14px;
+    float:right;
+    text-align:right;
 }
 
 .author {

@@ -56,7 +56,7 @@
 - (UILabel *)userLabel {
     if (!_userLabel) {
         _userLabel = [UIView createLabel:CGRectZero
-                                      text:@"陈大捷"
+                                      text:@""
                                       font:[UIFont boldSystemFontOfSize:17]
                                  textColor:[UIColor GCBlueColor]];
     }

@@ -59,7 +59,6 @@
     //    }
     
     [self configureTabBarController];
-    self.tabBarController.selectedIndex = 2;
     self.window.rootViewController = self.tabBarController;
     
     self.window.backgroundColor = [UIColor whiteColor];

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GCBaseViewController.h"
 
 @interface GCMineViewController : GCBaseViewController
+
+@property (nonatomic, copy) NSString *username;
 
 @end

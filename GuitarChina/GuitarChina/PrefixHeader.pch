@@ -32,4 +32,12 @@
 #define LeftSideMenuOffsetCenterXIniPhone 40.0f //iphone左侧边栏X坐标
 #define LeftSideMenuOffsetCenterXIniPad -(ScreenWidth / 6)   //ipad左侧边栏X坐标
 
+//NSUserDefault
+static NSString * const kGCLOGIN = @"LOGIN";
+static NSString * const kGCLOGINNAME = @"LOGINNAME";
+
+//Notification
+static NSString * const kGCNOTIFICATION_LOGINSUCCESS = @"LOGINSUCCESS";
+
+
 #endif

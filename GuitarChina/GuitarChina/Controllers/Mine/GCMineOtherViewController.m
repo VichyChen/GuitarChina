@@ -7,8 +7,12 @@
 //
 
 #import "GCMineOtherViewController.h"
+#import "GCMineCell.h"
+#import "GCUserProtocolViewController.h"
 
-@interface GCMineOtherViewController ()
+@interface GCMineOtherViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -16,24 +20,103 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.title = NSLocalizedString(@"Other", nil);
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
+    
+    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - UITableViewDataSource
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    GCMineCell *cell = [[GCMineCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell.titleLabel.text = NSLocalizedString(@"User Protocol", nil);
+    cell.leftImageView.image = [UIImage imageNamed:@"icon_law"];
+    
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @" ";
+}
+
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    GCUserProtocolViewController *userProtocolViewController = [[GCUserProtocolViewController alloc] init];
+    [self.navigationController pushViewController:userProtocolViewController animated:YES];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
+    view.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 28, ScreenWidth, 0.5)];
+    line.backgroundColor = [UIColor GCGrayLineColor];
+    [view addSubview:line];
+    
+    return view;
+}
+
+
+#pragma mark - Private Methods
+
+- (void)configureView {
+    [self.view addSubview:self.tableView];
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
+    UIButton *button = [UIView createButton:CGRectMake(15, 28, ScreenWidth - 30, 44)
+                                       text:NSLocalizedString(@"Logout Account", nil)
+                                     target:self
+                                     action:@selector(logoutAction)];
+    button.backgroundColor = [UIColor GCLightGrayColor];
+    button.layer.cornerRadius = 5;
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    button.tintColor = [UIColor whiteColor];
+    
+    [view addSubview:button];
+    self.tableView.tableFooterView = view;
+}
+
+#pragma mark - Event Response
+
+- (void)logoutAction {
+    [Util clearCookie];
+    ApplicationDelegate.tabBarController.selectedIndex = 0;
+    [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:kGCLOGIN];
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kGCLOGINNAME];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Getters
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
+        _tableView.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _tableView.tableFooterView = [[UIView alloc] init];
+        _tableView.bounces = NO;
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+    }
+    return _tableView;
+}
 
 @end

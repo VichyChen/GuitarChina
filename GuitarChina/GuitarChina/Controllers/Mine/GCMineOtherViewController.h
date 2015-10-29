@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCMineOtherViewController : UIViewController
+@interface GCMineOtherViewController : GCBaseViewController
 
 @end

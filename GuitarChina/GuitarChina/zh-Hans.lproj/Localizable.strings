@@ -30,6 +30,9 @@
 
 "My Theme" = "我的主题";
 "My Favour" = "我的收藏";
-"Other" = "其它";
+"Others" = "其它";
 
 "Detail" = "详情";
+
+"User Protocol" = "用户协议";
+"Logout Account" = "注销账号";
