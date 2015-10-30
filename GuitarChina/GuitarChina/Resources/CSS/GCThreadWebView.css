@@ -27,14 +27,14 @@ body {
 }
 
 .author {
-    margin:0px 10px 0px 10px;
+    margin:-2px 10px 0px 10px;
     color:#4C85A3;
     font-weight:bold;
     font-size:16px;
 }
 
 .dateline {
-    margin:2px 0px 0px 10px;
+    margin:5px 0px 0px 10px;
     color:#80888F;
     font-size:14px;
 }
