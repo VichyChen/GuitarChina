@@ -12,6 +12,7 @@
 @interface GCThreadDetailViewController : GCBaseViewController
 
 @property (nonatomic, copy) NSString *tid;
+@property (nonatomic, copy) NSString *formhash;
 
 @property (nonatomic, strong) GCForumThreadModel *forumThreadModel;
 

@@ -8,6 +8,8 @@
 
 #import "GCThreadRightMenuViewController.h"
 #import "GCThreadRightMenuCell.h"
+#import "GCReplyViewController.h"
+#import "GCNavigationController.h"
 
 #define GCThreadRightMenuCellHeightIniPhone 50
 #define GCThreadRightMenuCellHeightIniPad 60
@@ -76,11 +78,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    [ApplicationDelegate.sideMenuViewController hideMenuViewController];
+
     switch (indexPath.row) {
-        case 0:
+        case 0: {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_REPLY object:nil];
+
             break;
-            
+        }
         case 1:
             break;
             

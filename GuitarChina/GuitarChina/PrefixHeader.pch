@@ -39,5 +39,6 @@ static NSString * const kGCLOGINNAME = @"LOGINNAME";
 //Notification
 static NSString * const kGCNOTIFICATION_LOGINSUCCESS = @"LOGINSUCCESS";
 
+static NSString * const kGCNOTIFICATION_REPLY = @"REPLY";
 
 #endif

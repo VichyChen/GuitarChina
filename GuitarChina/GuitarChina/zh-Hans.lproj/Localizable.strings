@@ -36,3 +36,7 @@
 
 "User Protocol" = "用户协议";
 "Logout Account" = "注销账号";
+
+"Cancel" = "取消";
+"Send" = "发送";
+"Write reply." = "写回复...";

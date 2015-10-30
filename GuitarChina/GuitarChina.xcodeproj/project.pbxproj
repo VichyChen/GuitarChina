@@ -16,6 +16,8 @@
 		043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
 		043648DD1BCF90740005162D /* GCThreadWebViewHtmlCell.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */; };
 		043648E01BCF9BD80005162D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043648DF1BCF9BD80005162D /* Images.xcassets */; };
+		044C5F471BE345F800A17B99 /* GCReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044C5F461BE345F800A17B99 /* GCReplyViewController.m */; };
+		044C5F4D1BE34C7900A17B99 /* GCReplyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044C5F4C1BE34C7900A17B99 /* GCReplyView.m */; };
 		0459674A1BC7A47D000181DE /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045967491BC7A47D000181DE /* RTLabel.m */; };
 		045EC4391BDE5E7A008A1901 /* GCLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045EC4381BDE5E7A008A1901 /* GCLoginView.m */; };
 		045ED3741BB8F97300790B96 /* GCThreadRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */; };
@@ -161,6 +163,10 @@
 		043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewHtml.html; sourceTree = "<group>"; };
 		043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewHtmlCell.html; sourceTree = "<group>"; };
 		043648DF1BCF9BD80005162D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		044C5F451BE345F800A17B99 /* GCReplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCReplyViewController.h; sourceTree = "<group>"; };
+		044C5F461BE345F800A17B99 /* GCReplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReplyViewController.m; sourceTree = "<group>"; };
+		044C5F4B1BE34C7900A17B99 /* GCReplyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCReplyView.h; sourceTree = "<group>"; };
+		044C5F4C1BE34C7900A17B99 /* GCReplyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReplyView.m; sourceTree = "<group>"; };
 		045967481BC7A47D000181DE /* RTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLabel.h; sourceTree = "<group>"; };
 		045967491BC7A47D000181DE /* RTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLabel.m; sourceTree = "<group>"; };
 		045EC4371BDE5E7A008A1901 /* GCLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLoginView.h; sourceTree = "<group>"; };
@@ -477,6 +483,8 @@
 				046262291BA94D2B00E66F03 /* Cells */,
 				042D346C1BD0ED6000EBDACC /* GCThreadDetailView.h */,
 				042D346D1BD0ED6000EBDACC /* GCThreadDetailView.m */,
+				044C5F4B1BE34C7900A17B99 /* GCReplyView.h */,
+				044C5F4C1BE34C7900A17B99 /* GCReplyView.m */,
 				045EC4371BDE5E7A008A1901 /* GCLoginView.h */,
 				045EC4381BDE5E7A008A1901 /* GCLoginView.m */,
 			);
@@ -680,6 +688,8 @@
 				045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */,
 				042D34691BD0ED4300EBDACC /* GCThreadDetailViewController.h */,
 				042D346A1BD0ED4300EBDACC /* GCThreadDetailViewController.m */,
+				044C5F451BE345F800A17B99 /* GCReplyViewController.h */,
+				044C5F461BE345F800A17B99 /* GCReplyViewController.m */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -1208,6 +1218,7 @@
 				423888A31BC57CA6002E1625 /* MJRefreshBackStateFooter.m in Sources */,
 				420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */,
 				423889061BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
+				044C5F471BE345F800A17B99 /* GCReplyViewController.m in Sources */,
 				4238890F1BC57D0F002E1625 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
 				4238889B1BC57CA6002E1625 /* MJRefreshComponent.m in Sources */,
 				423888F21BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
@@ -1225,6 +1236,7 @@
 				4238890B1BC57D0F002E1625 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
 				423888A91BC57CA6002E1625 /* UIScrollView+MJExtension.m in Sources */,
 				0408D0921BE1FEB900B3825A /* GCUserProtocolViewController.m in Sources */,
+				044C5F4D1BE34C7900A17B99 /* GCReplyView.m in Sources */,
 				046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */,
 				423889081BC57D0F002E1625 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				423888AB1BC57CA6002E1625 /* UIView+MJExtension.m in Sources */,

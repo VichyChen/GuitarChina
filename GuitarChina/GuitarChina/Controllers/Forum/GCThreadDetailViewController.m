@@ -10,6 +10,9 @@
 #import "KxMenu.h"
 #import "GCThreadDetailView.h"
 #import "GCWebViewController.h"
+#import "GCReplyViewController.h"
+#import "GCNavigationController.h"
+#import "RESideMenu.h"
 
 @interface GCThreadDetailViewController () <UIWebViewDelegate> {
     CGFloat offsetY;
@@ -54,7 +57,7 @@
     UIImage *image = [UIImage imageNamed:@"icon_ellipsis"];
     [leftButton setImage:[image imageWithTintColor:[UIColor GCFontColor]] forState:UIControlStateNormal];
     [leftButton setImage:[image imageWithTintColor:[UIColor GCDeepGrayColor]] forState:UIControlStateHighlighted];
-    [leftButton addTarget:self action:@selector(rightBarButtonClickAction:) forControlEvents:UIControlEventTouchUpInside];
+    [leftButton addTarget:self action:@selector(presentRightMenuViewController:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.rightBarButtonItem = barItem;
 }
@@ -64,12 +67,17 @@
     
     [self configureView];
     [self configureBlock];
+    [self configureNotification];
     
     [self.threadDetailView webViewStartRefresh];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_REPLY object:nil];
 }
 
 #pragma mark - UIWebViewDelegate
@@ -101,34 +109,40 @@
 #pragma mark - Event Response
 
 - (void)rightBarButtonClickAction:(id)sender {
-    NSArray *menuItems = @[
-                           [KxMenuItem menuItem:NSLocalizedString(@"Reply", nil)
-                                          image:[UIImage imageNamed:@"icon_reply"]
-                                         target:self
-                                         action:@selector(replyAction:)],
-                           [KxMenuItem menuItem:NSLocalizedString(@"Collect", nil)
-                                          image:[UIImage imageNamed:@"icon_collect"]
-                                         target:self
-                                         action:@selector(collectAction:)],
-                           [KxMenuItem menuItem:NSLocalizedString(@"Share", nil)
-                                          image:[UIImage imageNamed:@"icon_share"]
-                                         target:self
-                                         action:@selector(shareAction:)],
-                           [KxMenuItem menuItem:@"Safari"
-                                          image:[UIImage imageNamed:@"icon_open"]
-                                         target:self
-                                         action:@selector(safariAction:)],
-                           [KxMenuItem menuItem:NSLocalizedString(@"Report", nil)
-                                          image:[UIImage imageNamed:@"icon_report"]
-                                         target:self
-                                         action:@selector(reportAction:)],
-                           ];
-    [KxMenu showMenuInView:self.view
-                  fromRect:CGRectMake(ScreenWidth - 50, 20, 44, 44)
-                 menuItems:menuItems];
+
+//    NSArray *menuItems = @[
+//                           [KxMenuItem menuItem:NSLocalizedString(@"Reply", nil)
+//                                          image:[UIImage imageNamed:@"icon_reply"]
+//                                         target:self
+//                                         action:@selector(replyAction:)],
+//                           [KxMenuItem menuItem:NSLocalizedString(@"Collect", nil)
+//                                          image:[UIImage imageNamed:@"icon_collect"]
+//                                         target:self
+//                                         action:@selector(collectAction:)],
+//                           [KxMenuItem menuItem:NSLocalizedString(@"Share", nil)
+//                                          image:[UIImage imageNamed:@"icon_share"]
+//                                         target:self
+//                                         action:@selector(shareAction:)],
+//                           [KxMenuItem menuItem:@"Safari"
+//                                          image:[UIImage imageNamed:@"icon_open"]
+//                                         target:self
+//                                         action:@selector(safariAction:)],
+//                           [KxMenuItem menuItem:NSLocalizedString(@"Report", nil)
+//                                          image:[UIImage imageNamed:@"icon_report"]
+//                                         target:self
+//                                         action:@selector(reportAction:)],
+//                           ];
+//    [KxMenu showMenuInView:self.view
+//                  fromRect:CGRectMake(ScreenWidth - 50, 20, 44, 44)
+//                 menuItems:menuItems];
 }
 
-- (void)replyAction:(id)sender {
+- (void)replyAction {
+    GCReplyViewController *controller = [[GCReplyViewController alloc] init];
+    controller.tid = self.tid;
+    controller.formhash = self.formhash;
+    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (void)collectAction:(id)sender {
@@ -157,6 +171,7 @@
         //1993403
         //1993030
         [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
+            self.formhash = model.formhash;
             self.count = [model.replies integerValue];
             self.pageCount = self.count / self.pageSize + 1;
             self.threadDetailView.pickerViewCount = self.pageCount;
@@ -165,6 +180,10 @@
             
         }];
     };
+}
+
+- (void)configureNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(replyAction) name:kGCNOTIFICATION_REPLY object:nil];
 }
 
 - (void)beginRefresh {

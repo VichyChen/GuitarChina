@@ -126,6 +126,10 @@
 
 //BarButtonItem
 
++ (UIBarButtonItem *)createBarButtonItem:(NSString *)name
+                                  target:(id)target
+                                  action:(SEL)action;
+
 + (UIBarButtonItem *)createCustomBarButtonItem:(NSString *)image
                                    normalColor:(UIColor *)normalColor
                               highlightedColor:(UIColor *)highlightedColor

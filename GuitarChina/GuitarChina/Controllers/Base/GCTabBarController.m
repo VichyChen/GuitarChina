@@ -35,7 +35,7 @@
             GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
             GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
             [self presentViewController:navigationController animated:YES completion:nil];
-            
+
             return NO;
         }
     }

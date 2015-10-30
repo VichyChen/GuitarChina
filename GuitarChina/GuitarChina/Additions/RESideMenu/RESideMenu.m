@@ -326,7 +326,6 @@
         return;
     }
     [self.rightMenuViewController beginAppearanceTransition:YES animated:YES];
-    self.leftMenuViewController.view.hidden = YES;
     self.rightMenuViewController.view.hidden = NO;
     [self.view.window endEditing:YES];
     [self addContentButton];
@@ -565,12 +564,12 @@
                        );
     
     if (self.panFromEdge && [gestureRecognizer isKindOfClass:[UIPanGestureRecognizer class]] && !self.visible) {
-//        CGPoint point = [touch locationInView:gestureRecognizer.view];
-//        if (point.x < 20.0 || point.x > self.view.frame.size.width - 20.0) {
-//            return YES;
-//        } else {
-//            return NO;
-//        }
+        CGPoint point = [touch locationInView:gestureRecognizer.view];
+        if (point.x < 0.0 || point.x > self.view.frame.size.width - 0.0) {
+            return YES;
+        } else {
+            return NO;
+        }
         return YES;
     }
     

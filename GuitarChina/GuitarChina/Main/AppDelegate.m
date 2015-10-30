@@ -59,7 +59,38 @@
     //    }
     
     [self configureTabBarController];
-    self.window.rootViewController = self.tabBarController;
+    
+    self.rightMenuViewController = [[GCThreadRightMenuViewController alloc] init];
+
+    self.sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:self.tabBarController
+                                                             leftMenuViewController:nil
+                                                            rightMenuViewController:self.rightMenuViewController];
+    self.sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
+    self.sideMenuViewController.menuPreferredStatusBarStyle = 1;
+    self.sideMenuViewController.delegate = self;
+    self.sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
+    self.sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
+    self.sideMenuViewController.contentViewShadowOpacity = 0;
+    self.sideMenuViewController.contentViewShadowRadius = 5;
+    self.sideMenuViewController.contentViewShadowEnabled = YES;
+    self.sideMenuViewController.contentViewScaleValue = 1;
+    self.sideMenuViewController.contentViewBorderEnabled = YES;
+    self.sideMenuViewController.contentViewBorderPosition = ContentViewBorderPositionLeftAndRight;
+    self.sideMenuViewController.contentViewBorderWidth = 0.5;
+    self.sideMenuViewController.contentViewBorderColor = [UIColor lightGrayColor].CGColor;
+    self.sideMenuViewController.scaleMenuView = NO;
+    self.sideMenuViewController.fadeMenuView = NO;
+    self.sideMenuViewController.panGestureEnabled = NO;
+    if (DeviceiPhone) {
+        self.sideMenuViewController.contentViewInPortraitOffsetCenterX = LeftSideMenuOffsetCenterXIniPhone;
+    } else {
+        self.sideMenuViewController.contentViewInPortraitOffsetCenterX = LeftSideMenuOffsetCenterXIniPad;
+    }
+
+    
+    
+    
+    self.window.rootViewController = self.sideMenuViewController;
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -72,8 +103,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self saveCookie];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -228,8 +258,8 @@
     self.rightMenuViewController = [[GCThreadRightMenuViewController alloc] init];
     [self.leftMenuViewController configureFirstViewController:hotThreadViewController];
     self.sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:navigationController
-                                                             leftMenuViewController:self.leftMenuViewController
-                                                            rightMenuViewController:nil];
+                                                             leftMenuViewController:nil
+                                                            rightMenuViewController:self.rightMenuViewController];
     self.sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
     self.sideMenuViewController.menuPreferredStatusBarStyle = 1;
     self.sideMenuViewController.delegate = self;

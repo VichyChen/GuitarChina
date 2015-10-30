@@ -358,9 +358,10 @@ typedef enum {
 - (void)dismissMenu:(BOOL) animated
 {
     if (self.superview) {
-        
+        [self removeFromSuperview];
+
         if (animated) {
-            
+
             _contentView.hidden = YES;
             const CGRect toFrame = (CGRect){self.arrowPoint, 1, 1};
             
@@ -374,14 +375,14 @@ typedef enum {
                                  
                                  if ([self.superview isKindOfClass:[KxMenuOverlay class]])
                                      [self.superview removeFromSuperview];
-                                 [self removeFromSuperview];
+//                                 [self removeFromSuperview];
                              }];
             
         } else {
             
             if ([self.superview isKindOfClass:[KxMenuOverlay class]])
                 [self.superview removeFromSuperview];
-            [self removeFromSuperview];
+//            [self removeFromSuperview];
         }
     }
     if (overlay.superview) {

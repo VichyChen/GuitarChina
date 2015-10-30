@@ -56,7 +56,7 @@
     UITextField *textField = [[UITextField alloc] initWithFrame:frame];
     textField.borderStyle = borderStyle;
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-
+    
     return textField;
 }
 
@@ -82,7 +82,7 @@
     textField.textColor = color;
     textField.placeholder = placeholder;
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-
+    
     return textField;
 }
 
@@ -99,7 +99,7 @@
     textField.placeholder = placeholder;
     textField.textAlignment = textAlignment;
     textField.clearButtonMode = UITextFieldViewModeWhileEditing;
-
+    
     return textField;
 }
 
@@ -266,6 +266,17 @@
 }
 
 #pragma mark - BarButtonItem
+
++ (UIBarButtonItem *)createBarButtonItem:(NSString *)name
+                                  target:(id)target
+                                  action:(SEL)action {
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:name
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:target
+                                                               action:action];
+    
+    return barItem;
+}
 
 + (UIBarButtonItem *)createCustomBarButtonItem:(NSString *)image
                                    normalColor:(UIColor *)normalColor

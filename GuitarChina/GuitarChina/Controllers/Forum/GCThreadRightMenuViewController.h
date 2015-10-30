@@ -10,5 +10,7 @@
 #import "GCBaseViewController.h"
 
 @interface GCThreadRightMenuViewController : GCBaseViewController
- 
+
+@property (nonatomic, copy) NSString *tid;
+
 @end
