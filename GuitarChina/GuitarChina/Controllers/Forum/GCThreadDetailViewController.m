@@ -78,6 +78,7 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_REPLY object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_COLLECT object:nil];    
 }
 
 #pragma mark - UIWebViewDelegate
@@ -145,7 +146,12 @@
     [self presentViewController:navigationController animated:YES completion:nil];
 }
 
-- (void)collectAction:(id)sender {
+- (void)collectAction {
+    [[GCNetworkManager manager] getCollectionWithTid:self.tid formhash:self.formhash Success:^{
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)shareAction:(id)sender {
@@ -184,6 +190,7 @@
 
 - (void)configureNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(replyAction) name:kGCNOTIFICATION_REPLY object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collectAction) name:kGCNOTIFICATION_COLLECT object:nil];
 }
 
 - (void)beginRefresh {

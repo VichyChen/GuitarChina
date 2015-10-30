@@ -39,6 +39,7 @@ static NSString * const kGCLOGINNAME = @"LOGINNAME";
 //Notification
 static NSString * const kGCNOTIFICATION_LOGINSUCCESS = @"LOGINSUCCESS";
 
-static NSString * const kGCNOTIFICATION_REPLY = @"REPLY";
+static NSString * const kGCNOTIFICATION_REPLY = @"REPLY"; //回复
+static NSString * const kGCNOTIFICATION_COLLECT = @"COLLECT"; //收藏
 
 #endif

@@ -83,10 +83,10 @@
     switch (indexPath.row) {
         case 0: {
             [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_REPLY object:nil];
-
             break;
         }
         case 1:
+            [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_COLLECT object:nil];
             break;
             
         case 2:
