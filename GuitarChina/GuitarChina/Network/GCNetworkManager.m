@@ -148,6 +148,8 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
         NSDictionary *parameters = @{ @"username" : username, @"password" : password };
         [self requestCommonMethod:GCRequestHTTPPOST url:GCNETWORKAPI_POST_LOGIN parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             GCLoginModel *model = [[GCLoginModel alloc] initWithDictionary:responseObject];
+            NSLog(@"%@", operation.responseString);
+
             success(model);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(error);
@@ -162,6 +164,8 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                       failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_MYFAVTHREAD parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         GCMyFavThreadArray *array = [[GCMyFavThreadArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
+        NSLog(@"%@", operation.responseString);
+
         success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);

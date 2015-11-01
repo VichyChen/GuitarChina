@@ -21,7 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"Other", nil);
+    self.title = NSLocalizedString(@"Others", nil);
     self.view.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
     
     [self configureView];

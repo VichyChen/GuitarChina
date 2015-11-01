@@ -58,14 +58,16 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 1;
     } else if (section == 1) {
-        return 3;
+        return 2;
+    } else if (section == 2) {
+        return 1;
     }
     
     return 0;
@@ -78,25 +80,30 @@
         [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_BIGAVTARIMAGE_URL(self.userID)]
                             placeholderImage:nil
                                      options:SDWebImageRetryFailed];
+        
         return cell;
     } else if (indexPath.section == 1) {
         GCMineCell *cell = [[GCMineCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
-        
         if (indexPath.row == 0) {
             cell.titleLabel.text = NSLocalizedString(@"My Theme", nil);
             cell.leftImageView.image = [UIImage imageNamed:@"icon_document"];
         } else if (indexPath.row == 1) {
             cell.titleLabel.text = NSLocalizedString(@"My Favour", nil);
             cell.leftImageView.image = [UIImage imageNamed:@"icon_star"];
-        } else if (indexPath.row == 2) {
-            cell.titleLabel.text = NSLocalizedString(@"Others", nil);
-            cell.leftImageView.image = [UIImage imageNamed:@"icon_info"];
         }
         
         return cell;
-    } else {
-        return nil;
+    } else if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            GCMineCell *cell = [[GCMineCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+            cell.titleLabel.text = NSLocalizedString(@"Others", nil);
+            cell.leftImageView.image = [UIImage imageNamed:@"icon_info"];
+            
+            return cell;
+        }
     }
+    
+    return nil;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -108,8 +115,6 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return 100;
-    } else if (indexPath.section == 1) {
-        return 44;
     }
     return 44;
 }
@@ -131,7 +136,9 @@
             GCMyFavThreadViewController *myFavThreadViewController = [[GCMyFavThreadViewController alloc] init];
             myFavThreadViewController.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:myFavThreadViewController animated:YES];
-        } else if (indexPath.row == 2) {//其它
+        }
+    } else if (indexPath.section == 2) {
+        if (indexPath.row == 0) {//其它
             GCMineOtherViewController *mineOtherViewController = [[GCMineOtherViewController alloc] init];
             mineOtherViewController.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:mineOtherViewController animated:YES];

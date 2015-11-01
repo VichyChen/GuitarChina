@@ -13,7 +13,6 @@
 
 @interface GCMyFavThreadCell()
 
-@property (nonatomic, strong) UIImageView *avatarImage;
 @property (nonatomic, strong) UILabel *authorLabel;
 @property (nonatomic, strong) UILabel *datelineLabel;
 @property (nonatomic, strong) UILabel *subjectLabel;
@@ -38,9 +37,8 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.avatarImage.frame = CGRectMake(15, 10, 40, 40);
-    self.authorLabel.frame = CGRectMake(65, 8, ScreenWidth - 70, 20);
-    self.datelineLabel.frame = CGRectMake(70, 33, ScreenWidth - 70, 20);
+    self.authorLabel.frame = CGRectMake(15, 8, ScreenWidth - 70, 20);
+    self.datelineLabel.frame = CGRectMake(15, 33, ScreenWidth - 70, 20);
     self.subjectLabel.frame = CGRectMake(15, 60, SubjectWidth, self.subjectLabelHeight);
     self.repliesLabel.frame = CGRectMake(15, 8, SubjectWidth, 20);
 }
@@ -48,7 +46,6 @@
 #pragma mark - Private Method
 
 - (void)configureView {
-    [self.contentView addSubview:self.avatarImage];
     [self.contentView addSubview:self.authorLabel];
     [self.contentView addSubview:self.datelineLabel];
     [self.contentView addSubview:self.repliesLabel];
@@ -67,9 +64,6 @@
 - (void)setModel:(GCMyFavThreadModel *)model {
     _model = model;
     
-    [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_SMALLAVTARIMAGE_URL(model.uid)]
-                        placeholderImage:nil
-                                 options:SDWebImageRetryFailed];
     self.authorLabel.text = model.author;
     self.datelineLabel.text = [Util getDateStringWithTimeStamp:model.dateline format:@"yyyy-MM-dd HH:mm"];
     self.subjectLabel.text = model.title;
@@ -79,13 +73,6 @@
 }
 
 #pragma mark - Getters
-
-- (UIImageView *)avatarImage {
-    if (!_avatarImage) {
-        _avatarImage = [UIView createImageView:CGRectZero contentMode:UIViewContentModeScaleToFill];
-    }
-    return _avatarImage;
-}
 
 - (UILabel *)authorLabel {
     if (!_authorLabel) {

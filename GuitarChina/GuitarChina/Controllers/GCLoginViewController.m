@@ -60,7 +60,7 @@
             ApplicationDelegate.tabBarController.selectedIndex = 2;
             
             [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLOGIN];
-            [[NSUserDefaults standardUserDefaults] setObject:self.loginView.usernameTextField.text forKey:kGCLOGINNAME];
+            [[NSUserDefaults standardUserDefaults] setObject:model.member_username forKey:kGCLOGINNAME];
             [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:kGCLOGINID];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
