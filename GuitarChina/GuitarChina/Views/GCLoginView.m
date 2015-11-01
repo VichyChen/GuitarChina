@@ -43,14 +43,14 @@
 }
 
 - (void)configureFrame {
-    self.logoImageView.frame = CGRectMake(ScreenWidth / 2 - 50, 80, 100, 100);
-    self.usernameLabel.frame = CGRectMake(30, 200, CurrentScreenWidth * 0.33, 44);
-    self.usernameTextField.frame = CGRectMake(30 + CurrentScreenWidth * 0.33 + 10, 200, CurrentScreenWidth * 0.66, 44);
-    self.separatorFirstLineView.frame = CGRectMake(30, 245, CurrentScreenWidth, 1);
-    self.passwordLabel.frame = CGRectMake(30, 265, CurrentScreenWidth * 0.33, 44);
-    self.passwordTextField.frame = CGRectMake(30 + CurrentScreenWidth * 0.33 + 10, 265, CurrentScreenWidth * 0.66, 44);
-    self.separatorSecondLineView.frame = CGRectMake(30, 310, CurrentScreenWidth, 1);
-    self.loginButton.frame = CGRectMake(30, 340, CurrentScreenWidth, 44);
+    self.logoImageView.frame = CGRectMake(ScreenWidth / 2 - 50, 70, 100, 100);
+    self.usernameLabel.frame = CGRectMake(30, 190, CurrentScreenWidth * 0.33, 44);
+    self.usernameTextField.frame = CGRectMake(30 + CurrentScreenWidth * 0.33 + 10, 190, CurrentScreenWidth * 0.66, 44);
+    self.separatorFirstLineView.frame = CGRectMake(30, 235, CurrentScreenWidth, 1);
+    self.passwordLabel.frame = CGRectMake(30, 255, CurrentScreenWidth * 0.33, 44);
+    self.passwordTextField.frame = CGRectMake(30 + CurrentScreenWidth * 0.33 + 10, 255, CurrentScreenWidth * 0.66, 44);
+    self.separatorSecondLineView.frame = CGRectMake(30, 300, CurrentScreenWidth, 1);
+    self.loginButton.frame = CGRectMake(30, 330, CurrentScreenWidth, 44);
 }
 
 #pragma mark - Event Responses
