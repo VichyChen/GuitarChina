@@ -34,6 +34,7 @@
     [super loadView];
     
     self.hiddenNavigationBarWhenScrollToBottom = NO;
+//    self.autoBeginRefresh = NO;
     self.title = NSLocalizedString(@"Forum", nil);
 //    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
 //                                                                  normalColor:[UIColor FontColor]
@@ -46,6 +47,9 @@
     [super viewDidLoad];
     
     [self configureBlock];
+    
+//    self.data = [[NSUserDefaults standardUserDefaults] objectForKey:kGCFORUMINDEXDICTIONARY];
+//    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -86,6 +90,20 @@
 }
 
 #pragma mark - UITableViewDelegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 35)];
+    view.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
+    GCForumGroupModel *model = [self.data objectAtIndex:section];
+    UILabel *label = [UIView createLabel:CGRectMake(20, 0, ScreenWidth, 35) text:[NSString stringWithFormat:@"- %@", model.name] font:[UIFont boldSystemFontOfSize:17] textColor:[UIColor GCBlueColor]];
+    [view addSubview:label];
+    
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 35;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *heightArray = [self.rowHeightDictionary objectForKey:[NSNumber numberWithInteger:indexPath.section]];
@@ -128,6 +146,9 @@
         @strongify(self);
         [[GCNetworkManager manager] getForumIndexSuccess:^(GCForumIndexArray *array) {
             self.data = array.data;
+//            [[NSUserDefaults standardUserDefaults] setObject:self.data forKey:kGCFORUMINDEXDICTIONARY];
+//            [[NSUserDefaults standardUserDefaults] synchronize];
+            
             [self.rowHeightDictionary removeAllObjects];
             for (int i = 0; i < self.data.count; i++) {
                 GCForumGroupModel *model = (GCForumGroupModel *)self.data[i];

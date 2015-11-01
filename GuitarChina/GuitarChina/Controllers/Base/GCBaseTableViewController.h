@@ -16,6 +16,7 @@
 @property (nonatomic, assign) NSInteger pageSize;
 
 @property (nonatomic, assign) BOOL hiddenNavigationBarWhenScrollToBottom;
+@property (nonatomic, assign) BOOL autoBeginRefresh;
 
 @property (nonatomic, strong) NSMutableArray *rowHeightArray;
 @property (nonatomic, strong) NSMutableDictionary *rowHeightDictionary;

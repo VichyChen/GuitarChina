@@ -53,7 +53,7 @@
     self.passwordTextField.frame = CGRectMake(30 + CurrentScreenWidth * 0.33 + 10, 255, CurrentScreenWidth * 0.66, 44);
     self.separatorSecondLineView.frame = CGRectMake(30, 300, CurrentScreenWidth, 1);
     self.loginButton.frame = CGRectMake(30, 330, CurrentScreenWidth, 44);
-    self.webLoginButton.frame = CGRectMake(25, 420, ScreenWidth - 50, 30);
+    self.webLoginButton.frame = CGRectMake(25, 410, ScreenWidth - 50, 40);
     self.descriptLabel.frame = CGRectMake(25, 450, ScreenWidth - 50, 50);
 }
 
@@ -82,8 +82,8 @@
     if (!_usernameLabel) {
         _usernameLabel = [UIView createLabel:CGRectZero
                                         text:NSLocalizedString(@"Username", nil)
-                                        font:[UIFont systemFontOfSize:17]
-                                   textColor:[UIColor GCFontColor]];
+                                        font:[UIFont systemFontOfSize:16]
+                                   textColor:[UIColor GCDeepGrayColor]];
     }
     return _usernameLabel;
 }
@@ -109,8 +109,8 @@
     if (!_passwordLabel) {
         _passwordLabel = [UIView createLabel:CGRectZero
                                         text:NSLocalizedString(@"Password", nil)
-                                        font:[UIFont systemFontOfSize:17]
-                                   textColor:[UIColor GCFontColor]];
+                                        font:[UIFont systemFontOfSize:16]
+                                   textColor:[UIColor GCDeepGrayColor]];
     }
     return _passwordLabel;
 }
@@ -150,7 +150,7 @@
 - (UIButton *)webLoginButton {
     if (!_webLoginButton) {
         _webLoginButton = [UIView createButton:CGRectZero
-                                       text:NSLocalizedString(@"有安全提问的账号？先点击这里。", nil)
+                                       text:NSLocalizedString(@"有安全提问的账号？先点击这里登陆。", nil)
                                      target:self
                                      action:@selector(webLoginAction)];
         _webLoginButton.tintColor = [UIColor GCBlueColor];

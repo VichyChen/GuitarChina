@@ -15,7 +15,7 @@
 @property (nonatomic, strong) UIImageView *forumImage;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *descriptLabel;
-@property (nonatomic, strong) UILabel *forumDetailLabel;
+@property (nonatomic, strong) UILabel *todayPostCountLabel;
 
 @end
 
@@ -33,9 +33,11 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.nameLabel.frame = CGRectMake(15, 10, ScreenWidth - 30, 20);
-    self.forumDetailLabel.frame = CGRectMake(15, 35, ScreenWidth - 30, 20);
-    self.descriptLabel.frame = CGRectMake(15, 60, ScreenWidth - 30, self.descriptLabelHeight);
+    self.nameLabel.frame = CGRectMake(20, 10, ScreenWidth - 40, 20);
+    [self.nameLabel sizeToFit];
+    self.todayPostCountLabel.frame = CGRectMake(20 + self.nameLabel.frame.size.width + 5, 10, 100, 20);
+    self.descriptLabel.frame = CGRectMake(20, 40, ScreenWidth - 40, self.descriptLabelHeight);
+    [self.descriptLabel sizeToFit];
 }
 
 #pragma mark RTLabel delegate
@@ -52,20 +54,14 @@
     [self.contentView addSubview:self.forumImage];
     [self.contentView addSubview:self.nameLabel];
     [self.contentView addSubview:self.descriptLabel];
-    [self.contentView addSubview:self.forumDetailLabel];
+    [self.contentView addSubview:self.todayPostCountLabel];
 }
 
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCForumModel *)model {
-//    RTLabel *label = [[RTLabel alloc] initWithFrame:CGRectMake(15, 40, ScreenWidth - 30, 0)];
-//    label.font = [UIFont systemFontOfSize:15];
-//    label.text = model.descript;
-//    CGSize labelSize = [label optimumSize];
-    CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:16 width:ScreenWidth - 30];
-    return descriptLabelHeight + 70;
-    
-//    return labelSize.height + 70;
+    CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:15 width:ScreenWidth - 40];
+    return descriptLabelHeight + 50;
 }
 
 #pragma mark - Setters
@@ -73,11 +69,12 @@
 - (void)setModel:(GCForumModel *)model {
     _model = model;
     
-    self.nameLabel.attributedText = model.nameString;
+    self.nameLabel.text = model.name;
+    self.todayPostCountLabel.text = [NSString stringWithFormat:@"(%@)" , model.todayposts ];
     self.descriptLabel.text = model.descript;
    CGFloat labelHeight = [UIView calculateLabelHeightWithText:self.descriptLabel.text fontSize:self.descriptLabel.font.pointSize width:ScreenWidth - 30];
     self.descriptLabelHeight = labelHeight;
-    self.forumDetailLabel.attributedText = model.forumDetailString;
+//    self.forumDetailLabel.attributedText = model.forumDetailString;
 }
 
 #pragma mark - Getters
@@ -86,10 +83,20 @@
     if (!_nameLabel) {
         _nameLabel = [UIView createLabel:CGRectZero
                                     text:@""
-                                    font:[UIFont boldSystemFontOfSize:17]
-                               textColor:[UIColor GCBlueColor]];
+                                    font:[UIFont systemFontOfSize:17]
+                               textColor:[UIColor GCFontColor]];
     }
     return _nameLabel;
+}
+
+- (UILabel *)todayPostCountLabel {
+    if (!_todayPostCountLabel) {
+        _todayPostCountLabel = [UIView createLabel:CGRectZero
+                                              text:@""
+                                              font:[UIFont systemFontOfSize:15]
+                                         textColor:[UIColor GCDeepGrayColor]];
+    }
+    return _todayPostCountLabel;
 }
 
 - (UILabel *)descriptLabel {
@@ -101,23 +108,13 @@
 ////        _descriptLabel.selectedLinkAttributes = @{@"color":@"red"};
         _descriptLabel = [UIView createLabel:CGRectZero
                                        text:@""
-                                       font:[UIFont systemFontOfSize:16]
-                                  textColor:[UIColor GCFontColor]
+                                       font:[UIFont systemFontOfSize:15]
+                                  textColor:[UIColor GCLightGrayColor]
                               numberOfLines:0
-                    preferredMaxLayoutWidth:ScreenWidth - 30];
+                    preferredMaxLayoutWidth:ScreenWidth - 40];
         _descriptLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _descriptLabel;
-}
-
-- (UILabel *)forumDetailLabel {
-    if (!_forumDetailLabel) {
-        _forumDetailLabel = [UIView createLabel:CGRectZero
-                                           text:@""
-                                           font:[UIFont systemFontOfSize:14]
-                                      textColor:[UIColor GCDeepGrayColor]];
-    }
-    return _forumDetailLabel;
 }
 
 @end

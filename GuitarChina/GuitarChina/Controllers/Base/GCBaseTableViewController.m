@@ -21,6 +21,7 @@
     self = [super init];
     if (self) {
         _hiddenNavigationBarWhenScrollToBottom = NO;
+        _autoBeginRefresh = YES;
     }
     return self;
 }
@@ -51,7 +52,9 @@
             footer;
         });
     }
-    [self.tableView.header beginRefreshing];
+    if (self.autoBeginRefresh) {
+        [self.tableView.header beginRefreshing];
+    }
     
     self.tableView.tableFooterView = [[UIView alloc] init];
 }
