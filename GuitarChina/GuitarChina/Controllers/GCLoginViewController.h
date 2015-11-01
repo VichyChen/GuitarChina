@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCLoginViewController : UIViewController
+@interface GCLoginViewController : GCBaseViewController
 
 @end

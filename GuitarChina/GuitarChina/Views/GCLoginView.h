@@ -17,7 +17,11 @@
 @property (nonatomic, strong) UILabel *passwordLabel;
 @property (nonatomic, strong) UITextField *passwordTextField;
 @property (nonatomic, strong) UIView *separatorSecondLineView;
-@property (nonatomic,strong) UIButton *loginButton;
+@property (nonatomic, strong) UIButton *loginButton;
 @property (nonatomic, copy) void (^loginActionBlock)();
+
+@property (nonatomic, strong) UIButton *webLoginButton;
+@property (nonatomic, strong) UILabel *descriptLabel;
+@property (nonatomic, copy) void (^webLoginActionBlock)();
 
 @end

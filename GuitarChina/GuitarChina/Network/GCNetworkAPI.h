@@ -10,6 +10,9 @@
 
 #define GCNETWORKAPI_SERVICE_URL @"http://bbs.guitarchina.com/api/mobile/index.php?"
 
+//论坛登陆地址
+#define GCNETWORKAPI_LOGIN_URL @"http://bbs.guitarchina.com/member.php?mod=logging&action=login"
+
 //论坛小头像
 #define GCNETWORKAPI_SMALLAVTARIMAGE_URL(uid) [NSString stringWithFormat:@"http://auth.guitarchina.com/avatar.php?uid=%@&size=small", (uid)]
 

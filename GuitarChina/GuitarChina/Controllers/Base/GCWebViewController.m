@@ -10,8 +10,6 @@
 
 @interface GCWebViewController() <UIWebViewDelegate>
 
-@property (nonatomic, strong) UIWebView *webView;
-
 @end
 
 @implementation GCWebViewController

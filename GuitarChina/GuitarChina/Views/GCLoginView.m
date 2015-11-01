@@ -40,6 +40,8 @@
     [self addSubview:self.passwordTextField];
     [self addSubview:self.separatorSecondLineView];
     [self addSubview:self.loginButton];
+    [self addSubview:self.webLoginButton];
+    [self addSubview:self.descriptLabel];
 }
 
 - (void)configureFrame {
@@ -51,12 +53,18 @@
     self.passwordTextField.frame = CGRectMake(30 + CurrentScreenWidth * 0.33 + 10, 255, CurrentScreenWidth * 0.66, 44);
     self.separatorSecondLineView.frame = CGRectMake(30, 300, CurrentScreenWidth, 1);
     self.loginButton.frame = CGRectMake(30, 330, CurrentScreenWidth, 44);
+    self.webLoginButton.frame = CGRectMake(25, 420, ScreenWidth - 50, 30);
+    self.descriptLabel.frame = CGRectMake(25, 450, ScreenWidth - 50, 50);
 }
 
 #pragma mark - Event Responses
 
 - (void)loginAction {
     self.loginActionBlock();
+}
+
+- (void)webLoginAction {
+    self.webLoginActionBlock();
 }
 
 #pragma mark - Getters
@@ -137,6 +145,32 @@
         _loginButton.layer.cornerRadius = 5;
     }
     return _loginButton;
+}
+//点击这里先通过网页登陆
+- (UIButton *)webLoginButton {
+    if (!_webLoginButton) {
+        _webLoginButton = [UIView createButton:CGRectZero
+                                       text:NSLocalizedString(@"有安全提问的账号？先点击这里。", nil)
+                                     target:self
+                                     action:@selector(webLoginAction)];
+        _webLoginButton.tintColor = [UIColor GCBlueColor];
+        _webLoginButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+        _webLoginButton.titleLabel.textAlignment = NSTextAlignmentLeft;
+    }
+    return _webLoginButton;
+}
+
+- (UILabel *)descriptLabel {
+    if (!_descriptLabel) {
+        _descriptLabel = [UIView createLabel:CGRectZero
+                                        text:NSLocalizedString(@"＊设置了安全提问的账号先通过网页登陆，登陆成功后返回到该页面再次进行登陆，即可登陆成功。", nil)
+                                        font:[UIFont systemFontOfSize:13]
+                                   textColor:[UIColor GCDeepGrayColor]
+                               numberOfLines:0
+                     preferredMaxLayoutWidth:ScreenWidth - 50];
+        
+    }
+    return _descriptLabel;
 }
 
 @end

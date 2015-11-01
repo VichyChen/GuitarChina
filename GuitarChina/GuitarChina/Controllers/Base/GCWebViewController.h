@@ -10,6 +10,8 @@
 
 @interface GCWebViewController : UIViewController
 
+@property (nonatomic, strong) UIWebView *webView;
+
 @property (nonatomic, retain) NSString *urlString;
 
 @end
