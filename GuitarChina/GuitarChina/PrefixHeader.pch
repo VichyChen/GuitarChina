@@ -34,7 +34,9 @@
 
 //NSUserDefault
 static NSString * const kGCLOGIN = @"LOGIN";
+static NSString * const kGCLOGINID = @"LOGINID";
 static NSString * const kGCLOGINNAME = @"LOGINNAME";
+
 
 //Notification
 static NSString * const kGCNOTIFICATION_LOGINSUCCESS = @"LOGINSUCCESS";

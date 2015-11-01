@@ -61,6 +61,7 @@
             
             [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLOGIN];
             [[NSUserDefaults standardUserDefaults] setObject:self.loginView.usernameTextField.text forKey:kGCLOGINNAME];
+            [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:kGCLOGINID];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];

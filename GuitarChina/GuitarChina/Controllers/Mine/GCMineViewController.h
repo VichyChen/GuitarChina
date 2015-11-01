@@ -10,6 +10,8 @@
 
 @interface GCMineViewController : GCBaseViewController
 
+@property (nonatomic, copy) NSString *userID;
+
 @property (nonatomic, copy) NSString *username;
 
 @end

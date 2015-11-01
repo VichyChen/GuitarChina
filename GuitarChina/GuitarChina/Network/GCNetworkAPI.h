@@ -10,7 +10,11 @@
 
 #define GCNETWORKAPI_SERVICE_URL @"http://bbs.guitarchina.com/api/mobile/index.php?"
 
+//论坛小头像
 #define GCNETWORKAPI_SMALLAVTARIMAGE_URL(uid) [NSString stringWithFormat:@"http://auth.guitarchina.com/avatar.php?uid=%@&size=small", (uid)]
+
+//论坛大头像
+#define GCNETWORKAPI_BIGAVTARIMAGE_URL(uid) [NSString stringWithFormat:@"http://auth.guitarchina.com/avatar.php?uid=%@&size=big", (uid)]
 
 //查看热帖
 #define GCNETWORKAPI_GET_HOTTHREAD [NSString stringWithFormat:@"%@mobile=no&version=1&module=hotthread", GCNETWORKAPI_SERVICE_URL]

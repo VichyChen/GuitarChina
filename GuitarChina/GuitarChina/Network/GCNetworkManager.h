@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GCNetworkAPI.h"
 
 #import "GCHotThreadModel.h"
 #import "GCForumIndexModel.h"

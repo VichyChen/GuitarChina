@@ -7,7 +7,6 @@
 //
 
 #import "GCThreadDetailModel.h"
-#import "GCNetworkAPI.h"
 
 @implementation GCThreadDetailOptionModel
 

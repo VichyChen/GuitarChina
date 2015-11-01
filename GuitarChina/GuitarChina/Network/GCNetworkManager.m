@@ -7,7 +7,6 @@
 //
 
 #import "GCNetworkManager.h"
-#import "GCNetworkAPI.h"
 #import "TFHpple.h"
 
 typedef NS_ENUM(NSInteger, GCRequestType) {

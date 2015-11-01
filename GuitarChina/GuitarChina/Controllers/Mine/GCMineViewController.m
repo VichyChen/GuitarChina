@@ -32,19 +32,19 @@
     
     [self configureView];
     [self configureNotification];
-//    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
-//    UIButton *button = [UIView createButton:CGRectMake(15, 28, ScreenWidth - 30, 44)
-//                                       text:@"注销账号"
-//                                     target:self
-//                                     action:@selector(logOutAction)];
-//    button.backgroundColor = [UIColor GCLightGrayColor];
-//    button.layer.cornerRadius = 5;
-//    button.titleLabel.font = [UIFont boldSystemFontOfSize:17];
-//    button.tintColor = [UIColor whiteColor];
-//    
-//    [view addSubview:button];
-//    self.tableView.tableFooterView = view;
-
+    //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
+    //    UIButton *button = [UIView createButton:CGRectMake(15, 28, ScreenWidth - 30, 44)
+    //                                       text:@"注销账号"
+    //                                     target:self
+    //                                     action:@selector(logOutAction)];
+    //    button.backgroundColor = [UIColor GCLightGrayColor];
+    //    button.layer.cornerRadius = 5;
+    //    button.titleLabel.font = [UIFont boldSystemFontOfSize:17];
+    //    button.tintColor = [UIColor whiteColor];
+    //
+    //    [view addSubview:button];
+    //    self.tableView.tableFooterView = view;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,7 +75,9 @@
     if (indexPath.section == 0) {
         GCMineHeaderCell *cell = [[GCMineHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         cell.userLabel.text = self.username;
-        
+        [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_BIGAVTARIMAGE_URL(self.userID)]
+                            placeholderImage:nil
+                                     options:SDWebImageRetryFailed];
         return cell;
     } else if (indexPath.section == 1) {
         GCMineCell *cell = [[GCMineCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
@@ -161,6 +163,7 @@
 
 - (void)refreshView {
     self.username = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME];
+    self.userID = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINID];
     [self.tableView reloadData];
 }
 
@@ -188,7 +191,7 @@
 //                                               action:@selector(logOutAction)];
 //        button.backgroundColor = [UIColor GCRedColor];
 //        button.layer.cornerRadius = 5;
-//        
+//
 //        [view addSubview:button];
 //    }
 //    return _tableFooterView;
