@@ -36,7 +36,7 @@
     self.nameLabel.frame = CGRectMake(20, 10, ScreenWidth - 40, 20);
     [self.nameLabel sizeToFit];
     self.todayPostCountLabel.frame = CGRectMake(20 + self.nameLabel.frame.size.width + 5, 10, 100, 20);
-    self.descriptLabel.frame = CGRectMake(20, 40, ScreenWidth - 40, self.descriptLabelHeight);
+    self.descriptLabel.frame = CGRectMake(20, 35, ScreenWidth - 40, self.descriptLabelHeight);
     [self.descriptLabel sizeToFit];
 }
 
@@ -61,7 +61,7 @@
 
 + (CGFloat)getCellHeightWithModel:(GCForumModel *)model {
     CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:15 width:ScreenWidth - 40];
-    return descriptLabelHeight + 50;
+    return descriptLabelHeight + 45;
 }
 
 #pragma mark - Setters
