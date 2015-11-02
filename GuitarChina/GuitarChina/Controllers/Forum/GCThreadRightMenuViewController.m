@@ -36,10 +36,10 @@
         _titleArray = @[NSLocalizedString(@"Reply", nil),
                         NSLocalizedString(@"Collect", nil),
                         NSLocalizedString(@"Share", nil),
-                        NSLocalizedString(@"Report", nil),
                         NSLocalizedString(@"Open in Safari", nil),
-                        NSLocalizedString(@"Copy URL", nil)];
-        _imageArray = @[@"icon_reply", @"icon_collect", @"icon_share", @"icon_error", @"icon_compass", @"icon_link"];
+                        NSLocalizedString(@"Copy URL", nil),
+                        NSLocalizedString(@"Report", nil)];
+        _imageArray = @[@"icon_reply", @"icon_collect", @"icon_share", @"icon_compass", @"icon_link", @"icon_error"];
     }
     return self;
 }
