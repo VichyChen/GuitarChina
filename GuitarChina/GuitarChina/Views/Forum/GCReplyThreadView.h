@@ -1,5 +1,5 @@
 //
-//  GCReplyView.h
+//  GCReplyThreadView.h
 //  GuitarChina
 //
 //  Created by mac on 15/10/26.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCReplyView : UIView
+@interface GCReplyThreadView : UIView
 
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UILabel *placeholderLabel;

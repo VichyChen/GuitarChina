@@ -7,11 +7,11 @@
 //
 
 #import "GCReplyThreadViewController.h"
-#import "GCReplyView.h"
+#import "GCReplyThreadView.h"
 
 @interface GCReplyThreadViewController ()
 
-@property (nonatomic, strong) GCReplyView *replyView;
+@property (nonatomic, strong) GCReplyThreadView *replyThreadView;
 
 @end
 
@@ -35,7 +35,7 @@
 }
 
 - (void)sendAction {
-    [[GCNetworkManager manager] postReplyWithTid:self.tid message:self.replyView.textView.text formhash:self.formhash Success:^(GCSendReplyModel *model) {
+    [[GCNetworkManager manager] postReplyWithTid:self.tid message:self.replyThreadView.textView.text formhash:self.formhash Success:^(GCSendReplyModel *model) {
         [self closeAction];
     } failure:^(NSError *error) {
         
@@ -51,16 +51,16 @@
     UIBarButtonItem *rightBarItem = [UIView createBarButtonItem:NSLocalizedString(@"Send", nil) target:self action:@selector(sendAction)];
     self.navigationItem.rightBarButtonItem = rightBarItem;
 
-    [self.view addSubview:self.replyView];
+    [self.view addSubview:self.replyThreadView];
 }
 
 #pragma mark - Getters
 
-- (GCReplyView *)replyView {
-    if (!_replyView) {
-        _replyView = [[GCReplyView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
+- (GCReplyThreadView *)replyThreadView {
+    if (!_replyThreadView) {
+        _replyThreadView = [[GCReplyThreadView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
     }
-    return _replyView;
+    return _replyThreadView;
 }
 
 @end

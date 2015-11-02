@@ -20,7 +20,7 @@
 		0426CD981BE73F3000BE85D8 /* GCMyFavThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD931BE73F3000BE85D8 /* GCMyFavThreadCell.m */; };
 		0426CD991BE73F3000BE85D8 /* GCMyThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD951BE73F3000BE85D8 /* GCMyThreadCell.m */; };
 		0426CD9C1BE73F5600BE85D8 /* GCThreadDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD9B1BE73F5600BE85D8 /* GCThreadDetailView.m */; };
-		0426CD9F1BE73F8600BE85D8 /* GCReplyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD9E1BE73F8600BE85D8 /* GCReplyView.m */; };
+		0426CD9F1BE73F8600BE85D8 /* GCReplyThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD9E1BE73F8600BE85D8 /* GCReplyThreadView.m */; };
 		0426CDA21BE73FC200BE85D8 /* GCLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CDA11BE73FC200BE85D8 /* GCLeftMenuCell.m */; };
 		042D23991BB29BC3001DE667 /* GCPostThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D23981BB29BC3001DE667 /* GCPostThreadViewController.m */; };
 		042D346B1BD0ED4300EBDACC /* GCThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D346A1BD0ED4300EBDACC /* GCThreadDetailViewController.m */; };
@@ -174,8 +174,8 @@
 		0426CD951BE73F3000BE85D8 /* GCMyThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyThreadCell.m; sourceTree = "<group>"; };
 		0426CD9A1BE73F5600BE85D8 /* GCThreadDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailView.h; sourceTree = "<group>"; };
 		0426CD9B1BE73F5600BE85D8 /* GCThreadDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailView.m; sourceTree = "<group>"; };
-		0426CD9D1BE73F8600BE85D8 /* GCReplyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCReplyView.h; sourceTree = "<group>"; };
-		0426CD9E1BE73F8600BE85D8 /* GCReplyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReplyView.m; sourceTree = "<group>"; };
+		0426CD9D1BE73F8600BE85D8 /* GCReplyThreadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCReplyThreadView.h; sourceTree = "<group>"; };
+		0426CD9E1BE73F8600BE85D8 /* GCReplyThreadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReplyThreadView.m; sourceTree = "<group>"; };
 		0426CDA01BE73FC200BE85D8 /* GCLeftMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLeftMenuCell.h; sourceTree = "<group>"; };
 		0426CDA11BE73FC200BE85D8 /* GCLeftMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLeftMenuCell.m; sourceTree = "<group>"; };
 		042D23971BB29BC3001DE667 /* GCPostThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPostThreadViewController.h; sourceTree = "<group>"; };
@@ -443,8 +443,8 @@
 				0426CD7C1BE73E7E00BE85D8 /* Cells */,
 				0426CD9A1BE73F5600BE85D8 /* GCThreadDetailView.h */,
 				0426CD9B1BE73F5600BE85D8 /* GCThreadDetailView.m */,
-				0426CD9D1BE73F8600BE85D8 /* GCReplyView.h */,
-				0426CD9E1BE73F8600BE85D8 /* GCReplyView.m */,
+				0426CD9D1BE73F8600BE85D8 /* GCReplyThreadView.h */,
+				0426CD9E1BE73F8600BE85D8 /* GCReplyThreadView.m */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -1292,7 +1292,7 @@
 				4238890B1BC57D0F002E1625 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
 				423888A91BC57CA6002E1625 /* UIScrollView+MJExtension.m in Sources */,
 				0408D0921BE1FEB900B3825A /* GCUserProtocolViewController.m in Sources */,
-				0426CD9F1BE73F8600BE85D8 /* GCReplyView.m in Sources */,
+				0426CD9F1BE73F8600BE85D8 /* GCReplyThreadView.m in Sources */,
 				046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */,
 				423889081BC57D0F002E1625 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				423888AB1BC57CA6002E1625 /* UIView+MJExtension.m in Sources */,

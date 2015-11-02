@@ -1,18 +1,18 @@
 //
-//  GCReplyView.m
+//  GCReplyThreadView.m
 //  GuitarChina
 //
 //  Created by mac on 15/10/26.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCReplyView.h"
+#import "GCReplyThreadView.h"
 
-@interface GCReplyView() <UITextViewDelegate>
+@interface GCReplyThreadView() <UITextViewDelegate>
 
 @end
 
-@implementation GCReplyView
+@implementation GCReplyThreadView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
