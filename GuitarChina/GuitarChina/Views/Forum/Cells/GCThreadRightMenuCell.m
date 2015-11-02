@@ -28,8 +28,8 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     NSLog(@"%.f", self.contentView.frame.size.width);
-    self.iconImageView.frame = CGRectMake(self.contentView.frame.size.width / 2 - 70, 15, 20, 20);
-    self.titleLabel.frame = CGRectMake(self.iconImageView.frame.origin.x + 40, 15, 120, 20);
+    self.iconImageView.frame = CGRectMake(self.contentView.frame.size.width / 2 - 70, 16, 22, 22);
+    self.titleLabel.frame = CGRectMake(self.iconImageView.frame.origin.x + 40, 17, 120, 20);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -68,7 +68,7 @@
         _titleLabel = [UIView createLabel:CGRectZero
                                      text:@""
                                      font:[UIFont systemFontOfSize:17]
-                                textColor:[UIColor GCFontColor]];
+                                textColor:[UIColor GCRedColor]];
     }
     return _titleLabel;
 }

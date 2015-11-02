@@ -80,7 +80,9 @@
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_REPLY object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_COLLECT object:nil];    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_COLLECT object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_SHARE object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_REPORT object:nil];
 }
 
 #pragma mark - UIWebViewDelegate
@@ -164,10 +166,10 @@
     }];
 }
 
-- (void)shareAction:(id)sender {
+- (void)shareAction {
 }
 
-- (void)reportAction:(id)sender {
+- (void)reportAction {
 }
 
 - (void)safariAction:(id)sender {
@@ -207,6 +209,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshAction) name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(replyAction) name:kGCNOTIFICATION_REPLY object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collectAction) name:kGCNOTIFICATION_COLLECT object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shareAction) name:kGCNOTIFICATION_SHARE object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportAction) name:kGCNOTIFICATION_REPORT object:nil];
 }
 
 - (void)beginRefresh {

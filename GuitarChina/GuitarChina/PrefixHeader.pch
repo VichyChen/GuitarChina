@@ -29,7 +29,7 @@
 #import "AppDelegate.h"
 #define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
 #define DeviceiPhone UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
-#define LeftSideMenuOffsetCenterXIniPhone 40.0f //iphone左侧边栏X坐标
+#define LeftSideMenuOffsetCenterXIniPhone ScreenWidth * 0.166 //iphone左侧边栏X坐标
 #define LeftSideMenuOffsetCenterXIniPad -(ScreenWidth / 6)   //ipad左侧边栏X坐标
 
 //NSUserDefault
@@ -44,5 +44,7 @@ static NSString * const kGCNOTIFICATION_LOGINSUCCESS = @"LOGINSUCCESS";
 
 static NSString * const kGCNOTIFICATION_REPLY = @"REPLY"; //回复
 static NSString * const kGCNOTIFICATION_COLLECT = @"COLLECT"; //收藏
+static NSString * const kGCNOTIFICATION_SHARE = @"SHARE"; //分享
+static NSString * const kGCNOTIFICATION_REPORT = @"REPORT"; //举报
 
 #endif

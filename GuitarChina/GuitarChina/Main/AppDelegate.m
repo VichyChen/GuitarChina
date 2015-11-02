@@ -82,7 +82,7 @@
     self.sideMenuViewController.fadeMenuView = NO;
     self.sideMenuViewController.panGestureEnabled = NO;
     if (DeviceiPhone) {
-        self.sideMenuViewController.contentViewInPortraitOffsetCenterX = LeftSideMenuOffsetCenterXIniPhone;
+        self.sideMenuViewController.contentViewInPortraitOffsetCenterX = ScreenWidth * 0.166;
     } else {
         self.sideMenuViewController.contentViewInPortraitOffsetCenterX = LeftSideMenuOffsetCenterXIniPad;
     }
@@ -276,7 +276,7 @@
     self.sideMenuViewController.scaleMenuView = NO;
     self.sideMenuViewController.fadeMenuView = NO;
     if (DeviceiPhone) {
-        self.sideMenuViewController.contentViewInPortraitOffsetCenterX = LeftSideMenuOffsetCenterXIniPhone;
+        self.sideMenuViewController.contentViewInPortraitOffsetCenterX = 200;
     } else {
         self.sideMenuViewController.contentViewInPortraitOffsetCenterX = LeftSideMenuOffsetCenterXIniPad;
     }
