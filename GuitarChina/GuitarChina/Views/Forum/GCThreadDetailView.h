@@ -39,4 +39,6 @@
 @property (nonatomic, assign) NSInteger pickerViewCount;
 @property (nonatomic, copy) void (^pickerSelectActionBlock)(NSInteger page);
 
+@property (nonatomic, copy) void (^swipeLeftActionBlock)();
+
 @end

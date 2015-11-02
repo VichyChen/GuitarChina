@@ -8,6 +8,7 @@
 
 #import "GCThreadDetailView.h"
 #import "MJRefresh.h"
+#import "RESideMenu.h"
 
 @interface GCThreadDetailView () <UIPickerViewDataSource, UIPickerViewDelegate, UIScrollViewDelegate>
 
@@ -18,9 +19,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-//        self.frame = CGRectMake(0, 64, ScreenWidth, ScreenHeight);
         [self configureView];
-//        [self configureGesture];
+        [self configureGesture];
     }
     return self;
 }
@@ -88,10 +88,14 @@
 }
 
 - (void)configureGesture {
-    UITapGestureRecognizer *gestureRecognizer;
-    gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                action:@selector(hidePickerContentView)];
-    [self addGestureRecognizer:gestureRecognizer];
+    UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeFromLeft:)];
+    [recognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
+    [self addGestureRecognizer:recognizer];
+    
+    //    UITapGestureRecognizer *gestureRecognizer;
+    //    gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+    //                                                                action:@selector(hidePickerContentView)];
+    //    [self addGestureRecognizer:gestureRecognizer];
 }
 
 - (void)hidePickerContentView {
@@ -103,11 +107,15 @@
 #pragma mark - Event Response
 
 - (void)beginRefresh {
-    self.webViewRefreshBlock();
+    if (self.webViewRefreshBlock) {
+        self.webViewRefreshBlock();
+    }
 }
 
 - (void)beginFetchMore {
-    self.webViewFetchMoreBlock();
+    if (self.webViewFetchMoreBlock) {
+        self.webViewFetchMoreBlock();
+    }
 }
 
 - (void)pageAction {
@@ -120,7 +128,7 @@
         }
     }];
     
-    if (!self.pageActionBlock) {
+    if (self.pageActionBlock) {
         self.pageActionBlock();
     }
 }
@@ -139,6 +147,12 @@
 
 - (void)scrollTopAction {
     [self.webView.scrollView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+}
+
+-(void)handleSwipeFromLeft:(UISwipeGestureRecognizer *)recognizer{
+    if (self.swipeLeftActionBlock) {
+        self.swipeLeftActionBlock();
+    }
 }
 
 #pragma mark - Getters

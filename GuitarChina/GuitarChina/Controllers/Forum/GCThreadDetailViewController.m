@@ -269,6 +269,10 @@
                 [self.threadDetailView webViewStartRefresh];
             }
         };
+        _threadDetailView.swipeLeftActionBlock = ^{
+            @strongify(self);
+            [self presentRightMenuViewController:nil];
+        };
     }
     return _threadDetailView;
 }
