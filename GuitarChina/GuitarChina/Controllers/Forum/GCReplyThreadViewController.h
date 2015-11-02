@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCReplyThreadViewController : UIViewController
+@interface GCReplyThreadViewController : GCBaseViewController
 
 @property (nonatomic, copy) NSString *tid;
 @property (nonatomic, copy) NSString *formhash;

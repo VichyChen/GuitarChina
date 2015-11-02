@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCPostThreadViewController : UIViewController
+@interface GCPostThreadViewController : GCBaseViewController
 
 @end
