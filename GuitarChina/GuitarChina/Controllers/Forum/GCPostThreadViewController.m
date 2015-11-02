@@ -1,18 +1,18 @@
 //
-//  GCNewThreadViewController.m
+//  GCPostThreadViewController.m
 //  GuitarChina
 //
 //  Created by mac on 15/9/23.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCNewThreadViewController.h"
+#import "GCPostThreadViewController.h"
 
-@interface GCNewThreadViewController ()
+@interface GCPostThreadViewController ()
 
 @end
 
-@implementation GCNewThreadViewController
+@implementation GCPostThreadViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

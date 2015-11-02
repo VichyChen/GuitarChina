@@ -1,21 +1,21 @@
 //
-//  GCLoginViewController.m
+//  GCReplyThreadViewController.m
 //  GuitarChina
 //
 //  Created by 陈大捷 on 15/9/4.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCReplyViewController.h"
+#import "GCReplyThreadViewController.h"
 #import "GCReplyView.h"
 
-@interface GCReplyViewController ()
+@interface GCReplyThreadViewController ()
 
 @property (nonatomic, strong) GCReplyView *replyView;
 
 @end
 
-@implementation GCReplyViewController
+@implementation GCReplyThreadViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

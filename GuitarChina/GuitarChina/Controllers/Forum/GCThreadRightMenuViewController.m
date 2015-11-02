@@ -8,7 +8,7 @@
 
 #import "GCThreadRightMenuViewController.h"
 #import "GCThreadRightMenuCell.h"
-#import "GCReplyViewController.h"
+#import "GCReplyThreadViewController.h"
 #import "GCNavigationController.h"
 
 #define GCThreadRightMenuCellHeightIniPhone 50

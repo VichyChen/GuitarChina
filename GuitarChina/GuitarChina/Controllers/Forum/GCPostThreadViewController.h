@@ -1,5 +1,5 @@
 //
-//  GCNewThreadViewController.h
+//  GCPostThreadViewController.h
 //  GuitarChina
 //
 //  Created by mac on 15/9/23.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCNewThreadViewController : UIViewController
+@interface GCPostThreadViewController : UIViewController
 
 @end

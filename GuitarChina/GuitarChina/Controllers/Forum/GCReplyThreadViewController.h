@@ -1,5 +1,5 @@
 //
-//  GCLoginViewController.h
+//  GCReplyThreadViewController.h
 //  GuitarChina
 //
 //  Created by 陈大捷 on 15/9/4.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCReplyViewController : UIViewController
+@interface GCReplyThreadViewController : UIViewController
 
 @property (nonatomic, copy) NSString *tid;
 @property (nonatomic, copy) NSString *formhash;

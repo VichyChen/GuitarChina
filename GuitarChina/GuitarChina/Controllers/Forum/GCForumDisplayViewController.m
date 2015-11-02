@@ -8,7 +8,7 @@
 
 #import "GCForumDisplayViewController.h"
 #import "GCForumDisplayCell.h"
-#import "GCNewThreadViewController.h"
+#import "GCPostThreadViewController.h"
 #import "GCThreadDetailViewController.h"
 
 @interface GCForumDisplayViewController ()
@@ -121,7 +121,7 @@
 }
 
 - (void)newThreadAction {
-    GCNewThreadViewController *controller = [[GCNewThreadViewController alloc] init];
+    GCPostThreadViewController *controller = [[GCPostThreadViewController alloc] init];
     [self.navigationController pushViewController:controller animated:YES];
 }
 

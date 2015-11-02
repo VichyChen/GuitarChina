@@ -10,7 +10,7 @@
 #import "KxMenu.h"
 #import "GCThreadDetailView.h"
 #import "GCWebViewController.h"
-#import "GCReplyViewController.h"
+#import "GCReplyThreadViewController.h"
 #import "GCNavigationController.h"
 #import "RESideMenu.h"
 
@@ -139,7 +139,7 @@
 }
 
 - (void)replyAction {
-    GCReplyViewController *controller = [[GCReplyViewController alloc] init];
+    GCReplyThreadViewController *controller = [[GCReplyThreadViewController alloc] init];
     controller.tid = self.tid;
     controller.formhash = self.formhash;
     GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];
