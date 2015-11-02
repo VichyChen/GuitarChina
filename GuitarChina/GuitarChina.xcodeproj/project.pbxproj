@@ -498,10 +498,10 @@
 		0426CD7C1BE73E7E00BE85D8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				0426CD821BE73F0E00BE85D8 /* GCForumDisplayCell.h */,
-				0426CD831BE73F0E00BE85D8 /* GCForumDisplayCell.m */,
 				0426CD841BE73F0E00BE85D8 /* GCForumIndexCell.h */,
 				0426CD851BE73F0E00BE85D8 /* GCForumIndexCell.m */,
+				0426CD821BE73F0E00BE85D8 /* GCForumDisplayCell.h */,
+				0426CD831BE73F0E00BE85D8 /* GCForumDisplayCell.m */,
 				0426CD861BE73F0E00BE85D8 /* GCThreadReplyCell.h */,
 				0426CD871BE73F0E00BE85D8 /* GCThreadReplyCell.m */,
 				0426CD881BE73F0E00BE85D8 /* GCThreadRightMenuCell.h */,

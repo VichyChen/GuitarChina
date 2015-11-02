@@ -13,6 +13,7 @@
 #import "GCReplyThreadViewController.h"
 #import "GCNavigationController.h"
 #import "RESideMenu.h"
+#import "GCLoginViewController.h"
 
 @interface GCThreadDetailViewController () <UIWebViewDelegate> {
     CGFloat offsetY;
@@ -77,6 +78,7 @@
 }
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_REPLY object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_COLLECT object:nil];    
 }
@@ -97,10 +99,18 @@
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
+        
+        if ([request.mainDocumentURL.relativeString endsWith:@"GuitarChina.app/member.php?mod=logging&action=login"]) {
+            GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
+            GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
+            [self presentViewController:navigationController animated:YES completion:nil];
+
+            return false;
+        }
+        
         GCWebViewController *controller = [[GCWebViewController alloc] init];
         controller.urlString = request.mainDocumentURL.absoluteString;
         [self.navigationController pushViewController:controller animated:YES];
-        
         return false;
     }
     
@@ -163,6 +173,11 @@
 - (void)safariAction:(id)sender {
 }
 
+- (void)refreshAction {
+    [self.threadDetailView webViewStartRefresh];
+    ApplicationDelegate.tabBarController.selectedIndex = 1;
+}
+
 #pragma mark - Private Methods
 
 - (void)configureView {
@@ -189,6 +204,7 @@
 }
 
 - (void)configureNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshAction) name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(replyAction) name:kGCNOTIFICATION_REPLY object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collectAction) name:kGCNOTIFICATION_COLLECT object:nil];
 }

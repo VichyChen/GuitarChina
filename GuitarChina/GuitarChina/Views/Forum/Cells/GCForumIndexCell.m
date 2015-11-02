@@ -70,7 +70,7 @@
     _model = model;
     
     self.nameLabel.text = model.name;
-    self.todayPostCountLabel.text = [NSString stringWithFormat:@"(%@)" , model.todayposts ];
+    self.todayPostCountLabel.text = [model.todayposts isEqualToString:@"0"] ? @"" : [NSString stringWithFormat:@"(%@)" , model.todayposts ];
     self.descriptLabel.text = model.descript;
    CGFloat labelHeight = [UIView calculateLabelHeightWithText:self.descriptLabel.text fontSize:self.descriptLabel.font.pointSize width:ScreenWidth - 30];
     self.descriptLabelHeight = labelHeight;
