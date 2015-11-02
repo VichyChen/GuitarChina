@@ -25,6 +25,8 @@
 		0426CDA51BE740E500BE85D8 /* GCPostThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CDA41BE740E500BE85D8 /* GCPostThreadView.m */; };
 		0426CDA81BE7455A00BE85D8 /* GCReportThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CDA71BE7455A00BE85D8 /* GCReportThreadViewController.m */; };
 		0426CDAB1BE7457500BE85D8 /* GCReportThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CDAA1BE7457500BE85D8 /* GCReportThreadView.m */; };
+		0426CDAE1BE755C800BE85D8 /* GCShareThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CDAD1BE755C800BE85D8 /* GCShareThreadViewController.m */; };
+		0426CDB11BE7564700BE85D8 /* GCShareThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CDB01BE7564700BE85D8 /* GCShareThreadView.m */; };
 		042D23991BB29BC3001DE667 /* GCPostThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D23981BB29BC3001DE667 /* GCPostThreadViewController.m */; };
 		042D346B1BD0ED4300EBDACC /* GCThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D346A1BD0ED4300EBDACC /* GCThreadDetailViewController.m */; };
 		043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
@@ -187,6 +189,10 @@
 		0426CDA71BE7455A00BE85D8 /* GCReportThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReportThreadViewController.m; sourceTree = "<group>"; };
 		0426CDA91BE7457500BE85D8 /* GCReportThreadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCReportThreadView.h; sourceTree = "<group>"; };
 		0426CDAA1BE7457500BE85D8 /* GCReportThreadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReportThreadView.m; sourceTree = "<group>"; };
+		0426CDAC1BE755C800BE85D8 /* GCShareThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCShareThreadViewController.h; sourceTree = "<group>"; };
+		0426CDAD1BE755C800BE85D8 /* GCShareThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCShareThreadViewController.m; sourceTree = "<group>"; };
+		0426CDAF1BE7564700BE85D8 /* GCShareThreadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCShareThreadView.h; sourceTree = "<group>"; };
+		0426CDB01BE7564700BE85D8 /* GCShareThreadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCShareThreadView.m; sourceTree = "<group>"; };
 		042D23971BB29BC3001DE667 /* GCPostThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPostThreadViewController.h; sourceTree = "<group>"; };
 		042D23981BB29BC3001DE667 /* GCPostThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPostThreadViewController.m; sourceTree = "<group>"; };
 		042D34691BD0ED4300EBDACC /* GCThreadDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailViewController.h; sourceTree = "<group>"; };
@@ -458,6 +464,8 @@
 				0426CD9E1BE73F8600BE85D8 /* GCReplyThreadView.m */,
 				0426CDA91BE7457500BE85D8 /* GCReportThreadView.h */,
 				0426CDAA1BE7457500BE85D8 /* GCReportThreadView.m */,
+				0426CDAF1BE7564700BE85D8 /* GCShareThreadView.h */,
+				0426CDB01BE7564700BE85D8 /* GCShareThreadView.m */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -761,6 +769,8 @@
 				044C5F461BE345F800A17B99 /* GCReplyThreadViewController.m */,
 				0426CDA61BE7455A00BE85D8 /* GCReportThreadViewController.h */,
 				0426CDA71BE7455A00BE85D8 /* GCReportThreadViewController.m */,
+				0426CDAC1BE755C800BE85D8 /* GCShareThreadViewController.h */,
+				0426CDAD1BE755C800BE85D8 /* GCShareThreadViewController.m */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -1284,6 +1294,7 @@
 				423888F11BC57D0F002E1625 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
 				423889051BC57D0F002E1625 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
 				4238890A1BC57D0F002E1625 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
+				0426CDAE1BE755C800BE85D8 /* GCShareThreadViewController.m in Sources */,
 				046694AF1BD91EEE008C8CB3 /* GCWebViewController.m in Sources */,
 				423889091BC57D0F002E1625 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */,
 				423888A31BC57CA6002E1625 /* MJRefreshBackStateFooter.m in Sources */,
@@ -1349,6 +1360,7 @@
 				42657DBD1B998C49001F8DFC /* GCForumIndexViewController.m in Sources */,
 				0426CD8D1BE73F0E00BE85D8 /* GCThreadRightMenuCell.m in Sources */,
 				420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */,
+				0426CDB11BE7564700BE85D8 /* GCShareThreadView.m in Sources */,
 				423888A11BC57CA6002E1625 /* MJRefreshBackGifFooter.m in Sources */,
 				420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */,
 				426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */,
