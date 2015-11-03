@@ -7,8 +7,11 @@
 //
 
 #import "GCReportThreadViewController.h"
+#import "GCReportThreadView.h"
 
 @interface GCReportThreadViewController ()
+
+@property (nonatomic, strong) GCReportThreadView *reportThreadView;
 
 @end
 
@@ -16,22 +19,52 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Event Response
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)closeAction {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-*/
+
+- (void)sendAction {
+    [[GCNetworkManager manager] postReportWithTid:self.tid text:self.reportThreadView.textView.text Success:^{
+        NSLog(@"report success");
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+#pragma mark - Private Methods
+
+- (void)configureView {
+    UIBarButtonItem *leftBarItem = [UIView createBarButtonItem:NSLocalizedString(@"Cancel", nil) target:self action:@selector(closeAction)];
+    leftBarItem.tintColor = [UIColor GCDeepGrayColor];
+    self.navigationItem.leftBarButtonItem = leftBarItem;
+    
+    UIBarButtonItem *rightBarItem = [UIView createBarButtonItem:NSLocalizedString(@"Send", nil) target:self action:@selector(sendAction)];
+    rightBarItem.tintColor = [UIColor GCBlueColor];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+
+    self.title = NSLocalizedString(@"Report", nil);
+    
+    [self.view addSubview:self.reportThreadView];
+}
+
+#pragma mark - Getters
+
+- (GCReportThreadView *)reportThreadView {
+    if (!_reportThreadView) {
+        _reportThreadView = [[GCReportThreadView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
+    }
+    return _reportThreadView;
+}
 
 @end

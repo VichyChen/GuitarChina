@@ -41,6 +41,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     
     void (^responseHandleBlock)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, id responseObject) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        NSLog(@"%@", operation.responseString);
         success(operation, responseObject);
     };
     
@@ -71,6 +72,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     
     void (^responseHandleBlock)(NSURLSessionDataTask *task, id responseObject) = ^(NSURLSessionDataTask *task, id responseObject) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        NSLog(@"HTML: %@", [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding]);
         success(task, responseObject);
     };
     
@@ -93,8 +95,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 - (void)getHotThreadSuccess:(void (^)(GCHotThreadArray *array))success
                     failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_HOTTHREAD parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", operation.responseString);
-        
         GCHotThreadArray *array = [[GCHotThreadArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
         success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -105,7 +105,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 - (void)getForumIndexSuccess:(void (^)(GCForumIndexArray *array))success
                      failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_FORUMINDEX parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", operation.responseString);
         GCForumIndexArray *array = [[GCForumIndexArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
         success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -131,8 +130,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                           Success:(void (^)(GCThreadDetailModel *model))success
                           failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", operation.responseString);
-        
         GCThreadDetailModel *model = [[GCThreadDetailModel alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];        success(model);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
@@ -148,8 +145,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
         NSDictionary *parameters = @{ @"username" : username, @"password" : password };
         [self requestCommonMethod:GCRequestHTTPPOST url:GCNETWORKAPI_POST_LOGIN parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             GCLoginModel *model = [[GCLoginModel alloc] initWithDictionary:responseObject];
-            NSLog(@"%@", operation.responseString);
-
             success(model);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(error);
@@ -164,8 +159,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                       failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_MYFAVTHREAD parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         GCMyFavThreadArray *array = [[GCMyFavThreadArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
-        NSLog(@"%@", operation.responseString);
-
         success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
@@ -213,7 +206,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
         
         NSDictionary *parameters = @{ @"allownoticeauthor" : @"1", @"message" : message, @"subject" : subject, @"mobiletype" : @"1", @"formhash" : formhash, @"typeid" : type };
         [self requestCommonMethod:GCRequestHTTPPOST url:GCNETWORKAPI_POST_NEWTHREAD(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"%@", operation.responseString);
             GCNewThreadModel *model = [[GCNewThreadModel alloc] initWithDictionary:responseObject];
             success(model);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -231,7 +223,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                   failure:(void (^)(NSError *error))failure {
     NSDictionary *parameters = @{ @"text" : text};
     [self requestCommonMethod:GCRequestHTTPPOST url:GC_NETWORKAPI_REPORT(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", operation.responseString);
+        success();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];
@@ -243,10 +235,8 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                      Success:(void (^)(void))success
                      failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GC_NETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",operation.responseString);
         success();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"%@",operation.responseString);
         failure(error);
     }];
     
@@ -262,8 +252,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                   failure:(void (^)(NSError *error))failure {
     [self requestHTMLCommonMethodWithURL:@"http://bbs.guitarchina.com/home.php?mod=space&uid=1627015&do=profile" parameters:nil
                                  success:^(NSURLSessionDataTask *task, id responseObject) {
-                                     NSLog(@"HTML: %@", [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding]);
-                                     
                                      TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
                                      NSArray *elements  = [xpathParser searchWithXPathQuery:@"//*[@id='pbbs']/li"];                                            NSLog(@"%ld", elements.count);
                                      TFHppleElement *element = [elements objectAtIndex:0];

@@ -29,15 +29,12 @@
 #import "AppDelegate.h"
 #define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
 #define DeviceiPhone UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
-#define LeftSideMenuOffsetCenterXIniPhone ScreenWidth * 0.166 //iphone左侧边栏X坐标
-#define LeftSideMenuOffsetCenterXIniPad -(ScreenWidth / 6)   //ipad左侧边栏X坐标
 
 //NSUserDefault
 static NSString * const kGCLOGIN = @"LOGIN";
 static NSString * const kGCLOGINID = @"LOGINID";
 static NSString * const kGCLOGINNAME = @"LOGINNAME";
 static NSString * const kGCFORUMINDEXDICTIONARY = @"FORUMINDEXDICTIONARY";
-
 
 //Notification
 static NSString * const kGCNOTIFICATION_LOGINSUCCESS = @"LOGINSUCCESS";

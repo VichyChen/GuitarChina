@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCReportThreadViewController : UIViewController
+@interface GCReportThreadViewController : GCBaseViewController
+
+@property (nonatomic, copy) NSString *tid;
 
 @end

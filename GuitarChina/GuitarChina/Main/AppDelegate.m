@@ -23,17 +23,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    //    [[GCNetworkManager manager] postLoginWithUsername:@"Vichy_Chen" password:@"88436658cdj" Success:^(GCLoginModel *model) {
-    //        [[GCNetworkManager manager] getViewThreadWithThreadID:@"1961535" pageIndex:1 pageSize:10 Success:^(GCThreadDetailModel *model) {
-    //
-    //        } failure:^(NSError *error) {
-    //
-    //        }];
-    //
-    //    } failure:^(NSError *error) {
-    //
-    //    }];
-    
     //[self configureSideMenuViewController];
     //self.window.rootViewController = self.sideMenuViewController;
     

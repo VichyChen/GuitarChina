@@ -13,6 +13,9 @@
 #import "GCThreadRightMenuViewController.h"
 #import "GCTabBarController.h"
 
+#define LeftSideMenuOffsetCenterXIniPhone ScreenWidth * 0.166 //iphone右侧边栏X坐标
+#define LeftSideMenuOffsetCenterXIniPad -(ScreenWidth / 6)   //ipad右侧边栏X坐标
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate, RESideMenuDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

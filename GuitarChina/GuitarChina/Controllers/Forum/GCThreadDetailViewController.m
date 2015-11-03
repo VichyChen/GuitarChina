@@ -11,6 +11,7 @@
 #import "GCThreadDetailView.h"
 #import "GCWebViewController.h"
 #import "GCReplyThreadViewController.h"
+#import "GCReportThreadViewController.h"
 #import "GCNavigationController.h"
 #import "RESideMenu.h"
 #import "GCLoginViewController.h"
@@ -172,6 +173,10 @@
 }
 
 - (void)reportAction {
+    GCReportThreadViewController *controller = [[GCReportThreadViewController alloc] init];
+    controller.tid = self.tid;
+    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (void)safariAction {
