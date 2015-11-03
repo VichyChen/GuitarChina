@@ -12,6 +12,7 @@
 #import "GCForumIndexViewController.h"
 #import "GCMineViewController.h"
 #import "GCSettingViewController.h"
+#import "MobClick.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +23,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    //集成友盟
+    [MobClick startWithAppkey:@"5638ba4367e58ea3e9000b36" reportPolicy:BATCH channelId:@""];
+    //version标识
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    [MobClick setAppVersion:version];
+    //日志加密
+    [MobClick setEncryptEnabled:YES];
+    //禁止后台模式
+    [MobClick setBackgroundTaskEnabled:NO];
     
     //[self configureSideMenuViewController];
     //self.window.rootViewController = self.sideMenuViewController;
