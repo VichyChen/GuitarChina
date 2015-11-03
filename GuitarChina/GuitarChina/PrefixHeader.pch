@@ -45,6 +45,8 @@ static NSString * const kGCNOTIFICATION_LOGINSUCCESS = @"LOGINSUCCESS";
 static NSString * const kGCNOTIFICATION_REPLY = @"REPLY"; //回复
 static NSString * const kGCNOTIFICATION_COLLECT = @"COLLECT"; //收藏
 static NSString * const kGCNOTIFICATION_SHARE = @"SHARE"; //分享
+static NSString * const kGCNOTIFICATION_SAFARI = @"SAFARI"; //在Safari中打开
+static NSString * const kGCNOTIFICATION_COPYURL = @"COPYURL"; //复制链接
 static NSString * const kGCNOTIFICATION_REPORT = @"REPORT"; //举报
 
 #endif

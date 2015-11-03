@@ -82,10 +82,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [ApplicationDelegate.sideMenuViewController hideMenuViewController];
 
     switch (indexPath.row) {
         case 0: {
+            [ApplicationDelegate.sideMenuViewController hideMenuViewController];
             [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_REPLY object:nil];
             break;
         }
@@ -94,13 +94,23 @@
             break;
             
         case 2:
+            [ApplicationDelegate.sideMenuViewController hideMenuViewController];
             [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_SHARE object:nil];
             break;
             
         case 3:
+            [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_SAFARI object:nil];
+            break;
+
+        case 4:
+            [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_COPYURL object:nil];
+            break;
+
+        case 5:
+            [ApplicationDelegate.sideMenuViewController hideMenuViewController];
             [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_REPORT object:nil];
             break;
-            
+
         default:
             break;
     }

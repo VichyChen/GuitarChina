@@ -33,6 +33,11 @@
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
 }
 
++ (void)copyStringToPasteboard:(NSString *)string {
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = string;
+}
+
 + (NSString *)stringByBundleHtmlString:(NSString *)html {
     NSString *path = [[NSBundle mainBundle] pathForResource:html ofType:@"html"];
     NSString *string = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];

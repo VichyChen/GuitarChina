@@ -82,6 +82,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_REPLY object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_COLLECT object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_SHARE object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_SAFARI object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_COPYURL object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_REPORT object:nil];
 }
 
@@ -172,7 +174,12 @@
 - (void)reportAction {
 }
 
-- (void)safariAction:(id)sender {
+- (void)safariAction {
+    [Util openUrlInSafari:[NSString stringWithFormat:@"http://bbs.guitarchina.com/thread-%@-1-1.html", self.tid]];
+}
+
+- (void)copyURLAction {
+    [Util copyStringToPasteboard:[NSString stringWithFormat:@"http://bbs.guitarchina.com/thread-%@-1-1.html", self.tid]];
 }
 
 - (void)refreshAction {
@@ -210,6 +217,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(replyAction) name:kGCNOTIFICATION_REPLY object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collectAction) name:kGCNOTIFICATION_COLLECT object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shareAction) name:kGCNOTIFICATION_SHARE object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(safariAction) name:kGCNOTIFICATION_SAFARI object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(copyURLAction) name:kGCNOTIFICATION_COPYURL object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportAction) name:kGCNOTIFICATION_REPORT object:nil];
 }
 

@@ -19,6 +19,9 @@
 //打开链接
 + (void)openUrlInSafari:(NSString *)url;
 
+//复制文本
++ (void)copyStringToPasteboard:(NSString *)string;
+
 //获取本地html文件字符串
 + (NSString *)stringByBundleHtmlString:(NSString *)html;
 

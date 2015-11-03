@@ -42,12 +42,12 @@ body {
 .number {
     margin:0 0 0 12px;
     float:right;
-    font-weight:bold;
-    color: white;
-    background-color:#CCCCCC;
-    padding: 3px 5px 3px 5px;
-    border-radius: 10px;
-    display: inline-block;
+/*    font-weight:bold;*/
+    color: #80888F;
+/*    background-color:#C1C1C1;*/
+/*    padding: 3px 5px 3px 5px;*/
+/*    border-radius: 10px;*/
+/*    display: inline-block;*/
     line-height: 10px;
     font-size:14px;
 }

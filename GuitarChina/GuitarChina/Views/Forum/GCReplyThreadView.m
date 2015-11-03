@@ -36,7 +36,7 @@
 
 - (void)configureFrame {
     self.textView.frame = CGRectMake(10, 10, ScreenWidth - 20, ScreenWidth - 20);
-    self.placeholderLabel.frame = CGRectMake(15, 17, 200, 20);
+    self.placeholderLabel.frame = CGRectMake(15, 18, 200, 20);
 }
 
 #pragma mark - UITextViewDelegate
