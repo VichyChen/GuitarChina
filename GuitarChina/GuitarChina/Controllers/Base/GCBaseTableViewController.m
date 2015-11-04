@@ -22,6 +22,8 @@
     if (self) {
         _hiddenNavigationBarWhenScrollToBottom = NO;
         _autoBeginRefresh = YES;
+        _rowHeightArray = [NSMutableArray array];
+        _rowHeightDictionary = [NSMutableDictionary dictionary];
     }
     return self;
 }

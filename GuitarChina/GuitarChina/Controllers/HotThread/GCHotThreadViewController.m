@@ -80,6 +80,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSNumber *height = [self.rowHeightArray objectAtIndex:indexPath.row];
+    NSLog(@"%.f", [height floatValue]);
     return [height floatValue];
 }
 

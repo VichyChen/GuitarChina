@@ -25,8 +25,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.pageIndex = 1;
-        self.pageSize = 20;
         self.rowHeightArray = [NSMutableArray array];
     }
     return self;
@@ -50,6 +48,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.pageIndex = 1;
+    self.pageSize = 20;
+
     [self configureBlock];
 }
 
