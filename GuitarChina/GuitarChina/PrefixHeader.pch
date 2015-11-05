@@ -46,4 +46,9 @@ static NSString * const kGCNOTIFICATION_SAFARI = @"SAFARI"; //在Safari中打开
 static NSString * const kGCNOTIFICATION_COPYURL = @"COPYURL"; //复制链接
 static NSString * const kGCNOTIFICATION_REPORT = @"REPORT"; //举报
 
+//第三方
+static NSString * const kUMENG_APPKEY = @"5638ba4367e58ea3e9000b36"; //友盟appkey
+static NSString * const kWECHAT_APPID = @""; //微信appid
+static NSString * const kWECHAT_APPSECRET = @""; //微信appsecret
+
 #endif

@@ -13,6 +13,7 @@
 #import "GCMineViewController.h"
 #import "GCSettingViewController.h"
 #import "MobClick.h"
+#import "UMSocial.h"
 
 @interface AppDelegate ()
 
@@ -25,7 +26,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //集成友盟
-    [MobClick startWithAppkey:@"5638ba4367e58ea3e9000b36" reportPolicy:BATCH channelId:@""];
+    [MobClick startWithAppkey:kUMENG_APPKEY reportPolicy:BATCH channelId:@""];
     //version标识
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [MobClick setAppVersion:version];
@@ -33,6 +34,9 @@
     [MobClick setEncryptEnabled:YES];
     //禁止后台模式
     [MobClick setBackgroundTaskEnabled:NO];
+    
+    [UMSocialData setAppKey:kUMENG_APPKEY];
+
     
     //[self configureSideMenuViewController];
     //self.window.rootViewController = self.sideMenuViewController;

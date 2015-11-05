@@ -6,3 +6,5 @@ pod 'FMDB'
 pod "DKNightVersion", "~> 0.8.1"
 pod 'FDFullscreenPopGesture', '~> 1.1'
 pod 'DTCoreText'
+pod 'UMengSocial'
+pod 'UMengAnalytics'

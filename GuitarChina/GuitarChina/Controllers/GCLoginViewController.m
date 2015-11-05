@@ -9,8 +9,9 @@
 #import "GCLoginViewController.h"
 #import "GCLoginView.h"
 #import "GCWebViewController.h"
+#import "UMSocial.h"
 
-@interface GCLoginViewController ()
+@interface GCLoginViewController () <UMSocialUIDelegate>
 
 @property (nonatomic, strong) GCLoginView *loginView;
 
@@ -101,7 +102,14 @@
         @weakify(self);
         _loginView.loginActionBlock = ^{
             @strongify(self);
-            self.loginBlock();
+//            self.loginBlock();
+            
+            [UMSocialSnsService presentSnsIconSheetView:self
+                                                 appKey:kUMENG_APPKEY
+                                              shareText:@"你要分享的文字"
+                                             shareImage:[UIImage imageNamed:@"icon.png"]
+                                        shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToWechatSession,UMShareToQQ,nil]
+                                               delegate:self];
         };
         _loginView.webLoginActionBlock = ^{
             @strongify(self);

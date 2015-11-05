@@ -60,7 +60,6 @@
 		047125911BCDF478000C8BC1 /* GCThreadWebView.css in Resources */ = {isa = PBXBuildFile; fileRef = 047125901BCDF478000C8BC1 /* GCThreadWebView.css */; };
 		04935B031BB52D5C0010F7C8 /* GCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B021BB52D5C0010F7C8 /* GCMineViewController.m */; };
 		04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B051BB52F460010F7C8 /* GCMoreViewController.m */; };
-		04AF910C1BE8FAC40030AEEB /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF91091BE8FAC40030AEEB /* libMobClickLibrary.a */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
 		420528151BD2900200C74E27 /* GCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420528141BD2900200C74E27 /* GCTabBarController.m */; };
 		420D98661B92982C00AEAED3 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98611B92982C00AEAED3 /* RECommonFunctions.m */; };
@@ -254,9 +253,6 @@
 		04935B021BB52D5C0010F7C8 /* GCMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMineViewController.m; sourceTree = "<group>"; };
 		04935B041BB52F460010F7C8 /* GCMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreViewController.h; sourceTree = "<group>"; };
 		04935B051BB52F460010F7C8 /* GCMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreViewController.m; sourceTree = "<group>"; };
-		04AF91091BE8FAC40030AEEB /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
-		04AF910A1BE8FAC40030AEEB /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
-		04AF910B1BE8FAC40030AEEB /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		04AF910D1BE8FAF10030AEEB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2F829F5DD46C688C9B2385EC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -438,7 +434,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */,
-				04AF910C1BE8FAC40030AEEB /* libMobClickLibrary.a in Frameworks */,
 				045F2F2A1BDFBAAE0024C9FC /* libxml2.dylib in Frameworks */,
 				CEFC34C235C11966848A8595 /* libPods.a in Frameworks */,
 			);
@@ -696,16 +691,6 @@
 			path = More;
 			sourceTree = "<group>";
 		};
-		04AF91081BE8FAC40030AEEB /* UMAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				04AF91091BE8FAC40030AEEB /* libMobClickLibrary.a */,
-				04AF910A1BE8FAC40030AEEB /* MobClick.h */,
-				04AF910B1BE8FAC40030AEEB /* MobClickSocialAnalytics.h */,
-			);
-			path = UMAnalytics;
-			sourceTree = "<group>";
-		};
 		0F41C248D61EFD30EA073F7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -719,7 +704,6 @@
 		420D985D1B9297F600AEAED3 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				04AF91081BE8FAC40030AEEB /* UMAnalytics */,
 				045F2F1F1BDFBA490024C9FC /* Hpple */,
 				045967471BC7A47D000181DE /* RTLabel */,
 				420D985F1B92982C00AEAED3 /* RESideMenu */,
@@ -1190,6 +1174,7 @@
 				TargetAttributes = {
 					425FB2DE1B84C23B00B6A89B = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = S97KBQX85C;
 					};
 					425FB2FA1B84C23B00B6A89B = {
 						CreatedOnToolsVersion = 6.4;
@@ -1533,7 +1518,9 @@
 			baseConfigurationReference = 2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (MCDSJY34TT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 825230378@qq.com (8545AJA6XA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/PrefixHeader.pch";
 				INFOPLIST_FILE = GuitarChina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1542,7 +1529,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GuitarChina/Additions/UMAnalytics",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.GuitarChina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1552,7 +1541,9 @@
 			baseConfigurationReference = AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Feng Hou (MCDSJY34TT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 825230378@qq.com (8545AJA6XA)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/PrefixHeader.pch";
 				INFOPLIST_FILE = GuitarChina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1561,7 +1552,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GuitarChina/Additions/UMAnalytics",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.GuitarChina;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
