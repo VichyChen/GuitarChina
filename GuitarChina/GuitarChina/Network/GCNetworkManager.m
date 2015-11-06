@@ -263,5 +263,4 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                                  }];
 }
 
-
 @end

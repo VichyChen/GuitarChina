@@ -106,13 +106,21 @@
             
             NSString *string = [item objectForKey:@"message"];
             string = [string replace:@"src=\"static/image/smiley/gc/em" toNewString:@"src=\"http://bbs.guitarchina.com/static/image/smiley/gc/em"];
-            model.message      = string;
+            model.message      = string ? string : @"";
+            model.message = [model.message replace:@"[media]" toNewString:@""];
+            model.message = [model.message replace:@"[/media]" toNewString:@""];
+//            model.message = @"<embed type=\"application/x-shockwave-flash\" src=\"http://player.youku.com/player.php/sid/XMTM1NjYxMDI2MA==/v.swf\" height=\"300\" width=\"300\"></embed>";
+//            model.message = @"http://v.youku.com/v_show/id_XMTM1NjYxMDI2MA==.html";
             
             //处理附件图片，替换<attach>成<img>
             model.attachmentsList = [item objectForKey:@"attachments"];
             NSEnumerator * enumeratorKey = [model.attachmentsList keyEnumerator];
             for (NSString *attachmentKey in enumeratorKey) {
-                model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey] toNewString:[NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 40, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];
+                if ([model.message containsString:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey]]) {
+                    model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey] toNewString:[NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 40, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];
+                } else {
+                    model.message = [NSString stringWithFormat:@"%@%@", model.message, [NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 40, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];
+                }
             }
             
             model.pid          = [item objectForKey:@"pid"];

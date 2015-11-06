@@ -93,6 +93,12 @@
 
             return false;
         }
+        if ([request.mainDocumentURL.relativeString endsWith:@".swf"]) {
+
+            [Util openUrlInSafari:request.mainDocumentURL.relativeString];
+            
+            return false;
+        }
         
         GCWebViewController *controller = [[GCWebViewController alloc] init];
         controller.urlString = request.mainDocumentURL.absoluteString;
@@ -180,10 +186,9 @@
     @weakify(self);
     self.refreshBlock = ^(void (^success)(GCThreadDetailModel *)){
         @strongify(self);
-        //1992416
         //1993403
         //1993030
-        [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
+        [[GCNetworkManager manager] getViewThreadWithThreadID:@"1993030" pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
             self.formhash = model.formhash;
             self.count = [model.replies integerValue];
             self.pageCount = self.count / self.pageSize + 1;
