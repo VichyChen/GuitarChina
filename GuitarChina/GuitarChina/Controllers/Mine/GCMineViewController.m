@@ -77,7 +77,7 @@
     if (indexPath.section == 0) {
         GCMineHeaderCell *cell = [[GCMineHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         cell.userLabel.text = self.username;
-        [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_BIGAVTARIMAGE_URL(self.userID)]
+        [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_URL_BIGAVTARIMAGE(self.userID)]
                             placeholderImage:nil
                                      options:SDWebImageRetryFailed];
         

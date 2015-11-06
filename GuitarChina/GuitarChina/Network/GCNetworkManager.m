@@ -222,7 +222,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                   Success:(void (^)(void))success
                   failure:(void (^)(NSError *error))failure {
     NSDictionary *parameters = @{ @"text" : text};
-    [self requestCommonMethod:GCRequestHTTPPOST url:GC_NETWORKAPI_REPORT(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self requestCommonMethod:GCRequestHTTPPOST url:GCNETWORKAPI_POST_REPORT(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
@@ -234,7 +234,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                     formhash:(NSString *)formhash
                      Success:(void (^)(void))success
                      failure:(void (^)(NSError *error))failure {
-    [self requestCommonMethod:GCRequestJsonGet url:GC_NETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);

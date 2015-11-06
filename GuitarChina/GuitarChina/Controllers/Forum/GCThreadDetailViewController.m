@@ -34,48 +34,24 @@
 
 @implementation GCThreadDetailViewController
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        _pageIndex = 1;
-        _pageSize = 40;
-        _count = 0;
-        _pageCount = 0;
-        _htmlString = [[NSMutableString alloc] init];
-    }
-    return self;
-}
-
 - (void)loadView {
     [super loadView];
-
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.title = NSLocalizedString(@"Detail", nil);//@"详情";
-    self.view.backgroundColor = [UIColor whiteColor];
-    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    leftButton.frame = CGRectMake(0, 0, 25, 25);
-    [leftButton setAdjustsImageWhenHighlighted:YES];
-    UIImage *image = [UIImage imageNamed:@"icon_ellipsis"];
-    [leftButton setImage:[image imageWithTintColor:[UIColor GCFontColor]] forState:UIControlStateNormal];
-    [leftButton setImage:[image imageWithTintColor:[UIColor GCDeepGrayColor]] forState:UIControlStateHighlighted];
-    [leftButton addTarget:self action:@selector(presentRightMenuViewController:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
-    self.navigationItem.rightBarButtonItem = barItem;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _pageIndex = 1;
+    _pageSize = 40;
+    _count = 0;
+    _pageCount = 0;
+    _htmlString = [[NSMutableString alloc] init];
+
     [self configureView];
     [self configureBlock];
     [self configureNotification];
     
     [self.threadDetailView webViewStartRefresh];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 - (void)dealloc {
@@ -86,6 +62,10 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_SAFARI object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_COPYURL object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_REPORT object:nil];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
 }
 
 #pragma mark - UIWebViewDelegate
@@ -122,35 +102,22 @@
     return YES;
 }
 
+#pragma mark - Notification
+
+- (void)configureNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshAction) name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(replyAction) name:kGCNOTIFICATION_REPLY object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collectAction) name:kGCNOTIFICATION_COLLECT object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shareAction) name:kGCNOTIFICATION_SHARE object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(safariAction) name:kGCNOTIFICATION_SAFARI object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(copyURLAction) name:kGCNOTIFICATION_COPYURL object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportAction) name:kGCNOTIFICATION_REPORT object:nil];
+}
+
 #pragma mark - Event Response
 
 - (void)rightBarButtonClickAction:(id)sender {
 
-//    NSArray *menuItems = @[
-//                           [KxMenuItem menuItem:NSLocalizedString(@"Reply", nil)
-//                                          image:[UIImage imageNamed:@"icon_reply"]
-//                                         target:self
-//                                         action:@selector(replyAction:)],
-//                           [KxMenuItem menuItem:NSLocalizedString(@"Collect", nil)
-//                                          image:[UIImage imageNamed:@"icon_collect"]
-//                                         target:self
-//                                         action:@selector(collectAction:)],
-//                           [KxMenuItem menuItem:NSLocalizedString(@"Share", nil)
-//                                          image:[UIImage imageNamed:@"icon_share"]
-//                                         target:self
-//                                         action:@selector(shareAction:)],
-//                           [KxMenuItem menuItem:@"Safari"
-//                                          image:[UIImage imageNamed:@"icon_open"]
-//                                         target:self
-//                                         action:@selector(safariAction:)],
-//                           [KxMenuItem menuItem:NSLocalizedString(@"Report", nil)
-//                                          image:[UIImage imageNamed:@"icon_report"]
-//                                         target:self
-//                                         action:@selector(reportAction:)],
-//                           ];
-//    [KxMenu showMenuInView:self.view
-//                  fromRect:CGRectMake(ScreenWidth - 50, 20, 44, 44)
-//                 menuItems:menuItems];
 }
 
 - (void)replyAction {
@@ -180,11 +147,11 @@
 }
 
 - (void)safariAction {
-    [Util openUrlInSafari:[NSString stringWithFormat:@"http://bbs.guitarchina.com/thread-%@-1-1.html", self.tid]];
+    [Util openUrlInSafari:GCNETWORKAPI_URL_THREAD(self.tid)];
 }
 
 - (void)copyURLAction {
-    [Util copyStringToPasteboard:[NSString stringWithFormat:@"http://bbs.guitarchina.com/thread-%@-1-1.html", self.tid]];
+    [Util copyStringToPasteboard:GCNETWORKAPI_URL_THREAD(self.tid)];
 }
 
 - (void)refreshAction {
@@ -195,6 +162,20 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.title = NSLocalizedString(@"Detail", nil);//@"详情";
+    
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    leftButton.frame = CGRectMake(0, 0, 25, 25);
+    [leftButton setAdjustsImageWhenHighlighted:YES];
+    UIImage *image = [UIImage imageNamed:@"icon_ellipsis"];
+    [leftButton setImage:[image imageWithTintColor:[UIColor GCFontColor]] forState:UIControlStateNormal];
+    [leftButton setImage:[image imageWithTintColor:[UIColor GCDeepGrayColor]] forState:UIControlStateHighlighted];
+    [leftButton addTarget:self action:@selector(presentRightMenuViewController:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    self.navigationItem.rightBarButtonItem = barItem;
+    
     [self.view addSubview:self.threadDetailView];
 }
 
@@ -215,16 +196,6 @@
             
         }];
     };
-}
-
-- (void)configureNotification {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshAction) name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(replyAction) name:kGCNOTIFICATION_REPLY object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collectAction) name:kGCNOTIFICATION_COLLECT object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shareAction) name:kGCNOTIFICATION_SHARE object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(safariAction) name:kGCNOTIFICATION_SAFARI object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(copyURLAction) name:kGCNOTIFICATION_COPYURL object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportAction) name:kGCNOTIFICATION_REPORT object:nil];
 }
 
 - (void)beginRefresh {

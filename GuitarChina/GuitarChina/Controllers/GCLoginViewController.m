@@ -89,7 +89,7 @@
         @strongify(self);
         GCWebViewController *controller = [[GCWebViewController alloc] init];
         controller.title = NSLocalizedString(@"Web Secure Login", nil);
-        controller.urlString = GCNETWORKAPI_LOGIN_URL;
+        controller.urlString = GCNETWORKAPI_URL_LOGIN;
         [self.navigationController pushViewController:controller animated:YES];
     };
 }
