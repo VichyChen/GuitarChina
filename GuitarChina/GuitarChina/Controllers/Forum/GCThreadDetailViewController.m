@@ -85,6 +85,7 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
         
+        //登陆链接
         if ([request.mainDocumentURL.relativeString endsWith:@"GuitarChina.app/member.php?mod=logging&action=login"]) {
             GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
             GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
@@ -115,10 +116,6 @@
 }
 
 #pragma mark - Event Response
-
-- (void)rightBarButtonClickAction:(id)sender {
-
-}
 
 - (void)replyAction {
     GCReplyThreadViewController *controller = [[GCReplyThreadViewController alloc] init];

@@ -33,6 +33,9 @@
 - (void)loadView {
     [super loadView];
     
+    self.pageIndex = 1;
+    self.pageSize = 20;
+
     self.view.backgroundColor = [UIColor whiteColor];
     
 //    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(newThreadAction)];
@@ -48,8 +51,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.pageIndex = 1;
-    self.pageSize = 20;
 
     [self configureBlock];
 }
