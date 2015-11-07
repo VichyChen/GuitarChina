@@ -60,3 +60,9 @@
 
 //收藏帖子
 #define GCNETWORKAPI_GET_COLLECTION(tid, formhash) [NSString stringWithFormat:@"http://bbs.guitarchina.com/home.php?mod=spacecp&ac=favorite&type=thread&id=%@&formhash=%@&infloat=yes&handlekey=k_favorite&inajax=1&ajaxtarget=fwin_content_k_favorite",(tid),(formhash)]
+
+
+
+
+//优酷视频地址
+#define GCVIDEO_URL_YOUKU(id) [NSString stringWithFormat:@"http://v.youku.com/v_show/id_%@.html", (id)]

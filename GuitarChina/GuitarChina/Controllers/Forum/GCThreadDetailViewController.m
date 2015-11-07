@@ -84,7 +84,6 @@
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
-        
         //登陆链接
         if ([request.mainDocumentURL.relativeString endsWith:@"GuitarChina.app/member.php?mod=logging&action=login"]) {
             GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
@@ -93,9 +92,12 @@
 
             return false;
         }
-        if ([request.mainDocumentURL.relativeString endsWith:@".swf"]) {
-
-            [Util openUrlInSafari:request.mainDocumentURL.relativeString];
+        //优酷视频
+        if ([request.mainDocumentURL.relativeString startsWith:@"http://player.youku.com/player.php/sid/"] && [request.mainDocumentURL.relativeString endsWith:@".swf"]) {
+            NSArray *array = [request.mainDocumentURL.relativeString split:@"/"];
+            GCWebViewController *controller = [[GCWebViewController alloc] init];
+            controller.urlString = GCVIDEO_URL_YOUKU([array objectAtIndex:5]);
+            [self.navigationController pushViewController:controller animated:YES];
             
             return false;
         }
@@ -188,7 +190,7 @@
         @strongify(self);
         //1993403
         //1993030
-        [[GCNetworkManager manager] getViewThreadWithThreadID:@"1993030" pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
+        [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
             self.formhash = model.formhash;
             self.count = [model.replies integerValue];
             self.pageCount = self.count / self.pageSize + 1;
