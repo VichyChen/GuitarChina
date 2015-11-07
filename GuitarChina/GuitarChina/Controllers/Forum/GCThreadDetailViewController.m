@@ -27,7 +27,7 @@
 
 @property (nonatomic, assign) NSInteger pageIndex;  //第几页
 @property (nonatomic, assign) NSInteger pageSize;   //每页条数
-@property (nonatomic, assign) NSInteger count;      //贴子数
+@property (nonatomic, assign) NSInteger count;      //回贴数
 @property (nonatomic, assign) NSInteger pageCount;  //总共几页
 
 @end
@@ -46,7 +46,7 @@
     _count = 0;
     _pageCount = 0;
     _htmlString = [[NSMutableString alloc] init];
-
+    
     [self configureView];
     [self configureBlock];
     [self configureNotification];
@@ -83,13 +83,14 @@
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSLog(@"request.mainDocumentURL.relativeString:%@", request.mainDocumentURL.relativeString);
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
         //登陆链接
         if ([request.mainDocumentURL.relativeString endsWith:@"GuitarChina.app/member.php?mod=logging&action=login"]) {
             GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
             GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
             [self presentViewController:navigationController animated:YES completion:nil];
-
+            
             return false;
         }
         //优酷视频
@@ -102,9 +103,19 @@
             return false;
         }
         
+        if ([request.mainDocumentURL.relativeString startsWith:@"http://bbs.guitarchina.com/thread-"] && [request.mainDocumentURL.relativePath endsWith:@".html"]) {
+            NSArray *array = [request.mainDocumentURL.relativeString split:@"-"];
+            GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+            controller.tid = [array objectAtIndex:1];
+            [self.navigationController pushViewController:controller animated:YES];
+            
+            return false;
+        }
+        
         GCWebViewController *controller = [[GCWebViewController alloc] init];
         controller.urlString = request.mainDocumentURL.absoluteString;
         [self.navigationController pushViewController:controller animated:YES];
+        
         return false;
     }
     
@@ -195,6 +206,7 @@
             self.count = [model.replies integerValue];
             self.pageCount = self.count / self.pageSize + 1;
             self.threadDetailView.pickerViewCount = self.pageCount;
+            self.threadDetailView.pickerViewIndex = self.pageIndex - 1;
             success(model);
         } failure:^(NSError *error) {
             
@@ -228,7 +240,6 @@
 }
 
 - (void)beginForward {
-    //    offsetY = self.webView.scrollView.contentOffset.y;
     if (self.pageCount < self.pageIndex + 1) {
         [self.threadDetailView webViewEndFetchMore];
         return;
@@ -271,7 +282,14 @@
             @strongify(self);
             [self beginForward];
         };
-        _threadDetailView.pickerSelectActionBlock = ^(NSInteger page){
+        //        _threadDetailView.pickerSelectActionBlock = ^(NSInteger page){
+        //            @strongify(self);
+        //            if (self.pageIndex != page) {
+        //                self.pageIndex = page;
+        //                [self.threadDetailView webViewStartRefresh];
+        //            }
+        //        };
+        _threadDetailView.goActionBlock = ^(NSInteger page) {
             @strongify(self);
             if (self.pageIndex != page) {
                 self.pageIndex = page;

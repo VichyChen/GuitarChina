@@ -10,7 +10,11 @@
 #import "MJRefresh.h"
 #import "RESideMenu.h"
 
-@interface GCThreadDetailView () <UIPickerViewDataSource, UIPickerViewDelegate, UIScrollViewDelegate>
+@interface GCThreadDetailView ()  <UIPickerViewDataSource, UIPickerViewDelegate, UIScrollViewDelegate> {
+    NSInteger lastContentOffsetY;
+    NSInteger lastPosition;
+}
+
 
 @end
 
@@ -46,13 +50,41 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.pickerSelectActionBlock(row + 1);
+//    self.pickerSelectActionBlock(row + 1);
 }
 
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [self hidePickerContentView];
+    if (scrollView.contentOffset.y + (ScreenHeight - 64 - 44) >= scrollView.contentSize.height) {
+        [UIView animateWithDuration:0.2 animations:^{
+            self.toolBarView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0.f, 0);
+        }];
+    } else {
+        if (lastContentOffsetY >= scrollView.contentOffset.y) {
+            lastContentOffsetY = scrollView.contentOffset.y;
+            if (lastPosition != 0) {
+                [UIView animateWithDuration:0.2 animations:^{
+                    self.toolBarView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0.f, 0);
+                    lastPosition = 0;
+                }];
+            }
+        } else {
+            NSInteger position = scrollView.contentOffset.y;
+            lastContentOffsetY = position;
+            if (position < 0) {
+                position = 0;
+            }
+            else if (position >= 44) {
+                position = 44;
+            }
+            [UIView animateWithDuration:0.2 animations:^{
+                self.toolBarView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0.f, position);
+            }];
+            lastPosition = -position;
+        }
+    }
 }
 
 #pragma mark - Public Methods
@@ -73,12 +105,6 @@
     [self.webView.scrollView.footer endRefreshing];
 }
 
-- (void)setPickerViewCount:(NSInteger)pickerViewCount {
-    _pickerViewCount = pickerViewCount;
-    
-    [self.pickerView reloadComponent:0];
-}
-
 #pragma mark - Private Methods
 
 - (void)configureView {
@@ -92,15 +118,15 @@
     [recognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
     [self addGestureRecognizer:recognizer];
     
-    //    UITapGestureRecognizer *gestureRecognizer;
-    //    gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
-    //                                                                action:@selector(hidePickerContentView)];
-    //    [self addGestureRecognizer:gestureRecognizer];
+//        UITapGestureRecognizer *gestureRecognizer;
+//        gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                                                    action:@selector(hidePickerContentView)];
+//        [self.webView addGestureRecognizer:gestureRecognizer];
 }
 
 - (void)hidePickerContentView {
-    [UIView animateWithDuration:0.3 animations:^{
-        self.pickerContentView.frame = CGRectMake(ScreenWidth / 2 - 140, ScreenHeight - 64, 280, 200);
+    [UIView animateWithDuration:0.2 animations:^{
+        self.pickerContentView.frame = CGRectMake(ScreenWidth / 2 - 140, ScreenHeight - 66 + 1, 280, 200);
     }];
 }
 
@@ -119,12 +145,12 @@
 }
 
 - (void)pageAction {
-    [UIView animateWithDuration:0.3 animations:^{
-        CGFloat height = ScreenHeight - 64;
+    [UIView animateWithDuration:0.2 animations:^{
+        CGFloat height = ScreenHeight - 66 + 1;
         if (self.pickerContentView.frame.origin.y == height) {
-            self.pickerContentView.frame = CGRectMake(ScreenWidth / 2 - 140, ScreenHeight - 64 - 44 - 200 + 1, 280, 200);
+            self.pickerContentView.frame = CGRectMake(ScreenWidth / 2 - 140, ScreenHeight - 66 - 44 - 200, 280, 200);
         } else {
-            self.pickerContentView.frame = CGRectMake(ScreenWidth / 2 - 140, ScreenHeight - 64, 280, 200);
+            self.pickerContentView.frame = CGRectMake(ScreenWidth / 2 - 140, ScreenHeight - 66 + 1, 280, 200);
         }
     }];
     
@@ -134,14 +160,22 @@
 }
 
 - (void)backAction {
+    [self hidePickerContentView];
     if (self.backActionBlock) {
         self.backActionBlock();
     }
 }
 
 - (void)forwardAction {
+    [self hidePickerContentView];
     if (self.forwardActionBlock) {
         self.forwardActionBlock();
+    }
+}
+
+- (void)goAction {
+    if (self.goActionBlock) {
+        self.goActionBlock([self.pickerView selectedRowInComponent:0] + 1);
     }
 }
 
@@ -155,11 +189,25 @@
     }
 }
 
+#pragma mark - Setters
+
+- (void)setPickerViewCount:(NSInteger)pickerViewCount {
+    _pickerViewCount = pickerViewCount;
+    
+    [self.pickerView reloadComponent:0];
+}
+
+- (void)setPickerViewIndex:(NSInteger)pickerViewIndex {
+    _pickerViewIndex = pickerViewIndex;
+    
+    [self.pickerView selectRow:pickerViewIndex inComponent:0 animated:YES];
+}
+
 #pragma mark - Getters
 
 - (UIWebView *)webView {
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 44)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
         _webView.dataDetectorTypes = UIDataDetectorTypeLink;
         _webView.opaque = NO;
         _webView.backgroundColor = [UIColor clearColor];
@@ -174,6 +222,7 @@
         });
         _webView.scrollView.footer = ({
             MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
+            footer.mj_h = 88.0f;
             footer.automaticallyRefresh = NO;
             footer.refreshingTitleHidden = YES;
             [footer setTitle:NSLocalizedString(@"Load more", nil) forState:MJRefreshStateIdle];
@@ -186,7 +235,7 @@
 - (UIView *)toolBarView {
     if (!_toolBarView) {
         _toolBarView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 64 - 44, ScreenWidth, 44)];
-        _toolBarView.backgroundColor = [UIColor whiteColor];
+        _toolBarView.backgroundColor = [UIColor clearColor];
         
         [_toolBarView addSubview:self.pageButton];
         [_toolBarView addSubview:self.backButton];
@@ -199,58 +248,71 @@
 
 - (UIView *)separatorLineView {
     if (!_separatorLineView) {
-        _separatorLineView = [UIView createHorizontalLine:ScreenWidth originX:0 originY:0 color:[UIColor GCGrayLineColor]];
+        _separatorLineView = [UIView createHorizontalLine:ScreenWidth originX:0 originY:0 color:[UIColor clearColor]];
     }
     return _separatorLineView;
 }
 
 - (UIButton *)pageButton {
     if (!_pageButton) {
-        _pageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 30, 0, 60, 44)
+        _pageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 40, 0, 80, 44)
                                       text:@"1"
                                     target:self
                                     action:@selector(pageAction)];
         _pageButton.tintColor = [UIColor GCDeepGrayColor];
+        _pageButton.titleLabel.font = [UIFont systemFontOfSize:18];
     }
     return _pageButton;
 }
 
 - (UIButton *)backButton {
     if (!_backButton) {
-        _backButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 30 - 44, 0, 44, 44)
+        _backButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 40 - 40, 0, 40, 40)
                                     target:self
                                     action:@selector(backAction)];
         [_backButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
         _backButton.tintColor = [UIColor GCDeepGrayColor];
+        _backButton.backgroundColor = [UIColor whiteColor];
+        _backButton.layer.cornerRadius = 20;
+        _backButton.layer.borderWidth = 1;
+        _backButton.layer.borderColor = [UIColor GCDeepGrayColor].CGColor;
     }
     return _backButton;
 }
 
 - (UIButton *)forwardButton {
     if (!_forwardButton) {
-        _forwardButton = [UIView createButton:CGRectMake(ScreenWidth / 2 + 30, 0, 44, 44)
+        _forwardButton = [UIView createButton:CGRectMake(ScreenWidth / 2 + 40, 0, 40, 40)
                                        target:self
                                        action:@selector(forwardAction)];
         [_forwardButton setImage:[UIImage imageNamed:@"icon_forward"] forState:UIControlStateNormal];
         _forwardButton.tintColor = [UIColor GCDeepGrayColor];
+        _forwardButton.backgroundColor = [UIColor whiteColor];
+        _forwardButton.layer.cornerRadius = 20;
+        _forwardButton.layer.borderWidth = 1;
+        _forwardButton.layer.borderColor = [UIColor GCDeepGrayColor].CGColor;
     }
     return _forwardButton;
 }
 
 - (UIButton *)scrollTopButton {
     if (!_scrollTopButton) {
-        _scrollTopButton = [UIView createButton:CGRectMake(ScreenWidth - 15 - 44, 0, 44, 44)
+        _scrollTopButton = [UIView createButton:CGRectMake(ScreenWidth - 15 - 44, 0, 40, 40)
                                          target:self
                                          action:@selector(scrollTopAction)];
         [_scrollTopButton setImage:[UIImage imageNamed:@"icon_up"] forState:UIControlStateNormal];
         _scrollTopButton.tintColor = [UIColor GCDeepGrayColor];
+        _scrollTopButton.backgroundColor = [UIColor whiteColor];
+        _scrollTopButton.layer.cornerRadius = 20;
+        _scrollTopButton.layer.borderWidth = 1;
+        _scrollTopButton.layer.borderColor = [UIColor GCDeepGrayColor].CGColor;
     }
     return _scrollTopButton;
 }
 
 - (UIView *)pickerContentView {
     if (!_pickerContentView) {
-        _pickerContentView = [[UIView alloc] initWithFrame:CGRectMake(ScreenWidth / 2 - 140, ScreenHeight - 64, 280, 200)];
+        _pickerContentView = [[UIView alloc] initWithFrame:CGRectMake(ScreenWidth / 2 - 140, ScreenHeight - 66 + 1, 280, 200)];
         _pickerContentView.backgroundColor = [UIColor whiteColor];
         _pickerContentView.layer.borderColor = [UIColor GCGrayLineColor].CGColor;
         _pickerContentView.layer.borderWidth = 1;
@@ -267,7 +329,7 @@
         _goButton = [UIView createButton:CGRectMake(0, 0, 280, 40)
                                     text:@"跳转"
                                   target:self
-                                  action:@selector(scrollTopAction)];
+                                  action:@selector(goAction)];
         _goButton.tintColor = [UIColor GCDeepGrayColor];
     }
     return _goButton;
@@ -275,7 +337,7 @@
 
 - (UIPickerView *)pickerView {
     if (!_pickerView) {
-        _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 40, 280, 80)];
+        _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 40, 280, 160)];
         _pickerView.dataSource = self;
         _pickerView.delegate = self;
     }
