@@ -58,6 +58,7 @@
 		046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E661BC6192F0044EB1D /* AppDelegate.m */; };
 		046F9E691BC6192F0044EB1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E671BC6192F0044EB1D /* main.m */; };
 		047125911BCDF478000C8BC1 /* GCThreadWebView.css in Resources */ = {isa = PBXBuildFile; fileRef = 047125901BCDF478000C8BC1 /* GCThreadWebView.css */; };
+		047150E41BEDC9C2007A8890 /* GCSocial.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150E31BEDC9C2007A8890 /* GCSocial.m */; };
 		04935B031BB52D5C0010F7C8 /* GCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B021BB52D5C0010F7C8 /* GCMineViewController.m */; };
 		04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B051BB52F460010F7C8 /* GCMoreViewController.m */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
@@ -249,6 +250,8 @@
 		046F9E661BC6192F0044EB1D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		046F9E671BC6192F0044EB1D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		047125901BCDF478000C8BC1 /* GCThreadWebView.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = GCThreadWebView.css; sourceTree = "<group>"; };
+		047150E21BEDC9C2007A8890 /* GCSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSocial.h; sourceTree = "<group>"; };
+		047150E31BEDC9C2007A8890 /* GCSocial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSocial.m; sourceTree = "<group>"; };
 		04935B011BB52D5C0010F7C8 /* GCMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMineViewController.h; sourceTree = "<group>"; };
 		04935B021BB52D5C0010F7C8 /* GCMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMineViewController.m; sourceTree = "<group>"; };
 		04935B041BB52F460010F7C8 /* GCMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreViewController.h; sourceTree = "<group>"; };
@@ -661,6 +664,23 @@
 			path = CSS;
 			sourceTree = "<group>";
 		};
+		047150DD1BEDB409007A8890 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				047150E11BEDC955007A8890 /* SocialShare */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		047150E11BEDC955007A8890 /* SocialShare */ = {
+			isa = PBXGroup;
+			children = (
+				047150E21BEDC9C2007A8890 /* GCSocial.h */,
+				047150E31BEDC9C2007A8890 /* GCSocial.m */,
+			);
+			path = SocialShare;
+			sourceTree = "<group>";
+		};
 		04935AFF1BB52D0A0010F7C8 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
@@ -1009,6 +1029,7 @@
 				046262281BA94D2B00E66F03 /* Views */,
 				42F468991B87797C0010DA70 /* Models */,
 				4282605C1B84CA51007CBCF4 /* Network */,
+				047150DD1BEDB409007A8890 /* Services */,
 				420D985D1B9297F600AEAED3 /* Additions */,
 				4219A6611B9A7C67005D2164 /* Utils */,
 				42657DC11B999B6B001F8DFC /* Resources */,
@@ -1345,6 +1366,7 @@
 				423888F41BC57D0F002E1625 /* DGActivityIndicatorBallClipRotatePulseAnimation.m in Sources */,
 				42657DBA1B9983AF001F8DFC /* GCForumDisplayViewController.m in Sources */,
 				423888FF1BC57D0F002E1625 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
+				047150E41BEDC9C2007A8890 /* GCSocial.m in Sources */,
 				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
 				0426CD811BE73EB100BE85D8 /* GCHotThreadCell.m in Sources */,
 				0422CDDC1BC6AF70003D2EF5 /* KxMenu.m in Sources */,

@@ -118,7 +118,8 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                            Success:(void (^)(GCForumDisplayArray *array))success
                            failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_FORUMDISPLAY(forumID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        GCForumDisplayArray *array = [[GCForumDisplayArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];        success(array);
+        GCForumDisplayArray *array = [[GCForumDisplayArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
+        success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];
@@ -130,7 +131,8 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                           Success:(void (^)(GCThreadDetailModel *model))success
                           failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        GCThreadDetailModel *model = [[GCThreadDetailModel alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];        success(model);
+        GCThreadDetailModel *model = [[GCThreadDetailModel alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
+        success(model);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];
