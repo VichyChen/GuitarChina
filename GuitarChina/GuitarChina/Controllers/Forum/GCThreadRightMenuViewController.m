@@ -11,6 +11,7 @@
 #import "GCReplyThreadViewController.h"
 #import "GCNavigationController.h"
 #import "GCThreadRightMenuCollectionCell.h"
+#import "GCReportThreadViewController.h"
 
 #define GCThreadRightMenuCellHeightIniPhone 55
 #define GCThreadRightMenuCellHeightIniPad 55
@@ -86,29 +87,29 @@
     switch (indexPath.row) {
         case 0: {
             [ApplicationDelegate.sideMenuViewController hideMenuViewController];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_REPLY object:nil];
+            [self replyAction];
             break;
         }
         case 1:
-            [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_COLLECT object:nil];
+            [self collectAction];
             break;
             
         case 2:
             [ApplicationDelegate.sideMenuViewController hideMenuViewController];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_SHARE object:nil];
+            [self shareAction];
             break;
             
         case 3:
-            [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_SAFARI object:nil];
+            [self safariAction];
             break;
 
         case 4:
-            [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_COPYURL object:nil];
+            [self copyURLAction];
             break;
 
         case 5:
             [ApplicationDelegate.sideMenuViewController hideMenuViewController];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_REPORT object:nil];
+            [self reportAction];
             break;
 
         default:
@@ -151,6 +152,42 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
 
+}
+
+#pragma mark - Event Response
+
+- (void)replyAction {
+    GCReplyThreadViewController *controller = [[GCReplyThreadViewController alloc] init];
+    controller.tid = self.tid;
+    controller.formhash = self.formhash;
+    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+- (void)collectAction {
+    [[GCNetworkManager manager] getCollectionWithTid:self.tid formhash:self.formhash Success:^{
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+- (void)shareAction {
+}
+
+- (void)safariAction {
+    [Util openUrlInSafari:GCNETWORKAPI_URL_THREAD(self.tid)];
+}
+
+- (void)copyURLAction {
+    [Util copyStringToPasteboard:GCNETWORKAPI_URL_THREAD(self.tid)];
+}
+
+- (void)reportAction {
+    GCReportThreadViewController *controller = [[GCReportThreadViewController alloc] init];
+    controller.tid = self.tid;
+    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark - Getters

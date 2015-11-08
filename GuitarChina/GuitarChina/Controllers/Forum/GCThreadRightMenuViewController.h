@@ -12,5 +12,6 @@
 @interface GCThreadRightMenuViewController : GCBaseViewController
 
 @property (nonatomic, copy) NSString *tid;
+@property (nonatomic, copy) NSString *formhash;
 
 @end

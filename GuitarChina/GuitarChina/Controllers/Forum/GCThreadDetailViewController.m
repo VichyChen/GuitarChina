@@ -54,14 +54,15 @@
     [self.threadDetailView webViewStartRefresh];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    ApplicationDelegate.rightMenuViewController.tid = self.tid;
+    ApplicationDelegate.rightMenuViewController.formhash = self.formhash;
+}
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_REPLY object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_COLLECT object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_SHARE object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_SAFARI object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_COPYURL object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_REPORT object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,7 +70,6 @@
 }
 
 #pragma mark - UIWebViewDelegate
-
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     
@@ -126,49 +126,9 @@
 
 - (void)configureNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshAction) name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(replyAction) name:kGCNOTIFICATION_REPLY object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(collectAction) name:kGCNOTIFICATION_COLLECT object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shareAction) name:kGCNOTIFICATION_SHARE object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(safariAction) name:kGCNOTIFICATION_SAFARI object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(copyURLAction) name:kGCNOTIFICATION_COPYURL object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reportAction) name:kGCNOTIFICATION_REPORT object:nil];
 }
 
 #pragma mark - Event Response
-
-- (void)replyAction {
-    GCReplyThreadViewController *controller = [[GCReplyThreadViewController alloc] init];
-    controller.tid = self.tid;
-    controller.formhash = self.formhash;
-    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];
-    [self presentViewController:navigationController animated:YES completion:nil];
-}
-
-- (void)collectAction {
-    [[GCNetworkManager manager] getCollectionWithTid:self.tid formhash:self.formhash Success:^{
-        
-    } failure:^(NSError *error) {
-        
-    }];
-}
-
-- (void)shareAction {
-}
-
-- (void)reportAction {
-    GCReportThreadViewController *controller = [[GCReportThreadViewController alloc] init];
-    controller.tid = self.tid;
-    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];
-    [self presentViewController:navigationController animated:YES completion:nil];
-}
-
-- (void)safariAction {
-    [Util openUrlInSafari:GCNETWORKAPI_URL_THREAD(self.tid)];
-}
-
-- (void)copyURLAction {
-    [Util copyStringToPasteboard:GCNETWORKAPI_URL_THREAD(self.tid)];
-}
 
 - (void)refreshAction {
     [self.threadDetailView webViewStartRefresh];
@@ -203,6 +163,7 @@
         //1993030
         [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
             self.formhash = model.formhash;
+            ApplicationDelegate.rightMenuViewController.formhash = self.formhash;
             self.count = [model.replies integerValue];
             self.pageCount = self.count / self.pageSize + 1;
             self.threadDetailView.pickerViewCount = self.pageCount;
@@ -282,13 +243,6 @@
             @strongify(self);
             [self beginForward];
         };
-        //        _threadDetailView.pickerSelectActionBlock = ^(NSInteger page){
-        //            @strongify(self);
-        //            if (self.pageIndex != page) {
-        //                self.pageIndex = page;
-        //                [self.threadDetailView webViewStartRefresh];
-        //            }
-        //        };
         _threadDetailView.goActionBlock = ^(NSInteger page) {
             @strongify(self);
             if (self.pageIndex != page) {
