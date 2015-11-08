@@ -145,6 +145,9 @@
 }
 
 - (void)pageAction {
+    if ([self.pageButton.titleLabel.text isEqualToString:@"1 / 1"]) {
+        return;
+    }
     [UIView animateWithDuration:0.2 animations:^{
         CGFloat height = ScreenHeight - 66 + 1;
         if (self.pickerContentView.frame.origin.y == height) {
@@ -236,7 +239,7 @@
     if (!_toolBarView) {
         _toolBarView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 64 - 44, ScreenWidth, 44)];
         _toolBarView.backgroundColor = [UIColor clearColor];
-        
+        _toolBarView.alpha = 0.0f;
         [_toolBarView addSubview:self.pageButton];
         [_toolBarView addSubview:self.backButton];
         [_toolBarView addSubview:self.forwardButton];

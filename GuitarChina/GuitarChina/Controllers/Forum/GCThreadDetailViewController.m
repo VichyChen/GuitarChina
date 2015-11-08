@@ -169,6 +169,11 @@
             self.threadDetailView.pickerViewCount = self.pageCount;
             self.threadDetailView.pickerViewIndex = self.pageIndex - 1;
             success(model);
+            if (self.threadDetailView.toolBarView.alpha == 0.0f) {
+                [UIView animateWithDuration:1.0 animations:^{
+                    self.threadDetailView.toolBarView.alpha = 1.0f;
+                }];
+            }
         } failure:^(NSError *error) {
             
         }];
