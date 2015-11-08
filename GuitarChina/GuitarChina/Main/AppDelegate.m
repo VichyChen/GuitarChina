@@ -129,14 +129,14 @@
     GCHotThreadViewController *hotThreadViewController = [[GCHotThreadViewController alloc] init];
     GCNavigationController *hotThreadNavigationController = [[GCNavigationController alloc] initWithRootViewController:hotThreadViewController];
     hotThreadNavigationController.tabBarItem.title = NSLocalizedString(@"Hot", nil);
-    hotThreadNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_hot"];
-    hotThreadNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_hot_on"];
+    hotThreadNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_guitar"];
+    hotThreadNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_guitar_on"];
     
     GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] init];
     GCNavigationController *forumIndexNavigationController = [[GCNavigationController alloc] initWithRootViewController:forumIndexViewController];
     forumIndexNavigationController.tabBarItem.title = NSLocalizedString(@"Forum", nil);
-    forumIndexNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_forum"];
-    forumIndexNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_forum_on"];
+    forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"icon_wave"] imageWithTintColor:[UIColor GCDeepGrayColor]];
+    forumIndexNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_wave_on"] imageWithTintColor:[UIColor GCDeepGrayColor]];
     
     GCMineViewController *mineViewController = [[GCMineViewController alloc] init];
     GCNavigationController *mineNavigationController = [[GCNavigationController alloc] initWithRootViewController:mineViewController];

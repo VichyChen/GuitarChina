@@ -228,7 +228,7 @@
             footer.mj_h = 88.0f;
             footer.automaticallyRefresh = NO;
             footer.refreshingTitleHidden = YES;
-            [footer setTitle:NSLocalizedString(@"- End -", nil) forState:MJRefreshStateIdle];
+            [footer setTitle:NSLocalizedString(@"Load more.", nil) forState:MJRefreshStateIdle];
             footer;
         });
     }

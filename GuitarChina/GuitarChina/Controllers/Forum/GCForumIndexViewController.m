@@ -95,7 +95,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 35)];
     view.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
     GCForumGroupModel *model = [self.data objectAtIndex:section];
-    UILabel *label = [UIView createLabel:CGRectMake(20, 0, ScreenWidth, 35) text:[NSString stringWithFormat:@"- %@", model.name] font:[UIFont boldSystemFontOfSize:17] textColor:[UIColor GCBlueColor]];
+    UILabel *label = [UIView createLabel:CGRectMake(20, 0, ScreenWidth, 35) text:[NSString stringWithFormat:@"- %@ -", model.name] font:[UIFont boldSystemFontOfSize:17] textColor:[UIColor GCBlueColor]];
     [view addSubview:label];
     
     return view;

@@ -42,6 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    offsetY = -1;
     _pageIndex = 1;
     _pageSize = 40;
     _replyCount = 0;
@@ -81,8 +82,10 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    self.threadDetailView.webView.scrollView.contentOffset = CGPointMake(0, offsetY);
-    offsetY = 0;
+    if (offsetY != -1) {
+        self.threadDetailView.webView.scrollView.contentOffset = CGPointMake(0, offsetY);
+        offsetY = 0;
+    }
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {

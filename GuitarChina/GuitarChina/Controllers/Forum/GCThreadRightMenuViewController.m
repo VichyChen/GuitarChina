@@ -40,7 +40,7 @@
                         NSLocalizedString(@"Open in Safari", nil),
                         NSLocalizedString(@"Copy URL", nil),
                         NSLocalizedString(@"Report", nil)];
-        _imageArray = @[@"icon_reply", @"icon_collect", @"icon_share", @"icon_compass", @"icon_link", @"icon_error"];
+        _imageArray = @[@"icon_edit", @"icon_collect", @"icon_share", @"icon_compass", @"icon_link", @"icon_error"];
     }
     return self;
 }

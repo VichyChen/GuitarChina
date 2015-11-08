@@ -41,8 +41,13 @@
         arrowCenterX -= 100;
     }
     CGFloat arrowCenterY = self.mj_h * 0.5;
-    self.loadingView.center = CGPointMake(arrowCenterX, arrowCenterY - 22);
-    self.stateLabel.center = CGPointMake(arrowCenterX, arrowCenterY - 22);
+    if (self.mj_h == 88) {
+        self.loadingView.center = CGPointMake(arrowCenterX, arrowCenterY - 22);
+        self.stateLabel.center = CGPointMake(arrowCenterX, arrowCenterY - 22);
+    } else {
+        self.loadingView.center = CGPointMake(arrowCenterX, arrowCenterY);
+        self.stateLabel.center = CGPointMake(arrowCenterX, arrowCenterY);
+    }
 }
 
 - (void)setState:(MJRefreshState)state
