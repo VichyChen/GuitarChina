@@ -27,7 +27,8 @@
 
 @property (nonatomic, assign) NSInteger pageIndex;  //第几页
 @property (nonatomic, assign) NSInteger pageSize;   //每页条数
-@property (nonatomic, assign) NSInteger count;      //回贴数
+@property (nonatomic, assign) NSInteger replyCount; //回贴数
+@property (nonatomic, assign) NSInteger currentPageReplyCount; //回贴数
 @property (nonatomic, assign) NSInteger pageCount;  //总共几页
 
 @end
@@ -43,7 +44,7 @@
     
     _pageIndex = 1;
     _pageSize = 40;
-    _count = 0;
+    _replyCount = 0;
     _pageCount = 0;
     _htmlString = [[NSMutableString alloc] init];
     
@@ -80,6 +81,8 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    self.threadDetailView.webView.scrollView.contentOffset = CGPointMake(0, offsetY);
+    offsetY = 0;
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -164,8 +167,17 @@
         [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
             self.formhash = model.formhash;
             ApplicationDelegate.rightMenuViewController.formhash = self.formhash;
-            self.count = [model.replies integerValue];
-            self.pageCount = self.count / self.pageSize + 1;
+            self.replyCount = [model.replies integerValue];
+            self.pageCount = self.replyCount / self.pageSize + 1;
+            
+            if (self.replyCount < self.pageSize) {
+                self.currentPageReplyCount = self.replyCount;
+            } else if (self.pageIndex * self.pageSize <= self.replyCount) {
+                self.currentPageReplyCount = self.pageSize;
+            } else {
+                self.currentPageReplyCount = self.replyCount % ((self.pageIndex - 1) * self.pageSize) + 1;
+            }
+            
             self.threadDetailView.pickerViewCount = self.pageCount;
             self.threadDetailView.pickerViewIndex = self.pageIndex - 1;
             success(model);
@@ -189,7 +201,20 @@
     });
 }
 
-- (void)beginBack {
+- (void)beginFetchMore {
+    if ((self.currentPageReplyCount) % self.pageSize == 0) {
+        [self beginNextPageAction];
+    } else {
+        offsetY = self.threadDetailView.webView.scrollView.contentOffset.y;
+        self.refreshBlock(^(GCThreadDetailModel *model) {
+            [self.htmlString setString:[model getGCThreadDetailModelHtml]];
+            [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util bundleBasePathURL]];
+            [self.threadDetailView webViewEndFetchMore];
+        });
+    }
+}
+
+- (void)beginPreviousPageAction {
     if (self.pageIndex - 1 == 0) {
         [self.threadDetailView webViewEndFetchMore];
         return;
@@ -205,7 +230,7 @@
     }
 }
 
-- (void)beginForward {
+- (void)beginNextPageAction {
     if (self.pageCount < self.pageIndex + 1) {
         [self.threadDetailView webViewEndFetchMore];
         return;
@@ -234,19 +259,15 @@
         };
         _threadDetailView.webViewFetchMoreBlock = ^{
             @strongify(self);
-            [self beginForward];
+            [self beginFetchMore];
         };
-        _threadDetailView.pageActionBlock = ^{
-            //        @strongify(self);
-            
-        };
-        _threadDetailView.backActionBlock = ^{
+        _threadDetailView.previousPageActionBlock = ^{
             @strongify(self);
-            [self beginBack];
+            [self beginPreviousPageAction];
         };
-        _threadDetailView.forwardActionBlock = ^{
+        _threadDetailView.nextPageActionBlock = ^{
             @strongify(self);
-            [self beginForward];
+            [self beginNextPageAction];
         };
         _threadDetailView.goActionBlock = ^(NSInteger page) {
             @strongify(self);

@@ -18,11 +18,11 @@
 @property (nonatomic, strong) UIButton *pageButton;
 @property (nonatomic, copy) void (^pageActionBlock)();
 
-@property (nonatomic, strong) UIButton *backButton;
-@property (nonatomic, copy) void (^backActionBlock)();
+@property (nonatomic, strong) UIButton *previousPageButton;
+@property (nonatomic, copy) void (^previousPageActionBlock)();
 
-@property (nonatomic, strong) UIButton *forwardButton;
-@property (nonatomic, copy) void (^forwardActionBlock)();
+@property (nonatomic, strong) UIButton *nextPageButton;
+@property (nonatomic, copy) void (^nextPageActionBlock)();
 
 @property (nonatomic, strong) UIButton *scrollTopButton;
 

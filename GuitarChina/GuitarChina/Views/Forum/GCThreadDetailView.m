@@ -164,15 +164,15 @@
 
 - (void)backAction {
     [self hidePickerContentView];
-    if (self.backActionBlock) {
-        self.backActionBlock();
+    if (self.previousPageActionBlock) {
+        self.previousPageActionBlock();
     }
 }
 
 - (void)forwardAction {
     [self hidePickerContentView];
-    if (self.forwardActionBlock) {
-        self.forwardActionBlock();
+    if (self.nextPageActionBlock) {
+        self.nextPageActionBlock();
     }
 }
 
@@ -228,7 +228,7 @@
             footer.mj_h = 88.0f;
             footer.automaticallyRefresh = NO;
             footer.refreshingTitleHidden = YES;
-            [footer setTitle:NSLocalizedString(@"Load more", nil) forState:MJRefreshStateIdle];
+            [footer setTitle:NSLocalizedString(@"- End -", nil) forState:MJRefreshStateIdle];
             footer;
         });
     }
@@ -241,8 +241,8 @@
         _toolBarView.backgroundColor = [UIColor clearColor];
         _toolBarView.alpha = 0.0f;
         [_toolBarView addSubview:self.pageButton];
-        [_toolBarView addSubview:self.backButton];
-        [_toolBarView addSubview:self.forwardButton];
+        [_toolBarView addSubview:self.previousPageButton];
+        [_toolBarView addSubview:self.nextPageButton];
         [_toolBarView addSubview:self.scrollTopButton];
         [_toolBarView addSubview:self.separatorLineView];
     }
@@ -268,34 +268,34 @@
     return _pageButton;
 }
 
-- (UIButton *)backButton {
-    if (!_backButton) {
-        _backButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 40 - 40, 0, 40, 40)
+- (UIButton *)previousPageButton {
+    if (!_previousPageButton) {
+        _previousPageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 40 - 40, 0, 40, 40)
                                     target:self
                                     action:@selector(backAction)];
-        [_backButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-        _backButton.tintColor = [UIColor GCDeepGrayColor];
-        _backButton.backgroundColor = [UIColor whiteColor];
-        _backButton.layer.cornerRadius = 20;
-        _backButton.layer.borderWidth = 1;
-        _backButton.layer.borderColor = [UIColor GCDeepGrayColor].CGColor;
+        [_previousPageButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+        _previousPageButton.tintColor = [UIColor GCDeepGrayColor];
+        _previousPageButton.backgroundColor = [UIColor whiteColor];
+        _previousPageButton.layer.cornerRadius = 20;
+        _previousPageButton.layer.borderWidth = 1;
+        _previousPageButton.layer.borderColor = [UIColor GCDeepGrayColor].CGColor;
     }
-    return _backButton;
+    return _previousPageButton;
 }
 
-- (UIButton *)forwardButton {
-    if (!_forwardButton) {
-        _forwardButton = [UIView createButton:CGRectMake(ScreenWidth / 2 + 40, 0, 40, 40)
+- (UIButton *)nextPageButton {
+    if (!_nextPageButton) {
+        _nextPageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 + 40, 0, 40, 40)
                                        target:self
                                        action:@selector(forwardAction)];
-        [_forwardButton setImage:[UIImage imageNamed:@"icon_forward"] forState:UIControlStateNormal];
-        _forwardButton.tintColor = [UIColor GCDeepGrayColor];
-        _forwardButton.backgroundColor = [UIColor whiteColor];
-        _forwardButton.layer.cornerRadius = 20;
-        _forwardButton.layer.borderWidth = 1;
-        _forwardButton.layer.borderColor = [UIColor GCDeepGrayColor].CGColor;
+        [_nextPageButton setImage:[UIImage imageNamed:@"icon_forward"] forState:UIControlStateNormal];
+        _nextPageButton.tintColor = [UIColor GCDeepGrayColor];
+        _nextPageButton.backgroundColor = [UIColor whiteColor];
+        _nextPageButton.layer.cornerRadius = 20;
+        _nextPageButton.layer.borderWidth = 1;
+        _nextPageButton.layer.borderColor = [UIColor GCDeepGrayColor].CGColor;
     }
-    return _forwardButton;
+    return _nextPageButton;
 }
 
 - (UIButton *)scrollTopButton {

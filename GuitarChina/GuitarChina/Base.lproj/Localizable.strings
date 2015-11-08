@@ -20,7 +20,8 @@
 "Copy URL" = "Copy URL";
 
 "login" = "login";
-"Load more" = "Load more.";
+"Load more?" = "Load more?";
+"- End -" = "- End -";
 
 "Username" = "Username";
 "Password" = "Password";

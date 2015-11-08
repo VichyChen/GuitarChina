@@ -62,6 +62,7 @@ body {
 .message a {
     display: inline-block;
     padding:0px 5px 0px 5px;
+    color:#4C85A3;
 }
 
 .separator {
@@ -99,7 +100,6 @@ body {
 
 .option {
     margin:10px auto 10px auto;
-    /*    table-layout: fixed;*/
     width: 100%;
     overflow: hidden;
     margin-bottom: 10px;
@@ -115,4 +115,8 @@ body {
     border-color: #D3DCE2;
     color:#161819;
     min-width:80px;
+}
+
+.option td a {
+    color:#4C85A3;
 }
