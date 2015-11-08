@@ -105,6 +105,15 @@
             
             return false;
         }
+        //土豆视频
+        if ([request.mainDocumentURL.relativeString startsWith:@"http://www.tudou.com/v/"] && [request.mainDocumentURL.relativeString endsWith:@".swf"]) {
+            NSArray *array = [request.mainDocumentURL.relativeString split:@"/"];
+            GCWebViewController *controller = [[GCWebViewController alloc] init];
+            controller.urlString = GCVIDEO_URL_TUDOU([array objectAtIndex:4]);
+            [self.navigationController pushViewController:controller animated:YES];
+            
+            return false;
+        }
         
         if ([request.mainDocumentURL.relativeString startsWith:@"http://bbs.guitarchina.com/thread-"] && [request.mainDocumentURL.relativePath endsWith:@".html"]) {
             NSArray *array = [request.mainDocumentURL.relativeString split:@"-"];
@@ -164,6 +173,7 @@
         @strongify(self);
         //1993403
         //1993030
+        //1994974
         [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
             self.formhash = model.formhash;
             ApplicationDelegate.rightMenuViewController.formhash = self.formhash;

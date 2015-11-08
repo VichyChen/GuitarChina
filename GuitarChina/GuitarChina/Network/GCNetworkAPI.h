@@ -66,3 +66,6 @@
 
 //优酷视频地址
 #define GCVIDEO_URL_YOUKU(id) [NSString stringWithFormat:@"http://v.youku.com/v_show/id_%@.html", (id)]
+//土豆视频地址
+#define GCVIDEO_URL_TUDOU(id) [NSString stringWithFormat:@"http://www.tudou.com/programs/view/%@/", (id)]
+
