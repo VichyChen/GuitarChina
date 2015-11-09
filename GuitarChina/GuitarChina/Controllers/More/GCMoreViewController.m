@@ -7,7 +7,6 @@
 //
 
 #import "GCMoreViewController.h"
-#import "RESideMenu.h"
 
 @interface GCMoreViewController ()
 
@@ -20,13 +19,6 @@
 
     self.title = NSLocalizedString(@"More", nil);
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
-                                                                  normalColor:[UIColor GCFontColor]
-                                                             highlightedColor:[UIColor redColor]
-                                                                       target:self
-                                                                       action:@selector(presentLeftMenuViewController:)];
-
 }
 
 - (void)didReceiveMemoryWarning {

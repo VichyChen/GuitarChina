@@ -12,6 +12,7 @@
 #import "GCForumIndexViewController.h"
 #import "GCMineViewController.h"
 #import "GCSettingViewController.h"
+#import "GCMoreViewController.h"
 #import "MobClick.h"
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
@@ -142,16 +143,16 @@
     GCMineViewController *mineViewController = [[GCMineViewController alloc] init];
     GCNavigationController *mineNavigationController = [[GCNavigationController alloc] initWithRootViewController:mineViewController];
     mineNavigationController.tabBarItem.title = NSLocalizedString(@"Mine", nil);
-    mineNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_mine"];
-    mineNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_mine_on"];
+    mineNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_ musicconductor"];
+    mineNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_ musicconductor_on"];
     
-    GCSettingViewController *settingViewController = [[GCSettingViewController alloc] init];
-    GCNavigationController *settingNavigationController = [[GCNavigationController alloc] initWithRootViewController:settingViewController];
-    settingNavigationController.tabBarItem.title = NSLocalizedString(@"Setting", nil);
-    settingNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_setting"];
-    settingNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_setting_on"];
+    GCMoreViewController *moreViewController = [[GCMoreViewController alloc] init];
+    GCNavigationController *moreNavigationController = [[GCNavigationController alloc] initWithRootViewController:moreViewController];
+    moreNavigationController.tabBarItem.title = NSLocalizedString(@"More", nil);
+    moreNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_musicrecord"];
+    moreNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_musicrecord_on"];
     
-    self.tabBarController.viewControllers = @[hotThreadNavigationController, forumIndexNavigationController, mineNavigationController, settingNavigationController];
+    self.tabBarController.viewControllers = @[hotThreadNavigationController, forumIndexNavigationController, mineNavigationController, moreNavigationController];
 }
 
 - (void)configureSideMenuViewController {
