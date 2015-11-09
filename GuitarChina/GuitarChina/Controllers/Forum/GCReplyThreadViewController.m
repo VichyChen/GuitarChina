@@ -36,6 +36,7 @@
 
 - (void)sendAction {
     [[GCNetworkManager manager] postReplyWithTid:self.tid message:self.replyThreadView.textView.text formhash:self.formhash Success:^(GCSendReplyModel *model) {
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
         [self closeAction];
     } failure:^(NSError *error) {
         

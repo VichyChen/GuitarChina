@@ -117,7 +117,9 @@
                 [self endFetchMore];
             }
         } failure:^(NSError *error) {
-            
+            [self endRefresh];
+            [self endFetchMore];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"", nil)];
         }];
     };
 }

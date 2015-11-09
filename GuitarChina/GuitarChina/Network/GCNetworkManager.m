@@ -39,25 +39,33 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                                         failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure  {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
-    void (^responseHandleBlock)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, id responseObject) {
+    void (^responseSuccessBlock)(AFHTTPRequestOperation *operation, id responseObject) = ^(AFHTTPRequestOperation *operation, id responseObject) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        NSLog(@"Success!!!!!!~~~~~~");
         NSLog(@"%@", operation.responseString);
         success(operation, responseObject);
+    };
+    void (^responseFailureBlock)(AFHTTPRequestOperation *operation, NSError *error) = ^(AFHTTPRequestOperation *operation, NSError *error) {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+        NSLog(@"Failure!!!!!!~~~~~~");
+        NSLog(@"%@", operation.responseString);
+        failure(operation, error);
     };
     
     AFHTTPRequestOperation *manager = nil;
     if (type == GCRequestJsonGet) {
         manager = [[AFHTTPRequestOperationManager manager] GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            responseHandleBlock(operation, responseObject);
+            responseSuccessBlock(operation, responseObject);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(operation, error);
+            responseFailureBlock(operation, error);
         }];
     }
     else if (type == GCRequestHTTPPOST) {
         manager = [[AFHTTPRequestOperationManager manager] POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            responseHandleBlock(operation, responseObject);
+            responseSuccessBlock(operation, responseObject);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            failure(operation, error);
+            responseFailureBlock(operation, error);
         }];
     }
     
@@ -70,10 +78,16 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                                                  failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure  {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
-    void (^responseHandleBlock)(NSURLSessionDataTask *task, id responseObject) = ^(NSURLSessionDataTask *task, id responseObject) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    void (^responseSuccessBlock)(NSURLSessionDataTask *task, id responseObject) = ^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"Success!!!!!!~~~~~~");
         NSLog(@"HTML: %@", [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding]);
         success(task, responseObject);
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    };
+    void (^responseFailureBlock)(NSURLSessionDataTask *task, NSError *error) = ^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Failure!!!!!!~~~~~~");
+        failure(task, error);
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     };
     
     AFHTTPSessionManager *manager=[AFHTTPSessionManager manager];
@@ -82,9 +96,9 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     [manager.requestSerializer setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36" forHTTPHeaderField:@"User-Agent"];
     
     [manager GET:url parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
-        responseHandleBlock(task, responseObject);
+        responseSuccessBlock(task, responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        failure(task, error);
+        responseFailureBlock(task, error);
     }];
     
     return manager;
@@ -130,6 +144,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                          pageSize:(NSInteger)pageSize
                           Success:(void (^)(GCThreadDetailModel *model))success
                           failure:(void (^)(NSError *error))failure {
+    NSLog(@"%@", threadID);
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         GCThreadDetailModel *model = [[GCThreadDetailModel alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
         success(model);
@@ -239,7 +254,11 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(error);
+        if ([operation.responseString containsString:@"信息收藏成功"]) {
+            success();
+        } else {
+            failure(error);
+        }
     }];
     
     //    return [self requestHTMLCommonMethodWithURL:GC_NETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {

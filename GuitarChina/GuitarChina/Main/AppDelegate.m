@@ -37,9 +37,10 @@
     [self UMengAnalytics];
     //友盟分享
     [self UMengSocial];
-    
+    [self configureSVProgressHUD];
     [self configureTabBarController];
     [self configureSideMenuViewController];
+
     self.window.rootViewController = self.sideMenuViewController;
     [self.window makeKeyAndVisible];
     
@@ -179,6 +180,12 @@
     } else {
         self.sideMenuViewController.contentViewInPortraitOffsetCenterX = LeftSideMenuOffsetCenterXIniPad;
     }
+}
+
+- (void)configureSVProgressHUD {
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
+    [SVProgressHUD setBackgroundColor:[UIColor GCDeepGrayColor]];
+    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
 }
 
 - (void)saveCookie {

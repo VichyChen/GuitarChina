@@ -31,7 +31,7 @@
 #pragma mark - life cycle
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{ 
+{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _titleArray = @[NSLocalizedString(@"Reply", nil),
@@ -50,7 +50,7 @@
     
     [self.view addSubview:self.tableView];
     
-//    [self.view addSubview:self.collectionView];
+    //    [self.view addSubview:self.collectionView];
 }
 
 - (void)viewDidLoad {
@@ -83,7 +83,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    
     switch (indexPath.row) {
         case 0: {
             [ApplicationDelegate.sideMenuViewController hideMenuViewController];
@@ -102,16 +102,17 @@
         case 3:
             [self safariAction];
             break;
-
+            
         case 4:
             [self copyURLAction];
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy Complete", nil)];
             break;
-
+            
         case 5:
             [ApplicationDelegate.sideMenuViewController hideMenuViewController];
             [self reportAction];
             break;
-
+            
         default:
             break;
     }
@@ -133,7 +134,7 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GCThreadRightMenuCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GCThreadRightMenuCollectionCell" forIndexPath:indexPath];
-//    [self.titleArray objectAtIndex:indexPath.item]
+    //    [self.titleArray objectAtIndex:indexPath.item]
     cell.backgroundView.backgroundColor = [UIColor redColor];
     return cell;
 }
@@ -151,7 +152,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-
+    
 }
 
 #pragma mark - Event Response
@@ -166,9 +167,9 @@
 
 - (void)collectAction {
     [[GCNetworkManager manager] getCollectionWithTid:self.tid formhash:self.formhash Success:^{
-        
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Collect Success", nil)];
     } failure:^(NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Collect Failure", nil)];
     }];
 }
 
@@ -212,7 +213,7 @@
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        UICollectionViewFlowLayout *layout= [[UICollectionViewFlowLayout alloc]init];
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(5, ScreenWidth / 2, ScreenWidth - 10, 10 + (ScreenWidth - 50) / 4) collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.delegate = self;

@@ -44,3 +44,14 @@
 "Write report content." = "Write report content.";
 
 "Web Secure Login" = "Web Secure Login";
+
+"Login Success" = "Login Success";
+"Login Failure" = "Login Failure";
+"Reply Success" = "Reply Success";
+"Collect Success" = "Collect Success";
+"Collect Failure" = "Collect Failure";
+"Copy complete" = "Copy complete";
+"Report Success" = "Report Success";
+
+//"No network connect" = "";
+

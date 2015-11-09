@@ -44,3 +44,12 @@
 "Write report content." = "输入举报内容。";
 
 "Web Secure Login" = "网页安全登陆";
+
+"Login Success" = "登陆成功";
+"Login Failure" = "登陆失败";
+"Reply Success" = "回复成功";
+"Collect Success" = "已收藏";
+"Collect Failure" = "收藏失败";
+"Copy complete" = "已复制";
+"Report Success" = "举报成功";
+

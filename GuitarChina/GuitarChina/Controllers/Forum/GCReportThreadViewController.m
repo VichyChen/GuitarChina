@@ -36,7 +36,8 @@
 
 - (void)sendAction {
     [[GCNetworkManager manager] postReportWithTid:self.tid text:self.reportThreadView.textView.text Success:^{
-        NSLog(@"report success");
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
+        [self closeAction];
     } failure:^(NSError *error) {
         
     }];

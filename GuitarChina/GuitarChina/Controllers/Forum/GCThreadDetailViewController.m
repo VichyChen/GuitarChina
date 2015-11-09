@@ -200,7 +200,9 @@
                 }];
             }
         } failure:^(NSError *error) {
-            
+            [self.threadDetailView webViewEndRefresh];
+            [self.threadDetailView webViewEndFetchMore];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"", nil)];
         }];
     };
 }

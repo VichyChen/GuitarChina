@@ -78,11 +78,12 @@
             [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:kGCLOGINID];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];
             [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
             [self closeAction];
             
         } failure:^(NSError *error) {
-            
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Login Failure", nil)];
         }];
     };
     
