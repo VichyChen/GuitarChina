@@ -12,6 +12,7 @@
 #import "GCNavigationController.h"
 #import "GCThreadRightMenuCollectionCell.h"
 #import "GCReportThreadViewController.h"
+#import "GCLoginViewController.h"
 
 #define GCThreadRightMenuCellHeightIniPhone 55
 #define GCThreadRightMenuCellHeightIniPad 55
@@ -86,14 +87,24 @@
     
     switch (indexPath.row) {
         case 0: {
+            if ([self.uid isEqualToString:@"0"]) {
+                [self presentLoginViewController];
+            } else {
+                [self replyAction];
+            }
             [ApplicationDelegate.sideMenuViewController hideMenuViewController];
-            [self replyAction];
+            
             break;
         }
         case 1:
-            [self collectAction];
+            if ([self.uid isEqualToString:@"0"]) {
+                [self presentLoginViewController];
+            } else {
+                [self collectAction];
+            }
+            [ApplicationDelegate.sideMenuViewController hideMenuViewController];
+
             break;
-            
         case 2:
             [ApplicationDelegate.sideMenuViewController hideMenuViewController];
             [self shareAction];
@@ -105,7 +116,7 @@
             
         case 4:
             [self copyURLAction];
-            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy Complete", nil)];
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy complete", nil)];
             break;
             
         case 5:
@@ -188,6 +199,14 @@
     GCReportThreadViewController *controller = [[GCReportThreadViewController alloc] init];
     controller.tid = self.tid;
     GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+#pragma mark - Private Methods
+
+- (void)presentLoginViewController {
+    GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
+    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
     [self presentViewController:navigationController animated:YES completion:nil];
 }
 

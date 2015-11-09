@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GCBaseViewController.h"
 
 @interface GCThreadRightMenuViewController : GCBaseViewController
 
+@property (nonatomic, copy) NSString *uid;
 @property (nonatomic, copy) NSString *tid;
 @property (nonatomic, copy) NSString *formhash;
 

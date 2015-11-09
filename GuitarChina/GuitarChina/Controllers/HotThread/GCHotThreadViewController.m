@@ -88,7 +88,6 @@
     GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
     controller.hidesBottomBarWhenPushed = YES;
     GCHotThreadModel *model = [self.data objectAtIndex:indexPath.row];
-    controller.hotThreadModel = model;
     controller.tid = model.tid;
     [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -110,7 +109,7 @@
             [self endRefresh];
         } failure:^(NSError *error) {
             [self endRefresh];
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"", nil)];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No network connection!", nil)];
         }];
     };
 }

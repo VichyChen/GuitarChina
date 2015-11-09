@@ -163,7 +163,7 @@
             [self endRefresh];
         } failure:^(NSError *error) {
             [self endRefresh];
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"", nil)];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No network connection!", nil)];
         }];
     };
 }

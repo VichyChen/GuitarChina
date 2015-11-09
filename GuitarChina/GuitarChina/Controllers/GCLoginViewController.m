@@ -44,6 +44,9 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
 }
 
+- (void)dealloc {
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -83,7 +86,7 @@
             [self closeAction];
             
         } failure:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Login Failure", nil)];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No network connection!", nil)];
         }];
     };
     
