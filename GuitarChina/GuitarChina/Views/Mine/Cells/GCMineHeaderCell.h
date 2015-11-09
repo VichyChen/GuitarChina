@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) UIImageView *avatarImage;
 @property (nonatomic, strong) UILabel *userLabel;
+@property (nonatomic, strong) UILabel *levelLabel;
 
 @end

@@ -18,6 +18,8 @@
 
 @interface GCLoginModel : GCBaseModel
 
+@property (nonatomic, copy) NSString *member_level;
+
 @property (nonatomic, strong) GCLoginMessageModel *message;
 
 - (instancetype)initWithDictionary:(id)dictionary;

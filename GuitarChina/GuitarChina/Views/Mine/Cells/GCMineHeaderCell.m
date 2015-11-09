@@ -20,7 +20,8 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         [self configureView];
     }
     return self;
@@ -30,13 +31,15 @@
     [super layoutSubviews];
     
     self.avatarImage.frame = CGRectMake(15, 10, 80, 80);
-    self.userLabel.frame = CGRectMake(110, 10, ScreenWidth - 125, 25);
+    self.userLabel.frame = CGRectMake(110, 15, ScreenWidth - 125, 25);
+    self.levelLabel.frame = CGRectMake(110, 55, ScreenWidth - 125, 25);
     self.separatorViewBottom.frame = CGRectMake(0, 99.5, ScreenWidth, 0.5);
 }
 
 - (void)configureView {
     [self.contentView addSubview:self.avatarImage];
     [self.contentView addSubview:self.userLabel];
+    [self.contentView addSubview:self.levelLabel];
     [self.contentView addSubview:self.separatorViewBottom];
 }
 
@@ -61,6 +64,16 @@
                                  textColor:[UIColor GCBlueColor]];
     }
     return _userLabel;
+}
+
+- (UILabel *)levelLabel {
+    if (!_levelLabel) {
+        _levelLabel = [UIView createLabel:CGRectZero
+                                    text:@""
+                                    font:[UIFont systemFontOfSize:15]
+                               textColor:[UIColor GCDeepGrayColor]];
+    }
+    return _levelLabel;
 }
 
 - (UIView *)separatorViewBottom {

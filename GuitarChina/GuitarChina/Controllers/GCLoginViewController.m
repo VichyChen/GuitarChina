@@ -33,15 +33,19 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self.navigationController.navigationBar setShadowImage:[UIImage imageNamed:@"white.png"] ];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage imageNamed:@"1point.png"] imageWithTintColor:[UIColor clearColor]] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:[[UIImage imageNamed:@"1point.png"] imageWithTintColor:[UIColor clearColor]]];
+//    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
-    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
 }
 
 - (void)dealloc {
@@ -60,7 +64,7 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
-    self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_close"
+    self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_delete"
                                                                    normalColor:[UIColor GCDeepGrayColor]
                                                               highlightedColor:[UIColor GCLightGrayColor]
                                                                         target:self
@@ -77,8 +81,9 @@
             ApplicationDelegate.tabBarController.selectedIndex = 2;
             
             [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLOGIN];
-            [[NSUserDefaults standardUserDefaults] setObject:model.member_username forKey:kGCLOGINNAME];
             [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:kGCLOGINID];
+            [[NSUserDefaults standardUserDefaults] setObject:model.member_username forKey:kGCLOGINNAME];
+            [[NSUserDefaults standardUserDefaults] setObject:model.member_level forKey:kGCLOGINLEVEL];
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];

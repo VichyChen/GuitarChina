@@ -35,6 +35,8 @@
 static NSString * const kGCLOGIN = @"LOGIN";
 static NSString * const kGCLOGINID = @"LOGINID";
 static NSString * const kGCLOGINNAME = @"LOGINNAME";
+static NSString * const kGCLOGINLEVEL = @"LOGINLEVEL";
+
 static NSString * const kGCFORUMINDEXDICTIONARY = @"FORUMINDEXDICTIONARY";
 
 //Notification

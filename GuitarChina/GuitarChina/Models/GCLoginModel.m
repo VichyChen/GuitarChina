@@ -20,6 +20,11 @@
         GCLoginMessageModel *message = [[GCLoginMessageModel alloc] init];
         message.messageval = [messageDictionary objectForKey:@"messageval"];
         message.messagestr = [messageDictionary objectForKey:@"messagestr"];
+        if ([message.messageval isEqualToString:@"login_succeed"]) {
+            NSArray *array = [message.messagestr split:@"，"];
+            NSArray *arrayResult = [[array objectAtIndex:1] split:@" "];
+            self.member_level = [arrayResult objectAtIndex:0];
+        }
         self.message = message;
     }
     

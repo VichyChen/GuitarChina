@@ -28,8 +28,10 @@
     self.title = NSLocalizedString(@"Mine", nil);
     self.view.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
     
+    self.userID = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINID];
     self.username = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME];
-    
+    self.userLevel = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINLEVEL];
+
     [self configureView];
     [self configureNotification];
     //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
@@ -77,6 +79,7 @@
     if (indexPath.section == 0) {
         GCMineHeaderCell *cell = [[GCMineHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
         cell.userLabel.text = self.username;
+        cell.levelLabel.text = self.userLevel;
         [cell.avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_URL_BIGAVTARIMAGE(self.userID)]
                             placeholderImage:nil
                                      options:SDWebImageRetryFailed];
@@ -124,9 +127,9 @@
     
     
     if (indexPath.section == 0) {//个人信息
-        GCUserInfoViewController *userInfoViewController = [[GCUserInfoViewController alloc] init];
-        userInfoViewController.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:userInfoViewController animated:YES];
+//        GCUserInfoViewController *userInfoViewController = [[GCUserInfoViewController alloc] init];
+//        userInfoViewController.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:userInfoViewController animated:YES];
     } else if (indexPath.section == 1) {//我的主题
         if (indexPath.row == 0) {
             GCMyThreadViewController *userThreadViewController = [[GCMyThreadViewController alloc] init];
@@ -169,8 +172,9 @@
 #pragma mark - Event Response
 
 - (void)refreshView {
-    self.username = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME];
     self.userID = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINID];
+    self.username = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME];
+    self.userLevel = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINLEVEL];
     [self.tableView reloadData];
 }
 
