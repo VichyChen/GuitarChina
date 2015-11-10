@@ -112,6 +112,7 @@
             break;
         case 3:
             [self safariAction];
+            [ApplicationDelegate.sideMenuViewController hideMenuViewController];
             
             break;
         case 4:
