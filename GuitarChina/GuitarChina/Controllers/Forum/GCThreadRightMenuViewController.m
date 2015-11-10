@@ -37,11 +37,11 @@
     if (self) {
         _titleArray = @[NSLocalizedString(@"Reply", nil),
                         NSLocalizedString(@"Collect", nil),
-                        NSLocalizedString(@"Share", nil),
+                        NSLocalizedString(@"Report", nil),
                         NSLocalizedString(@"Open in Safari", nil),
                         NSLocalizedString(@"Copy URL", nil),
-                        NSLocalizedString(@"Report", nil)];
-        _imageArray = @[@"icon_edit", @"icon_collect", @"icon_share", @"icon_compass", @"icon_link", @"icon_error"];
+                        NSLocalizedString(@"Share", nil)];
+        _imageArray = @[@"icon_edit", @"icon_collect", @"icon_error", @"icon_compass", @"icon_link", @"icon_share"];
     }
     return self;
 }
@@ -102,28 +102,29 @@
             } else {
                 [self collectAction];
             }
-            [ApplicationDelegate.sideMenuViewController hideMenuViewController];
 
             break;
         case 2:
             [ApplicationDelegate.sideMenuViewController hideMenuViewController];
-            [self shareAction];
-            break;
+            [self reportAction];
             
+            break;
         case 3:
             [self safariAction];
-            break;
             
+            break;
         case 4:
             [self copyURLAction];
             [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy complete", nil)];
-            break;
             
+            break;
         case 5:
-            [ApplicationDelegate.sideMenuViewController hideMenuViewController];
-            [self reportAction];
-            break;
             
+            [ApplicationDelegate.sideMenuViewController hideMenuViewController];
+            [self shareAction];
+            
+            break;
+
         default:
             break;
     }
