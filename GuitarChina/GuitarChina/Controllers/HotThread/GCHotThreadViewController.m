@@ -33,7 +33,7 @@
 - (void)loadView {
     [super loadView];
     
-    self.title = NSLocalizedString(@"Hot", nil);
+    self.title = NSLocalizedString(@"Recent", nil);
     self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
 //    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"

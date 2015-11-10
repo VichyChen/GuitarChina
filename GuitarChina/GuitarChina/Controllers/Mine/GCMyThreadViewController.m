@@ -94,6 +94,8 @@
             [self.tableView reloadData];
             [self endRefresh];
         } failure:^(NSError *error) {
+            [self endRefresh];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No network connection!", nil)];
         }];
     };
 }

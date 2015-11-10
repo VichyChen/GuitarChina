@@ -146,13 +146,15 @@
 }
 
 - (void)newThreadAction {
-    if ([self.uid isEqualToString:@"0"]) {
-        GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
-        GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
-        [self presentViewController:navigationController animated:YES completion:nil];
-    } else {
-        GCPostThreadViewController *controller = [[GCPostThreadViewController alloc] init];
-        [self.navigationController pushViewController:controller animated:YES];
+    if (self.loaded == YES) {
+        if ([self.uid isEqualToString:@"0"]) {
+            GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
+            GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
+            [self presentViewController:navigationController animated:YES completion:nil];
+        } else {
+            GCPostThreadViewController *controller = [[GCPostThreadViewController alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
     }
 }
 
