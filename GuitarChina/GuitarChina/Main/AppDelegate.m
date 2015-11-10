@@ -38,6 +38,7 @@
     [self UMengAnalytics];
     //友盟分享
     [self UMengSocial];
+    [self configureForumDictionary];
     [self configureSVProgressHUD];
     [self configureTabBarController];
     [self configureSideMenuViewController];
@@ -187,6 +188,11 @@
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
     [SVProgressHUD setBackgroundColor:[UIColor GCDeepGrayColor]];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+}
+
+- (void)configureForumDictionary {
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"ForumList" ofType:@"plist"];
+    self.forumDictionary = [NSDictionary dictionaryWithContentsOfFile:path];
 }
 
 - (void)saveCookie {

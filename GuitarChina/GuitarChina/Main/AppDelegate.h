@@ -25,5 +25,7 @@
 @property (strong, nonatomic) GCLeftMenuViewController *leftMenuViewController;
 @property (strong, nonatomic) GCThreadRightMenuViewController *rightMenuViewController;
 
+@property (strong, nonatomic) NSDictionary *forumDictionary;
+
 @end
 

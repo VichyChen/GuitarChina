@@ -147,6 +147,7 @@
 		429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E720A1B8B5066000469E6 /* GCNewThreadModel.m */; };
 		42DA95021BA3B83E001A79B9 /* GCForumIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA95011BA3B83E001A79B9 /* GCForumIndexModel.m */; };
 		42DA95051BA5553C001A79B9 /* GCForumDisplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA95041BA5553C001A79B9 /* GCForumDisplayModel.m */; };
+		42FFF5B21BF1C24A0061029B /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42FFF5B11BF1C24A0061029B /* ForumList.plist */; };
 		CEFC34C235C11966848A8595 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F829F5DD46C688C9B2385EC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -440,6 +441,7 @@
 		42DA95011BA3B83E001A79B9 /* GCForumIndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexModel.m; sourceTree = "<group>"; };
 		42DA95031BA5553C001A79B9 /* GCForumDisplayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayModel.h; sourceTree = "<group>"; };
 		42DA95041BA5553C001A79B9 /* GCForumDisplayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayModel.m; sourceTree = "<group>"; };
+		42FFF5B11BF1C24A0061029B /* ForumList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForumList.plist; sourceTree = "<group>"; };
 		AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1110,6 +1112,7 @@
 				043648D91BCF8CF90005162D /* Html */,
 				0471258F1BCDF45B000C8BC1 /* CSS */,
 				0408D0931BE205C100B3825A /* UserProtocol.txt */,
+				42FFF5B11BF1C24A0061029B /* ForumList.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1260,6 +1263,7 @@
 				0463E6FC1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html in Resources */,
 				043648DD1BCF90740005162D /* GCThreadWebViewHtmlCell.html in Resources */,
 				425FB2F61B84C23B00B6A89B /* LaunchScreen.xib in Resources */,
+				42FFF5B21BF1C24A0061029B /* ForumList.plist in Resources */,
 				043648E01BCF9BD80005162D /* Images.xcassets in Resources */,
 				047150EF1BF03B2A007A8890 /* SVProgressHUD.bundle in Resources */,
 				423888A71BC57CA6002E1625 /* MJRefresh.bundle in Resources */,

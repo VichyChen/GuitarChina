@@ -10,20 +10,22 @@ body {
     font-size:18px;
 }
 
+#forum {
+    margin:0px 10px 0px 10px;
+    color:#80888F;
+    font-size:14px;
+}
+
 #datelineDetail {
     margin:0px 10px 0px 10px;
     color:#80888F;
     font-size:14px;
-    float:left;
-    text-align:left;
 }
 
 #replyDetail {
     margin:0px 10px 0px 10px;
     color:#80888F;
     font-size:14px;
-    float:right;
-    text-align:right;
 }
 
 .author {
