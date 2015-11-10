@@ -77,20 +77,26 @@
     @weakify(self);
     self.loginBlock = ^{
         @strongify(self);
+        self.loginView.loginButton.enabled = NO;
         [[GCNetworkManager manager] postLoginWithUsername:self.loginView.usernameTextField.text password:self.loginView.passwordTextField.text Success:^(GCLoginModel *model) {
-            ApplicationDelegate.tabBarController.selectedIndex = 2;
-            
-            [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLOGIN];
-            [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:kGCLOGINID];
-            [[NSUserDefaults standardUserDefaults] setObject:model.member_username forKey:kGCLOGINNAME];
-            [[NSUserDefaults standardUserDefaults] setObject:model.member_level forKey:kGCLOGINLEVEL];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            
-            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];
-            [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
-            [self closeAction];
-            
+            if ([model.message.messageval isEqualToString:@"login_succeed"]) {
+                ApplicationDelegate.tabBarController.selectedIndex = 2;
+                
+                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLOGIN];
+                [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:kGCLOGINID];
+                [[NSUserDefaults standardUserDefaults] setObject:model.member_username forKey:kGCLOGINNAME];
+                [[NSUserDefaults standardUserDefaults] setObject:model.member_level forKey:kGCLOGINLEVEL];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+                [self closeAction];
+            } else if ([model.message.messageval isEqualToString:@"login_invalid"]) {
+                [SVProgressHUD showErrorWithStatus:model.message.messagestr];
+            }
+            self.loginView.loginButton.enabled = YES;
         } failure:^(NSError *error) {
+            self.loginView.loginButton.enabled = YES;
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No network connection!", nil)];
         }];
     };

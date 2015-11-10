@@ -35,7 +35,7 @@
 }
 
 - (void)configureFrame {
-    self.textView.frame = CGRectMake(5, 10, ScreenWidth - 10, ScreenWidth - 20);
+    self.textView.frame = CGRectMake(5, 10, ScreenWidth - 10, ScreenHeight - 20);
     self.placeholderLabel.frame = CGRectMake(10, 18, 200, 20);
 }
 

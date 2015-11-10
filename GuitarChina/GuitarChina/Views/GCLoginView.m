@@ -45,21 +45,31 @@
 }
 
 - (void)configureFrame {
-    self.logoImageView.frame = CGRectMake(ScreenWidth / 2 - 50, 70, 100, 100);
-    self.usernameLabel.frame = CGRectMake(30, 190, CurrentScreenWidth * 0.33, 44);
-    self.usernameTextField.frame = CGRectMake(30 + CurrentScreenWidth * 0.33 + 10, 190, CurrentScreenWidth * 0.66, 44);
-    self.separatorFirstLineView.frame = CGRectMake(30, 235, CurrentScreenWidth, 1);
-    self.passwordLabel.frame = CGRectMake(30, 255, CurrentScreenWidth * 0.33, 44);
-    self.passwordTextField.frame = CGRectMake(30 + CurrentScreenWidth * 0.33 + 10, 255, CurrentScreenWidth * 0.66, 44);
-    self.separatorSecondLineView.frame = CGRectMake(30, 300, CurrentScreenWidth, 1);
-    self.loginButton.frame = CGRectMake(30, 330, CurrentScreenWidth, 44);
-    self.webLoginButton.frame = CGRectMake(25, 410, ScreenWidth - 50, 40);
-    self.descriptLabel.frame = CGRectMake(25, 450, ScreenWidth - 50, 50);
+    self.logoImageView.frame = CGRectMake(ScreenWidth / 2 - 40, 64, 80, 80);
+    self.usernameLabel.frame = CGRectMake(30, 160, CurrentScreenWidth * 0.33, 44);
+    self.usernameTextField.frame = CGRectMake(30 + CurrentScreenWidth * 0.33 + 10, 160, CurrentScreenWidth * 0.66, 44);
+    self.separatorFirstLineView.frame = CGRectMake(30, 200, CurrentScreenWidth, 1);
+    self.passwordLabel.frame = CGRectMake(30, 210, CurrentScreenWidth * 0.33, 44);
+    self.passwordTextField.frame = CGRectMake(30 + CurrentScreenWidth * 0.33 + 10, 210, CurrentScreenWidth * 0.66, 44);
+    self.separatorSecondLineView.frame = CGRectMake(30, 250, CurrentScreenWidth, 1);
+    self.loginButton.frame = CGRectMake(30, 280, CurrentScreenWidth, 44);
+    self.webLoginButton.frame = CGRectMake(25, self.frame.size.height - 120, ScreenWidth - 50, 20);
+    self.descriptLabel.frame = CGRectMake(25, self.frame.size.height - 100, ScreenWidth - 50, 60);
+}
+
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (![self isExclusiveTouch]) {
+        [self.usernameTextField resignFirstResponder];
+        [self.passwordTextField resignFirstResponder];
+    }
 }
 
 #pragma mark - Event Responses
 
 - (void)loginAction {
+    [self.usernameTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
     self.loginActionBlock();
 }
 
@@ -73,7 +83,7 @@
     if (!_logoImageView) {
         _logoImageView = [UIView createImageView:CGRectZero
                                            image:[UIImage imageNamed:@"logo_big.jpg"]
-                                     contentMode:UIViewContentModeScaleAspectFit];
+                                     contentMode:UIViewContentModeScaleAspectFill];
     }
     return _logoImageView;
 }
