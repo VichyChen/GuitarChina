@@ -249,13 +249,15 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 //先调用getViewThreadWithThreadID，再调用此方法，结果都是返回failure，根据operation.responseString判断结果吧
 - (void)getCollectionWithTid:(NSString *)tid
                     formhash:(NSString *)formhash
-                     Success:(void (^)(void))success
+                     Success:(void (^)(NSString *string))success
                      failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success();
+        success(@"");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if ([operation.responseString containsString:@"信息收藏成功"]) {
-            success();
+            success(NSLocalizedString(@"Collect Success", nil));
+        } else if ([operation.responseString containsString:@"请勿重复收藏"]) {
+            success(NSLocalizedString(@"Collect Repeat", nil));
         } else {
             failure(error);
         }

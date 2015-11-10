@@ -84,7 +84,7 @@
 //收藏帖子
 - (void)getCollectionWithTid:(NSString *)tid
                                         formhash:(NSString *)formhash
-                                         Success:(void (^)(void))success
+                                         Success:(void (^)(NSString *string))success
                                          failure:(void (^)(NSError *error))failure;
 
 

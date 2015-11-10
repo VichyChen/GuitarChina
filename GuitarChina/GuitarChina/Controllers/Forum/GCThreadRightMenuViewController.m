@@ -41,7 +41,7 @@
                         NSLocalizedString(@"Open in Safari", nil),
                         NSLocalizedString(@"Copy URL", nil),
                         NSLocalizedString(@"Share", nil)];
-        _imageArray = @[@"icon_edit", @"icon_collect", @"icon_error", @"icon_compass", @"icon_link", @"icon_share"];
+        _imageArray = @[@"icon_edit", @"icon_collect", @"icon_error", @"icon_externallink", @"icon_link", @"icon_share"];
     }
     return self;
 }
@@ -99,6 +99,7 @@
         case 1:
             if ([self.uid isEqualToString:@"0"]) {
                 [self presentLoginViewController];
+                [ApplicationDelegate.sideMenuViewController hideMenuViewController];
             } else {
                 [self collectAction];
             }
@@ -178,8 +179,8 @@
 }
 
 - (void)collectAction {
-    [[GCNetworkManager manager] getCollectionWithTid:self.tid formhash:self.formhash Success:^{
-        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Collect Success", nil)];
+    [[GCNetworkManager manager] getCollectionWithTid:self.tid formhash:self.formhash Success:^(NSString *string){
+        [SVProgressHUD showSuccessWithStatus:string];
     } failure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Collect Failure", nil)];
     }];

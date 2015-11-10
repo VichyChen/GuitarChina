@@ -49,6 +49,7 @@
 "Login Failure" = "登陆失败";
 "Reply Success" = "回复成功";
 "Collect Success" = "已收藏";
+"Collect Repeat" = "请勿重复收藏";
 "Collect Failure" = "收藏失败";
 "Copy complete" = "已复制";
 "Report Success" = "举报成功";
