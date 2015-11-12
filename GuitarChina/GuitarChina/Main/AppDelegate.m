@@ -16,6 +16,7 @@
 #import "MobClick.h"
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
 
 @interface AppDelegate ()
 
@@ -38,6 +39,7 @@
     [self UMengAnalytics];
     //友盟分享
     [self UMengSocial];
+    
     [self configureForumDictionary];
     [self configureSVProgressHUD];
     [self configureTabBarController];
@@ -120,8 +122,10 @@
 
 - (void)UMengSocial {
     [UMSocialData setAppKey:kUMENG_APPKEY];
-    //设置微信AppId、appSecret
+    //设置微信AppID、appSecret
     [UMSocialWechatHandler setWXAppId:kWECHAT_APPID appSecret:kWECHAT_APPSECRET url:nil];
+    //设置QQAppID、appKey
+    [UMSocialQQHandler setQQWithAppId:kQQ_APPID appKey:kQQ_APPKEY url:@"http://www.umeng.com/social"];
 }
 
 #pragma mark - Private Methods

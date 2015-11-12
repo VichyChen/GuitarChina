@@ -24,4 +24,18 @@
                       Success:(void (^)(void))success
                       failure:(void (^)(void))failure;
 
+//分享到QQ
++ (void)ShareToQQ:(NSString *)url
+            title:(NSString *)title
+          content:(NSString *)content
+          Success:(void (^)(void))success
+          failure:(void (^)(void))failure;
+
+//分享到QQ空间
++ (void)ShareToQQZone:(NSString *)url
+            title:(NSString *)title
+          content:(NSString *)content
+          Success:(void (^)(void))success
+          failure:(void (^)(void))failure;
+
 @end
