@@ -33,10 +33,6 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage imageNamed:@"1point.png"] imageWithTintColor:[UIColor clearColor]] forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:[[UIImage imageNamed:@"1point.png"] imageWithTintColor:[UIColor clearColor]]];
-//    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
 }
@@ -46,9 +42,6 @@
     
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
-}
-
-- (void)dealloc {
 }
 
 - (void)didReceiveMemoryWarning {

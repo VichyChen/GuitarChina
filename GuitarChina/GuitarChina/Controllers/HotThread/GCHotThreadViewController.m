@@ -7,7 +7,6 @@
 //
 
 #import "GCHotThreadViewController.h"
-#import "RESideMenu.h"
 #import "GCHotThreadCell.h"
 #import "GCThreadDetailViewController.h"
 
@@ -21,28 +20,12 @@
 
 #pragma mark - life cycle
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.rowHeightArray = [NSMutableArray array];
-    }
-    return self;
-}
-
 - (void)loadView {
     [super loadView];
     
     self.title = NSLocalizedString(@"Recent", nil);
     self.navigationController.navigationBarHidden = YES;
     self.view.backgroundColor = [UIColor whiteColor];
-//    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
-//                                                                  normalColor:[UIColor FontColor]
-//                                                             highlightedColor:[UIColor redColor]
-//                                                                       target:self
-//                                                                       action:@selector(presentLeftMenuViewController:)];
-    
-
 }
 
 - (void)viewDidLoad {

@@ -7,7 +7,6 @@
 //
 
 #import "GCForumIndexViewController.h"
-#import "RESideMenu.h"
 #import "GCForumDisplayViewController.h"
 #import "GCForumIndexCell.h"
 
@@ -21,26 +20,12 @@
 
 #pragma mark - life cycle
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.rowHeightDictionary = [NSMutableDictionary dictionary];
-    }
-    return self;
-}
-
 - (void)loadView {
     [super loadView];
     
     self.hiddenNavigationBarWhenScrollToBottom = NO;
 //    self.autoBeginRefresh = NO;
     self.title = NSLocalizedString(@"Forum", nil);
-//    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_hamberger"
-//                                                                  normalColor:[UIColor FontColor]
-//                                                             highlightedColor:[UIColor redColor]
-//                                                                       target:self
-//                                                                       action:@selector(presentLeftMenuViewController:)];
 }
 
 - (void)viewDidLoad {
@@ -50,10 +35,6 @@
     
 //    self.data = [[NSUserDefaults standardUserDefaults] objectForKey:kGCFORUMINDEXDICTIONARY];
 //    [self.tableView reloadData];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

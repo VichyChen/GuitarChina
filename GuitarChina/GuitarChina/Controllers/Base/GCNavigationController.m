@@ -18,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    self.navigationBar.
     self.navigationBar.barTintColor = [UIColor whiteColor];
     self.navigationBar.tintColor = [UIColor GCFontColor];
     self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor GCFontColor] forKey:NSForegroundColorAttributeName];

@@ -21,15 +21,6 @@
 
 #pragma mark - life cycle
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.rowHeightArray = [NSMutableArray array];
-    }
-    return self;
-}
-
 - (void)loadView {
     [super loadView];
     

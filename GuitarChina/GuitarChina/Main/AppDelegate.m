@@ -69,6 +69,18 @@
     [self saveCookie];
 }
 
+- (BOOL)application:(UIApplication *)application
+      handleOpenURL:(NSURL *)url {
+    return [UMSocialSnsService handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [UMSocialSnsService handleOpenURL:url];
+}
+
 #pragma mark - RESideMenu Delegate
 
 - (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
@@ -89,18 +101,6 @@
 - (void)sideMenu:(RESideMenu *)sideMenu didHideMenuViewController:(UIViewController *)menuViewController
 {
     NSLog(@"didHideMenuViewController: %@", NSStringFromClass([menuViewController class]));
-}
-
-- (BOOL)application:(UIApplication *)application
-      handleOpenURL:(NSURL *)url {
-    return [UMSocialSnsService handleOpenURL:url];
-}
-
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    return [UMSocialSnsService handleOpenURL:url];
 }
 
 #pragma mark - UMengAnalytics

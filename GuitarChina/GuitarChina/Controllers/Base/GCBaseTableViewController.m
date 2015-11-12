@@ -22,8 +22,6 @@
     if (self) {
         _hiddenNavigationBarWhenScrollToBottom = NO;
         _autoBeginRefresh = YES;
-        _rowHeightArray = [NSMutableArray array];
-        _rowHeightDictionary = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -131,6 +129,22 @@
             lastPosition = -position;
         }
     }
+}
+
+#pragma mark - Getters
+
+- (NSMutableArray *)rowHeightArray {
+    if (!_rowHeightArray) {
+        _rowHeightArray = [NSMutableArray array];
+    }
+    return _rowHeightArray;
+}
+
+- (NSMutableDictionary *)rowHeightDictionary {
+    if (!_rowHeightDictionary) {
+        _rowHeightDictionary = [NSMutableDictionary dictionary];
+    }
+    return _rowHeightDictionary;
 }
 
 @end

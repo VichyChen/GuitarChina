@@ -21,15 +21,6 @@
 
 #pragma mark - life cycle
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        self.rowHeightArray = [NSMutableArray array];
-    }
-    return self;
-}
-
 - (void)loadView {
     [super loadView];
     
@@ -85,16 +76,6 @@
     @weakify(self);
     self.refreshBlock = ^{
         @strongify(self);
-//        [[GCNetworkManager manager] getMyThreadSuccess:^(GCMyThreadArray *array) {
-//            self.data = array.data;
-//            [self.rowHeightArray removeAllObjects];
-//            for (GCMyFavThreadModel *model in self.data) {
-//                [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCMyFavThreadCell getCellHeightWithModel:model]]];
-//            }
-//            [self.tableView reloadData];
-//            [self endRefresh];
-//        } failure:^(NSError *error) {
-//        }];
         [[GCNetworkManager manager] getMyFavThreadSuccess:^(GCMyFavThreadArray *array) {
             self.data = array.data;
             [self.rowHeightArray removeAllObjects];

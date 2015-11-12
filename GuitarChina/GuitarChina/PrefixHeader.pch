@@ -53,5 +53,9 @@ static NSString * const kGCNOTIFICATION_REPORT = @"REPORT"; //举报
 static NSString * const kUMENG_APPKEY = @"5638ba4367e58ea3e9000b36"; //友盟appkey
 static NSString * const kWECHAT_APPID = @"wx26165a2548b3611f"; //微信appid
 static NSString * const kWECHAT_APPSECRET = @"d4624c36b6795d1d99dcf0547af5443d"; //微信appsecret
+static NSString * const kQQ_APPID = @""; //QQappid
+static NSString * const kQQ_APPKEY = @""; //QQappkey
+
+
 
 #endif

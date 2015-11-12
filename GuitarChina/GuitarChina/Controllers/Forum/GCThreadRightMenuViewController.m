@@ -17,7 +17,7 @@
 #define GCThreadRightMenuCellHeightIniPhone 55
 #define GCThreadRightMenuCellHeightIniPad 55
 
-@interface GCThreadRightMenuViewController () <UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface GCThreadRightMenuViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -50,8 +50,6 @@
     [super loadView];
     
     [self.view addSubview:self.tableView];
-    
-    //    [self.view addSubview:self.collectionView];
 }
 
 - (void)viewDidLoad {
@@ -140,35 +138,6 @@
     }
 }
 
-#pragma mark - UICollectionViewDataSource
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.titleArray count];
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    GCThreadRightMenuCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GCThreadRightMenuCollectionCell" forIndexPath:indexPath];
-    //    [self.titleArray objectAtIndex:indexPath.item]
-    cell.backgroundView.backgroundColor = [UIColor redColor];
-    return cell;
-}
-
-#pragma mark - UICollectionViewDelegate
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return CGSizeMake((ScreenWidth - 50) / 4, (ScreenWidth - 50) / 4);
-}
-
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsMake(5, 5, 5, 5);
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
 #pragma mark - Event Response
 
 - (void)replyAction {
@@ -232,19 +201,5 @@
     }
     return _tableView;
 }
-
-- (UICollectionView *)collectionView {
-    if (!_collectionView) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(5, ScreenWidth / 2, ScreenWidth - 10, 10 + (ScreenWidth - 50) / 4) collectionViewLayout:layout];
-        _collectionView.backgroundColor = [UIColor whiteColor];
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
-        [_collectionView registerClass:[GCThreadRightMenuCollectionCell class] forCellWithReuseIdentifier:@"GCThreadRightMenuCollectionCell"];
-    }
-    
-    return _collectionView;
-}
-
 
 @end
