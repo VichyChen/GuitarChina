@@ -57,3 +57,6 @@
 
 "No network connection!" = "没有网络连接！";
 
+"Night Mode" = "夜间模式";
+"Auto switch Night Mode" = "自动切换夜间模式";
+"Load image in 2G/3G/4G" = "2G/3G/4G 时加载图片";

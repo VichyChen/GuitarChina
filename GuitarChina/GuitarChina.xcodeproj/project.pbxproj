@@ -63,6 +63,8 @@
 		047150EF1BF03B2A007A8890 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 047150E91BF03B2A007A8890 /* SVProgressHUD.bundle */; };
 		047150F01BF03B2A007A8890 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150EB1BF03B2A007A8890 /* SVProgressHUD.m */; };
 		047150F11BF03B2A007A8890 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150ED1BF03B2A007A8890 /* SVRadialGradientLayer.m */; };
+		047D7EC11BF58542001689E7 /* CustomActivety.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D7EC01BF58542001689E7 /* CustomActivety.m */; };
+		047D7EC61BF5C9AD001689E7 /* GCMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D7EC51BF5C9AD001689E7 /* GCMoreCell.m */; };
 		04935B031BB52D5C0010F7C8 /* GCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B021BB52D5C0010F7C8 /* GCMineViewController.m */; };
 		04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B051BB52F460010F7C8 /* GCMoreViewController.m */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
@@ -265,6 +267,10 @@
 		047150EB1BF03B2A007A8890 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		047150EC1BF03B2A007A8890 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		047150ED1BF03B2A007A8890 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		047D7EBF1BF58542001689E7 /* CustomActivety.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomActivety.h; sourceTree = "<group>"; };
+		047D7EC01BF58542001689E7 /* CustomActivety.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomActivety.m; sourceTree = "<group>"; };
+		047D7EC41BF5C9AD001689E7 /* GCMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreCell.h; sourceTree = "<group>"; };
+		047D7EC51BF5C9AD001689E7 /* GCMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreCell.m; sourceTree = "<group>"; };
 		04935B011BB52D5C0010F7C8 /* GCMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMineViewController.h; sourceTree = "<group>"; };
 		04935B021BB52D5C0010F7C8 /* GCMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMineViewController.m; sourceTree = "<group>"; };
 		04935B041BB52F460010F7C8 /* GCMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreViewController.h; sourceTree = "<group>"; };
@@ -612,6 +618,7 @@
 				0426CD771BE73E4500BE85D8 /* Forum */,
 				0426CD791BE73E4500BE85D8 /* Mine */,
 				0426CD7A1BE73E4500BE85D8 /* Setting */,
+				047D7EC21BF5C911001689E7 /* More */,
 				045EC4371BDE5E7A008A1901 /* GCLoginView.h */,
 				045EC4381BDE5E7A008A1901 /* GCLoginView.m */,
 				0426CDA01BE73FC200BE85D8 /* GCLeftMenuCell.h */,
@@ -638,6 +645,8 @@
 				046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */,
 				046262421BAAC06800E66F03 /* UIView+UICreateFactory.h */,
 				046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */,
+				047D7EBF1BF58542001689E7 /* CustomActivety.h */,
+				047D7EC01BF58542001689E7 /* CustomActivety.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -708,6 +717,23 @@
 				047150ED1BF03B2A007A8890 /* SVRadialGradientLayer.m */,
 			);
 			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		047D7EC21BF5C911001689E7 /* More */ = {
+			isa = PBXGroup;
+			children = (
+				047D7EC31BF5C937001689E7 /* Cells */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		047D7EC31BF5C937001689E7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				047D7EC41BF5C9AD001689E7 /* GCMoreCell.h */,
+				047D7EC51BF5C9AD001689E7 /* GCMoreCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		04935AFF1BB52D0A0010F7C8 /* Mine */ = {
@@ -1352,6 +1378,7 @@
 				0426CD8B1BE73F0E00BE85D8 /* GCForumIndexCell.m in Sources */,
 				045F2F361BE0B6B10024C9FC /* GCUserInfoViewController.m in Sources */,
 				423889021BC57D0F002E1625 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
+				047D7EC61BF5C9AD001689E7 /* GCMoreCell.m in Sources */,
 				4219A66C1B9A8086005D2164 /* GCHotThreadModel.m in Sources */,
 				045EC4391BDE5E7A008A1901 /* GCLoginView.m in Sources */,
 				0426CD961BE73F3000BE85D8 /* GCMineCell.m in Sources */,
@@ -1431,6 +1458,7 @@
 				0426CDB11BE7564700BE85D8 /* GCShareThreadView.m in Sources */,
 				423888A11BC57CA6002E1625 /* MJRefreshBackGifFooter.m in Sources */,
 				420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */,
+				047D7EC11BF58542001689E7 /* CustomActivety.m in Sources */,
 				426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */,
 				4260C6971BB64AB700705BE0 /* Util.m in Sources */,
 				0459674A1BC7A47D000181DE /* RTLabel.m in Sources */,

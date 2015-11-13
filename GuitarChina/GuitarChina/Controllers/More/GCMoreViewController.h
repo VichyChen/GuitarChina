@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCMoreViewController : UIViewController
+@interface GCMoreViewController : GCBaseViewController
 
 @end

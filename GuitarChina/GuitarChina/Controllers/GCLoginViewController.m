@@ -11,6 +11,7 @@
 #import "GCWebViewController.h"
 #import "UMSocial.h"
 #import "GCSocial.h"
+#import "CustomActivety.h"
 
 @interface GCLoginViewController () <UMSocialUIDelegate>
 
@@ -111,7 +112,13 @@
         @weakify(self);
         _loginView.loginActionBlock = ^{
             @strongify(self);
-            self.loginBlock();
+//            self.loginBlock();
+            
+            
+            NSArray* activities = @[ [CustomActivety new] ];
+            UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:nil applicationActivities:activities];
+            
+            [self presentViewController:activityVC animated:YES completion:nil];
        };
         _loginView.webLoginActionBlock = ^{
             @strongify(self);
