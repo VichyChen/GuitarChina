@@ -164,7 +164,6 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
-    self.view.backgroundColor = [UIColor whiteColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = NSLocalizedString(@"Detail", nil);//@"详情";
     

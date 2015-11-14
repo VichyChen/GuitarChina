@@ -30,7 +30,6 @@
     [super didReceiveMemoryWarning];
 }
 
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -50,36 +49,41 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GCMoreCell *cell = [[GCMoreCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     if (indexPath.section == 0) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         if (indexPath.row == 0) {
             cell.titleLabel.text = NSLocalizedString(@"Night Mode", nil);
             cell.leftImageView.image = [UIImage imageNamed:@"icon_document"];
             UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
             cell.accessoryView = switchView;
+            switchView.on = [[NSUserDefaults standardUserDefaults] boolForKey:kGCNIGHTMODE];
             [switchView addTarget:self action:@selector(nightModeAction:) forControlEvents:UIControlEventValueChanged];
         } else if (indexPath.row == 1) {
             cell.titleLabel.text = NSLocalizedString(@"Auto switch Night Mode", nil);
             cell.leftImageView.image = [UIImage imageNamed:@"icon_document"];
             UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
             cell.accessoryView = switchView;
+            switchView.on = [[NSUserDefaults standardUserDefaults] boolForKey:kGCAUTOSWITCHNIGHTMODE];
             [switchView addTarget:self action:@selector(autoSwitchNightModeAction:) forControlEvents:UIControlEventValueChanged];
         } else if (indexPath.row == 2) {
-            cell.titleLabel.text = NSLocalizedString(@"Load image in 2G/3G/4G", nil);
+            cell.titleLabel.text = NSLocalizedString(@"2G/3G/4G not load image", nil);
             cell.leftImageView.image = [UIImage imageNamed:@"icon_document"];
             UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
             cell.accessoryView = switchView;
+            switchView.on = [[NSUserDefaults standardUserDefaults] boolForKey:kGCLOADIMAGE];
             [switchView addTarget:self action:@selector(loadImageAction:) forControlEvents:UIControlEventValueChanged];
         }
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            cell.titleLabel.text = NSLocalizedString(@"给我们评分", nil);
+            cell.titleLabel.text = NSLocalizedString(@"Score", nil);
             cell.leftImageView.image = [UIImage imageNamed:@"icon_document"];
         } else if (indexPath.row == 1) {
-            cell.titleLabel.text = NSLocalizedString(@"关于吉他中国", nil);
+            cell.titleLabel.text = NSLocalizedString(@"About GuitarChina", nil);
             cell.leftImageView.image = [UIImage imageNamed:@"icon_document"];
         } else if (indexPath.row == 2) {
-            cell.titleLabel.text = NSLocalizedString(@"版本", nil);
+            cell.titleLabel.text = NSLocalizedString(@"Version", nil);
             cell.leftImageView.image = [UIImage imageNamed:@"icon_document"];
             cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
     }
     
@@ -94,7 +98,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
-    view.backgroundColor = [UIColor whiteColor];
+    view.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
     UILabel *label = [UIView createLabel:CGRectMake(15, 5, 50, 20)
                                     text:@""
                                     font:[UIFont systemFontOfSize:16]
@@ -125,15 +129,27 @@
 #pragma mark - Event Response
 
 - (void)nightModeAction:(id)sender {
+    UISwitch *switchView = (UISwitch *)sender;
+    [[NSUserDefaults standardUserDefaults] setBool:switchView.on forKey:kGCNIGHTMODE];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
+    if (switchView.on) {
+        [DKNightVersionManager nightFalling];
+    } else {
+        [DKNightVersionManager dawnComing];
+    }
 }
 
 - (void)autoSwitchNightModeAction:(id)sender {
-    
+    UISwitch *switchView = (UISwitch *)sender;
+    [[NSUserDefaults standardUserDefaults] setBool:switchView.on forKey:kGCAUTOSWITCHNIGHTMODE];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)loadImageAction:(id)sender {
-    
+    UISwitch *switchView = (UISwitch *)sender;
+    [[NSUserDefaults standardUserDefaults] setBool:switchView.on forKey:kGCLOADIMAGE];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - Private Methods

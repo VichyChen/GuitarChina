@@ -21,6 +21,9 @@
     self.navigationBar.barTintColor = [UIColor whiteColor];
     self.navigationBar.tintColor = [UIColor GCFontColor];
     self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor GCFontColor] forKey:NSForegroundColorAttributeName];
+    
+//    self.navigationBar.nightBarTintColor = [UIColor GCFontColor];
+//    self.navigationBar.nightTintColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {

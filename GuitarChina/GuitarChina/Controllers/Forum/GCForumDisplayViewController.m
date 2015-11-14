@@ -31,9 +31,7 @@
     self.uid = 0;
     self.pageIndex = 1;
     self.pageSize = 20;
-    
-    self.view.backgroundColor = [UIColor whiteColor];
-    
+
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_edit"
                                                                    normalColor:[UIColor GCFontColor]
                                                               highlightedColor:[UIColor GCFontColor]

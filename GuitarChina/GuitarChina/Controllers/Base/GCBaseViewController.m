@@ -24,6 +24,9 @@
     [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-500, 0)
                                      forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.backBarButtonItem=backItem;
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+//    self.view.nightBackgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {

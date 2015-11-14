@@ -25,7 +25,6 @@
     
     self.title = NSLocalizedString(@"Recent", nil);
     self.navigationController.navigationBarHidden = YES;
-    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)viewDidLoad {

@@ -32,10 +32,14 @@
 #define DeviceiPhone UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
 
 //NSUserDefault
+static NSString * const kGCFIRSTSTART = @"FIRSTSTART";
 static NSString * const kGCLOGIN = @"LOGIN";
 static NSString * const kGCLOGINID = @"LOGINID";
 static NSString * const kGCLOGINNAME = @"LOGINNAME";
 static NSString * const kGCLOGINLEVEL = @"LOGINLEVEL";
+static NSString * const kGCNIGHTMODE = @"NIGHTMODE";
+static NSString * const kGCAUTOSWITCHNIGHTMODE = @"AUTOSWITCHNIGHTMODE";
+static NSString * const kGCLOADIMAGE = @"LOADIMAGE";
 
 static NSString * const kGCFORUMINDEXDICTIONARY = @"FORUMINDEXDICTIONARY";
 
@@ -55,7 +59,5 @@ static NSString * const kWECHAT_APPID = @"wx26165a2548b3611f"; //微信appid
 static NSString * const kWECHAT_APPSECRET = @"d4624c36b6795d1d99dcf0547af5443d"; //微信appsecret
 static NSString * const kQQ_APPID = @"1104956834"; //QQappid
 static NSString * const kQQ_APPKEY = @"rmLJuaY5d3Bs8uE4"; //QQappkey
-
-
 
 #endif

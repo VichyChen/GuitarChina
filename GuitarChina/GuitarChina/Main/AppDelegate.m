@@ -27,12 +27,20 @@
 #pragma mark - UIApplicationDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
     
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     for (NSHTTPCookie *cookie in [cookieJar cookies]) {
         NSLog(@"%@", cookie);
+    }
+    
+    if ([self firstStart]) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCAUTOSWITCHNIGHTMODE];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCLOADIMAGE];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kGCNIGHTMODE]) {
+        [DKNightVersionManager nightFalling];
     }
     
     //友盟统计
@@ -45,6 +53,8 @@
     [self configureTabBarController];
     [self configureSideMenuViewController];
 
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = self.sideMenuViewController;
     [self.window makeKeyAndVisible];
     
@@ -224,6 +234,18 @@
                 [[NSHTTPCookieStorage sharedHTTPCookieStorage]  setCookie:cookieuser];
             }
         }
+    }
+}
+
+- (BOOL)firstStart {
+    BOOL result = [[NSUserDefaults standardUserDefaults] boolForKey:kGCFIRSTSTART];
+    if (result) {
+        return NO;
+    }
+    else {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCFIRSTSTART];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        return YES;
     }
 }
 

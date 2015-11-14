@@ -36,7 +36,12 @@
     
     [self.tableView setSeparatorInset:(UIEdgeInsetsMake(0, 15, 0, 15))];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+
+    self.view.backgroundColor = [UIColor whiteColor];
+//    self.view.nightBackgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor = [UIColor whiteColor];
+//    self.tableView.nightBackgroundColor = [UIColor whiteColor];
+
     self.tableView.header = ({
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(beginRefresh)];
         header.lastUpdatedTimeLabel.hidden = YES;

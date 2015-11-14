@@ -24,6 +24,7 @@
     [super loadView];
     
     self.hiddenNavigationBarWhenScrollToBottom = NO;
+    
 //    self.autoBeginRefresh = NO;
     self.title = NSLocalizedString(@"Forum", nil);
 }

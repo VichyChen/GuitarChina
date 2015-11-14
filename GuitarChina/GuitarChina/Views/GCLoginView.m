@@ -20,6 +20,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
+
         [self configureView];
     }
     return self;

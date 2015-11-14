@@ -59,4 +59,8 @@
 
 "Night Mode" = "夜间模式";
 "Auto switch Night Mode" = "自动切换夜间模式";
-"Load image in 2G/3G/4G" = "2G/3G/4G 时加载图片";
+"2G/3G/4G not load image" = "2G/3G/4G 不加载图片";
+
+"Score" = "给我们评分";
+"Version" = "版本";
+"About GuitarChina" = "关于吉他中国";
