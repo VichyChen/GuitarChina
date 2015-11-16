@@ -10,6 +10,9 @@
 
 @interface GCReplyThreadView : UIView
 
+@property (nonatomic, strong) UIImageView *avatarImage;
+@property (nonatomic, strong) UILabel *userLabel;
+@property (nonatomic, strong) UIView *separatorLineView;
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UILabel *placeholderLabel;
 

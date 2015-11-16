@@ -35,6 +35,11 @@
 }
 
 - (void)sendAction {
+    
+    if ([self.replyThreadView.textView.text trim].length == 0) {
+        return;
+    }
+    [self.replyThreadView.textView resignFirstResponder];
     [[GCNetworkManager manager] postReplyWithTid:self.tid message:self.replyThreadView.textView.text formhash:self.formhash Success:^(GCSendReplyModel *model) {
         [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
         [self closeAction];
@@ -46,6 +51,8 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
+    self.title = NSLocalizedString(@"Write reply", nil);
+    
     UIBarButtonItem *leftBarItem = [UIView createBarButtonItem:NSLocalizedString(@"Cancel", nil) target:self action:@selector(closeAction)];
     leftBarItem.tintColor = [UIColor GCDeepGrayColor];
     self.navigationItem.leftBarButtonItem = leftBarItem;
@@ -53,23 +60,6 @@
     UIBarButtonItem *rightBarItem = [UIView createBarButtonItem:NSLocalizedString(@"Send", nil) target:self action:@selector(sendAction)];
     rightBarItem.tintColor = [UIColor GCBlueColor];
     self.navigationItem.rightBarButtonItem = rightBarItem;
-    
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
-    UILabel *titleLabel = [UIView createLabel:CGRectMake(0, 0, 200, 22)
-                                         text:@"写回复"
-                                         font:[UIFont boldSystemFontOfSize:17]
-                                    textColor:[UIColor GCFontColor]];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    
-    UILabel *nameLabel = [UIView createLabel:CGRectMake(0, 22, 200, 20)
-                                        text:[[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME]
-                                        font:[UIFont systemFontOfSize:15]
-                                   textColor:[UIColor GCDeepGrayColor]];
-    nameLabel.textAlignment = NSTextAlignmentCenter;
-    
-    [titleView addSubview:titleLabel];
-    [titleView addSubview:nameLabel];
-    self.navigationItem.titleView = titleView;
     
     [self.view addSubview:self.replyThreadView];
 }

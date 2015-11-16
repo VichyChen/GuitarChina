@@ -30,13 +30,19 @@
 }
 
 - (void)configureView {
+    [self addSubview:self.avatarImage];
+    [self addSubview:self.userLabel];
+    [self addSubview:self.separatorLineView];
     [self addSubview:self.placeholderLabel];
     [self addSubview:self.textView];
 }
 
 - (void)configureFrame {
-    self.textView.frame = CGRectMake(5, 10, ScreenWidth - 10, ScreenHeight - 20);
-    self.placeholderLabel.frame = CGRectMake(10, 18, 200, 20);
+    self.avatarImage.frame = CGRectMake(10, 10, 30, 30);
+    self.userLabel.frame = CGRectMake(50, 10, ScreenWidth - 55, 30);
+    self.separatorLineView.frame = CGRectMake(10, 50, ScreenWidth - 20, 0.5);
+    self.textView.frame = CGRectMake(10, 55, ScreenWidth - 20, ScreenHeight - 64 - 65);
+    self.placeholderLabel.frame = CGRectMake(15, 62, 200, 20);
 }
 
 #pragma mark - UITextViewDelegate
@@ -66,6 +72,38 @@
 }
 
 #pragma mark - Getters
+
+- (UIImageView *)avatarImage {
+    if (!_avatarImage) {
+        _avatarImage = [UIView createImageView:CGRectZero
+                                   contentMode:UIViewContentModeScaleAspectFit];
+        _avatarImage.layer.cornerRadius = 5;
+        _avatarImage.layer.masksToBounds = YES;
+        _avatarImage.backgroundColor = [UIColor GCLightGrayColor];
+        [_avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_URL_BIGAVTARIMAGE([[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINID])]
+                            placeholderImage:nil
+                                     options:SDWebImageRetryFailed];
+    }
+    return _avatarImage;
+}
+
+- (UILabel *)userLabel {
+    if (!_userLabel) {
+        _userLabel = [UIView createLabel:CGRectZero
+                                    text:[[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME]
+                                    font:[UIFont boldSystemFontOfSize:16]
+                               textColor:[UIColor GCBlueColor]];
+    }
+    return _userLabel;
+}
+
+- (UIView *)separatorLineView {
+    if (!_separatorLineView) {
+        _separatorLineView = [[UIView alloc] initWithFrame:CGRectZero];
+        _separatorLineView.backgroundColor = [UIColor GCGrayLineColor];
+    }
+    return _separatorLineView;
+}
 
 - (UITextView *)textView {
     if (!_textView) {

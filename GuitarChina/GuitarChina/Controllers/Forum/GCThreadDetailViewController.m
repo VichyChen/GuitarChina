@@ -45,6 +45,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    self.navigationItem.hidesBackButton =YES;
+//    self.navigationController.navigationBarHidden = YES;
     
     _offsetY = -1;
     _loaded = false;
@@ -65,12 +67,28 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
+//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+
     ApplicationDelegate.rightMenuViewController.tid = self.tid;
     ApplicationDelegate.rightMenuViewController.formhash = self.formhash;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+//    
+//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    
+//        [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+//        [self.navigationController.navigationBar setShadowImage:nil];
+    [super viewWillDisappear:animated];
+    
+//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 - (void)dealloc {
@@ -84,14 +102,15 @@
 #pragma mark - UIWebViewDelegate
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     if (self.offsetY != -1) {
         self.threadDetailView.webView.scrollView.contentOffset = CGPointMake(0, self.offsetY);
         self.offsetY = 0;
@@ -165,6 +184,7 @@
 
 - (void)configureView {
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.edgesForExtendedLayout = UIRectEdgeAll;
     self.title = NSLocalizedString(@"Detail", nil);//@"详情";
     
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -176,7 +196,7 @@
     [leftButton addTarget:self action:@selector(showRightMenuViewController) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.rightBarButtonItem = barItem;
-    
+
     [self.view addSubview:self.threadDetailView];
 }
 

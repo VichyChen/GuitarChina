@@ -109,8 +109,6 @@
             model.message      = string ? string : @"";
             model.message = [model.message replace:@"[media]" toNewString:@""];
             model.message = [model.message replace:@"[/media]" toNewString:@""];
-            //            model.message = @"<embed type=\"application/x-shockwave-flash\" src=\"http://player.youku.com/player.php/sid/XMTM1NjYxMDI2MA==/v.swf\" height=\"300\" width=\"300\"></embed>";
-            //            model.message = @"http://v.youku.com/v_show/id_XMTM1NjYxMDI2MA==.html";
             
             //处理附件图片，替换<attach>成<img>
             model.attachmentsList = [item objectForKey:@"attachments"];

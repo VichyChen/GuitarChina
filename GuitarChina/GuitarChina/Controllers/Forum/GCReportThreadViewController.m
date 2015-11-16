@@ -35,6 +35,10 @@
 }
 
 - (void)sendAction {
+    if ([self.reportThreadView.textView.text trim].length == 0) {
+        return;
+    }
+    [self.reportThreadView.textView resignFirstResponder];
     [[GCNetworkManager manager] postReportWithTid:self.tid text:self.reportThreadView.textView.text Success:^{
         [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
         [self closeAction];

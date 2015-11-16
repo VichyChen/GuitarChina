@@ -39,9 +39,8 @@
                         NSLocalizedString(@"Collect", nil),
                         NSLocalizedString(@"Report", nil),
                         NSLocalizedString(@"Open in Safari", nil),
-                        NSLocalizedString(@"Copy URL", nil),
-                        NSLocalizedString(@"Share", nil)];
-        _imageArray = @[@"icon_edit", @"icon_collect", @"icon_error", @"icon_externallink", @"icon_link", @"icon_share"];
+                        NSLocalizedString(@"Copy URL", nil)];
+        _imageArray = @[@"icon_edit", @"icon_collect", @"icon_error", @"icon_externallink", @"icon_link"];
     }
     return self;
 }

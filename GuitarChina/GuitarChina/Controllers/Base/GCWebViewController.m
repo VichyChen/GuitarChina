@@ -8,7 +8,7 @@
 
 #import "GCWebViewController.h"
 
-@interface GCWebViewController() <UIWebViewDelegate, NJKWebViewProgressDelegate>
+@interface GCWebViewController() <UIWebViewDelegate>
 
 @end
 
@@ -20,7 +20,6 @@
     self.edgesForExtendedLayout = UIRectEdgeAll;
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.webView];
-    [self.view addSubview:self.progressView];
     
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:self.urlString]];
     [self.webView loadRequest:request];
@@ -34,15 +33,15 @@
 
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
@@ -56,11 +55,6 @@
     return YES;
 }
 
--(void)webViewProgress:(NJKWebViewProgress *)webViewProgress updateProgress:(float)progress
-{
-    [self.progressView setProgress:progress animated:NO];
-}
-
 #pragma mark - Getters
 
 - (UIWebView *)webView {
@@ -71,27 +65,8 @@
         _webView.backgroundColor = [UIColor clearColor];
         _webView.scrollView.showsHorizontalScrollIndicator = NO;
         _webView.delegate = self;
-        
-        _progressProxy = [[NJKWebViewProgress alloc] init]; // instance variable
-        _webView.delegate = _progressProxy;
-        _progressProxy.webViewProxyDelegate = self;
-        _progressProxy.progressDelegate = self;
     }
     return _webView;
-}
-
-- (NJKWebViewProgressView *)progressView {
-    if (!_progressView) {
-        CGRect navBounds = self.navigationController.navigationBar.bounds;
-        CGRect barFrame = CGRectMake(0,
-                                     navBounds.size.height - 2,
-                                     navBounds.size.width,
-                                     2);
-        _progressView = [[NJKWebViewProgressView alloc] initWithFrame:barFrame];
-        _progressView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-        [_progressView setProgress:0 animated:YES];
-    }
-    return _progressView;
 }
 
 @end
