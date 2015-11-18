@@ -15,8 +15,9 @@
 #import "GCNavigationController.h"
 #import "RESideMenu.h"
 #import "GCLoginViewController.h"
+#import "DOPNavbarMenu.h"
 
-@interface GCThreadDetailViewController () <UIWebViewDelegate> {
+@interface GCThreadDetailViewController () <UIWebViewDelegate, DOPNavbarMenuDelegate> {
 
 }
 
@@ -25,6 +26,8 @@
 @property (nonatomic, assign) NSInteger tabBarSelectedIndex;
 
 @property (nonatomic, strong) GCThreadDetailView *threadDetailView;
+@property (nonatomic, strong) DOPNavbarMenu *menu;
+
 @property (nonatomic, copy) void (^refreshBlock)();
 
 @property (nonatomic, strong) NSMutableString *htmlString;
@@ -79,6 +82,10 @@
 //    
 //    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
 //    [self.navigationController.navigationBar setShadowImage:nil];
+    
+    if (self.menu) {
+        [self.menu dismissWithAnimation:NO];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -166,6 +173,23 @@
     return YES;
 }
 
+#pragma mark - DOPNavbarMenuDelegate
+
+
+- (void)didShowMenu:(DOPNavbarMenu *)menu {
+    
+}
+
+- (void)didDismissMenu:(DOPNavbarMenu *)menu {
+    
+}
+
+- (void)didSelectedMenu:(DOPNavbarMenu *)menu atIndex:(NSInteger)index {
+//    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"you selected" message:[NSString stringWithFormat:@"number %@", @(index+1)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//    [av show];
+}
+
+
 #pragma mark - Notification
 
 - (void)configureNotification {
@@ -193,7 +217,7 @@
     UIImage *image = [UIImage imageNamed:@"icon_ellipsis"];
     [leftButton setImage:[image imageWithTintColor:[UIColor GCFontColor]] forState:UIControlStateNormal];
     [leftButton setImage:[image imageWithTintColor:[UIColor GCDeepGrayColor]] forState:UIControlStateHighlighted];
-    [leftButton addTarget:self action:@selector(showRightMenuViewController) forControlEvents:UIControlEventTouchUpInside];
+    [leftButton addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.rightBarButtonItem = barItem;
 
@@ -205,6 +229,14 @@
         return;
     }
     [self presentRightMenuViewController:nil];
+}
+
+- (void)openMenu:(id)sender {
+    if (self.menu.isOpen) {
+        [self.menu dismissWithAnimation:YES];
+    } else {
+        [self.menu showInNavigationController:self.navigationController];
+    }
 }
 
 - (void)configureBlock {
@@ -338,6 +370,25 @@
         };
     }
     return _threadDetailView;
+}
+
+- (DOPNavbarMenu *)menu {
+    if (!_menu) {
+        DOPNavbarMenuItem *item1 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Reply", nil) icon:[UIImage imageNamed:@"Image"]];
+        DOPNavbarMenuItem *item2 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Collect", nil) icon:[UIImage imageNamed:@"Image"]];
+        DOPNavbarMenuItem *item3 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Report", nil) icon:[UIImage imageNamed:@"Image"]];
+        DOPNavbarMenuItem *item4 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Open in Safari", nil) icon:[UIImage imageNamed:@"Image"]];
+        DOPNavbarMenuItem *item5 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Open in Chrome", nil) icon:[UIImage imageNamed:@"Image"]];
+        DOPNavbarMenuItem *item6 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Open in QQ Broswer", nil) icon:[UIImage imageNamed:@"Image"]];
+
+        
+        DOPNavbarMenuItem *item7 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Copy URL", nil) icon:[UIImage imageNamed:@"Image"]];
+        
+        _menu = [[DOPNavbarMenu alloc] initWithFirstRowItems:@[item1,item2,item3,item4,item5,item6] SecondRowItems:@[item7]];
+        _menu.backgroundColor = [UIColor colorWithRed:0.930f green:0.930f blue:0.930f alpha:1.00f];
+        _menu.delegate = self;
+    }
+    return _menu;
 }
 
 //- (void)beginFetchMore {
