@@ -19,16 +19,18 @@
 
 @implementation DOPNavbarMenuItem
 
-- (instancetype)initWithTitle:(NSString *)title icon:(UIImage *)icon {
+- (instancetype)initWithTitle:(NSString *)title icon:(UIImage *)icon row:(NSInteger)row actionBlock:(Action)actionBlock{
     self = [super init];
     if (self == nil) return nil;
     _title = title;
     _icon = icon;
+    _row = row;
+    _action = actionBlock;
     return self;
 }
 
-+ (DOPNavbarMenuItem *)ItemWithTitle:(NSString *)title icon:(UIImage *)icon {
-    return [[self alloc] initWithTitle:title icon:icon];
++ (DOPNavbarMenuItem *)ItemWithTitle:(NSString *)title icon:(UIImage *)icon row:(NSInteger)row actionBlock:(Action)actionBlock {
+    return [[self alloc] initWithTitle:title icon:icon row:(NSInteger)row actionBlock:actionBlock];
 }
 
 @end
@@ -46,108 +48,84 @@ static CGFloat titleFontSize = 15.0;
 
 @implementation DOPNavbarMenu
 
-- (instancetype)initWithFirstRowItems:(NSArray *)firstRowItems
-                       SecondRowItems:(NSArray *)secondRowItems {
+- (instancetype)initWithRowItems:(NSArray *)rowItems {
     self = [super initWithFrame:CGRectMake(0, 0, ScreenWidth, 0)];
     if (self == nil) return nil;
-//    self.alpha = 0.5f;
-    _firstRowItems = firstRowItems;
-    _secondRowItems = secondRowItems;
+
+    _rowItems = rowItems;
     
     _open = NO;
-    //    self.dop_height = (_numberOfRow+1) * rowHeight;
     self.dop_height = 300;
     self.dop_y = -self.dop_height;
     _beforeAnimationFrame = self.frame;
     _afterAnimationFrame = self.frame;
-    self.backgroundColor = [UIColor colorWithRed:0.906f green:0.906f blue:0.906f alpha:1.00f];
+
     _background = [[UIView alloc] initWithFrame:CGRectZero];
     _background.backgroundColor = [UIColor lightGrayColor];
     _background.alpha = 0.5f;
     UITouchGestureRecognizer *gr = [[UITouchGestureRecognizer alloc] initWithTarget:self action:@selector(dismissMenu)];
     [_background addGestureRecognizer:gr];
+    
     _textColor = [UIColor grayColor];
     _separatarColor = [UIColor lightGrayColor];
+    _iconColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
+
+    
     return self;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    //    CGFloat buttonWidth = self.dop_width/self.maximumNumberInRow;
-    CGFloat buttonWidth = ScreenWidth / 4;
-    CGFloat buttonHeight = rowHeight;
+
+//    NSInteger count = 0;
+//    for (DOPNavbarMenuItem *obj in self.rowItems) {
+//        if (obj.row == 0) {
+//            count++;
+//        }
+//    }
     
     UIScrollView *scrollView1 = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, 120)];
     scrollView1.backgroundColor = [UIColor clearColor];
-    scrollView1.contentSize = CGSizeMake(self.firstRowItems.count * 72 + 14, 120);
-    scrollView1.pagingEnabled = NO;
+//    scrollView1.contentSize = CGSizeMake(count * 72 + 14, 120);
     scrollView1.showsHorizontalScrollIndicator = NO;
     [self addSubview:scrollView1];
     
-    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(10, 185, ScreenWidth - 20, 1)];
-    seperator.backgroundColor = [UIColor lightGrayColor];
+    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(10, 175, ScreenWidth - 20, 1)];
+    seperator.backgroundColor = self.separatarColor;
     [self addSubview:seperator];
     
-    UIScrollView *scrollView2 = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 186, ScreenWidth, 120)];
+    UIScrollView *scrollView2 = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 176, ScreenWidth, 120)];
     scrollView2.backgroundColor = [UIColor clearColor];
-    scrollView2.contentSize = CGSizeMake(self.secondRowItems.count * 72 + 14, 120);
-    scrollView2.pagingEnabled = NO;
+//    scrollView2.contentSize = CGSizeMake((self.rowItems.count - count) * 72 + 14, 120);
     scrollView2.showsHorizontalScrollIndicator = NO;
     [self addSubview:scrollView2];
-    
-    [self.firstRowItems enumerateObjectsUsingBlock:^(DOPNavbarMenuItem *obj, NSUInteger idx, BOOL *stop) {
-        UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(7 + idx * 72, 0, 72, 120);
-        view.tag = idx;
-        view.backgroundColor = [UIColor clearColor];
-        [scrollView1 addSubview:view];
-        
-        UIView *iconView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 56, 56)];
-        iconView.backgroundColor = [UIColor whiteColor];
-        iconView.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height / 2 - 15);
-        iconView.layer.cornerRadius = 10;
-        [view addSubview:iconView];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
-        imageView.backgroundColor = [UIColor clearColor];
-        imageView.center = CGPointMake(iconView.frame.size.width / 2, iconView.frame.size.height / 2);
-        [iconView addSubview:imageView];
 
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 56 + 25, 75, 20)];
-        label.text = obj.title;
-        label.numberOfLines = 0;
-        label.preferredMaxLayoutWidth = 75;
-        label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = self.textColor;
-        label.font = [UIFont systemFontOfSize:13];
-        [view addSubview:label];
-        if ([label sizeThatFits:label.frame.size].height > 20) {
-            [label sizeToFit];
-            label.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height / 2 + 38);
+    NSInteger count = 0;
+
+    for (int i = 0; i < self.rowItems.count; i++) {
+        DOPNavbarMenuItem *obj = self.rowItems[i];
+        
+        if (obj.row == 0) {
+            count++;
         }
-
-        //        [button addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
-       
-    }];
-    
-    [self.secondRowItems enumerateObjectsUsingBlock:^(DOPNavbarMenuItem *obj, NSUInteger idx, BOOL *stop) {
+        
         UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(7 + idx * 72, 0, 72, 120);
-        view.tag = idx;
+        if (obj.row == 0) {
+            view.frame = CGRectMake(7 + (count - 1) * 72, 0, 72, 120);
+        } else {
+            view.frame = CGRectMake(7 + (i - count) * 72, 0, 72, 120);
+        }
         view.backgroundColor = [UIColor clearColor];
-        [scrollView2 addSubview:view];
         
-        UIView *iconView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 56, 56)];
-        iconView.backgroundColor = [UIColor whiteColor];
-        iconView.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height / 2 - 16);
-        iconView.layer.cornerRadius = 10;
-        [view addSubview:iconView];
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
-        imageView.backgroundColor = [UIColor clearColor];
-        imageView.center = CGPointMake(iconView.frame.size.width / 2, iconView.frame.size.height / 2);
-        [iconView addSubview:imageView];
-        
+        UIButton *iconButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 56, 56)];
+        iconButton.tag = i;
+        iconButton.backgroundColor = self.iconColor;
+        iconButton.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height / 2 - 15);
+        iconButton.layer.cornerRadius = 10;
+        [iconButton setImage:obj.icon forState:UIControlStateNormal];
+        [iconButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [view addSubview:iconButton];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 56 + 25, 75, 20)];
         label.text = obj.title;
@@ -155,14 +133,53 @@ static CGFloat titleFontSize = 15.0;
         label.preferredMaxLayoutWidth = 75;
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = self.textColor;
-        label.font = [UIFont systemFontOfSize:13];
+        label.font = [UIFont systemFontOfSize:12];
         [view addSubview:label];
         if ([label sizeThatFits:label.frame.size].height > 20) {
             [label sizeToFit];
             label.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height / 2 + 38);
         }
-       
-    }];
+        
+        if (obj.row == 0) {
+            [scrollView1 addSubview:view];
+        } else {
+            [scrollView2 addSubview:view];
+        }
+    }
+    scrollView1.contentSize = CGSizeMake(count * 72 + 14 < ScreenWidth ? ScreenWidth + 1 : count * 72 + 14, 120);
+    scrollView2.contentSize = CGSizeMake((self.rowItems.count - count) * 72 + 14 < ScreenWidth ? ScreenWidth + 1 : (self.rowItems.count - count) * 72 + 14, 120);
+    
+//     [self.rowItems enumerateObjectsUsingBlock:^(DOPNavbarMenuItem *obj, NSUInteger idx, BOOL *stop) {
+//           }];
+    
+//    [self.secondRowItems enumerateObjectsUsingBlock:^(DOPNavbarMenuItem *obj, NSUInteger idx, BOOL *stop) {
+//        UIView *view = [[UIView alloc] init];
+//        view.frame = CGRectMake(7 + idx * 72, 0, 72, 120);
+//        view.tag = idx;
+//        view.backgroundColor = [UIColor clearColor];
+//        [scrollView2 addSubview:view];
+//        
+//        UIButton *iconButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 56, 56)];
+//        iconButton.backgroundColor = self.iconColor;
+//        iconButton.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height / 2 - 15);
+//        iconButton.layer.cornerRadius = 10;
+//        [iconButton setImage:obj.icon forState:UIControlStateNormal];
+//        [view addSubview:iconButton];
+//        
+//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 56 + 25, 75, 20)];
+//        label.text = obj.title;
+//        label.numberOfLines = 0;
+//        label.preferredMaxLayoutWidth = 75;
+//        label.textAlignment = NSTextAlignmentCenter;
+//        label.textColor = self.textColor;
+//        label.font = [UIFont systemFontOfSize:13];
+//        [view addSubview:label];
+//        if ([label sizeThatFits:label.frame.size].height > 20) {
+//            [label sizeToFit];
+//            label.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height / 2 + 38);
+//        }
+//       
+//    }];
 }
 
 - (void)showInNavigationController:(UINavigationController *)nvc {
@@ -223,6 +240,11 @@ static CGFloat titleFontSize = 15.0;
     if (self.delegate) {
         [self.delegate didSelectedMenu:self atIndex:button.tag];
     }
+    DOPNavbarMenuItem *obj = self.rowItems[button.tag];
+    if (obj.action) {
+        obj.action();
+    }
+    
     [self dismissMenu];
 }
 @end

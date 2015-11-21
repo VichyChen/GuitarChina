@@ -18,7 +18,7 @@
 #import "DOPNavbarMenu.h"
 
 @interface GCThreadDetailViewController () <UIWebViewDelegate, DOPNavbarMenuDelegate> {
-
+    
 }
 
 @property (nonatomic, assign) CGFloat offsetY;
@@ -29,6 +29,11 @@
 @property (nonatomic, strong) DOPNavbarMenu *menu;
 
 @property (nonatomic, copy) void (^refreshBlock)();
+
+@property (nonatomic, copy) void (^replyBlock)();       //回复
+@property (nonatomic, copy) void (^favoriteBlock)();    //收藏
+@property (nonatomic, copy) void (^reportBlock)();    //举报
+
 
 @property (nonatomic, strong) NSMutableString *htmlString;
 
@@ -48,8 +53,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.navigationItem.hidesBackButton =YES;
-//    self.navigationController.navigationBarHidden = YES;
+    //    self.navigationItem.hidesBackButton =YES;
+    //    self.navigationController.navigationBarHidden = YES;
     
     _offsetY = -1;
     _loaded = false;
@@ -63,25 +68,25 @@
     [self configureView];
     [self configureBlock];
     [self configureNotification];
-
+    
     [self.threadDetailView webViewStartRefresh];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
-//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-
+    
+    //    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    //    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    
     ApplicationDelegate.rightMenuViewController.tid = self.tid;
     ApplicationDelegate.rightMenuViewController.formhash = self.formhash;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-//    
-//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:nil];
+    //
+    //    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    //    [self.navigationController.navigationBar setShadowImage:nil];
     
     if (self.menu) {
         [self.menu dismissWithAnimation:NO];
@@ -90,12 +95,12 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     
-//        [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-//        [self.navigationController.navigationBar setShadowImage:nil];
+    //        [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    //        [self.navigationController.navigationBar setShadowImage:nil];
     [super viewWillDisappear:animated];
     
-//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:nil];
+    //    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    //    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 - (void)dealloc {
@@ -185,8 +190,8 @@
 }
 
 - (void)didSelectedMenu:(DOPNavbarMenu *)menu atIndex:(NSInteger)index {
-//    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"you selected" message:[NSString stringWithFormat:@"number %@", @(index+1)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//    [av show];
+    //    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"you selected" message:[NSString stringWithFormat:@"number %@", @(index+1)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    //    [av show];
 }
 
 
@@ -202,6 +207,17 @@
     self.loaded = false;
     [self.threadDetailView webViewStartRefresh];
     ApplicationDelegate.tabBarController.selectedIndex = self.tabBarSelectedIndex;
+}
+
+- (void)openMenu:(id)sender {
+    if (!self.loaded) {
+        return;
+    }
+    if (self.menu.isOpen) {
+        [self.menu dismissWithAnimation:YES];
+    } else {
+        [self.menu showInNavigationController:self.navigationController];
+    }
 }
 
 #pragma mark - Private Methods
@@ -220,7 +236,7 @@
     [leftButton addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.rightBarButtonItem = barItem;
-
+    
     [self.view addSubview:self.threadDetailView];
 }
 
@@ -229,14 +245,6 @@
         return;
     }
     [self presentRightMenuViewController:nil];
-}
-
-- (void)openMenu:(id)sender {
-    if (self.menu.isOpen) {
-        [self.menu dismissWithAnimation:YES];
-    } else {
-        [self.menu showInNavigationController:self.navigationController];
-    }
 }
 
 - (void)configureBlock {
@@ -277,6 +285,38 @@
             [self.threadDetailView webViewEndFetchMore];
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No network connection!", nil)];
         }];
+    };
+    
+    self.replyBlock = ^{
+        @strongify(self);
+        if ([self.uid isEqualToString:@"0"]) {
+            [self presentLoginViewController];
+        } else {
+            GCReplyThreadViewController *controller = [[GCReplyThreadViewController alloc] init];
+            controller.tid = self.tid;
+            controller.formhash = self.formhash;
+            GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];
+            [self presentViewController:navigationController animated:YES completion:nil];
+        }
+    };
+    self.favoriteBlock = ^{
+        @strongify(self);
+        if ([self.uid isEqualToString:@"0"]) {
+            [self presentLoginViewController];
+        } else {
+            [[GCNetworkManager manager] getCollectionWithTid:self.tid formhash:self.formhash Success:^(NSString *string){
+                [SVProgressHUD showSuccessWithStatus:string];
+            } failure:^(NSError *error) {
+                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Collect Failure", nil)];
+            }];
+        }
+    };
+    self.reportBlock = ^{
+        @strongify(self);
+        GCReportThreadViewController *controller = [[GCReportThreadViewController alloc] init];
+        controller.tid = self.tid;
+        GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];
+        [self presentViewController:navigationController animated:YES completion:nil];
     };
 }
 
@@ -334,6 +374,12 @@
     }
 }
 
+- (void)presentLoginViewController {
+    GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
+    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
+}
+
 #pragma mark - Getters
 
 - (GCThreadDetailView *)threadDetailView {
@@ -374,18 +420,45 @@
 
 - (DOPNavbarMenu *)menu {
     if (!_menu) {
-        DOPNavbarMenuItem *item1 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Reply", nil) icon:[UIImage imageNamed:@"Image"]];
-        DOPNavbarMenuItem *item2 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Collect", nil) icon:[UIImage imageNamed:@"Image"]];
-        DOPNavbarMenuItem *item3 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Report", nil) icon:[UIImage imageNamed:@"Image"]];
-        DOPNavbarMenuItem *item4 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Open in Safari", nil) icon:[UIImage imageNamed:@"Image"]];
-        DOPNavbarMenuItem *item5 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Open in Chrome", nil) icon:[UIImage imageNamed:@"Image"]];
-        DOPNavbarMenuItem *item6 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Open in QQ Broswer", nil) icon:[UIImage imageNamed:@"Image"]];
-
+        DOPNavbarMenuItem *replyItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Reply", nil)
+                                                                   icon:[UIImage imageNamed:@"icon_edit"]
+                                                                    row:0
+                                                            actionBlock:self.replyBlock];
+        DOPNavbarMenuItem *favoriteItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Favorite", nil)
+                                                                      icon:[UIImage imageNamed:@"icon_collect"]
+                                                                       row:0
+                                                               actionBlock:self.favoriteBlock];
+        DOPNavbarMenuItem *copyItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Copy URL", nil)
+                                                                  icon:[UIImage imageNamed:@"icon_link"]
+                                                                   row:0
+                                                           actionBlock:^{
+                                                               [Util copyStringToPasteboard:GCNETWORKAPI_URL_THREAD(self.tid)];
+                                                               [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy complete", nil)];
+                                                           }];
+        DOPNavbarMenuItem *refreshItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Refresh", nil)
+                                                                     icon:[UIImage imageNamed:@"icon_link"]
+                                                                      row:0
+                                                              actionBlock:^{
+                                                                  [self.threadDetailView webViewStartRefresh];
+                                                              }];
+        DOPNavbarMenuItem *reportItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Report", nil)
+                                                                    icon:[UIImage imageNamed:@"icon_error"]
+                                                                     row:0
+                                                             actionBlock:self.reportBlock];
         
-        DOPNavbarMenuItem *item7 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Copy URL", nil) icon:[UIImage imageNamed:@"Image"]];
+        DOPNavbarMenuItem *safariItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Open in Safari", nil)
+                                                                    icon:[UIImage imageNamed:@"icon_externallink"]
+                                                                     row:1
+                                                             actionBlock:^{
+                                                                 [Util openUrlInSafari:GCNETWORKAPI_URL_THREAD(self.tid)];
+                                                             }];
+        //        DOPNavbarMenuItem *item5 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Open in Chrome", nil) icon:[UIImage imageNamed:@"Image"] row:0];
+        //        DOPNavbarMenuItem *item6 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Open in QQ Broswer", nil) icon:[UIImage imageNamed:@"Image"] row:0];
         
-        _menu = [[DOPNavbarMenu alloc] initWithFirstRowItems:@[item1,item2,item3,item4,item5,item6] SecondRowItems:@[item7]];
-        _menu.backgroundColor = [UIColor colorWithRed:0.930f green:0.930f blue:0.930f alpha:1.00f];
+        
+        //        _menu = [[DOPNavbarMenu alloc] initWithRowItems:@[replyItem, favoriteItem, reportItem, safariItem, copyItem]];
+        _menu = [[DOPNavbarMenu alloc] initWithRowItems:@[replyItem, favoriteItem, copyItem, refreshItem, reportItem, safariItem]];
+        
         _menu.delegate = self;
     }
     return _menu;

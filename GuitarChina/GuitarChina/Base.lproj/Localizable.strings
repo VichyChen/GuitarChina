@@ -15,10 +15,12 @@
 
 "Reply" = "Reply";
 "Collect" = "Collect";
+"Favorite" = "Favorite";
 "Share" = "Share";
 "Report" = "Report";
 "Open in Safari" = "Open in Safari";
 "Copy URL" = "Copy URL";
+"Refresh" = "Refresh";
 
 "login" = "login";
 "Load more." = "Load more.";

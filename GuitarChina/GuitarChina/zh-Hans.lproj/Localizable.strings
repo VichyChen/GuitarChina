@@ -15,10 +15,12 @@
 
 "Reply" = "回复";
 "Collect" = "收藏";
+"Favorite" = "收藏";
 "Share" = "分享";
 "Report" = "举报";
-"Open in Safari" = "从Safari打开";
+"Open in Safari" = "在Safari中打开";
 "Copy URL" = "复制链接";
+"Refresh" = "刷新";
 
 "login" = "登录";
 "Load more." = "加载更多。";

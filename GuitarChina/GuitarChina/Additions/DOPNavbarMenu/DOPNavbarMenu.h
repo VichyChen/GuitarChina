@@ -15,11 +15,15 @@
 
 @interface DOPNavbarMenuItem : NSObject
 
-@property (copy, nonatomic, readonly) NSString *title;
-@property (strong, nonatomic, readonly) UIImage *icon;
+typedef void(^Action)(void);
 
-- (instancetype)initWithTitle:(NSString *)title icon:(UIImage *)icon;
-+ (DOPNavbarMenuItem *)ItemWithTitle:(NSString *)title icon:(UIImage *)icon;
+@property (copy, nonatomic) NSString *title;
+@property (strong, nonatomic) UIImage *icon;
+@property (assign, nonatomic) NSInteger row;
+@property (copy, nonatomic) Action action;
+
+- (instancetype)initWithTitle:(NSString *)title icon:(UIImage *)icon row:(NSInteger)row actionBlock:(Action)actionBlock;
++ (DOPNavbarMenuItem *)ItemWithTitle:(NSString *)title icon:(UIImage *)icon row:(NSInteger)row actionBlock:(Action)actionBlock;
 
 @end
 
@@ -35,18 +39,18 @@
 //iOS7+
 @interface DOPNavbarMenu : UIView
 
-@property (copy, nonatomic, readonly) NSArray *firstRowItems;
-@property (copy, nonatomic, readonly) NSArray *secondRowItems;
+@property (copy, nonatomic, readonly) NSArray *rowItems;
 
 @property (assign, nonatomic, getter=isOpen) BOOL open;
 @property (weak, nonatomic) id <DOPNavbarMenuDelegate> delegate;
 
 @property (strong, nonatomic) UIColor *textColor;
 @property (strong, nonatomic) UIColor *separatarColor;
+@property (strong, nonatomic) UIColor *menuColor;
+@property (strong, nonatomic) UIColor *iconColor;
 
-- (instancetype)initWithFirstRowItems:(NSArray *)firstRowItems
-                       SecondRowItems:(NSArray *)secondRowItems;
 
+- (instancetype)initWithRowItems:(NSArray *)rowItems;
 - (void)showInNavigationController:(UINavigationController *)nvc;
 - (void)dismissWithAnimation:(BOOL)animation;
 

@@ -36,7 +36,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _titleArray = @[NSLocalizedString(@"Reply", nil),
-                        NSLocalizedString(@"Collect", nil),
+                        NSLocalizedString(@"Favorite", nil),
                         NSLocalizedString(@"Report", nil),
                         NSLocalizedString(@"Open in Safari", nil),
                         NSLocalizedString(@"Copy URL", nil)];
