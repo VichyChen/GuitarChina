@@ -30,19 +30,19 @@
 }
 
 - (void)configureView {
-    [self addSubview:self.avatarImage];
-    [self addSubview:self.userLabel];
-    [self addSubview:self.separatorLineView];
+//    [self addSubview:self.avatarImage];
+//    [self addSubview:self.userLabel];
+//    [self addSubview:self.separatorLineView];
     [self addSubview:self.placeholderLabel];
     [self addSubview:self.textView];
 }
 
 - (void)configureFrame {
-    self.avatarImage.frame = CGRectMake(10, 10, 30, 30);
-    self.userLabel.frame = CGRectMake(50, 10, ScreenWidth - 55, 30);
-    self.separatorLineView.frame = CGRectMake(10, 50, ScreenWidth - 20, 0.5);
-    self.textView.frame = CGRectMake(10, 55, ScreenWidth - 20, ScreenHeight - 64 - 65);
-    self.placeholderLabel.frame = CGRectMake(15, 62, 200, 20);
+//    self.avatarImage.frame = CGRectMake(10, 10, 30, 30);
+//    self.userLabel.frame = CGRectMake(50, 10, ScreenWidth - 55, 30);
+//    self.separatorLineView.frame = CGRectMake(10, 50, ScreenWidth - 20, 0.5);
+    self.textView.frame = CGRectMake(10, 10, ScreenWidth - 20, ScreenHeight - 64 - 65);
+    self.placeholderLabel.frame = CGRectMake(15, 18, 200, 20);
 }
 
 #pragma mark - UITextViewDelegate
