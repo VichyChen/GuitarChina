@@ -10,7 +10,7 @@
 
 @interface UIColor (Custom)
 
-+ (UIColor *)backgroundColor;
++ (UIColor *)GCBackgroundColor;
 
 + (UIColor *)GCVeryLightGrayBackgroundColor;
 

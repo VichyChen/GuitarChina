@@ -16,6 +16,7 @@
 #import "RESideMenu.h"
 #import "GCLoginViewController.h"
 #import "DOPNavbarMenu.h"
+#import "GCSocial.h"
 
 @interface GCThreadDetailViewController () <UIWebViewDelegate, DOPNavbarMenuDelegate> {
     
@@ -42,6 +43,9 @@
 @property (nonatomic, assign) NSInteger replyCount; //回贴数
 @property (nonatomic, assign) NSInteger currentPageReplyCount; //回贴数
 @property (nonatomic, assign) NSInteger pageCount;  //总共几页
+
+@property (nonatomic, copy) NSString *threadSubject;  //标题
+@property (nonatomic, copy) NSString *threadContent;//内容
 
 @end
 
@@ -231,8 +235,8 @@
     leftButton.frame = CGRectMake(0, 0, 25, 25);
     [leftButton setAdjustsImageWhenHighlighted:YES];
     UIImage *image = [UIImage imageNamed:@"icon_ellipsis"];
-    [leftButton setImage:[image imageWithTintColor:[UIColor GCFontColor]] forState:UIControlStateNormal];
-    [leftButton setImage:[image imageWithTintColor:[UIColor GCDeepGrayColor]] forState:UIControlStateHighlighted];
+    [leftButton setImage:[image imageWithTintColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [leftButton setImage:[image imageWithTintColor:[UIColor grayColor]] forState:UIControlStateHighlighted];
     [leftButton addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.rightBarButtonItem = barItem;
@@ -258,6 +262,12 @@
             self.loaded = true;
             self.uid = model.member_uid;
             self.formhash = model.formhash;
+            self.threadSubject = model.subject;
+            if ([model.postlist isKindOfClass:[NSArray class]] && model.postlist.count > 0) {
+                GCThreadDetailPostModel * threadDetailPostModel = [model.postlist objectAtIndex:0];
+                self.threadContent = threadDetailPostModel.message;
+            }
+            
             ApplicationDelegate.rightMenuViewController.formhash = self.formhash;
             ApplicationDelegate.rightMenuViewController.uid = self.uid;
             
@@ -420,6 +430,8 @@
 
 - (DOPNavbarMenu *)menu {
     if (!_menu) {
+        _menu.delegate = self;
+
         DOPNavbarMenuItem *replyItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Reply", nil)
                                                                    icon:[UIImage imageNamed:@"icon_edit"]
                                                                     row:0
@@ -452,14 +464,53 @@
                                                              actionBlock:^{
                                                                  [Util openUrlInSafari:GCNETWORKAPI_URL_THREAD(self.tid)];
                                                              }];
-        //        DOPNavbarMenuItem *item5 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Open in Chrome", nil) icon:[UIImage imageNamed:@"Image"] row:0];
-        //        DOPNavbarMenuItem *item6 = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Open in QQ Broswer", nil) icon:[UIImage imageNamed:@"Image"] row:0];
         
-        
-        //        _menu = [[DOPNavbarMenu alloc] initWithRowItems:@[replyItem, favoriteItem, reportItem, safariItem, copyItem]];
-        _menu = [[DOPNavbarMenu alloc] initWithRowItems:@[replyItem, favoriteItem, copyItem, refreshItem, reportItem, safariItem]];
-        
-        _menu.delegate = self;
+        NSMutableArray *shareArray = [NSMutableArray arrayWithObjects:replyItem, favoriteItem, copyItem, refreshItem, reportItem, safariItem, nil];
+
+        if ([GCSocial WXAppInstalled]) {
+            DOPNavbarMenuItem *wechatSessionItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Wechat Session", nil)
+                                                                               icon:[UIImage imageNamed:@"icon_externallink"]
+                                                                                row:1
+                                                                        actionBlock:^{
+                                                                            [GCSocial ShareToWechatSession:GCNETWORKAPI_URL_THREAD(self.tid) title:self.threadSubject content:self.threadContent Success:^{
+                                                                                
+                                                                            } failure:^{
+                                                                                
+                                                                            }];
+                                                                        }];
+            
+            [shareArray addObject:wechatSessionItem];
+        }
+        if ([GCSocial WXAppInstalled]) {
+            DOPNavbarMenuItem *wechatTimelineItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Wechat Timeline", nil)
+                                                                                icon:[UIImage imageNamed:@"icon_externallink"]
+                                                                                 row:1
+                                                                         actionBlock:^{
+                                                                             [GCSocial ShareToWechatTimeline:GCNETWORKAPI_URL_THREAD(self.tid) title:self.threadSubject Success:^{
+                                                                                 
+                                                                             } failure:^{
+                                                                                 
+                                                                             }];
+                                                                         }];
+            
+            [shareArray addObject:wechatTimelineItem];
+        }
+        if ([GCSocial QQInstalled]) {
+            DOPNavbarMenuItem *qqItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"QQ", nil)
+                                                                    icon:[UIImage imageNamed:@"icon_externallink"]
+                                                                     row:1
+                                                             actionBlock:^{
+                                                                 [GCSocial ShareToQQ:GCNETWORKAPI_URL_THREAD(self.tid) title:self.threadSubject content:self.threadContent Success:^{
+                                                                     
+                                                                 } failure:^{
+                                                                     
+                                                                 }];
+                                                             }];
+            
+            [shareArray addObject:qqItem];
+        }
+   
+        _menu = [[DOPNavbarMenu alloc] initWithRowItems:shareArray];
     }
     return _menu;
 }

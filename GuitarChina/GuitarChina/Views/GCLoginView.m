@@ -22,6 +22,8 @@
         self.backgroundColor = [UIColor whiteColor];
 
         [self configureView];
+        
+
     }
     return self;
 }

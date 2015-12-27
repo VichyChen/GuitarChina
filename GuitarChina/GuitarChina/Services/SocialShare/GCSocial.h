@@ -11,6 +11,12 @@
 
 @interface GCSocial : NSObject
 
+//判断是否安装QQ
++ (BOOL)QQInstalled;
+
+//判断是否安装微信
++ (BOOL)WXAppInstalled;
+
 //分享到微信聊天
 + (void)ShareToWechatSession:(NSString *)url
                        title:(NSString *)title

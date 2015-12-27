@@ -34,10 +34,10 @@
                                      forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.backBarButtonItem=backItem;
     
-    [self.tableView setSeparatorInset:(UIEdgeInsetsMake(0, 15, 0, 15))];
+    [self.tableView setSeparatorInset:(UIEdgeInsetsMake(0, 0, 0, 0))];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor GCBackgroundColor];
 //    self.view.nightBackgroundColor = [UIColor whiteColor];
     self.tableView.backgroundColor = [UIColor whiteColor];
 //    self.tableView.nightBackgroundColor = [UIColor whiteColor];
@@ -67,6 +67,19 @@
     }
     
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:UIEdgeInsetsZero];
+    }
+    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:UIEdgeInsetsZero];
+    }
+    
+    UIImage *image = [[[UIImage alloc] init] imageWithTintColor:[UIColor redColor]];
+    
+//    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -109,6 +122,8 @@
     [self.tableView.footer endRefreshing];
 }
 
+#pragma mark - UIScrollViewDelegate
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     if (_hiddenNavigationBarWhenScrollToBottom == YES) {
         if (lastContentOffsetY >= scrollView.contentOffset.y) {
@@ -133,6 +148,17 @@
             }];
             lastPosition = -position;
         }
+    }
+}
+
+#pragma mark - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
     }
 }
 

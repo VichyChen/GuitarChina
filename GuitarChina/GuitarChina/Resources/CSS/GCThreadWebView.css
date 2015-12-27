@@ -36,7 +36,7 @@ body {
 }
 
 .dateline {
-    margin:5px 0px 0px 10px;
+    margin:4px 0px 0px 10px;
     color:#80888F;
     font-size:14px;
 }
@@ -44,18 +44,18 @@ body {
 .number {
     margin:0 0 0 12px;
     float:right;
-/*    font-weight:bold;*/
+    /*    font-weight:bold;*/
     color: #80888F;
-/*    background-color:#C1C1C1;*/
-/*    padding: 3px 5px 3px 5px;*/
-/*    border-radius: 10px;*/
-/*    display: inline-block;*/
+    /*    background-color:#C1C1C1;*/
+    /*    padding: 3px 5px 3px 5px;*/
+    /*    border-radius: 10px;*/
+    /*    display: inline-block;*/
     line-height: 10px;
     font-size:14px;
 }
 
 .message {
-    margin:10px 12px 0 12px;
+    margin:10px 8px 0 8px;
     color:#161819;
     font-size:17px;
     overflow:hidden;
@@ -68,10 +68,10 @@ body {
 }
 
 .separator {
-    height:1px;
+    height:0.5px;
     background:#D3DCE2;
     overflow:hidden;
-    margin:10px 10px 10px 10px;
+    margin:10px 0px 10px 0px;
 }
 
 .quote {
@@ -90,14 +90,15 @@ body {
 }
 
 .options {
-    margin:10px 10px 0px 10px;
+    margin:10px 8px 0px 8px;
 }
 
 .optionHeader {
     background-color:#E5EDF2;
     padding:5px 0px 5px 0px;
-    border-bottom:1px solid #D3DCE2;
-    border-top:1px solid #D3DCE2;
+    /*    border-bottom:1px solid #D3DCE2;*/
+    /*    border-top:1px solid #D3DCE2;*/
+    border:1px solid #D3DCE2;
 }
 
 .option {
@@ -114,6 +115,8 @@ body {
 .option td {
     padding:5px 5px 5px 5px;
     border-bottom:1px solid gray;
+    border-left:1px solid gray;
+    border-right:1px solid gray;
     border-color: #D3DCE2;
     color:#161819;
     min-width:80px;

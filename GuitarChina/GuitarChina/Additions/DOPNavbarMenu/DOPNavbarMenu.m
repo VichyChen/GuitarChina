@@ -61,15 +61,15 @@ static CGFloat titleFontSize = 15.0;
     _afterAnimationFrame = self.frame;
 
     _background = [[UIView alloc] initWithFrame:CGRectZero];
-    _background.backgroundColor = [UIColor lightGrayColor];
-    _background.alpha = 0.5f;
+    _background.backgroundColor = [UIColor blackColor];
+    _background.alpha = 0.3f;
     UITouchGestureRecognizer *gr = [[UITouchGestureRecognizer alloc] initWithTarget:self action:@selector(dismissMenu)];
     [_background addGestureRecognizer:gr];
     
     _textColor = [UIColor grayColor];
     _separatarColor = [UIColor lightGrayColor];
     _iconColor = [UIColor whiteColor];
-    self.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
+    self.backgroundColor = [UIColor colorWithRed:0.922f green:0.922f blue:0.922f alpha:1.00f];
 
     
     return self;
@@ -91,7 +91,7 @@ static CGFloat titleFontSize = 15.0;
     scrollView1.showsHorizontalScrollIndicator = NO;
     [self addSubview:scrollView1];
     
-    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(10, 175, ScreenWidth - 20, 1)];
+    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, 175, ScreenWidth, 0.5)];
     seperator.backgroundColor = self.separatarColor;
     [self addSubview:seperator];
     
@@ -112,13 +112,13 @@ static CGFloat titleFontSize = 15.0;
         
         UIView *view = [[UIView alloc] init];
         if (obj.row == 0) {
-            view.frame = CGRectMake(7 + (count - 1) * 72, 0, 72, 120);
+            view.frame = CGRectMake(7 + (count - 1) * 80, 0, 80, 120);
         } else {
-            view.frame = CGRectMake(7 + (i - count) * 72, 0, 72, 120);
+            view.frame = CGRectMake(7 + (i - count) * 80, 0, 80, 120);
         }
         view.backgroundColor = [UIColor clearColor];
         
-        UIButton *iconButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 56, 56)];
+        UIButton *iconButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 65, 65)];
         iconButton.tag = i;
         iconButton.backgroundColor = self.iconColor;
         iconButton.center = CGPointMake(view.frame.size.width / 2, view.frame.size.height / 2 - 15);
@@ -146,8 +146,8 @@ static CGFloat titleFontSize = 15.0;
             [scrollView2 addSubview:view];
         }
     }
-    scrollView1.contentSize = CGSizeMake(count * 72 + 14 < ScreenWidth ? ScreenWidth + 1 : count * 72 + 14, 120);
-    scrollView2.contentSize = CGSizeMake((self.rowItems.count - count) * 72 + 14 < ScreenWidth ? ScreenWidth + 1 : (self.rowItems.count - count) * 72 + 14, 120);
+    scrollView1.contentSize = CGSizeMake(count * 80 + 14 < ScreenWidth ? ScreenWidth + 1 : count * 80 + 15, 120);
+    scrollView2.contentSize = CGSizeMake((self.rowItems.count - count) * 80 + 14 < ScreenWidth ? ScreenWidth + 1 : (self.rowItems.count - count) * 80 + 14, 120);
     
 //     [self.rowItems enumerateObjectsUsingBlock:^(DOPNavbarMenuItem *obj, NSUInteger idx, BOOL *stop) {
 //           }];
@@ -192,10 +192,10 @@ static CGFloat titleFontSize = 15.0;
         self.afterAnimationFrame = tmp;
     }
     self.background.frame = nvc.view.frame;
-    [UIView animateWithDuration:0.5
+    [UIView animateWithDuration:0.4
                           delay:0.0
-         usingSpringWithDamping:0.6
-          initialSpringVelocity:1.0
+         usingSpringWithDamping:0.8
+          initialSpringVelocity:0.0
                         options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut
                      animations:^{
                          self.dop_y = self.afterAnimationFrame.origin.y;
@@ -217,15 +217,15 @@ static CGFloat titleFontSize = 15.0;
         self.open = NO;
     };
     if (animation) {
-        [UIView animateWithDuration:0.2 animations:^{
-            self.dop_y += 20;
-        } completion:^(BOOL finished) {
-            [UIView animateWithDuration:0.1 animations:^{
+//        [UIView animateWithDuration:0.3 animations:^{
+//            self.dop_y += 20;
+//        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.3 animations:^{
                 self.dop_y = self.beforeAnimationFrame.origin.y;
             } completion:^(BOOL finished) {
                 completion();
             }];
-        }];
+//        }];
     } else {
         self.dop_y = self.beforeAnimationFrame.origin.y;
         completion();

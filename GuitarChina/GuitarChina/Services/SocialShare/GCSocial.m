@@ -7,10 +7,20 @@
 //
 
 #import "GCSocial.h"
+#import "WXApi.h"
+#import "UMSocialQQHandler.h"
 
 #define IMAGEURL @"logo_big.jpg"
 
 @implementation GCSocial
+
++ (BOOL)QQInstalled {
+    return [QQApiInterface isQQInstalled];
+}
+
++ (BOOL)WXAppInstalled {
+    return [WXApi isWXAppInstalled];
+}
 
 + (void)ShareToWechatSession:(NSString *)url
                        title:(NSString *)title

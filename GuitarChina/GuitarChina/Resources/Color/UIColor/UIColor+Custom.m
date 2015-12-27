@@ -10,8 +10,8 @@
 
 @implementation UIColor (Custom)
 
-+ (UIColor *)backgroundColor {
-    return [UIColor colorWithRed:0.946f green:0.946f blue:0.946f alpha:1.00f];
++ (UIColor *)GCBackgroundColor {
+    return [UIColor colorWithRed:0.984f green:0.984f blue:0.984f alpha:1.00f];
 }
 
 + (UIColor *)GCVeryLightGrayBackgroundColor {

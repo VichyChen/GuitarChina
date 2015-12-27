@@ -237,7 +237,7 @@
 - (UIView *)toolBarView {
     if (!_toolBarView) {
         _toolBarView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 64 - 40, ScreenWidth, 40)];
-        _toolBarView.backgroundColor = [UIColor whiteColor];
+        _toolBarView.backgroundColor = [UIColor GCBackgroundColor];
         _toolBarView.alpha = 0.0f;
         [_toolBarView addSubview:self.pageButton];
         [_toolBarView addSubview:self.previousPageButton];
@@ -302,7 +302,7 @@
         _scrollTopButton = [UIView createButton:CGRectMake(ScreenWidth - 15 - 40, 0, 40, 40)
                                          target:self
                                          action:@selector(scrollTopAction)];
-        [_scrollTopButton setImage:[UIImage imageNamed:@"icon_up"] forState:UIControlStateNormal];
+        [_scrollTopButton setImage:[UIImage imageNamed:@"icon_upArrow"] forState:UIControlStateNormal];
         _scrollTopButton.tintColor = [UIColor GCDeepGrayColor];
 //        _scrollTopButton.backgroundColor = [UIColor whiteColor];
 //        _scrollTopButton.layer.cornerRadius = 20;

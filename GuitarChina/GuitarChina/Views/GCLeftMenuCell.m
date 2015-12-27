@@ -40,7 +40,7 @@
     
     if (selected) {
         [UIView animateWithDuration:0.3 animations:^{
-            self.contentView.backgroundColor = [UIColor backgroundColor];
+//            self.contentView.backgroundColor = [UIColor backgroundColor];
         }];
     } else {
         [UIView animateWithDuration:0.3 animations:^{

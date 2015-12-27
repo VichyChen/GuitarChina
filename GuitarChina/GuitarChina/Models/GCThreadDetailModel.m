@@ -115,9 +115,9 @@
             NSEnumerator * enumeratorKey = [model.attachmentsList keyEnumerator];
             for (NSString *attachmentKey in enumeratorKey) {
                 if ([model.message containsString:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey]]) {
-                    model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey] toNewString:[NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 40, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];
+                    model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey] toNewString:[NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 30, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];
                 } else {
-                    model.message = [NSString stringWithFormat:@"%@%@", model.message, [NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 40, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];
+                    model.message = [NSString stringWithFormat:@"%@%@", model.message, [NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 30, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];
                 }
             }
             
@@ -164,7 +164,7 @@
         }
     }
     NSString *htmlPage = [Util stringByBundleHtmlString:@"GCThreadWebViewHtml"];
-    [html appendFormat:htmlPage, ScreenWidth - 40, self.subject, [Util getDateStringWithTimeStamp:self.dateline format:@"yyyy-MM-dd HH:mm"], [NSString stringWithFormat:@"%@，%@回复 %@浏览", [ApplicationDelegate.forumDictionary objectForKey: self.fid], self.replies, self.views], htmlCellString];
+    [html appendFormat:htmlPage, ScreenWidth - 30, self.subject, [Util getDateStringWithTimeStamp:self.dateline format:@"yyyy-MM-dd HH:mm"], [NSString stringWithFormat:@"%@，%@回复 %@浏览", [ApplicationDelegate.forumDictionary objectForKey: self.fid], self.replies, self.views], htmlCellString];
     
     return html;
 }
