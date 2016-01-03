@@ -176,7 +176,7 @@
 #pragma mark - Private Methods
 
 - (void)presentLoginViewController {
-    GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
+    GCLoginViewController *loginViewController = [[GCLoginViewController alloc] initWithNibName:@"GCLoginViewController" bundle:nil];
     GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
     [self presentViewController:navigationController animated:YES completion:nil];
 }

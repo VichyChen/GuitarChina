@@ -21,8 +21,11 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.webView];
     
-    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:self.urlString]];
-    [self.webView loadRequest:request];
+//    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:self.urlString]];
+//    [self.webView loadRequest:request];
+    
+    [self.webView loadHTMLString:self.urlString baseURL:[Util bundleBasePathURL]];
+
 }
 
 - (void)didReceiveMemoryWarning {

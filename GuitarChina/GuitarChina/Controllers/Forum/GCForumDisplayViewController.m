@@ -137,7 +137,7 @@
 - (void)newThreadAction {
     if (self.loaded == YES) {
         if ([self.uid isEqualToString:@"0"]) {
-            GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
+            GCLoginViewController *loginViewController = [[GCLoginViewController alloc] initWithNibName:@"GCLoginViewController" bundle:nil];
             GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
             [self presentViewController:navigationController animated:YES completion:nil];
         } else {

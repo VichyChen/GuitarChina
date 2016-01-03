@@ -32,7 +32,7 @@
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
     if ([viewController.tabBarItem.title isEqualToString:NSLocalizedString(@"Mine", nil)]) {
         if (![[[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGIN] isEqualToString:@"1"]) {
-            GCLoginViewController *loginViewController = [[GCLoginViewController alloc] init];
+            GCLoginViewController *loginViewController = [[GCLoginViewController alloc] initWithNibName:@"GCLoginViewController" bundle:nil];
             GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
             [self presentViewController:navigationController animated:YES completion:nil];
 

@@ -22,6 +22,10 @@
 "Copy URL" = "复制链接";
 "Refresh" = "刷新";
 
+"Wechat Session" = "微信好友";
+"Wechat Timeline" = "朋友圈";
+"QQ" = "QQ好友";
+
 "login" = "登录";
 "Load more." = "加载更多。";
 "- End -" = "- 加载完成 -";

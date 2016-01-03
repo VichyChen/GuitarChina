@@ -52,9 +52,17 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
         failure(operation, error);
     };
     
-    AFHTTPRequestOperation *manager = nil;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    //    [manager.requestSerializer setValue:@"Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3" forHTTPHeaderField:@"User-Agent"];
+    //    AFHTTPSessionManager *manager=[AFHTTPSessionManager manager];
+    //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    //    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    //    [manager.requestSerializer setValue:@"Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3" forHTTPHeaderField:@"User-Agent"];
+    
     if (type == GCRequestJsonGet) {
-        manager = [[AFHTTPRequestOperationManager manager] GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[AFHTTPRequestOperationManager manager] GET:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             responseSuccessBlock(operation, responseObject);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(operation, error);
@@ -62,7 +70,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
         }];
     }
     else if (type == GCRequestHTTPPOST) {
-        manager = [[AFHTTPRequestOperationManager manager] POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             responseSuccessBlock(operation, responseObject);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             responseFailureBlock(operation, error);
@@ -72,10 +80,10 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     return manager;
 }
 
-- (AFHTTPSessionManager *)requestHTMLCommonMethodWithURL:(NSString *)url
-                                              parameters:(NSDictionary *)parameters
-                                                 success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
-                                                 failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure  {
+- (AFHTTPSessionManager *)requestWebWithURL:(NSString *)url
+                                 parameters:(NSDictionary *)parameters
+                                    success:(void (^)(NSURLSessionDataTask *task, id responseObject))success
+                                    failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure  {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     
     void (^responseSuccessBlock)(NSURLSessionDataTask *task, id responseObject) = ^(NSURLSessionDataTask *task, id responseObject) {
@@ -93,7 +101,8 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     AFHTTPSessionManager *manager=[AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager.requestSerializer setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.71 Safari/537.36" forHTTPHeaderField:@"User-Agent"];
+    //    [manager.requestSerializer setValue:@"Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3" forHTTPHeaderField:@"User-Agent"];
+    [manager.requestSerializer setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36" forHTTPHeaderField:@"User-Agent"];
     
     [manager GET:url parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {
         responseSuccessBlock(task, responseObject);
@@ -263,7 +272,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
         }
     }];
     
-    //    return [self requestHTMLCommonMethodWithURL:GC_NETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    //    return [self requestWebWithURL:GC_NETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
     //        NSLog(@"HTML: %@", [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding]);
     //        success();
     //    } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -273,17 +282,114 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 
 - (void)getProfileSuccess:(void (^)(GCHotThreadArray *array))success
                   failure:(void (^)(NSError *error))failure {
-    [self requestHTMLCommonMethodWithURL:@"http://bbs.guitarchina.com/home.php?mod=space&uid=1627015&do=profile" parameters:nil
-                                 success:^(NSURLSessionDataTask *task, id responseObject) {
-                                     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
-                                     NSArray *elements  = [xpathParser searchWithXPathQuery:@"//*[@id='pbbs']/li"];                                            NSLog(@"%ld", elements.count);
-                                     TFHppleElement *element = [elements objectAtIndex:0];
-                                     NSString *elementContent = [element content];
-                                     NSLog(@"result = %@",elementContent);
-                                     
-                                 } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                     
-                                 }];
+    [self requestWebWithURL:@"http://bbs.guitarchina.com/home.php?mod=space&uid=1627015&do=profile" parameters:nil
+                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
+                        NSArray *elements  = [xpathParser searchWithXPathQuery:@"//*[@id='pbbs']/li"];                                            NSLog(@"%ld", elements.count);
+                        TFHppleElement *element = [elements objectAtIndex:0];
+                        NSString *elementContent = [element content];
+                        NSLog(@"result = %@",elementContent);
+                        
+                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        
+                    }];
+}
+
+- (void)getLoginWebSuccess:(void (^)(NSString *seccode, NSString *formhash, NSString *postURL))success
+                   failure:(void (^)(NSError *error))failure {
+    
+    [self requestWebWithURL:GCNETWORKAPI_URL_LOGIN
+                 parameters:nil
+                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                        
+                        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
+                        
+                        //seccode
+                        TFHppleElement *seccodeElement = [[xpathParser searchWithXPathQuery:@"//span"] objectAtIndex:4];
+                        NSString *seccode = [[[seccodeElement.attributes objectForKey:@"id"] split:@"_"] objectAtIndex:1];
+                        NSLog(@"seccode = %@", seccode);
+                        
+                        //formhash
+                        TFHppleElement *formhashElement = [[xpathParser searchWithXPathQuery:@"//input[@name='formhash']"] objectAtIndex:0];
+                        NSString *formhash = [formhashElement objectForKey:@"value"];
+                        NSLog(@"formhash = %@", formhash);
+                        
+                        //postURL
+                        TFHppleElement *formElement = [[xpathParser searchWithXPathQuery:@"//form[@name='login']"] objectAtIndex:0];
+                        NSString *postURL = [NSString stringWithFormat:@"http://bbs.guitarchina.com/%@", [formElement objectForKey:@"action"]];
+                        
+                        success(seccode, formhash, postURL);
+                        
+                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        failure(error);
+                    }];
+}
+
+- (void)getSeccodeVerifyImage:(NSString *)idhash
+                      success:(void (^)(NSString *image))success
+                      failure:(void (^)(NSError *error))failure {
+    [self requestWebWithURL:[NSString stringWithFormat:@"http://bbs.guitarchina.com/misc.php?mod=seccode&action=update&idhash=%@&modid=member::logging", idhash] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
+        TFHppleElement *imgElement = [[xpathParser searchWithXPathQuery:@"//img"] objectAtIndex:2];
+        NSString *image = [NSString stringWithFormat:@"http://bbs.guitarchina.com/%@", [imgElement.attributes objectForKey:@"src"]];
+        
+        success(image);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(error);
+    }];
+}
+
+- (void)downloadSeccodeVerifyImageWithURL:(NSString *)url
+                                  success:(void (^)(UIImage *image))success
+                                  failure:(void (^)(NSError *error))failure {
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    [request addValue:@"bbs.guitarchina.com" forHTTPHeaderField:@"Host"];
+    [request addValue:GCNETWORKAPI_URL_LOGIN forHTTPHeaderField:@"Referer"];
+    
+    AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+    requestOperation.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"image/png"];
+    [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([responseObject isKindOfClass:[UIImage class]]) {
+            UIImage *image = responseObject;
+            success(image);
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
+    [requestOperation start];
+}
+
+- (void)postLoginWithUsername:(NSString *)username
+                     password:(NSString *)password
+               fastloginfield:(NSString *)fastloginfield
+                seccodeverify:(NSString *)seccodeverify
+                   questionid:(NSString *)questionid
+                       answer:(NSString *)answer
+                  seccodehash:(NSString *)seccodehash
+                     formhash:(NSString *)formhash
+                      postURL:(NSString *)postURL
+                      success:(void (^)(NSString *html))success
+                      failure:(void (^)(NSError *error))failure {
+    
+    NSDictionary *parameters = @{@"formhash" : formhash,
+                                 @"seccodehash" : seccodehash,
+                                 //@"fastloginfield" : @"username",
+                                 @"fastloginfield" : fastloginfield,
+                                 @"username" : username,
+                                 @"password" : password,
+                                 @"seccodeverify" : seccodeverify,
+                                 @"questionid" : questionid,
+                                 @"answer" : answer,
+                                 @"submit" : @"登陆",
+                                 @"cookietime" : @"2592000"};
+    [self requestCommonMethod:GCRequestHTTPPOST url:postURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", operation.responseString);
+        success(operation.responseString);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        failure(error);
+    }];
 }
 
 @end

@@ -28,6 +28,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+
+    
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     for (NSHTTPCookie *cookie in [cookieJar cookies]) {
         NSLog(@"%@", cookie);
@@ -52,9 +54,9 @@
     [self configureSVProgressHUD];
     [self configureTabBarController];
     [self configureSideMenuViewController];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
-
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = self.sideMenuViewController;
@@ -64,23 +66,23 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-
+    
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-//    [self saveCookie];
+    //    [self saveCookie];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    [self saveCookie];
+    //    [self saveCookie];
 }
 
 - (BOOL)application:(UIApplication *)application
