@@ -1,23 +1,23 @@
 PODS:
-  - AFNetworking (2.5.4):
-    - AFNetworking/NSURLConnection (= 2.5.4)
-    - AFNetworking/NSURLSession (= 2.5.4)
-    - AFNetworking/Reachability (= 2.5.4)
-    - AFNetworking/Security (= 2.5.4)
-    - AFNetworking/Serialization (= 2.5.4)
-    - AFNetworking/UIKit (= 2.5.4)
-  - AFNetworking/NSURLConnection (2.5.4):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.4):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.4)
-  - AFNetworking/Security (2.5.4)
-  - AFNetworking/Serialization (2.5.4)
-  - AFNetworking/UIKit (2.5.4):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - DKNightVersion (0.8.1):
@@ -41,11 +41,11 @@ PODS:
     - DTFoundation/DTAnimatedGIF (~> 1.7.5)
     - DTFoundation/DTHTMLParser (~> 1.7.5)
     - DTFoundation/UIKit (~> 1.7.5)
-  - DTFoundation/Core (1.7.7)
-  - DTFoundation/DTAnimatedGIF (1.7.7)
-  - DTFoundation/DTHTMLParser (1.7.7):
+  - DTFoundation/Core (1.7.8)
+  - DTFoundation/DTAnimatedGIF (1.7.8)
+  - DTFoundation/DTHTMLParser (1.7.8):
     - DTFoundation/Core
-  - DTFoundation/UIKit (1.7.7):
+  - DTFoundation/UIKit (1.7.8):
     - DTFoundation/Core
   - FDFullscreenPopGesture (1.1)
   - FMDB (2.5):
@@ -53,7 +53,6 @@ PODS:
   - FMDB/common (2.5)
   - FMDB/standard (2.5):
     - FMDB/common
-  - IQKeyboardManager (3.2.4)
   - NJKWebViewProgress (0.2.3):
     - NJKWebViewProgress/Core (= 0.2.3)
     - NJKWebViewProgress/ProgressView (= 0.2.3)
@@ -62,8 +61,8 @@ PODS:
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
-  - UMengAnalytics (3.5.10)
-  - UMengSocial (4.2.3)
+  - UMengAnalytics (3.6.6)
+  - UMengSocial (4.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
@@ -71,23 +70,21 @@ DEPENDENCIES:
   - DTCoreText
   - FDFullscreenPopGesture (~> 1.1)
   - FMDB
-  - IQKeyboardManager
   - NJKWebViewProgress
   - SDWebImage
   - UMengAnalytics
   - UMengSocial
 
 SPEC CHECKSUMS:
-  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   DKNightVersion: 5416e74d11f696c6dd0c8f1318cf5871aa6b6070
   DTCoreText: 934a16fe9ffdd169c96261721b39dc312b75713d
-  DTFoundation: c9b3362b83f0017389082ec067ede719826a579d
+  DTFoundation: 46e2b2fafe78d67febfd8d1f85fe9845a093f00e
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
-  IQKeyboardManager: 555b1231fefafb21b19278d7cca72986a27b748b
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
-  UMengAnalytics: 092c24aef47b6ac3c76ad51543f91156a8d7b645
-  UMengSocial: 85882abe5b20aa38ad558ece71360e16b5d50909
+  UMengAnalytics: 4bf831415146b9c57cb10be65fbd43462ef8cf65
+  UMengSocial: aba7296602310385114d82c255539a7bef3b7ab0
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.39.0
