@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *seccodeVerifyTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *seccodeVerifyImageView;
 - (IBAction)loginAction:(UIButton *)sender;
+- (IBAction)closeAction:(UIButton *)sender;
 - (IBAction)refreshSeccodeVerifyAction:(UITapGestureRecognizer *)sender;
 
 
@@ -27,6 +28,7 @@
 @property (nonatomic, copy) NSString *seccode;
 @property (nonatomic, copy) NSString *formhash;
 @property (nonatomic, copy) NSString *postURL;
+@property (nonatomic, strong) NSArray *questionArray;
 
 @end
 
@@ -46,17 +48,16 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:nil];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,7 +74,7 @@
 
 - (void)configureView {
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_delete"
                                                                    normalColor:[UIColor GCDeepGrayColor]
                                                               highlightedColor:[UIColor GCLightGrayColor]
@@ -112,10 +113,12 @@
     
     self.getLoginWebBlock = ^{
         @strongify(self);
-        [[GCNetworkManager manager] getLoginWebSuccess:^(NSString *seccode, NSString *formhash, NSString *postURL) {
+        [[GCNetworkManager manager] getLoginWebSuccess:^(NSString *seccode, NSString *formhash, NSString *postURL, NSArray *questionArray) {
             self.seccode = seccode;
             self.formhash = formhash;
             self.postURL = postURL;
+            self.questionArray = questionArray;
+            
             self.getSeccodeVerifyImageBlock(seccode);
         } failure:^(NSError *error) {
             
@@ -194,6 +197,10 @@
 
 - (IBAction)loginAction:(UIButton *)sender {
     self.loginBlock();
+}
+
+- (IBAction)closeAction:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)refreshSeccodeVerifyAction:(UITapGestureRecognizer *)sender {

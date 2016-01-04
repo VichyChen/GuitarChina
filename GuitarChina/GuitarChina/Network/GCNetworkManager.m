@@ -295,7 +295,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                     }];
 }
 
-- (void)getLoginWebSuccess:(void (^)(NSString *seccode, NSString *formhash, NSString *postURL))success
+- (void)getLoginWebSuccess:(void (^)(NSString *seccode, NSString *formhash, NSString *postURL, NSArray *questionArray))success
                    failure:(void (^)(NSError *error))failure {
     
     [self requestWebWithURL:GCNETWORKAPI_URL_LOGIN
@@ -317,8 +317,19 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                         //postURL
                         TFHppleElement *formElement = [[xpathParser searchWithXPathQuery:@"//form[@name='login']"] objectAtIndex:0];
                         NSString *postURL = [NSString stringWithFormat:@"http://bbs.guitarchina.com/%@", [formElement objectForKey:@"action"]];
+                        NSLog(@"postURL = %@", postURL);
+
+                        TFHppleElement *questionElement = [[xpathParser searchWithXPathQuery:@"//select[@name='questionid']"] objectAtIndex:0];
+                        NSArray *optionArray = questionElement.children;
+                        NSMutableArray *questionArray = [NSMutableArray array];
+                        for (TFHppleElement *element in optionArray) {
+                            if ([element objectForKey:@"value"]) {
+                                NSLog(@"%@", element.text);
+                                [questionArray addObject:element.text];
+                            }
+                        }
                         
-                        success(seccode, formhash, postURL);
+                        success(seccode, formhash, postURL, questionArray);
                         
                     } failure:^(NSURLSessionDataTask *task, NSError *error) {
                         failure(error);

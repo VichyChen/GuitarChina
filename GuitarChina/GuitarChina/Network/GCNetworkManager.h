@@ -92,7 +92,7 @@
                   failure:(void (^)(NSError *error))failure;
 
 //获取web登录信息
-- (void)getLoginWebSuccess:(void (^)(NSString *seccode, NSString *formhash, NSString *postURL))success
+- (void)getLoginWebSuccess:(void (^)(NSString *seccode, NSString *formhash, NSString *postURL, NSArray *questionArray))success
                    failure:(void (^)(NSError *error))failure;
 
 //获取验证码

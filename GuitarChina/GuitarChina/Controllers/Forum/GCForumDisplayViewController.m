@@ -138,8 +138,7 @@
     if (self.loaded == YES) {
         if ([self.uid isEqualToString:@"0"]) {
             GCLoginViewController *loginViewController = [[GCLoginViewController alloc] initWithNibName:@"GCLoginViewController" bundle:nil];
-            GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
-            [self presentViewController:navigationController animated:YES completion:nil];
+            [self presentViewController:loginViewController animated:YES completion:nil];
         } else {
             GCPostThreadViewController *controller = [[GCPostThreadViewController alloc] init];
             [self.navigationController pushViewController:controller animated:YES];
