@@ -10,15 +10,28 @@
 #import "GCLoginViewController.h"
 #import "GCWebViewController.h"
 
-@interface GCLoginViewController ()
+@interface GCLoginViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UILabel *questionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *answerTextLabel;
+@property (weak, nonatomic) IBOutlet UIView *answerBottomSeparatorView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *answerRowHeight;
+@property (weak, nonatomic) IBOutlet UITextField *answerTextField;
 @property (weak, nonatomic) IBOutlet UITextField *seccodeVerifyTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *seccodeVerifyImageView;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (weak, nonatomic) IBOutlet UIView *pickerBackgroundView;
+- (IBAction)selectedPickerViewCompleteAction:(UIButton *)sender;
 - (IBAction)loginAction:(UIButton *)sender;
 - (IBAction)closeAction:(UIButton *)sender;
 - (IBAction)refreshSeccodeVerifyAction:(UITapGestureRecognizer *)sender;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollviewHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentOriginY;
 
 @property (nonatomic, copy) void (^getLoginWebBlock)();
 @property (nonatomic, copy) void (^getSeccodeVerifyImageBlock)(NSString *seccode);
@@ -28,6 +41,7 @@
 @property (nonatomic, copy) NSString *seccode;
 @property (nonatomic, copy) NSString *formhash;
 @property (nonatomic, copy) NSString *postURL;
+@property (nonatomic, assign) NSInteger questionIndex;
 @property (nonatomic, strong) NSArray *questionArray;
 
 @end
@@ -37,9 +51,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [Util clearCookie];
+    ApplicationDelegate.tabBarController.selectedIndex = 0;
+    [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:kGCLOGIN];
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kGCLOGINNAME];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     [self configureView];
     [self configureBlock];
-    
+
     self.usernameTextField.text = @"Vichy_Chen";
     self.passwordTextField.text = @"88436658cdj";
     
@@ -49,6 +69,23 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    //4,4s
+    if (ScreenHeight == 480) {
+        self.scrollviewHeight.constant = 568;
+    }
+    NSLog(@"%.f", ScreenWidth);
+    if (DeviceiPhone) {
+        //iphone
+        self.contentWidth.constant = ScreenWidth - 30;
+    } else {
+        //ipad
+        
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -62,6 +99,36 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    self.pickerBackgroundView.hidden = YES;
+    
+    self.answerTextField.text = [self.questionArray objectAtIndex:[self.pickerView selectedRowInComponent:0]];
+}
+
+#pragma mark - UITextFieldDelegate
+
+#pragma mark - UIPickerViewDataSource
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return self.questionArray.count;
+}
+
+#pragma mark - UIPickerViewDelegate
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return [self.questionArray objectAtIndex:row];
+}
+
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
+    return 35;
 }
 
 #pragma mark - Event Response
@@ -118,6 +185,7 @@
             self.formhash = formhash;
             self.postURL = postURL;
             self.questionArray = questionArray;
+            [self.pickerView reloadAllComponents];
             
             self.getSeccodeVerifyImageBlock(seccode);
         } failure:^(NSError *error) {
@@ -205,6 +273,32 @@
 
 - (IBAction)refreshSeccodeVerifyAction:(UITapGestureRecognizer *)sender {
     self.getSeccodeVerifyImageBlock(self.seccode);
+}
+
+- (IBAction)selectedPickerViewCompleteAction:(UIButton *)sender {
+    NSInteger index = [self.pickerView selectedRowInComponent:0];
+    if (index == 0) {
+        [self hideAnswer];
+    } else {
+        [self showAnswer];
+    }
+    self.questionIndex = index;
+    self.questionLabel.text = [self.questionArray objectAtIndex:[self.pickerView selectedRowInComponent:0]];
+    self.pickerBackgroundView.hidden = YES;
+}
+
+- (void)hideAnswer {
+    self.answerRowHeight.constant = 0;
+    self.answerTextField.hidden = YES;
+    self.answerTextLabel.hidden = YES;
+    self.answerBottomSeparatorView.hidden = YES;
+}
+
+- (void)showAnswer {
+    self.answerRowHeight.constant = 40;
+    self.answerTextField.hidden = NO;
+    self.answerTextLabel.hidden = NO;
+    self.answerBottomSeparatorView.hidden = NO;
 }
 
 @end
