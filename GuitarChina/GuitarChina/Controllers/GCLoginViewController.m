@@ -80,6 +80,8 @@
     //4,4s
     if (ScreenHeight == 480) {
         self.scrollviewHeight.constant = 568;
+    } else {
+        self.scrollviewHeight.constant = ScreenHeight + 1;
     }
     if (DeviceiPhone) {
         //iphone
@@ -106,9 +108,6 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    self.pickerBackgroundView.hidden = YES;
-    
-    self.answerTextField.text = [self.questionArray objectAtIndex:[self.pickerView selectedRowInComponent:0]];
 }
 
 #pragma mark - UITextFieldDelegate
