@@ -97,12 +97,15 @@
                                                 </mask>
                                             </variation>
                                         </textField>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yK3-c8-5xf">
+                                        <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yK3-c8-5xf">
                                             <rect key="frame" x="190" y="111.5" width="100" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="ilz-OF-Gel"/>
                                                 <constraint firstAttribute="width" constant="100" id="udx-Mk-p54"/>
                                             </constraints>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="VW5-ui-c2h" appends="YES" id="qyi-oN-USv"/>
+                                            </connections>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="账号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGN-fJ-4ZU">
                                             <rect key="frame" x="0.0" y="0.0" width="32" height="19.5"/>
@@ -184,7 +187,7 @@
                                                 <action selector="loginAction:" destination="-1" eventType="touchUpInside" id="F93-Ja-m8Z"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安全提问(未设置请忽略)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gue-Xs-DW4">
+                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="安全提问(未设置请忽略)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gue-Xs-DW4">
                                             <rect key="frame" x="86" y="78" width="188.5" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="UsN-uU-Cxk"/>
@@ -192,6 +195,9 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.73333333329999995" green="0.72941176470000002" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="0.73333333333333328" green="0.72941176470588232" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="PfB-aA-7r1" appends="YES" id="AXD-Rx-YKg"/>
+                                            </connections>
                                         </label>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="答案" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rFk-jd-ACa">
                                             <rect key="frame" x="0.0" y="121" width="32" height="19.5"/>
@@ -290,9 +296,9 @@
                                             <exclude reference="Bhb-Mc-qY7"/>
                                             <exclude reference="Jrw-5y-JHt"/>
                                             <exclude reference="eQk-3U-NpO"/>
-                                            <exclude reference="ZiO-Ss-Wgz"/>
                                             <exclude reference="A5X-ft-euZ"/>
                                             <exclude reference="zwq-u0-IMs"/>
+                                            <exclude reference="ZiO-Ss-Wgz"/>
                                             <exclude reference="xvJ-st-wkq"/>
                                             <exclude reference="y5V-Af-4CP"/>
                                             <exclude reference="Wrn-Oi-wdh"/>
@@ -335,7 +341,7 @@
                     </connections>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EgC-fL-FDT">
-                    <rect key="frame" x="0.0" y="240" width="320" height="240"/>
+                    <rect key="frame" x="0.0" y="480" width="320" height="240"/>
                     <subviews>
                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6c-Qk-Zh0">
                             <rect key="frame" x="0.0" y="40" width="320" height="200"/>
@@ -386,7 +392,7 @@
                 <constraint firstAttribute="trailing" secondItem="j32-YQ-bU0" secondAttribute="trailing" constant="26" id="6v1-wS-cSR"/>
                 <constraint firstItem="j32-YQ-bU0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LbB-F8-h7i"/>
                 <constraint firstAttribute="trailing" secondItem="EgC-fL-FDT" secondAttribute="trailing" id="YLb-xj-gNW"/>
-                <constraint firstAttribute="bottom" secondItem="EgC-fL-FDT" secondAttribute="bottom" id="ZvM-gg-BLc"/>
+                <constraint firstAttribute="bottom" secondItem="EgC-fL-FDT" secondAttribute="bottom" constant="-240" id="ZvM-gg-BLc"/>
                 <constraint firstAttribute="trailing" secondItem="j32-YQ-bU0" secondAttribute="trailing" id="ba8-CA-zra"/>
                 <constraint firstItem="j32-YQ-bU0" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bwg-Fg-MKx"/>
                 <constraint firstItem="j32-YQ-bU0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fFB-Iv-uUO"/>
@@ -400,7 +406,25 @@
                     <exclude reference="bwg-Fg-MKx"/>
                 </mask>
             </variation>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="UJ8-ID-0cK" appends="YES" id="gz3-rc-W8b"/>
+            </connections>
         </view>
+        <tapGestureRecognizer id="PfB-aA-7r1">
+            <connections>
+                <action selector="showQuestionAction:" destination="-1" id="T39-oX-5Vj"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="UJ8-ID-0cK">
+            <connections>
+                <action selector="backgroundClickAction:" destination="-1" id="EES-9l-jUk"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="VW5-ui-c2h">
+            <connections>
+                <action selector="refreshSeccodeVerifyAction:" destination="-1" id="Pmp-h1-XkJ"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="icon_delete" width="22" height="22"/>

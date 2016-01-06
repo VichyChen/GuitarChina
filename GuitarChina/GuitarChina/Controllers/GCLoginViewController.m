@@ -28,6 +28,8 @@
 - (IBAction)loginAction:(UIButton *)sender;
 - (IBAction)closeAction:(UIButton *)sender;
 - (IBAction)refreshSeccodeVerifyAction:(UITapGestureRecognizer *)sender;
+- (IBAction)backgroundClickAction:(UITapGestureRecognizer *)sender;
+- (IBAction)showQuestionAction:(UITapGestureRecognizer *)sender;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollviewHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentWidth;
@@ -59,9 +61,10 @@
     
     [self configureView];
     [self configureBlock];
-
-    self.usernameTextField.text = @"Vichy_Chen";
+    
+    self.usernameTextField.text = @"大捷啊啊啊";
     self.passwordTextField.text = @"88436658cdj";
+    self.answerTextField.text = @"汕头";
     
     self.getLoginWebBlock();
 }
@@ -78,7 +81,6 @@
     if (ScreenHeight == 480) {
         self.scrollviewHeight.constant = 568;
     }
-    NSLog(@"%.f", ScreenWidth);
     if (DeviceiPhone) {
         //iphone
         self.contentWidth.constant = ScreenWidth - 30;
@@ -198,9 +200,7 @@
         [[GCNetworkManager manager] getSeccodeVerifyImage:self.seccode success:^(NSString *image) {
             
             [[GCNetworkManager manager] downloadSeccodeVerifyImageWithURL:image success:^(UIImage *image) {
-                
                 self.seccodeVerifyImageView.image = image;
-                
             } failure:^(NSError *error) {
                 
             }];
@@ -212,16 +212,45 @@
     
     self.loginBlock = ^{
         @strongify(self);
+        
         [[GCNetworkManager manager] postLoginWithUsername:self.usernameTextField.text
                                                  password:self.passwordTextField.text
                                            fastloginfield:@"username"
                                             seccodeverify:self.seccodeVerifyTextField.text
-                                               questionid:@"0"
-                                                   answer:@""
+                                               questionid:[NSString stringWithFormat:@"%ld", self.questionIndex]
+                                                   answer:self.answerTextField.text
                                               seccodehash:self.seccode
                                                  formhash:self.formhash
                                                   postURL:self.postURL
                                                   success:^(NSString *html) {
+                                                      NSLog(@"%@", html);
+                                                      if ([html rangeOfString:@"现在将转入登录前页面"].location != NSNotFound && ([html rangeOfString:@"点击此链接进行跳转"].location != NSNotFound || [html rangeOfString:@"如果您的浏览器没有自动跳转，请点击此链接"].location != NSNotFound)) {
+                                                          NSLog(@"login success");
+                                                          ApplicationDelegate.tabBarController.selectedIndex = 2;
+                                                          [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLOGIN];
+                                                          //                                                          [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:kGCLOGINID];
+                                                          [[NSUserDefaults standardUserDefaults] setObject:self.usernameTextField.text forKey:kGCLOGINNAME];
+                                                          //                                                          [[NSUserDefaults standardUserDefaults] setObject:model.member_level forKey:kGCLOGINLEVEL];
+                                                          [[NSUserDefaults standardUserDefaults] synchronize];
+                                                          
+                                                          [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];
+                                                          [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+                                                          [self closeAction];
+                                                          
+                                                      } else if ([html rangeOfString:@"抱歉，验证码填写错误"].location != NSNotFound) {
+                                                          [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"验证码错误", nil)];
+                                                          self.seccodeVerifyTextField.text = @"";
+                                                          NSLog(@"seccodeverify error");
+                                                          self.getSeccodeVerifyImageBlock(self.seccode);
+                                                      } else if ([html rangeOfString:@"登录失败，您还可以尝试"].location != NSNotFound) {
+                                                          NSLog(@"password error");
+                                                      } else if ([html rangeOfString:@"请选择安全提问以及填写正确的答案"].location != NSNotFound) {
+                                                          NSLog(@"question and answer error");
+                                                      } else if ([html rangeOfString:@"密码错误次数过多，请 15 分钟后重新登录"].location != NSNotFound) {
+                                                          NSLog(@"password error, wait 15 minute");
+                                                      } else {
+                                                          NSLog(@"other error ????");
+                                                      }
                                                       
                                                   } failure:^(NSError *error) {
                                                       
@@ -275,16 +304,33 @@
     self.getSeccodeVerifyImageBlock(self.seccode);
 }
 
+- (IBAction)backgroundClickAction:(UITapGestureRecognizer *)sender {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 240);
+    }];
+}
+
+- (IBAction)showQuestionAction:(UITapGestureRecognizer *)sender {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight - 240, ScreenWidth, 240);
+    }];
+}
+
 - (IBAction)selectedPickerViewCompleteAction:(UIButton *)sender {
     NSInteger index = [self.pickerView selectedRowInComponent:0];
     if (index == 0) {
         [self hideAnswer];
+        self.answerTextField.text = @"";
     } else {
         [self showAnswer];
     }
     self.questionIndex = index;
     self.questionLabel.text = [self.questionArray objectAtIndex:[self.pickerView selectedRowInComponent:0]];
-    self.pickerBackgroundView.hidden = YES;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 240);
+    }];
 }
 
 - (void)hideAnswer {
