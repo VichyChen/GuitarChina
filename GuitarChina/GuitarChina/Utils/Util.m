@@ -76,7 +76,7 @@
 + (NSString *)getDateStringWithTimeStamp:(NSString *)stamp format:(NSString *)format {
     NSTimeInterval time = [stamp intValue];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:time];
-
+    
     NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:format];
     NSString *dateString = [dateFormat stringFromDate:date];
@@ -90,6 +90,14 @@
     NSString *dateString = [dateFormat stringFromDate:date];
     
     return dateString;
+}
+
++ (NSDate *)getDateWithDateString:(NSString *)dateString format:(NSString *)format {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:format];
+    NSDate *date = [dateFormat dateFromString:dateString];
+    
+    return date;
 }
 
 + (void)clearCookie {

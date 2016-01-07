@@ -43,6 +43,9 @@
 //NSDate转字符串
 + (NSString *)getDateStringWithNSDate:(NSDate *)date format:(NSString *)format;
 
+//字符串转NSDate
++ (NSDate *)getDateWithDateString:(NSString *)dateString format:(NSString *)format;
+
 #pragma mark - Cookie
 
 //清除cookie
