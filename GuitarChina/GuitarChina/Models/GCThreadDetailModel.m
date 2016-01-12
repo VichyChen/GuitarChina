@@ -148,11 +148,11 @@
 - (NSString *)getGCThreadDetailModelHtml {
     NSMutableString *html = [[NSMutableString alloc] init];
     NSMutableString *htmlCellString = [[NSMutableString alloc] init];
-    NSString *htmlCell = [Util stringByBundleHtmlString:@"GCThreadWebViewHtmlCell"];
+    NSString *htmlCell = [Util getBundleHTMLString:@"GCThreadWebViewHtmlCell"];
     for (GCThreadDetailPostModel *item in self.postlist) {
         if ([item.number isEqualToString:@"1"] && self.optionlist.count > 0) {
             NSMutableString *tableString = [[NSMutableString alloc] init];
-            NSString *tableHtml = [Util stringByBundleHtmlString:@"GCThreadWebViewTableHtml"];
+            NSString *tableHtml = [Util getBundleHTMLString:@"GCThreadWebViewTableHtml"];
             NSMutableString *tableRow = [[NSMutableString alloc] init];
             for (GCThreadDetailOptionModel *option in self.optionlist) {
                 [tableRow appendFormat:@"<tr><td>%@</td><td>%@</td></tr>", option.title, option.value];
@@ -163,7 +163,7 @@
             [htmlCellString appendFormat:htmlCell, GCNETWORKAPI_URL_SMALLAVTARIMAGE(item.authorid), item.author, item.dateline, [item.number isEqualToString:@"1"] ? @"楼主" : [NSString stringWithFormat:@"%@楼", item.number], @"", item.message];
         }
     }
-    NSString *htmlPage = [Util stringByBundleHtmlString:@"GCThreadWebViewHtml"];
+    NSString *htmlPage = [Util getBundleHTMLString:@"GCThreadWebViewHtml"];
     [html appendFormat:htmlPage, ScreenWidth - 30, self.subject, [Util getDateStringWithTimeStamp:self.dateline format:@"yyyy-MM-dd HH:mm"], [NSString stringWithFormat:@"%@，%@回复 %@浏览", [ApplicationDelegate.forumDictionary objectForKey: self.fid], self.replies, self.views], htmlCellString];
     
     return html;

@@ -56,7 +56,7 @@
 - (UILabel *)label {
     if (!_label) {
         _label = [UIView createLabel:CGRectMake(15, 15, ScreenWidth - 30, 0)
-                                text:[Util stringByBundleTxtString:@"UserProtocol"]
+                                text:[Util getBundleTXTString:@"UserProtocol"]
                                 font:[UIFont systemFontOfSize:16]
                            textColor:[UIColor GCFontColor]
                        numberOfLines:0

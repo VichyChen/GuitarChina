@@ -332,7 +332,7 @@
 - (void)beginRefresh {
     self.refreshBlock(^(GCThreadDetailModel *model) {
         [self.htmlString setString:[model getGCThreadDetailModelHtml]];
-        [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util bundleBasePathURL]];
+        [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util getBundlePathURL]];
         [self.threadDetailView.pageButton setTitle:[NSString stringWithFormat:@"%ld / %ld", self.pageIndex, self.pageCount] forState:UIControlStateNormal];
         [self.threadDetailView webViewEndRefresh];
     });
@@ -345,7 +345,7 @@
         self.offsetY = self.threadDetailView.webView.scrollView.contentOffset.y;
         self.refreshBlock(^(GCThreadDetailModel *model) {
             [self.htmlString setString:[model getGCThreadDetailModelHtml]];
-            [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util bundleBasePathURL]];
+            [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util getBundlePathURL]];
             [self.threadDetailView webViewEndFetchMore];
         });
     }
@@ -360,7 +360,7 @@
         [self.threadDetailView.pageButton setTitle:[NSString stringWithFormat:@"%ld / %ld", self.pageIndex, self.pageCount] forState:UIControlStateNormal];
         self.refreshBlock(^(GCThreadDetailModel *model) {
             [self.htmlString setString:[model getGCThreadDetailModelHtml]];
-            [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util bundleBasePathURL]];
+            [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util getBundlePathURL]];
             
             [self.threadDetailView webViewEndFetchMore];
         });
@@ -376,7 +376,7 @@
         [self.threadDetailView.pageButton setTitle:[NSString stringWithFormat:@"%ld / %ld", self.pageIndex, self.pageCount] forState:UIControlStateNormal];
         self.refreshBlock(^(GCThreadDetailModel *model) {
             [self.htmlString setString:[model getGCThreadDetailModelHtml]];
-            [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util bundleBasePathURL]];
+            [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util getBundlePathURL]];
             
             [self.threadDetailView webViewEndFetchMore];
         });
@@ -442,7 +442,7 @@
                                                                   icon:[UIImage imageNamed:@"icon_link"]
                                                                    row:0
                                                            actionBlock:^{
-                                                               [Util copyStringToPasteboard:GCNETWORKAPI_URL_THREAD(self.tid)];
+                                                               [Util copyToPasteboard:GCNETWORKAPI_URL_THREAD(self.tid)];
                                                                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy complete", nil)];
                                                            }];
         DOPNavbarMenuItem *refreshItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Refresh", nil)

@@ -163,7 +163,7 @@
 }
 
 - (void)copyURLAction {
-    [Util copyStringToPasteboard:GCNETWORKAPI_URL_THREAD(self.tid)];
+    [Util copyToPasteboard:GCNETWORKAPI_URL_THREAD(self.tid)];
 }
 
 - (void)reportAction {

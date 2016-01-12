@@ -33,19 +33,19 @@
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
 }
 
-+ (void)copyStringToPasteboard:(NSString *)string {
++ (void)copyToPasteboard:(NSString *)string {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = string;
 }
 
-+ (NSString *)stringByBundleHtmlString:(NSString *)html {
++ (NSString *)getBundleHTMLString:(NSString *)html {
     NSString *path = [[NSBundle mainBundle] pathForResource:html ofType:@"html"];
     NSString *string = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
     return string;
 }
 
-+ (NSString *)stringByBundleTxtString:(NSString *)fileName {
++ (NSString *)getBundleTXTString:(NSString *)fileName {
     NSString *path = [[NSBundle mainBundle] pathForResource:fileName ofType:@"txt"];
     NSString *string = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
@@ -53,18 +53,20 @@
 }
 
 
-+ (NSString *)bundleBasePathString {
++ (NSString *)getBundlePathURLString {
     NSString *path = [[NSBundle mainBundle] bundlePath];
     
     return path;
 }
 
-+ (NSURL *)bundleBasePathURL {
++ (NSURL *)getBundlePathURL {
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSURL *url = [NSURL fileURLWithPath:path];
     
     return url;
 }
+
+#pragma mark - Date
 
 + (NSDate *)getNSDateWithTimeStamp:(NSString *)stamp {
     NSTimeInterval time = [stamp doubleValue];
@@ -92,13 +94,15 @@
     return dateString;
 }
 
-+ (NSDate *)getDateWithDateString:(NSString *)dateString format:(NSString *)format {
++ (NSDate *)getNSDateWithDateString:(NSString *)dateString format:(NSString *)format {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:format];
     NSDate *date = [dateFormat dateFromString:dateString];
     
     return date;
 }
+
+#pragma mark - Cookie
 
 + (void)clearCookie {
     NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];

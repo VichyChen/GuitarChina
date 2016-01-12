@@ -20,19 +20,21 @@
 + (void)openUrlInSafari:(NSString *)url;
 
 //复制文本
-+ (void)copyStringToPasteboard:(NSString *)string;
++ (void)copyToPasteboard:(NSString *)string;
 
 //获取本地html文件字符串
-+ (NSString *)stringByBundleHtmlString:(NSString *)html;
++ (NSString *)getBundleHTMLString:(NSString *)html;
 
 //获取本地txt文件字符串
-+ (NSString *)stringByBundleTxtString:(NSString *)fileName;
++ (NSString *)getBundleTXTString:(NSString *)fileName;
 
-//获取bundle路径字符串
-+ (NSString *)bundleBasePathString;
+//获取bundleURL字符串
++ (NSString *)getBundlePathURLString;
 
 //获取bundleURL
-+ (NSURL *)bundleBasePathURL;
++ (NSURL *)getBundlePathURL;
+
+#pragma mark - Date
 
 //时间戳转NSDate
 + (NSDate *)getNSDateWithTimeStamp:(NSString *)stamp;
@@ -44,7 +46,7 @@
 + (NSString *)getDateStringWithNSDate:(NSDate *)date format:(NSString *)format;
 
 //字符串转NSDate
-+ (NSDate *)getDateWithDateString:(NSString *)dateString format:(NSString *)format;
++ (NSDate *)getNSDateWithDateString:(NSString *)dateString format:(NSString *)format;
 
 #pragma mark - Cookie
 
