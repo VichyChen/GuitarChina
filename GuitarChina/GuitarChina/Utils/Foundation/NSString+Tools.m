@@ -6,6 +6,10 @@
     return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
+- (BOOL)containString:(NSString *)string {
+    return [self rangeOfString:string].location != NSNotFound;
+}
+
 - (NSArray *)split:(NSString *)string {
     return [self componentsSeparatedByString:string];
 }

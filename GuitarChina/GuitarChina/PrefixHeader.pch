@@ -30,6 +30,7 @@
 #import "AppDelegate.h"
 #define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
 #define DeviceiPhone UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue]<8.0f)
 
 //NSUserDefault
 static NSString * const kGCFIRSTSTART = @"FIRSTSTART";

@@ -114,7 +114,7 @@
             model.attachmentsList = [item objectForKey:@"attachments"];
             NSEnumerator * enumeratorKey = [model.attachmentsList keyEnumerator];
             for (NSString *attachmentKey in enumeratorKey) {
-                if ([model.message containsString:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey]]) {
+                if ([model.message containString:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey]]) {
                     model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey] toNewString:[NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 30, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];
                 } else {
                     model.message = [NSString stringWithFormat:@"%@%@", model.message, [NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 30, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];

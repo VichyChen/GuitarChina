@@ -29,19 +29,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
-    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backArrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];//更改背景图片
+    if (!iOS7) {
+        [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backArrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];//更改背景图片
+    }
     [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-500, 0)
                                      forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.backBarButtonItem=backItem;
     
     [self.tableView setSeparatorInset:(UIEdgeInsetsMake(0, 0, 0, 0))];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-
+    
     self.view.backgroundColor = [UIColor GCBackgroundColor];
-//    self.view.nightBackgroundColor = [UIColor whiteColor];
+    //    self.view.nightBackgroundColor = [UIColor whiteColor];
     self.tableView.backgroundColor = [UIColor whiteColor];
-//    self.tableView.nightBackgroundColor = [UIColor whiteColor];
-
+    //    self.tableView.nightBackgroundColor = [UIColor whiteColor];
+    
     self.tableView.header = ({
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(beginRefresh)];
         header.lastUpdatedTimeLabel.hidden = YES;
@@ -51,10 +53,10 @@
     
     if (self.pageIndex == 1) {
         self.tableView.footer = ({
-//            MJRefreshAutoStateFooter *footer = [MJRefreshAutoStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
-//            footer.automaticallyRefresh = NO;
-//            
-//            footer;
+            //            MJRefreshAutoStateFooter *footer = [MJRefreshAutoStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
+            //            footer.automaticallyRefresh = NO;
+            //
+            //            footer;
             MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
             footer.automaticallyRefresh = NO;
             footer.refreshingTitleHidden = YES;
@@ -77,9 +79,9 @@
     
     UIImage *image = [[[UIImage alloc] init] imageWithTintColor:[UIColor redColor]];
     
-//    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-
+    //    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+    //    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    
 }
 
 - (void)didReceiveMemoryWarning {

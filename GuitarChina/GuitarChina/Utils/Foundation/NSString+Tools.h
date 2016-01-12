@@ -4,6 +4,8 @@
 
 - (instancetype)trim;
 
+- (BOOL)containString:(NSString *)string;
+
 - (NSArray *)split:(NSString *)string;
 
 - (instancetype)replace:(NSString *)oldString toNewString:(NSString *)newString;

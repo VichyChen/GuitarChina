@@ -263,9 +263,9 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(@"");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        if ([operation.responseString containsString:@"信息收藏成功"]) {
+        if ([operation.responseString containString:@"信息收藏成功"]) {
             success(NSLocalizedString(@"Collect Success", nil));
-        } else if ([operation.responseString containsString:@"请勿重复收藏"]) {
+        } else if ([operation.responseString containString:@"请勿重复收藏"]) {
             success(NSLocalizedString(@"Collect Repeat", nil));
         } else {
             failure(error);
