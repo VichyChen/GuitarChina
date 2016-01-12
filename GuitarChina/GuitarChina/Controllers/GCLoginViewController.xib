@@ -14,6 +14,7 @@
                 <outlet property="answerTextLabel" destination="rFk-jd-ACa" id="42x-V9-Z9U"/>
                 <outlet property="contentOriginY" destination="dEJ-NM-tTT" id="XRM-Kg-FKd"/>
                 <outlet property="contentWidth" destination="ykY-Ff-Th4" id="jb2-bw-Igj"/>
+                <outlet property="loginButton" destination="rim-1i-td5" id="abO-T6-SBv"/>
                 <outlet property="passwordTextField" destination="WkW-FH-grS" id="Baz-gC-De0"/>
                 <outlet property="pickerBackgroundView" destination="EgC-fL-FDT" id="Xua-6W-vZn"/>
                 <outlet property="pickerView" destination="c6c-Qk-Zh0" id="mw6-Ze-Q2p"/>

@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *answerTextField;
 @property (weak, nonatomic) IBOutlet UITextField *seccodeVerifyTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *seccodeVerifyImageView;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (weak, nonatomic) IBOutlet UIView *pickerBackgroundView;
 - (IBAction)selectedPickerViewCompleteAction:(UIButton *)sender;
@@ -111,6 +112,21 @@
 }
 
 #pragma mark - UITextFieldDelegate
+
+//- (void)textFieldDidChange:(UITextView *)textView {
+// 
+//}
+//
+//- (void)textViewDidBeginEditing:(UITextView *)textView {
+//    if (self.usernameTextField.text.length == 0 ||
+//        self.passwordTextField.text.length == 0 ||
+//        self.answerTextField.text.length == 0 ||
+//        self.seccodeVerifyTextField.text.length == 0) {
+//        self.loginButton.enabled = NO;
+//    } else {
+//        self.loginButton.enabled = YES;
+//    }
+//}
 
 #pragma mark - UIPickerViewDataSource
 
@@ -254,48 +270,56 @@
     self.loginBlock = ^{
         @strongify(self);
         
-        [[GCNetworkManager manager] postLoginWithUsername:self.usernameTextField.text
-                                                 password:self.passwordTextField.text
-                                           fastloginfield:@"username"
-                                            seccodeverify:self.seccodeVerifyTextField.text
-                                               questionid:[NSString stringWithFormat:@"%ld", (long)self.questionIndex]
-                                                   answer:self.answerTextField.text
-                                              seccodehash:self.seccode
-                                                 formhash:self.formhash
-                                                  postURL:self.postURL
-                                                  success:^(NSString *html) {
-                                                      NSLog(@"%@", html);
-                                                      if ([html rangeOfString:@"现在将转入登录前页面"].location != NSNotFound && ([html rangeOfString:@"点击此链接进行跳转"].location != NSNotFound || [html rangeOfString:@"如果您的浏览器没有自动跳转，请点击此链接"].location != NSNotFound)) {
-                                                          NSLog(@"login success");
-                                                          ApplicationDelegate.tabBarController.selectedIndex = 2;
-                                                          [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLOGIN];
-                                                          //                                                          [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:kGCLOGINID];
-                                                          [[NSUserDefaults standardUserDefaults] setObject:self.usernameTextField.text forKey:kGCLOGINNAME];
-                                                          //                                                          [[NSUserDefaults standardUserDefaults] setObject:model.member_level forKey:kGCLOGINLEVEL];
-                                                          [[NSUserDefaults standardUserDefaults] synchronize];
-                                                          
-                                                          [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];
-                                                          [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
-                                                          [self closeAction];
-                                                          
-                                                      } else if ([html rangeOfString:@"抱歉，验证码填写错误"].location != NSNotFound) {
-                                                          [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"验证码错误", nil)];
-                                                          self.seccodeVerifyTextField.text = @"";
-                                                          NSLog(@"seccodeverify error");
-                                                          self.getSeccodeVerifyImageBlock(self.seccode);
-                                                      } else if ([html rangeOfString:@"登录失败，您还可以尝试"].location != NSNotFound) {
-                                                          NSLog(@"password error");
-                                                      } else if ([html rangeOfString:@"请选择安全提问以及填写正确的答案"].location != NSNotFound) {
-                                                          NSLog(@"question and answer error");
-                                                      } else if ([html rangeOfString:@"密码错误次数过多，请 15 分钟后重新登录"].location != NSNotFound) {
-                                                          NSLog(@"password error, wait 15 minute");
-                                                      } else {
-                                                          NSLog(@"other error ????");
-                                                      }
-                                                      
-                                                  } failure:^(NSError *error) {
-                                                      
-                                                  }];
+        if (self.usernameTextField.text.length == 0) {
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"请输入帐号", nil)];
+            return;
+        }
+        if (self.passwordTextField.text.length == 0) {
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"请输入密码", nil)];
+            return;
+        }
+        if (self.questionIndex != 0 && self.answerTextField.text.length == 0) {
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"请输入答案", nil)];
+            return;
+        }
+        if (self.seccodeVerifyTextField.text.length == 0) {
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"请输入验证码", nil)];
+            return;
+        }
+        
+        [[GCNetworkManager manager] postLoginWithUsername:self.usernameTextField.text password:self.passwordTextField.text fastloginfield:@"username" seccodeverify:self.seccodeVerifyTextField.text questionid:[NSString stringWithFormat:@"%ld", (long)self.questionIndex] answer:self.answerTextField.text seccodehash:self.seccode formhash:self.formhash postURL:self.postURL success:^(NSString *html) {
+            NSLog(@"%@", html);
+            if ([html rangeOfString:@"现在将转入登录前页面"].location != NSNotFound && ([html rangeOfString:@"点击此链接进行跳转"].location != NSNotFound || [html rangeOfString:@"如果您的浏览器没有自动跳转，请点击此链接"].location != NSNotFound)) {
+                NSLog(@"login success");
+                ApplicationDelegate.tabBarController.selectedIndex = 2;
+                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLOGIN];
+                //                                                          [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:kGCLOGINID];
+                [[NSUserDefaults standardUserDefaults] setObject:self.usernameTextField.text forKey:kGCLOGINNAME];
+                //                                                          [[NSUserDefaults standardUserDefaults] setObject:model.member_level forKey:kGCLOGINLEVEL];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+                [self closeAction];
+                
+            } else if ([html rangeOfString:@"抱歉，验证码填写错误"].location != NSNotFound) {
+                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"验证码错误", nil)];
+                self.seccodeVerifyTextField.text = @"";
+                NSLog(@"seccodeverify error");
+                self.getSeccodeVerifyImageBlock(self.seccode);
+            } else if ([html rangeOfString:@"登录失败，您还可以尝试"].location != NSNotFound) {
+                NSLog(@"password error");
+            } else if ([html rangeOfString:@"请选择安全提问以及填写正确的答案"].location != NSNotFound) {
+                NSLog(@"question and answer error");
+            } else if ([html rangeOfString:@"密码错误次数过多，请 15 分钟后重新登录"].location != NSNotFound) {
+                NSLog(@"password error, wait 15 minute");
+            } else {
+                NSLog(@"other error ????");
+            }
+            
+        } failure:^(NSError *error) {
+            
+        }];
     };
     
     self.webLoginBlock = ^{
