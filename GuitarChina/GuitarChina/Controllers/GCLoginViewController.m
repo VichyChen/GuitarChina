@@ -62,7 +62,7 @@
     [self configureView];
     [self configureBlock];
     
-    self.usernameTextField.text = @"大捷啊啊啊";
+    self.usernameTextField.text = @"Vichy_Chen";
     self.passwordTextField.text = @"88436658cdj";
     self.answerTextField.text = @"汕头";
     
@@ -136,6 +136,48 @@
 
 - (void)closeAction {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (IBAction)loginAction:(UIButton *)sender {
+    self.loginBlock();
+}
+
+- (IBAction)closeAction:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)refreshSeccodeVerifyAction:(UITapGestureRecognizer *)sender {
+    self.getSeccodeVerifyImageBlock(self.seccode);
+}
+
+- (IBAction)backgroundClickAction:(UITapGestureRecognizer *)sender {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    [UIView animateWithDuration:0.5 animations:^{
+        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 240);
+    }];
+}
+
+- (IBAction)showQuestionAction:(UITapGestureRecognizer *)sender {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight - 240, ScreenWidth, 240);
+    }];
+}
+
+- (IBAction)selectedPickerViewCompleteAction:(UIButton *)sender {
+    NSInteger index = [self.pickerView selectedRowInComponent:0];
+    if (index == 0) {
+        [self hideAnswer];
+        self.answerTextField.text = @"";
+    } else {
+        [self showAnswer];
+    }
+    self.questionIndex = index;
+    self.questionLabel.text = [self.questionArray objectAtIndex:[self.pickerView selectedRowInComponent:0]];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 240);
+    }];
 }
 
 #pragma mark - Private Methods
@@ -216,7 +258,7 @@
                                                  password:self.passwordTextField.text
                                            fastloginfield:@"username"
                                             seccodeverify:self.seccodeVerifyTextField.text
-                                               questionid:[NSString stringWithFormat:@"%ld", self.questionIndex]
+                                               questionid:[NSString stringWithFormat:@"%ld", (long)self.questionIndex]
                                                    answer:self.answerTextField.text
                                               seccodehash:self.seccode
                                                  formhash:self.formhash
@@ -265,6 +307,20 @@
     };
 }
 
+- (void)hideAnswer {
+    self.answerRowHeight.constant = 0;
+    self.answerTextField.hidden = YES;
+    self.answerTextLabel.hidden = YES;
+    self.answerBottomSeparatorView.hidden = YES;
+}
+
+- (void)showAnswer {
+    self.answerRowHeight.constant = 40;
+    self.answerTextField.hidden = NO;
+    self.answerTextLabel.hidden = NO;
+    self.answerBottomSeparatorView.hidden = NO;
+}
+
 #pragma mark - Getters
 
 //- (GCLoginView *)loginView {
@@ -291,60 +347,8 @@
 //    return _loginView;
 //}
 
-- (IBAction)loginAction:(UIButton *)sender {
-    self.loginBlock();
-}
 
-- (IBAction)closeAction:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
-- (IBAction)refreshSeccodeVerifyAction:(UITapGestureRecognizer *)sender {
-    self.getSeccodeVerifyImageBlock(self.seccode);
-}
-
-- (IBAction)backgroundClickAction:(UITapGestureRecognizer *)sender {
-    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-    [UIView animateWithDuration:0.5 animations:^{
-        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 240);
-    }];
-}
-
-- (IBAction)showQuestionAction:(UITapGestureRecognizer *)sender {
-    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-    [UIView animateWithDuration:0.3 animations:^{
-        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight - 240, ScreenWidth, 240);
-    }];
-}
-
-- (IBAction)selectedPickerViewCompleteAction:(UIButton *)sender {
-    NSInteger index = [self.pickerView selectedRowInComponent:0];
-    if (index == 0) {
-        [self hideAnswer];
-        self.answerTextField.text = @"";
-    } else {
-        [self showAnswer];
-    }
-    self.questionIndex = index;
-    self.questionLabel.text = [self.questionArray objectAtIndex:[self.pickerView selectedRowInComponent:0]];
-    [UIView animateWithDuration:0.3 animations:^{
-        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 240);
-    }];
-}
-
-- (void)hideAnswer {
-    self.answerRowHeight.constant = 0;
-    self.answerTextField.hidden = YES;
-    self.answerTextLabel.hidden = YES;
-    self.answerBottomSeparatorView.hidden = YES;
-}
-
-- (void)showAnswer {
-    self.answerRowHeight.constant = 40;
-    self.answerTextField.hidden = NO;
-    self.answerTextLabel.hidden = NO;
-    self.answerBottomSeparatorView.hidden = NO;
-}
 
 @end
 
