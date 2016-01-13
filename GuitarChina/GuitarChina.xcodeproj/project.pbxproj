@@ -212,7 +212,7 @@
 		042D346A1BD0ED4300EBDACC /* GCThreadDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailViewController.m; sourceTree = "<group>"; };
 		043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewHtml.html; sourceTree = "<group>"; };
 		043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewHtmlCell.html; sourceTree = "<group>"; };
-		043648DF1BCF9BD80005162D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		043648DF1BCF9BD80005162D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Image/Images.xcassets; sourceTree = "<group>"; };
 		044C5F451BE345F800A17B99 /* GCReplyThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCReplyThreadViewController.h; sourceTree = "<group>"; };
 		044C5F461BE345F800A17B99 /* GCReplyThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReplyThreadViewController.m; sourceTree = "<group>"; };
 		045967481BC7A47D000181DE /* RTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLabel.h; sourceTree = "<group>"; };
@@ -586,7 +586,6 @@
 		043648DE1BCF9BD80005162D /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				043648DF1BCF9BD80005162D /* Images.xcassets */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -1144,8 +1143,9 @@
 		42657DC11B999B6B001F8DFC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0463E6F61BD49FBA001F7290 /* Color */,
+				043648DF1BCF9BD80005162D /* Images.xcassets */,
 				043648DE1BCF9BD80005162D /* Image */,
+				0463E6F61BD49FBA001F7290 /* Color */,
 				043648D91BCF8CF90005162D /* Html */,
 				0471258F1BCDF45B000C8BC1 /* CSS */,
 				0408D0931BE205C100B3825A /* UserProtocol.txt */,
