@@ -316,7 +316,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                         
                         //postURL
                         TFHppleElement *formElement = [[xpathParser searchWithXPathQuery:@"//form[@name='login']"] objectAtIndex:0];
-                        NSString *postURL = [NSString stringWithFormat:@"http://bbs.guitarchina.com/%@", [formElement objectForKey:@"action"]];
+                        NSString *postURL = [NSString stringWithFormat:@"%@%@", GCHOST,[formElement objectForKey:@"action"]];
                         NSLog(@"postURL = %@", postURL);
 
                         TFHppleElement *questionElement = [[xpathParser searchWithXPathQuery:@"//select[@name='questionid']"] objectAtIndex:0];
@@ -339,11 +339,11 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 - (void)getSeccodeVerifyImage:(NSString *)idhash
                       success:(void (^)(NSString *image))success
                       failure:(void (^)(NSError *error))failure {
-    [self requestWebWithURL:[NSString stringWithFormat:@"http://bbs.guitarchina.com/misc.php?mod=seccode&action=update&idhash=%@&modid=member::logging", idhash] parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self requestWebWithURL:GCSECCODE(idhash) parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
         TFHppleElement *imgElement = [[xpathParser searchWithXPathQuery:@"//img"] objectAtIndex:2];
-        NSString *image = [NSString stringWithFormat:@"http://bbs.guitarchina.com/%@", [imgElement.attributes objectForKey:@"src"]];
+        NSString *image = [NSString stringWithFormat:@"%@%@", GCHOST,[imgElement.attributes objectForKey:@"src"]];
         
         success(image);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {

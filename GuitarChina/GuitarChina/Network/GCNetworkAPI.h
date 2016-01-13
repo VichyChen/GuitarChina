@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+#define GCHOST @"http://bbs.guitarchina.com/"
+
 #define GCNETWORKAPI_SERVICE_URL @"http://bbs.guitarchina.com/api/mobile/index.php?"
 
 //论坛登陆地址
 #define GCNETWORKAPI_URL_LOGIN @"http://bbs.guitarchina.com/member.php?mod=logging&action=login"
+
+//验证码
+#define GCSECCODE(idhash) [NSString stringWithFormat:@"http://bbs.guitarchina.com/misc.php?mod=seccode&action=update&idhash=%@&modid=member::logging", (idhash)]
 
 //论坛小头像
 #define GCNETWORKAPI_URL_SMALLAVTARIMAGE(uid) [NSString stringWithFormat:@"http://auth.guitarchina.com/avatar.php?uid=%@&size=small", (uid)]
