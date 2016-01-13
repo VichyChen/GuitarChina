@@ -55,7 +55,7 @@
     [super viewDidLoad];
     
     [Util clearCookie];
-    ApplicationDelegate.tabBarController.selectedIndex = 0;
+
     [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:kGCLOGIN];
     [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kGCLOGINNAME];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -65,7 +65,7 @@
     
     self.usernameTextField.text = @"Vichy_Chen";
     self.passwordTextField.text = @"88436658cdj";
-    self.answerTextField.text = @"汕头";
+//    self.answerTextField.text = @"汕头";
     
     self.getLoginWebBlock();
 }
@@ -84,12 +84,11 @@
     } else {
         self.scrollviewHeight.constant = ScreenHeight + 1;
     }
-    if (DeviceiPhone) {
+    if (iPhone) {
         //iphone
         self.contentWidth.constant = ScreenWidth - 30;
     } else {
         //ipad
-        
     }
 }
 
@@ -154,7 +153,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
 - (IBAction)loginAction:(UIButton *)sender {
     self.loginBlock();
 }
@@ -194,11 +192,29 @@
     [UIView animateWithDuration:0.3 animations:^{
         self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 240);
     }];
+    [self textFieldValueChange:nil];
+}
+
+- (void)textFieldValueChange:(UITextField *)textField {
+    if (self.usernameTextField.text.length > 0 &&
+        self.passwordTextField.text.length > 0 &&
+        self.seccodeVerifyTextField.text.length > 0 &&
+        (self.questionIndex == 0 ? YES : self.answerTextField.text.length > 0)) {
+        self.loginButton.enabled = YES;
+    } else {
+        self.loginButton.enabled = NO;
+    }
 }
 
 #pragma mark - Private Methods
 
 - (void)configureView {
+    
+    [self.usernameTextField addTarget:self action:@selector(textFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.passwordTextField addTarget:self action:@selector(textFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.answerTextField addTarget:self action:@selector(textFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.seccodeVerifyTextField addTarget:self action:@selector(textFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
+
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_delete"
@@ -270,22 +286,7 @@
     self.loginBlock = ^{
         @strongify(self);
         
-        if (self.usernameTextField.text.length == 0) {
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"请输入帐号", nil)];
-            return;
-        }
-        if (self.passwordTextField.text.length == 0) {
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"请输入密码", nil)];
-            return;
-        }
-        if (self.questionIndex != 0 && self.answerTextField.text.length == 0) {
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"请输入答案", nil)];
-            return;
-        }
-        if (self.seccodeVerifyTextField.text.length == 0) {
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"请输入验证码", nil)];
-            return;
-        }
+        
         
         [[GCNetworkManager manager] postLoginWithUsername:self.usernameTextField.text password:self.passwordTextField.text fastloginfield:@"username" seccodeverify:self.seccodeVerifyTextField.text questionid:[NSString stringWithFormat:@"%ld", (long)self.questionIndex] answer:self.answerTextField.text seccodehash:self.seccode formhash:self.formhash postURL:self.postURL success:^(NSString *html) {
             NSLog(@"%@", html);

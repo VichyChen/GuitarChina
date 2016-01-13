@@ -130,7 +130,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (DeviceiPhone) {
+    if (iPhone) {
         return GCThreadRightMenuCellHeightIniPad;
     } else {
         return GCThreadRightMenuCellHeightIniPad;
@@ -185,7 +185,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         CGRect frame;
-        if (DeviceiPhone) {
+        if (iPhone) {
             frame = CGRectMake(ScreenWidth - (ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone), (ScreenHeight - GCThreadRightMenuCellHeightIniPhone * self.titleArray.count) / 2, ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone, GCThreadRightMenuCellHeightIniPhone * self.titleArray.count);
         } else {
             frame = CGRectMake(ScreenWidth - (ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad), (ScreenHeight - GCThreadRightMenuCellHeightIniPad * self.titleArray.count) / 2, ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad, GCThreadRightMenuCellHeightIniPad * self.titleArray.count);

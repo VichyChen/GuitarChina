@@ -193,7 +193,7 @@
     self.sideMenuViewController.scaleMenuView = NO;
     self.sideMenuViewController.fadeMenuView = NO;
     self.sideMenuViewController.panGestureEnabled = NO;
-    if (DeviceiPhone) {
+    if (iPhone) {
         self.sideMenuViewController.contentViewInPortraitOffsetCenterX = LeftSideMenuOffsetCenterXIniPhone;
     } else {
         self.sideMenuViewController.contentViewInPortraitOffsetCenterX = LeftSideMenuOffsetCenterXIniPad;

@@ -95,7 +95,7 @@
     if (!cell) {
         cell = [[GCLeftMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    if (DeviceiPhone) {
+    if (iPhone) {
         cell.leftImageViewOffsetX = (ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone) / 2 - AvatarImageViewSize / 2;
     } else {
         cell.leftImageViewOffsetX = (ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPad) / 2 - AvatarImageViewSize / 2;
@@ -163,7 +163,7 @@
     } else {
         self.headerView.frame = CGRectMake(0, 0, ScreenWidth, HeaderViewHeightWhenNotLogin);
     }
-    if (DeviceiPhone) {
+    if (iPhone) {
         self.avatarImageView.frame = CGRectMake((ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone) / 2 - AvatarImageViewSize / 2, 50, AvatarImageViewSize, AvatarImageViewSize);
         self.tableView.frame = CGRectMake(0, self.headerView.frame.size.height, ScreenWidth / 2 + LeftSideMenuOffsetCenterXIniPhone, ScreenHeight);
     } else {
