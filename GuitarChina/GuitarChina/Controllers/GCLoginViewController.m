@@ -83,12 +83,14 @@
         self.scrollviewHeight.constant = 568;
     } else {
         self.scrollviewHeight.constant = ScreenHeight + 1;
+        self.contentOriginY.constant = 200;
     }
     if (iPhone) {
         //iphone
         self.contentWidth.constant = ScreenWidth - 30;
     } else {
         //ipad
+        self.contentWidth.constant = 414;
     }
 }
 
