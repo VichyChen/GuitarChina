@@ -43,23 +43,53 @@
 @property (assign, nonatomic) CGRect afterAnimationFrame;
 
 @property (assign, nonatomic) CGFloat menuViewHeight;
+@property (assign, nonatomic) CGFloat topScrollViewHeight;
+@property (assign, nonatomic) CGFloat bottomScrollViewHeight;
+@property (assign, nonatomic) CGFloat width;
+@property (assign, nonatomic) CGFloat interval;
+@property (assign, nonatomic) CGFloat fontSize;
 
-
+//CGFloat topScrollViewHeight, bottomScrollViewHeight, width, interval, fontSize;
 @end
 
 @implementation DOPNavbarMenu
 
 - (instancetype)initWithRowItems:(NSArray *)rowItems {
-    self = [super initWithFrame:CGRectMake(0, 0, ScreenWidth, 0)];
+    if (iPhone) {
+        self = [super initWithFrame:CGRectMake(0, 0, ScreenWidth, 0)];
+    } else {
+        self = [super initWithFrame:CGRectMake(100, 0, ScreenWidth - 200, 0)];
+    }
     if (self) {
-        if (iPhone) {
-            _menuViewHeight = 240;
-        } else {
-            _menuViewHeight = 400 + 64;
-        }
-        _rowItems = rowItems;
         
+        if (iPhone) {
+            _interval = 15;
+            if (ScreenWidth == 320) {
+                //3.5inch、4inch
+                _width = (self.frame.size.width - _interval - 30) / 4;
+            } else {
+                _width = (self.frame.size.width - _interval) / 5;
+            }
+            _topScrollViewHeight = _width + _interval / 2 + 20 + 10;
+            _bottomScrollViewHeight = _width + _interval / 2 + 30 + 10;
+            _fontSize = 12;
+        } else {
+            //ipad
+            _interval = 20;
+            _width = (self.frame.size.width - _interval) / 5;
+            _topScrollViewHeight = _width + _interval / 2 + 20 + 10;
+            _bottomScrollViewHeight = _width + _interval / 2 + 20 + 10;
+            _fontSize = 14;
+            
+            self.layer.cornerRadius = 10;
+        }
+        
+        _menuViewHeight = 64 + _topScrollViewHeight + _bottomScrollViewHeight + 1;
+        
+
+        _rowItems = rowItems;
         _open = NO;
+        
         self.dop_height = _menuViewHeight;
         self.dop_y = -self.dop_height;
         _beforeAnimationFrame = self.frame;
@@ -82,35 +112,18 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    CGFloat height, width, interval, fontSize;
-    if (iPhone) {
-        height = 120;
-        interval = 20;
-        if (ScreenWidth == 320) {
-            //3.5inch、4inch
-            width = (ScreenWidth - interval) / 4;
-        } else {
-            width = (ScreenWidth - interval) / 5;
-        }
-        fontSize = 12;
-    } else {
-        //ipad
-        height = 200;
-        interval = 40;
-        width = (ScreenWidth - interval) / 5;
-        fontSize = 15;
-    }
     
-    UIScrollView *topScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, height)];
+    
+    UIScrollView *topScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, self.frame.size.width, self.topScrollViewHeight)];
     topScrollView.backgroundColor = [UIColor clearColor];
     topScrollView.showsHorizontalScrollIndicator = NO;
     [self addSubview:topScrollView];
     
-    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, 64 + topScrollView.frame.size.height + 1, ScreenWidth, 0.5)];
+    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, 64 + topScrollView.frame.size.height + 1, self.frame.size.width, 0.5)];
     seperator.backgroundColor = self.separatarColor;
     [self addSubview:seperator];
     
-    UIScrollView *bottomScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, seperator.frame.origin.y + seperator.frame.size.height + 1, ScreenWidth, height)];
+    UIScrollView *bottomScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, seperator.frame.origin.y + seperator.frame.size.height + 1, self.frame.size.width, self.bottomScrollViewHeight)];
     bottomScrollView.backgroundColor = [UIColor clearColor];
     bottomScrollView.showsHorizontalScrollIndicator = NO;
     [self addSubview:bottomScrollView];
@@ -126,32 +139,32 @@
         
         UIView *itemView = [[UIView alloc] init];
         if (obj.row == 0) {
-            itemView.frame = CGRectMake(interval / 2 + (count - 1) * width, 0, width, height);
+            itemView.frame = CGRectMake(self.interval / 2 + (count - 1) * self.width, 0, self.width, self.topScrollViewHeight);
         } else {
-            itemView.frame = CGRectMake(interval / 2 + (i - count) * width, 0, width, height);
+            itemView.frame = CGRectMake(self.interval / 2 + (i - count) * self.width, 0, self.width, self.bottomScrollViewHeight);
         }
         itemView.backgroundColor = [UIColor clearColor];
         
-        UIButton *iconButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, width - interval, width - interval)];
+        UIButton *iconButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 15, self.width - self.interval, self.width - self.interval)];
         iconButton.tag = i;
         iconButton.backgroundColor = self.iconColor;
-        iconButton.center = CGPointMake(itemView.frame.size.width / 2, itemView.frame.size.height / 2 - 15);
+        iconButton.center = CGPointMake(itemView.frame.size.width / 2, iconButton.center.y);
         iconButton.layer.cornerRadius = 10;
         [iconButton setImage:obj.icon forState:UIControlStateNormal];
         [iconButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [itemView addSubview:iconButton];
         
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(interval / 4, iconButton.frame.origin.y + iconButton.frame.size.height + interval / 2, width - interval / 2, 20)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.interval / 4, iconButton.frame.origin.y + iconButton.frame.size.height + self.interval / 2, self.width - self.interval / 2, 20)];
         label.text = obj.title;
         label.numberOfLines = 0;
-        label.preferredMaxLayoutWidth = width - interval / 2;
+        label.preferredMaxLayoutWidth = self.width - self.interval / 2;
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = self.textColor;
-        label.font = [UIFont systemFontOfSize:fontSize];
+        label.font = [UIFont systemFontOfSize:self.fontSize];
         [itemView addSubview:label];
         if ([label sizeThatFits:label.frame.size].height > 20) {
             [label sizeToFit];
-            label.frame = CGRectMake(interval / 4, iconButton.frame.origin.y + iconButton.frame.size.height + 10, width - interval / 2, [label sizeThatFits:label.frame.size].height);
+            label.frame = CGRectMake(self.interval / 4, iconButton.frame.origin.y + iconButton.frame.size.height + 10, self.width - self.interval / 2, [label sizeThatFits:label.frame.size].height);
             label.center = CGPointMake(itemView.frame.size.width / 2, label.center.y);
         }
         
@@ -161,8 +174,8 @@
             [bottomScrollView addSubview:itemView];
         }
     }
-    topScrollView.contentSize = CGSizeMake(count * width + interval <= ScreenWidth ? ScreenWidth + 1 : count * width + interval, height);
-    bottomScrollView.contentSize = CGSizeMake((self.rowItems.count - count) * width + interval <= ScreenWidth ? ScreenWidth + 1 : (self.rowItems.count - count) * width + interval, height);
+    topScrollView.contentSize = CGSizeMake(count * self.width + self.interval <= self.frame.size.width ? self.frame.size.width + 1 : count * self.width + self.interval, self.topScrollViewHeight);
+    bottomScrollView.contentSize = CGSizeMake((self.rowItems.count - count) * self.width + self.interval <= self.frame.size.width ? self.frame.size.width + 1 : (self.rowItems.count - count) * self.width + self.interval, self.bottomScrollViewHeight);
 }
 
 - (void)showInNavigationController:(UINavigationController *)nvc {
