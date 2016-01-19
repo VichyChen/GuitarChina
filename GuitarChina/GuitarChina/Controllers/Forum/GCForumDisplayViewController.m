@@ -140,7 +140,7 @@
             GCLoginViewController *loginViewController = [[GCLoginViewController alloc] initWithNibName:@"GCLoginViewController" bundle:nil];
             [self presentViewController:loginViewController animated:YES completion:nil];
         } else {
-            GCPostThreadViewController *controller = [[GCPostThreadViewController alloc] init];
+            GCPostThreadViewController *controller = [[GCPostThreadViewController alloc] initWithNibName:@"GCPostThreadViewController" bundle:[NSBundle mainBundle]];
             [self.navigationController pushViewController:controller animated:YES];
         }
     }
