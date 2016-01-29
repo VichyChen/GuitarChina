@@ -250,7 +250,7 @@
 
 - (UIView *)separatorLineView {
     if (!_separatorLineView) {
-        _separatorLineView = [UIView createHorizontalLine:ScreenWidth originX:0 originY:0 color:[UIColor GCGrayLineColor]];
+        _separatorLineView = [UIView createHorizontalLine:ScreenWidth originX:0 originY:0 color:[UIColor GCSeparatorLineColor]];
     }
     return _separatorLineView;
 }
@@ -261,8 +261,8 @@
                                       text:@"1"
                                     target:self
                                     action:@selector(pageAction)];
-        _pageButton.tintColor = [UIColor GCDeepGrayColor];
-        _pageButton.titleLabel.font = [UIFont systemFontOfSize:18];
+        _pageButton.tintColor = [UIColor GCDarkGrayFontColor];
+        _pageButton.titleLabel.font = [UIFont systemFontOfSize:16];
     }
     return _pageButton;
 }
@@ -273,11 +273,11 @@
                                     target:self
                                     action:@selector(backAction)];
         [_previousPageButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-        _previousPageButton.tintColor = [UIColor GCDeepGrayColor];
+        _previousPageButton.tintColor = [UIColor GCDarkGrayFontColor];
 //        _previousPageButton.backgroundColor = [UIColor whiteColor];
 //        _previousPageButton.layer.cornerRadius = 20;
 //        _previousPageButton.layer.borderWidth = 1;
-//        _previousPageButton.layer.borderColor = [UIColor GCDeepGrayColor].CGColor;
+//        _previousPageButton.layer.borderColor = [UIColor GCLightGrayFontColor].CGColor;
     }
     return _previousPageButton;
 }
@@ -288,11 +288,11 @@
                                        target:self
                                        action:@selector(forwardAction)];
         [_nextPageButton setImage:[UIImage imageNamed:@"icon_forward"] forState:UIControlStateNormal];
-        _nextPageButton.tintColor = [UIColor GCDeepGrayColor];
+        _nextPageButton.tintColor = [UIColor GCDarkGrayFontColor];
 //        _nextPageButton.backgroundColor = [UIColor whiteColor];
 //        _nextPageButton.layer.cornerRadius = 20;
 //        _nextPageButton.layer.borderWidth = 1;
-//        _nextPageButton.layer.borderColor = [UIColor GCDeepGrayColor].CGColor;
+//        _nextPageButton.layer.borderColor = [UIColor GCLightGrayFontColor].CGColor;
     }
     return _nextPageButton;
 }
@@ -303,11 +303,11 @@
                                          target:self
                                          action:@selector(scrollTopAction)];
         [_scrollTopButton setImage:[UIImage imageNamed:@"icon_upArrow"] forState:UIControlStateNormal];
-        _scrollTopButton.tintColor = [UIColor GCDeepGrayColor];
+        _scrollTopButton.tintColor = [UIColor GCDarkGrayFontColor];
 //        _scrollTopButton.backgroundColor = [UIColor whiteColor];
 //        _scrollTopButton.layer.cornerRadius = 20;
 //        _scrollTopButton.layer.borderWidth = 1;
-//        _scrollTopButton.layer.borderColor = [UIColor GCDeepGrayColor].CGColor;
+//        _scrollTopButton.layer.borderColor = [UIColor GCLightGrayFontColor].CGColor;
     }
     return _scrollTopButton;
 }
@@ -316,7 +316,7 @@
     if (!_pickerContentView) {
         _pickerContentView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 66 + 1, ScreenWidth, 200)];
         _pickerContentView.backgroundColor = [UIColor whiteColor];
-        _pickerContentView.layer.borderColor = [UIColor GCGrayLineColor].CGColor;
+        _pickerContentView.layer.borderColor = [UIColor GCSeparatorLineColor].CGColor;
         _pickerContentView.layer.borderWidth = 1;
         _pickerContentView.layer.masksToBounds = YES;
         
@@ -332,7 +332,7 @@
                                     text:@"跳转"
                                   target:self
                                   action:@selector(goAction)];
-        _goButton.tintColor = [UIColor GCDeepGrayColor];
+        _goButton.tintColor = [UIColor GCDarkGrayFontColor];
     }
     return _goButton;
 }

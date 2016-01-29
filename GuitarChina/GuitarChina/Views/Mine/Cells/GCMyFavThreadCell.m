@@ -89,7 +89,7 @@
         _datelineLabel = [UIView createLabel:CGRectZero
                                         text:@""
                                         font:[UIFont systemFontOfSize:14]
-                                   textColor:[UIColor GCDeepGrayColor]];
+                                   textColor:[UIColor GCLightGrayFontColor]];
     }
     return _datelineLabel;
 }
@@ -99,7 +99,7 @@
         _subjectLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:17]
-                                  textColor:[UIColor GCFontColor]
+                                  textColor:[UIColor GCDarkGrayFontColor]
                               numberOfLines:0
                     preferredMaxLayoutWidth:SubjectWidth];
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -112,7 +112,7 @@
         _repliesLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:14]
-                                  textColor:[UIColor GCDeepGrayColor]];
+                                  textColor:[UIColor GCLightGrayFontColor]];
         _repliesLabel.textAlignment = NSTextAlignmentRight;
     }
     return _repliesLabel;

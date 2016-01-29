@@ -54,7 +54,7 @@
     self.title = NSLocalizedString(@"Write reply", nil);
     
     UIBarButtonItem *leftBarItem = [UIView createBarButtonItem:NSLocalizedString(@"Cancel", nil) target:self action:@selector(closeAction)];
-    leftBarItem.tintColor = [UIColor GCDeepGrayColor];
+    leftBarItem.tintColor = [UIColor GCLightGrayFontColor];
     self.navigationItem.leftBarButtonItem = leftBarItem;
     
     UIBarButtonItem *rightBarItem = [UIView createBarButtonItem:NSLocalizedString(@"Send", nil) target:self action:@selector(sendAction)];

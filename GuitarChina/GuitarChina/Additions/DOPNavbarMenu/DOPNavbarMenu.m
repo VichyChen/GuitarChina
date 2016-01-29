@@ -101,10 +101,10 @@
         UITouchGestureRecognizer *gr = [[UITouchGestureRecognizer alloc] initWithTarget:self action:@selector(dismissMenu)];
         [_background addGestureRecognizer:gr];
         
-        _textColor = [UIColor grayColor];
-        _separatarColor = [UIColor lightGrayColor];
+        _textColor = [UIColor GCDarkGrayFontColor];
+        _separatarColor = [UIColor GCSeparatorLineColor];
         _iconColor = [UIColor whiteColor];
-        self.backgroundColor = [UIColor colorWithRed:0.922f green:0.922f blue:0.922f alpha:1.00f];
+        self.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
     }
     
     return self;
@@ -147,11 +147,24 @@
         
         UIButton *iconButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 15, self.width - self.interval, self.width - self.interval)];
         iconButton.tag = i;
-        iconButton.backgroundColor = self.iconColor;
+        iconButton.backgroundColor = [UIColor clearColor];
         iconButton.center = CGPointMake(itemView.frame.size.width / 2, iconButton.center.y);
         iconButton.layer.cornerRadius = 10;
-        [iconButton setImage:obj.icon forState:UIControlStateNormal];
+//        [iconButton setImage:obj.icon forState:UIControlStateNormal];
         [iconButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        
+        UIView *buttonView = [[UIView alloc] initWithFrame:iconButton.frame];
+        buttonView.layer.cornerRadius = 10;
+        buttonView.backgroundColor = self.iconColor;
+
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, iconButton.frame.size.width - iconButton.frame.size.width * 0.45, iconButton.frame.size.height - iconButton.frame.size.height * 0.45)];
+        imageView.center = iconButton.center;
+//        imageView.backgroundColor = [UIColor whiteColor];
+        imageView.image = obj.icon;
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        [itemView addSubview:buttonView];
+        [itemView addSubview:imageView];
         [itemView addSubview:iconButton];
         
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.interval / 4, iconButton.frame.origin.y + iconButton.frame.size.height + self.interval / 2, self.width - self.interval / 2, 20)];

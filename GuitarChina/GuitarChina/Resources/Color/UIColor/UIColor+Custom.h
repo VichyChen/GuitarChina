@@ -12,21 +12,24 @@
 
 + (UIColor *)GCBackgroundColor;
 
-+ (UIColor *)GCVeryLightGrayBackgroundColor;
-
-+ (UIColor *)GCFontColor;
-
 + (UIColor *)GCDeepGrayColor;
-
-+ (UIColor *)GCLightGrayColor;
-
-+ (UIColor *)GCVeryLightGrayColor;
-
-+ (UIColor *)GCGrayLineColor;
 
 + (UIColor *)GCRedColor;
 
 + (UIColor *)GCBlueColor;
 
+//分割线
++ (UIColor *)GCSeparatorLineColor;
+
+//黑色字体
++ (UIColor *)GCBlackFontColor;
+
+//黑色偏灰色字体
++ (UIColor *)GCDarkGrayFontColor;
+
+//淡灰色字体
++ (UIColor *)GCLightGrayFontColor;
+
++ (UIColor *)GCCellSelectedBackgroundColor;
 
 @end

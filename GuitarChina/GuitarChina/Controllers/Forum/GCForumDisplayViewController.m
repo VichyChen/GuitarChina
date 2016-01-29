@@ -33,7 +33,7 @@
     self.pageSize = 20;
 
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_edit"
-                                                                   normalColor:[UIColor whiteColor]
+                                                                   normalColor:[UIColor GCDarkGrayFontColor]
                                                               highlightedColor:[UIColor grayColor]
                                                                         target:self
                                                                         action:@selector(newThreadAction)];

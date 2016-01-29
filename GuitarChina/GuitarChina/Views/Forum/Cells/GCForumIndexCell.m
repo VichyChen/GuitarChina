@@ -25,6 +25,8 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+        self.selectedBackgroundView.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
         [self configureView];
     }
     return self;
@@ -33,10 +35,10 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.nameLabel.frame = CGRectMake(20, 10, ScreenWidth - 40, 20);
+    self.nameLabel.frame = CGRectMake(15, 10, ScreenWidth - 30, 20);
     [self.nameLabel sizeToFit];
-    self.todayPostCountLabel.frame = CGRectMake(20 + self.nameLabel.frame.size.width + 5, 10, 100, 20);
-    self.descriptLabel.frame = CGRectMake(20, 35, ScreenWidth - 40, self.descriptLabelHeight);
+    self.todayPostCountLabel.frame = CGRectMake(15 + self.nameLabel.frame.size.width + 5, 10, 100, 20);
+    self.descriptLabel.frame = CGRectMake(15, 35, ScreenWidth - 30, self.descriptLabelHeight);
     [self.descriptLabel sizeToFit];
 }
 
@@ -60,7 +62,7 @@
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCForumModel *)model {
-    CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:15 width:ScreenWidth - 40];
+    CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:14 width:ScreenWidth - 30];
     return descriptLabelHeight + 45;
 }
 
@@ -83,8 +85,8 @@
     if (!_nameLabel) {
         _nameLabel = [UIView createLabel:CGRectZero
                                     text:@""
-                                    font:[UIFont systemFontOfSize:17]
-                               textColor:[UIColor GCFontColor]];
+                                    font:[UIFont systemFontOfSize:16]
+                               textColor:[UIColor GCDarkGrayFontColor]];
     }
     return _nameLabel;
 }
@@ -94,7 +96,7 @@
         _todayPostCountLabel = [UIView createLabel:CGRectZero
                                               text:@""
                                               font:[UIFont systemFontOfSize:15]
-                                         textColor:[UIColor GCDeepGrayColor]];
+                                         textColor:[UIColor GCLightGrayFontColor]];
     }
     return _todayPostCountLabel;
 }
@@ -103,15 +105,15 @@
     if (!_descriptLabel) {
 //        _descriptLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 40, ScreenWidth - 30, 0)];
 //        _descriptLabel.font = [UIFont systemFontOfSize:16];
-//        _descriptLabel.textColor = [UIColor GCFontColor];
+//        _descriptLabel.textColor = [UIColor GCDarkGrayFontColor];
 ////        _descriptLabel.linkAttributes = @{@"color":@"red"};
 ////        _descriptLabel.selectedLinkAttributes = @{@"color":@"red"};
         _descriptLabel = [UIView createLabel:CGRectZero
                                        text:@""
-                                       font:[UIFont systemFontOfSize:15]
-                                  textColor:[UIColor GCLightGrayColor]
+                                       font:[UIFont systemFontOfSize:14]
+                                  textColor:[UIColor GCLightGrayFontColor]
                               numberOfLines:0
-                    preferredMaxLayoutWidth:ScreenWidth - 40];
+                    preferredMaxLayoutWidth:ScreenWidth - 30];
         _descriptLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _descriptLabel;

@@ -57,9 +57,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //    self.navigationItem.hidesBackButton =YES;
-    //    self.navigationController.navigationBarHidden = YES;
-    
+
     _offsetY = -1;
     _loaded = false;
     _tabBarSelectedIndex = ApplicationDelegate.tabBarController.selectedIndex;
@@ -234,8 +232,8 @@
     leftButton.frame = CGRectMake(0, 0, 25, 25);
     [leftButton setAdjustsImageWhenHighlighted:YES];
     UIImage *image = [UIImage imageNamed:@"icon_ellipsis"];
-    [leftButton setImage:[image imageWithTintColor:[UIColor whiteColor]] forState:UIControlStateNormal];
-    [leftButton setImage:[image imageWithTintColor:[UIColor grayColor]] forState:UIControlStateHighlighted];
+    [leftButton setImage:[image imageWithTintColor:[UIColor GCDarkGrayFontColor]] forState:UIControlStateNormal];
+//    [leftButton setImage:[image imageWithTintColor:[UIColor grayColor]] forState:UIControlStateHighlighted];
     [leftButton addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.rightBarButtonItem = barItem;
@@ -431,33 +429,33 @@
         _menu.delegate = self;
 
         DOPNavbarMenuItem *replyItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Reply", nil)
-                                                                   icon:[UIImage imageNamed:@"icon_edit"]
+                                                                   icon:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[UIColor GCDarkGrayFontColor]]
                                                                     row:0
                                                             actionBlock:self.replyBlock];
         DOPNavbarMenuItem *favoriteItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Favorite", nil)
-                                                                      icon:[UIImage imageNamed:@"icon_collect"]
+                                                                      icon:[[UIImage imageNamed:@"icon_collect"] imageWithTintColor:[UIColor GCDarkGrayFontColor]]
                                                                        row:0
                                                                actionBlock:self.favoriteBlock];
         DOPNavbarMenuItem *copyItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Copy URL", nil)
-                                                                  icon:[UIImage imageNamed:@"icon_link"]
+                                                                  icon:[[UIImage imageNamed:@"icon_link"] imageWithTintColor:[UIColor GCDarkGrayFontColor]]
                                                                    row:0
                                                            actionBlock:^{
                                                                [Util copyToPasteboard:GCNETWORKAPI_URL_THREAD(self.tid)];
                                                                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy complete", nil)];
                                                            }];
         DOPNavbarMenuItem *refreshItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Refresh", nil)
-                                                                     icon:[UIImage imageNamed:@"icon_link"]
+                                                                     icon:[[UIImage imageNamed:@"icon_refresh"] imageWithTintColor:[UIColor GCDarkGrayFontColor]]
                                                                       row:0
                                                               actionBlock:^{
                                                                   [self.threadDetailView webViewStartRefresh];
                                                               }];
         DOPNavbarMenuItem *reportItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Report", nil)
-                                                                    icon:[UIImage imageNamed:@"icon_error"]
+                                                                    icon:[[UIImage imageNamed:@"icon_error"] imageWithTintColor:[UIColor GCDarkGrayFontColor]]
                                                                      row:0
                                                              actionBlock:self.reportBlock];
         
         DOPNavbarMenuItem *safariItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Open in Safari", nil)
-                                                                    icon:[UIImage imageNamed:@"icon_externallink"]
+                                                                    icon:[UIImage imageNamed:@"icon_safari"]
                                                                      row:1
                                                              actionBlock:^{
                                                                  [Util openUrlInSafari:GCNETWORKAPI_URL_THREAD(self.tid)];
@@ -467,7 +465,7 @@
 
         if ([GCSocial WXAppInstalled]) {
             DOPNavbarMenuItem *wechatSessionItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Wechat Session", nil)
-                                                                               icon:[UIImage imageNamed:@"icon_externallink"]
+                                                                               icon:[UIImage imageNamed:@"icon_wechatSession"]
                                                                                 row:1
                                                                         actionBlock:^{
                                                                             [GCSocial ShareToWechatSession:GCNETWORKAPI_URL_THREAD(self.tid) title:self.threadSubject content:self.threadContent Success:^{
@@ -481,7 +479,7 @@
         }
         if ([GCSocial WXAppInstalled]) {
             DOPNavbarMenuItem *wechatTimelineItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Wechat Timeline", nil)
-                                                                                icon:[UIImage imageNamed:@"icon_externallink"]
+                                                                                icon:[UIImage imageNamed:@"icon_wechatTimeline"]
                                                                                  row:1
                                                                          actionBlock:^{
                                                                              [GCSocial ShareToWechatTimeline:GCNETWORKAPI_URL_THREAD(self.tid) title:self.threadSubject Success:^{
@@ -495,7 +493,7 @@
         }
         if ([GCSocial QQInstalled]) {
             DOPNavbarMenuItem *qqItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"QQ", nil)
-                                                                    icon:[UIImage imageNamed:@"icon_externallink"]
+                                                                    icon:[UIImage imageNamed:@"icon_qq"]
                                                                      row:1
                                                              actionBlock:^{
                                                                  [GCSocial ShareToQQ:GCNETWORKAPI_URL_THREAD(self.tid) title:self.threadSubject content:self.threadContent Success:^{

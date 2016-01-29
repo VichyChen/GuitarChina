@@ -53,11 +53,11 @@
     [self configureTabBarController];
     [self configureSideMenuViewController];
     //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = self.sideMenuViewController;
+    self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
     return YES;

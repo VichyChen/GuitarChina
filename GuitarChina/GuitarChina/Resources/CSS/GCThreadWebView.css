@@ -7,38 +7,38 @@ body {
 #subject {
     margin:10px 10px 5px 10px;
     color:#161819;
-    font-size:18px;
+    font-size:17px;
 }
 
 #forum {
     margin:0px 10px 0px 10px;
     color:#80888F;
-    font-size:14px;
+    font-size:13px;
 }
 
 #datelineDetail {
     margin:0px 10px 0px 10px;
     color:#80888F;
-    font-size:14px;
+    font-size:13px;
 }
 
 #replyDetail {
     margin:0px 10px 0px 10px;
     color:#80888F;
-    font-size:14px;
+    font-size:13px;
 }
 
 .author {
     margin:-2px 10px 0px 10px;
     color:#4C85A3;
     font-weight:bold;
-    font-size:16px;
+    font-size:15px;
 }
 
 .dateline {
     margin:4px 0px 0px 10px;
     color:#80888F;
-    font-size:14px;
+    font-size:13px;
 }
 
 .number {
@@ -51,13 +51,13 @@ body {
     /*    border-radius: 10px;*/
     /*    display: inline-block;*/
     line-height: 10px;
-    font-size:14px;
+    font-size:13px;
 }
 
 .message {
     margin:10px 8px 0 8px;
     color:#161819;
-    font-size:17px;
+    font-size:16px;
     overflow:hidden;
 }
 
@@ -71,7 +71,7 @@ body {
     height:0.5px;
     background:#D3DCE2;
     overflow:hidden;
-    margin:10px 0px 10px 0px;
+    margin:10px -5px 10px -5px;
 }
 
 .quote {

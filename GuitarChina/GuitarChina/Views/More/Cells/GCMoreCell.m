@@ -55,7 +55,7 @@
         _titleLabel = [UIView createLabel:CGRectZero
                                      text:@"陈大捷"
                                      font:[UIFont systemFontOfSize:16]
-                                textColor:[UIColor GCFontColor]];
+                                textColor:[UIColor GCDarkGrayFontColor]];
     }
     return _titleLabel;
 }
@@ -63,7 +63,7 @@
 - (UIView *)separatorViewBottom {
     if (!_separatorViewBottom) {
         _separatorViewBottom = [[UIView alloc] initWithFrame:CGRectZero];
-        _separatorViewBottom.backgroundColor = [UIColor GCGrayLineColor];
+        _separatorViewBottom.backgroundColor = [UIColor GCSeparatorLineColor];
     }
     return _separatorViewBottom;
 }

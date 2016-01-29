@@ -31,6 +31,8 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+        self.selectedBackgroundView.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
         [self configureView];
     }
     return self;
@@ -39,11 +41,11 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.avatarImage.frame = CGRectMake(20, 10, 40, 40);
-    self.authorLabel.frame = CGRectMake(70, 8, ScreenWidth - 70, 20);
-    self.datelineLabel.frame = CGRectMake(70, 33, ScreenWidth - 70, 20);
-    self.subjectLabel.frame = CGRectMake(20, 60, SubjectWidth, self.subjectLabelHeight);
-    self.lastPostDetailLabel.frame = CGRectMake(20, 65 + self.subjectLabelHeight, SubjectWidth, 20);
+    self.avatarImage.frame = CGRectMake(15, 10, 40, 40);
+    self.authorLabel.frame = CGRectMake(65, 8, ScreenWidth - 65, 20);
+    self.datelineLabel.frame = CGRectMake(65, 33, ScreenWidth - 65, 20);
+    self.subjectLabel.frame = CGRectMake(15, 60, SubjectWidth, self.subjectLabelHeight);
+    self.lastPostDetailLabel.frame = CGRectMake(15, 65 + self.subjectLabelHeight, SubjectWidth, 20);
     self.repliesLabel.frame = CGRectMake(15, 8, SubjectWidth, 20);
 }
 
@@ -61,7 +63,7 @@
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCForumThreadModel *)model {
-    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.subject fontSize:17 width:SubjectWidth];
+    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.subject fontSize:16 width:SubjectWidth];
     return subjectLabelHeight + 95;
 }
 
@@ -97,7 +99,7 @@
     if (!_authorLabel) {
         _authorLabel = [UIView createLabel:CGRectZero
                                       text:@""
-                                      font:[UIFont boldSystemFontOfSize:16]
+                                      font:[UIFont boldSystemFontOfSize:15]
                                  textColor:[UIColor GCBlueColor]];
     }
     return _authorLabel;
@@ -107,8 +109,8 @@
     if (!_datelineLabel) {
         _datelineLabel = [UIView createLabel:CGRectZero
                                         text:@""
-                                        font:[UIFont systemFontOfSize:14]
-                                   textColor:[UIColor GCDeepGrayColor]];
+                                        font:[UIFont systemFontOfSize:13]
+                                   textColor:[UIColor GCLightGrayFontColor]];
     }
     return _datelineLabel;
 }
@@ -117,8 +119,8 @@
     if (!_subjectLabel) {
         _subjectLabel = [UIView createLabel:CGRectZero
                                        text:@""
-                                       font:[UIFont systemFontOfSize:17]
-                                  textColor:[UIColor GCFontColor]
+                                       font:[UIFont systemFontOfSize:16]
+                                  textColor:[UIColor GCDarkGrayFontColor]
                               numberOfLines:0
                     preferredMaxLayoutWidth:SubjectWidth];
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -130,8 +132,8 @@
     if (!_lastPostDetailLabel) {
         _lastPostDetailLabel = [UIView createLabel:CGRectZero
                                               text:@""
-                                              font:[UIFont systemFontOfSize:14]
-                                         textColor:[UIColor GCDeepGrayColor]];
+                                              font:[UIFont systemFontOfSize:13]
+                                         textColor:[UIColor GCLightGrayFontColor]];
     }
     return _lastPostDetailLabel;
 }
@@ -140,8 +142,8 @@
     if (!_repliesLabel) {
         _repliesLabel = [UIView createLabel:CGRectZero
                                        text:@""
-                                       font:[UIFont systemFontOfSize:14]
-                                  textColor:[UIColor GCDeepGrayColor]];
+                                       font:[UIFont systemFontOfSize:13]
+                                  textColor:[UIColor GCLightGrayFontColor]];
         _repliesLabel.textAlignment = NSTextAlignmentRight;
     }
     return _repliesLabel;

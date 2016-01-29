@@ -72,7 +72,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -100,7 +100,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
+//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -220,8 +220,8 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_delete"
-                                                                   normalColor:[UIColor GCDeepGrayColor]
-                                                              highlightedColor:[UIColor GCLightGrayColor]
+                                                                   normalColor:[UIColor GCLightGrayFontColor]
+                                                              highlightedColor:[UIColor GCLightGrayFontColor]
                                                                         target:self
                                                                         action:@selector(closeAction)];
     

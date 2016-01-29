@@ -98,13 +98,13 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
-    view.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
+    view.backgroundColor = [UIColor GCBackgroundColor];
     UILabel *label = [UIView createLabel:CGRectMake(15, 5, 50, 20)
                                     text:@""
                                     font:[UIFont systemFontOfSize:16]
-                               textColor:[UIColor GCDeepGrayColor]];
+                               textColor:[UIColor GCLightGrayFontColor]];
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 29.5, ScreenWidth, 0.5)];
-    line.backgroundColor = [UIColor GCGrayLineColor];
+    line.backgroundColor = [UIColor GCSeparatorLineColor];
     [view addSubview:label];
     [view addSubview:line];
     
@@ -163,7 +163,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
-        _tableView.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
+        _tableView.backgroundColor = [UIColor GCBackgroundColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableFooterView = [[UIView alloc] init];
         _tableView.bounces = NO;

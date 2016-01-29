@@ -26,7 +26,7 @@
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"Mine", nil);
-    self.view.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
+    self.view.backgroundColor = [UIColor GCBackgroundColor];
     
     self.userID = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINID];
     self.username = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME];
@@ -39,7 +39,7 @@
     //                                       text:@"注销账号"
     //                                     target:self
     //                                     action:@selector(logOutAction)];
-    //    button.backgroundColor = [UIColor GCLightGrayColor];
+    //    button.backgroundColor = [UIColor GCLightGrayFontColor];
     //    button.layer.cornerRadius = 5;
     //    button.titleLabel.font = [UIFont boldSystemFontOfSize:17];
     //    button.tintColor = [UIColor whiteColor];
@@ -151,9 +151,9 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
-    view.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
+    view.backgroundColor = [UIColor GCBackgroundColor];
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 28, ScreenWidth, 0.5)];
-    line.backgroundColor = [UIColor GCGrayLineColor];
+    line.backgroundColor = [UIColor GCSeparatorLineColor];
     [view addSubview:line];
     
     return view;
@@ -183,7 +183,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
-        _tableView.backgroundColor = [UIColor GCVeryLightGrayBackgroundColor];
+        _tableView.backgroundColor = [UIColor GCBackgroundColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableFooterView = [[UIView alloc] init];
         _tableView.bounces = NO;

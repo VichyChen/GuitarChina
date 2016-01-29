@@ -79,7 +79,7 @@
                                    contentMode:UIViewContentModeScaleAspectFit];
         _avatarImage.layer.cornerRadius = 5;
         _avatarImage.layer.masksToBounds = YES;
-        _avatarImage.backgroundColor = [UIColor GCLightGrayColor];
+        _avatarImage.backgroundColor = [UIColor GCLightGrayFontColor];
         [_avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_URL_BIGAVTARIMAGE([[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINID])]
                             placeholderImage:nil
                                      options:SDWebImageRetryFailed];
@@ -100,7 +100,7 @@
 - (UIView *)separatorLineView {
     if (!_separatorLineView) {
         _separatorLineView = [[UIView alloc] initWithFrame:CGRectZero];
-        _separatorLineView.backgroundColor = [UIColor GCGrayLineColor];
+        _separatorLineView.backgroundColor = [UIColor GCSeparatorLineColor];
     }
     return _separatorLineView;
 }
@@ -119,7 +119,7 @@
     if (!_placeholderLabel) {
         _placeholderLabel = [UIView createLabel:CGRectZero
                                            text:NSLocalizedString(@"Write reply.", nil)
-                                           font:[UIFont systemFontOfSize:16] textColor:[UIColor GCDeepGrayColor]];
+                                           font:[UIFont systemFontOfSize:16] textColor:[UIColor GCLightGrayFontColor]];
     }
     return _placeholderLabel;
 }

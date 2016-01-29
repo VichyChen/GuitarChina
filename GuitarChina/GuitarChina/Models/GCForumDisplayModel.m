@@ -26,13 +26,13 @@
         [_replyAndViewDetailString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@    %@ ", _replies, _views]]];
         
         NSTextAttachment *repliesAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
-        repliesAttachment.image = [[UIImage imageNamed:@"icon_replycount"] imageWithTintColor:[UIColor GCDeepGrayColor]];
+        repliesAttachment.image = [[UIImage imageNamed:@"icon_replycount"] imageWithTintColor:[UIColor GCLightGrayFontColor]];
         repliesAttachment.bounds = CGRectMake(0, -2, 15, 15);
         NSAttributedString *repliesAttachmentString = [NSAttributedString attributedStringWithAttachment:repliesAttachment];
         [_replyAndViewDetailString insertAttributedString:repliesAttachmentString atIndex:_replies.length + 1];
         
         NSTextAttachment *viewsAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
-        viewsAttachment.image = [[UIImage imageNamed:@"icon_watch"] imageWithTintColor:[UIColor GCDeepGrayColor]];
+        viewsAttachment.image = [[UIImage imageNamed:@"icon_watch"] imageWithTintColor:[UIColor GCLightGrayFontColor]];
         viewsAttachment.bounds = CGRectMake(0, -2, 15, 15);
         NSAttributedString *viewAttachmentString = [NSAttributedString attributedStringWithAttachment:viewsAttachment];
         [_replyAndViewDetailString insertAttributedString:viewAttachmentString atIndex:_replyAndViewDetailString.length];

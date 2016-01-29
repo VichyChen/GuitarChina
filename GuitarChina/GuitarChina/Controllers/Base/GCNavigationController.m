@@ -18,11 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationBar.barTintColor = [UIColor GCRedColor];
-    self.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName];
-    
-//    self.navigationBar.nightBarTintColor = [UIColor GCFontColor];
+    self.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationBar.tintColor = [UIColor GCDarkGrayFontColor];
+    self.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObject:[UIColor GCDarkGrayFontColor] forKey:NSForegroundColorAttributeName];
+//    self.navigationBar.nightBarTintColor = [UIColor GCDarkGrayFontColor];
 //    self.navigationBar.nightTintColor = [UIColor whiteColor];
 //    UIImage *image = [[[UIImage alloc] init] imageWithTintColor:[UIColor GCRedColor]];
 //

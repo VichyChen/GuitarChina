@@ -15,7 +15,6 @@
 		0426CD811BE73EB100BE85D8 /* GCHotThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD801BE73EB100BE85D8 /* GCHotThreadCell.m */; };
 		0426CD8A1BE73F0E00BE85D8 /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD831BE73F0E00BE85D8 /* GCForumDisplayCell.m */; };
 		0426CD8B1BE73F0E00BE85D8 /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD851BE73F0E00BE85D8 /* GCForumIndexCell.m */; };
-		0426CD8C1BE73F0E00BE85D8 /* GCThreadReplyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD871BE73F0E00BE85D8 /* GCThreadReplyCell.m */; };
 		0426CD8D1BE73F0E00BE85D8 /* GCThreadRightMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD891BE73F0E00BE85D8 /* GCThreadRightMenuCell.m */; };
 		0426CD961BE73F3000BE85D8 /* GCMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD8F1BE73F3000BE85D8 /* GCMineCell.m */; };
 		0426CD971BE73F3000BE85D8 /* GCMineHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD911BE73F3000BE85D8 /* GCMineHeaderCell.m */; };
@@ -181,8 +180,6 @@
 		0426CD831BE73F0E00BE85D8 /* GCForumDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayCell.m; sourceTree = "<group>"; };
 		0426CD841BE73F0E00BE85D8 /* GCForumIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexCell.h; sourceTree = "<group>"; };
 		0426CD851BE73F0E00BE85D8 /* GCForumIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexCell.m; sourceTree = "<group>"; };
-		0426CD861BE73F0E00BE85D8 /* GCThreadReplyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadReplyCell.h; sourceTree = "<group>"; };
-		0426CD871BE73F0E00BE85D8 /* GCThreadReplyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadReplyCell.m; sourceTree = "<group>"; };
 		0426CD881BE73F0E00BE85D8 /* GCThreadRightMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadRightMenuCell.h; sourceTree = "<group>"; };
 		0426CD891BE73F0E00BE85D8 /* GCThreadRightMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadRightMenuCell.m; sourceTree = "<group>"; };
 		0426CD8E1BE73F3000BE85D8 /* GCMineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMineCell.h; sourceTree = "<group>"; };
@@ -544,8 +541,6 @@
 				0426CD851BE73F0E00BE85D8 /* GCForumIndexCell.m */,
 				0426CD821BE73F0E00BE85D8 /* GCForumDisplayCell.h */,
 				0426CD831BE73F0E00BE85D8 /* GCForumDisplayCell.m */,
-				0426CD861BE73F0E00BE85D8 /* GCThreadReplyCell.h */,
-				0426CD871BE73F0E00BE85D8 /* GCThreadReplyCell.m */,
 				0426CD881BE73F0E00BE85D8 /* GCThreadRightMenuCell.h */,
 				0426CD891BE73F0E00BE85D8 /* GCThreadRightMenuCell.m */,
 				0426CDB21BE76BB600BE85D8 /* GCThreadRightMenuCollectionCell.h */,
@@ -1430,7 +1425,6 @@
 				423889061BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
 				044C5F471BE345F800A17B99 /* GCReplyThreadViewController.m in Sources */,
 				4238890F1BC57D0F002E1625 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
-				0426CD8C1BE73F0E00BE85D8 /* GCThreadReplyCell.m in Sources */,
 				4238889B1BC57CA6002E1625 /* MJRefreshComponent.m in Sources */,
 				423888F21BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
 				046DB76D1BFC6F9700E05E17 /* XPathQuery.m in Sources */,

@@ -58,7 +58,7 @@
         _label = [UIView createLabel:CGRectMake(15, 15, ScreenWidth - 30, 0)
                                 text:[Util getBundleTXTString:@"UserProtocol"]
                                 font:[UIFont systemFontOfSize:16]
-                           textColor:[UIColor GCFontColor]
+                           textColor:[UIColor GCDarkGrayFontColor]
                        numberOfLines:0
              preferredMaxLayoutWidth:ScreenWidth - 30];
     }

@@ -547,7 +547,7 @@ typedef enum {
 //            [itemView addSubview:gradientView];
 
             UIView *separatorView = [[UIView alloc] initWithFrame:CGRectMake(kMarginX * 2 - 20, maxItemHeight + 1, gradientLine.size.width + 40, gradientLine.size.height)];
-            separatorView.backgroundColor = [UIColor GCGrayLineColor];
+            separatorView.backgroundColor = [UIColor GCSeparatorLineColor];
             [itemView addSubview:separatorView];
             
             itemY += 2;
