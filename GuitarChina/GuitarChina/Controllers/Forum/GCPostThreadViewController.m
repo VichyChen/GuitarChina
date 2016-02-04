@@ -8,8 +8,9 @@
 
 #import "GCPostThreadViewController.h"
 
-@interface GCPostThreadViewController () <UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
+@interface GCPostThreadViewController () <UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UIScrollViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewHeight;
 
 @property (weak, nonatomic) IBOutlet UITextField *subjectTextField;
@@ -37,8 +38,11 @@
     self.subjectTextField.placeholder = NSLocalizedString(@"Title (Required)", nil);
     self.typeLabel.text = NSLocalizedString(@"Select thread type.", nil);
     self.placeHoldLabel.text = NSLocalizedString(@"Write reply.", nil);
+    
+    self.subjectTextField.textColor = [UIColor GCDarkGrayFontColor];
     self.typeLabel.textColor = [UIColor GCLightGrayFontColor];
     self.placeHoldLabel.textColor = [UIColor GCLightGrayFontColor];
+    self.messageTextView.textColor = [UIColor GCDarkGrayFontColor];
     self.selectTypeCompleteButton.tintColor = [UIColor GCLightGrayFontColor];
     
     self.scrollViewHeight.constant = ScreenHeight - 64 + 1;
@@ -46,6 +50,12 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+
 }
 
 #pragma mark - UITextFieldDelegate

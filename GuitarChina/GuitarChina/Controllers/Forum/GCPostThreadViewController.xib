@@ -11,6 +11,7 @@
                 <outlet property="pickerBackgroundView" destination="MMS-ml-gil" id="g8i-WA-h1Z"/>
                 <outlet property="pickerView" destination="ex4-EV-XiH" id="GIT-TU-oTx"/>
                 <outlet property="placeHoldLabel" destination="6gD-9v-pcB" id="HMj-is-Top"/>
+                <outlet property="scrollView" destination="19u-lB-GVt" id="ouH-fI-hXJ"/>
                 <outlet property="scrollViewHeight" destination="yRh-y4-ylc" id="g3J-uc-zB0"/>
                 <outlet property="selectTypeCompleteButton" destination="lVm-ts-K3d" id="5AP-u0-vVz"/>
                 <outlet property="subjectTextField" destination="9QW-vr-4lz" id="hLV-XO-t3q"/>
@@ -156,6 +157,9 @@
                         <constraint firstAttribute="trailing" secondItem="oX2-uV-1aO" secondAttribute="trailing" id="b1o-gE-8IE"/>
                         <constraint firstItem="oX2-uV-1aO" firstAttribute="centerX" secondItem="19u-lB-GVt" secondAttribute="centerX" id="dCV-qL-FLV"/>
                     </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="HGw-oX-C0N"/>
+                    </connections>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMS-ml-gil">
                     <rect key="frame" x="0.0" y="504" width="320" height="240"/>
