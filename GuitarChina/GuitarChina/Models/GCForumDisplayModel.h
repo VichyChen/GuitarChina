@@ -36,6 +36,7 @@
 
 @property (nonatomic, copy) NSString *tpp;
 @property (nonatomic, copy) NSString *page;
+@property (nonatomic, strong) NSDictionary *threadTypes;
 
 @property (nonatomic, strong) NSMutableArray *data;    //forum_threadlist
 

@@ -166,7 +166,6 @@
         _tableView.backgroundColor = [UIColor GCBackgroundColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableFooterView = [[UIView alloc] init];
-        _tableView.bounces = NO;
         _tableView.dataSource = self;
         _tableView.delegate = self;
     }

@@ -103,6 +103,7 @@
             self.loaded = true;
             self.uid = array.member_uid;
             self.formhash = array.formhash;
+            self.threadTypes = array.threadTypes;
             
             if (self.pageIndex == 1) {
                 self.data = array.data;
@@ -141,6 +142,9 @@
             [self presentViewController:loginViewController animated:YES completion:nil];
         } else {
             GCPostThreadViewController *controller = [[GCPostThreadViewController alloc] initWithNibName:@"GCPostThreadViewController" bundle:[NSBundle mainBundle]];
+            controller.fid = self.fid;
+            controller.formhash = self.formhash;
+            controller.threadTypes = self.threadTypes;
             [self.navigationController pushViewController:controller animated:YES];
         }
     }

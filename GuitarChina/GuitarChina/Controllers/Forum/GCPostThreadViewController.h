@@ -10,4 +10,8 @@
 
 @interface GCPostThreadViewController : UIViewController
 
+@property (nonatomic, copy) NSString *fid;
+@property (nonatomic, copy) NSString *formhash;
+@property (nonatomic, strong) NSDictionary *threadTypes;
+
 @end

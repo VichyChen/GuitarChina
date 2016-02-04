@@ -49,6 +49,8 @@
         self.tpp              = [dictionary objectForKey:@"tpp"];
         self.page             = [dictionary objectForKey:@"page"];
         
+        self.threadTypes = [[dictionary objectForKey:@"threadtypes"] objectForKey:@"types"];
+        
         NSArray *threads = [dictionary objectForKey:@"forum_threadlist"];
         NSMutableArray *array = [[NSMutableArray alloc] init];
         for (NSDictionary *item in threads) {
