@@ -19,7 +19,9 @@
 #import "UMSocialQQHandler.h"
 #import "IQKeyboardManager.h"
 #import "KeyboardManager.h"
+
 #import "GCReplyThreadViewController.h"
+#import "GCReportThreadViewController.h"
 
 @interface AppDelegate ()
 
@@ -30,16 +32,7 @@
 #pragma mark - UIApplicationDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
-    [IQKeyboardManager sharedManager].canAdjustTextView = YES;
-    [[IQKeyboardManager sharedManager] disableInViewControllerClass:[GCReplyThreadViewController class]];
-    
-    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (NSHTTPCookie *cookie in [cookieJar cookies]) {
-        NSLog(@"%@", cookie);
-    }
-    
+
     if ([self firstStart]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCAUTOSWITCHNIGHTMODE];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCLOADIMAGE];
@@ -55,6 +48,7 @@
     //友盟分享
     [self UMengSocial];
     
+    [self configureIQKeyboardManager];
     [self configureForumDictionary];
     [self configureSVProgressHUD];
     [self configureTabBarController];
@@ -75,7 +69,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    //    [self saveCookie];
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -87,7 +81,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    //    [self saveCookie];
+
 }
 
 - (BOOL)application:(UIApplication *)application
@@ -218,32 +212,10 @@
     self.forumDictionary = [NSDictionary dictionaryWithContentsOfFile:path];
 }
 
-- (void)saveCookie {
-    NSHTTPCookie *cookie;
-    NSHTTPCookieStorage *nCookies = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    NSArray *cookiesURL = [nCookies cookiesForURL:[NSURL URLWithString:@"http://bbs.guitarchina.com/"]];
-    
-    for (id c in cookiesURL)
-    {
-        if ([c isKindOfClass:[NSHTTPCookie class]])
-        {
-            cookie=(NSHTTPCookie *)c;
-            NSDate *expiresDate = [NSDate dateWithTimeIntervalSinceNow:3600*24*30*12]; //当前点后，保存一年左右
-            NSArray *cookies = [NSArray arrayWithObjects:cookie.name, cookie.value, expiresDate, cookie.domain, cookie.path, nil];
-            
-            if(cookies){
-                NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
-                [cookieProperties setObject:[cookies objectAtIndex:0] forKey:NSHTTPCookieName];
-                [cookieProperties setObject:[cookies objectAtIndex:1] forKey:NSHTTPCookieValue];
-                [cookieProperties setObject:[cookies objectAtIndex:2] forKey:NSHTTPCookieExpires];
-                [cookieProperties setObject:[cookies objectAtIndex:3] forKey:NSHTTPCookieDomain];
-                [cookieProperties setObject:[cookies objectAtIndex:4] forKey:NSHTTPCookiePath];
-                
-                NSHTTPCookie *cookieuser = [NSHTTPCookie cookieWithProperties:cookieProperties];
-                [[NSHTTPCookieStorage sharedHTTPCookieStorage]  setCookie:cookieuser];
-            }
-        }
-    }
+- (void)configureIQKeyboardManager {
+    [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
+    [[IQKeyboardManager sharedManager] disableInViewControllerClass:[GCReplyThreadViewController class]];
+    [[IQKeyboardManager sharedManager] disableInViewControllerClass:[GCReportThreadViewController class]];
 }
 
 - (BOOL)firstStart {

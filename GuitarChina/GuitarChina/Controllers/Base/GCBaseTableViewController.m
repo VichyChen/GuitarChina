@@ -75,13 +75,7 @@
     }
     if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
         [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-    }
-    
-    UIImage *image = [[[UIImage alloc] init] imageWithTintColor:[UIColor redColor]];
-    
-    //    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-    //    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-    
+    }    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -34,9 +34,10 @@
     [super viewDidLoad];
 
     [self configureView];
+    self.subjectTextField.placeholder = NSLocalizedString(@"Title (Required)", nil);
     self.typeLabel.text = NSLocalizedString(@"Select thread type.", nil);
-    self.typeLabel.textColor = [UIColor GCLightGrayFontColor];
     self.placeHoldLabel.text = NSLocalizedString(@"Write reply.", nil);
+    self.typeLabel.textColor = [UIColor GCLightGrayFontColor];
     self.placeHoldLabel.textColor = [UIColor GCLightGrayFontColor];
     self.selectTypeCompleteButton.tintColor = [UIColor GCLightGrayFontColor];
     
