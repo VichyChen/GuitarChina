@@ -13,18 +13,27 @@
 @interface GCLoginViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
+@property (weak, nonatomic) IBOutlet UILabel *passwordLabel;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *answerTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *questionTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *answerLabel;
+@property (weak, nonatomic) IBOutlet UITextField *answerTextField;
+
 @property (weak, nonatomic) IBOutlet UIView *answerBottomSeparatorView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *answerRowHeight;
-@property (weak, nonatomic) IBOutlet UITextField *answerTextField;
+
+@property (weak, nonatomic) IBOutlet UILabel *seccodeVerifyLabel;
 @property (weak, nonatomic) IBOutlet UITextField *seccodeVerifyTextField;
 @property (weak, nonatomic) IBOutlet UIImageView *seccodeVerifyImageView;
+
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (weak, nonatomic) IBOutlet UIView *pickerBackgroundView;
+
 - (IBAction)selectedPickerViewCompleteAction:(UIButton *)sender;
 - (IBAction)loginAction:(UIButton *)sender;
 - (IBAction)closeAction:(UIButton *)sender;
@@ -61,6 +70,7 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self configureView];
+    [self configureColor];
     [self configureBlock];
     
     self.usernameTextField.text = @"Vichy_Chen";
@@ -72,7 +82,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:NO];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -83,7 +92,7 @@
         self.scrollviewHeight.constant = 568;
     } else {
         self.scrollviewHeight.constant = ScreenHeight + 1;
-        self.contentOriginY.constant = 200;
+        self.contentOriginY.constant = 100;
     }
     if (iPhone) {
         //iphone
@@ -100,7 +109,6 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -190,7 +198,7 @@
         [self showAnswer];
     }
     self.questionIndex = index;
-    self.questionLabel.text = [self.questionArray objectAtIndex:[self.pickerView selectedRowInComponent:0]];
+    self.questionTextLabel.text = [self.questionArray objectAtIndex:[self.pickerView selectedRowInComponent:0]];
     [UIView animateWithDuration:0.3 animations:^{
         self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 240);
     }];
@@ -334,17 +342,23 @@
     };
 }
 
+- (void)configureColor {
+    self.usernameLabel.textColor = self.passwordLabel.textColor = self.questionLabel.textColor = self.questionTextLabel.textColor = self.answerLabel.textColor = self.seccodeVerifyLabel.textColor = self.usernameTextField.textColor = self.passwordTextField.textColor = self.answerTextField.textColor = self.seccodeVerifyTextField.textColor = [UIColor GCDarkGrayFontColor];
+    
+    self.loginButton.backgroundColor = [UIColor GCRedColor];
+}
+
 - (void)hideAnswer {
     self.answerRowHeight.constant = 0;
     self.answerTextField.hidden = YES;
-    self.answerTextLabel.hidden = YES;
+    self.answerLabel.hidden = YES;
     self.answerBottomSeparatorView.hidden = YES;
 }
 
 - (void)showAnswer {
-    self.answerRowHeight.constant = 40;
+    self.answerRowHeight.constant = 44;
     self.answerTextField.hidden = NO;
-    self.answerTextLabel.hidden = NO;
+    self.answerLabel.hidden = NO;
     self.answerBottomSeparatorView.hidden = NO;
 }
 
