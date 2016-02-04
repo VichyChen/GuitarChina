@@ -302,7 +302,7 @@
         _scrollTopButton = [UIView createButton:CGRectMake(ScreenWidth - 15 - 40, 0, 40, 40)
                                          target:self
                                          action:@selector(scrollTopAction)];
-        [_scrollTopButton setImage:[UIImage imageNamed:@"icon_upArrow"] forState:UIControlStateNormal];
+        [_scrollTopButton setImage:[[UIImage imageNamed:@"icon_upArrow"] imageWithTintColor:[UIColor GCDarkGrayFontColor]] forState:UIControlStateNormal];
         _scrollTopButton.tintColor = [UIColor GCDarkGrayFontColor];
 //        _scrollTopButton.backgroundColor = [UIColor whiteColor];
 //        _scrollTopButton.layer.cornerRadius = 20;

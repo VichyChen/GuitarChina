@@ -123,10 +123,12 @@
 - (void)configureView {
     self.title = NSLocalizedString(@"Post Thread", nil);
     self.edgesForExtendedLayout = UIRectEdgeNone;
-
-    UIBarButtonItem *rightBarItem = [UIView createBarButtonItem:NSLocalizedString(@"Send", nil) target:self action:@selector(sendAction)];
-    rightBarItem.tintColor = [UIColor GCBlueColor];
-    self.navigationItem.rightBarButtonItem = rightBarItem;
+    
+    self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_checkmark"
+                                                                   normalColor:[UIColor GCDarkGrayFontColor]
+                                                              highlightedColor:[UIColor grayColor]
+                                                                        target:self
+                                                                        action:@selector(sendAction)];
 }
 
 #pragma mark - Event Responses

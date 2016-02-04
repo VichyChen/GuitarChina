@@ -50,14 +50,18 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
-    UIBarButtonItem *leftBarItem = [UIView createBarButtonItem:NSLocalizedString(@"Cancel", nil) target:self action:@selector(closeAction)];
-    leftBarItem.tintColor = [UIColor GCLightGrayFontColor];
-    self.navigationItem.leftBarButtonItem = leftBarItem;
+    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_delete"
+                                                                   normalColor:[UIColor GCDarkGrayFontColor]
+                                                              highlightedColor:[UIColor grayColor]
+                                                                        target:self
+                                                                        action:@selector(closeAction)];
     
-    UIBarButtonItem *rightBarItem = [UIView createBarButtonItem:NSLocalizedString(@"Send", nil) target:self action:@selector(sendAction)];
-    rightBarItem.tintColor = [UIColor GCBlueColor];
-    self.navigationItem.rightBarButtonItem = rightBarItem;
-
+    self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_checkmark"
+                                                                   normalColor:[UIColor GCDarkGrayFontColor]
+                                                              highlightedColor:[UIColor grayColor]
+                                                                        target:self
+                                                                        action:@selector(sendAction)];
+    
     self.title = NSLocalizedString(@"Report", nil);
     
     [self.view addSubview:self.reportThreadView];
