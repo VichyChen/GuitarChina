@@ -77,7 +77,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 35)];
     view.backgroundColor = [UIColor GCBackgroundColor];
     GCForumGroupModel *model = [self.data objectAtIndex:section];
-    UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth, 35) text:[NSString stringWithFormat:@"- %@ -", model.name] font:[UIFont boldSystemFontOfSize:16] textColor:[UIColor GCBlueColor]];
+    UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth, 35) text:[NSString stringWithFormat:@"%@", model.name] font:[UIFont boldSystemFontOfSize:16] textColor:[UIColor GCBlueColor]];
     [view addSubview:label];
     
     return view;
@@ -103,22 +103,6 @@
     [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-//#pragma mark - UIScrollViewDelegate
-//
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    [super scrollViewDidScroll:scrollView];
-//
-//    if (scrollView == self.tableView)
-//    {
-//        CGFloat sectionHeaderHeight = 120;
-//        if (scrollView.contentOffset.y<=sectionHeaderHeight&&scrollView.contentOffset.y>=0) {
-//            scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
-//        } else if (scrollView.contentOffset.y>=sectionHeaderHeight) {
-//            scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
-//        }
-//    }
-//}
 
 #pragma mark - Private Methods
 
