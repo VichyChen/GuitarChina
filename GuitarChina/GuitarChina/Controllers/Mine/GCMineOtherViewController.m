@@ -100,7 +100,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:kGCLOGIN];
     [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kGCLOGINNAME];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+//    [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
