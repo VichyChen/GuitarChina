@@ -25,6 +25,6 @@
 
 @property (nonatomic, strong) GCSendReplyMessageModel *message;
 
-- (instancetype)initWithDictionary:(id)dictionary;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

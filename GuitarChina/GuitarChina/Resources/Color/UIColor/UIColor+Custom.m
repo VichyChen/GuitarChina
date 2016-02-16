@@ -49,4 +49,8 @@
     return [UIColor colorWithRed:0.945f green:0.945f blue:0.945f alpha:1.00f];
 }
 
++ (UIColor *)UITextFieldPlaceHolderColor {
+    return [UIColor colorWithRed:0.780 green:0.780 blue:0.804 alpha:1.00];
+}
+
 @end

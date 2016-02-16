@@ -40,8 +40,8 @@
     self.placeHoldLabel.text = NSLocalizedString(@"Write reply.", nil);
     
     self.subjectTextField.textColor = [UIColor GCDarkGrayFontColor];
-    self.typeLabel.textColor = [UIColor GCLightGrayFontColor];
-    self.placeHoldLabel.textColor = [UIColor GCLightGrayFontColor];
+    self.typeLabel.textColor = [UIColor UITextFieldPlaceHolderColor];
+    self.placeHoldLabel.textColor = [UIColor UITextFieldPlaceHolderColor];
     self.messageTextView.textColor = [UIColor GCDarkGrayFontColor];
     self.selectTypeCompleteButton.tintColor = [UIColor GCLightGrayFontColor];
     

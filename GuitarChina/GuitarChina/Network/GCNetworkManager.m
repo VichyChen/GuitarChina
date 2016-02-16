@@ -8,10 +8,12 @@
 
 #import "GCNetworkManager.h"
 #import "TFHpple.h"
+#import "JsonTool.h"
 
 typedef NS_ENUM(NSInteger, GCRequestType) {
     GCRequestJsonGet    = 1,
-    GCRequestHTTPPOST   = 2,
+    GCRequestPost   = 2,
+    GCRequestHttpPost   = 3,
 };
 
 @implementation GCNetworkManager
@@ -54,7 +56,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     //    [manager.requestSerializer setValue:@"Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3" forHTTPHeaderField:@"User-Agent"];
     //    AFHTTPSessionManager *manager=[AFHTTPSessionManager manager];
     //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -69,7 +70,15 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
             responseFailureBlock(operation, error);
         }];
     }
-    else if (type == GCRequestHTTPPOST) {
+    else if (type == GCRequestPost) {
+        [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            responseSuccessBlock(operation, responseObject);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            responseFailureBlock(operation, error);
+        }];
+    }
+    else if (type == GCRequestHttpPost) {
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
         [manager POST:url parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             responseSuccessBlock(operation, responseObject);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -169,7 +178,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_LGOINSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *parameters = @{ @"username" : username, @"password" : password };
-        [self requestCommonMethod:GCRequestHTTPPOST url:GCNETWORKAPI_POST_LOGIN parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self requestCommonMethod:GCRequestHttpPost url:GCNETWORKAPI_POST_LOGIN parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             GCLoginModel *model = [[GCLoginModel alloc] initWithDictionary:responseObject];
             success(model);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -209,9 +218,12 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_POSTSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *parameters = @{ @"message" : message, @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash };
-        [self requestCommonMethod:GCRequestHTTPPOST url:GCNETWORKAPI_POST_SENDREPLY(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            GCSendReplyModel *model = [[GCSendReplyModel alloc] initWithDictionary:responseObject];
+        [self requestCommonMethod:GCRequestPost url:GCNETWORKAPI_POST_SENDREPLY(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            NSDictionary *dictionary = [JsonTool jsonToDictionary:operation.responseString];
+            GCSendReplyModel *model = [[GCSendReplyModel alloc] initWithDictionary:dictionary];
             success(model);
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(error);
         }];
@@ -231,7 +243,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_POSTSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *parameters = @{ @"allownoticeauthor" : @"1", @"message" : message, @"subject" : subject, @"mobiletype" : @"1", @"formhash" : formhash, @"typeid" : type };
-        [self requestCommonMethod:GCRequestHTTPPOST url:GCNETWORKAPI_POST_NEWTHREAD(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self requestCommonMethod:GCRequestHttpPost url:GCNETWORKAPI_POST_NEWTHREAD(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             GCNewThreadModel *model = [[GCNewThreadModel alloc] initWithDictionary:responseObject];
             success(model);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -248,7 +260,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                   Success:(void (^)(void))success
                   failure:(void (^)(NSError *error))failure {
     NSDictionary *parameters = @{ @"text" : text};
-    [self requestCommonMethod:GCRequestHTTPPOST url:GCNETWORKAPI_POST_REPORT(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self requestCommonMethod:GCRequestHttpPost url:GCNETWORKAPI_POST_REPORT(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
@@ -318,7 +330,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                         TFHppleElement *formElement = [[xpathParser searchWithXPathQuery:@"//form[@name='login']"] objectAtIndex:0];
                         NSString *postURL = [NSString stringWithFormat:@"%@%@", GCHOST,[formElement objectForKey:@"action"]];
                         NSLog(@"postURL = %@", postURL);
-
+                        
                         TFHppleElement *questionElement = [[xpathParser searchWithXPathQuery:@"//select[@name='questionid']"] objectAtIndex:0];
                         NSArray *optionArray = questionElement.children;
                         NSMutableArray *questionArray = [NSMutableArray array];
@@ -395,7 +407,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                                  @"answer" : answer,
                                  @"submit" : @"登陆",
                                  @"cookietime" : @"2592000"};
-    [self requestCommonMethod:GCRequestHTTPPOST url:postURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self requestCommonMethod:GCRequestHttpPost url:postURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", operation.responseString);
         success(operation.responseString);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

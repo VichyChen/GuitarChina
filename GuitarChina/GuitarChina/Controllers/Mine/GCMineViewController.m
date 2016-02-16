@@ -109,11 +109,33 @@
     return nil;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @" ";
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+//    return @" ";
+//}
 
 #pragma mark - UITableViewDelegate
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 28)];
+    view.backgroundColor = [UIColor GCBackgroundColor];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 28, ScreenWidth, 0.5)];
+    line.backgroundColor = [UIColor GCSeparatorLineColor];
+    [view addSubview:line];
+    
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 28;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] initWithFrame:CGRectZero];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.01f;
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
@@ -125,11 +147,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    
     if (indexPath.section == 0) {//个人信息
-//        GCUserInfoViewController *userInfoViewController = [[GCUserInfoViewController alloc] init];
-//        userInfoViewController.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:userInfoViewController animated:YES];
+        //        GCUserInfoViewController *userInfoViewController = [[GCUserInfoViewController alloc] init];
+        //        userInfoViewController.hidesBottomBarWhenPushed = YES;
+        //        [self.navigationController pushViewController:userInfoViewController animated:YES];
     } else if (indexPath.section == 1) {//我的主题
         if (indexPath.row == 0) {
             GCMyThreadViewController *userThreadViewController = [[GCMyThreadViewController alloc] init];
@@ -147,16 +168,6 @@
             [self.navigationController pushViewController:mineOtherViewController animated:YES];
         }
     }
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
-    view.backgroundColor = [UIColor GCBackgroundColor];
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 28, ScreenWidth, 0.5)];
-    line.backgroundColor = [UIColor GCSeparatorLineColor];
-    [view addSubview:line];
-    
-    return view;
 }
 
 #pragma mark - Private Methods
@@ -182,10 +193,9 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
         _tableView.backgroundColor = [UIColor GCBackgroundColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _tableView.tableFooterView = [[UIView alloc] init];
         _tableView.dataSource = self;
         _tableView.delegate = self;
     }

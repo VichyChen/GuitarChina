@@ -24,6 +24,7 @@
 #import "NSString+Tools.h"
 #import "UIImage+Tint.h"   
 #import "Util.h"
+#import "JsonTool.h"
 
 #define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
 #define ScreenWidth ([UIScreen mainScreen].bounds.size.width)

@@ -41,8 +41,12 @@
     }
     [self.replyThreadView.textView resignFirstResponder];
     [[GCNetworkManager manager] postReplyWithTid:self.tid message:self.replyThreadView.textView.text formhash:self.formhash Success:^(GCSendReplyModel *model) {
-        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
-        [self closeAction];
+        if ([model.message.messageval isEqualToString:@"post_reply_succeed"]) {
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
+            [self closeAction];
+        } else {
+            [SVProgressHUD showSuccessWithStatus:model.message.messagestr];
+        }
     } failure:^(NSError *error) {
         
     }];

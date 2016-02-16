@@ -152,7 +152,7 @@
     hotThreadNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_guitar"];
     hotThreadNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_guitar_on"];
     
-    GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] init];
+    GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] initWithStyle:UITableViewStyleGrouped];
     GCNavigationController *forumIndexNavigationController = [[GCNavigationController alloc] initWithRootViewController:forumIndexViewController];
     forumIndexNavigationController.tabBarItem.title = NSLocalizedString(@"Forum", nil);
     forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"icon_wave"] imageWithTintColor:[UIColor GCDeepGrayColor]];

@@ -14,7 +14,7 @@
 
 @implementation GCSendReplyModel
 
-- (instancetype)initWithDictionary:(id)dictionary {
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     if (self = [super initWithDictionary:[dictionary objectForKey:@"Variables"]]) {
         self.tid = [[dictionary objectForKey:@"Variables"] objectForKey:@"tid"];
         self.pid = [[dictionary objectForKey:@"Variables"] objectForKey:@"pid"];

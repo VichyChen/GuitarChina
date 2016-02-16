@@ -36,21 +36,23 @@
         
         NSArray *data = [dictionary objectForKey:@"list"];
         NSMutableArray *array = [[NSMutableArray alloc] init];
-        for (NSDictionary *item in data) {
-            GCMyFavThreadModel *model = [[GCMyFavThreadModel alloc] init];
-            model.favid            = [item objectForKey:@"favid"];
-            model.uid              = [item objectForKey:@"uid"];
-            model.idfield          = [item objectForKey:@"id"];
-            model.idtype           = [item objectForKey:@"idtype"];
-            model.spaceuid         = [item objectForKey:@"spaceuid"];
-            model.title            = [item objectForKey:@"title"];
-            model.descriptionfield = [item objectForKey:@"description"];
-            model.dateline         = [item objectForKey:@"dateline"];
-            model.icon             = [item objectForKey:@"icon"];
-            model.url              = [item objectForKey:@"url"];
-            model.replies          = [item objectForKey:@"replies"];
-            model.author           = [item objectForKey:@"author"];
-            [array addObject:model];
+        if ([data isKindOfClass:[NSArray class]]) {
+            for (NSDictionary *item in data) {
+                GCMyFavThreadModel *model = [[GCMyFavThreadModel alloc] init];
+                model.favid            = [item objectForKey:@"favid"];
+                model.uid              = [item objectForKey:@"uid"];
+                model.idfield          = [item objectForKey:@"id"];
+                model.idtype           = [item objectForKey:@"idtype"];
+                model.spaceuid         = [item objectForKey:@"spaceuid"];
+                model.title            = [item objectForKey:@"title"];
+                model.descriptionfield = [item objectForKey:@"description"];
+                model.dateline         = [item objectForKey:@"dateline"];
+                model.icon             = [item objectForKey:@"icon"];
+                model.url              = [item objectForKey:@"url"];
+                model.replies          = [item objectForKey:@"replies"];
+                model.author           = [item objectForKey:@"author"];
+                [array addObject:model];
+            }
         }
         self.data = array;
     }

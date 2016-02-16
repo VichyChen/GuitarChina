@@ -32,4 +32,7 @@
 
 + (UIColor *)GCCellSelectedBackgroundColor;
 
+//PlaceHolder颜色
++ (UIColor *)UITextFieldPlaceHolderColor;
+
 @end

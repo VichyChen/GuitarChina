@@ -43,6 +43,7 @@
 		045F2F511BE0CBB80024C9FC /* GCMyThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F501BE0CBB80024C9FC /* GCMyThreadViewController.m */; };
 		045F2F571BE0D0D40024C9FC /* GCMyFavThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F561BE0D0D40024C9FC /* GCMyFavThreadModel.m */; };
 		045F2F5A1BE0D1B60024C9FC /* GCMyFavThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F591BE0D1B60024C9FC /* GCMyFavThreadViewController.m */; };
+		0460A7C21C7371BF0064FD04 /* JsonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0460A7C11C7371BF0064FD04 /* JsonTool.m */; };
 		046262441BAAC06800E66F03 /* NSString+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623C1BAAC06800E66F03 /* NSString+Tools.m */; };
 		046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623F1BAAC06800E66F03 /* UIImage+Tint.m */; };
 		046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */; };
@@ -232,6 +233,8 @@
 		045F2F561BE0D0D40024C9FC /* GCMyFavThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyFavThreadModel.m; sourceTree = "<group>"; };
 		045F2F581BE0D1B60024C9FC /* GCMyFavThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyFavThreadViewController.h; sourceTree = "<group>"; };
 		045F2F591BE0D1B60024C9FC /* GCMyFavThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyFavThreadViewController.m; sourceTree = "<group>"; };
+		0460A7C01C7371BF0064FD04 /* JsonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonTool.h; sourceTree = "<group>"; };
+		0460A7C11C7371BF0064FD04 /* JsonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonTool.m; sourceTree = "<group>"; };
 		0462623B1BAAC06800E66F03 /* NSString+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Tools.h"; sourceTree = "<group>"; };
 		0462623C1BAAC06800E66F03 /* NSString+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Tools.m"; sourceTree = "<group>"; };
 		0462623E1BAAC06800E66F03 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
@@ -887,6 +890,8 @@
 				4219A6651B9A7C78005D2164 /* EXTScope */,
 				4260C6951BB64AB700705BE0 /* Util.h */,
 				4260C6961BB64AB700705BE0 /* Util.m */,
+				0460A7C01C7371BF0064FD04 /* JsonTool.h */,
+				0460A7C11C7371BF0064FD04 /* JsonTool.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1426,6 +1431,7 @@
 				044C5F471BE345F800A17B99 /* GCReplyThreadViewController.m in Sources */,
 				4238890F1BC57D0F002E1625 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
 				4238889B1BC57CA6002E1625 /* MJRefreshComponent.m in Sources */,
+				0460A7C21C7371BF0064FD04 /* JsonTool.m in Sources */,
 				423888F21BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
 				046DB76D1BFC6F9700E05E17 /* XPathQuery.m in Sources */,
 				4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */,
@@ -1646,7 +1652,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GuitarChina/Additions/UMAnalytics",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.GuitarChina;
+				PRODUCT_BUNDLE_IDENTIFIER = com.guitarchina.cdj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1669,7 +1675,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/GuitarChina/Additions/UMAnalytics",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.GuitarChina;
+				PRODUCT_BUNDLE_IDENTIFIER = com.guitarchina.cdj;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

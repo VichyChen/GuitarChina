@@ -25,7 +25,7 @@
     
     self.hiddenNavigationBarWhenScrollToBottom = NO;
     
-//    self.autoBeginRefresh = NO;
+    self.autoBeginRefresh = YES;
     self.title = NSLocalizedString(@"Forum", nil);
 }
 
@@ -36,6 +36,7 @@
     
 //    self.data = [[NSUserDefaults standardUserDefaults] objectForKey:kGCFORUMINDEXDICTIONARY];
 //    [self.tableView reloadData];
+//    self.refreshBlock();
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,6 +86,14 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 35;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [[UIView alloc] initWithFrame:CGRectZero];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.01f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
