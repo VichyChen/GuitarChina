@@ -43,7 +43,7 @@
         [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
         [self closeAction];
     } failure:^(NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
     }];
 }
 
