@@ -139,8 +139,9 @@
     if (self.subjectTextField.text.length == 0 || self.messageTextView.text.length == 0 || self.selectedType.length == 0) {
         return;
     }
-    
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     [[GCNetworkManager manager] postNewThreadWithFid:self.fid subject:self.subjectTextField.text message:self.messageTextView.text type:self.selectedType formhash:self.formhash Success:^(GCNewThreadModel *model) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
         if ([model.message.messageval isEqualToString:@"post_newthread_succeed"]) {
             [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Post Success", nil)];
             [self.navigationController popViewControllerAnimated:YES];
@@ -149,6 +150,7 @@
         }
     } failure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        self.navigationItem.rightBarButtonItem.enabled = YES;
     }];
 }
 

@@ -45,6 +45,7 @@
 "User Protocol" = "User Protocol";
 "Logout Account" = "Logout Account";
 
+"Go" = "Go";
 "Cancel" = "Cancel";
 "Send" = "Send";
 "Write reply" = "Reply";
@@ -65,6 +66,12 @@
 "Copy Complete" = "Copy Complete";
 "Report Success" = "Report Success";
 "Post Success" = "Post Success";
+
+"SecCode Error" = "SecCode Error";
+"Password Error" = "Password Error";
+"Question or Answer Error" = "Question or Answer Error";
+"Login after 15 minute" = "Login after 15 minute";
+"Other Error" = "Other Error";
 
 "No Network Connection" = "No Network Connection";
 

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0406C85D1C4E7663000BC251 /* GCPostThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C85B1C4E7663000BC251 /* GCPostThreadViewController.m */; };
-		0406C85E1C4E7663000BC251 /* GCPostThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0406C85C1C4E7663000BC251 /* GCPostThreadViewController.xib */; };
 		0408D0921BE1FEB900B3825A /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0408D0911BE1FEB900B3825A /* GCUserProtocolViewController.m */; };
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
 		0422CDDC1BC6AF70003D2EF5 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422CDDB1BC6AF70003D2EF5 /* KxMenu.m */; };
@@ -66,8 +65,9 @@
 		047150F01BF03B2A007A8890 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150EB1BF03B2A007A8890 /* SVProgressHUD.m */; };
 		047150F11BF03B2A007A8890 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150ED1BF03B2A007A8890 /* SVRadialGradientLayer.m */; };
 		0479AB101C39176E00AAF3CD /* GCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479AB0E1C39176E00AAF3CD /* GCLoginViewController.m */; };
-		0479AB111C39176E00AAF3CD /* GCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0479AB0F1C39176E00AAF3CD /* GCLoginViewController.xib */; };
 		047D7EC61BF5C9AD001689E7 /* GCMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D7EC51BF5C9AD001689E7 /* GCMoreCell.m */; };
+		0488C0971C78DF1300920E72 /* GCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0488C0991C78DF1300920E72 /* GCLoginViewController.xib */; };
+		0488C09B1C78E64300920E72 /* GCPostThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0488C09D1C78E64300920E72 /* GCPostThreadViewController.xib */; };
 		04935B031BB52D5C0010F7C8 /* GCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B021BB52D5C0010F7C8 /* GCMineViewController.m */; };
 		04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B051BB52F460010F7C8 /* GCMoreViewController.m */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
@@ -169,7 +169,6 @@
 /* Begin PBXFileReference section */
 		0406C85A1C4E7663000BC251 /* GCPostThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPostThreadViewController.h; sourceTree = "<group>"; };
 		0406C85B1C4E7663000BC251 /* GCPostThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPostThreadViewController.m; sourceTree = "<group>"; };
-		0406C85C1C4E7663000BC251 /* GCPostThreadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCPostThreadViewController.xib; sourceTree = "<group>"; };
 		0408D0901BE1FEB900B3825A /* GCUserProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserProtocolViewController.h; sourceTree = "<group>"; };
 		0408D0911BE1FEB900B3825A /* GCUserProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserProtocolViewController.m; sourceTree = "<group>"; };
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
@@ -275,9 +274,12 @@
 		047150ED1BF03B2A007A8890 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		0479AB0D1C39176E00AAF3CD /* GCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLoginViewController.h; sourceTree = "<group>"; };
 		0479AB0E1C39176E00AAF3CD /* GCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLoginViewController.m; sourceTree = "<group>"; };
-		0479AB0F1C39176E00AAF3CD /* GCLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCLoginViewController.xib; sourceTree = "<group>"; };
 		047D7EC41BF5C9AD001689E7 /* GCMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreCell.h; sourceTree = "<group>"; };
 		047D7EC51BF5C9AD001689E7 /* GCMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreCell.m; sourceTree = "<group>"; };
+		0488C0981C78DF1300920E72 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/GCLoginViewController.xib"; sourceTree = "<group>"; };
+		0488C09A1C78DF1600920E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GCLoginViewController.xib; sourceTree = "<group>"; };
+		0488C09C1C78E64300920E72 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/GCPostThreadViewController.xib"; sourceTree = "<group>"; };
+		0488C09E1C78E64500920E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GCPostThreadViewController.xib; sourceTree = "<group>"; };
 		04935B011BB52D5C0010F7C8 /* GCMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMineViewController.h; sourceTree = "<group>"; };
 		04935B021BB52D5C0010F7C8 /* GCMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMineViewController.m; sourceTree = "<group>"; };
 		04935B041BB52F460010F7C8 /* GCMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreViewController.h; sourceTree = "<group>"; };
@@ -835,7 +837,7 @@
 				420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */,
 				0479AB0D1C39176E00AAF3CD /* GCLoginViewController.h */,
 				0479AB0E1C39176E00AAF3CD /* GCLoginViewController.m */,
-				0479AB0F1C39176E00AAF3CD /* GCLoginViewController.xib */,
+				0488C0991C78DF1300920E72 /* GCLoginViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -870,7 +872,7 @@
 				045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */,
 				0406C85A1C4E7663000BC251 /* GCPostThreadViewController.h */,
 				0406C85B1C4E7663000BC251 /* GCPostThreadViewController.m */,
-				0406C85C1C4E7663000BC251 /* GCPostThreadViewController.xib */,
+				0488C09D1C78E64300920E72 /* GCPostThreadViewController.xib */,
 				044C5F451BE345F800A17B99 /* GCReplyThreadViewController.h */,
 				044C5F461BE345F800A17B99 /* GCReplyThreadViewController.m */,
 				0426CDA61BE7455A00BE85D8 /* GCReportThreadViewController.h */,
@@ -1301,13 +1303,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0479AB111C39176E00AAF3CD /* GCLoginViewController.xib in Resources */,
+				0488C0971C78DF1300920E72 /* GCLoginViewController.xib in Resources */,
 				0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */,
 				0463E6FC1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html in Resources */,
 				043648DD1BCF90740005162D /* GCThreadWebViewHtmlCell.html in Resources */,
 				425FB2F61B84C23B00B6A89B /* LaunchScreen.xib in Resources */,
 				42FFF5B21BF1C24A0061029B /* ForumList.plist in Resources */,
-				0406C85E1C4E7663000BC251 /* GCPostThreadViewController.xib in Resources */,
+				0488C09B1C78E64300920E72 /* GCPostThreadViewController.xib in Resources */,
 				043648E01BCF9BD80005162D /* Images.xcassets in Resources */,
 				047150EF1BF03B2A007A8890 /* SVProgressHUD.bundle in Resources */,
 				423888A71BC57CA6002E1625 /* MJRefresh.bundle in Resources */,
@@ -1531,6 +1533,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0488C0991C78DF1300920E72 /* GCLoginViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0488C0981C78DF1300920E72 /* zh-Hans */,
+				0488C09A1C78DF1600920E72 /* Base */,
+			);
+			name = GCLoginViewController.xib;
+			sourceTree = "<group>";
+		};
+		0488C09D1C78E64300920E72 /* GCPostThreadViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0488C09C1C78E64300920E72 /* zh-Hans */,
+				0488C09E1C78E64500920E72 /* Base */,
+			);
+			name = GCPostThreadViewController.xib;
+			sourceTree = "<group>";
+		};
 		425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -274,7 +274,7 @@
             
             self.getSeccodeVerifyImageBlock(seccode);
         } failure:^(NSError *error) {
-            
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
         }];
     };
     
@@ -296,8 +296,6 @@
     self.loginBlock = ^{
         @strongify(self);
         
-        
-        
         [[GCNetworkManager manager] postLoginWithUsername:self.usernameTextField.text password:self.passwordTextField.text fastloginfield:@"username" seccodeverify:self.seccodeVerifyTextField.text questionid:[NSString stringWithFormat:@"%ld", (long)self.questionIndex] answer:self.answerTextField.text seccodehash:self.seccode formhash:self.formhash postURL:self.postURL success:^(NSString *html) {
             NSLog(@"%@", html);
             if ([html rangeOfString:@"现在将转入登录前页面"].location != NSNotFound && ([html rangeOfString:@"点击此链接进行跳转"].location != NSNotFound || [html rangeOfString:@"如果您的浏览器没有自动跳转，请点击此链接"].location != NSNotFound)) {
@@ -314,22 +312,26 @@
                 [self closeAction];
                 
             } else if ([html rangeOfString:@"抱歉，验证码填写错误"].location != NSNotFound) {
-                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"验证码错误", nil)];
-                self.seccodeVerifyTextField.text = @"";
+                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"SecCode Error", nil)];
+//                self.seccodeVerifyTextField.text = @"";
                 NSLog(@"seccodeverify error");
-                self.getSeccodeVerifyImageBlock(self.seccode);
+//                self.getSeccodeVerifyImageBlock(self.seccode);
             } else if ([html rangeOfString:@"登录失败，您还可以尝试"].location != NSNotFound) {
+                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Password Error", nil)];
                 NSLog(@"password error");
             } else if ([html rangeOfString:@"请选择安全提问以及填写正确的答案"].location != NSNotFound) {
-                NSLog(@"question and answer error");
+                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Question or Answer Error", nil)];
+                NSLog(@"Question or Answer Error");
             } else if ([html rangeOfString:@"密码错误次数过多，请 15 分钟后重新登录"].location != NSNotFound) {
-                NSLog(@"password error, wait 15 minute");
+                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Login after 15 minute", nil)];
+                NSLog(@"Login after 15 minute");
             } else {
+                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Other Error", nil)];
                 NSLog(@"other error ????");
             }
             
         } failure:^(NSError *error) {
-            
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
         }];
     };
     

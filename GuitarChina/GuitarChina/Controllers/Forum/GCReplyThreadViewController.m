@@ -40,7 +40,10 @@
         return;
     }
     [self.replyThreadView.textView resignFirstResponder];
+    NSLog(@"click");
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     [[GCNetworkManager manager] postReplyWithTid:self.tid message:self.replyThreadView.textView.text formhash:self.formhash Success:^(GCSendReplyModel *model) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
         if ([model.message.messageval isEqualToString:@"post_reply_succeed"]) {
             [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
             [self closeAction];
@@ -49,6 +52,7 @@
         }
     } failure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        self.navigationItem.rightBarButtonItem.enabled = YES;
     }];
 }
 

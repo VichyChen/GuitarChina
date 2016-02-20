@@ -315,7 +315,7 @@
 - (UIView *)pickerContentView {
     if (!_pickerContentView) {
         _pickerContentView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 66 + 1, ScreenWidth, 200)];
-        _pickerContentView.backgroundColor = [UIColor whiteColor];
+        _pickerContentView.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
         _pickerContentView.layer.borderColor = [UIColor GCSeparatorLineColor].CGColor;
         _pickerContentView.layer.borderWidth = 1;
         _pickerContentView.layer.masksToBounds = YES;
@@ -329,10 +329,10 @@
 - (UIButton *)goButton {
     if (!_goButton) {
         _goButton = [UIView createButton:CGRectMake(0, 0, ScreenWidth, 40)
-                                    text:@"跳转"
+                                    text:NSLocalizedString(@"Go", nil)
                                   target:self
                                   action:@selector(goAction)];
-        _goButton.tintColor = [UIColor GCDarkGrayFontColor];
+        _goButton.tintColor = [UIColor lightGrayColor];
     }
     return _goButton;
 }
