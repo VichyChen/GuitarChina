@@ -80,8 +80,6 @@
     //    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     //    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
     
-    ApplicationDelegate.rightMenuViewController.tid = self.tid;
-    ApplicationDelegate.rightMenuViewController.formhash = self.formhash;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -266,10 +264,7 @@
                 GCThreadDetailPostModel * threadDetailPostModel = [model.postlist objectAtIndex:0];
                 self.threadContent = threadDetailPostModel.message;
             }
-            
-            ApplicationDelegate.rightMenuViewController.formhash = self.formhash;
-            ApplicationDelegate.rightMenuViewController.uid = self.uid;
-            
+                        
             self.replyCount = [model.replies integerValue];
             self.pageCount = self.replyCount / self.pageSize + 1;
             

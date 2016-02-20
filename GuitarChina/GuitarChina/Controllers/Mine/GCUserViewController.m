@@ -1,37 +1,37 @@
 //
-//  GCMineViewController.m
+//  GCUserViewController.m
 //  GuitarChina
 //
 //  Created by mac on 15/9/25.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCMineViewController.h"
+#import "GCUserViewController.h"
 #import "GCMineHeaderCell.h"
 #import "GCMineCell.h"
-#import "GCMineOtherViewController.h"
+#import "GCUserOtherViewController.h"
 #import "GCUserInfoViewController.h"
 #import "GCMyThreadViewController.h"
 #import "GCMyFavThreadViewController.h"
 
-@interface GCMineViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface GCUserViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
 
-@implementation GCMineViewController
+@implementation GCUserViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"Mine", nil);
+    self.title = NSLocalizedString(@"User", nil);
     self.view.backgroundColor = [UIColor GCBackgroundColor];
     
     self.userID = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINID];
     self.username = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME];
     self.userLevel = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINLEVEL];
-
+    
     [self configureView];
     [self configureNotification];
     //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
@@ -163,9 +163,9 @@
         }
     } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {//其它
-            GCMineOtherViewController *mineOtherViewController = [[GCMineOtherViewController alloc] init];
-            mineOtherViewController.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:mineOtherViewController animated:YES];
+            GCUserOtherViewController *userOtherViewController = [[GCUserOtherViewController alloc] init];
+            userOtherViewController.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:userOtherViewController animated:YES];
         }
     }
 }

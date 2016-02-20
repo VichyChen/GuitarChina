@@ -34,9 +34,7 @@
 		043648E01BCF9BD80005162D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043648DF1BCF9BD80005162D /* Images.xcassets */; };
 		044C5F471BE345F800A17B99 /* GCReplyThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044C5F461BE345F800A17B99 /* GCReplyThreadViewController.m */; };
 		0459674A1BC7A47D000181DE /* RTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045967491BC7A47D000181DE /* RTLabel.m */; };
-		045ED3741BB8F97300790B96 /* GCThreadRightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */; };
 		045F2F2A1BDFBAAE0024C9FC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 045F2F291BDFBAAE0024C9FC /* libxml2.dylib */; };
-		045F2F331BE0B0B10024C9FC /* GCMineOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F321BE0B0B10024C9FC /* GCMineOtherViewController.m */; };
 		045F2F361BE0B6B10024C9FC /* GCUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F351BE0B6B10024C9FC /* GCUserInfoViewController.m */; };
 		045F2F481BE0C9BB0024C9FC /* GCMyThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F471BE0C9BB0024C9FC /* GCMyThreadModel.m */; };
 		045F2F511BE0CBB80024C9FC /* GCMyThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F501BE0CBB80024C9FC /* GCMyThreadViewController.m */; };
@@ -68,7 +66,8 @@
 		047D7EC61BF5C9AD001689E7 /* GCMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 047D7EC51BF5C9AD001689E7 /* GCMoreCell.m */; };
 		0488C0971C78DF1300920E72 /* GCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0488C0991C78DF1300920E72 /* GCLoginViewController.xib */; };
 		0488C09B1C78E64300920E72 /* GCPostThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0488C09D1C78E64300920E72 /* GCPostThreadViewController.xib */; };
-		04935B031BB52D5C0010F7C8 /* GCMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B021BB52D5C0010F7C8 /* GCMineViewController.m */; };
+		0488C0A11C78EF1300920E72 /* GCUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A01C78EF1300920E72 /* GCUserViewController.m */; };
+		0488C0A41C78F17E00920E72 /* GCUserOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A31C78F17E00920E72 /* GCUserOtherViewController.m */; };
 		04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B051BB52F460010F7C8 /* GCMoreViewController.m */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
 		04B692BC1C4643E500913629 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B692BA1C4643E500913629 /* Info.plist */; };
@@ -78,7 +77,6 @@
 		420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98651B92982C00AEAED3 /* UIViewController+RESideMenu.m */; };
 		420D987F1B929C2B00AEAED3 /* GCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98781B929C2B00AEAED3 /* GCBaseTableViewController.m */; };
 		420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */; };
-		420D98811B929C2B00AEAED3 /* GCLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */; };
 		420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987E1B929C2B00AEAED3 /* GCNavigationController.m */; };
 		4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A6671B9A7C78005D2164 /* EXTScope.m */; };
 		4219A66C1B9A8086005D2164 /* GCHotThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A66B1B9A8086005D2164 /* GCHotThreadModel.m */; };
@@ -217,11 +215,7 @@
 		044C5F461BE345F800A17B99 /* GCReplyThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReplyThreadViewController.m; sourceTree = "<group>"; };
 		045967481BC7A47D000181DE /* RTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTLabel.h; sourceTree = "<group>"; };
 		045967491BC7A47D000181DE /* RTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTLabel.m; sourceTree = "<group>"; };
-		045ED3721BB8F97300790B96 /* GCThreadRightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadRightMenuViewController.h; sourceTree = "<group>"; };
-		045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadRightMenuViewController.m; sourceTree = "<group>"; };
 		045F2F291BDFBAAE0024C9FC /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		045F2F311BE0B0B10024C9FC /* GCMineOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMineOtherViewController.h; sourceTree = "<group>"; };
-		045F2F321BE0B0B10024C9FC /* GCMineOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMineOtherViewController.m; sourceTree = "<group>"; };
 		045F2F341BE0B6B10024C9FC /* GCUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserInfoViewController.h; sourceTree = "<group>"; };
 		045F2F351BE0B6B10024C9FC /* GCUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserInfoViewController.m; sourceTree = "<group>"; };
 		045F2F461BE0C9BB0024C9FC /* GCMyThreadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyThreadModel.h; sourceTree = "<group>"; };
@@ -280,8 +274,10 @@
 		0488C09A1C78DF1600920E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GCLoginViewController.xib; sourceTree = "<group>"; };
 		0488C09C1C78E64300920E72 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/GCPostThreadViewController.xib"; sourceTree = "<group>"; };
 		0488C09E1C78E64500920E72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GCPostThreadViewController.xib; sourceTree = "<group>"; };
-		04935B011BB52D5C0010F7C8 /* GCMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMineViewController.h; sourceTree = "<group>"; };
-		04935B021BB52D5C0010F7C8 /* GCMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMineViewController.m; sourceTree = "<group>"; };
+		0488C09F1C78EF1300920E72 /* GCUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserViewController.h; sourceTree = "<group>"; };
+		0488C0A01C78EF1300920E72 /* GCUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserViewController.m; sourceTree = "<group>"; };
+		0488C0A21C78F17E00920E72 /* GCUserOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserOtherViewController.h; sourceTree = "<group>"; };
+		0488C0A31C78F17E00920E72 /* GCUserOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserOtherViewController.m; sourceTree = "<group>"; };
 		04935B041BB52F460010F7C8 /* GCMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreViewController.h; sourceTree = "<group>"; };
 		04935B051BB52F460010F7C8 /* GCMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreViewController.m; sourceTree = "<group>"; };
 		04AF910D1BE8FAF10030AEEB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -301,8 +297,6 @@
 		420D98781B929C2B00AEAED3 /* GCBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseTableViewController.m; sourceTree = "<group>"; };
 		420D98791B929C2B00AEAED3 /* GCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBaseViewController.h; sourceTree = "<group>"; };
 		420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseViewController.m; sourceTree = "<group>"; };
-		420D987B1B929C2B00AEAED3 /* GCLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCLeftMenuViewController.h; path = Base/GCLeftMenuViewController.h; sourceTree = "<group>"; };
-		420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCLeftMenuViewController.m; path = Base/GCLeftMenuViewController.m; sourceTree = "<group>"; };
 		420D987D1B929C2B00AEAED3 /* GCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNavigationController.h; sourceTree = "<group>"; };
 		420D987E1B929C2B00AEAED3 /* GCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNavigationController.m; sourceTree = "<group>"; };
 		4219A6661B9A7C78005D2164 /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScope.h; sourceTree = "<group>"; };
@@ -750,16 +744,16 @@
 		04935AFF1BB52D0A0010F7C8 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				04935B011BB52D5C0010F7C8 /* GCMineViewController.h */,
-				04935B021BB52D5C0010F7C8 /* GCMineViewController.m */,
+				0488C09F1C78EF1300920E72 /* GCUserViewController.h */,
+				0488C0A01C78EF1300920E72 /* GCUserViewController.m */,
 				045F2F341BE0B6B10024C9FC /* GCUserInfoViewController.h */,
 				045F2F351BE0B6B10024C9FC /* GCUserInfoViewController.m */,
 				045F2F4F1BE0CBB80024C9FC /* GCMyThreadViewController.h */,
 				045F2F501BE0CBB80024C9FC /* GCMyThreadViewController.m */,
 				045F2F581BE0D1B60024C9FC /* GCMyFavThreadViewController.h */,
 				045F2F591BE0D1B60024C9FC /* GCMyFavThreadViewController.m */,
-				045F2F311BE0B0B10024C9FC /* GCMineOtherViewController.h */,
-				045F2F321BE0B0B10024C9FC /* GCMineOtherViewController.m */,
+				0488C0A21C78F17E00920E72 /* GCUserOtherViewController.h */,
+				0488C0A31C78F17E00920E72 /* GCUserOtherViewController.m */,
 				0408D0901BE1FEB900B3825A /* GCUserProtocolViewController.h */,
 				0408D0911BE1FEB900B3825A /* GCUserProtocolViewController.m */,
 			);
@@ -833,8 +827,6 @@
 				04935AFF1BB52D0A0010F7C8 /* Mine */,
 				4260C68B1BB629DE00705BE0 /* Setting */,
 				04935B001BB52D270010F7C8 /* More */,
-				420D987B1B929C2B00AEAED3 /* GCLeftMenuViewController.h */,
-				420D987C1B929C2B00AEAED3 /* GCLeftMenuViewController.m */,
 				0479AB0D1C39176E00AAF3CD /* GCLoginViewController.h */,
 				0479AB0E1C39176E00AAF3CD /* GCLoginViewController.m */,
 				0488C0991C78DF1300920E72 /* GCLoginViewController.xib */,
@@ -868,8 +860,6 @@
 				42657DB91B9983AF001F8DFC /* GCForumDisplayViewController.m */,
 				042D34691BD0ED4300EBDACC /* GCThreadDetailViewController.h */,
 				042D346A1BD0ED4300EBDACC /* GCThreadDetailViewController.m */,
-				045ED3721BB8F97300790B96 /* GCThreadRightMenuViewController.h */,
-				045ED3731BB8F97300790B96 /* GCThreadRightMenuViewController.m */,
 				0406C85A1C4E7663000BC251 /* GCPostThreadViewController.h */,
 				0406C85B1C4E7663000BC251 /* GCPostThreadViewController.m */,
 				0488C09D1C78E64300920E72 /* GCPostThreadViewController.xib */,
@@ -1383,7 +1373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				047150EE1BF03B2A007A8890 /* SVIndefiniteAnimatedView.m in Sources */,
-				045ED3741BB8F97300790B96 /* GCThreadRightMenuViewController.m in Sources */,
+				0488C0A11C78EF1300920E72 /* GCUserViewController.m in Sources */,
 				4238889E1BC57CA6002E1625 /* MJRefreshAutoGifFooter.m in Sources */,
 				047150F11BF03B2A007A8890 /* SVRadialGradientLayer.m in Sources */,
 				0426CDA21BE73FC200BE85D8 /* GCLeftMenuCell.m in Sources */,
@@ -1414,6 +1404,7 @@
 				423889001BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
 				0426CD8B1BE73F0E00BE85D8 /* GCForumIndexCell.m in Sources */,
 				045F2F361BE0B6B10024C9FC /* GCUserInfoViewController.m in Sources */,
+				0488C0A41C78F17E00920E72 /* GCUserOtherViewController.m in Sources */,
 				423889021BC57D0F002E1625 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
 				047D7EC61BF5C9AD001689E7 /* GCMoreCell.m in Sources */,
 				4219A66C1B9A8086005D2164 /* GCHotThreadModel.m in Sources */,
@@ -1447,7 +1438,6 @@
 				423888F51BC57D0F002E1625 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
 				047150F01BF03B2A007A8890 /* SVProgressHUD.m in Sources */,
 				423889041BC57D0F002E1625 /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
-				045F2F331BE0B0B10024C9FC /* GCMineOtherViewController.m in Sources */,
 				046DB7631BFC6F1900E05E17 /* UIView+DOPExtension.m in Sources */,
 				4238890B1BC57D0F002E1625 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
 				423888A91BC57CA6002E1625 /* UIScrollView+MJExtension.m in Sources */,
@@ -1474,9 +1464,7 @@
 				420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */,
 				4238890D1BC57D0F002E1625 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
 				0479AB101C39176E00AAF3CD /* GCLoginViewController.m in Sources */,
-				420D98811B929C2B00AEAED3 /* GCLeftMenuViewController.m in Sources */,
 				042D346B1BD0ED4300EBDACC /* GCThreadDetailViewController.m in Sources */,
-				04935B031BB52D5C0010F7C8 /* GCMineViewController.m in Sources */,
 				046DB76C1BFC6F9700E05E17 /* TFHppleElement.m in Sources */,
 				0463E6FA1BD49FBA001F7290 /* UIColor+Custom.m in Sources */,
 				423889071BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,

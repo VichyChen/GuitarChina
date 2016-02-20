@@ -10,7 +10,7 @@
 #import "GCNavigationController.h"
 #import "GCHotThreadViewController.h"
 #import "GCForumIndexViewController.h"
-#import "GCMineViewController.h"
+#import "GCUserViewController.h"
 #import "GCSettingViewController.h"
 #import "GCMoreViewController.h"
 #import "MobClick.h"
@@ -52,7 +52,6 @@
     [self configureForumDictionary];
     [self configureSVProgressHUD];
     [self configureTabBarController];
-    [self configureSideMenuViewController];
     //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     
@@ -158,11 +157,11 @@
     forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"icon_wave"] imageWithTintColor:[UIColor GCDeepGrayColor]];
     forumIndexNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_wave_on"] imageWithTintColor:[UIColor GCDeepGrayColor]];
     
-    GCMineViewController *mineViewController = [[GCMineViewController alloc] init];
-    GCNavigationController *mineNavigationController = [[GCNavigationController alloc] initWithRootViewController:mineViewController];
-    mineNavigationController.tabBarItem.title = NSLocalizedString(@"Mine", nil);
-    mineNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_ musicconductor"];
-    mineNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_ musicconductor_on"];
+    GCUserViewController *userViewController = [[GCUserViewController alloc] init];
+    GCNavigationController *userNavigationController = [[GCNavigationController alloc] initWithRootViewController:userViewController];
+    userNavigationController.tabBarItem.title = NSLocalizedString(@"User", nil);
+    userNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_ musicconductor"];
+    userNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_ musicconductor_on"];
     
     GCMoreViewController *moreViewController = [[GCMoreViewController alloc] init];
     GCNavigationController *moreNavigationController = [[GCNavigationController alloc] initWithRootViewController:moreViewController];
@@ -170,35 +169,7 @@
     moreNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_musicrecord"];
     moreNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_musicrecord_on"];
     
-    self.tabBarController.viewControllers = @[hotThreadNavigationController, forumIndexNavigationController, mineNavigationController, moreNavigationController];
-}
-
-- (void)configureSideMenuViewController {
-    self.rightMenuViewController = [[GCThreadRightMenuViewController alloc] init];
-    self.sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:self.tabBarController
-                                                             leftMenuViewController:nil
-                                                            rightMenuViewController:self.rightMenuViewController];
-    self.sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
-    self.sideMenuViewController.menuPreferredStatusBarStyle = 1;
-    self.sideMenuViewController.delegate = self;
-    self.sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
-    self.sideMenuViewController.contentViewShadowOffset = CGSizeMake(0, 0);
-    self.sideMenuViewController.contentViewShadowOpacity = 0;
-    self.sideMenuViewController.contentViewShadowRadius = 5;
-    self.sideMenuViewController.contentViewShadowEnabled = YES;
-    self.sideMenuViewController.contentViewScaleValue = 1;
-    self.sideMenuViewController.contentViewBorderEnabled = YES;
-    self.sideMenuViewController.contentViewBorderPosition = ContentViewBorderPositionLeftAndRight;
-    self.sideMenuViewController.contentViewBorderWidth = 0.5;
-    self.sideMenuViewController.contentViewBorderColor = [UIColor lightGrayColor].CGColor;
-    self.sideMenuViewController.scaleMenuView = NO;
-    self.sideMenuViewController.fadeMenuView = NO;
-    self.sideMenuViewController.panGestureEnabled = NO;
-    if (iPhone) {
-        self.sideMenuViewController.contentViewInPortraitOffsetCenterX = LeftSideMenuOffsetCenterXIniPhone;
-    } else {
-        self.sideMenuViewController.contentViewInPortraitOffsetCenterX = LeftSideMenuOffsetCenterXIniPad;
-    }
+    self.tabBarController.viewControllers = @[hotThreadNavigationController, forumIndexNavigationController, userNavigationController, moreNavigationController];
 }
 
 - (void)configureSVProgressHUD {

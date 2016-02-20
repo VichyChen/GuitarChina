@@ -1,22 +1,22 @@
 //
-//  GCMineOtherViewController.m
+//  GCUserOtherViewController.m
 //  GuitarChina
 //
 //  Created by mac on 15/10/28.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCMineOtherViewController.h"
+#import "GCUserOtherViewController.h"
 #import "GCMineCell.h"
 #import "GCUserProtocolViewController.h"
 
-@interface GCMineOtherViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface GCUserOtherViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @end
 
-@implementation GCMineOtherViewController
+@implementation GCUserOtherViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -100,7 +100,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:kGCLOGIN];
     [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kGCLOGINNAME];
     [[NSUserDefaults standardUserDefaults] synchronize];
-//    [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+    //    [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCBaseViewController.h"
 
 @interface GCReportThreadViewController : GCBaseViewController
 
