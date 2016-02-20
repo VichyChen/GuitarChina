@@ -159,7 +159,7 @@
     
     GCUserViewController *userViewController = [[GCUserViewController alloc] init];
     GCNavigationController *userNavigationController = [[GCNavigationController alloc] initWithRootViewController:userViewController];
-    userNavigationController.tabBarItem.title = NSLocalizedString(@"User", nil);
+    userNavigationController.tabBarItem.title = NSLocalizedString(@"Me", nil);
     userNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_ musicconductor"];
     userNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_ musicconductor_on"];
     

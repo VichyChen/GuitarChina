@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"User", nil);
+    self.title = NSLocalizedString(@"Me", nil);
     self.view.backgroundColor = [UIColor GCBackgroundColor];
     
     self.userID = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINID];
