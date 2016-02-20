@@ -124,7 +124,7 @@
         } failure:^(NSError *error) {
             [self endRefresh];
             [self endFetchMore];
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No network connection!", nil)];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
         }];
     };
 }

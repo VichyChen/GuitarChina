@@ -243,8 +243,9 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_POSTSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *parameters = @{ @"allownoticeauthor" : @"1", @"message" : message, @"subject" : subject, @"mobiletype" : @"1", @"formhash" : formhash, @"typeid" : type };
-        [self requestCommonMethod:GCRequestHttpPost url:GCNETWORKAPI_POST_NEWTHREAD(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            GCNewThreadModel *model = [[GCNewThreadModel alloc] initWithDictionary:responseObject];
+        [self requestCommonMethod:GCRequestPost url:GCNETWORKAPI_POST_NEWTHREAD(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *dictionary = [JsonTool jsonToDictionary:operation.responseString];
+            GCNewThreadModel *model = [[GCNewThreadModel alloc] initWithDictionary:dictionary];
             success(model);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(error);

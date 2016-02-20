@@ -126,7 +126,9 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     if (self.offsetY != -1) {
+        [UIView animateWithDuration:0.5 animations:^{
         self.threadDetailView.webView.scrollView.contentOffset = CGPointMake(0, self.offsetY);
+        }];
         self.offsetY = 0;
     }
 }
@@ -290,7 +292,7 @@
         } failure:^(NSError *error) {
             [self.threadDetailView webViewEndRefresh];
             [self.threadDetailView webViewEndFetchMore];
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No network connection!", nil)];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
         }];
     };
     
@@ -441,7 +443,7 @@
                                                                    row:0
                                                            actionBlock:^{
                                                                [Util copyToPasteboard:GCNETWORKAPI_URL_THREAD(self.tid)];
-                                                               [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy complete", nil)];
+                                                               [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy Complete", nil)];
                                                            }];
         DOPNavbarMenuItem *refreshItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Refresh", nil)
                                                                      icon:[[UIImage imageNamed:@"icon_refresh"] imageWithTintColor:[UIColor GCDarkGrayFontColor]]

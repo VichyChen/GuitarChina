@@ -259,7 +259,7 @@
     //            self.loginView.loginButton.enabled = YES;
     //        } failure:^(NSError *error) {
     //            self.loginView.loginButton.enabled = YES;
-    //            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No network connection!", nil)];
+    //            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
     //        }];
     //    };
     

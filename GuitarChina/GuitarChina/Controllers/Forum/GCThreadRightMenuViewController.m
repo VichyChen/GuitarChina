@@ -114,7 +114,7 @@
             break;
         case 4:
             [self copyURLAction];
-            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy complete", nil)];
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy Complete", nil)];
             
             break;
         case 5:

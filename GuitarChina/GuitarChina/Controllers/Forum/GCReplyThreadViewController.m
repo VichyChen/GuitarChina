@@ -48,7 +48,7 @@
             [SVProgressHUD showSuccessWithStatus:model.message.messagestr];
         }
     } failure:^(NSError *error) {
-        
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
     }];
 }
 

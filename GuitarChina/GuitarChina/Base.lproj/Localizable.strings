@@ -27,8 +27,8 @@
 "QQ" = "QQ";
 
 "login" = "login";
-"Load more." = "Load more.";
-"- End -" = "- End -";
+"Load More" = "Load More";
+"End" = "End";
 
 "Username" = "Username";
 "Password" = "Password";
@@ -62,10 +62,11 @@
 "Collect Success" = "Collect Success";
 "Collect Repeat" = "Collect Repeat";
 "Collect Failure" = "Collect Failure";
-"Copy complete" = "Copy complete";
+"Copy Complete" = "Copy Complete";
 "Report Success" = "Report Success";
+"Post Success" = "Post Success";
 
-"No network connection!" = "No network connection!";
+"No Network Connection" = "No Network Connection";
 
 "Night Mode" = "Night Mode";
 "Auto switch Night Mode" = "Auto switch Night Mode";

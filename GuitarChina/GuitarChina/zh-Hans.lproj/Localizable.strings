@@ -27,8 +27,8 @@
 "QQ" = "QQ好友";
 
 "login" = "登录";
-"Load more." = "加载更多。";
-"- End -" = "- 加载完成 -";
+"Load More" = "加载更多";
+"End" = "加载完成";
 
 "Username" = "账号";
 "Password" = "密码";
@@ -62,10 +62,11 @@
 "Collect Success" = "已收藏";
 "Collect Repeat" = "请勿重复收藏";
 "Collect Failure" = "收藏失败";
-"Copy complete" = "已复制";
+"Copy Complete" = "已复制";
 "Report Success" = "举报成功";
+"Post Success" = "发帖成功";
 
-"No network connection!" = "没有网络连接！";
+"No Network Connection" = "没有网络连接！";
 
 "Night Mode" = "夜间模式";
 "Auto switch Night Mode" = "自动切换夜间模式";
