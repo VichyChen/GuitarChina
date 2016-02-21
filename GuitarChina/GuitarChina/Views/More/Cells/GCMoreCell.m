@@ -20,6 +20,8 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+        self.selectedBackgroundView.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [self configureView];
     }
@@ -30,12 +32,12 @@
     [super layoutSubviews];
     
     self.leftImageView.frame = CGRectMake(15, 12, 20, 20);
-    self.titleLabel.frame = CGRectMake(45, 0, ScreenWidth - 80, 44);
+    self.titleLabel.frame = CGRectMake(15, 0, ScreenWidth - 80, 44);
     self.separatorViewBottom.frame = CGRectMake(0, 43.5, ScreenWidth, 0.5);
 }
 
 - (void)configureView {
-    [self.contentView addSubview:self.leftImageView];
+//    [self.contentView addSubview:self.leftImageView];
     [self.contentView addSubview:self.titleLabel];
     [self.contentView addSubview:self.separatorViewBottom];
 }

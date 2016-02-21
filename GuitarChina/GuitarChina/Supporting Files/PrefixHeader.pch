@@ -12,6 +12,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+#import "AppDelegate.h"
 #import "AFNetworking.h"
 #import "SVProgressHUD.h"
 #import "UIImageView+WebCache.h"
@@ -22,19 +23,23 @@
 #import "UIColor+Custom.h"
 #import "UIView+UICreateFactory.h"
 #import "NSString+Tools.h"
-#import "UIImage+Tint.h"   
+#import "UIImage+Tint.h"
 #import "Util.h"
 #import "JsonTool.h"
 
 #define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
 #define ScreenWidth ([UIScreen mainScreen].bounds.size.width)
-#import "AppDelegate.h"
 #define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
 #define iPhone UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
 #define iPad UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue]<8.0f)
 
-//NSUserDefault
+/* Version */
+
+#define CurrentVersion @"1.0.0"
+
+/* NSUserDefault */
+
 static NSString * const kGCFIRSTSTART = @"FIRSTSTART";
 static NSString * const kGCLOGIN = @"LOGIN";
 static NSString * const kGCLOGINID = @"LOGINID";
@@ -43,24 +48,24 @@ static NSString * const kGCLOGINLEVEL = @"LOGINLEVEL";
 static NSString * const kGCNIGHTMODE = @"NIGHTMODE";
 static NSString * const kGCAUTOSWITCHNIGHTMODE = @"AUTOSWITCHNIGHTMODE";
 static NSString * const kGCLOADIMAGE = @"LOADIMAGE";
-
 static NSString * const kGCFORUMINDEXDICTIONARY = @"FORUMINDEXDICTIONARY";
 
-//Notification
+/* Notification */
+
 static NSString * const kGCNOTIFICATION_LOGINSUCCESS = @"LOGINSUCCESS";
 
-//static NSString * const kGCNOTIFICATION_REPLY = @"REPLY"; //回复
-//static NSString * const kGCNOTIFICATION_COLLECT = @"COLLECT"; //收藏
-//static NSString * const kGCNOTIFICATION_SHARE = @"SHARE"; //分享
-//static NSString * const kGCNOTIFICATION_SAFARI = @"SAFARI"; //在Safari中打开
-//static NSString * const kGCNOTIFICATION_COPYURL = @"COPYURL"; //复制链接
-static NSString * const kGCNOTIFICATION_REPORT = @"REPORT"; //举报
+/* 第三方 */
 
-//第三方
-static NSString * const kUMENG_APPKEY = @"5638ba4367e58ea3e9000b36"; //友盟appkey
-static NSString * const kWECHAT_APPID = @"wx26165a2548b3611f"; //微信appid
-static NSString * const kWECHAT_APPSECRET = @"d4624c36b6795d1d99dcf0547af5443d"; //微信appsecret
-static NSString * const kQQ_APPID = @"1104956834"; //QQappid
-static NSString * const kQQ_APPKEY = @"rmLJuaY5d3Bs8uE4"; //QQappkey
+//友盟appkey
+static NSString * const kUMENG_APPKEY = @"5638ba4367e58ea3e9000b36";
+//微信appid
+static NSString * const kWECHAT_APPID = @"wx26165a2548b3611f";
+//微信appsecret
+static NSString * const kWECHAT_APPSECRET = @"d4624c36b6795d1d99dcf0547af5443d";
+//QQappid
+static NSString * const kQQ_APPID = @"1104956834";
+//QQappkey
+static NSString * const kQQ_APPKEY = @"rmLJuaY5d3Bs8uE4";
+
 
 #endif
