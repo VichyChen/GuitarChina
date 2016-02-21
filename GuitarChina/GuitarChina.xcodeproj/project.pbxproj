@@ -741,7 +741,7 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		04935AFF1BB52D0A0010F7C8 /* Mine */ = {
+		04935AFF1BB52D0A0010F7C8 /* User */ = {
 			isa = PBXGroup;
 			children = (
 				0488C09F1C78EF1300920E72 /* GCUserViewController.h */,
@@ -757,7 +757,7 @@
 				0408D0901BE1FEB900B3825A /* GCUserProtocolViewController.h */,
 				0408D0911BE1FEB900B3825A /* GCUserProtocolViewController.m */,
 			);
-			path = Mine;
+			path = User;
 			sourceTree = "<group>";
 		};
 		04935B001BB52D270010F7C8 /* More */ = {
@@ -824,7 +824,7 @@
 				420D98761B929C2B00AEAED3 /* Base */,
 				42657DC91B99B513001F8DFC /* HotThread */,
 				420D98871B929D2000AEAED3 /* Forum */,
-				04935AFF1BB52D0A0010F7C8 /* Mine */,
+				04935AFF1BB52D0A0010F7C8 /* User */,
 				4260C68B1BB629DE00705BE0 /* Setting */,
 				04935B001BB52D270010F7C8 /* More */,
 				0479AB0D1C39176E00AAF3CD /* GCLoginViewController.h */,
