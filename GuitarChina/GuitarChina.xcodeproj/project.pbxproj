@@ -40,12 +40,10 @@
 		045F2F511BE0CBB80024C9FC /* GCMyThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F501BE0CBB80024C9FC /* GCMyThreadViewController.m */; };
 		045F2F571BE0D0D40024C9FC /* GCMyFavThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F561BE0D0D40024C9FC /* GCMyFavThreadModel.m */; };
 		045F2F5A1BE0D1B60024C9FC /* GCMyFavThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045F2F591BE0D1B60024C9FC /* GCMyFavThreadViewController.m */; };
-		0460A7C21C7371BF0064FD04 /* JsonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0460A7C11C7371BF0064FD04 /* JsonTool.m */; };
 		046262441BAAC06800E66F03 /* NSString+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623C1BAAC06800E66F03 /* NSString+Tools.m */; };
 		046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623F1BAAC06800E66F03 /* UIImage+Tint.m */; };
 		046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */; };
 		046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */; };
-		0463E6FA1BD49FBA001F7290 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 0463E6F91BD49FBA001F7290 /* UIColor+Custom.m */; };
 		0463E6FC1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */; };
 		046694AF1BD91EEE008C8CB3 /* GCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046694AE1BD91EEE008C8CB3 /* GCWebViewController.m */; };
 		046DB7621BFC6F1900E05E17 /* DOPNavbarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB75F1BFC6F1900E05E17 /* DOPNavbarMenu.m */; };
@@ -68,6 +66,8 @@
 		0488C09B1C78E64300920E72 /* GCPostThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0488C09D1C78E64300920E72 /* GCPostThreadViewController.xib */; };
 		0488C0A11C78EF1300920E72 /* GCUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A01C78EF1300920E72 /* GCUserViewController.m */; };
 		0488C0A41C78F17E00920E72 /* GCUserOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A31C78F17E00920E72 /* GCUserOtherViewController.m */; };
+		0488C0A71C795E1C00920E72 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A61C795E1C00920E72 /* UIColor+Custom.m */; };
+		0488C0AA1C795E7200920E72 /* JsonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A91C795E7200920E72 /* JsonTool.m */; };
 		04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B051BB52F460010F7C8 /* GCMoreViewController.m */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
 		04B692BC1C4643E500913629 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B692BA1C4643E500913629 /* Info.plist */; };
@@ -226,8 +226,6 @@
 		045F2F561BE0D0D40024C9FC /* GCMyFavThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyFavThreadModel.m; sourceTree = "<group>"; };
 		045F2F581BE0D1B60024C9FC /* GCMyFavThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyFavThreadViewController.h; sourceTree = "<group>"; };
 		045F2F591BE0D1B60024C9FC /* GCMyFavThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyFavThreadViewController.m; sourceTree = "<group>"; };
-		0460A7C01C7371BF0064FD04 /* JsonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonTool.h; sourceTree = "<group>"; };
-		0460A7C11C7371BF0064FD04 /* JsonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonTool.m; sourceTree = "<group>"; };
 		0462623B1BAAC06800E66F03 /* NSString+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Tools.h"; sourceTree = "<group>"; };
 		0462623C1BAAC06800E66F03 /* NSString+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Tools.m"; sourceTree = "<group>"; };
 		0462623E1BAAC06800E66F03 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
@@ -236,8 +234,6 @@
 		046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutHelper.m"; sourceTree = "<group>"; };
 		046262421BAAC06800E66F03 /* UIView+UICreateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UICreateFactory.h"; sourceTree = "<group>"; };
 		046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UICreateFactory.m"; sourceTree = "<group>"; };
-		0463E6F81BD49FBA001F7290 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
-		0463E6F91BD49FBA001F7290 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
 		0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewTableHtml.html; sourceTree = "<group>"; };
 		046694AD1BD91EEE008C8CB3 /* GCWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCWebViewController.h; sourceTree = "<group>"; };
 		046694AE1BD91EEE008C8CB3 /* GCWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCWebViewController.m; sourceTree = "<group>"; };
@@ -278,6 +274,10 @@
 		0488C0A01C78EF1300920E72 /* GCUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserViewController.m; sourceTree = "<group>"; };
 		0488C0A21C78F17E00920E72 /* GCUserOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserOtherViewController.h; sourceTree = "<group>"; };
 		0488C0A31C78F17E00920E72 /* GCUserOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserOtherViewController.m; sourceTree = "<group>"; };
+		0488C0A51C795E1C00920E72 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
+		0488C0A61C795E1C00920E72 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
+		0488C0A81C795E7200920E72 /* JsonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonTool.h; sourceTree = "<group>"; };
+		0488C0A91C795E7200920E72 /* JsonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonTool.m; sourceTree = "<group>"; };
 		04935B041BB52F460010F7C8 /* GCMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreViewController.h; sourceTree = "<group>"; };
 		04935B051BB52F460010F7C8 /* GCMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreViewController.m; sourceTree = "<group>"; };
 		04AF910D1BE8FAF10030AEEB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -615,6 +615,8 @@
 			children = (
 				0462623B1BAAC06800E66F03 /* NSString+Tools.h */,
 				0462623C1BAAC06800E66F03 /* NSString+Tools.m */,
+				0488C0A81C795E7200920E72 /* JsonTool.h */,
+				0488C0A91C795E7200920E72 /* JsonTool.m */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -635,18 +637,10 @@
 		0463E6F61BD49FBA001F7290 /* Color */ = {
 			isa = PBXGroup;
 			children = (
-				0463E6F71BD49FBA001F7290 /* UIColor */,
+				0488C0A51C795E1C00920E72 /* UIColor+Custom.h */,
+				0488C0A61C795E1C00920E72 /* UIColor+Custom.m */,
 			);
 			path = Color;
-			sourceTree = "<group>";
-		};
-		0463E6F71BD49FBA001F7290 /* UIColor */ = {
-			isa = PBXGroup;
-			children = (
-				0463E6F81BD49FBA001F7290 /* UIColor+Custom.h */,
-				0463E6F91BD49FBA001F7290 /* UIColor+Custom.m */,
-			);
-			path = UIColor;
 			sourceTree = "<group>";
 		};
 		046DB75D1BFC6F1900E05E17 /* DOPNavbarMenu */ = {
@@ -882,8 +876,6 @@
 				4219A6651B9A7C78005D2164 /* EXTScope */,
 				4260C6951BB64AB700705BE0 /* Util.h */,
 				4260C6961BB64AB700705BE0 /* Util.m */,
-				0460A7C01C7371BF0064FD04 /* JsonTool.h */,
-				0460A7C11C7371BF0064FD04 /* JsonTool.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1415,6 +1407,7 @@
 				423889051BC57D0F002E1625 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
 				4238890A1BC57D0F002E1625 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
 				0426CDAE1BE755C800BE85D8 /* GCShareThreadViewController.m in Sources */,
+				0488C0A71C795E1C00920E72 /* UIColor+Custom.m in Sources */,
 				046694AF1BD91EEE008C8CB3 /* GCWebViewController.m in Sources */,
 				423889091BC57D0F002E1625 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */,
 				423888A31BC57CA6002E1625 /* MJRefreshBackStateFooter.m in Sources */,
@@ -1424,7 +1417,6 @@
 				044C5F471BE345F800A17B99 /* GCReplyThreadViewController.m in Sources */,
 				4238890F1BC57D0F002E1625 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
 				4238889B1BC57CA6002E1625 /* MJRefreshComponent.m in Sources */,
-				0460A7C21C7371BF0064FD04 /* JsonTool.m in Sources */,
 				423888F21BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
 				046DB76D1BFC6F9700E05E17 /* XPathQuery.m in Sources */,
 				4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */,
@@ -1466,7 +1458,6 @@
 				0479AB101C39176E00AAF3CD /* GCLoginViewController.m in Sources */,
 				042D346B1BD0ED4300EBDACC /* GCThreadDetailViewController.m in Sources */,
 				046DB76C1BFC6F9700E05E17 /* TFHppleElement.m in Sources */,
-				0463E6FA1BD49FBA001F7290 /* UIColor+Custom.m in Sources */,
 				423889071BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
 				045F2F481BE0C9BB0024C9FC /* GCMyThreadModel.m in Sources */,
 				045F2F571BE0D0D40024C9FC /* GCMyFavThreadModel.m in Sources */,
@@ -1480,6 +1471,7 @@
 				0426CD971BE73F3000BE85D8 /* GCMineHeaderCell.m in Sources */,
 				42657DBD1B998C49001F8DFC /* GCForumIndexViewController.m in Sources */,
 				0426CD8D1BE73F0E00BE85D8 /* GCThreadRightMenuCell.m in Sources */,
+				0488C0AA1C795E7200920E72 /* JsonTool.m in Sources */,
 				420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */,
 				0426CDB11BE7564700BE85D8 /* GCShareThreadView.m in Sources */,
 				423888A11BC57CA6002E1625 /* MJRefreshBackGifFooter.m in Sources */,
