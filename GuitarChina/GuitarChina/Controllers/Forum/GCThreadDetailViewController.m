@@ -97,7 +97,7 @@
     
     //        [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     //        [self.navigationController.navigationBar setShadowImage:nil];
-    [super viewWillDisappear:animated];
+    [super viewDidDisappear:animated];
     
     //    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     //    [self.navigationController.navigationBar setShadowImage:nil];

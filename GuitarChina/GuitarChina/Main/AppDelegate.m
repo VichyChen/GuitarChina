@@ -11,7 +11,6 @@
 #import "GCHotThreadViewController.h"
 #import "GCForumIndexViewController.h"
 #import "GCUserViewController.h"
-#import "GCSettingViewController.h"
 #import "GCMoreViewController.h"
 #import "MobClick.h"
 #import "UMSocial.h"

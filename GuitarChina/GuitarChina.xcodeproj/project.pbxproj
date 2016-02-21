@@ -134,7 +134,6 @@
 		423889111BC57D0F002E1625 /* DGActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888F01BC57D0F002E1625 /* DGActivityIndicatorView.m */; };
 		425FB2F61B84C23B00B6A89B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */; };
 		425FB3021B84C23B00B6A89B /* GuitarChinaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB3011B84C23B00B6A89B /* GuitarChinaTests.m */; };
-		4260C68E1BB629DE00705BE0 /* GCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4260C68D1BB629DE00705BE0 /* GCSettingViewController.m */; };
 		4260C6971BB64AB700705BE0 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 4260C6961BB64AB700705BE0 /* Util.m */; };
 		42657DBA1B9983AF001F8DFC /* GCForumDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DB91B9983AF001F8DFC /* GCForumDisplayViewController.m */; };
 		42657DBD1B998C49001F8DFC /* GCForumIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DBC1B998C49001F8DFC /* GCForumIndexViewController.m */; };
@@ -414,8 +413,6 @@
 		425FB2FB1B84C23B00B6A89B /* GuitarChinaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuitarChinaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FB3001B84C23B00B6A89B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		425FB3011B84C23B00B6A89B /* GuitarChinaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuitarChinaTests.m; sourceTree = "<group>"; };
-		4260C68C1BB629DE00705BE0 /* GCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSettingViewController.h; sourceTree = "<group>"; };
-		4260C68D1BB629DE00705BE0 /* GCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSettingViewController.m; sourceTree = "<group>"; };
 		4260C6951BB64AB700705BE0 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		4260C6961BB64AB700705BE0 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		42657DB81B9983AF001F8DFC /* GCForumDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayViewController.h; sourceTree = "<group>"; };
@@ -819,7 +816,6 @@
 				42657DC91B99B513001F8DFC /* HotThread */,
 				420D98871B929D2000AEAED3 /* Forum */,
 				04935AFF1BB52D0A0010F7C8 /* User */,
-				4260C68B1BB629DE00705BE0 /* Setting */,
 				04935B001BB52D270010F7C8 /* More */,
 				0479AB0D1C39176E00AAF3CD /* GCLoginViewController.h */,
 				0479AB0E1C39176E00AAF3CD /* GCLoginViewController.m */,
@@ -1117,15 +1113,6 @@
 				425FB3001B84C23B00B6A89B /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4260C68B1BB629DE00705BE0 /* Setting */ = {
-			isa = PBXGroup;
-			children = (
-				4260C68C1BB629DE00705BE0 /* GCSettingViewController.h */,
-				4260C68D1BB629DE00705BE0 /* GCSettingViewController.m */,
-			);
-			path = Setting;
 			sourceTree = "<group>";
 		};
 		42657DC11B999B6B001F8DFC /* Resources */ = {
@@ -1461,7 +1448,6 @@
 				423889071BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
 				045F2F481BE0C9BB0024C9FC /* GCMyThreadModel.m in Sources */,
 				045F2F571BE0D0D40024C9FC /* GCMyFavThreadModel.m in Sources */,
-				4260C68E1BB629DE00705BE0 /* GCSettingViewController.m in Sources */,
 				0426CDA51BE740E500BE85D8 /* GCPostThreadView.m in Sources */,
 				423888FA1BC57D0F002E1625 /* DGActivityIndicatorBallScaleAnimation.m in Sources */,
 				423888A01BC57CA6002E1625 /* MJRefreshAutoStateFooter.m in Sources */,
