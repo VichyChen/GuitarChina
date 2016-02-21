@@ -134,7 +134,7 @@
     //    if (section == 0) {
     //        label.text = @"设置";
     //    } else if (section == 1) {
-    label.text = @"关于";
+    label.text = NSLocalizedString(@"About", nil);
     //    }
     
     return view;
