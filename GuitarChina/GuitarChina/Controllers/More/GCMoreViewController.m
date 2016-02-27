@@ -125,7 +125,7 @@
     UILabel *label = [UIView createLabel:CGRectMake(15, 0, 50, 40)
                                     text:@""
                                     font:[UIFont systemFontOfSize:16]
-                               textColor:[UIColor GCLightGrayFontColor]];
+                               textColor:[UIColor GCBlueColor]];
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, ScreenWidth, 0.5)];
     line.backgroundColor = [UIColor GCSeparatorLineColor];
     [view addSubview:label];
