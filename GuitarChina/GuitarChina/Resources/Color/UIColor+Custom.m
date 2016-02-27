@@ -21,7 +21,7 @@
 
 //#E83126
 + (UIColor *)GCRedColor {
-    return [UIColor colorWithRed:0.648f green:0.002f blue:0.090f alpha:1.00f];
+    return [UIColor colorWithRed:0.600 green:0.004 blue:0.000 alpha:1.00];
 }
 
 //#4C85A3
