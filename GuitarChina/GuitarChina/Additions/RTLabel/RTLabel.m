@@ -219,7 +219,7 @@
 	
 	CFMutableDictionaryRef styleDict = ( CFDictionaryCreateMutable( (0), 0, (0), (0) ) );
 	
-	[self applyParagraphStyleToText:attrString attributes:nil atPosition:0 withLength:CFAttributedStringGetLength(attrString)];
+	[self applyParagraphStyleToText:attrString attributes:nil atPosition:0 withLength:(int)CFAttributedStringGetLength(attrString)];
 	
 	
 	CTFontRef thisFont = CTFontCreateWithName ((__bridge CFStringRef)[self.font fontName], [self.font pointSize], NULL); 
@@ -232,22 +232,22 @@
     
 	for (RTLabelComponent *component in textComponents)
 	{
-		int index = [textComponents indexOfObject:component];
+		int index = (int)[textComponents indexOfObject:component];
 		component.componentIndex = index;
 		
 		if ([component.tagLabel caseInsensitiveCompare:@"i"] == NSOrderedSame)
 		{
 			// make font italic
-			[self applyItalicStyleToText:attrString atPosition:component.position withLength:[component.text length]];
+			[self applyItalicStyleToText:attrString atPosition:component.position withLength:(int)[component.text length]];
 		}
 		else if ([component.tagLabel caseInsensitiveCompare:@"b"] == NSOrderedSame)
 		{
 			// make font bold
-			[self applyBoldStyleToText:attrString atPosition:component.position withLength:[component.text length]];
+			[self applyBoldStyleToText:attrString atPosition:component.position withLength:(int)[component.text length]];
 		}
         else if ([component.tagLabel caseInsensitiveCompare:@"bi"] == NSOrderedSame)
         {
-            [self applyBoldItalicStyleToText:attrString atPosition:component.position withLength:[component.text length]];
+            [self applyBoldItalicStyleToText:attrString atPosition:component.position withLength:(int)[component.text length]];
         }
 		else if ([component.tagLabel caseInsensitiveCompare:@"a"] == NSOrderedSame)
 		{
@@ -255,24 +255,24 @@
 			{
 				if (self.selectedLinkAttributes)
 				{
-					[self applyFontAttributes:self.selectedLinkAttributes toText:attrString atPosition:component.position withLength:[component.text length]];
+					[self applyFontAttributes:self.selectedLinkAttributes toText:attrString atPosition:component.position withLength:(int)[component.text length]];
 				}
 				else
 				{
-					[self applyBoldStyleToText:attrString atPosition:component.position withLength:[component.text length]];
-					[self applyColor:@"#FF0000" toText:attrString atPosition:component.position withLength:[component.text length]];
+					[self applyBoldStyleToText:attrString atPosition:component.position withLength:(int)[component.text length]];
+					[self applyColor:@"#FF0000" toText:attrString atPosition:component.position withLength:(int)[component.text length]];
 				}
 			}
 			else
 			{
 				if (self.linkAttributes)
 				{
-					[self applyFontAttributes:self.linkAttributes toText:attrString atPosition:component.position withLength:[component.text length]];
+					[self applyFontAttributes:self.linkAttributes toText:attrString atPosition:component.position withLength:(int)[component.text length]];
 				}
 				else
 				{
-					[self applyBoldStyleToText:attrString atPosition:component.position withLength:[component.text length]];
-					[self applySingleUnderlineText:attrString atPosition:component.position withLength:[component.text length]];
+					[self applyBoldStyleToText:attrString atPosition:component.position withLength:(int)[component.text length]];
+					[self applySingleUnderlineText:attrString atPosition:component.position withLength:(int)[component.text length]];
 				}
 			}
 			
@@ -287,30 +287,30 @@
 			// underline
 			if ([component.tagLabel caseInsensitiveCompare:@"u"] == NSOrderedSame)
 			{
-				[self applySingleUnderlineText:attrString atPosition:component.position withLength:[component.text length]];
+				[self applySingleUnderlineText:attrString atPosition:component.position withLength:(int)[component.text length]];
 			}
 			else if ([component.tagLabel caseInsensitiveCompare:@"uu"] == NSOrderedSame)
 			{
-				[self applyDoubleUnderlineText:attrString atPosition:component.position withLength:[component.text length]];
+				[self applyDoubleUnderlineText:attrString atPosition:component.position withLength:(int)[component.text length]];
 			}
 			
 			if ([component.attributes objectForKey:@"color"])
 			{
 				NSString *value = [component.attributes objectForKey:@"color"];
-				[self applyUnderlineColor:value toText:attrString atPosition:component.position withLength:[component.text length]];
+				[self applyUnderlineColor:value toText:attrString atPosition:component.position withLength:(int)[component.text length]];
 			}
 		}
 		else if ([component.tagLabel caseInsensitiveCompare:@"font"] == NSOrderedSame)
 		{
-			[self applyFontAttributes:component.attributes toText:attrString atPosition:component.position withLength:[component.text length]];
+			[self applyFontAttributes:component.attributes toText:attrString atPosition:component.position withLength:(int)[component.text length]];
 		}
 		else if ([component.tagLabel caseInsensitiveCompare:@"p"] == NSOrderedSame)
 		{
-			[self applyParagraphStyleToText:attrString attributes:component.attributes atPosition:component.position withLength:[component.text length]];
+			[self applyParagraphStyleToText:attrString attributes:component.attributes atPosition:component.position withLength:(int)[component.text length]];
 		}
 		else if ([component.tagLabel caseInsensitiveCompare:@"center"] == NSOrderedSame)
 		{
-			[self applyCenterStyleToText:attrString attributes:component.attributes atPosition:component.position withLength:[component.text length]];
+			[self applyCenterStyleToText:attrString attributes:component.attributes atPosition:component.position withLength:(int)[component.text length]];
 		}
 	}
     
@@ -803,7 +803,7 @@
     for (CFIndex index = 0; index < CFArrayGetCount(lines); index++) {
         CTLineRef line = (CTLineRef)CFArrayGetValueAtIndex(lines, index);
         CTLineGetTypographicBounds(line, &ascent,  &descent, &leading);
-        height += (ascent + fabsf(descent) + leading);
+        height += (ascent + fabs(descent) + leading);
     }
     return ceilf(height);
 }
@@ -873,7 +873,7 @@
 		[scanner scanUpToString:@">" intoString:&text];
 		
 		NSString *delimiter = [NSString stringWithFormat:@"%@>", text];
-        int position = [data rangeOfString:delimiter options:NSCaseInsensitiveSearch range:NSMakeRange(last_position, [data length] - last_position)].location;
+        int position = (int)[data rangeOfString:delimiter options:NSCaseInsensitiveSearch range:NSMakeRange(last_position, [data length] - last_position)].location;
         if (position != NSNotFound && position >= last_position)
         {
             if ([delimiter rangeOfString:@"<p"].location==0)
@@ -895,7 +895,7 @@
 			tag = [text substringFromIndex:2];
 			if (position!=NSNotFound)
 			{
-				for (int i=[components count]-1; i>=0; i--)
+				for (int i=(int)[components count]-1; i>=0; i--)
 				{
 					RTLabelComponent *component = [components objectAtIndex:i];
 					if (component.text==nil && [component.tagLabel isEqualToString:tag])
@@ -995,7 +995,7 @@
 		if([valid_tags containsObject:tag] == NO)
 		{
 			NSString *delimiter = [NSString stringWithFormat:@"%@>", text];
-			int position = [data rangeOfString:delimiter].location;
+			int position = (int)[data rangeOfString:delimiter].location;
 			BOOL isEnd = [delimiter rangeOfString:@"</"].location!=NSNotFound;
 			if (position!=NSNotFound)
 			{

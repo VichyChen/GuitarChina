@@ -36,17 +36,6 @@ PODS:
   - DKNightVersion/UIKit (0.8.1):
     - DKNightVersion/Core
     - DKNightVersion/Helper
-  - DTCoreText (1.6.16):
-    - DTFoundation/Core (~> 1.7.5)
-    - DTFoundation/DTAnimatedGIF (~> 1.7.5)
-    - DTFoundation/DTHTMLParser (~> 1.7.5)
-    - DTFoundation/UIKit (~> 1.7.5)
-  - DTFoundation/Core (1.7.8)
-  - DTFoundation/DTAnimatedGIF (1.7.8)
-  - DTFoundation/DTHTMLParser (1.7.8):
-    - DTFoundation/Core
-  - DTFoundation/UIKit (1.7.8):
-    - DTFoundation/Core
   - FDFullscreenPopGesture (1.1)
   - FMDB (2.5):
     - FMDB/standard (= 2.5)
@@ -68,7 +57,6 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
   - DKNightVersion (~> 0.8.1)
-  - DTCoreText
   - FDFullscreenPopGesture (~> 1.1)
   - FMDB
   - IQKeyboardManager
@@ -80,8 +68,6 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   DKNightVersion: 5416e74d11f696c6dd0c8f1318cf5871aa6b6070
-  DTCoreText: 934a16fe9ffdd169c96261721b39dc312b75713d
-  DTFoundation: 46e2b2fafe78d67febfd8d1f85fe9845a093f00e
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   IQKeyboardManager: ac803e61e5b50efae6b3aeedd95a02c7c7d3b2b3

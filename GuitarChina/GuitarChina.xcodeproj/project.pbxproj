@@ -10,7 +10,6 @@
 		0406C85D1C4E7663000BC251 /* GCPostThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C85B1C4E7663000BC251 /* GCPostThreadViewController.m */; };
 		0408D0921BE1FEB900B3825A /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0408D0911BE1FEB900B3825A /* GCUserProtocolViewController.m */; };
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
-		0422CDDC1BC6AF70003D2EF5 /* KxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422CDDB1BC6AF70003D2EF5 /* KxMenu.m */; };
 		0426CD811BE73EB100BE85D8 /* GCHotThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD801BE73EB100BE85D8 /* GCHotThreadCell.m */; };
 		0426CD8A1BE73F0E00BE85D8 /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD831BE73F0E00BE85D8 /* GCForumDisplayCell.m */; };
 		0426CD8B1BE73F0E00BE85D8 /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD851BE73F0E00BE85D8 /* GCForumIndexCell.m */; };
@@ -169,8 +168,6 @@
 		0408D0901BE1FEB900B3825A /* GCUserProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserProtocolViewController.h; sourceTree = "<group>"; };
 		0408D0911BE1FEB900B3825A /* GCUserProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserProtocolViewController.m; sourceTree = "<group>"; };
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
-		0422CDDA1BC6AF70003D2EF5 /* KxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KxMenu.h; sourceTree = "<group>"; };
-		0422CDDB1BC6AF70003D2EF5 /* KxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KxMenu.m; sourceTree = "<group>"; };
 		0426CD7F1BE73EB100BE85D8 /* GCHotThreadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadCell.h; sourceTree = "<group>"; };
 		0426CD801BE73EB100BE85D8 /* GCHotThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadCell.m; sourceTree = "<group>"; };
 		0426CD821BE73F0E00BE85D8 /* GCForumDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayCell.h; sourceTree = "<group>"; };
@@ -470,15 +467,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0422CDD91BC6AF70003D2EF5 /* KxMenu */ = {
-			isa = PBXGroup;
-			children = (
-				0422CDDA1BC6AF70003D2EF5 /* KxMenu.h */,
-				0422CDDB1BC6AF70003D2EF5 /* KxMenu.m */,
-			);
-			path = KxMenu;
-			sourceTree = "<group>";
-		};
 		0426CD771BE73E4500BE85D8 /* Forum */ = {
 			isa = PBXGroup;
 			children = (
@@ -790,7 +778,6 @@
 				420D985F1B92982C00AEAED3 /* RESideMenu */,
 				4238886C1BC57CA6002E1625 /* MJRefresh */,
 				423888AC1BC57D0F002E1625 /* DGActivityIndicatorView */,
-				0422CDD91BC6AF70003D2EF5 /* KxMenu */,
 				046DB75D1BFC6F1900E05E17 /* DOPNavbarMenu */,
 			);
 			path = Additions;
@@ -1439,7 +1426,6 @@
 				047150E41BEDC9C2007A8890 /* GCSocial.m in Sources */,
 				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
 				0426CD811BE73EB100BE85D8 /* GCHotThreadCell.m in Sources */,
-				0422CDDC1BC6AF70003D2EF5 /* KxMenu.m in Sources */,
 				420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */,
 				4238890D1BC57D0F002E1625 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
 				0479AB101C39176E00AAF3CD /* GCLoginViewController.m in Sources */,
@@ -1560,7 +1546,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: 825230378@qq.com (8545AJA6XA)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1627,10 +1613,26 @@
 			baseConfigurationReference = 2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/DKNightVersion\"",
+					"\"${PODS_ROOT}/Headers/Public/FDFullscreenPopGesture\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/NJKWebViewProgress\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengSocial\"",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = GuitarChina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1650,10 +1652,26 @@
 			baseConfigurationReference = AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/DKNightVersion\"",
+					"\"${PODS_ROOT}/Headers/Public/FDFullscreenPopGesture\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/NJKWebViewProgress\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengSocial\"",
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = GuitarChina/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1672,6 +1690,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1692,6 +1711,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

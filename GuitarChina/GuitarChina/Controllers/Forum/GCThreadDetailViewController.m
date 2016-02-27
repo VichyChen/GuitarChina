@@ -7,7 +7,6 @@
 //
 
 #import "GCThreadDetailViewController.h"
-#import "KxMenu.h"
 #import "GCThreadDetailView.h"
 #import "GCWebViewController.h"
 #import "GCReplyThreadViewController.h"

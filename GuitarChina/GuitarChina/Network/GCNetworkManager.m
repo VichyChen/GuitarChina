@@ -12,7 +12,7 @@
 
 typedef NS_ENUM(NSInteger, GCRequestType) {
     GCRequestJsonGet    = 1,
-    GCRequestPost   = 2,
+    GCRequestPost       = 2,
     GCRequestHttpPost   = 3,
 };
 
@@ -29,12 +29,11 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 
 - (instancetype)init {
     if (self = [super init]) {
-        
     }
     return self;
 }
 
-- (AFHTTPRequestOperation *)requestCommonMethod:(GCRequestType)type
+- (AFHTTPRequestOperationManager *)requestCommonMethod:(GCRequestType)type
                                             url:(NSString *)url
                                      parameters:(NSDictionary *)parameters
                                         success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
