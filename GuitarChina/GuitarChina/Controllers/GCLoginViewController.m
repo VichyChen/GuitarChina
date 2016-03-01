@@ -73,8 +73,8 @@
     [self configureColor];
     [self configureBlock];
     
-    self.usernameTextField.text = @"Vichy_Chen";
-    self.passwordTextField.text = @"88436658cdj";
+//    self.usernameTextField.text = @"Vichy_Chen";
+//    self.passwordTextField.text = @"88436658cdj";
     //    self.answerTextField.text = @"汕头";
     
     self.getLoginWebBlock();
