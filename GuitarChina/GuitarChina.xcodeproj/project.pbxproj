@@ -146,6 +146,7 @@
 		428F711D1B89AD670023E501 /* GCBaseNoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F711C1B89AD670023E501 /* GCBaseNoticeModel.m */; };
 		428F71261B89C0230023E501 /* GCSendReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F71251B89C0230023E501 /* GCSendReplyModel.m */; };
 		429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 429E720A1B8B5066000469E6 /* GCNewThreadModel.m */; };
+		42C5546A1C878334000AF010 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C554691C878334000AF010 /* Default-568h@2x.png */; };
 		42DA95021BA3B83E001A79B9 /* GCForumIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA95011BA3B83E001A79B9 /* GCForumIndexModel.m */; };
 		42DA95051BA5553C001A79B9 /* GCForumDisplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA95041BA5553C001A79B9 /* GCForumDisplayModel.m */; };
 		42FFF5B21BF1C24A0061029B /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42FFF5B11BF1C24A0061029B /* ForumList.plist */; };
@@ -437,6 +438,7 @@
 		428F71251B89C0230023E501 /* GCSendReplyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSendReplyModel.m; sourceTree = "<group>"; };
 		429E72091B8B5066000469E6 /* GCNewThreadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewThreadModel.h; sourceTree = "<group>"; };
 		429E720A1B8B5066000469E6 /* GCNewThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewThreadModel.m; sourceTree = "<group>"; };
+		42C554691C878334000AF010 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		42DA94FF1BA3B23B001A79B9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		42DA95001BA3B83E001A79B9 /* GCForumIndexModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexModel.h; sourceTree = "<group>"; };
 		42DA95011BA3B83E001A79B9 /* GCForumIndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexModel.m; sourceTree = "<group>"; };
@@ -568,6 +570,7 @@
 		043648DE1BCF9BD80005162D /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				42C554691C878334000AF010 /* Default-568h@2x.png */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -1267,6 +1270,7 @@
 				42FFF5B21BF1C24A0061029B /* ForumList.plist in Resources */,
 				0488C09B1C78E64300920E72 /* GCPostThreadViewController.xib in Resources */,
 				043648E01BCF9BD80005162D /* Images.xcassets in Resources */,
+				42C5546A1C878334000AF010 /* Default-568h@2x.png in Resources */,
 				047150EF1BF03B2A007A8890 /* SVProgressHUD.bundle in Resources */,
 				423888A71BC57CA6002E1625 /* MJRefresh.bundle in Resources */,
 				42657DDC1B99CAA2001F8DFC /* Localizable.strings in Resources */,
@@ -1615,6 +1619,7 @@
 			baseConfigurationReference = 2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1644,7 +1649,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.guitarchina.gcapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1653,6 +1658,7 @@
 			baseConfigurationReference = AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1682,7 +1688,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.guitarchina.gcapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
