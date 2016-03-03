@@ -56,8 +56,6 @@ static NSString * const kGCNOTIFICATION_LOGINSUCCESS = @"LOGINSUCCESS";
 
 /* 第三方 */
 
-//友盟appkey
-static NSString * const kUMENG_APPKEY = @"5638ba4367e58ea3e9000b36";
 //微信appid
 static NSString * const kWECHAT_APPID = @"wx26165a2548b3611f";
 //微信appsecret
@@ -66,6 +64,22 @@ static NSString * const kWECHAT_APPSECRET = @"d4624c36b6795d1d99dcf0547af5443d";
 static NSString * const kQQ_APPID = @"1104956834";
 //QQappkey
 static NSString * const kQQ_APPKEY = @"rmLJuaY5d3Bs8uE4";
+
+/* Debug */
+#ifdef DEBUG
+
+//友盟appkey
+static NSString * const kUMENG_APPKEY = @"56d7ec72e0f55a701a000937";
+
+/* Release */
+#else
+
+//友盟appkey
+static NSString * const kUMENG_APPKEY = @"56d7ecd4e0f55a7090001026";
+
+#define NSLog(...)
+
+#endif
 
 
 #endif
