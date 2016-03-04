@@ -23,7 +23,7 @@
 - (void)loadView {
     [super loadView];
     
-    self.title = NSLocalizedString(@"Recent", nil);
+    self.title = NSLocalizedString(@"Newest", nil);
     self.navigationController.navigationBarHidden = YES;
 }
 

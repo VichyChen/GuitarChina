@@ -124,7 +124,7 @@
     
     GCHotThreadViewController *hotThreadViewController = [[GCHotThreadViewController alloc] init];
     GCNavigationController *hotThreadNavigationController = [[GCNavigationController alloc] initWithRootViewController:hotThreadViewController];
-    hotThreadNavigationController.tabBarItem.title = NSLocalizedString(@"Recent", nil);
+    hotThreadNavigationController.tabBarItem.title = NSLocalizedString(@"Newest", nil);
     hotThreadNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_guitar"];
     hotThreadNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_guitar_on"];
     
