@@ -13,20 +13,14 @@
 		0426CD811BE73EB100BE85D8 /* GCHotThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD801BE73EB100BE85D8 /* GCHotThreadCell.m */; };
 		0426CD8A1BE73F0E00BE85D8 /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD831BE73F0E00BE85D8 /* GCForumDisplayCell.m */; };
 		0426CD8B1BE73F0E00BE85D8 /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD851BE73F0E00BE85D8 /* GCForumIndexCell.m */; };
-		0426CD8D1BE73F0E00BE85D8 /* GCThreadRightMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD891BE73F0E00BE85D8 /* GCThreadRightMenuCell.m */; };
 		0426CD961BE73F3000BE85D8 /* GCMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD8F1BE73F3000BE85D8 /* GCMineCell.m */; };
 		0426CD971BE73F3000BE85D8 /* GCMineHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD911BE73F3000BE85D8 /* GCMineHeaderCell.m */; };
 		0426CD981BE73F3000BE85D8 /* GCMyFavThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD931BE73F3000BE85D8 /* GCMyFavThreadCell.m */; };
 		0426CD991BE73F3000BE85D8 /* GCMyThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD951BE73F3000BE85D8 /* GCMyThreadCell.m */; };
 		0426CD9C1BE73F5600BE85D8 /* GCThreadDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD9B1BE73F5600BE85D8 /* GCThreadDetailView.m */; };
 		0426CD9F1BE73F8600BE85D8 /* GCReplyThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD9E1BE73F8600BE85D8 /* GCReplyThreadView.m */; };
-		0426CDA21BE73FC200BE85D8 /* GCLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CDA11BE73FC200BE85D8 /* GCLeftMenuCell.m */; };
-		0426CDA51BE740E500BE85D8 /* GCPostThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CDA41BE740E500BE85D8 /* GCPostThreadView.m */; };
 		0426CDA81BE7455A00BE85D8 /* GCReportThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CDA71BE7455A00BE85D8 /* GCReportThreadViewController.m */; };
 		0426CDAB1BE7457500BE85D8 /* GCReportThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CDAA1BE7457500BE85D8 /* GCReportThreadView.m */; };
-		0426CDAE1BE755C800BE85D8 /* GCShareThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CDAD1BE755C800BE85D8 /* GCShareThreadViewController.m */; };
-		0426CDB11BE7564700BE85D8 /* GCShareThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CDB01BE7564700BE85D8 /* GCShareThreadView.m */; };
-		0426CDB41BE76BB600BE85D8 /* GCThreadRightMenuCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CDB31BE76BB600BE85D8 /* GCThreadRightMenuCollectionCell.m */; };
 		042D346B1BD0ED4300EBDACC /* GCThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042D346A1BD0ED4300EBDACC /* GCThreadDetailViewController.m */; };
 		043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
 		043648DD1BCF90740005162D /* GCThreadWebViewHtmlCell.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */; };
@@ -71,9 +65,6 @@
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
 		04B692BC1C4643E500913629 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B692BA1C4643E500913629 /* Info.plist */; };
 		420528151BD2900200C74E27 /* GCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420528141BD2900200C74E27 /* GCTabBarController.m */; };
-		420D98661B92982C00AEAED3 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98611B92982C00AEAED3 /* RECommonFunctions.m */; };
-		420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98631B92982C00AEAED3 /* RESideMenu.m */; };
-		420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98651B92982C00AEAED3 /* UIViewController+RESideMenu.m */; };
 		420D987F1B929C2B00AEAED3 /* GCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98781B929C2B00AEAED3 /* GCBaseTableViewController.m */; };
 		420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */; };
 		420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987E1B929C2B00AEAED3 /* GCNavigationController.m */; };
@@ -175,8 +166,6 @@
 		0426CD831BE73F0E00BE85D8 /* GCForumDisplayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayCell.m; sourceTree = "<group>"; };
 		0426CD841BE73F0E00BE85D8 /* GCForumIndexCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexCell.h; sourceTree = "<group>"; };
 		0426CD851BE73F0E00BE85D8 /* GCForumIndexCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexCell.m; sourceTree = "<group>"; };
-		0426CD881BE73F0E00BE85D8 /* GCThreadRightMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadRightMenuCell.h; sourceTree = "<group>"; };
-		0426CD891BE73F0E00BE85D8 /* GCThreadRightMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadRightMenuCell.m; sourceTree = "<group>"; };
 		0426CD8E1BE73F3000BE85D8 /* GCMineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMineCell.h; sourceTree = "<group>"; };
 		0426CD8F1BE73F3000BE85D8 /* GCMineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMineCell.m; sourceTree = "<group>"; };
 		0426CD901BE73F3000BE85D8 /* GCMineHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMineHeaderCell.h; sourceTree = "<group>"; };
@@ -189,20 +178,10 @@
 		0426CD9B1BE73F5600BE85D8 /* GCThreadDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailView.m; sourceTree = "<group>"; };
 		0426CD9D1BE73F8600BE85D8 /* GCReplyThreadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCReplyThreadView.h; sourceTree = "<group>"; };
 		0426CD9E1BE73F8600BE85D8 /* GCReplyThreadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReplyThreadView.m; sourceTree = "<group>"; };
-		0426CDA01BE73FC200BE85D8 /* GCLeftMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLeftMenuCell.h; sourceTree = "<group>"; };
-		0426CDA11BE73FC200BE85D8 /* GCLeftMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLeftMenuCell.m; sourceTree = "<group>"; };
-		0426CDA31BE740E500BE85D8 /* GCPostThreadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPostThreadView.h; sourceTree = "<group>"; };
-		0426CDA41BE740E500BE85D8 /* GCPostThreadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPostThreadView.m; sourceTree = "<group>"; };
 		0426CDA61BE7455A00BE85D8 /* GCReportThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCReportThreadViewController.h; sourceTree = "<group>"; };
 		0426CDA71BE7455A00BE85D8 /* GCReportThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReportThreadViewController.m; sourceTree = "<group>"; };
 		0426CDA91BE7457500BE85D8 /* GCReportThreadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCReportThreadView.h; sourceTree = "<group>"; };
 		0426CDAA1BE7457500BE85D8 /* GCReportThreadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReportThreadView.m; sourceTree = "<group>"; };
-		0426CDAC1BE755C800BE85D8 /* GCShareThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCShareThreadViewController.h; sourceTree = "<group>"; };
-		0426CDAD1BE755C800BE85D8 /* GCShareThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCShareThreadViewController.m; sourceTree = "<group>"; };
-		0426CDAF1BE7564700BE85D8 /* GCShareThreadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCShareThreadView.h; sourceTree = "<group>"; };
-		0426CDB01BE7564700BE85D8 /* GCShareThreadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCShareThreadView.m; sourceTree = "<group>"; };
-		0426CDB21BE76BB600BE85D8 /* GCThreadRightMenuCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadRightMenuCollectionCell.h; sourceTree = "<group>"; };
-		0426CDB31BE76BB600BE85D8 /* GCThreadRightMenuCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadRightMenuCollectionCell.m; sourceTree = "<group>"; };
 		042D34691BD0ED4300EBDACC /* GCThreadDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailViewController.h; sourceTree = "<group>"; };
 		042D346A1BD0ED4300EBDACC /* GCThreadDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailViewController.m; sourceTree = "<group>"; };
 		043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewHtml.html; sourceTree = "<group>"; };
@@ -283,12 +262,6 @@
 		2F829F5DD46C688C9B2385EC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		420528131BD2900200C74E27 /* GCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCTabBarController.h; sourceTree = "<group>"; };
 		420528141BD2900200C74E27 /* GCTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCTabBarController.m; sourceTree = "<group>"; };
-		420D98601B92982C00AEAED3 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
-		420D98611B92982C00AEAED3 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
-		420D98621B92982C00AEAED3 /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
-		420D98631B92982C00AEAED3 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
-		420D98641B92982C00AEAED3 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
-		420D98651B92982C00AEAED3 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
 		420D98771B929C2B00AEAED3 /* GCBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBaseTableViewController.h; sourceTree = "<group>"; };
 		420D98781B929C2B00AEAED3 /* GCBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseTableViewController.m; sourceTree = "<group>"; };
 		420D98791B929C2B00AEAED3 /* GCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBaseViewController.h; sourceTree = "<group>"; };
@@ -475,14 +448,10 @@
 				0426CD7C1BE73E7E00BE85D8 /* Cells */,
 				0426CD9A1BE73F5600BE85D8 /* GCThreadDetailView.h */,
 				0426CD9B1BE73F5600BE85D8 /* GCThreadDetailView.m */,
-				0426CDA31BE740E500BE85D8 /* GCPostThreadView.h */,
-				0426CDA41BE740E500BE85D8 /* GCPostThreadView.m */,
 				0426CD9D1BE73F8600BE85D8 /* GCReplyThreadView.h */,
 				0426CD9E1BE73F8600BE85D8 /* GCReplyThreadView.m */,
 				0426CDA91BE7457500BE85D8 /* GCReportThreadView.h */,
 				0426CDAA1BE7457500BE85D8 /* GCReportThreadView.m */,
-				0426CDAF1BE7564700BE85D8 /* GCShareThreadView.h */,
-				0426CDB01BE7564700BE85D8 /* GCShareThreadView.m */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -503,14 +472,6 @@
 			path = Mine;
 			sourceTree = "<group>";
 		};
-		0426CD7A1BE73E4500BE85D8 /* Setting */ = {
-			isa = PBXGroup;
-			children = (
-				0426CD7E1BE73E8F00BE85D8 /* Cells */,
-			);
-			path = Setting;
-			sourceTree = "<group>";
-		};
 		0426CD7B1BE73E7300BE85D8 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,10 +488,6 @@
 				0426CD851BE73F0E00BE85D8 /* GCForumIndexCell.m */,
 				0426CD821BE73F0E00BE85D8 /* GCForumDisplayCell.h */,
 				0426CD831BE73F0E00BE85D8 /* GCForumDisplayCell.m */,
-				0426CD881BE73F0E00BE85D8 /* GCThreadRightMenuCell.h */,
-				0426CD891BE73F0E00BE85D8 /* GCThreadRightMenuCell.m */,
-				0426CDB21BE76BB600BE85D8 /* GCThreadRightMenuCollectionCell.h */,
-				0426CDB31BE76BB600BE85D8 /* GCThreadRightMenuCollectionCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -546,13 +503,6 @@
 				0426CD931BE73F3000BE85D8 /* GCMyFavThreadCell.m */,
 				0426CD941BE73F3000BE85D8 /* GCMyThreadCell.h */,
 				0426CD951BE73F3000BE85D8 /* GCMyThreadCell.m */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		0426CD7E1BE73E8F00BE85D8 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -590,10 +540,7 @@
 				0426CD781BE73E4500BE85D8 /* HotThread */,
 				0426CD771BE73E4500BE85D8 /* Forum */,
 				0426CD791BE73E4500BE85D8 /* Mine */,
-				0426CD7A1BE73E4500BE85D8 /* Setting */,
 				047D7EC21BF5C911001689E7 /* More */,
-				0426CDA01BE73FC200BE85D8 /* GCLeftMenuCell.h */,
-				0426CDA11BE73FC200BE85D8 /* GCLeftMenuCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -778,25 +725,11 @@
 			children = (
 				047150E51BF03B2A007A8890 /* SVProgressHUD */,
 				045967471BC7A47D000181DE /* RTLabel */,
-				420D985F1B92982C00AEAED3 /* RESideMenu */,
 				4238886C1BC57CA6002E1625 /* MJRefresh */,
 				423888AC1BC57D0F002E1625 /* DGActivityIndicatorView */,
 				046DB75D1BFC6F1900E05E17 /* DOPNavbarMenu */,
 			);
 			path = Additions;
-			sourceTree = "<group>";
-		};
-		420D985F1B92982C00AEAED3 /* RESideMenu */ = {
-			isa = PBXGroup;
-			children = (
-				420D98601B92982C00AEAED3 /* RECommonFunctions.h */,
-				420D98611B92982C00AEAED3 /* RECommonFunctions.m */,
-				420D98621B92982C00AEAED3 /* RESideMenu.h */,
-				420D98631B92982C00AEAED3 /* RESideMenu.m */,
-				420D98641B92982C00AEAED3 /* UIViewController+RESideMenu.h */,
-				420D98651B92982C00AEAED3 /* UIViewController+RESideMenu.m */,
-			);
-			path = RESideMenu;
 			sourceTree = "<group>";
 		};
 		420D98721B929AA700AEAED3 /* Controllers */ = {
@@ -847,8 +780,6 @@
 				044C5F461BE345F800A17B99 /* GCReplyThreadViewController.m */,
 				0426CDA61BE7455A00BE85D8 /* GCReportThreadViewController.h */,
 				0426CDA71BE7455A00BE85D8 /* GCReportThreadViewController.m */,
-				0426CDAC1BE755C800BE85D8 /* GCShareThreadViewController.h */,
-				0426CDAD1BE755C800BE85D8 /* GCShareThreadViewController.m */,
 			);
 			path = Forum;
 			sourceTree = "<group>";
@@ -1346,7 +1277,6 @@
 				0488C0A11C78EF1300920E72 /* GCUserViewController.m in Sources */,
 				4238889E1BC57CA6002E1625 /* MJRefreshAutoGifFooter.m in Sources */,
 				047150F11BF03B2A007A8890 /* SVRadialGradientLayer.m in Sources */,
-				0426CDA21BE73FC200BE85D8 /* GCLeftMenuCell.m in Sources */,
 				0406C85D1C4E7663000BC251 /* GCPostThreadViewController.m in Sources */,
 				428F711D1B89AD670023E501 /* GCBaseNoticeModel.m in Sources */,
 				045F2F5A1BE0D1B60024C9FC /* GCMyFavThreadViewController.m in Sources */,
@@ -1368,7 +1298,6 @@
 				046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */,
 				4238890E1BC57D0F002E1625 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
 				423888F81BC57D0F002E1625 /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */,
-				420D98661B92982C00AEAED3 /* RECommonFunctions.m in Sources */,
 				0426CDAB1BE7457500BE85D8 /* GCReportThreadView.m in Sources */,
 				046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */,
 				423889001BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
@@ -1384,12 +1313,10 @@
 				423888F11BC57D0F002E1625 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
 				423889051BC57D0F002E1625 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
 				4238890A1BC57D0F002E1625 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
-				0426CDAE1BE755C800BE85D8 /* GCShareThreadViewController.m in Sources */,
 				0488C0A71C795E1C00920E72 /* UIColor+Custom.m in Sources */,
 				046694AF1BD91EEE008C8CB3 /* GCWebViewController.m in Sources */,
 				423889091BC57D0F002E1625 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */,
 				423888A31BC57CA6002E1625 /* MJRefreshBackStateFooter.m in Sources */,
-				420D98681B92982C00AEAED3 /* UIViewController+RESideMenu.m in Sources */,
 				046DB76B1BFC6F9700E05E17 /* TFHpple.m in Sources */,
 				423889061BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
 				044C5F471BE345F800A17B99 /* GCReplyThreadViewController.m in Sources */,
@@ -1430,7 +1357,6 @@
 				047150E41BEDC9C2007A8890 /* GCSocial.m in Sources */,
 				429E720B1B8B5066000469E6 /* GCNewThreadModel.m in Sources */,
 				0426CD811BE73EB100BE85D8 /* GCHotThreadCell.m in Sources */,
-				420D98671B92982C00AEAED3 /* RESideMenu.m in Sources */,
 				4238890D1BC57D0F002E1625 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
 				0479AB101C39176E00AAF3CD /* GCLoginViewController.m in Sources */,
 				042D346B1BD0ED4300EBDACC /* GCThreadDetailViewController.m in Sources */,
@@ -1438,7 +1364,6 @@
 				423889071BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
 				045F2F481BE0C9BB0024C9FC /* GCMyThreadModel.m in Sources */,
 				045F2F571BE0D0D40024C9FC /* GCMyFavThreadModel.m in Sources */,
-				0426CDA51BE740E500BE85D8 /* GCPostThreadView.m in Sources */,
 				423888FA1BC57D0F002E1625 /* DGActivityIndicatorBallScaleAnimation.m in Sources */,
 				423888A01BC57CA6002E1625 /* MJRefreshAutoStateFooter.m in Sources */,
 				423888A41BC57CA6002E1625 /* MJRefreshGifHeader.m in Sources */,
@@ -1446,10 +1371,8 @@
 				423888FB1BC57D0F002E1625 /* DGActivityIndicatorBallScaleMultipleAnimation.m in Sources */,
 				0426CD971BE73F3000BE85D8 /* GCMineHeaderCell.m in Sources */,
 				42657DBD1B998C49001F8DFC /* GCForumIndexViewController.m in Sources */,
-				0426CD8D1BE73F0E00BE85D8 /* GCThreadRightMenuCell.m in Sources */,
 				0488C0AA1C795E7200920E72 /* JsonTool.m in Sources */,
 				420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */,
-				0426CDB11BE7564700BE85D8 /* GCShareThreadView.m in Sources */,
 				423888A11BC57CA6002E1625 /* MJRefreshBackGifFooter.m in Sources */,
 				420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */,
 				046DB7621BFC6F1900E05E17 /* DOPNavbarMenu.m in Sources */,
@@ -1465,7 +1388,6 @@
 				046F9E691BC6192F0044EB1D /* main.m in Sources */,
 				0426CD8A1BE73F0E00BE85D8 /* GCForumDisplayCell.m in Sources */,
 				420528151BD2900200C74E27 /* GCTabBarController.m in Sources */,
-				0426CDB41BE76BB600BE85D8 /* GCThreadRightMenuCollectionCell.m in Sources */,
 				423888A61BC57CA6002E1625 /* MJRefreshStateHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

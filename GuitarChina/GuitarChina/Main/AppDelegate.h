@@ -9,17 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "GCTabBarController.h"
-#import "RESideMenu.h"
 
-#define LeftSideMenuOffsetCenterXIniPhone ScreenWidth * 0.166 //iphone右侧边栏X坐标
-#define LeftSideMenuOffsetCenterXIniPad -(ScreenWidth / 6)   //ipad右侧边栏X坐标
-
-@interface AppDelegate : UIResponder <UIApplicationDelegate, RESideMenuDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) GCTabBarController *tabBarController;
-@property (strong, nonatomic) RESideMenu *sideMenuViewController;
 
 @property (strong, nonatomic) NSDictionary *forumDictionary;
 

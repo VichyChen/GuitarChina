@@ -8,7 +8,6 @@
 
 #import "GCThreadDetailView.h"
 #import "MJRefresh.h"
-#import "RESideMenu.h"
 
 @interface GCThreadDetailView ()  <UIPickerViewDataSource, UIPickerViewDelegate, UIScrollViewDelegate> {
     NSInteger lastContentOffsetY;

@@ -12,7 +12,6 @@
 #import "GCReplyThreadViewController.h"
 #import "GCReportThreadViewController.h"
 #import "GCNavigationController.h"
-#import "RESideMenu.h"
 #import "GCLoginViewController.h"
 #import "DOPNavbarMenu.h"
 #import "GCSocial.h"
@@ -244,7 +243,6 @@
     if (!self.loaded) {
         return;
     }
-    [self presentRightMenuViewController:nil];
 }
 
 - (void)configureBlock {
