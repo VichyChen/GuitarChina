@@ -64,6 +64,7 @@
 		04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B051BB52F460010F7C8 /* GCMoreViewController.m */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
 		04B692BC1C4643E500913629 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B692BA1C4643E500913629 /* Info.plist */; };
+		04BBE3021C8D827700063287 /* ParseHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BBE3011C8D827700063287 /* ParseHtml.m */; };
 		420528151BD2900200C74E27 /* GCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420528141BD2900200C74E27 /* GCTabBarController.m */; };
 		420D987F1B929C2B00AEAED3 /* GCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98781B929C2B00AEAED3 /* GCBaseTableViewController.m */; };
 		420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */; };
@@ -258,6 +259,8 @@
 		04935B051BB52F460010F7C8 /* GCMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreViewController.m; sourceTree = "<group>"; };
 		04AF910D1BE8FAF10030AEEB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		04B692BA1C4643E500913629 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04BBE3001C8D827700063287 /* ParseHtml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseHtml.h; sourceTree = "<group>"; };
+		04BBE3011C8D827700063287 /* ParseHtml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseHtml.m; sourceTree = "<group>"; };
 		2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2F829F5DD46C688C9B2385EC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		420528131BD2900200C74E27 /* GCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCTabBarController.h; sourceTree = "<group>"; };
@@ -624,6 +627,7 @@
 		047150DD1BEDB409007A8890 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				04BBE2FF1C8D824F00063287 /* ParseHtml */,
 				047150E11BEDC955007A8890 /* SocialShare */,
 			);
 			path = Services;
@@ -708,6 +712,15 @@
 				42657DDE1B99CAA2001F8DFC /* Localizable.strings */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04BBE2FF1C8D824F00063287 /* ParseHtml */ = {
+			isa = PBXGroup;
+			children = (
+				04BBE3001C8D827700063287 /* ParseHtml.h */,
+				04BBE3011C8D827700063287 /* ParseHtml.m */,
+			);
+			path = ParseHtml;
 			sourceTree = "<group>";
 		};
 		0F41C248D61EFD30EA073F7A /* Frameworks */ = {
@@ -1331,6 +1344,7 @@
 				42657DCC1B99B529001F8DFC /* GCHotThreadViewController.m in Sources */,
 				423889101BC57D0F002E1625 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
 				4238890C1BC57D0F002E1625 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
+				04BBE3021C8D827700063287 /* ParseHtml.m in Sources */,
 				4238889C1BC57CA6002E1625 /* MJRefreshFooter.m in Sources */,
 				423888F51BC57D0F002E1625 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
 				047150F01BF03B2A007A8890 /* SVProgressHUD.m in Sources */,

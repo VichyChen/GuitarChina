@@ -283,13 +283,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
             failure(error);
         }
     }];
-    
-    //    return [self requestWebWithURL:GC_NETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-    //        NSLog(@"HTML: %@", [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding]);
-    //        success();
-    //    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-    //        failure(error);
-    //    }];
 }
 
 - (void)getProfileSuccess:(void (^)(GCHotThreadArray *array))success
@@ -398,7 +391,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     
     NSDictionary *parameters = @{@"formhash" : formhash,
                                  @"seccodehash" : seccodehash,
-                                 //@"fastloginfield" : @"username",
                                  @"fastloginfield" : fastloginfield,
                                  @"username" : username,
                                  @"password" : password,
