@@ -254,9 +254,9 @@
 
 - (NSDictionary *)dictionary {
     if (!_dictionary) {
-        NSDictionary *guitarchina = @{@"title" : NSLocalizedString(@"关于吉他中国", nil), @"enable" : @YES };
-        NSDictionary *musicInstrument = @{@"title" : NSLocalizedString(@"买吉他到琴国乐器", nil), @"enable" : @YES };
-        NSDictionary *mushroomMusic = @{@"title" : NSLocalizedString(@"学吉他到魔菇音乐", nil), @"enable" : @YES };
+        NSDictionary *guitarchina = @{@"title" : NSLocalizedString(@"About GuitarChina", nil), @"enable" : @YES };
+        NSDictionary *musicInstrument = @{@"title" : NSLocalizedString(@"Musical Instruments", nil), @"enable" : @YES };
+        NSDictionary *mushroomMusic = @{@"title" : NSLocalizedString(@"Mushroom Music", nil), @"enable" : @YES };
         
         NSDictionary *developer = @{@"title" : NSLocalizedString(@"Information Development", nil), @"enable" : @YES };
         NSDictionary *feedback = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES };
