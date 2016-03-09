@@ -13,6 +13,7 @@
 #import "GCUserInfoViewController.h"
 #import "GCMyThreadViewController.h"
 #import "GCMyFavThreadViewController.h"
+#import "GCUserProtocolViewController.h"
 
 @interface GCUserViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -57,19 +58,25 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
 }
 
+#pragma mark - Notification
+
+- (void)configureNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView) name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 1;
     } else if (section == 1) {
-        return 2;
+        return 4;
     } else if (section == 2) {
-        return 1;
+        return 0;
     }
     
     return 0;
@@ -92,6 +99,12 @@
             cell.leftImageView.image = [UIImage imageNamed:@"icon_document"];
         } else if (indexPath.row == 1) {
             cell.titleLabel.text = NSLocalizedString(@"My Favour", nil);
+            cell.leftImageView.image = [UIImage imageNamed:@"icon_star"];
+        } else if (indexPath.row == 2) {
+            cell.titleLabel.text = NSLocalizedString(@"User Protocol", nil);
+            cell.leftImageView.image = [UIImage imageNamed:@"icon_star"];
+        } else if (indexPath.row == 3) {
+            cell.titleLabel.text = NSLocalizedString(@"Logout Account", nil);
             cell.leftImageView.image = [UIImage imageNamed:@"icon_star"];
         }
         
@@ -151,15 +164,36 @@
         //        GCUserInfoViewController *userInfoViewController = [[GCUserInfoViewController alloc] init];
         //        userInfoViewController.hidesBottomBarWhenPushed = YES;
         //        [self.navigationController pushViewController:userInfoViewController animated:YES];
-    } else if (indexPath.section == 1) {//我的主题
-        if (indexPath.row == 0) {
-            GCMyThreadViewController *userThreadViewController = [[GCMyThreadViewController alloc] init];
-            userThreadViewController.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:userThreadViewController animated:YES];
-        } else if (indexPath.row == 1) {//我的收藏
-            GCMyFavThreadViewController *myFavThreadViewController = [[GCMyFavThreadViewController alloc] init];
-            myFavThreadViewController.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:myFavThreadViewController animated:YES];
+    } else if (indexPath.section == 1) {
+        switch (indexPath.row) {
+            case 0://我的主题
+            {
+                GCMyThreadViewController *userThreadViewController = [[GCMyThreadViewController alloc] init];
+                userThreadViewController.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:userThreadViewController animated:YES];
+            }
+                break;
+                
+            case 1://我的收藏
+            {
+                GCMyFavThreadViewController *myFavThreadViewController = [[GCMyFavThreadViewController alloc] init];
+                myFavThreadViewController.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:myFavThreadViewController animated:YES];
+            }
+                break;
+                
+            case 2://用户协议
+            {
+                GCUserProtocolViewController *userProtocolViewController = [[GCUserProtocolViewController alloc] init];
+                userProtocolViewController.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:userProtocolViewController animated:YES];
+            }
+                break;
+                
+            case 3://注销
+                [self logoutAction];
+                
+                break;
         }
     } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {//其它
@@ -176,10 +210,6 @@
     [self.view addSubview:self.tableView];
 }
 
-- (void)configureNotification {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView) name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
-}
-
 #pragma mark - Event Response
 
 - (void)refreshView {
@@ -187,6 +217,16 @@
     self.username = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME];
     self.userLevel = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINLEVEL];
     [self.tableView reloadData];
+}
+
+- (void)logoutAction {
+    [Util clearCookie];
+    ApplicationDelegate.tabBarController.selectedIndex = 0;
+    [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:kGCLOGIN];
+    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kGCLOGINNAME];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    //    [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Getters
