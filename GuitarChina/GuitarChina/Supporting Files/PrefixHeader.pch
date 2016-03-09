@@ -34,6 +34,10 @@
 #define iPad UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue]<8.0f)
 
+/* Apple ID */
+
+#define AppleID @"1089161305"
+
 /* Version */
 
 #define CurrentVersion @"1.0.0"

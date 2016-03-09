@@ -16,6 +16,8 @@
 
 @property (nonatomic, strong) NSArray *array;
 
+@property (nonatomic, strong) NSDictionary *dictionary;
+
 @end
 
 @implementation GCMoreViewController
@@ -25,13 +27,6 @@
     
     self.title = NSLocalizedString(@"More", nil);
     self.view.backgroundColor = [UIColor GCBackgroundColor];
-    
-    NSDictionary *dictionary1 = @{@"title" : NSLocalizedString(@"About GuitarChina iOS APP", nil), @"enable" : @YES };
-    NSDictionary *dictionary2 = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES };
-    NSDictionary *dictionary3 = @{@"title" : NSLocalizedString(@"To Score", nil), @"enable" : @YES };
-    NSDictionary *dictionary4 = @{@"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), CurrentVersion], @"enable" : @NO };
-    
-    self.array = @[dictionary1, dictionary2, dictionary3, dictionary4];
     
     [self configureView];
 }
@@ -43,17 +38,12 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //    if (section == 0) {
-    //        return 3;
-    //    } else if (section == 1) {
-    //        return 3;
-    //    }
-    
-    return self.array.count;
+    NSArray *array = [self.dictionary objectForKey:[self.dictionary.allKeys objectAtIndex:section]];
+    return array.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -97,7 +87,9 @@
     //        }
     //    }
     
-    NSDictionary *dictionary = [self.array objectAtIndex:indexPath.row];
+    NSString *key = [[self.dictionary allKeys] objectAtIndex:indexPath.section];
+    NSArray *array = [self.dictionary objectForKey:key];
+    NSDictionary *dictionary = [array objectAtIndex:indexPath.row];
     
     GCMoreCell *cell = [[GCMoreCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell.titleLabel.text = [dictionary objectForKey:@"title"];
@@ -122,7 +114,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
     view.backgroundColor = [UIColor GCBackgroundColor];
-    UILabel *label = [UIView createLabel:CGRectMake(15, 0, 50, 40)
+    UILabel *label = [UIView createLabel:CGRectMake(15, 0, 200, 40)
                                     text:@""
                                     font:[UIFont systemFontOfSize:16]
                                textColor:[UIColor GCBlueColor]];
@@ -131,11 +123,7 @@
     [view addSubview:label];
     [view addSubview:line];
     
-    //    if (section == 0) {
-    //        label.text = @"设置";
-    //    } else if (section == 1) {
-    label.text = NSLocalizedString(@"About", nil);
-    //    }
+    label.text = [[self.dictionary allKeys] objectAtIndex:section];
     
     return view;
 }
@@ -154,33 +142,66 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    switch (indexPath.row) {
+    switch (indexPath.section) {
         case 0:
-        {
-            GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
-            controller.hidesBottomBarWhenPushed = YES;
-            controller.tid = @"2036691";
-            [self.navigationController pushViewController:controller animated:YES];
-            
+            switch (indexPath.row) {
+                case 0://吉他中国
+                {
+                    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+                    controller.hidesBottomBarWhenPushed = YES;
+                    controller.tid = @"58664";
+                    [self.navigationController pushViewController:controller animated:YES];
+                    
+                    break;
+                }
+                case 1://琴国乐器
+                {
+                    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+                    controller.hidesBottomBarWhenPushed = YES;
+                    controller.tid = @"1790525";
+                    [self.navigationController pushViewController:controller animated:YES];
+                    
+                    break;
+                }
+                case 2://蘑菇音乐
+                {
+                    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+                    controller.hidesBottomBarWhenPushed = YES;
+                    controller.tid = @"2040865";
+                    [self.navigationController pushViewController:controller animated:YES];
+
+                    break;
+                }
+            }
             break;
-        }
             
         case 1:
-        {
-            GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
-            controller.hidesBottomBarWhenPushed = YES;
-            controller.tid = @"2036853";
-            [self.navigationController pushViewController:controller animated:YES];
-            
-            break;
-        }
-            
-        case 2:
-            
-            break;
-            
-        default:
+            switch (indexPath.row) {
+                case 0://开发信息
+                {
+                    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+                    controller.hidesBottomBarWhenPushed = YES;
+                    controller.tid = @"2036691";
+                    [self.navigationController pushViewController:controller animated:YES];
+                    
+                    break;
+                }
+                case 1://意见反馈
+                {
+                    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+                    controller.hidesBottomBarWhenPushed = YES;
+                    controller.tid = @"2036853";
+                    [self.navigationController pushViewController:controller animated:YES];
+                    
+                    break;
+                }
+                case 2://评分
+                {
+                    [Util openScorePageInAppStore:AppleID];
+                    
+                    break;
+                }
+            }
             break;
     }
 }
@@ -229,6 +250,23 @@
         _tableView.delegate = self;
     }
     return _tableView;
+}
+
+- (NSDictionary *)dictionary {
+    if (!_dictionary) {
+        NSDictionary *guitarchina = @{@"title" : NSLocalizedString(@"关于吉他中国", nil), @"enable" : @YES };
+        NSDictionary *musicInstrument = @{@"title" : NSLocalizedString(@"买吉他到琴国乐器", nil), @"enable" : @YES };
+        NSDictionary *mushroomMusic = @{@"title" : NSLocalizedString(@"学吉他到魔菇音乐", nil), @"enable" : @YES };
+        
+        NSDictionary *developer = @{@"title" : NSLocalizedString(@"Information Development", nil), @"enable" : @YES };
+        NSDictionary *feedback = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES };
+        NSDictionary *score = @{@"title" : NSLocalizedString(@"To Score", nil), @"enable" : @YES };
+        NSDictionary *version = @{@"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), CurrentVersion], @"enable" : @NO };
+        
+        _dictionary = @{ NSLocalizedString(@"Official", nil) : @[guitarchina, musicInstrument, mushroomMusic],
+                         NSLocalizedString(@"Others", nil) : @[developer, feedback, score, version] };
+    }
+    return _dictionary;
 }
 
 @end

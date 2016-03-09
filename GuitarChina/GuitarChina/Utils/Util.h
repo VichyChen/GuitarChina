@@ -53,4 +53,9 @@
 //清除cookie
 + (void)clearCookie;
 
+#pragma mark - App Store
+
+//打开AppStore评论页面
++ (void)openScorePageInAppStore:(NSString *)appleID;
+
 @end

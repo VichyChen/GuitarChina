@@ -112,4 +112,12 @@
     }
 }
 
+#pragma mark - App Store
+
++ (void)openScorePageInAppStore:(NSString *)appleID {
+    NSString *urlString = [NSString stringWithFormat:@"http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=%@&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8", appleID];
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 @end
