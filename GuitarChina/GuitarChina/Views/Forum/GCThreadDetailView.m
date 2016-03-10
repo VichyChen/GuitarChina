@@ -208,7 +208,7 @@
 
 - (UIWebView *)webView {
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 10)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 44)];
         _webView.dataDetectorTypes = UIDataDetectorTypeLink;
         _webView.opaque = NO;
         _webView.backgroundColor = [UIColor clearColor];
@@ -223,7 +223,7 @@
         });
         _webView.scrollView.footer = ({
             MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
-            footer.mj_h = 88.0f;
+            footer.mj_h = 44.0f;
             footer.automaticallyRefresh = NO;
             footer.refreshingTitleHidden = YES;
             [footer setTitle:NSLocalizedString(@"Load More", nil) forState:MJRefreshStateIdle];
@@ -298,15 +298,12 @@
 
 - (UIButton *)scrollTopButton {
     if (!_scrollTopButton) {
-        _scrollTopButton = [UIView createButton:CGRectMake(ScreenWidth - 15 - 40, 0, 40, 40)
+        _scrollTopButton = [UIView createButton:CGRectMake(ScreenWidth - 40, 7, 26, 26)
                                          target:self
                                          action:@selector(scrollTopAction)];
-//        [_scrollTopButton setImage:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[UIColor GCDarkGrayFontColor]] forState:UIControlStateNormal];
+        [_scrollTopButton setImage:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[UIColor GCDarkGrayFontColor]] forState:UIControlStateNormal];
+        _scrollTopButton.contentMode = UIViewContentModeScaleAspectFit;
         _scrollTopButton.tintColor = [UIColor GCDarkGrayFontColor];
-//_scrollTopButton addSubview:<#(nonnull UIView *)#>
-        UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_reply"]];
-        image.contentMode = UIViewContentModeScaleAspectFit;
-        [_scrollTopButton addSubview:image];
     }
     return _scrollTopButton;
 }
