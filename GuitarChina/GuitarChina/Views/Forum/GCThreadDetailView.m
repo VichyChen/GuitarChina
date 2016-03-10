@@ -208,7 +208,7 @@
 
 - (UIWebView *)webView {
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 10)];
         _webView.dataDetectorTypes = UIDataDetectorTypeLink;
         _webView.opaque = NO;
         _webView.backgroundColor = [UIColor clearColor];
@@ -301,12 +301,12 @@
         _scrollTopButton = [UIView createButton:CGRectMake(ScreenWidth - 15 - 40, 0, 40, 40)
                                          target:self
                                          action:@selector(scrollTopAction)];
-        [_scrollTopButton setImage:[[UIImage imageNamed:@"icon_upArrow"] imageWithTintColor:[UIColor GCDarkGrayFontColor]] forState:UIControlStateNormal];
+//        [_scrollTopButton setImage:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[UIColor GCDarkGrayFontColor]] forState:UIControlStateNormal];
         _scrollTopButton.tintColor = [UIColor GCDarkGrayFontColor];
-//        _scrollTopButton.backgroundColor = [UIColor whiteColor];
-//        _scrollTopButton.layer.cornerRadius = 20;
-//        _scrollTopButton.layer.borderWidth = 1;
-//        _scrollTopButton.layer.borderColor = [UIColor GCLightGrayFontColor].CGColor;
+//_scrollTopButton addSubview:<#(nonnull UIView *)#>
+        UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_reply"]];
+        image.contentMode = UIViewContentModeScaleAspectFit;
+        [_scrollTopButton addSubview:image];
     }
     return _scrollTopButton;
 }
