@@ -42,7 +42,7 @@
     [self.replyThreadView.textView resignFirstResponder];
     NSLog(@"click");
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    [[GCNetworkManager manager] postReplyWithTid:self.tid message:self.replyThreadView.textView.text formhash:self.formhash Success:^(GCSendReplyModel *model) {
+    [[GCNetworkManager manager] postReplyWithTid:self.tid message:[self.replyThreadView.textView.text stringByAppendingString:@"\n"] formhash:self.formhash Success:^(GCSendReplyModel *model) {
         self.navigationItem.rightBarButtonItem.enabled = YES;
         if ([model.message.messageval isEqualToString:@"post_reply_succeed"]) {
             [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
