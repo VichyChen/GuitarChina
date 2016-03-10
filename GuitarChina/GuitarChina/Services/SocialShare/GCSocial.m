@@ -29,7 +29,7 @@
                      failure:(void (^)(void))failure {
     [UMSocialData defaultData].extConfig.wechatSessionData.url = url;
     [UMSocialData defaultData].extConfig.wechatSessionData.title = title;
-    [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToWechatSession] content:content image:[UIImage imageNamed:IMAGEURL] location:nil urlResource:nil presentedController:nil completion:^(UMSocialResponseEntity *response){
+    [[UMSocialDataService defaultDataService]  postSNSWithTypes:@[UMShareToWechatSession] content:content.length > 200 ? [content substring:0 length:200] : content image:[UIImage imageNamed:IMAGEURL] location:nil urlResource:nil presentedController:nil completion:^(UMSocialResponseEntity *response){
         if (response.responseCode == UMSResponseCodeSuccess) {
             success();
         } else {
