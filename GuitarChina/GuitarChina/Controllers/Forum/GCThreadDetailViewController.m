@@ -74,31 +74,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    //    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    //    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    //
-    //    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    //    [self.navigationController.navigationBar setShadowImage:nil];
-    
+
     if (self.menu) {
         [self.menu dismissWithAnimation:NO];
     }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
-    
-    //        [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    //        [self.navigationController.navigationBar setShadowImage:nil];
     [super viewDidDisappear:animated];
-    
-    //    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    //    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 - (void)dealloc {
@@ -409,6 +396,10 @@
                 self.pageIndex = page;
                 [self.threadDetailView webViewStartRefresh];
             }
+        };
+        _threadDetailView.replyActionBlock = ^{
+            @strongify(self);
+            self.replyBlock();
         };
         _threadDetailView.swipeLeftActionBlock = ^{
             @strongify(self);

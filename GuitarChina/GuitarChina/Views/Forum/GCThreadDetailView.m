@@ -180,8 +180,10 @@
     }
 }
 
-- (void)scrollTopAction {
-    [self.webView.scrollView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+- (void)replyAction {
+    if (self.replyActionBlock) {
+        self.replyActionBlock();
+    }
 }
 
 -(void)handleSwipeFromLeft:(UISwipeGestureRecognizer *)recognizer{
@@ -241,7 +243,8 @@
         [_toolBarView addSubview:self.pageButton];
         [_toolBarView addSubview:self.previousPageButton];
         [_toolBarView addSubview:self.nextPageButton];
-        [_toolBarView addSubview:self.scrollTopButton];
+        [_toolBarView addSubview:self.replyBackgroundView];
+        [_toolBarView addSubview:self.replyButton];
         [_toolBarView addSubview:self.separatorLineView];
     }
     return _toolBarView;
@@ -273,10 +276,6 @@
                                     action:@selector(backAction)];
         [_previousPageButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
         _previousPageButton.tintColor = [UIColor GCDarkGrayFontColor];
-//        _previousPageButton.backgroundColor = [UIColor whiteColor];
-//        _previousPageButton.layer.cornerRadius = 20;
-//        _previousPageButton.layer.borderWidth = 1;
-//        _previousPageButton.layer.borderColor = [UIColor GCLightGrayFontColor].CGColor;
     }
     return _previousPageButton;
 }
@@ -288,24 +287,31 @@
                                        action:@selector(forwardAction)];
         [_nextPageButton setImage:[UIImage imageNamed:@"icon_forward"] forState:UIControlStateNormal];
         _nextPageButton.tintColor = [UIColor GCDarkGrayFontColor];
-//        _nextPageButton.backgroundColor = [UIColor whiteColor];
-//        _nextPageButton.layer.cornerRadius = 20;
-//        _nextPageButton.layer.borderWidth = 1;
-//        _nextPageButton.layer.borderColor = [UIColor GCLightGrayFontColor].CGColor;
     }
     return _nextPageButton;
 }
 
-- (UIButton *)scrollTopButton {
-    if (!_scrollTopButton) {
-        _scrollTopButton = [UIView createButton:CGRectMake(ScreenWidth - 40, 7, 26, 26)
+- (UIButton *)replyButton {
+    if (!_replyButton) {
+        _replyButton = [UIView createButton:CGRectMake(ScreenWidth - 40, 9, 22, 22)
                                          target:self
-                                         action:@selector(scrollTopAction)];
-        [_scrollTopButton setImage:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[UIColor GCDarkGrayFontColor]] forState:UIControlStateNormal];
-        _scrollTopButton.contentMode = UIViewContentModeScaleAspectFit;
-        _scrollTopButton.tintColor = [UIColor GCDarkGrayFontColor];
+                                         action:@selector(replyAction)];
+        [_replyButton setImage:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[UIColor GCDarkGrayFontColor]] forState:UIControlStateNormal];
+        _replyButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        _replyButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+        _replyButton.contentMode = UIViewContentModeScaleAspectFit;
+        _replyButton.tintColor = [UIColor GCDarkGrayFontColor];
     }
-    return _scrollTopButton;
+    return _replyButton;
+}
+
+- (UIView *)replyBackgroundView {
+    if (!_replyBackgroundView) {
+        _replyBackgroundView = [[UIView alloc] initWithFrame:CGRectMake(ScreenWidth - 50, 0, 50, 40)];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(replyAction)];
+        [_replyBackgroundView addGestureRecognizer:tap];
+    }
+    return _replyBackgroundView;
 }
 
 - (UIView *)pickerContentView {

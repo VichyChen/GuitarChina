@@ -24,7 +24,9 @@
 @property (nonatomic, strong) UIButton *nextPageButton;
 @property (nonatomic, copy) void (^nextPageActionBlock)();
 
-@property (nonatomic, strong) UIButton *scrollTopButton;
+@property (nonatomic, strong) UIButton *replyButton;
+@property (nonatomic, strong) UIView *replyBackgroundView;
+@property (nonatomic, copy) void (^replyActionBlock)();
 
 @property (nonatomic, strong) UIView *pickerContentView;
 
