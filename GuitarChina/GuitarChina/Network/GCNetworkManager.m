@@ -407,4 +407,19 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     }];
 }
 
+- (void)getGuideHotSuccess:(void (^)(GCGuideThreadArray *array))success
+                   failure:(void (^)(NSError *error))failure
+                 pageIndex:(NSInteger)pageIndex {
+    [self requestWebWithURL:GCNETWORKAPI_GET_GUIDEHOT(pageIndex)
+                 parameters:nil
+                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                        
+//                        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
+                        
+                        success(nil);
+                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        failure(error);
+                    }];
+}
+
 @end

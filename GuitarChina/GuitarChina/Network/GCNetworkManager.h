@@ -18,6 +18,7 @@
 #import "GCMyThreadModel.h"
 #import "GCSendReplyModel.h"
 #import "GCNewThreadModel.h"
+#import "GCGuideThreadModel.h"
 
 @interface GCNetworkManager : NSObject
 
@@ -117,5 +118,9 @@
                       postURL:(NSString *)postURL
                       success:(void (^)(NSString *html))success
                       failure:(void (^)(NSError *error))failure;
+
+- (void)getGuideHotSuccess:(void (^)(GCGuideThreadArray *array))success
+                   failure:(void (^)(NSError *error))failure
+                 pageIndex:(NSInteger)pageIndex;
 
 @end

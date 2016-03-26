@@ -69,6 +69,7 @@
 		420D987F1B929C2B00AEAED3 /* GCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98781B929C2B00AEAED3 /* GCBaseTableViewController.m */; };
 		420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */; };
 		420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987E1B929C2B00AEAED3 /* GCNavigationController.m */; };
+		420FAC941CA6EC4000E6C237 /* GCGuideThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 420FAC931CA6EC4000E6C237 /* GCGuideThreadModel.m */; };
 		4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A6671B9A7C78005D2164 /* EXTScope.m */; };
 		4219A66C1B9A8086005D2164 /* GCHotThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A66B1B9A8086005D2164 /* GCHotThreadModel.m */; };
 		423888991BC57CA6002E1625 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238886F1BC57CA6002E1625 /* MJRefreshAutoFooter.m */; };
@@ -271,6 +272,8 @@
 		420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseViewController.m; sourceTree = "<group>"; };
 		420D987D1B929C2B00AEAED3 /* GCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNavigationController.h; sourceTree = "<group>"; };
 		420D987E1B929C2B00AEAED3 /* GCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNavigationController.m; sourceTree = "<group>"; };
+		420FAC921CA6EC4000E6C237 /* GCGuideThreadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCGuideThreadModel.h; sourceTree = "<group>"; };
+		420FAC931CA6EC4000E6C237 /* GCGuideThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCGuideThreadModel.m; sourceTree = "<group>"; };
 		4219A6661B9A7C78005D2164 /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScope.h; sourceTree = "<group>"; };
 		4219A6671B9A7C78005D2164 /* EXTScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTScope.m; sourceTree = "<group>"; };
 		4219A6681B9A7C78005D2164 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
@@ -1108,6 +1111,8 @@
 				045F2F471BE0C9BB0024C9FC /* GCMyThreadModel.m */,
 				045F2F551BE0D0D40024C9FC /* GCMyFavThreadModel.h */,
 				045F2F561BE0D0D40024C9FC /* GCMyFavThreadModel.m */,
+				420FAC921CA6EC4000E6C237 /* GCGuideThreadModel.h */,
+				420FAC931CA6EC4000E6C237 /* GCGuideThreadModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1350,6 +1355,7 @@
 				047150F01BF03B2A007A8890 /* SVProgressHUD.m in Sources */,
 				423889041BC57D0F002E1625 /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
 				046DB7631BFC6F1900E05E17 /* UIView+DOPExtension.m in Sources */,
+				420FAC941CA6EC4000E6C237 /* GCGuideThreadModel.m in Sources */,
 				4238890B1BC57D0F002E1625 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
 				423888A91BC57CA6002E1625 /* UIScrollView+MJExtension.m in Sources */,
 				0408D0921BE1FEB900B3825A /* GCUserProtocolViewController.m in Sources */,
@@ -1483,8 +1489,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1529,7 +1535,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
