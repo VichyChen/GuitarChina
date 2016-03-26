@@ -96,7 +96,7 @@
 
 - (void)logoutAction {
     [Util clearCookie];
-    ApplicationDelegate.tabBarController.selectedIndex = 0;
+    APP.tabBarController.selectedIndex = 0;
     [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:kGCLOGIN];
     [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kGCLOGINNAME];
     [[NSUserDefaults standardUserDefaults] synchronize];

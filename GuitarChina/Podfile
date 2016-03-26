@@ -9,3 +9,4 @@ pod 'UMengSocial'
 pod 'UMengAnalytics'
 pod 'NJKWebViewProgress'
 pod 'IQKeyboardManager'
+pod "MagicalRecord"

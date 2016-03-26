@@ -164,7 +164,7 @@
         }
     }
     NSString *htmlPage = [Util getBundleHTMLString:@"GCThreadWebViewHtml"];
-    [html appendFormat:htmlPage, ScreenWidth - 30, self.subject, [Util getDateStringWithTimeStamp:self.dateline format:@"yyyy-MM-dd HH:mm"], [NSString stringWithFormat:@"%@，%@回复 %@浏览", [ApplicationDelegate.forumDictionary objectForKey: self.fid], self.replies, self.views], htmlCellString];
+    [html appendFormat:htmlPage, ScreenWidth - 30, self.subject, [Util getDateStringWithTimeStamp:self.dateline format:@"yyyy-MM-dd HH:mm"], [NSString stringWithFormat:@"%@，%@回复 %@浏览", [APP.forumDictionary objectForKey: self.fid], self.replies, self.views], htmlCellString];
     
     return html;
 }

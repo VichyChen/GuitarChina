@@ -39,13 +39,6 @@
 -(void)setShouldHideTitle:(BOOL)shouldHideTitle
 {
     objc_setAssociatedObject(self, @selector(shouldHideTitle), [NSNumber numberWithBool:shouldHideTitle], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
-    if ([self respondsToSelector:@selector(placeholder)] && [self.inputAccessoryView respondsToSelector:@selector(setTitle:)])
-    {
-        UITextField *textField = (UITextField*)self;
-        IQToolbar *toolbar = (IQToolbar*)[self inputAccessoryView];
-        toolbar.title = textField.placeholder;
-    }
 }
 
 -(BOOL)shouldHideTitle
@@ -135,6 +128,7 @@
     
 	NSMutableArray *items = [[NSMutableArray alloc] init];
     
+    if ([titleText length] && self.shouldHideTitle == NO)
     {
         CGRect buttonFrame;
         
@@ -155,7 +149,7 @@
             buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-64.0-16, 44);
         }
         
-        IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:self.shouldHideTitle?nil:titleText];
+        IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:titleText];
         [items addObject:title];
     }
     
@@ -207,6 +201,7 @@
  	
 	NSMutableArray *items = [[NSMutableArray alloc] init];
     
+    if ([titleText length] && self.shouldHideTitle == NO)
     {
         CGRect buttonFrame;
         
@@ -227,7 +222,7 @@
             buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-64.0-16, 44);
         }
         
-        IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:self.shouldHideTitle?nil:titleText];
+        IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:titleText];
         [items addObject:title];
     }
     
@@ -282,6 +277,7 @@
     IQBarButtonItem *cancelButton =[[IQBarButtonItem alloc] initWithTitle:leftTitle style:UIBarButtonItemStylePlain target:target action:leftAction];
     [items addObject:cancelButton];
     
+    if ([titleText length] && self.shouldHideTitle == NO)
     {
         CGRect buttonFrame;
         
@@ -304,7 +300,7 @@
             buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-66-57.0-16, 44);
         }
         
-        IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:self.shouldHideTitle?nil:titleText];
+        IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:titleText];
         [items addObject:title];
     }
     
@@ -359,6 +355,7 @@
     IQBarButtonItem *cancelButton =[[IQBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:target action:cancelAction];
     [items addObject:cancelButton];
     
+    if ([titleText length] && self.shouldHideTitle == NO)
     {
         CGRect buttonFrame;
         
@@ -381,7 +378,7 @@
             buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-66-57.0-16, 44);
         }
         
-        IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:self.shouldHideTitle?nil:titleText];
+        IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:titleText];
         [items addObject:title];
     }
     
@@ -487,6 +484,7 @@
 		[items addObject:segButton];
 	}
 	
+    if ([titleText length] && self.shouldHideTitle == NO)
     {
         CGRect buttonFrame;
         
@@ -509,7 +507,7 @@
             buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-135-64.0-16, 44);
         }
         
-        IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:self.shouldHideTitle?nil:titleText];
+        IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:titleText];
         [items addObject:title];
     }
     
@@ -558,7 +556,7 @@
     NSMutableArray *items = [[NSMutableArray alloc] init];
     
     //  Create a done button to show on keyboard to resign it. Adding a selector to resign it.
-	IQBarButtonItem *doneButton =[[IQBarButtonItem alloc] initWithTitle:rightButtonTitle style:UIBarButtonItemStyleDone target:target action:rightButtonAction];
+    IQBarButtonItem *doneButton =[[IQBarButtonItem alloc] initWithTitle:titleText style:UIBarButtonItemStyleDone target:target action:rightButtonAction];
     
     if (IQ_IS_IOS7_OR_GREATER)
     {
@@ -612,6 +610,7 @@
         [items addObject:segButton];
     }
     
+    if ([titleText length] && self.shouldHideTitle == NO)
     {
         CGRect buttonFrame;
         
@@ -634,7 +633,7 @@
             buttonFrame = CGRectMake(0, 0, toolbar.frame.size.width-135-64.0-16, 44);
         }
         
-        IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:self.shouldHideTitle?nil:titleText];
+        IQTitleBarButtonItem *title = [[IQTitleBarButtonItem alloc] initWithFrame:buttonFrame title:titleText];
         [items addObject:title];
     }
     

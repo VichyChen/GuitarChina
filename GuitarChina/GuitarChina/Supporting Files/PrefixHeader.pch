@@ -18,6 +18,7 @@
 #import "UIImageView+WebCache.h"
 #import "EXTScope.h"
 #import "DKNightVersion.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 #import "GCNetworkManager.h"
 #import "UIColor+Custom.h"
@@ -29,7 +30,7 @@
 
 #define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
 #define ScreenWidth ([UIScreen mainScreen].bounds.size.width)
-#define ApplicationDelegate ((AppDelegate *)[UIApplication sharedApplication].delegate)
+#define APP ((AppDelegate *)[UIApplication sharedApplication].delegate)
 #define iPhone UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
 #define iPad UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue]<8.0f)

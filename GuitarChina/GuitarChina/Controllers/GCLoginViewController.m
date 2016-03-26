@@ -242,7 +242,7 @@
     //        self.loginView.loginButton.enabled = NO;
     //        [[GCNetworkManager manager] postLoginWithUsername:self.loginView.usernameTextField.text password:self.loginView.passwordTextField.text Success:^(GCLoginModel *model) {
     //            if ([model.message.messageval isEqualToString:@"login_succeed"]) {
-    //                ApplicationDelegate.tabBarController.selectedIndex = 2;
+    //                APP.tabBarController.selectedIndex = 2;
     //
     //                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLOGIN];
     //                [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:kGCLOGINID];
@@ -301,7 +301,7 @@
             NSLog(@"%@", html);
             if ([html rangeOfString:@"现在将转入登录前页面"].location != NSNotFound && ([html rangeOfString:@"点击此链接进行跳转"].location != NSNotFound || [html rangeOfString:@"如果您的浏览器没有自动跳转，请点击此链接"].location != NSNotFound)) {
                 NSLog(@"login success");
-                ApplicationDelegate.tabBarController.selectedIndex = 2;
+                APP.tabBarController.selectedIndex = 2;
                 [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLOGIN];
                 //                                                          [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:kGCLOGINID];
                 [[NSUserDefaults standardUserDefaults] setObject:self.usernameTextField.text forKey:kGCLOGINNAME];

@@ -65,7 +65,7 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
 /**
  Returns the default singleton instance.
  */
-+ (nonnull instancetype)sharedManager;
++ (instancetype)sharedManager;
 
 /**
  Enable/disable managing distance between keyboard and textField. Default is YES(Enabled when class loads in `+(void)load` method).
@@ -111,7 +111,7 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
 /**
  Placeholder Font. Default is nil.
  */
-@property(nullable, nonatomic, strong) UIFont *placeholderFont;
+@property(nonatomic, strong) UIFont *placeholderFont;
 
 ///--------------------------
 /// @name UITextView handling
@@ -155,7 +155,7 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
 /**
  Resigns currently first responder field.
  */
-- (BOOL)resignFirstResponder;
+- (void)resignFirstResponder;
 
 /**
  Returns YES if can navigate to previous responder textField/textView, otherwise NO.
@@ -170,12 +170,12 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
 /**
  Navigate to previous responder textField/textView.
  */
-- (BOOL)goPrevious;
+- (void)goPrevious;
 
 /**
  Navigate to next responder textField/textView.
  */
-- (BOOL)goNext;
+- (void)goNext;
 
 ///----------------------------
 /// @name UIScrollView handling
@@ -220,63 +220,63 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
  
  @param disabledClass Class in which library should not adjust view to show textField.
  */
--(void)disableInViewControllerClass:(nonnull Class)disabledClass;
+-(void)disableInViewControllerClass:(Class)disabledClass;
 
 /**
  Re-enable adjusting textField in disabledClass
  
  @param disabledClass Class in which library should re-enable adjust view to show textField.
  */
--(void)removeDisableInViewControllerClass:(nonnull Class)disabledClass;
+-(void)removeDisableInViewControllerClass:(Class)disabledClass;
 
 /**
  Returns YES if ViewController class is disabled for library, otherwise returns NO.
  
  @param disabledClass Class which is to check for it's disability.
  */
--(BOOL)isDisableInViewControllerClass:(nonnull Class)disabledClass;
+-(BOOL)isDisableInViewControllerClass:(Class)disabledClass;
 
 /**
  Disable automatic toolbar creation in in toolbarDisabledClass
  
  @param toolbarDisabledClass Class in which library should not add toolbar over textField.
  */
--(void)disableToolbarInViewControllerClass:(nonnull Class)toolbarDisabledClass;
+-(void)disableToolbarInViewControllerClass:(Class)toolbarDisabledClass;
 
 /**
  Re-enable automatic toolbar creation in in toolbarDisabledClass
  
  @param toolbarDisabledClass Class in which library should re-enable automatic toolbar creation over textField.
  */
--(void)removeDisableToolbarInViewControllerClass:(nonnull Class)toolbarDisabledClass;
+-(void)removeDisableToolbarInViewControllerClass:(Class)toolbarDisabledClass;
 
 /**
  Returns YES if toolbar is disabled in ViewController class, otherwise returns NO.
  
  @param toolbarDisabledClass Class which is to check for toolbar disability.
  */
--(BOOL)isDisableToolbarInViewControllerClass:(nonnull Class)toolbarDisabledClass;
+-(BOOL)isDisableToolbarInViewControllerClass:(Class)toolbarDisabledClass;
 
 /**
  Consider provided customView class as superView of all inner textField for calculating next/previous button logic.
  
  @param toolbarPreviousNextConsideredClass Custom UIView subclass Class in which library should consider all inner textField as siblings and add next/previous accordingly.
  */
--(void)considerToolbarPreviousNextInViewClass:(nonnull Class)toolbarPreviousNextConsideredClass;
+-(void)considerToolbarPreviousNextInViewClass:(Class)toolbarPreviousNextConsideredClass;
 
 /**
  Remove Consideration for provided customView class as superView of all inner textField for calculating next/previous button logic.
  
  @param toolbarPreviousNextConsideredClass Custom UIView subclass Class in which library should remove consideration for all inner textField as superView.
  */
--(void)removeConsiderToolbarPreviousNextInViewClass:(nonnull Class)toolbarPreviousNextConsideredClass;
+-(void)removeConsiderToolbarPreviousNextInViewClass:(Class)toolbarPreviousNextConsideredClass;
 
 /**
  Returns YES if inner hierarchy is considered for previous/next in class, otherwise returns NO.
  
  @param toolbarPreviousNextConsideredClass Class which is to check for previous next consideration
  */
--(BOOL)isConsiderToolbarPreviousNextInViewClass:(nonnull Class)toolbarPreviousNextConsideredClass;
+-(BOOL)isConsiderToolbarPreviousNextInViewClass:(Class)toolbarPreviousNextConsideredClass;
 
 
 ///----------------------------------------
@@ -284,14 +284,14 @@ extern NSInteger const kIQPreviousNextButtonToolbarTag;
 ///----------------------------------------
 
 /**
- Unavailable. Please use sharedManager method
+ Should create only one instance of class. Should not call init.
  */
--(nonnull instancetype)init NS_UNAVAILABLE;
+- (instancetype)init	__attribute__((unavailable("init is not available in IQKeyboardManager, Use sharedManager"))) NS_DESIGNATED_INITIALIZER;
 
 /**
- Unavailable. Please use sharedManager method
+ Should create only one instance of class. Should not call new.
  */
-+ (nonnull instancetype)new NS_UNAVAILABLE;
++ (instancetype)new	__attribute__((unavailable("new is not available in IQKeyboardManager, Use sharedManager")));
 
 @end
 

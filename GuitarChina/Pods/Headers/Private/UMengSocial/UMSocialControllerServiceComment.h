@@ -1,1 +1,1 @@
-../../../UMengSocial/Umeng_SDK_Social_iOS_ARM64_4.4/UMSocial_Sdk_4.4/Header/UMSocialControllerServiceComment.h
+../../../UMengSocial/umeng_ios_social_sdk_4.2.3_arm64_custom/UMSocial_Sdk_4.2.3/Header/UMSocialControllerServiceComment.h

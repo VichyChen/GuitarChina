@@ -28,6 +28,6 @@
 /**
  Top/Bottom Layout constraint which help library to manage keyboardTextField distance
  */
-@property(nullable, nonatomic, strong) IBOutlet NSLayoutConstraint *IQLayoutGuideConstraint;
+@property(nonatomic, strong) IBOutlet NSLayoutConstraint *IQLayoutGuideConstraint;
 
 @end

@@ -46,23 +46,17 @@
  @param previousAction Previous button action name. Usually 'previousAction:(IQSegmentedNextPrevious*)segmentedControl'.
  @param nextAction Next button action name. Usually 'nextAction:(IQSegmentedNextPrevious*)segmentedControl'.
  */
-- (nonnull instancetype)initWithTarget:(nullable id)target previousAction:(nullable SEL)previousAction nextAction:(nullable SEL)nextAction NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithTarget:(id)target previousAction:(SEL)previousAction nextAction:(SEL)nextAction NS_DESIGNATED_INITIALIZER;
 
 /**
- Unavailable. Please use initWithTarget:previousAction:nextAction: method
+ initWithTarget:previousAction:nextAction should be used.
  */
--(nonnull instancetype)init NS_UNAVAILABLE;
+- (instancetype)init	__attribute__((unavailable("init is not available, should use initWithTarget:previousAction:nextAction instead")));
 
 /**
- Unavailable. Please use initWithTarget:previousAction:nextAction: method
+ initWithTarget:previousAction:nextAction should be used.
  */
--(nonnull instancetype)initWithCoder:(nullable NSCoder *)aDecoder NS_UNAVAILABLE;
-
-/**
- Unavailable. Please use initWithTarget:previousAction:nextAction: method
- */
-+ (nonnull instancetype)new NS_UNAVAILABLE;
-
++ (instancetype)new	__attribute__((unavailable("new is not available, should use initWithTarget:previousAction:nextAction instead")));
 
 @end
 

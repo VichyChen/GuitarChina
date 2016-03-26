@@ -58,7 +58,7 @@
 
     _offsetY = -1;
     _loaded = false;
-    _tabBarSelectedIndex = ApplicationDelegate.tabBarController.selectedIndex;
+    _tabBarSelectedIndex = APP.tabBarController.selectedIndex;
     _pageIndex = 1;
     _pageSize = 40;
     _replyCount = 0;
@@ -192,7 +192,7 @@
 - (void)refreshAction {
     self.loaded = false;
     [self.threadDetailView webViewStartRefresh];
-    ApplicationDelegate.tabBarController.selectedIndex = self.tabBarSelectedIndex;
+    APP.tabBarController.selectedIndex = self.tabBarSelectedIndex;
 }
 
 - (void)openMenu:(id)sender {

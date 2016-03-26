@@ -131,7 +131,7 @@
 
 - (void)refreshAction {
     self.loaded = false;
-    ApplicationDelegate.tabBarController.selectedIndex = 1;
+    APP.tabBarController.selectedIndex = 1;
     [self beginRefresh];
 }
 

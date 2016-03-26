@@ -18,5 +18,7 @@
 
 @property (strong, nonatomic) NSDictionary *forumDictionary;
 
+- (void)saveContext;
+
 @end
 

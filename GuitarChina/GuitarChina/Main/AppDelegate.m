@@ -22,6 +22,8 @@
 #import "GCReplyThreadViewController.h"
 #import "GCReportThreadViewController.h"
 
+#import "ForumBrowseRecordModel.h"
+
 @interface AppDelegate ()
 
 @end
@@ -41,6 +43,9 @@
     if ([[NSUserDefaults standardUserDefaults] boolForKey:kGCNIGHTMODE]) {
         [DKNightVersionManager nightFalling];
     }
+    
+    //设置MagicalRecord
+    [self setupMagicalRecord];
     
     //友盟统计
     [self UMengAnalytics];
@@ -176,6 +181,16 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         return YES;
     }
+}
+
+#pragma mark - MagicalRecord
+
+- (void)setupMagicalRecord {
+    [MagicalRecord setupCoreDataStackWithStoreNamed:@"GuitarChina.sqlite"];
+}
+
+- (void)saveContext {
+    [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
 }
 
 @end
