@@ -43,6 +43,20 @@
     return _forumDetailString;
 }
 
+- (id)copyWithZone:(nullable NSZone *)zone {
+    GCForumModel *model = [[[self class] allocWithZone:zone] init];;
+    model.fid = self.fid ;
+    model.name = self.name ;
+    model.threads = self.threads ;
+    model.posts = self.posts ;
+    model.todayposts = self.todayposts ;
+    model.descript = self.descript ;
+    model.nameString = self.nameString ;
+    model.forumDetailString = self.forumDetailString ;
+
+    return model ;
+}
+
 @end
 
 @implementation GCForumIndexArray

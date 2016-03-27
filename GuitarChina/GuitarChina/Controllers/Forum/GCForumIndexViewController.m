@@ -114,6 +114,20 @@
     controller.fid = forumModel.fid;
     [self.navigationController pushViewController:controller animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    //记录论坛浏览记录
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:kFORUMBROWSERECORD]];
+    for (int i = 0; i < array.count; i++) {
+        if (array[i] == forumModel.fid) {
+            //移除原有浏览记录
+            [array removeObjectAtIndex:i];
+            break;
+        }
+    }
+    [array insertObject:forumModel.fid atIndex:0];
+    array = [NSMutableArray arrayWithArray:[array subarrayWithRange:NSMakeRange(0, array.count >= 5 ? 5 : array.count)]];
+    [[NSUserDefaults standardUserDefaults] setObject:array forKey:kFORUMBROWSERECORD];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 #pragma mark - Private Methods
@@ -124,8 +138,30 @@
         @strongify(self);
         [[GCNetworkManager manager] getForumIndexSuccess:^(GCForumIndexArray *array) {
             self.data = array.data;
-//            [[NSUserDefaults standardUserDefaults] setObject:self.data forKey:kGCFORUMINDEXDICTIONARY];
-//            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            //增加最近浏览分类
+            //最近浏览记录
+            NSArray *browseArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:kFORUMBROWSERECORD]];
+            if (browseArray.count > 0) {
+                GCForumGroupModel *forumGroupModel = [[GCForumGroupModel alloc] init];
+                forumGroupModel.fid = @"0";
+                forumGroupModel.name = @"最近浏览";
+                forumGroupModel.forums = [NSMutableArray arrayWithArray:browseArray];
+                for (GCForumGroupModel *tempForumGroupModel in array.data) {
+                    for (GCForumModel *tempForumModel in tempForumGroupModel.forums) {
+                        if ([browseArray containsObject:tempForumModel.fid]) {
+                            for (int i = 0; i < browseArray.count; i++) {
+                                if (browseArray[i] == tempForumModel.fid) {
+                                    [forumGroupModel.forums replaceObjectAtIndex:i withObject:[tempForumModel copy]];
+                                    ((GCForumModel *)forumGroupModel.forums[i]).todayposts = @"0";
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                [self.data insertObject:forumGroupModel atIndex:0];
+            }
             
             [self.rowHeightDictionary removeAllObjects];
             for (int i = 0; i < self.data.count; i++) {

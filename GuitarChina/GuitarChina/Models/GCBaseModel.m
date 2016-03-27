@@ -33,4 +33,21 @@
     }
     return self;
 }
+
+- (id)copyWithZone:(nullable NSZone *)zone {
+    GCBaseModel *model = [[[self class] allocWithZone:zone] init];
+    model.cookiepre = self.cookiepre ;
+    model.auth = self.auth ;
+    model.saltkey = self.saltkey ;
+    model.member_uid = self.member_uid ;
+    model.member_username = self.member_username ;
+    model.member_avatar = self.member_avatar ;
+    model.groupid = self.groupid ;
+    model.formhash = self.formhash ;
+    model.ismoderator = self.ismoderator ;
+    model.readaccess = self.readaccess ;
+
+    return model ;
+}
+
 @end

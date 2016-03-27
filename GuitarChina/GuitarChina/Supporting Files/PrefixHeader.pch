@@ -54,6 +54,7 @@ static NSString * const kGCNIGHTMODE = @"NIGHTMODE";
 static NSString * const kGCAUTOSWITCHNIGHTMODE = @"AUTOSWITCHNIGHTMODE";
 static NSString * const kGCLOADIMAGE = @"LOADIMAGE";
 static NSString * const kGCFORUMINDEXDICTIONARY = @"FORUMINDEXDICTIONARY";
+static NSString * const kFORUMBROWSERECORD = @"FORUMBROWSERECORD";
 
 /* Notification */
 

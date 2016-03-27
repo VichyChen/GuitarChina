@@ -142,7 +142,6 @@
 		42C5546A1C878334000AF010 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C554691C878334000AF010 /* Default-568h@2x.png */; };
 		42DA95021BA3B83E001A79B9 /* GCForumIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA95011BA3B83E001A79B9 /* GCForumIndexModel.m */; };
 		42DA95051BA5553C001A79B9 /* GCForumDisplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DA95041BA5553C001A79B9 /* GCForumDisplayModel.m */; };
-		42F755991CA7057700D34596 /* ForumBrowseRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 42F755971CA7057700D34596 /* ForumBrowseRecordModel.m */; };
 		42FFF5B21BF1C24A0061029B /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42FFF5B11BF1C24A0061029B /* ForumList.plist */; };
 		CEFC34C235C11966848A8595 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F829F5DD46C688C9B2385EC /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -424,8 +423,6 @@
 		42DA95011BA3B83E001A79B9 /* GCForumIndexModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexModel.m; sourceTree = "<group>"; };
 		42DA95031BA5553C001A79B9 /* GCForumDisplayModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayModel.h; sourceTree = "<group>"; };
 		42DA95041BA5553C001A79B9 /* GCForumDisplayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumDisplayModel.m; sourceTree = "<group>"; };
-		42F755961CA7057700D34596 /* ForumBrowseRecordModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumBrowseRecordModel.h; sourceTree = "<group>"; };
-		42F755971CA7057700D34596 /* ForumBrowseRecordModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumBrowseRecordModel.m; sourceTree = "<group>"; };
 		42FFF5B11BF1C24A0061029B /* ForumList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForumList.plist; sourceTree = "<group>"; };
 		AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1124,8 +1121,6 @@
 		42F755871CA7032F00D34596 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				42F755961CA7057700D34596 /* ForumBrowseRecordModel.h */,
-				42F755971CA7057700D34596 /* ForumBrowseRecordModel.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -1413,7 +1408,6 @@
 				4260C6971BB64AB700705BE0 /* Util.m in Sources */,
 				0459674A1BC7A47D000181DE /* RTLabel.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,
-				42F755991CA7057700D34596 /* ForumBrowseRecordModel.m in Sources */,
 				423888F91BC57D0F002E1625 /* DGActivityIndicatorBallRotateAnimation.m in Sources */,
 				423888A81BC57CA6002E1625 /* MJRefreshConst.m in Sources */,
 				428F71171B89A1460023E501 /* GCLoginModel.m in Sources */,

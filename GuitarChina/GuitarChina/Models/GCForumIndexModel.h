@@ -20,7 +20,7 @@
 
 @end
 
-@interface GCForumModel : NSObject
+@interface GCForumModel : NSObject <NSCopying>
 
 @property (nonatomic, copy) NSString *fid;
 @property (nonatomic, copy) NSString *name;

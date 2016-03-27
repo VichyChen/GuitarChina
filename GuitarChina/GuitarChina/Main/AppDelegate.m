@@ -22,8 +22,6 @@
 #import "GCReplyThreadViewController.h"
 #import "GCReportThreadViewController.h"
 
-#import "ForumBrowseRecordModel.h"
-
 @interface AppDelegate ()
 
 @end
@@ -37,6 +35,7 @@
     if ([self firstStart]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCAUTOSWITCHNIGHTMODE];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCLOADIMAGE];
+        [[NSUserDefaults standardUserDefaults] setObject:@[] forKey:kFORUMBROWSERECORD];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     

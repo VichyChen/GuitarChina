@@ -26,4 +26,6 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
+- (id)copyWithZone:(nullable NSZone *)zone;
+
 @end
