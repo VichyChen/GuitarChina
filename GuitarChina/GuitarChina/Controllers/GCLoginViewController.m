@@ -9,6 +9,7 @@
 
 #import "GCLoginViewController.h"
 #import "GCWebViewController.h"
+#import "GCParseHtml.h"
 
 @interface GCLoginViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -73,8 +74,8 @@
     [self configureColor];
     [self configureBlock];
     
-//    self.usernameTextField.text = @"Vichy_Chen";
-//    self.passwordTextField.text = @"88436658cdj";
+    //    self.usernameTextField.text = @"Vichy_Chen";
+    //    self.passwordTextField.text = @"88436658cdj";
     //    self.answerTextField.text = @"汕头";
     
     self.getLoginWebBlock();
@@ -109,6 +110,10 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+}
+
+- (void)dealloc {
+    NSLog(@"dealloc");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -265,14 +270,16 @@
     
     self.getLoginWebBlock = ^{
         @strongify(self);
-        [[GCNetworkManager manager] getLoginWebSuccess:^(NSString *seccode, NSString *formhash, NSString *postURL, NSArray *questionArray) {
-            self.seccode = seccode;
-            self.formhash = formhash;
-            self.postURL = postURL;
-            self.questionArray = questionArray;
-            [self.pickerView reloadAllComponents];
-            
-            self.getSeccodeVerifyImageBlock(seccode);
+        [[GCNetworkManager manager] getLoginWebSuccess:^(NSData *htmlData) {
+            [GCParseHTML parseLoginWeb:htmlData result:^(NSString *seccode, NSString *formhash, NSString *postURL, NSArray *questionArray) {
+                self.seccode = seccode;
+                self.formhash = formhash;
+                self.postURL = postURL;
+                self.questionArray = questionArray;
+                [self.pickerView reloadAllComponents];
+                
+                self.getSeccodeVerifyImageBlock(seccode);
+            }];
         } failure:^(NSError *error) {
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
         }];
@@ -280,8 +287,9 @@
     
     self.getSeccodeVerifyImageBlock = ^(NSString *seccode) {
         @strongify(self);
-        [[GCNetworkManager manager] getSeccodeVerifyImage:self.seccode success:^(NSString *image) {
+        [[GCNetworkManager manager] getSeccodeVerifyImage:self.seccode success:^(NSData *htmlData) {
             
+            NSString *image = [GCParseHTML parseSeccodeVerifyImage:htmlData];
             [[GCNetworkManager manager] downloadSeccodeVerifyImageWithURL:image success:^(UIImage *image) {
                 self.seccodeVerifyImageView.image = image;
             } failure:^(NSError *error) {
@@ -295,7 +303,7 @@
     
     self.loginBlock = ^{
         @strongify(self);
-
+        
         NSString *fastLoginType = [self.usernameTextField.text containString:@"@"] ? @"email" : @"username";
         [[GCNetworkManager manager] postLoginWithUsername:self.usernameTextField.text password:self.passwordTextField.text fastloginfield:fastLoginType seccodeverify:self.seccodeVerifyTextField.text questionid:[NSString stringWithFormat:@"%ld", (long)self.questionIndex] answer:self.answerTextField.text seccodehash:self.seccode formhash:self.formhash postURL:self.postURL success:^(NSString *html) {
             NSLog(@"%@", html);

@@ -93,12 +93,12 @@
                   failure:(void (^)(NSError *error))failure;
 
 //获取web登录信息
-- (void)getLoginWebSuccess:(void (^)(NSString *seccode, NSString *formhash, NSString *postURL, NSArray *questionArray))success
+- (void)getLoginWebSuccess:(void (^)(NSData *htmlData))success
                    failure:(void (^)(NSError *error))failure;
 
 //获取验证码
 - (void)getSeccodeVerifyImage:(NSString *)idhash
-                      success:(void (^)(NSString *image))success
+                      success:(void (^)(NSData *htmlData))success
                       failure:(void (^)(NSError *error))failure;
 
 //下载验证码图片

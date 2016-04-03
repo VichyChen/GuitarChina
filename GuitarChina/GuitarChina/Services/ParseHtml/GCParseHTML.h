@@ -10,16 +10,11 @@
 
 @interface GCParseHTML : NSObject
 
-+ (void)parseGuideThread:(NSData *)htmlData;
++ (void)parseLoginWeb:(NSData *)htmlData
+               result:(void (^)(NSString *seccode, NSString *formhash, NSString *postURL, NSArray *questionArray))result;
 
-+ (void)parseGuideHot:(NSData *)htmlData;
++ (NSString *)parseSeccodeVerifyImage:(NSData *)htmlData;
 
-+ (void)parseGuideDigest:(NSData *)htmlData;
-
-+ (void)parseGuideNew:(NSData *)htmlData;
-
-+ (void)parseGuideNewThread:(NSData *)htmlData;
-
-+ (void)parseGuideSofa:(NSData *)htmlData;
++ (GCGuideThreadArray *)parseGuideThread:(NSData *)htmlData;
 
 @end

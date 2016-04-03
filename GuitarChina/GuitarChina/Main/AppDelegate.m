@@ -34,11 +34,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [[GCNetworkManager manager] getGuideSofaSuccessWithPageIndex:1 success:^(NSData *htmlData) {
-        [GCParseHTML parseGuideSofa:htmlData];
-    } failure:^(NSError *error) {
-        
-    }];
+//    [[GCNetworkManager manager] getGuideHotSuccessWithPageIndex:1 success:^(NSData *htmlData) {
+//        GCGuideThreadArray *array = [GCParseHTML parseGuideThread:htmlData];
+//        NSLog(@"%@", array);
+//    } failure:^(NSError *error) {
+//        
+//    }];
     
     if ([self firstStart]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCAUTOSWITCHNIGHTMODE];

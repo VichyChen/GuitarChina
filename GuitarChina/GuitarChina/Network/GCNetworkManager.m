@@ -7,7 +7,6 @@
 //
 
 #import "GCNetworkManager.h"
-#import "TFHpple.h"
 #import "JsonTool.h"
 
 typedef NS_ENUM(NSInteger, GCRequestType) {
@@ -175,6 +174,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                       success:(void (^)(GCLoginModel *model))success
                       failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_LGOINSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
         NSDictionary *parameters = @{ @"username" : username, @"password" : password };
         [self requestCommonMethod:GCRequestHttpPost url:GCNETWORKAPI_POST_LOGIN parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             GCLoginModel *model = [[GCLoginModel alloc] initWithDictionary:responseObject];
@@ -182,6 +182,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(error);
         }];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];
@@ -233,7 +234,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                      message:(NSString *)message
                         type:(NSString *)type
                     formhash:(NSString *)formhash
-                     Success:(void (^)(GCNewThreadModel *model))success
+                     success:(void (^)(GCNewThreadModel *model))success
                      failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_POSTSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -285,59 +286,32 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                   failure:(void (^)(NSError *error))failure {
     [self requestWebWithURL:@"http://bbs.guitarchina.com/home.php?mod=space&uid=1627015&do=profile" parameters:nil
                     success:^(NSURLSessionDataTask *task, id responseObject) {
-                        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
-                        NSArray *elements  = [xpathParser searchWithXPathQuery:@"//*[@id='pbbs']/li"];                                            NSLog(@"%ld", elements.count);
-                        TFHppleElement *element = [elements objectAtIndex:0];
-                        NSString *elementContent = [element content];
-                        NSLog(@"result = %@",elementContent);
+//                        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
+//                        NSArray *elements  = [xpathParser searchWithXPathQuery:@"//*[@id='pbbs']/li"];                                            NSLog(@"%ld", elements.count);
+//                        TFHppleElement *element = [elements objectAtIndex:0];
+//                        NSString *elementContent = [element content];
+//                        NSLog(@"result = %@",elementContent);
                     } failure:^(NSURLSessionDataTask *task, NSError *error) {
                     }];
 }
 
-- (void)getLoginWebSuccess:(void (^)(NSString *seccode, NSString *formhash, NSString *postURL, NSArray *questionArray))success
+- (void)getLoginWebSuccess:(void (^)(NSData *htmlData))success
                    failure:(void (^)(NSError *error))failure {
-    
     [self requestWebWithURL:GCNETWORKAPI_URL_LOGIN
                  parameters:nil
                     success:^(NSURLSessionDataTask *task, id responseObject) {
-                        
-                        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
-                        //seccode
-                        TFHppleElement *seccodeElement = [[xpathParser searchWithXPathQuery:@"//span"] objectAtIndex:4];
-                        NSString *seccode = [[[seccodeElement.attributes objectForKey:@"id"] split:@"_"] objectAtIndex:1];
-                        NSLog(@"seccode = %@", seccode);
-                        //formhash
-                        TFHppleElement *formhashElement = [[xpathParser searchWithXPathQuery:@"//input[@name='formhash']"] objectAtIndex:0];
-                        NSString *formhash = [formhashElement objectForKey:@"value"];
-                        NSLog(@"formhash = %@", formhash);
-                        //postURL
-                        TFHppleElement *formElement = [[xpathParser searchWithXPathQuery:@"//form[@name='login']"] objectAtIndex:0];
-                        NSString *postURL = [NSString stringWithFormat:@"%@%@", GCHOST,[formElement objectForKey:@"action"]];
-                        NSLog(@"postURL = %@", postURL);
-                        
-                        TFHppleElement *questionElement = [[xpathParser searchWithXPathQuery:@"//select[@name='questionid']"] objectAtIndex:0];
-                        NSArray *optionArray = questionElement.children;
-                        NSMutableArray *questionArray = [NSMutableArray array];
-                        for (TFHppleElement *element in optionArray) {
-                            if ([element objectForKey:@"value"]) {
-                                NSLog(@"%@", element.text);
-                                [questionArray addObject:element.text];
-                            }
-                        }
-                        success(seccode, formhash, postURL, questionArray);
-                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        success(responseObject);
+                    }
+                    failure:^(NSURLSessionDataTask *task, NSError *error) {
                         failure(error);
                     }];
 }
 
 - (void)getSeccodeVerifyImage:(NSString *)idhash
-                      success:(void (^)(NSString *image))success
+                      success:(void (^)(NSData *htmlData))success
                       failure:(void (^)(NSError *error))failure {
     [self requestWebWithURL:GCSECCODE(idhash) parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
-        TFHppleElement *imgElement = [[xpathParser searchWithXPathQuery:@"//img"] objectAtIndex:2];
-        NSString *image = [NSString stringWithFormat:@"%@%@", GCHOST,[imgElement.attributes objectForKey:@"src"]];
-        success(image);
+        success(responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(error);
     }];

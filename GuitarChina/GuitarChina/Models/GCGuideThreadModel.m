@@ -11,3 +11,8 @@
 @implementation GCGuideThreadModel
 
 @end
+
+
+@implementation GCGuideThreadArray
+
+@end

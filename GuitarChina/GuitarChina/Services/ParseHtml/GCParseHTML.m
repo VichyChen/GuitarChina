@@ -8,403 +8,92 @@
 
 #import "GCParseHTML.h"
 #import "TFHpple.h"
+#import "GCGuideThreadModel.h"
 
 @implementation GCParseHTML
 
-+ (void)parseGuideThread:(NSData *)htmlData {
-    NSLog(@"HTML: %@", [[NSString alloc]initWithData:htmlData encoding:NSUTF8StringEncoding]);
++ (void)parseLoginWeb:(NSData *)htmlData
+               result:(void (^)(NSString *seccode, NSString *formhash, NSString *postURL, NSArray *questionArray))result {
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
-    
-    //tid
-    NSArray *tidArray = [xpathParser searchWithXPathQuery:@"//tbody"];
-    for (TFHppleElement *element in tidArray) {
-        NSString *tid = [[element objectForKey:@"id"] split:@"_"][1];
-        NSLog(@"%@", tid);
+    //seccode
+    TFHppleElement *seccodeElement = [[xpathParser searchWithXPathQuery:@"//span"] objectAtIndex:4];
+    NSString *seccode = [[[seccodeElement.attributes objectForKey:@"id"] split:@"_"] objectAtIndex:1];
+    NSLog(@"seccode = %@", seccode);
+    //formhash
+    TFHppleElement *formhashElement = [[xpathParser searchWithXPathQuery:@"//input[@name='formhash']"] objectAtIndex:0];
+    NSString *formhash = [formhashElement objectForKey:@"value"];
+    NSLog(@"formhash = %@", formhash);
+    //postURL
+    TFHppleElement *formElement = [[xpathParser searchWithXPathQuery:@"//form[@name='login']"] objectAtIndex:0];
+    NSString *postURL = [NSString stringWithFormat:@"%@%@", GCHOST,[formElement objectForKey:@"action"]];
+    NSLog(@"postURL = %@", postURL);
+    //question
+    TFHppleElement *questionElement = [[xpathParser searchWithXPathQuery:@"//select[@name='questionid']"] objectAtIndex:0];
+    NSArray *optionArray = questionElement.children;
+    NSMutableArray *questionArray = [NSMutableArray array];
+    for (TFHppleElement *element in optionArray) {
+        if ([element objectForKey:@"value"]) {
+            NSLog(@"%@", element.text);
+            [questionArray addObject:element.text];
+        }
     }
     
-    //标题
-    NSArray *subjectArray = [xpathParser searchWithXPathQuery:@"//a[@class='xst']"];
-    for (TFHppleElement *element in subjectArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //作者
-    NSArray *authorArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/cite/a"];
-    for (TFHppleElement *element in authorArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //作者id
-    NSArray *authoridArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/cite/a"];
-    for (TFHppleElement *element in authoridArray) {
-        NSString *uid = [((NSString *)[[element objectForKey:@"href"] split:@"."][0]) split:@"-"][2];
-        NSLog(@"%@", uid);
-    }
-    
-    //发帖时间
-    NSArray *datelineArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/em/span/span"];
-    for (TFHppleElement *element in datelineArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //区
-    NSArray *forumArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[2]"];
-    for (TFHppleElement *element in forumArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //回复数
-    NSArray *repliesArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[4]/a"];
-    for (TFHppleElement *element in repliesArray) {
-        NSLog(@"%@", element.content);
-    }
-    //浏览数
-    NSArray *viewsArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[4]/em"];
-    for (TFHppleElement *element in viewsArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //最后回复id
-    NSArray *lastposterArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[5]/cite/a"];
-    for (TFHppleElement *element in lastposterArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //最后回复时间
-    NSArray *lastpostArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[5]/em/a/span"];
-    for (TFHppleElement *element in lastpostArray) {
-        NSLog(@"%@", element.content);
-    }
+    result(seccode, formhash, postURL, questionArray);
 }
 
-+ (void)parseGuideHot:(NSData *)htmlData {
-    NSLog(@"HTML: %@", [[NSString alloc]initWithData:htmlData encoding:NSUTF8StringEncoding]);
++ (NSString *)parseSeccodeVerifyImage:(NSData *)htmlData {
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
+    TFHppleElement *imgElement = [[xpathParser searchWithXPathQuery:@"//img"] objectAtIndex:2];
+    NSString *image = [NSString stringWithFormat:@"%@%@", GCHOST,[imgElement.attributes objectForKey:@"src"]];
     
-    //tid
-    NSArray *tidArray = [xpathParser searchWithXPathQuery:@"//tbody"];
-    for (TFHppleElement *element in tidArray) {
-        NSString *tid = [[element objectForKey:@"id"] split:@"_"][1];
-        NSLog(@"%@", tid);
-    }
-    
-    //标题
-    NSArray *subjectArray = [xpathParser searchWithXPathQuery:@"//a[@class='xst']"];
-    for (TFHppleElement *element in subjectArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //作者
-    NSArray *authorArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/cite/a"];
-    for (TFHppleElement *element in authorArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //作者id
-    NSArray *authoridArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/cite/a"];
-    for (TFHppleElement *element in authoridArray) {
-        NSString *uid = [((NSString *)[[element objectForKey:@"href"] split:@"."][0]) split:@"-"][2];
-        NSLog(@"%@", uid);
-    }
-    
-    //发帖时间
-    NSArray *datelineArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/em/span/span"];
-    for (TFHppleElement *element in datelineArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //区
-    NSArray *forumArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[2]"];
-    for (TFHppleElement *element in forumArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //回复数
-    NSArray *repliesArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[4]/a"];
-    for (TFHppleElement *element in repliesArray) {
-        NSLog(@"%@", element.content);
-    }
-    //浏览数
-    NSArray *viewsArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[4]/em"];
-    for (TFHppleElement *element in viewsArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //最后回复id
-    NSArray *lastposterArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[5]/cite/a"];
-    for (TFHppleElement *element in lastposterArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //最后回复时间
-    NSArray *lastpostArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[5]/em/a/span"];
-    for (TFHppleElement *element in lastpostArray) {
-        NSLog(@"%@", element.content);
-    }
+    return image;
 }
 
-+ (void)parseGuideDigest:(NSData *)htmlData {
++ (GCGuideThreadArray *)parseGuideThread:(NSData *)htmlData {
     NSLog(@"HTML: %@", [[NSString alloc]initWithData:htmlData encoding:NSUTF8StringEncoding]);
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
-    
     //tid
     NSArray *tidArray = [xpathParser searchWithXPathQuery:@"//tbody"];
-    for (TFHppleElement *element in tidArray) {
-        NSString *tid = [[element objectForKey:@"id"] split:@"_"][1];
-        NSLog(@"%@", tid);
-    }
-    
     //标题
     NSArray *subjectArray = [xpathParser searchWithXPathQuery:@"//a[@class='xst']"];
-    for (TFHppleElement *element in subjectArray) {
-        NSLog(@"%@", element.content);
-    }
-    
     //作者
     NSArray *authorArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/cite/a"];
-    for (TFHppleElement *element in authorArray) {
-        NSLog(@"%@", element.content);
-    }
-    
     //作者id
     NSArray *authoridArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/cite/a"];
-    for (TFHppleElement *element in authoridArray) {
-        NSString *uid = [((NSString *)[[element objectForKey:@"href"] split:@"."][0]) split:@"-"][2];
-        NSLog(@"%@", uid);
-    }
-    
     //发帖时间
-    NSArray *datelineArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/em/span/span"];
-    for (TFHppleElement *element in datelineArray) {
-        NSLog(@"%@", element.content);
-    }
-    
+    NSArray *datelineArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/em/span"]; // /span
     //区
     NSArray *forumArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[2]"];
-    for (TFHppleElement *element in forumArray) {
-        NSLog(@"%@", element.content);
-    }
-    
+    //区id
+    NSArray *fidArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[2]/a"];
     //回复数
     NSArray *repliesArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[4]/a"];
-    for (TFHppleElement *element in repliesArray) {
-        NSLog(@"%@", element.content);
-    }
     //浏览数
     NSArray *viewsArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[4]/em"];
-    for (TFHppleElement *element in viewsArray) {
-        NSLog(@"%@", element.content);
-    }
-    
     //最后回复id
     NSArray *lastposterArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[5]/cite/a"];
-    for (TFHppleElement *element in lastposterArray) {
-        NSLog(@"%@", element.content);
-    }
-    
     //最后回复时间
-    NSArray *lastpostArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[5]/em/a/span"];
-    for (TFHppleElement *element in lastpostArray) {
-        NSLog(@"%@", element.content);
-    }
-}
-
-+ (void)parseGuideNew:(NSData *)htmlData {
-    NSLog(@"HTML: %@", [[NSString alloc]initWithData:htmlData encoding:NSUTF8StringEncoding]);
-    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
+    NSArray *lastpostArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[5]/em/a"];// /span
     
-    //tid
-    NSArray *tidArray = [xpathParser searchWithXPathQuery:@"//tbody"];
-    for (TFHppleElement *element in tidArray) {
-        NSString *tid = [[element objectForKey:@"id"] split:@"_"][1];
-        NSLog(@"%@", tid);
-    }
-    
-    //标题
-    NSArray *subjectArray = [xpathParser searchWithXPathQuery:@"//a[@class='xst']"];
-    for (TFHppleElement *element in subjectArray) {
-        NSLog(@"%@", element.content);
+    GCGuideThreadArray *array = [[GCGuideThreadArray alloc] init];
+    array.data = [NSMutableArray array];
+    for (int i = 0; i < tidArray.count; i++) {
+        GCGuideThreadModel *model = [[GCGuideThreadModel alloc] init];
+        model.tid = [[tidArray[i] objectForKey:@"id"] split:@"_"][1];
+        model.subject = ((TFHppleElement *)subjectArray[i]).content;
+        model.author = ((TFHppleElement *)authorArray[i]).content;
+        model.authorid = [((NSString *)[[authoridArray[i] objectForKey:@"href"] split:@"."][0]) split:@"-"][2];
+        model.dateline = ((TFHppleElement *)datelineArray[i]).content;
+        model.forum = ((TFHppleElement *)forumArray[i]).content;
+        model.fid = [[fidArray[i] objectForKey:@"href"] split:@"-"][1];
+        model.replies = ((TFHppleElement *)repliesArray[i]).content;
+        model.views = ((TFHppleElement *)viewsArray[i]).content;
+        model.lastposter = ((TFHppleElement *)lastposterArray[i]).content;
+        model.lastpost = ((TFHppleElement *)lastpostArray[i]).content;
+        [array.data addObject:model];
     }
     
-    //作者
-    NSArray *authorArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/cite/a"];
-    for (TFHppleElement *element in authorArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //作者id
-    NSArray *authoridArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/cite/a"];
-    for (TFHppleElement *element in authoridArray) {
-        NSString *uid = [((NSString *)[[element objectForKey:@"href"] split:@"."][0]) split:@"-"][2];
-        NSLog(@"%@", uid);
-    }
-    
-    //发帖时间
-    NSArray *datelineArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/em/span/span"];
-    for (TFHppleElement *element in datelineArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //区
-    NSArray *forumArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[2]"];
-    for (TFHppleElement *element in forumArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //回复数
-    NSArray *repliesArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[4]/a"];
-    for (TFHppleElement *element in repliesArray) {
-        NSLog(@"%@", element.content);
-    }
-    //浏览数
-    NSArray *viewsArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[4]/em"];
-    for (TFHppleElement *element in viewsArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //最后回复id
-    NSArray *lastposterArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[5]/cite/a"];
-    for (TFHppleElement *element in lastposterArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //最后回复时间
-    NSArray *lastpostArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[5]/em/a/span"];
-    for (TFHppleElement *element in lastpostArray) {
-        NSLog(@"%@", element.content);
-    }
-}
-
-+ (void)parseGuideNewThread:(NSData *)htmlData {
-    NSLog(@"HTML: %@", [[NSString alloc]initWithData:htmlData encoding:NSUTF8StringEncoding]);
-    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
-    
-    //tid
-    NSArray *tidArray = [xpathParser searchWithXPathQuery:@"//tbody"];
-    for (TFHppleElement *element in tidArray) {
-        NSString *tid = [[element objectForKey:@"id"] split:@"_"][1];
-        NSLog(@"%@", tid);
-    }
-    
-    //标题
-    NSArray *subjectArray = [xpathParser searchWithXPathQuery:@"//a[@class='xst']"];
-    for (TFHppleElement *element in subjectArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //作者
-    NSArray *authorArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/cite/a"];
-    for (TFHppleElement *element in authorArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //作者id
-    NSArray *authoridArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/cite/a"];
-    for (TFHppleElement *element in authoridArray) {
-        NSString *uid = [((NSString *)[[element objectForKey:@"href"] split:@"."][0]) split:@"-"][2];
-        NSLog(@"%@", uid);
-    }
-    
-    //发帖时间
-    NSArray *datelineArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/em/span/span"];
-    for (TFHppleElement *element in datelineArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //区
-    NSArray *forumArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[2]"];
-    for (TFHppleElement *element in forumArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //回复数
-    NSArray *repliesArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[4]/a"];
-    for (TFHppleElement *element in repliesArray) {
-        NSLog(@"%@", element.content);
-    }
-    //浏览数
-    NSArray *viewsArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[4]/em"];
-    for (TFHppleElement *element in viewsArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //最后回复id
-    NSArray *lastposterArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[5]/cite/a"];
-    for (TFHppleElement *element in lastposterArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //最后回复时间
-    NSArray *lastpostArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[5]/em/a/span"];
-    for (TFHppleElement *element in lastpostArray) {
-        NSLog(@"%@", element.content);
-    }
-}
-
-+ (void)parseGuideSofa:(NSData *)htmlData {
-    NSLog(@"HTML: %@", [[NSString alloc]initWithData:htmlData encoding:NSUTF8StringEncoding]);
-    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
-    
-    //tid
-    NSArray *tidArray = [xpathParser searchWithXPathQuery:@"//tbody"];
-    for (TFHppleElement *element in tidArray) {
-        NSString *tid = [[element objectForKey:@"id"] split:@"_"][1];
-        NSLog(@"%@", tid);
-    }
-    
-    //标题
-    NSArray *subjectArray = [xpathParser searchWithXPathQuery:@"//a[@class='xst']"];
-    for (TFHppleElement *element in subjectArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //作者
-    NSArray *authorArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/cite/a"];
-    for (TFHppleElement *element in authorArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //作者id
-    NSArray *authoridArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/cite/a"];
-    for (TFHppleElement *element in authoridArray) {
-        NSString *uid = [((NSString *)[[element objectForKey:@"href"] split:@"."][0]) split:@"-"][2];
-        NSLog(@"%@", uid);
-    }
-    
-    //发帖时间
-    NSArray *datelineArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[3]/em/span/span"];
-    for (TFHppleElement *element in datelineArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //区
-    NSArray *forumArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[2]"];
-    for (TFHppleElement *element in forumArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //回复数
-    NSArray *repliesArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[4]/a"];
-    for (TFHppleElement *element in repliesArray) {
-        NSLog(@"%@", element.content);
-    }
-    //浏览数
-    NSArray *viewsArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[4]/em"];
-    for (TFHppleElement *element in viewsArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //最后回复id
-    NSArray *lastposterArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[5]/cite/a"];
-    for (TFHppleElement *element in lastposterArray) {
-        NSLog(@"%@", element.content);
-    }
-    
-    //最后回复时间
-    NSArray *lastpostArray = [xpathParser searchWithXPathQuery:@"//tbody/tr/td[5]/em/a/span"];
-    for (TFHppleElement *element in lastpostArray) {
-        NSLog(@"%@", element.content);
-    }
+    return array;
 }
 
 @end
