@@ -140,7 +140,7 @@
         return;
     }
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    [[GCNetworkManager manager] postNewThreadWithFid:self.fid subject:self.subjectTextField.text message:self.messageTextView.text type:self.selectedType formhash:self.formhash Success:^(GCNewThreadModel *model) {
+    [[GCNetworkManager manager] postNewThreadWithFid:self.fid subject:self.subjectTextField.text message:self.messageTextView.text type:self.selectedType formhash:self.formhash success:^(GCNewThreadModel *model) {
         self.navigationItem.rightBarButtonItem.enabled = YES;
         if ([model.message.messageval isEqualToString:@"post_newthread_succeed"]) {
             [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Post Success", nil)];

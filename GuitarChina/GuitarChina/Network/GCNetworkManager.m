@@ -146,7 +146,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 - (void)getForumDisplayWithForumID:(NSString *)forumID
                          pageIndex:(NSInteger)pageIndex
                           pageSize:(NSInteger)pageSize
-                           Success:(void (^)(GCForumDisplayArray *array))success
+                           success:(void (^)(GCForumDisplayArray *array))success
                            failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_FORUMDISPLAY(forumID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         GCForumDisplayArray *array = [[GCForumDisplayArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
@@ -159,7 +159,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 - (void)getViewThreadWithThreadID:(NSString *)threadID
                         pageIndex:(NSInteger)pageIndex
                          pageSize:(NSInteger)pageSize
-                          Success:(void (^)(GCThreadDetailModel *model))success
+                          success:(void (^)(GCThreadDetailModel *model))success
                           failure:(void (^)(NSError *error))failure {
     NSLog(@"%@", threadID);
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -172,7 +172,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 
 - (void)postLoginWithUsername:(NSString *)username
                      password:(NSString *)password
-                      Success:(void (^)(GCLoginModel *model))success
+                      success:(void (^)(GCLoginModel *model))success
                       failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_LGOINSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -212,7 +212,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 - (void)postReplyWithTid:(NSString *)tid
                  message:(NSString *)message
                 formhash:(NSString *)formhash
-                 Success:(void (^)(GCSendReplyModel *model))success
+                 success:(void (^)(GCSendReplyModel *model))success
                  failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_POSTSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
@@ -257,7 +257,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 
 - (void)postReportWithTid:(NSString *)tid
                      text:(NSString *)text
-                  Success:(void (^)(void))success
+                  success:(void (^)(void))success
                   failure:(void (^)(NSError *error))failure {
     NSDictionary *parameters = @{ @"text" : text};
     [self requestCommonMethod:GCRequestHttpPost url:GCNETWORKAPI_POST_REPORT(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -270,7 +270,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 //先调用getViewThreadWithThreadID，再调用此方法，结果都是返回failure，根据operation.responseString判断结果吧
 - (void)getCollectionWithTid:(NSString *)tid
                     formhash:(NSString *)formhash
-                     Success:(void (^)(NSString *string))success
+                     success:(void (^)(NSString *string))success
                      failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(@"");
@@ -407,16 +407,13 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     }];
 }
 
-- (void)getGuideHotSuccess:(void (^)(GCGuideThreadArray *array))success
-                   failure:(void (^)(NSError *error))failure
-                 pageIndex:(NSInteger)pageIndex {
+- (void)getGuideHotSuccessWithPageIndex:(NSInteger)pageIndex
+                                success:(void (^)(NSData *html))success
+                                failure:(void (^)(NSError *error))failure {
     [self requestWebWithURL:GCNETWORKAPI_GET_GUIDEHOT(pageIndex)
                  parameters:nil
                     success:^(NSURLSessionDataTask *task, id responseObject) {
-                        
-//                        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
-                        
-                        success(nil);
+                        success(responseObject);
                     } failure:^(NSURLSessionDataTask *task, NSError *error) {
                         failure(error);
                     }];

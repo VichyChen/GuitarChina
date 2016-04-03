@@ -99,7 +99,7 @@
     @weakify(self);
     self.refreshBlock = ^{
         @strongify(self);
-        [[GCNetworkManager manager] getForumDisplayWithForumID:self.fid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCForumDisplayArray *array) {
+        [[GCNetworkManager manager] getForumDisplayWithForumID:self.fid pageIndex:self.pageIndex pageSize:self.pageSize success:^(GCForumDisplayArray *array) {
             self.loaded = true;
             self.uid = array.member_uid;
             self.formhash = array.formhash;

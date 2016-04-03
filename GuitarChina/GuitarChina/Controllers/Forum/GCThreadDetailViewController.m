@@ -239,7 +239,7 @@
         //1993403
         //1993030
         //1994974
-        [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize Success:^(GCThreadDetailModel *model) {
+        [[GCNetworkManager manager] getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize success:^(GCThreadDetailModel *model) {
             self.loaded = true;
             self.uid = model.member_uid;
             self.formhash = model.formhash;
@@ -292,7 +292,7 @@
         if ([self.uid isEqualToString:@"0"]) {
             [self presentLoginViewController];
         } else {
-            [[GCNetworkManager manager] getCollectionWithTid:self.tid formhash:self.formhash Success:^(NSString *string){
+            [[GCNetworkManager manager] getCollectionWithTid:self.tid formhash:self.formhash success:^(NSString *string){
                 [SVProgressHUD showSuccessWithStatus:string];
             } failure:^(NSError *error) {
                 [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Collect Failure", nil)];

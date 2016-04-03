@@ -69,6 +69,17 @@
 //最新热门
 #define GCNETWORKAPI_GET_GUIDEHOT(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=hot&page=%ld", (pageIndex)]
 
+//最新精华
+#define GCNETWORKAPI_GET_GUIDEDIGEST(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=digest&page=%ld", (pageIndex)]
+
+//最新回复
+#define GCNETWORKAPI_GET_GUIDENEW(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=new&page=%ld", (pageIndex)]
+
+//最新发表
+#define GCNETWORKAPI_GET_GUIDENEWTHREAD(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=newthread&page=%ld", (pageIndex)]
+
+//抢沙发
+#define GCNETWORKAPI_GET_GUIDESOFA(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=sofa&page=%ld", (pageIndex)]
 
 //优酷视频地址
 #define GCVIDEO_URL_YOUKU(id) [NSString stringWithFormat:@"http://v.youku.com/v_show/id_%@.html", (id)]

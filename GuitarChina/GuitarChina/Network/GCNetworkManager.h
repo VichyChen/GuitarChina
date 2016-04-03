@@ -36,20 +36,20 @@
 - (void)getForumDisplayWithForumID:(NSString *)forumID
                          pageIndex:(NSInteger)pageIndex
                           pageSize:(NSInteger)pageSize
-                           Success:(void (^)(GCForumDisplayArray *array))success
+                           success:(void (^)(GCForumDisplayArray *array))success
                            failure:(void (^)(NSError *error))failure;
 
 //获取帖子详情
 - (void)getViewThreadWithThreadID:(NSString *)threadID
                         pageIndex:(NSInteger)pageIndex
                          pageSize:(NSInteger)pageSize
-                          Success:(void (^)(GCThreadDetailModel *model))success
+                          success:(void (^)(GCThreadDetailModel *model))success
                           failure:(void (^)(NSError *error))failure;
 
 //登陆
 - (void)postLoginWithUsername:(NSString *)username
                      password:(NSString *)password
-                      Success:(void (^)(GCLoginModel *model))success
+                      success:(void (^)(GCLoginModel *model))success
                       failure:(void (^)(NSError *error))failure;
 
 //我的收藏
@@ -73,19 +73,19 @@
                      message:(NSString *)message
                         type:(NSString *)type
                     formhash:(NSString *)formhash
-                     Success:(void (^)(GCNewThreadModel *model))success
+                     success:(void (^)(GCNewThreadModel *model))success
                      failure:(void (^)(NSError *error))failure;
 
 //举报
 - (void)postReportWithTid:(NSString *)tid
                      text:(NSString *)text
-                  Success:(void (^)(void))success
+                  success:(void (^)(void))success
                   failure:(void (^)(NSError *error))failure;
 
 //收藏帖子
 - (void)getCollectionWithTid:(NSString *)tid
                     formhash:(NSString *)formhash
-                     Success:(void (^)(NSString *string))success
+                     success:(void (^)(NSString *string))success
                      failure:(void (^)(NSError *error))failure;
 
 
@@ -119,9 +119,17 @@
                       success:(void (^)(NSString *html))success
                       failure:(void (^)(NSError *error))failure;
 
-//
-- (void)getGuideHotSuccess:(void (^)(GCGuideThreadArray *array))success
-                   failure:(void (^)(NSError *error))failure
-                 pageIndex:(NSInteger)pageIndex;
+//导读－最新热门
+- (void)getGuideHotSuccessWithPageIndex:(NSInteger)pageIndex
+                                success:(void (^)(NSData *html))success
+                                failure:(void (^)(NSError *error))failure;
+
+//导读－最新精华
+
+//导读－最新回复
+
+//导读－最新发表
+
+//导读－抢沙发
 
 @end

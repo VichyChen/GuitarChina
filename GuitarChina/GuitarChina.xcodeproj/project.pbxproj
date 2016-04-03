@@ -10,6 +10,7 @@
 		0406C85D1C4E7663000BC251 /* GCPostThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C85B1C4E7663000BC251 /* GCPostThreadViewController.m */; };
 		0408D0921BE1FEB900B3825A /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0408D0911BE1FEB900B3825A /* GCUserProtocolViewController.m */; };
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
+		0423ACFC1CB0AACE00B6CA80 /* GCParseHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423ACFB1CB0AACE00B6CA80 /* GCParseHtml.m */; };
 		0426CD811BE73EB100BE85D8 /* GCHotThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD801BE73EB100BE85D8 /* GCHotThreadCell.m */; };
 		0426CD8A1BE73F0E00BE85D8 /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD831BE73F0E00BE85D8 /* GCForumDisplayCell.m */; };
 		0426CD8B1BE73F0E00BE85D8 /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD851BE73F0E00BE85D8 /* GCForumIndexCell.m */; };
@@ -64,7 +65,6 @@
 		04935B061BB52F460010F7C8 /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04935B051BB52F460010F7C8 /* GCMoreViewController.m */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
 		04B692BC1C4643E500913629 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B692BA1C4643E500913629 /* Info.plist */; };
-		04BBE3021C8D827700063287 /* ParseHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BBE3011C8D827700063287 /* ParseHtml.m */; };
 		420528151BD2900200C74E27 /* GCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420528141BD2900200C74E27 /* GCTabBarController.m */; };
 		420D987F1B929C2B00AEAED3 /* GCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D98781B929C2B00AEAED3 /* GCBaseTableViewController.m */; };
 		420D98801B929C2B00AEAED3 /* GCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 420D987A1B929C2B00AEAED3 /* GCBaseViewController.m */; };
@@ -162,6 +162,8 @@
 		0408D0901BE1FEB900B3825A /* GCUserProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserProtocolViewController.h; sourceTree = "<group>"; };
 		0408D0911BE1FEB900B3825A /* GCUserProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserProtocolViewController.m; sourceTree = "<group>"; };
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
+		0423ACFA1CB0AACE00B6CA80 /* GCParseHtml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCParseHtml.h; sourceTree = "<group>"; };
+		0423ACFB1CB0AACE00B6CA80 /* GCParseHtml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCParseHtml.m; sourceTree = "<group>"; };
 		0426CD7F1BE73EB100BE85D8 /* GCHotThreadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadCell.h; sourceTree = "<group>"; };
 		0426CD801BE73EB100BE85D8 /* GCHotThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadCell.m; sourceTree = "<group>"; };
 		0426CD821BE73F0E00BE85D8 /* GCForumDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayCell.h; sourceTree = "<group>"; };
@@ -260,8 +262,6 @@
 		04935B051BB52F460010F7C8 /* GCMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreViewController.m; sourceTree = "<group>"; };
 		04AF910D1BE8FAF10030AEEB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		04B692BA1C4643E500913629 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04BBE3001C8D827700063287 /* ParseHtml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseHtml.h; sourceTree = "<group>"; };
-		04BBE3011C8D827700063287 /* ParseHtml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseHtml.m; sourceTree = "<group>"; };
 		2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2F829F5DD46C688C9B2385EC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		420528131BD2900200C74E27 /* GCTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCTabBarController.h; sourceTree = "<group>"; };
@@ -720,8 +720,8 @@
 		04BBE2FF1C8D824F00063287 /* ParseHtml */ = {
 			isa = PBXGroup;
 			children = (
-				04BBE3001C8D827700063287 /* ParseHtml.h */,
-				04BBE3011C8D827700063287 /* ParseHtml.m */,
+				0423ACFA1CB0AACE00B6CA80 /* GCParseHtml.h */,
+				0423ACFB1CB0AACE00B6CA80 /* GCParseHtml.m */,
 			);
 			path = ParseHtml;
 			sourceTree = "<group>";
@@ -1327,6 +1327,7 @@
 				0426CDAB1BE7457500BE85D8 /* GCReportThreadView.m in Sources */,
 				046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */,
 				423889001BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
+				0423ACFC1CB0AACE00B6CA80 /* GCParseHtml.m in Sources */,
 				0426CD8B1BE73F0E00BE85D8 /* GCForumIndexCell.m in Sources */,
 				045F2F361BE0B6B10024C9FC /* GCUserInfoViewController.m in Sources */,
 				0488C0A41C78F17E00920E72 /* GCUserOtherViewController.m in Sources */,
@@ -1357,7 +1358,6 @@
 				42657DCC1B99B529001F8DFC /* GCHotThreadViewController.m in Sources */,
 				423889101BC57D0F002E1625 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
 				4238890C1BC57D0F002E1625 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
-				04BBE3021C8D827700063287 /* ParseHtml.m in Sources */,
 				4238889C1BC57CA6002E1625 /* MJRefreshFooter.m in Sources */,
 				423888F51BC57D0F002E1625 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
 				047150F01BF03B2A007A8890 /* SVProgressHUD.m in Sources */,
