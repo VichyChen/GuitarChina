@@ -153,7 +153,7 @@
                             for (int i = 0; i < browseArray.count; i++) {
                                 if (browseArray[i] == tempForumModel.fid) {
                                     [forumGroupModel.forums replaceObjectAtIndex:i withObject:[tempForumModel copy]];
-                                    ((GCForumModel *)forumGroupModel.forums[i]).todayposts = @"0";
+//                                    ((GCForumModel *)forumGroupModel.forums[i]).todayposts = @"0";
                                     break;
                                 }
                             }

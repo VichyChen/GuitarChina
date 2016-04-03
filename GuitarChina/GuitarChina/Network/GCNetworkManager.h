@@ -119,6 +119,7 @@
                       success:(void (^)(NSString *html))success
                       failure:(void (^)(NSError *error))failure;
 
+//
 - (void)getGuideHotSuccess:(void (^)(GCGuideThreadArray *array))success
                    failure:(void (^)(NSError *error))failure
                  pageIndex:(NSInteger)pageIndex;
