@@ -96,7 +96,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
     
     void (^responseSuccessBlock)(NSURLSessionDataTask *task, id responseObject) = ^(NSURLSessionDataTask *task, id responseObject) {
         NSLog(@"Success!!!!!!~~~~~~");
-        NSLog(@"HTML: %@", [[NSString alloc]initWithData:responseObject encoding:NSUTF8StringEncoding]);
+        NSLog(@"HTML: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
         success(task, responseObject);
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     };
@@ -161,7 +161,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                          pageSize:(NSInteger)pageSize
                           success:(void (^)(GCThreadDetailModel *model))success
                           failure:(void (^)(NSError *error))failure {
-    NSLog(@"%@", threadID);
+    NSLog(@"threadID=%@", threadID);
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         GCThreadDetailModel *model = [[GCThreadDetailModel alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
         success(model);
@@ -175,7 +175,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                       success:(void (^)(GCLoginModel *model))success
                       failure:(void (^)(NSError *error))failure {
     [self requestCommonMethod:GCRequestJsonGet url:GCNETWORKAPI_GET_LGOINSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
         NSDictionary *parameters = @{ @"username" : username, @"password" : password };
         [self requestCommonMethod:GCRequestHttpPost url:GCNETWORKAPI_POST_LOGIN parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             GCLoginModel *model = [[GCLoginModel alloc] initWithDictionary:responseObject];
@@ -183,7 +182,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(error);
         }];
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];
@@ -218,11 +216,9 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
         
         NSDictionary *parameters = @{ @"message" : message, @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash };
         [self requestCommonMethod:GCRequestPost url:GCNETWORKAPI_POST_SENDREPLY(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
             NSDictionary *dictionary = [JsonTool jsonToDictionary:operation.responseString];
             GCSendReplyModel *model = [[GCSendReplyModel alloc] initWithDictionary:dictionary];
             success(model);
-            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(error);
         }];
@@ -294,9 +290,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                         TFHppleElement *element = [elements objectAtIndex:0];
                         NSString *elementContent = [element content];
                         NSLog(@"result = %@",elementContent);
-                        
                     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                        
                     }];
 }
 
@@ -308,17 +302,14 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                     success:^(NSURLSessionDataTask *task, id responseObject) {
                         
                         TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
-                        
                         //seccode
                         TFHppleElement *seccodeElement = [[xpathParser searchWithXPathQuery:@"//span"] objectAtIndex:4];
                         NSString *seccode = [[[seccodeElement.attributes objectForKey:@"id"] split:@"_"] objectAtIndex:1];
                         NSLog(@"seccode = %@", seccode);
-                        
                         //formhash
                         TFHppleElement *formhashElement = [[xpathParser searchWithXPathQuery:@"//input[@name='formhash']"] objectAtIndex:0];
                         NSString *formhash = [formhashElement objectForKey:@"value"];
                         NSLog(@"formhash = %@", formhash);
-                        
                         //postURL
                         TFHppleElement *formElement = [[xpathParser searchWithXPathQuery:@"//form[@name='login']"] objectAtIndex:0];
                         NSString *postURL = [NSString stringWithFormat:@"%@%@", GCHOST,[formElement objectForKey:@"action"]];
@@ -333,9 +324,7 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                                 [questionArray addObject:element.text];
                             }
                         }
-                        
                         success(seccode, formhash, postURL, questionArray);
-                        
                     } failure:^(NSURLSessionDataTask *task, NSError *error) {
                         failure(error);
                     }];
@@ -345,11 +334,9 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                       success:(void (^)(NSString *image))success
                       failure:(void (^)(NSError *error))failure {
     [self requestWebWithURL:GCSECCODE(idhash) parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
         TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
         TFHppleElement *imgElement = [[xpathParser searchWithXPathQuery:@"//img"] objectAtIndex:2];
         NSString *image = [NSString stringWithFormat:@"%@%@", GCHOST,[imgElement.attributes objectForKey:@"src"]];
-        
         success(image);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(error);
@@ -388,7 +375,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                       postURL:(NSString *)postURL
                       success:(void (^)(NSString *html))success
                       failure:(void (^)(NSError *error))failure {
-    
     NSDictionary *parameters = @{@"formhash" : formhash,
                                  @"seccodehash" : seccodehash,
                                  @"fastloginfield" : fastloginfield,
@@ -400,7 +386,6 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                                  @"submit" : @"登陆",
                                  @"cookietime" : @"2592000"};
     [self requestCommonMethod:GCRequestHttpPost url:postURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", operation.responseString);
         success(operation.responseString);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
@@ -408,9 +393,57 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
 }
 
 - (void)getGuideHotSuccessWithPageIndex:(NSInteger)pageIndex
-                                success:(void (^)(NSData *html))success
+                                success:(void (^)(NSData *htmlData))success
                                 failure:(void (^)(NSError *error))failure {
     [self requestWebWithURL:GCNETWORKAPI_GET_GUIDEHOT(pageIndex)
+                 parameters:nil
+                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                        success(responseObject);
+                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        failure(error);
+                    }];
+}
+
+- (void)getGuideDigestSuccessWithPageIndex:(NSInteger)pageIndex
+                                   success:(void (^)(NSData *htmlData))success
+                                   failure:(void (^)(NSError *error))failure {
+    [self requestWebWithURL:GCNETWORKAPI_GET_GUIDEDIGEST(pageIndex)
+                 parameters:nil
+                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                        success(responseObject);
+                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        failure(error);
+                    }];
+}
+
+- (void)getGuideNewSuccessWithPageIndex:(NSInteger)pageIndex
+                                success:(void (^)(NSData *htmlData))success
+                                failure:(void (^)(NSError *error))failure {
+    [self requestWebWithURL:GCNETWORKAPI_GET_GUIDENEW(pageIndex)
+                 parameters:nil
+                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                        success(responseObject);
+                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        failure(error);
+                    }];
+}
+
+- (void)getGuideNewThreadSuccessWithPageIndex:(NSInteger)pageIndex
+                                      success:(void (^)(NSData *htmlData))success
+                                      failure:(void (^)(NSError *error))failure {
+    [self requestWebWithURL:GCNETWORKAPI_GET_GUIDENEWTHREAD(pageIndex)
+                 parameters:nil
+                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                        success(responseObject);
+                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        failure(error);
+                    }];
+}
+
+- (void)getGuideSofaSuccessWithPageIndex:(NSInteger)pageIndex
+                                 success:(void (^)(NSData *htmlData))success
+                                 failure:(void (^)(NSError *error))failure {
+    [self requestWebWithURL:GCNETWORKAPI_GET_GUIDESOFA(pageIndex)
                  parameters:nil
                     success:^(NSURLSessionDataTask *task, id responseObject) {
                         success(responseObject);

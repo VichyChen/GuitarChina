@@ -10,7 +10,7 @@
 		0406C85D1C4E7663000BC251 /* GCPostThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406C85B1C4E7663000BC251 /* GCPostThreadViewController.m */; };
 		0408D0921BE1FEB900B3825A /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0408D0911BE1FEB900B3825A /* GCUserProtocolViewController.m */; };
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
-		0423ACFC1CB0AACE00B6CA80 /* GCParseHtml.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423ACFB1CB0AACE00B6CA80 /* GCParseHtml.m */; };
+		0423ACFC1CB0AACE00B6CA80 /* GCParseHTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423ACFB1CB0AACE00B6CA80 /* GCParseHTML.m */; };
 		0426CD811BE73EB100BE85D8 /* GCHotThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD801BE73EB100BE85D8 /* GCHotThreadCell.m */; };
 		0426CD8A1BE73F0E00BE85D8 /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD831BE73F0E00BE85D8 /* GCForumDisplayCell.m */; };
 		0426CD8B1BE73F0E00BE85D8 /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0426CD851BE73F0E00BE85D8 /* GCForumIndexCell.m */; };
@@ -162,8 +162,8 @@
 		0408D0901BE1FEB900B3825A /* GCUserProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserProtocolViewController.h; sourceTree = "<group>"; };
 		0408D0911BE1FEB900B3825A /* GCUserProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserProtocolViewController.m; sourceTree = "<group>"; };
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
-		0423ACFA1CB0AACE00B6CA80 /* GCParseHtml.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCParseHtml.h; sourceTree = "<group>"; };
-		0423ACFB1CB0AACE00B6CA80 /* GCParseHtml.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCParseHtml.m; sourceTree = "<group>"; };
+		0423ACFA1CB0AACE00B6CA80 /* GCParseHTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCParseHTML.h; sourceTree = "<group>"; };
+		0423ACFB1CB0AACE00B6CA80 /* GCParseHTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCParseHTML.m; sourceTree = "<group>"; };
 		0426CD7F1BE73EB100BE85D8 /* GCHotThreadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHotThreadCell.h; sourceTree = "<group>"; };
 		0426CD801BE73EB100BE85D8 /* GCHotThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadCell.m; sourceTree = "<group>"; };
 		0426CD821BE73F0E00BE85D8 /* GCForumDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayCell.h; sourceTree = "<group>"; };
@@ -630,7 +630,7 @@
 		047150DD1BEDB409007A8890 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				04BBE2FF1C8D824F00063287 /* ParseHtml */,
+				04BBE2FF1C8D824F00063287 /* ParseHTML */,
 				047150E11BEDC955007A8890 /* SocialShare */,
 			);
 			path = Services;
@@ -717,12 +717,13 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		04BBE2FF1C8D824F00063287 /* ParseHtml */ = {
+		04BBE2FF1C8D824F00063287 /* ParseHTML */ = {
 			isa = PBXGroup;
 			children = (
-				0423ACFA1CB0AACE00B6CA80 /* GCParseHtml.h */,
-				0423ACFB1CB0AACE00B6CA80 /* GCParseHtml.m */,
+				0423ACFA1CB0AACE00B6CA80 /* GCParseHTML.h */,
+				0423ACFB1CB0AACE00B6CA80 /* GCParseHTML.m */,
 			);
+			name = ParseHTML;
 			path = ParseHtml;
 			sourceTree = "<group>";
 		};
@@ -1327,7 +1328,7 @@
 				0426CDAB1BE7457500BE85D8 /* GCReportThreadView.m in Sources */,
 				046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */,
 				423889001BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
-				0423ACFC1CB0AACE00B6CA80 /* GCParseHtml.m in Sources */,
+				0423ACFC1CB0AACE00B6CA80 /* GCParseHTML.m in Sources */,
 				0426CD8B1BE73F0E00BE85D8 /* GCForumIndexCell.m in Sources */,
 				045F2F361BE0B6B10024C9FC /* GCUserInfoViewController.m in Sources */,
 				0488C0A41C78F17E00920E72 /* GCUserOtherViewController.m in Sources */,

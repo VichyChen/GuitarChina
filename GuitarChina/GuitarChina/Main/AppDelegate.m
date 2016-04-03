@@ -22,6 +22,8 @@
 #import "GCReplyThreadViewController.h"
 #import "GCReportThreadViewController.h"
 
+#import "GCParseHTML.h"
+
 @interface AppDelegate ()
 
 @end
@@ -32,6 +34,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    [[GCNetworkManager manager] getGuideSofaSuccessWithPageIndex:1 success:^(NSData *htmlData) {
+        [GCParseHTML parseGuideSofa:htmlData];
+    } failure:^(NSError *error) {
+        
+    }];
+    
     if ([self firstStart]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCAUTOSWITCHNIGHTMODE];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCLOADIMAGE];

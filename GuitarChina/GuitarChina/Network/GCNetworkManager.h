@@ -64,7 +64,7 @@
 - (void)postReplyWithTid:(NSString *)tid
                  message:(NSString *)message
                 formhash:(NSString *)formhash
-                 Success:(void (^)(GCSendReplyModel *model))success
+                 success:(void (^)(GCSendReplyModel *model))success
                  failure:(void (^)(NSError *error))failure;
 
 //发布主题
@@ -121,15 +121,27 @@
 
 //导读－最新热门
 - (void)getGuideHotSuccessWithPageIndex:(NSInteger)pageIndex
-                                success:(void (^)(NSData *html))success
+                                success:(void (^)(NSData *htmlData))success
                                 failure:(void (^)(NSError *error))failure;
 
 //导读－最新精华
+- (void)getGuideDigestSuccessWithPageIndex:(NSInteger)pageIndex
+                                   success:(void (^)(NSData *htmlData))success
+                                   failure:(void (^)(NSError *error))failure;
 
 //导读－最新回复
+- (void)getGuideNewSuccessWithPageIndex:(NSInteger)pageIndex
+                                success:(void (^)(NSData *htmlData))success
+                                failure:(void (^)(NSError *error))failure;
 
 //导读－最新发表
+- (void)getGuideNewThreadSuccessWithPageIndex:(NSInteger)pageIndex
+                                      success:(void (^)(NSData *htmlData))success
+                                      failure:(void (^)(NSError *error))failure;
 
 //导读－抢沙发
+- (void)getGuideSofaSuccessWithPageIndex:(NSInteger)pageIndex
+                                 success:(void (^)(NSData *htmlData))success
+                                 failure:(void (^)(NSError *error))failure;
 
 @end
