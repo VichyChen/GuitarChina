@@ -33,10 +33,6 @@
     [super viewDidLoad];
     
     [self configureBlock];
-    
-//    self.data = [[NSUserDefaults standardUserDefaults] objectForKey:kGCFORUMINDEXDICTIONARY];
-//    [self.tableView reloadData];
-//    self.refreshBlock();
 }
 
 - (void)didReceiveMemoryWarning {

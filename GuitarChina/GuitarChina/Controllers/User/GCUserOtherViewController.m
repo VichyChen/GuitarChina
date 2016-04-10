@@ -92,7 +92,7 @@
     self.tableView.tableFooterView = view;
 }
 
-#pragma mark - Event Response
+#pragma mark - Event Responses
 
 - (void)logoutAction {
     [Util clearCookie];

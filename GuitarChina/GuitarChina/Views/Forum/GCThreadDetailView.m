@@ -128,7 +128,7 @@
     }];
 }
 
-#pragma mark - Event Response
+#pragma mark - Event Responses
 
 - (void)beginRefresh {
     if (self.webViewRefreshBlock) {

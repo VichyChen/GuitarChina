@@ -187,7 +187,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshAction) name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
 }
 
-#pragma mark - Event Response
+#pragma mark - Event Responses
 
 - (void)refreshAction {
     self.loaded = false;

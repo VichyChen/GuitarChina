@@ -131,6 +131,8 @@
 		42657DBD1B998C49001F8DFC /* GCForumIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DBC1B998C49001F8DFC /* GCForumIndexViewController.m */; };
 		42657DCC1B99B529001F8DFC /* GCHotThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42657DCB1B99B529001F8DFC /* GCHotThreadViewController.m */; };
 		42657DDC1B99CAA2001F8DFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42657DDE1B99CAA2001F8DFC /* Localizable.strings */; };
+		426BC38F1CB9F8BC00B3B827 /* GCDiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC38E1CB9F8BC00B3B827 /* GCDiscoveryViewController.m */; };
+		426BC3931CB9FA9800B3B827 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC3921CB9FA9800B3B827 /* HMSegmentedControl.m */; };
 		426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */; };
 		4277FC8D1B99E43F002BE7FC /* GCAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4277FC8C1B99E43F002BE7FC /* GCAboutViewController.m */; };
 		428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 428260671B84CE03007CBCF4 /* GCNetworkManager.m */; };
@@ -399,6 +401,10 @@
 		42657DCB1B99B529001F8DFC /* GCHotThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHotThreadViewController.m; sourceTree = "<group>"; };
 		42657DDB1B99CA95001F8DFC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		42657DDD1B99CAA2001F8DFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		426BC38D1CB9F8BC00B3B827 /* GCDiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscoveryViewController.h; sourceTree = "<group>"; };
+		426BC38E1CB9F8BC00B3B827 /* GCDiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscoveryViewController.m; sourceTree = "<group>"; };
+		426BC3911CB9FA9800B3B827 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		426BC3921CB9FA9800B3B827 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		426E7CA41B88E89100BE70D9 /* GCThreadDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailModel.h; sourceTree = "<group>"; };
 		426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailModel.m; sourceTree = "<group>"; };
 		4277FC8B1B99E43F002BE7FC /* GCAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCAboutViewController.h; path = ../GCAboutViewController.h; sourceTree = "<group>"; };
@@ -745,6 +751,7 @@
 				4238886C1BC57CA6002E1625 /* MJRefresh */,
 				423888AC1BC57D0F002E1625 /* DGActivityIndicatorView */,
 				046DB75D1BFC6F1900E05E17 /* DOPNavbarMenu */,
+				426BC3901CB9FA9800B3B827 /* HMSegmentedControl */,
 			);
 			path = Additions;
 			sourceTree = "<group>";
@@ -753,6 +760,7 @@
 			isa = PBXGroup;
 			children = (
 				420D98761B929C2B00AEAED3 /* Base */,
+				426BC38C1CB9F89B00B3B827 /* Discovery */,
 				42657DC91B99B513001F8DFC /* HotThread */,
 				420D98871B929D2000AEAED3 /* Forum */,
 				04935AFF1BB52D0A0010F7C8 /* User */,
@@ -1076,6 +1084,24 @@
 			path = HotThread;
 			sourceTree = "<group>";
 		};
+		426BC38C1CB9F89B00B3B827 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				426BC38D1CB9F8BC00B3B827 /* GCDiscoveryViewController.h */,
+				426BC38E1CB9F8BC00B3B827 /* GCDiscoveryViewController.m */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
+		426BC3901CB9FA9800B3B827 /* HMSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				426BC3911CB9FA9800B3B827 /* HMSegmentedControl.h */,
+				426BC3921CB9FA9800B3B827 /* HMSegmentedControl.m */,
+			);
+			path = HMSegmentedControl;
+			sourceTree = "<group>";
+		};
 		4282605C1B84CA51007CBCF4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -1309,6 +1335,7 @@
 				045F2F5A1BE0D1B60024C9FC /* GCMyFavThreadViewController.m in Sources */,
 				423888FD1BC57D0F002E1625 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
 				0426CDA81BE7455A00BE85D8 /* GCReportThreadViewController.m in Sources */,
+				426BC3931CB9FA9800B3B827 /* HMSegmentedControl.m in Sources */,
 				423888A51BC57CA6002E1625 /* MJRefreshNormalHeader.m in Sources */,
 				423888AA1BC57CA6002E1625 /* UIScrollView+MJRefresh.m in Sources */,
 				42DA95051BA5553C001A79B9 /* GCForumDisplayModel.m in Sources */,
@@ -1325,6 +1352,7 @@
 				046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */,
 				4238890E1BC57D0F002E1625 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
 				423888F81BC57D0F002E1625 /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */,
+				426BC38F1CB9F8BC00B3B827 /* GCDiscoveryViewController.m in Sources */,
 				0426CDAB1BE7457500BE85D8 /* GCReportThreadView.m in Sources */,
 				046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */,
 				423889001BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,

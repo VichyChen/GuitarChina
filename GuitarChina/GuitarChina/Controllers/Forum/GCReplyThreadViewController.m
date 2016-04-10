@@ -28,7 +28,7 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - Event Response
+#pragma mark - Event Responses
 
 - (void)closeAction {
     [self dismissViewControllerAnimated:YES completion:nil];

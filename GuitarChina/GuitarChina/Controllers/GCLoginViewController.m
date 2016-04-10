@@ -162,7 +162,7 @@
     return 35;
 }
 
-#pragma mark - Event Response
+#pragma mark - Event Responses
 
 - (void)closeAction {
     [self dismissViewControllerAnimated:YES completion:nil];

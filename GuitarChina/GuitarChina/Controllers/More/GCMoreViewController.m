@@ -206,7 +206,7 @@
     }
 }
 
-#pragma mark - Event Response
+#pragma mark - Event Responses
 
 - (void)nightModeAction:(id)sender {
     UISwitch *switchView = (UISwitch *)sender;

@@ -210,7 +210,7 @@
     [self.view addSubview:self.tableView];
 }
 
-#pragma mark - Event Response
+#pragma mark - Event Responses
 
 - (void)refreshView {
     self.userID = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINID];

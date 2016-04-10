@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GCNavigationController.h"
-#import "GCHotThreadViewController.h"
+#import "GCDiscoveryViewController.h"
 #import "GCForumIndexViewController.h"
 #import "GCUserViewController.h"
 #import "GCMoreViewController.h"
@@ -135,11 +135,11 @@
 - (void)configureTabBarController {
     self.tabBarController = [[GCTabBarController alloc]init];
     
-    GCHotThreadViewController *hotThreadViewController = [[GCHotThreadViewController alloc] init];
-    GCNavigationController *hotThreadNavigationController = [[GCNavigationController alloc] initWithRootViewController:hotThreadViewController];
-    hotThreadNavigationController.tabBarItem.title = NSLocalizedString(@"Newest", nil);
-    hotThreadNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_guitar"];
-    hotThreadNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_guitar_on"];
+    GCDiscoveryViewController *discoveryViewController = [[GCDiscoveryViewController alloc] init];
+    GCNavigationController *discoveryNavigationController = [[GCNavigationController alloc] initWithRootViewController:discoveryViewController];
+    discoveryNavigationController.tabBarItem.title = NSLocalizedString(@"Home", nil);
+    discoveryNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_guitar"];
+    discoveryNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_guitar_on"];
     
     GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] init];
     GCNavigationController *forumIndexNavigationController = [[GCNavigationController alloc] initWithRootViewController:forumIndexViewController];
@@ -159,7 +159,7 @@
     moreNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_musicrecord"];
     moreNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_musicrecord_on"];
     
-    self.tabBarController.viewControllers = @[hotThreadNavigationController, forumIndexNavigationController, userNavigationController, moreNavigationController];
+    self.tabBarController.viewControllers = @[discoveryNavigationController, forumIndexNavigationController, userNavigationController, moreNavigationController];
 }
 
 - (void)configureSVProgressHUD {
