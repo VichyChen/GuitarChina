@@ -38,13 +38,13 @@
 
 - (void) scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat pageWidth = scrollView.frame.size.width;
-    NSInteger currentPage = floor((scrollView.contentOffset.x - pageWidth) / pageWidth) + 1;
-    self.segmentedControl.selectedSegmentIndex = currentPage;
+    NSInteger currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    self.segmentedControl.selectedSegmentIndex = currentPage == -1 ? 0 : currentPage;
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     CGFloat pageWidth = scrollView.frame.size.width;
-    NSInteger currentPage = floor((scrollView.contentOffset.x - pageWidth) / pageWidth) + 1;
+    NSInteger currentPage = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.segmentedControl.selectedSegmentIndex = currentPage;
     [self loadViewController:currentPage];
 }
@@ -63,25 +63,29 @@
     [self.view addSubview:self.scrollView];
     
     GCDiscoveryTableViewController *hot = [[GCDiscoveryTableViewController alloc] init];
+    hot.discoveryTableViewType = GCDiscoveryTableViewTypeHot;
     GCDiscoveryTableViewController *new = [[GCDiscoveryTableViewController alloc] init];
+    new.discoveryTableViewType = GCDiscoveryTableViewTypeNew;
     GCDiscoveryTableViewController *sofa = [[GCDiscoveryTableViewController alloc] init];
+    sofa.discoveryTableViewType = GCDiscoveryTableViewTypeSofa;
     GCDiscoveryTableViewController *digest = [[GCDiscoveryTableViewController alloc] init];
+    digest.discoveryTableViewType = GCDiscoveryTableViewTypeDigest;
     
     [self addChildViewController:hot];
     [self addChildViewController:new];
     [self addChildViewController:sofa];
     [self addChildViewController:digest];
     
-    hot.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 144);
+    hot.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - self.segmentedControl.frame.size.height - 44);
     [self.scrollView addSubview:hot.view];
 }
 
 //延迟加载tableview
 - (void)loadViewController:(NSInteger)index {
-    if (![self.controllerArray containsObject:[NSNumber numberWithInteger:index]]) {
+    if (![self.controllerArray containsObject:[NSNumber numberWithInteger:index]] && index >= 0) {
         [self.controllerArray addObject:[NSNumber numberWithInteger:index]];
-        UIViewController *controller = [self.childViewControllers objectAtIndex:index];
-        controller.view.frame = CGRectMake(ScreenWidth * index, 0, ScreenWidth, ScreenHeight - 144);
+        GCDiscoveryTableViewController *controller = (GCDiscoveryTableViewController *)[self.childViewControllers objectAtIndex:index];
+        controller.view.frame = CGRectMake(ScreenWidth * index, 0, ScreenWidth, ScreenHeight - 64 - self.segmentedControl.frame.size.height - 44);
         [self.scrollView addSubview:controller.view];
     }
 }
@@ -114,12 +118,12 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.frame = CGRectMake(0, 64 + self.segmentedControl.frame.size.height, ScreenWidth, ScreenHeight - 64 - self.segmentedControl.frame.size.height - 48);
-        _scrollView.contentSize = CGSizeMake(ScreenWidth * 4, ScreenHeight - 64 - self.segmentedControl.frame.size.height - 48);
+        _scrollView.frame = CGRectMake(0, 64 + self.segmentedControl.frame.size.height, ScreenWidth, ScreenHeight - 64 - self.segmentedControl.frame.size.height - 44);
+        _scrollView.contentSize = CGSizeMake(ScreenWidth * 4, ScreenHeight - 64 - self.segmentedControl.frame.size.height - 44);
         _scrollView.pagingEnabled = YES;
         _scrollView.scrollEnabled = YES;
-        _scrollView.showsHorizontalScrollIndicator = YES;
-        _scrollView.showsVerticalScrollIndicator = YES;
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.delegate = self;
     }
     return _scrollView;

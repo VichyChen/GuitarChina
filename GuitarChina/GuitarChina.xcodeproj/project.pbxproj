@@ -134,6 +134,7 @@
 		426BC38F1CB9F8BC00B3B827 /* GCDiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC38E1CB9F8BC00B3B827 /* GCDiscoveryViewController.m */; };
 		426BC3931CB9FA9800B3B827 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC3921CB9FA9800B3B827 /* HMSegmentedControl.m */; };
 		426BC3961CBA793A00B3B827 /* GCDiscoveryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC3951CBA793A00B3B827 /* GCDiscoveryTableViewController.m */; };
+		426BC39B1CBA982B00B3B827 /* GCDiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC39A1CBA982B00B3B827 /* GCDiscoveryCell.m */; };
 		426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */; };
 		4277FC8D1B99E43F002BE7FC /* GCAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4277FC8C1B99E43F002BE7FC /* GCAboutViewController.m */; };
 		428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 428260671B84CE03007CBCF4 /* GCNetworkManager.m */; };
@@ -408,6 +409,8 @@
 		426BC3921CB9FA9800B3B827 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		426BC3941CBA793A00B3B827 /* GCDiscoveryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscoveryTableViewController.h; sourceTree = "<group>"; };
 		426BC3951CBA793A00B3B827 /* GCDiscoveryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscoveryTableViewController.m; sourceTree = "<group>"; };
+		426BC3991CBA982B00B3B827 /* GCDiscoveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscoveryCell.h; sourceTree = "<group>"; };
+		426BC39A1CBA982B00B3B827 /* GCDiscoveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscoveryCell.m; sourceTree = "<group>"; };
 		426E7CA41B88E89100BE70D9 /* GCThreadDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailModel.h; sourceTree = "<group>"; };
 		426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailModel.m; sourceTree = "<group>"; };
 		4277FC8B1B99E43F002BE7FC /* GCAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCAboutViewController.h; path = ../GCAboutViewController.h; sourceTree = "<group>"; };
@@ -552,6 +555,7 @@
 		046262281BA94D2B00E66F03 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				426BC3971CBA97F400B3B827 /* Discovery */,
 				0426CD781BE73E4500BE85D8 /* HotThread */,
 				0426CD771BE73E4500BE85D8 /* Forum */,
 				0426CD791BE73E4500BE85D8 /* Mine */,
@@ -1107,6 +1111,23 @@
 			path = HMSegmentedControl;
 			sourceTree = "<group>";
 		};
+		426BC3971CBA97F400B3B827 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				426BC3981CBA980B00B3B827 /* Cell */,
+			);
+			path = Discovery;
+			sourceTree = "<group>";
+		};
+		426BC3981CBA980B00B3B827 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				426BC3991CBA982B00B3B827 /* GCDiscoveryCell.h */,
+				426BC39A1CBA982B00B3B827 /* GCDiscoveryCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		4282605C1B84CA51007CBCF4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -1425,6 +1446,7 @@
 				046DB76C1BFC6F9700E05E17 /* TFHppleElement.m in Sources */,
 				423889071BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
 				045F2F481BE0C9BB0024C9FC /* GCMyThreadModel.m in Sources */,
+				426BC39B1CBA982B00B3B827 /* GCDiscoveryCell.m in Sources */,
 				045F2F571BE0D0D40024C9FC /* GCMyFavThreadModel.m in Sources */,
 				423888FA1BC57D0F002E1625 /* DGActivityIndicatorBallScaleAnimation.m in Sources */,
 				423888A01BC57CA6002E1625 /* MJRefreshAutoStateFooter.m in Sources */,

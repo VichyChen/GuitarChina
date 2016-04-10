@@ -7,7 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCBaseViewController.h"
 
-@interface GCDiscoveryTableViewController : UIViewController
+typedef NS_ENUM(NSInteger, GCDiscoveryTableViewType) {
+    GCDiscoveryTableViewTypeHot,
+    GCDiscoveryTableViewTypeNew,
+    GCDiscoveryTableViewTypeSofa,
+    GCDiscoveryTableViewTypeDigest
+};
+
+@interface GCDiscoveryTableViewController : GCBaseViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, assign) GCDiscoveryTableViewType discoveryTableViewType;
+
+@property (nonatomic, strong) UITableView *tableView;
+
+@property (nonatomic, strong) NSMutableArray *data;
+
+@property (nonatomic, strong) NSMutableArray *rowHeightArray;
+
+@property (nonatomic, assign) NSInteger pageIndex;
 
 @end
