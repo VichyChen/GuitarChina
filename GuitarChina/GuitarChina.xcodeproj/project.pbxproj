@@ -133,6 +133,7 @@
 		42657DDC1B99CAA2001F8DFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42657DDE1B99CAA2001F8DFC /* Localizable.strings */; };
 		426BC38F1CB9F8BC00B3B827 /* GCDiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC38E1CB9F8BC00B3B827 /* GCDiscoveryViewController.m */; };
 		426BC3931CB9FA9800B3B827 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC3921CB9FA9800B3B827 /* HMSegmentedControl.m */; };
+		426BC3961CBA793A00B3B827 /* GCDiscoveryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC3951CBA793A00B3B827 /* GCDiscoveryTableViewController.m */; };
 		426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */; };
 		4277FC8D1B99E43F002BE7FC /* GCAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4277FC8C1B99E43F002BE7FC /* GCAboutViewController.m */; };
 		428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 428260671B84CE03007CBCF4 /* GCNetworkManager.m */; };
@@ -405,6 +406,8 @@
 		426BC38E1CB9F8BC00B3B827 /* GCDiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscoveryViewController.m; sourceTree = "<group>"; };
 		426BC3911CB9FA9800B3B827 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		426BC3921CB9FA9800B3B827 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		426BC3941CBA793A00B3B827 /* GCDiscoveryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscoveryTableViewController.h; sourceTree = "<group>"; };
+		426BC3951CBA793A00B3B827 /* GCDiscoveryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscoveryTableViewController.m; sourceTree = "<group>"; };
 		426E7CA41B88E89100BE70D9 /* GCThreadDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailModel.h; sourceTree = "<group>"; };
 		426E7CA51B88E89100BE70D9 /* GCThreadDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailModel.m; sourceTree = "<group>"; };
 		4277FC8B1B99E43F002BE7FC /* GCAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCAboutViewController.h; path = ../GCAboutViewController.h; sourceTree = "<group>"; };
@@ -1089,6 +1092,8 @@
 			children = (
 				426BC38D1CB9F8BC00B3B827 /* GCDiscoveryViewController.h */,
 				426BC38E1CB9F8BC00B3B827 /* GCDiscoveryViewController.m */,
+				426BC3941CBA793A00B3B827 /* GCDiscoveryTableViewController.h */,
+				426BC3951CBA793A00B3B827 /* GCDiscoveryTableViewController.m */,
 			);
 			path = Discovery;
 			sourceTree = "<group>";
@@ -1434,6 +1439,7 @@
 				420D98821B929C2B00AEAED3 /* GCNavigationController.m in Sources */,
 				046DB7621BFC6F1900E05E17 /* DOPNavbarMenu.m in Sources */,
 				426E7CA61B88E89100BE70D9 /* GCThreadDetailModel.m in Sources */,
+				426BC3961CBA793A00B3B827 /* GCDiscoveryTableViewController.m in Sources */,
 				4260C6971BB64AB700705BE0 /* Util.m in Sources */,
 				0459674A1BC7A47D000181DE /* RTLabel.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,
