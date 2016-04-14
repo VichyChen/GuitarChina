@@ -77,20 +77,24 @@
     
     GCGuideThreadArray *array = [[GCGuideThreadArray alloc] init];
     array.data = [NSMutableArray array];
-    for (int i = 0; i < tidArray.count; i++) {
-        GCGuideThreadModel *model = [[GCGuideThreadModel alloc] init];
-        model.tid = [[tidArray[i] objectForKey:@"id"] split:@"_"][1];
-        model.subject = ((TFHppleElement *)subjectArray[i]).content;
-        model.author = ((TFHppleElement *)authorArray[i]).content;
-        model.authorid = [((NSString *)[[authoridArray[i] objectForKey:@"href"] split:@"."][0]) split:@"-"][2];
-        model.dateline = ((TFHppleElement *)datelineArray[i]).content;
-        model.forum = ((TFHppleElement *)forumArray[i]).content;
-        model.fid = [[fidArray[i] objectForKey:@"href"] split:@"-"][1];
-        model.replies = ((TFHppleElement *)repliesArray[i]).content;
-        model.views = ((TFHppleElement *)viewsArray[i]).content;
-        model.lastposter = ((TFHppleElement *)lastposterArray[i]).content;
-        model.lastpost = ((TFHppleElement *)lastpostArray[i]).content;
-        [array.data addObject:model];
+    if (tidArray.count == 1 && subjectArray.count == 0 && [((TFHppleElement *)tidArray[0]).content isEqualToString:@"暂时还没有帖子"]) {
+    }
+    else {
+        for (int i = 0; i < tidArray.count; i++) {
+            GCGuideThreadModel *model = [[GCGuideThreadModel alloc] init];
+            model.tid = [[tidArray[i] objectForKey:@"id"] split:@"_"][1];
+            model.subject = ((TFHppleElement *)subjectArray[i]).content;
+            model.author = ((TFHppleElement *)authorArray[i]).content;
+            model.authorid = [((NSString *)[[authoridArray[i] objectForKey:@"href"] split:@"."][0]) split:@"-"][2];
+            model.dateline = ((TFHppleElement *)datelineArray[i]).content;
+            model.forum = ((TFHppleElement *)forumArray[i]).content;
+            model.fid = [[fidArray[i] objectForKey:@"href"] split:@"-"][1];
+            model.replies = ((TFHppleElement *)repliesArray[i]).content;
+            model.views = ((TFHppleElement *)viewsArray[i]).content;
+            model.lastposter = ((TFHppleElement *)lastposterArray[i]).content;
+            model.lastpost = ((TFHppleElement *)lastpostArray[i]).content;
+            [array.data addObject:model];
+        }
     }
     
     return array;
