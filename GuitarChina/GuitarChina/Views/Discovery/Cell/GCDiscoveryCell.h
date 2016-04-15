@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCGuideThreadModel.h"
 
 @interface GCDiscoveryCell : UITableViewCell
+
+@property (nonatomic, strong) GCGuideThreadModel *model;
+
++ (CGFloat)getCellHeightWithModel:(GCGuideThreadModel *)model;
 
 @end

@@ -10,14 +10,39 @@
 
 @implementation GCDiscoveryCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+        self.selectedBackgroundView.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
+        [self configureView];
+    }
+    return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+}
 
-    // Configure the view for the selected state
+#pragma mark - Private Method
+
+- (void)configureView {
+
+}
+
+#pragma mark - Class Method
+
++ (CGFloat)getCellHeightWithModel:(GCGuideThreadModel *)model {
+    return 200;
+}
+
+#pragma mark - Setters
+
+- (void)setModel:(GCGuideThreadModel *)model {
+    _model = model;
+    
 }
 
 @end
