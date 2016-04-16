@@ -16,6 +16,8 @@
 
 + (UIColor *)GCRedColor;
 
++ (UIColor *)GCLightRedColor;
+
 + (UIColor *)GCBlueColor;
 
 //分割线

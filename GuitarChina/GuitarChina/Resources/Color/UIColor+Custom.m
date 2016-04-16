@@ -24,6 +24,10 @@
     return [UIColor colorWithRed:0.600 green:0.004 blue:0.000 alpha:1.00];
 }
 
++ (UIColor *)GCLightRedColor {
+    return [UIColor colorWithRed:0.941f green:0.000f blue:0.017f alpha:1.00f];
+}
+
 //#4C85A3
 + (UIColor *)GCBlueColor {
     return [UIColor colorWithRed:0.302f green:0.524f blue:0.639f alpha:1.00f];

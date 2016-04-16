@@ -12,6 +12,7 @@
 #import "GCThreadDetailViewController.h"
 #import "MJRefresh.h"
 #import "GCParseHTML.h"
+#import "GCForumDisplayViewController.h"
 
 @interface GCDiscoveryTableViewController ()
 
@@ -49,7 +50,16 @@
         cell = [[GCDiscoveryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     GCGuideThreadModel *model = [self.data objectAtIndex:indexPath.row];
-    cell.textLabel.text = model.subject;
+    cell.model = model;
+    @weakify(self);
+    cell.forumButtonBlock = ^{
+        @strongify(self);
+        GCForumDisplayViewController *controller = [[GCForumDisplayViewController alloc] init];
+        controller.hidesBottomBarWhenPushed = YES;
+        controller.title = model.forum;
+        controller.fid = model.fid;
+        [self.navigationController pushViewController:controller animated:YES];
+    };
     
     return cell;
 }
@@ -66,7 +76,8 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44;
+    NSNumber *height = [self.rowHeightArray objectAtIndex:indexPath.row];
+    return [height floatValue];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,7 +114,7 @@
                 [self.rowHeightArray removeAllObjects];
             }
             for (GCGuideThreadModel *model in self.data) {
-//                [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCHotThreadCell getCellHeightWithModel:model]]];
+                [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCDiscoveryCell getCellHeightWithModel:model]]];
             }
             [self.tableView reloadData];
             [self.tableView.header endRefreshing];

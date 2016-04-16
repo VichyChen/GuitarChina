@@ -59,6 +59,15 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.frame = CGRectMake(0, 0, 100, 44);
+    label.text = @"吉他中国";
+    label.textColor = [UIColor GCBlackFontColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:16];
+    self.navigationItem.titleView = label;
+    
     [self.view addSubview:self.segmentedControl];
     [self.view addSubview:self.scrollView];
     
@@ -122,6 +131,7 @@
         _scrollView.contentSize = CGSizeMake(ScreenWidth * 4, ScreenHeight - 64 - self.segmentedControl.frame.size.height - 44);
         _scrollView.pagingEnabled = YES;
         _scrollView.scrollEnabled = YES;
+        _scrollView.backgroundColor = [UIColor whiteColor];
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.delegate = self;

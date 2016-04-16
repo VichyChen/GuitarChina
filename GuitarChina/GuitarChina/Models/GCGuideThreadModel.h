@@ -22,6 +22,9 @@
 @property (nonatomic, copy) NSString *views;        //浏览数
 @property (nonatomic, copy) NSString *replies;      //回复数
 
+@property (nonatomic, copy) NSMutableAttributedString *lastPosterDetailString;
+@property (nonatomic, copy) NSMutableAttributedString *replyAndViewDetailString;
+
 @end
 
 @interface GCGuideThreadArray : NSObject
