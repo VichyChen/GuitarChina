@@ -47,7 +47,7 @@
     self.authorLabel.frame = CGRectMake(65, 8, ScreenWidth - 65, 20);
     self.datelineLabel.frame = CGRectMake(65, 33, ScreenWidth - 65, 20);
     self.subjectLabel.frame = CGRectMake(15, 60, SubjectWidth, self.subjectLabelHeight);
-    self.forumButton.frame = CGRectMake(15, 60 + self.subjectLabelHeight, 150, 26);
+    self.forumButton.frame = CGRectMake(15, 60 + self.subjectLabelHeight + 2, 150, 26);
     [self.forumButton sizeToFit];
     self.lastPostDetailLabel.frame = CGRectMake(15, self.forumButton.frame.origin.y + self.forumButton.frame.size.height, SubjectWidth, 20);
     self.repliesLabel.frame = CGRectMake(15, 8, SubjectWidth, 20);
@@ -69,7 +69,7 @@
 
 + (CGFloat)getCellHeightWithModel:(GCGuideThreadModel *)model {
     CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.subject fontSize:16 width:SubjectWidth];
-    return subjectLabelHeight + 116;
+    return subjectLabelHeight + 118;
 }
 
 #pragma mark - Event Responses
