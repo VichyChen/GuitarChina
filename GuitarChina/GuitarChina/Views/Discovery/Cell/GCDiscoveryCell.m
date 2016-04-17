@@ -134,7 +134,7 @@
         _subjectLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:16]
-                                  textColor:[UIColor GCBlackFontColor]
+                                  textColor:[UIColor GCDarkGrayFontColor]
                               numberOfLines:0
                     preferredMaxLayoutWidth:SubjectWidth];
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;

@@ -86,7 +86,7 @@
         _nameLabel = [UIView createLabel:CGRectZero
                                     text:@""
                                     font:[UIFont systemFontOfSize:16]
-                               textColor:[UIColor GCBlackFontColor]];
+                               textColor:[UIColor GCDarkGrayFontColor]];
     }
     return _nameLabel;
 }
