@@ -111,7 +111,7 @@
 
 - (HMSegmentedControl *)segmentedControl {
     if (!_segmentedControl) {
-        _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"最热", @"最新", @"抢沙发", @"精华"]];
+        _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[NSLocalizedString(@"Hottest", nil), NSLocalizedString(@"Newest", nil), NSLocalizedString(@"Sofa", nil), NSLocalizedString(@"Essence", nil)]];
         _segmentedControl.frame = CGRectMake(0, 64, ScreenWidth, 40);
         _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationNone;
         _segmentedControl.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
