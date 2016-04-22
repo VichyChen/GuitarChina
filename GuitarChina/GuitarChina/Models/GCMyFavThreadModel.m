@@ -49,8 +49,8 @@
                 model.dateline         = [item objectForKey:@"dateline"];
                 model.icon             = [item objectForKey:@"icon"];
                 model.url              = [item objectForKey:@"url"];
-                model.replies          = [item objectForKey:@"replies"];
-                model.author           = [item objectForKey:@"author"];
+                model.replies          = [[item objectForKey:@"replies"] isKindOfClass:[NSNull class]] ? @"" : [item objectForKey:@"replies"];
+                model.author           = [[item objectForKey:@"author"] isKindOfClass:[NSNull class]] ? @"" : [item objectForKey:@"author"];
                 [array addObject:model];
             }
         }
