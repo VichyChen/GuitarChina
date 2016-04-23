@@ -69,7 +69,7 @@
 
 + (CGFloat)getCellHeightWithModel:(GCGuideThreadModel *)model {
     CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.subject fontSize:16 width:SubjectWidth];
-    return subjectLabelHeight + 118;
+    return subjectLabelHeight + 117;
 }
 
 #pragma mark - Event Responses

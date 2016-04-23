@@ -63,7 +63,7 @@
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(0, 0, 100, 44);
     label.text = NSLocalizedString(@"GuitarChina", nil);
-    label.textColor = [UIColor GCBlackFontColor];
+    label.textColor = [UIColor GCDarkGrayFontColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont systemFontOfSize:16];
     self.navigationItem.titleView = label;
