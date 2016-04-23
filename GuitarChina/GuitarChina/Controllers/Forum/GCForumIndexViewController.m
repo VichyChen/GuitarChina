@@ -147,7 +147,7 @@
                     for (GCForumModel *tempForumModel in tempForumGroupModel.forums) {
                         if ([browseArray containsObject:tempForumModel.fid]) {
                             for (int i = 0; i < browseArray.count; i++) {
-                                if (browseArray[i] == tempForumModel.fid) {
+                                if ([browseArray[i] isEqualToString:tempForumModel.fid]) {
                                     [forumGroupModel.forums replaceObjectAtIndex:i withObject:[tempForumModel copy]];
 //                                    ((GCForumModel *)forumGroupModel.forums[i]).todayposts = @"0";
                                     break;
