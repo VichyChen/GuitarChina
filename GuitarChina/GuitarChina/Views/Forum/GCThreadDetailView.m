@@ -271,22 +271,24 @@
 
 - (UIButton *)previousPageButton {
     if (!_previousPageButton) {
-        _previousPageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 40 - 40, 0, 40, 40)
+        _previousPageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 40 - 60, 0, 60, 40)
                                     target:self
                                     action:@selector(backAction)];
-        [_previousPageButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
+//        [_previousPageButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
         _previousPageButton.tintColor = [UIColor GCDarkGrayFontColor];
+        [_previousPageButton setTitle:NSLocalizedString(@"Prev", nil) forState:UIControlStateNormal];
     }
     return _previousPageButton;
 }
 
 - (UIButton *)nextPageButton {
     if (!_nextPageButton) {
-        _nextPageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 + 40, 0, 40, 40)
+        _nextPageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 + 40, 0, 60, 40)
                                        target:self
                                        action:@selector(forwardAction)];
-        [_nextPageButton setImage:[UIImage imageNamed:@"icon_forward"] forState:UIControlStateNormal];
+//        [_nextPageButton setImage:[UIImage imageNamed:@"icon_forward"] forState:UIControlStateNormal];
         _nextPageButton.tintColor = [UIColor GCDarkGrayFontColor];
+        [_nextPageButton setTitle:NSLocalizedString(@"Next", nil) forState:UIControlStateNormal];
     }
     return _nextPageButton;
 }

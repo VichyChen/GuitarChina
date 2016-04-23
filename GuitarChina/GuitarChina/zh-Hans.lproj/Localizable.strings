@@ -30,6 +30,9 @@
 "Copy URL" = "复制链接";
 "Refresh" = "刷新";
 
+"Prev" = "上一页";
+"Next" = "下一页";
+
 "Wechat Session" = "微信好友";
 "Wechat Timeline" = "朋友圈";
 "QQ" = "QQ好友";
