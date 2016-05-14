@@ -426,4 +426,53 @@ typedef NS_ENUM(NSInteger, GCRequestType) {
                     }];
 }
 
+- (void)getSearchSuccess:(void (^)(NSData *htmlData))success
+                 failure:(void (^)(NSError *error))failure {
+    [self requestWebWithURL:@"http://bbs.guitarchina.com/search.php"
+                 parameters:nil
+                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
+                        TFHppleElement *imgElement = [[xpathParser searchWithXPathQuery:@"//input[@name='formhash']"] objectAtIndex:0];
+                        NSString *value = [imgElement.attributes objectForKey:@"value"];
+                        
+                        NSDictionary *parameters = @{@"formhash" : value,
+                                                     @"srchtxt" : @"泰勒210",
+                                                     @"searchsubmit" : @"yes"};
+                        [self requestCommonMethod:GCRequestHttpPost url:@"http://bbs.guitarchina.com/search.php?mod=forum" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            NSLog(@"%@", operation.responseString);
+                            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)operation.response;
+                            if ([httpResponse respondsToSelector:@selector(allHeaderFields)]) {
+                                NSDictionary *dictionary = [httpResponse allHeaderFields];
+                                NSLog(@"%@", [dictionary description]);
+                                NSLog(@"%@", operation.response.URL);
+                            }
+                            
+                            NSString *page2 = [[operation.response.URL absoluteString] stringByAppendingFormat:@"&page=%ld", 2];
+                            //                            [self requestCommonMethod:GCRequestHttpPost url:page2 parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                            //                                NSLog(@"%@", operation.responseString);
+                            //                                success(nil);
+                            //                            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                            //                                failure(error);
+                            //                            }];
+                            [self requestWebWithURL:page2
+                                         parameters:nil
+                                            success:^(NSURLSessionDataTask *task, id responseObject) {
+                                                NSLog(@"HTML: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+                                            } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                                NSLog(@"HTML: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+                                                
+                                            }];
+                            
+                            
+                            success(nil);
+                        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                            failure(error);
+                        }];
+                        
+                        success(nil);
+                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        failure(error);
+                    }];
+}
+
 @end

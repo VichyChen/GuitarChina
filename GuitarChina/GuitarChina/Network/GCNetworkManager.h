@@ -144,4 +144,7 @@
                                  success:(void (^)(NSData *htmlData))success
                                  failure:(void (^)(NSError *error))failure;
 
+- (void)getSearchSuccess:(void (^)(NSData *htmlData))success
+                 failure:(void (^)(NSError *error))failure;
+
 @end
