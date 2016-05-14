@@ -132,7 +132,7 @@
     @weakify(self);
     self.refreshBlock = ^{
         @strongify(self);
-        [[GCNetworkManager manager] getForumIndexSuccess:^(GCForumIndexArray *array) {
+        [GCNetworkManager getForumIndexSuccess:^(GCForumIndexArray *array) {
             self.data = array.data;
             
             //增加最近浏览分类

@@ -1,14 +1,14 @@
 //
-//  GCParseHTML.h
+//  GCHTMLParse.h
 //  GuitarChina
 //
-//  Created by mac on 16/4/3.
+//  Created by 陈大捷 on 16/5/14.
 //  Copyright © 2016年 陈大捷. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface GCParseHTML : NSObject
+@interface GCHTMLParse : NSObject
 
 + (void)parseLoginWeb:(NSData *)htmlData
                result:(void (^)(NSString *seccode, NSString *formhash, NSString *postURL, NSArray *questionArray))result;

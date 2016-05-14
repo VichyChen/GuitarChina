@@ -76,7 +76,7 @@
     @weakify(self);
     self.refreshBlock = ^{
         @strongify(self);
-        [[GCNetworkManager manager] getMyThreadSuccess:^(GCMyThreadArray *array) {
+        [GCNetworkManager getMyThreadSuccess:^(GCMyThreadArray *array) {
             self.data = array.data;
             [self.rowHeightArray removeAllObjects];
             for (GCMyThreadModel *model in self.data) {

@@ -9,7 +9,7 @@
 
 #import "GCLoginViewController.h"
 #import "GCWebViewController.h"
-#import "GCParseHtml.h"
+#import "GCHTMLParse.h"
 
 @interface GCLoginViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -245,7 +245,7 @@
     //    self.loginBlock = ^{
     //        @strongify(self);
     //        self.loginView.loginButton.enabled = NO;
-    //        [[GCNetworkManager manager] postLoginWithUsername:self.loginView.usernameTextField.text password:self.loginView.passwordTextField.text Success:^(GCLoginModel *model) {
+    //        [GCNetworkManager postLoginWithUsername:self.loginView.usernameTextField.text password:self.loginView.passwordTextField.text Success:^(GCLoginModel *model) {
     //            if ([model.message.messageval isEqualToString:@"login_succeed"]) {
     //                APP.tabBarController.selectedIndex = 2;
     //
@@ -270,8 +270,8 @@
     
     self.getLoginWebBlock = ^{
         @strongify(self);
-        [[GCNetworkManager manager] getLoginWebSuccess:^(NSData *htmlData) {
-            [GCParseHTML parseLoginWeb:htmlData result:^(NSString *seccode, NSString *formhash, NSString *postURL, NSArray *questionArray) {
+        [GCNetworkManager getLoginWebSuccess:^(NSData *htmlData) {
+            [GCHTMLParse parseLoginWeb:htmlData result:^(NSString *seccode, NSString *formhash, NSString *postURL, NSArray *questionArray) {
                 self.seccode = seccode;
                 self.formhash = formhash;
                 self.postURL = postURL;
@@ -287,10 +287,10 @@
     
     self.getSeccodeVerifyImageBlock = ^(NSString *seccode) {
         @strongify(self);
-        [[GCNetworkManager manager] getSeccodeVerifyImage:self.seccode success:^(NSData *htmlData) {
+        [GCNetworkManager getSeccodeVerifyImage:self.seccode success:^(NSData *htmlData) {
             
-            NSString *image = [GCParseHTML parseSeccodeVerifyImage:htmlData];
-            [[GCNetworkManager manager] downloadSeccodeVerifyImageWithURL:image success:^(UIImage *image) {
+            NSString *image = [GCHTMLParse parseSeccodeVerifyImage:htmlData];
+            [GCNetworkManager downloadSeccodeVerifyImageWithURL:image success:^(UIImage *image) {
                 self.seccodeVerifyImageView.image = image;
             } failure:^(NSError *error) {
                 [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
@@ -305,7 +305,7 @@
         @strongify(self);
         
         NSString *fastLoginType = [self.usernameTextField.text containString:@"@"] ? @"email" : @"username";
-        [[GCNetworkManager manager] postLoginWithUsername:self.usernameTextField.text password:self.passwordTextField.text fastloginfield:fastLoginType seccodeverify:self.seccodeVerifyTextField.text questionid:[NSString stringWithFormat:@"%ld", (long)self.questionIndex] answer:self.answerTextField.text seccodehash:self.seccode formhash:self.formhash postURL:self.postURL success:^(NSString *html) {
+        [GCNetworkManager postLoginWithUsername:self.usernameTextField.text password:self.passwordTextField.text fastloginfield:fastLoginType seccodeverify:self.seccodeVerifyTextField.text questionid:[NSString stringWithFormat:@"%ld", (long)self.questionIndex] answer:self.answerTextField.text seccodehash:self.seccode formhash:self.formhash postURL:self.postURL success:^(NSString *html) {
             NSLog(@"%@", html);
             if ([html rangeOfString:@"现在将转入登录前页面"].location != NSNotFound && ([html rangeOfString:@"点击此链接进行跳转"].location != NSNotFound || [html rangeOfString:@"如果您的浏览器没有自动跳转，请点击此链接"].location != NSNotFound)) {
                 NSLog(@"login success");

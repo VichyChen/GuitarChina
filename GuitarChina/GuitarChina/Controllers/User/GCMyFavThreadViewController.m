@@ -76,7 +76,7 @@
     @weakify(self);
     self.refreshBlock = ^{
         @strongify(self);
-        [[GCNetworkManager manager] getMyFavThreadSuccess:^(GCMyFavThreadArray *array) {
+        [GCNetworkManager getMyFavThreadSuccess:^(GCMyFavThreadArray *array) {
             self.data = array.data;
             [self.rowHeightArray removeAllObjects];
             for (GCMyFavThreadModel *model in self.data) {

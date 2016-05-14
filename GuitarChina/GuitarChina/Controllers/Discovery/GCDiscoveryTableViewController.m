@@ -11,7 +11,7 @@
 #import "GCGuideThreadModel.h"
 #import "GCThreadDetailViewController.h"
 #import "MJRefresh.h"
-#import "GCParseHTML.h"
+#import "GCHTMLParse.h"
 #import "GCForumDisplayViewController.h"
 
 @interface GCDiscoveryTableViewController ()
@@ -108,7 +108,7 @@
         @strongify(self);
     
         void (^successBlock)(NSData *htmlData) = ^(NSData *htmlData) {
-            GCGuideThreadArray *array = [GCParseHTML parseGuideThread:htmlData];
+            GCGuideThreadArray *array = [GCHTMLParse parseGuideThread:htmlData];
             self.data = array.data;
             if (self.pageIndex == 1) {
                 [self.rowHeightArray removeAllObjects];
@@ -129,7 +129,7 @@
         switch (self.discoveryTableViewType) {
             case GCDiscoveryTableViewTypeHot:
             {
-                [[GCNetworkManager manager] getGuideHotSuccessWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
+                [GCNetworkManager getGuideHotSuccessWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
                     successBlock(htmlData);
                 } failure:^(NSError *error) {
                     failureBlock();
@@ -139,7 +139,7 @@
             
             case GCDiscoveryTableViewTypeNew:
             {
-                [[GCNetworkManager manager] getGuideNewSuccessWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
+                [GCNetworkManager getGuideNewSuccessWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
                     successBlock(htmlData);
                 } failure:^(NSError *error) {
                     failureBlock();
@@ -149,7 +149,7 @@
             
             case GCDiscoveryTableViewTypeSofa:
             {
-                [[GCNetworkManager manager] getGuideSofaSuccessWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
+                [GCNetworkManager getGuideSofaSuccessWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
                     successBlock(htmlData);
                 } failure:^(NSError *error) {
                     failureBlock();
@@ -159,7 +159,7 @@
             
             case GCDiscoveryTableViewTypeDigest:
             {
-                [[GCNetworkManager manager] getGuideDigestSuccessWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
+                [GCNetworkManager getGuideDigestSuccessWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
                     successBlock(htmlData);
                 } failure:^(NSError *error) {
                     failureBlock();

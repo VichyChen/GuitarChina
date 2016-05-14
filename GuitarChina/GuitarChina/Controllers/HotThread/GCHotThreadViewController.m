@@ -80,7 +80,7 @@
     @weakify(self);
     self.refreshBlock = ^{
         @strongify(self);
-        [[GCNetworkManager manager] getHotThreadSuccess:^(GCHotThreadArray *array) {
+        [GCNetworkManager getHotThreadSuccess:^(GCHotThreadArray *array) {
             self.data = array.data;
             [self.rowHeightArray removeAllObjects];
             for (GCHotThreadModel *model in self.data) {

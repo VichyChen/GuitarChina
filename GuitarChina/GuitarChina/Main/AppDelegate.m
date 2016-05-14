@@ -22,7 +22,7 @@
 #import "GCReplyThreadViewController.h"
 #import "GCReportThreadViewController.h"
 
-#import "GCParseHTML.h"
+#import "GCHTMLParse.h"
 
 @interface AppDelegate ()
 
@@ -34,7 +34,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [[GCNetworkManager manager] getSearchSuccess:^(NSData *htmlData) {
+    [GCNetworkManager getSearchSuccess:^(NSData *htmlData) {
         NSLog(@"%@", htmlData);
     } failure:^(NSError *error) {
         
