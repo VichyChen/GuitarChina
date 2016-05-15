@@ -44,7 +44,6 @@
 		046DB76B1BFC6F9700E05E17 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB7661BFC6F9700E05E17 /* TFHpple.m */; };
 		046DB76C1BFC6F9700E05E17 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB7681BFC6F9700E05E17 /* TFHppleElement.m */; };
 		046DB76D1BFC6F9700E05E17 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB76A1BFC6F9700E05E17 /* XPathQuery.m */; };
-		046F9E631BC618DC0044EB1D /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E611BC618DC0044EB1D /* GuitarChina.xcdatamodeld */; };
 		046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E661BC6192F0044EB1D /* AppDelegate.m */; };
 		046F9E691BC6192F0044EB1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E671BC6192F0044EB1D /* main.m */; };
 		047125911BCDF478000C8BC1 /* GCThreadWebView.css in Resources */ = {isa = PBXBuildFile; fileRef = 047125901BCDF478000C8BC1 /* GCThreadWebView.css */; };
@@ -71,6 +70,7 @@
 		420FAC941CA6EC4000E6C237 /* GCGuideThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 420FAC931CA6EC4000E6C237 /* GCGuideThreadModel.m */; };
 		421191C41CE6D03800BCFF3E /* GCHTMLParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 421191C31CE6D03800BCFF3E /* GCHTMLParse.m */; };
 		421191C71CE6D16600BCFF3E /* GCNetworkBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 421191C61CE6D16600BCFF3E /* GCNetworkBase.m */; };
+		421191D31CE8558B00BCFF3E /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 421191D11CE8558B00BCFF3E /* GuitarChina.xcdatamodeld */; };
 		4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A6671B9A7C78005D2164 /* EXTScope.m */; };
 		4219A66C1B9A8086005D2164 /* GCHotThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A66B1B9A8086005D2164 /* GCHotThreadModel.m */; };
 		423888991BC57CA6002E1625 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238886F1BC57CA6002E1625 /* MJRefreshAutoFooter.m */; };
@@ -230,7 +230,6 @@
 		046DB7681BFC6F9700E05E17 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
 		046DB7691BFC6F9700E05E17 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
 		046DB76A1BFC6F9700E05E17 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
-		046F9E621BC618DC0044EB1D /* GuitarChina.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GuitarChina.xcdatamodel; sourceTree = "<group>"; };
 		046F9E651BC6192F0044EB1D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		046F9E661BC6192F0044EB1D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		046F9E671BC6192F0044EB1D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -281,6 +280,7 @@
 		421191C31CE6D03800BCFF3E /* GCHTMLParse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHTMLParse.m; sourceTree = "<group>"; };
 		421191C51CE6D16600BCFF3E /* GCNetworkBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkBase.h; sourceTree = "<group>"; };
 		421191C61CE6D16600BCFF3E /* GCNetworkBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNetworkBase.m; sourceTree = "<group>"; };
+		421191D21CE8558B00BCFF3E /* GuitarChina.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GuitarChina.xcdatamodel; sourceTree = "<group>"; };
 		4219A6661B9A7C78005D2164 /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScope.h; sourceTree = "<group>"; };
 		4219A6671B9A7C78005D2164 /* EXTScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTScope.m; sourceTree = "<group>"; };
 		4219A6681B9A7C78005D2164 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
@@ -818,6 +818,14 @@
 			path = HTMLParse;
 			sourceTree = "<group>";
 		};
+		421191D01CE8558300BCFF3E /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				421191D11CE8558B00BCFF3E /* GuitarChina.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		4219A6611B9A7C67005D2164 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1044,6 +1052,7 @@
 				420D98721B929AA700AEAED3 /* Controllers */,
 				046262281BA94D2B00E66F03 /* Views */,
 				42F468991B87797C0010DA70 /* Models */,
+				421191D01CE8558300BCFF3E /* Core Data */,
 				4282605C1B84CA51007CBCF4 /* Network */,
 				047150DD1BEDB409007A8890 /* Services */,
 				420D985D1B9297F600AEAED3 /* Additions */,
@@ -1145,8 +1154,6 @@
 		42F468991B87797C0010DA70 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				42F755871CA7032F00D34596 /* CoreData */,
-				046F9E611BC618DC0044EB1D /* GuitarChina.xcdatamodeld */,
 				428F71181B89ACB90023E501 /* GCBaseModel.h */,
 				428F71191B89ACB90023E501 /* GCBaseModel.m */,
 				428F711B1B89AD670023E501 /* GCBaseNoticeModel.h */,
@@ -1173,13 +1180,6 @@
 				420FAC931CA6EC4000E6C237 /* GCGuideThreadModel.m */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		42F755871CA7032F00D34596 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = CoreData;
 			sourceTree = "<group>";
 		};
 		AB640BEDEDAD0ED6AD1E1485 /* Pods */ = {
@@ -1373,7 +1373,6 @@
 				4238889D1BC57CA6002E1625 /* MJRefreshHeader.m in Sources */,
 				045F2F511BE0CBB80024C9FC /* GCMyThreadViewController.m in Sources */,
 				0426CD9C1BE73F5600BE85D8 /* GCThreadDetailView.m in Sources */,
-				046F9E631BC618DC0044EB1D /* GuitarChina.xcdatamodeld in Sources */,
 				4277FC8D1B99E43F002BE7FC /* GCAboutViewController.m in Sources */,
 				4238889F1BC57CA6002E1625 /* MJRefreshAutoNormalFooter.m in Sources */,
 				0426CD981BE73F3000BE85D8 /* GCMyFavThreadCell.m in Sources */,
@@ -1387,6 +1386,7 @@
 				046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */,
 				423889001BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
 				0426CD8B1BE73F0E00BE85D8 /* GCForumIndexCell.m in Sources */,
+				421191D31CE8558B00BCFF3E /* GuitarChina.xcdatamodeld in Sources */,
 				045F2F361BE0B6B10024C9FC /* GCUserInfoViewController.m in Sources */,
 				0488C0A41C78F17E00920E72 /* GCUserOtherViewController.m in Sources */,
 				423889021BC57D0F002E1625 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
@@ -1775,12 +1775,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		046F9E611BC618DC0044EB1D /* GuitarChina.xcdatamodeld */ = {
+		421191D11CE8558B00BCFF3E /* GuitarChina.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				046F9E621BC618DC0044EB1D /* GuitarChina.xcdatamodel */,
+				421191D21CE8558B00BCFF3E /* GuitarChina.xcdatamodel */,
 			);
-			currentVersion = 046F9E621BC618DC0044EB1D /* GuitarChina.xcdatamodel */;
+			currentVersion = 421191D21CE8558B00BCFF3E /* GuitarChina.xcdatamodel */;
 			path = GuitarChina.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
