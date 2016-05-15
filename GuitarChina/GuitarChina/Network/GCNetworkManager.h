@@ -14,7 +14,6 @@
 #import "GCForumIndexModel.h"
 #import "GCForumDisplayModel.h"
 #import "GCThreadDetailModel.h"
-#import "GCLoginModel.h"
 #import "GCMyFavThreadModel.h"
 #import "GCMyThreadModel.h"
 #import "GCSendReplyModel.h"
