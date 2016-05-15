@@ -34,16 +34,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [GCNetworkManager getSearchSuccess:^(NSData *htmlData) {
-        NSLog(@"%@", htmlData);
+    [GCNetworkManager getSearchWithKeyWord:@"泰勒210" pageIndex:1 Success:^(NSData *htmlData) {
+        
+        [GCNetworkManager getSearchWithKeyWord:@"泰勒210" pageIndex:2 Success:^(NSData *htmlData) {
+            
+        } failure:^(NSError *error) {
+            
+        }];
+
     } failure:^(NSError *error) {
         
     }];
     
+    
     if ([self firstStart]) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCAUTOSWITCHNIGHTMODE];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCLOADIMAGE];
-        [[NSUserDefaults standardUserDefaults] setObject:@[] forKey:kFORUMBROWSERECORD];
+        [[NSUserDefaults standardUserDefaults] setObject:@[] forKey:kGCFORUMBROWSERECORD];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     

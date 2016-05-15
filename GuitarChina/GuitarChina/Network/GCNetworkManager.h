@@ -136,7 +136,9 @@
                                  success:(void (^)(NSData *htmlData))success
                                  failure:(void (^)(NSError *error))failure;
 
-+ (void)getSearchSuccess:(void (^)(NSData *htmlData))success
-                 failure:(void (^)(NSError *error))failure;
++ (void)getSearchWithKeyWord:(NSString *)keyWord
+                   pageIndex:(NSInteger)pageIndex
+                     Success:(void (^)(NSData *htmlData))success
+                     failure:(void (^)(NSError *error))failure;
 
 @end

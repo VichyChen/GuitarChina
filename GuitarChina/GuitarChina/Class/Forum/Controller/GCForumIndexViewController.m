@@ -112,7 +112,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     //记录论坛浏览记录
-    NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:kFORUMBROWSERECORD]];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:kGCFORUMBROWSERECORD]];
     for (int i = 0; i < array.count; i++) {
         if (array[i] == forumModel.fid) {
             //移除原有浏览记录
@@ -122,7 +122,7 @@
     }
     [array insertObject:forumModel.fid atIndex:0];
     array = [NSMutableArray arrayWithArray:[array subarrayWithRange:NSMakeRange(0, array.count >= 5 ? 5 : array.count)]];
-    [[NSUserDefaults standardUserDefaults] setObject:array forKey:kFORUMBROWSERECORD];
+    [[NSUserDefaults standardUserDefaults] setObject:array forKey:kGCFORUMBROWSERECORD];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -137,7 +137,7 @@
             
             //增加最近浏览分类
             //最近浏览记录
-            NSArray *browseArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:kFORUMBROWSERECORD]];
+            NSArray *browseArray = [NSMutableArray arrayWithArray:[[NSUserDefaults standardUserDefaults] arrayForKey:kGCFORUMBROWSERECORD]];
             if (browseArray.count > 0) {
                 GCForumGroupModel *forumGroupModel = [[GCForumGroupModel alloc] init];
                 forumGroupModel.fid = @"0";

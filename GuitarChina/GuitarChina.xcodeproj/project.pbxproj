@@ -652,6 +652,7 @@
 				4211924B1CE85D3200BCFF3E /* Forum */,
 				421192681CE85D3200BCFF3E /* User */,
 				421192641CE85D3200BCFF3E /* More */,
+				421192FB1CE863CE00BCFF3E /* Search */,
 				421192B91CE85FC200BCFF3E /* Login */,
 			);
 			path = Class;
@@ -980,6 +981,37 @@
 				421192F81CE861AF00BCFF3E /* GCBaseNoticeModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		421192FB1CE863CE00BCFF3E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				421192FC1CE863ED00BCFF3E /* Controller */,
+				421192FD1CE863ED00BCFF3E /* Model */,
+				421192FE1CE863ED00BCFF3E /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		421192FC1CE863ED00BCFF3E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		421192FD1CE863ED00BCFF3E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		421192FE1CE863ED00BCFF3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		4219A6611B9A7C67005D2164 /* Utils */ = {

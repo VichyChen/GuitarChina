@@ -156,26 +156,26 @@
 + (void)getProfileSuccess:(void (^)(GCHotThreadArray *array))success
                   failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:@"http://bbs.guitarchina.com/home.php?mod=space&uid=1627015&do=profile" parameters:nil
-                    success:^(NSURLSessionDataTask *task, id responseObject) {
-//                        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
-//                        NSArray *elements  = [xpathParser searchWithXPathQuery:@"//*[@id='pbbs']/li"];                                            NSLog(@"%ld", elements.count);
-//                        TFHppleElement *element = [elements objectAtIndex:0];
-//                        NSString *elementContent = [element content];
-//                        NSLog(@"result = %@",elementContent);
-                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                    }];
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       //                        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
+                                       //                        NSArray *elements  = [xpathParser searchWithXPathQuery:@"//*[@id='pbbs']/li"];                                            NSLog(@"%ld", elements.count);
+                                       //                        TFHppleElement *element = [elements objectAtIndex:0];
+                                       //                        NSString *elementContent = [element content];
+                                       //                        NSLog(@"result = %@",elementContent);
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                   }];
 }
 
 + (void)getLoginWebSuccess:(void (^)(NSData *htmlData))success
                    failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_URL_LOGIN
-                 parameters:nil
-                    success:^(NSURLSessionDataTask *task, id responseObject) {
-                        success(responseObject);
-                    }
-                    failure:^(NSURLSessionDataTask *task, NSError *error) {
-                        failure(error);
-                    }];
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   }
+                                   failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
 }
 
 + (void)getSeccodeVerifyImage:(NSString *)idhash
@@ -241,109 +241,151 @@
                                 success:(void (^)(NSData *htmlData))success
                                 failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_GUIDEHOT(pageIndex)
-                 parameters:nil
-                    success:^(NSURLSessionDataTask *task, id responseObject) {
-                        success(responseObject);
-                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                        failure(error);
-                    }];
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
 }
 
 + (void)getGuideDigestSuccessWithPageIndex:(NSInteger)pageIndex
                                    success:(void (^)(NSData *htmlData))success
                                    failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_GUIDEDIGEST(pageIndex)
-                 parameters:nil
-                    success:^(NSURLSessionDataTask *task, id responseObject) {
-                        success(responseObject);
-                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                        failure(error);
-                    }];
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
 }
 
 + (void)getGuideNewSuccessWithPageIndex:(NSInteger)pageIndex
                                 success:(void (^)(NSData *htmlData))success
                                 failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_GUIDENEW(pageIndex)
-                 parameters:nil
-                    success:^(NSURLSessionDataTask *task, id responseObject) {
-                        success(responseObject);
-                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                        failure(error);
-                    }];
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
 }
 
 + (void)getGuideNewThreadSuccessWithPageIndex:(NSInteger)pageIndex
                                       success:(void (^)(NSData *htmlData))success
                                       failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_GUIDENEWTHREAD(pageIndex)
-                 parameters:nil
-                    success:^(NSURLSessionDataTask *task, id responseObject) {
-                        success(responseObject);
-                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                        failure(error);
-                    }];
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
 }
 
 + (void)getGuideSofaSuccessWithPageIndex:(NSInteger)pageIndex
                                  success:(void (^)(NSData *htmlData))success
                                  failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_GUIDESOFA(pageIndex)
-                 parameters:nil
-                    success:^(NSURLSessionDataTask *task, id responseObject) {
-                        success(responseObject);
-                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                        failure(error);
-                    }];
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
 }
 
-+ (void)getSearchSuccess:(void (^)(NSData *htmlData))success
-                 failure:(void (^)(NSError *error))failure {
-//    [[GCNetworkBase sharedInstance] get:@"http://bbs.guitarchina.com/search.php" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"%@", operation.responseString);
-//
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"%@", operation.responseString);
-//
-//    }];
-    [[GCNetworkBase sharedInstance] getWeb:@"http://bbs.guitarchina.com/search.php"
-                 parameters:nil
-                    success:^(NSURLSessionDataTask *task, id responseObject) {
-                        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
-                        TFHppleElement *imgElement = [[xpathParser searchWithXPathQuery:@"//input[@name='formhash']"] objectAtIndex:0];
-                        NSString *value = [imgElement.attributes objectForKey:@"value"];
-                        
-                        NSDictionary *parameters = @{@"formhash" : value,
-                                                     @"srchtxt" : @"泰勒210",
-                                                     @"searchsubmit" : @"yes"};
-                        [[GCNetworkBase sharedInstance] postWeb:@"http://bbs.guitarchina.com/search.php?mod=forum" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                            NSLog(@"%@", operation.responseString);
-                            NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)operation.response;
-                            if ([httpResponse respondsToSelector:@selector(allHeaderFields)]) {
-                                NSDictionary *dictionary = [httpResponse allHeaderFields];
-                                NSLog(@"%@", [dictionary description]);
-                                NSLog(@"%@", operation.response.URL);
-                            }
-                            
-                            NSString *page2 = [[operation.response.URL absoluteString] stringByAppendingFormat:@"&page=%ld", 2];
-                            [[GCNetworkBase sharedInstance] getWeb:page2
-                                         parameters:nil
-                                            success:^(NSURLSessionDataTask *task, id responseObject) {
-                                                NSLog(@"HTML: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-                                            } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                                NSLog(@"HTML: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
-                                                
-                                            }];
-                            
-                            success(nil);
-                        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                            failure(error);
-                        }];
-                        
-                        success(nil);
-                    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                        failure(error);
-                    }];
++ (void)getSearchWithKeyWord:(NSString *)keyWord
+                   pageIndex:(NSInteger)pageIndex
+                     Success:(void (^)(NSData *htmlData))success
+                     failure:(void (^)(NSError *error))failure {
+    if (pageIndex == 1) {
+        [[GCNetworkBase sharedInstance] getWeb:@"http://bbs.guitarchina.com/search.php"
+                                    parameters:nil
+                                       success:^(NSURLSessionDataTask *task, id responseObject) {
+                                           TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
+                                           TFHppleElement *imgElement = [[xpathParser searchWithXPathQuery:@"//input[@name='formhash']"] objectAtIndex:0];
+                                           NSString *value = [imgElement.attributes objectForKey:@"value"];
+                                           
+                                           NSDictionary *parameters = @{@"formhash" : value,
+                                                                        @"srchtxt" : keyWord,
+                                                                        @"searchsubmit" : @"yes"};
+                                           
+                                           [[GCNetworkBase sharedInstance] postWeb:@"http://bbs.guitarchina.com/search.php?mod=forum" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+                                               [NSUD setObject:operation.response.URL.absoluteString forKey:kGCSEARCHURL];
+                                               [NSUD synchronize];
+                                               
+                                               NSLog(@"%@", operation.responseString);
+                                               NSData* htmlData = [operation.responseString dataUsingEncoding:NSUTF8StringEncoding];
+                                               success(htmlData);
+                                               
+                                           } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                               failure(error);
+                                           }];
+
+                                       } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                           failure(error);
+                                       }];
+    }
+    else {
+        NSString *url = [[NSUD objectForKey:kGCSEARCHURL] stringByAppendingFormat:@"&page=%ld", pageIndex];
+        [[GCNetworkBase sharedInstance] getWeb:url
+                                    parameters:nil
+                                       success:^(NSURLSessionDataTask *task, id responseObject) {
+                                           
+                                           NSLog(@"HTML: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+                                           success(responseObject);
+                                           
+                                       } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                           
+                                       }];
+    }
 }
+
+//+ (void)getSearchSuccess:(void (^)(NSData *htmlData))success
+//                 failure:(void (^)(NSError *error))failure {
+//    
+//    [[GCNetworkBase sharedInstance] getWeb:@"http://bbs.guitarchina.com/search.php"
+//                                parameters:nil
+//                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+//                                       TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
+//                                       TFHppleElement *imgElement = [[xpathParser searchWithXPathQuery:@"//input[@name='formhash']"] objectAtIndex:0];
+//                                       NSString *value = [imgElement.attributes objectForKey:@"value"];
+//                                       
+//                                       NSDictionary *parameters = @{@"formhash" : value,
+//                                                                    @"srchtxt" : @"泰勒210",
+//                                                                    @"searchsubmit" : @"yes"};
+//                                       [[GCNetworkBase sharedInstance] postWeb:@"http://bbs.guitarchina.com/search.php?mod=forum" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//                                           NSLog(@"%@", operation.responseString);
+//                                           NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse*)operation.response;
+//                                           if ([httpResponse respondsToSelector:@selector(allHeaderFields)]) {
+//                                               NSDictionary *dictionary = [httpResponse allHeaderFields];
+//                                               NSLog(@"%@", [dictionary description]);
+//                                               NSLog(@"%@", operation.response.URL);
+//                                           }
+//                                           
+//                                           NSString *page2 = [[operation.response.URL absoluteString] stringByAppendingFormat:@"&page=%d", 2];
+//                                           [[GCNetworkBase sharedInstance] getWeb:page2
+//                                                                       parameters:nil
+//                                                                          success:^(NSURLSessionDataTask *task, id responseObject) {
+//                                                                              NSLog(@"HTML: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+//                                                                          } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//                                                                              NSLog(@"HTML: %@", [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+//                                                                              
+//                                                                          }];
+//                                           
+//                                           success(nil);
+//                                       } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//                                           failure(error);
+//                                       }];
+//                                       
+//                                       success(nil);
+//                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+//                                       failure(error);
+//                                   }];
+//}
 
 @end
