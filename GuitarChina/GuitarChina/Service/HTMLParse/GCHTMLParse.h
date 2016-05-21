@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GCSearchModel.h"
 
 @interface GCHTMLParse : NSObject
 
@@ -16,5 +17,7 @@
 + (NSString *)parseSeccodeVerifyImage:(NSData *)htmlData;
 
 + (GCGuideThreadArray *)parseGuideThread:(NSData *)htmlData;
+
++ (GCSearchArray *)parseSearch:(NSData *)htmlData;
 
 @end

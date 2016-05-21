@@ -35,7 +35,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     [GCNetworkManager getSearchWithKeyWord:@"泰勒210" pageIndex:1 Success:^(NSData *htmlData) {
-        
+        [GCHTMLParse parseSearch:htmlData];
         [GCNetworkManager getSearchWithKeyWord:@"泰勒210" pageIndex:2 Success:^(NSData *htmlData) {
             
         } failure:^(NSError *error) {

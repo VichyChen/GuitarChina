@@ -85,6 +85,7 @@
 		421192F41CE8619900BCFF3E /* GCGuideThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192F31CE8619900BCFF3E /* GCGuideThreadModel.m */; };
 		421192F91CE861AF00BCFF3E /* GCBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192F61CE861AF00BCFF3E /* GCBaseModel.m */; };
 		421192FA1CE861AF00BCFF3E /* GCBaseNoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192F81CE861AF00BCFF3E /* GCBaseNoticeModel.m */; };
+		421193011CF0AAD300BCFF3E /* GCSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421193001CF0AAD300BCFF3E /* GCSearchModel.m */; };
 		4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A6671B9A7C78005D2164 /* EXTScope.m */; };
 		423888991BC57CA6002E1625 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238886F1BC57CA6002E1625 /* MJRefreshAutoFooter.m */; };
 		4238889A1BC57CA6002E1625 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888711BC57CA6002E1625 /* MJRefreshBackFooter.m */; };
@@ -307,6 +308,8 @@
 		421192F61CE861AF00BCFF3E /* GCBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseModel.m; sourceTree = "<group>"; };
 		421192F71CE861AF00BCFF3E /* GCBaseNoticeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBaseNoticeModel.h; sourceTree = "<group>"; };
 		421192F81CE861AF00BCFF3E /* GCBaseNoticeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseNoticeModel.m; sourceTree = "<group>"; };
+		421192FF1CF0AAD300BCFF3E /* GCSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchModel.h; sourceTree = "<group>"; };
+		421193001CF0AAD300BCFF3E /* GCSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchModel.m; sourceTree = "<group>"; };
 		4219A6661B9A7C78005D2164 /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScope.h; sourceTree = "<group>"; };
 		4219A6671B9A7C78005D2164 /* EXTScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTScope.m; sourceTree = "<group>"; };
 		4219A6681B9A7C78005D2164 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
@@ -1003,6 +1006,8 @@
 		421192FD1CE863ED00BCFF3E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				421192FF1CF0AAD300BCFF3E /* GCSearchModel.h */,
+				421193001CF0AAD300BCFF3E /* GCSearchModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1567,6 +1572,7 @@
 				046DB76C1BFC6F9700E05E17 /* TFHppleElement.m in Sources */,
 				421191C71CE6D16600BCFF3E /* GCNetworkBase.m in Sources */,
 				421192781CE85D3200BCFF3E /* GCReportThreadViewController.m in Sources */,
+				421193011CF0AAD300BCFF3E /* GCSearchModel.m in Sources */,
 				423889071BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
 				421192B11CE85F2200BCFF3E /* GCMineCell.m in Sources */,
 				421192931CE85EB700BCFF3E /* GCDiscoveryCell.m in Sources */,

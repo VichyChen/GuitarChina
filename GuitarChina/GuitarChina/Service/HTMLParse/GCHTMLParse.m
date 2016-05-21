@@ -100,4 +100,62 @@
     return array;
 }
 
++ (GCSearchArray *)parseSearch:(NSData *)htmlData {
+    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
+
+    GCSearchArray *array = [[GCSearchArray alloc] init];
+    array.datas = [NSMutableArray array];
+    NSArray *searchArray = [xpathParser searchWithXPathQuery:@"//li[@class='pbw']"];
+    for (int i = 0; i < searchArray.count; i++) {
+       TFHppleElement *element = searchArray[i];
+        TFHpple *searchParser = [[TFHpple alloc] initWithHTMLData:[element.raw dataUsingEncoding:NSUTF8StringEncoding]];
+
+        //id
+        NSString *tid = [element objectForKey:@"id"];
+        //标题
+        TFHppleElement *subjectElement = [[searchParser searchWithXPathQuery:@"//h3[@class='xs3']/a"] objectAtIndex:0];
+        NSMutableString *subject = [[NSMutableString alloc] init];
+        for (int i = 0; i < subjectElement.children.count; i++) {
+            TFHppleElement *subjectChildrenElement = subjectElement.children[i];
+            [subject appendString:subjectChildrenElement.raw ? subjectChildrenElement.raw : subjectChildrenElement.content];
+        }
+        
+        NSArray *pArray = [searchParser searchWithXPathQuery:@"//p"];
+        //回复、查看
+        TFHppleElement *replyElement = [pArray objectAtIndex:0];
+        NSString *reply = replyElement.content;
+        //内容
+        TFHppleElement *contentElement = [pArray objectAtIndex:1];
+        NSMutableString *content = [[NSMutableString alloc] init];
+        for (int i = 0; i < contentElement.children.count; i++) {
+            TFHppleElement *contentChildrenElement = contentElement.children[i];
+            [content appendString:contentChildrenElement.raw ? contentChildrenElement.raw : contentChildrenElement.content];
+        }
+        //时间、作者、论坛
+        TFHppleElement *otherElement = [pArray objectAtIndex:2];
+        NSArray *spanArray = [[[TFHpple alloc] initWithHTMLData:[otherElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//span"];
+        //时间
+        TFHppleElement *datelineElement = spanArray[0];
+        NSString *dateline = datelineElement.content;
+        //作者
+        TFHppleElement *authorElement = [[[[TFHpple alloc] initWithHTMLData:[((TFHppleElement *)spanArray[1]).raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//a"] objectAtIndex:0];
+        NSString *author = authorElement.content;
+        //论坛
+        TFHppleElement *forumElement = [[[[TFHpple alloc] initWithHTMLData:[((TFHppleElement *)spanArray[2]).raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//a"] objectAtIndex:0];
+        NSString *forum = forumElement.content;
+        
+        GCSearchModel *model = [[GCSearchModel alloc] init];
+        model.tid = tid;
+        model.subject = subject;
+        model.content = content;
+        model.reply = reply;
+        model.dateline = dateline;
+        model.author = author;
+        model.forum = forum;
+        [array.datas addObject:model];
+    }
+    
+    return array;
+}
+
 @end
