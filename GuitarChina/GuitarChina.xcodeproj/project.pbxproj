@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
+		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
+		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
 		043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
 		043648DD1BCF90740005162D /* GCThreadWebViewHtmlCell.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */; };
 		043648E01BCF9BD80005162D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043648DF1BCF9BD80005162D /* Images.xcassets */; };
@@ -162,6 +164,10 @@
 
 /* Begin PBXFileReference section */
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
+		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
+		042F84261CF83F7800102949 /* GCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchViewController.m; sourceTree = "<group>"; };
+		042F84291CF83FA600102949 /* GCSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchCell.h; sourceTree = "<group>"; };
+		042F842A1CF83FA600102949 /* GCSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchCell.m; sourceTree = "<group>"; };
 		043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewHtml.html; sourceTree = "<group>"; };
 		043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewHtmlCell.html; sourceTree = "<group>"; };
 		043648DF1BCF9BD80005162D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Image/Images.xcassets; sourceTree = "<group>"; };
@@ -460,6 +466,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042F84231CF83F4500102949 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				042F84251CF83F7800102949 /* GCSearchViewController.h */,
+				042F84261CF83F7800102949 /* GCSearchViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		042F84241CF83F4500102949 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				042F84281CF83F8800102949 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		042F84281CF83F8800102949 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				042F84291CF83FA600102949 /* GCSearchCell.h */,
+				042F842A1CF83FA600102949 /* GCSearchCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		043648D91BCF8CF90005162D /* Html */ = {
 			isa = PBXGroup;
 			children = (
@@ -989,18 +1021,11 @@
 		421192FB1CE863CE00BCFF3E /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				421192FC1CE863ED00BCFF3E /* Controller */,
+				042F84231CF83F4500102949 /* Controller */,
 				421192FD1CE863ED00BCFF3E /* Model */,
-				421192FE1CE863ED00BCFF3E /* View */,
+				042F84241CF83F4500102949 /* View */,
 			);
 			path = Search;
-			sourceTree = "<group>";
-		};
-		421192FC1CE863ED00BCFF3E /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		421192FD1CE863ED00BCFF3E /* Model */ = {
@@ -1010,13 +1035,6 @@
 				421193001CF0AAD300BCFF3E /* GCSearchModel.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		421192FE1CE863ED00BCFF3E /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		4219A6611B9A7C67005D2164 /* Utils */ = {
@@ -1528,6 +1546,7 @@
 				421192711CE85D3200BCFF3E /* GCDiscoveryTableViewController.m in Sources */,
 				4238889B1BC57CA6002E1625 /* MJRefreshComponent.m in Sources */,
 				423888F21BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
+				042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */,
 				421192E51CE860FC00BCFF3E /* GCThreadDetailModel.m in Sources */,
 				421192751CE85D3200BCFF3E /* GCForumIndexViewController.m in Sources */,
 				421192971CE85ECC00BCFF3E /* GCHotThreadCell.m in Sources */,
@@ -1589,6 +1608,7 @@
 				046DB7621BFC6F1900E05E17 /* DOPNavbarMenu.m in Sources */,
 				4260C6971BB64AB700705BE0 /* Util.m in Sources */,
 				0459674A1BC7A47D000181DE /* RTLabel.m in Sources */,
+				042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,
 				4211928B1CE85D7D00BCFF3E /* GCUserProtocolViewController.m in Sources */,
 				421192351CE85D0800BCFF3E /* GCHTMLParse.m in Sources */,
