@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCBaseViewController.h"
 
-@interface GCSearchViewController : UIViewController
+@interface GCSearchViewController : GCBaseViewController
 
 @end

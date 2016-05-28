@@ -20,6 +20,21 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
   - DKNightVersion (0.8.1):
     - DKNightVersion/Controller (= 0.8.1)
     - DKNightVersion/Core (= 0.8.1)
@@ -57,6 +72,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.5)
+  - BlocksKit
   - DKNightVersion (~> 0.8.1)
   - FDFullscreenPopGesture (~> 1.1)
   - FMDB
@@ -69,6 +85,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   DKNightVersion: 5416e74d11f696c6dd0c8f1318cf5871aa6b6070
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52

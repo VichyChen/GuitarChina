@@ -41,7 +41,7 @@
 #import "DGActivityIndicatorTripleRingsAnimation.h"
 #import "DGActivityIndicatorCookieTerminatorAnimation.h"
 
-static const CGFloat kDGActivityIndicatorDefaultSize = 40.0f;
+static const CGFloat kDGActivityIndicatorDefaultSize = 30.0f;
 
 @implementation DGActivityIndicatorView
 

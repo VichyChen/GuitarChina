@@ -62,7 +62,8 @@
     self.arrowView.center = CGPointMake(arrowCenterX, arrowCenterY);
     
     // 圈圈
-    self.loadingView.frame = self.arrowView.frame;
+//    self.loadingView.frame = self.arrowView.frame;
+    self.loadingView.center = self.arrowView.center;
 }
 
 - (void)setState:(MJRefreshState)state

@@ -9,6 +9,8 @@
 #import "GCDiscoveryViewController.h"
 #import "HMSegmentedControl.h"
 #import "GCDiscoveryTableViewController.h"
+#import "GCNavigationController.h"
+#import "GCSearchViewController.h"
 
 @interface GCDiscoveryViewController () <UIScrollViewDelegate>
 
@@ -26,6 +28,12 @@
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"Home", nil);
+    
+    self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_search"
+                                                                   normalColor:[UIColor GCDarkGrayFontColor]
+                                                              highlightedColor:[UIColor grayColor]
+                                                                        target:self
+                                                                        action:@selector(searchAction)];
     
     [self configureView];
 }
@@ -54,6 +62,14 @@
 - (void)segmentedControlChangedValue {
     [self.scrollView setContentOffset:CGPointMake(self.segmentedControl.selectedSegmentIndex * ScreenWidth, 0) animated:NO];
     [self loadViewController:self.segmentedControl.selectedSegmentIndex];
+}
+
+- (void)searchAction {
+    GCSearchViewController *controller = [[GCSearchViewController alloc] init];
+    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];
+    [self presentViewController:navigationController animated:NO completion:^{
+        
+    }];
 }
 
 #pragma mark - Private Methods

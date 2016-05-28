@@ -60,6 +60,7 @@ static NSString * const kGCLOADIMAGE = @"LOADIMAGE";
 static NSString * const kGCFORUMINDEXDICTIONARY = @"FORUMINDEXDICTIONARY";
 static NSString * const kGCFORUMBROWSERECORD = @"FORUMBROWSERECORD";
 static NSString * const kGCSEARCHURL = @"SEARCHURL";
+static NSString * const kGCSEARCHHISTORY = @"kGCSEARCHHISTORY";
 
 /* Notification */
 

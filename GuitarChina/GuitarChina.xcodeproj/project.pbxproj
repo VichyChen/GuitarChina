@@ -147,6 +147,7 @@
 		42657DDC1B99CAA2001F8DFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42657DDE1B99CAA2001F8DFC /* Localizable.strings */; };
 		426BC3931CB9FA9800B3B827 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC3921CB9FA9800B3B827 /* HMSegmentedControl.m */; };
 		428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 428260671B84CE03007CBCF4 /* GCNetworkManager.m */; };
+		42A600A91CF9EECA002F709F /* GCHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A600A81CF9EECA002F709F /* GCHistoryCell.m */; };
 		42C5546A1C878334000AF010 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C554691C878334000AF010 /* Default-568h@2x.png */; };
 		42FFF5B21BF1C24A0061029B /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42FFF5B11BF1C24A0061029B /* ForumList.plist */; };
 		CEFC34C235C11966848A8595 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F829F5DD46C688C9B2385EC /* libPods.a */; };
@@ -438,6 +439,8 @@
 		428260631B84CDCF007CBCF4 /* GCNetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkAPI.h; sourceTree = "<group>"; };
 		428260661B84CE03007CBCF4 /* GCNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkManager.h; sourceTree = "<group>"; };
 		428260671B84CE03007CBCF4 /* GCNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNetworkManager.m; sourceTree = "<group>"; };
+		42A600A71CF9EECA002F709F /* GCHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHistoryCell.h; sourceTree = "<group>"; };
+		42A600A81CF9EECA002F709F /* GCHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHistoryCell.m; sourceTree = "<group>"; };
 		42C554691C878334000AF010 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		42CB56B51C888BA100F304CD /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		42DA94FF1BA3B23B001A79B9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -488,6 +491,8 @@
 			children = (
 				042F84291CF83FA600102949 /* GCSearchCell.h */,
 				042F842A1CF83FA600102949 /* GCSearchCell.m */,
+				42A600A71CF9EECA002F709F /* GCHistoryCell.h */,
+				42A600A81CF9EECA002F709F /* GCHistoryCell.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -715,10 +720,10 @@
 		421192441CE85D3200BCFF3E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				421192451CE85D3200BCFF3E /* GCDiscoveryTableViewController.h */,
-				421192461CE85D3200BCFF3E /* GCDiscoveryTableViewController.m */,
 				421192471CE85D3200BCFF3E /* GCDiscoveryViewController.h */,
 				421192481CE85D3200BCFF3E /* GCDiscoveryViewController.m */,
+				421192451CE85D3200BCFF3E /* GCDiscoveryTableViewController.h */,
+				421192461CE85D3200BCFF3E /* GCDiscoveryTableViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1519,6 +1524,7 @@
 				421192A51CE85EEE00BCFF3E /* GCReplyThreadView.m in Sources */,
 				4238890E1BC57D0F002E1625 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
 				423888F81BC57D0F002E1625 /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */,
+				42A600A91CF9EECA002F709F /* GCHistoryCell.m in Sources */,
 				421192761CE85D3200BCFF3E /* GCPostThreadViewController.m in Sources */,
 				421192A41CE85EEE00BCFF3E /* GCForumIndexCell.m in Sources */,
 				046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */,
@@ -1701,8 +1707,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1725,7 +1731,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "9dcd9936-5fad-4e9f-bb8d-8d92324c6bcd";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1747,7 +1753,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1762,7 +1768,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "9dcd9936-5fad-4e9f-bb8d-8d92324c6bcd";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1774,8 +1780,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";
@@ -1802,7 +1808,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.guitarchina.gcapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9dcd9936-5fad-4e9f-bb8d-8d92324c6bcd";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1813,8 +1819,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";
@@ -1841,7 +1847,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.guitarchina.gcapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9dcd9936-5fad-4e9f-bb8d-8d92324c6bcd";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

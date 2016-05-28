@@ -20,7 +20,7 @@
     
     self.navigationBar.barTintColor = [UIColor whiteColor];
     self.navigationBar.tintColor = [UIColor GCDarkGrayFontColor];
-    self.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor GCDarkGrayFontColor], NSFontAttributeName : [UIFont systemFontOfSize:17]};
+    self.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor GCDarkGrayFontColor], NSFontAttributeName : [UIFont systemFontOfSize:18]};
     //    self.navigationBar.nightBarTintColor = [UIColor GCDarkGrayFontColor];
 //    self.navigationBar.nightTintColor = [UIColor whiteColor];
 //    UIImage *image = [[[UIImage alloc] init] imageWithTintColor:[UIColor GCRedColor]];
