@@ -34,7 +34,7 @@
 }
 
 + (UIColor *)GCSeparatorLineColor {
-    return [UIColor colorWithRed:0.850f green:0.850f blue:0.850f alpha:1.00f];
+    return [UIColor colorWithRed:0.784f green:0.780f blue:0.800f alpha:1.00f];
 }
 
 + (UIColor *)GCBlackFontColor {

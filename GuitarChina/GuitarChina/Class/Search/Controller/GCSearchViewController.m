@@ -12,6 +12,13 @@
 #import "GCHistoryCell.h"
 #import "MJRefresh.h"
 
+typedef NS_ENUM(NSInteger, GCSearchViewType) {
+    GCSearchViewTypeHistory,
+    GCSearchViewTypeSearch,
+    GCSearchViewTypeBlank,
+};
+
+
 @interface GCSearchViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *searchTextField;
@@ -19,6 +26,7 @@
 @property (nonatomic, strong) UITableView *historyTableView;
 
 @property (nonatomic, copy) void (^searchBlock)();
+@property (nonatomic, copy) void (^historyBlock)();
 @property (nonatomic, assign) NSInteger pageIndex;
 @property (nonatomic, strong) NSMutableArray *searchArray;
 @property (nonatomic, strong) NSMutableArray *historyArray;
@@ -29,13 +37,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    self.searchArray = [NSMutableArray array];
+    self.historyArray = [NSMutableArray array];
+    
     [self configureNavigationBar];
     [self configureView];
     [self configureBlock];
     
-    self.historyArray = [NSMutableArray arrayWithArray:[NSUD arrayForKey:kGCSEARCHHISTORY] ? [NSUD arrayForKey:kGCSEARCHHISTORY] : @[]];
-    [self.historyTableView reloadData];
+    self.historyBlock();
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.05 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
         [self.searchTextField becomeFirstResponder];
@@ -69,7 +79,7 @@
             cell = [[GCHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         cell.textLabel.text = self.historyArray[indexPath.row];
-
+        
         return cell;
     }
     else {
@@ -98,18 +108,22 @@
     //    return [height floatValue];
 }
 
-//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-//        [cell setSeparatorInset:UIEdgeInsetsZero];
-//    }
-//    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-//        [cell setLayoutMargins:UIEdgeInsetsZero];
-//    }
-//}
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+    }
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 10)];
+    }
+}
 //
 //
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (tableView.tag == 0) {
+        [self.searchTextField endEditing:YES];
+        self.searchTextField.text = self.historyArray[indexPath.row];
+        [self showView:GCSearchViewTypeSearch];
         [self search:self.historyArray[indexPath.row]];
     }
     else {
@@ -118,7 +132,6 @@
         GCSearchModel *model = self.searchArray[indexPath.row];
         controller.tid = model.tid;
         [self.navigationController pushViewController:controller animated:YES];
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 
@@ -133,6 +146,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField endEditing:YES];
     
+    [self showView:GCSearchViewTypeSearch];
     [self search:textField.text];
     
     return YES;
@@ -142,7 +156,7 @@
 
 - (void)configureNavigationBar {
     self.navigationItem.rightBarButtonItem = [UIView createBarButtonItem:NSLocalizedString(@"Cancel", nil) target:self action:@selector(closeAction)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor GCDarkGrayFontColor];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor GCRedColor];
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:16], NSFontAttributeName, nil] forState:UIControlStateNormal];
     
     UIImageView *leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(7, 7, 14, 14)];
@@ -167,9 +181,9 @@
 
 - (void)configureView {
     self.edgesForExtendedLayout = UIRectEdgeNone;
-
+    
     [self.view addSubview:self.historyTableView];
-//    [self.view addSubview:self.searchTableView];
+    [self.view addSubview:self.searchTableView];
 }
 
 - (void)configureBlock {
@@ -222,10 +236,28 @@
             else {
                 self.searchTableView.footer = nil;
             }
-
-        } failure:^(NSError *error) {
             
+        } failure:^(NSError *error) {
         }];
+    };
+    
+    self.historyBlock = ^{
+        @strongify(self);
+        self.historyArray = [NSMutableArray arrayWithArray:[NSUD arrayForKey:kGCSEARCHHISTORY] ? [NSUD arrayForKey:kGCSEARCHHISTORY] : @[]];
+        if (self.searchTextField.text.length > 0) {
+            for (int i = (int)self.historyArray.count - 1; i >= 0; i--) {
+                if (![self.historyArray[i] containString:self.searchTextField.text]) {
+                    [self.historyArray removeObjectAtIndex:i];
+                }
+            }
+        }
+        if (self.historyArray.count == 0) {
+            [self showView:GCSearchViewTypeBlank];
+        }
+        else {
+            [self showView:GCSearchViewTypeHistory];
+        }
+        [self.historyTableView reloadData];
     };
 }
 
@@ -247,6 +279,31 @@
     }
 }
 
+- (void)showView:(GCSearchViewType)searchViewType {
+    switch (searchViewType) {
+        case GCSearchViewTypeHistory:
+            self.historyTableView.hidden = NO;
+            self.searchTableView.hidden = YES;
+            
+            break;
+            
+        case GCSearchViewTypeSearch:
+            self.historyTableView.hidden = YES;
+            self.searchTableView.hidden = NO;
+            
+            break;
+            
+        case GCSearchViewTypeBlank:
+            self.historyTableView.hidden = YES;
+            self.searchTableView.hidden = YES;
+            
+            break;
+            
+        default:
+            break;
+    }
+}
+
 #pragma mark - Event Responses
 
 - (void)closeAction {
@@ -257,7 +314,15 @@
 }
 
 - (void)searchTextFieldValueChange:(UITextField *)TextField {
+    [self showView:GCSearchViewTypeHistory];
+    self.historyBlock();
+}
 
+- (void)clearHistory {
+    [NSUD setObject:@[] forKey:kGCSEARCHHISTORY];
+    [NSUD synchronize];
+    
+    self.historyBlock();
 }
 
 #pragma mark - Getters
@@ -268,6 +333,39 @@
         _historyTableView.tag = 0;
         _historyTableView.delegate = self;
         _historyTableView.dataSource = self;
+        if ([_historyTableView respondsToSelector:@selector(setSeparatorInset:)]) {
+            [_historyTableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+        }
+        if ([_historyTableView respondsToSelector:@selector(setLayoutMargins:)]) {
+            [_historyTableView setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 10)];
+        }
+        
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 34)];
+        
+        UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth - 30, 34) text:NSLocalizedString(@"Search History", nil) font:[UIFont systemFontOfSize:15] textColor:[UIColor GCDarkGrayFontColor]];
+        UIView *headerLine = [UIView createHorizontalLine:ScreenWidth - 20 originX:10 originY:34];
+        
+        [headerView addSubview:label];
+        [headerView addSubview:headerLine];
+
+        _historyTableView.tableHeaderView = headerView;
+
+        
+        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 80)];
+        
+        UIButton *button = [UIView createButton:CGRectMake(0, 0, ScreenWidth - 60, 40) buttonType:UIButtonTypeSystem text:NSLocalizedString(@"Clean History", nil) target:self action:@selector(clearHistory)];
+        button.tintColor = [UIColor GCRedColor];
+        button.layer.cornerRadius = 5;
+        button.layer.borderColor = [UIColor GCRedColor].CGColor;
+        button.layer.borderWidth = 1;
+        button.center = footerView.center;
+        
+        UIView *footerLine = [UIView createHorizontalLine:ScreenWidth - 20 originX:10 originY:0];
+        
+        [footerView addSubview:button];
+        [footerView addSubview:footerLine];
+        
+        _historyTableView.tableFooterView = footerView;
     }
     return _historyTableView;
 }
@@ -280,20 +378,6 @@
         _searchTableView.dataSource = self;
     }
     return _searchTableView;
-}
-
-- (NSMutableArray *)searchArray {
-    if (!_searchArray) {
-        _searchArray = [NSMutableArray array];
-    }
-    return _searchArray;
-}
-
-- (NSMutableArray *)historyArray {
-    if (!_historyArray) {
-        _historyArray = [NSMutableArray array];
-    }
-    return _historyArray;
 }
 
 @end
