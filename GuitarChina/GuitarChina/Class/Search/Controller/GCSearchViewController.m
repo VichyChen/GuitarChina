@@ -113,11 +113,21 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
-        [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+    if (tableView.tag == 0) {
+        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+            [cell setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
+        }
+        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+            [cell setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 10)];
+        }
     }
-    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
-        [cell setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 10)];
+    else {
+        if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+            [cell setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+        }
+        if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+            [cell setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
+        }
     }
 }
 
@@ -256,13 +266,13 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     self.historyBlock = ^{
         @strongify(self);
         self.historyArray = [NSMutableArray arrayWithArray:[NSUD arrayForKey:kGCSEARCHHISTORY] ? [NSUD arrayForKey:kGCSEARCHHISTORY] : @[]];
-//        if (self.searchTextField.text.length > 0) {
-//            for (int i = (int)self.historyArray.count - 1; i >= 0; i--) {
-//                if (![self.historyArray[i] containString:self.searchTextField.text]) {
-//                    [self.historyArray removeObjectAtIndex:i];
-//                }
-//            }
-//        }
+        //        if (self.searchTextField.text.length > 0) {
+        //            for (int i = (int)self.historyArray.count - 1; i >= 0; i--) {
+        //                if (![self.historyArray[i] containString:self.searchTextField.text]) {
+        //                    [self.historyArray removeObjectAtIndex:i];
+        //                }
+        //            }
+        //        }
         if (self.historyArray.count == 0) {
             [self showView:GCSearchViewTypeBlank];
         }
@@ -359,9 +369,9 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         
         [headerView addSubview:label];
         [headerView addSubview:headerLine];
-
+        
         _historyTableView.tableHeaderView = headerView;
-
+        
         
         UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 80)];
         
@@ -388,6 +398,13 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         _searchTableView.tag = 1;
         _searchTableView.delegate = self;
         _searchTableView.dataSource = self;
+        
+        if ([_searchTableView respondsToSelector:@selector(setSeparatorInset:)]) {
+            [_searchTableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+        }
+        if ([_searchTableView respondsToSelector:@selector(setLayoutMargins:)]) {
+            [_searchTableView setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
+        }
     }
     return _searchTableView;
 }
