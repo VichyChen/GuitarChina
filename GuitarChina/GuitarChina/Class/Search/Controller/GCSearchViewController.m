@@ -11,6 +11,7 @@
 #import "GCSearchCell.h"
 #import "GCHistoryCell.h"
 #import "MJRefresh.h"
+#import "GCSearchModel.h"
 
 typedef NS_ENUM(NSInteger, GCSearchViewType) {
     GCSearchViewTypeHistory,
@@ -30,6 +31,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 @property (nonatomic, assign) NSInteger pageIndex;
 @property (nonatomic, strong) NSMutableArray *searchArray;
 @property (nonatomic, strong) NSMutableArray *historyArray;
+@property (nonatomic, strong) NSMutableArray *searchRowHeightArray;
 
 @end
 
@@ -40,6 +42,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     
     self.searchArray = [NSMutableArray array];
     self.historyArray = [NSMutableArray array];
+    self.searchRowHeightArray = [NSMutableArray array];
     
     [self configureNavigationBar];
     [self configureView];
@@ -78,6 +81,8 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         if (!cell) {
             cell = [[GCHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
+        cell.textLabel.font = [UIFont systemFontOfSize:16];
+        cell.textLabel.textColor = [UIColor GCDarkGrayFontColor];
         cell.textLabel.text = self.historyArray[indexPath.row];
         
         return cell;
@@ -89,7 +94,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             cell = [[GCSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         GCSearchModel *model = self.searchArray[indexPath.row];
-        cell.textLabel.text = model.subject;
+        cell.model = model;
         
         return cell;
     }
@@ -102,10 +107,9 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         return 44;
     }
     else {
-        return 44;
+        NSNumber *height = [self.searchRowHeightArray objectAtIndex:indexPath.row];
+        return [height floatValue];
     }
-    //    NSNumber *height = [self.rowHeightArray objectAtIndex:indexPath.row];
-    //    return [height floatValue];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -116,12 +120,11 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         [cell setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 10)];
     }
 }
-//
-//
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.searchTextField endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (tableView.tag == 0) {
-        [self.searchTextField endEditing:YES];
         self.searchTextField.text = self.historyArray[indexPath.row];
         [self showView:GCSearchViewTypeSearch];
         [self search:self.historyArray[indexPath.row]];
@@ -200,6 +203,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
                 header.stateLabel.hidden = YES;
                 header;
             });
+            self.searchTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
             self.searchTableView.footer = nil;
             
             [self.searchArray removeAllObjects];
@@ -211,14 +215,22 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             if (self.pageIndex == 1) {
                 [self.searchArray removeAllObjects];
                 self.searchArray = searchArray.datas;
+                
+                [self.searchRowHeightArray removeAllObjects];
+                for (GCSearchModel *model in searchArray.datas) {
+                    [self.searchRowHeightArray addObject:[NSNumber numberWithFloat:[GCSearchCell getCellHeightWithModel:model]]];
+                }
+                
                 [self.searchTableView.header endRefreshing];
                 self.searchTableView.header = nil;
             }
             else {
                 for (int i = 0; i < searchArray.datas.count; i++) {
                     [self.searchArray addObject:searchArray.datas[i]];
+                    [self.searchRowHeightArray addObject:[NSNumber numberWithFloat:[GCSearchCell getCellHeightWithModel:searchArray.datas[i]]]];
                 }
             }
+            self.searchTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
             [self.searchTableView reloadData];
             
             if (searchArray.datas.count > 0) {
@@ -244,13 +256,13 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     self.historyBlock = ^{
         @strongify(self);
         self.historyArray = [NSMutableArray arrayWithArray:[NSUD arrayForKey:kGCSEARCHHISTORY] ? [NSUD arrayForKey:kGCSEARCHHISTORY] : @[]];
-        if (self.searchTextField.text.length > 0) {
-            for (int i = (int)self.historyArray.count - 1; i >= 0; i--) {
-                if (![self.historyArray[i] containString:self.searchTextField.text]) {
-                    [self.historyArray removeObjectAtIndex:i];
-                }
-            }
-        }
+//        if (self.searchTextField.text.length > 0) {
+//            for (int i = (int)self.historyArray.count - 1; i >= 0; i--) {
+//                if (![self.historyArray[i] containString:self.searchTextField.text]) {
+//                    [self.historyArray removeObjectAtIndex:i];
+//                }
+//            }
+//        }
         if (self.historyArray.count == 0) {
             [self showView:GCSearchViewTypeBlank];
         }
@@ -342,7 +354,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 34)];
         
-        UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth - 30, 34) text:NSLocalizedString(@"Search History", nil) font:[UIFont systemFontOfSize:15] textColor:[UIColor GCDarkGrayFontColor]];
+        UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth - 30, 34) text:NSLocalizedString(@"Search History", nil) font:[UIFont systemFontOfSize:15] textColor:[UIColor GCLightGrayFontColor]];
         UIView *headerLine = [UIView createHorizontalLine:ScreenWidth - 20 originX:10 originY:34];
         
         [headerView addSubview:label];

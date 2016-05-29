@@ -10,4 +10,5 @@
 
 @interface GCHistoryCell : UITableViewCell
 
+
 @end

@@ -152,6 +152,13 @@
         model.dateline = dateline;
         model.author = author;
         model.forum = forum;
+        
+        NSAttributedString *attributedSubject = [[NSAttributedString alloc] initWithData:[[NSString stringWithFormat:@"<div style='font-size:16px'>%@</div>", model.subject] dataUsingEncoding:NSUnicodeStringEncoding] options : @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        model.attributedSubject = attributedSubject;
+        
+        NSAttributedString *attributedContent = [[NSAttributedString alloc] initWithData:[[NSString stringWithFormat:@"<div style='font-size:15px'>%@</div>", model.content] dataUsingEncoding:NSUnicodeStringEncoding] options : @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        model.attributedContent = attributedContent;
+        
         [array.datas addObject:model];
     }
     

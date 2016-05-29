@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCSearchModel.h"
 
 @interface GCSearchCell : UITableViewCell
+
+@property (nonatomic, strong) GCSearchModel *model;
+
++ (CGFloat)getCellHeightWithModel:(GCSearchModel *)model;
 
 @end

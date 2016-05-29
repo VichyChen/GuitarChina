@@ -20,6 +20,10 @@
 @property (nonatomic, copy) NSString *dateline;     //发布时间
 @property (nonatomic, copy) NSString *reply;        //回复数
 
+@property (nonatomic, strong) NSAttributedString *attributedSubject;
+@property (nonatomic, strong) NSAttributedString *attributedContent;
+
+
 @end
 
 @interface GCSearchArray : NSObject

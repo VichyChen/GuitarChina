@@ -230,7 +230,7 @@
 + (UIView *)createHorizontalLine:(CGFloat)length
                          originX:(CGFloat)originX
                          originY:(CGFloat)originY {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(originX, originY, length, 1)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(originX, originY, length, 0.5)];
     view.backgroundColor = [UIColor GCSeparatorLineColor];
     
     return view;
@@ -240,7 +240,7 @@
                          originX:(CGFloat)originX
                          originY:(CGFloat)originY
                            color:(UIColor *)color {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(originX, originY, length, 1)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(originX, originY, length, 0.5)];
     view.backgroundColor = color;
     
     return view;
