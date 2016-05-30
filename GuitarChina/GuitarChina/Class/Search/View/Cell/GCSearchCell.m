@@ -71,8 +71,6 @@
                           numberOfLines:0
                 preferredMaxLayoutWidth:SubjectWidth];
     subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
-
-//    NSAttributedString *subject = [[NSAttributedString alloc] initWithData:[[NSString stringWithFormat:@"<div style='font-size:16px'>%@</div>", model.subject] dataUsingEncoding:NSUnicodeStringEncoding] options : @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     subjectLabel.attributedText = model.attributedSubject;
     
     UILabel *contentLabel = [UIView createLabel:CGRectZero
@@ -82,8 +80,6 @@
                           numberOfLines:0
                 preferredMaxLayoutWidth:SubjectWidth];
     contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
-
-//    NSAttributedString *content = [[NSAttributedString alloc] initWithData:[[NSString stringWithFormat:@"<div style='font-size:15px'>%@</div>", model.content] dataUsingEncoding:NSUnicodeStringEncoding] options : @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     contentLabel.attributedText = model.attributedContent;
     
     return [subjectLabel sizeThatFits:CGSizeMake(SubjectWidth, 999)].height + [contentLabel sizeThatFits:CGSizeMake(SubjectWidth, 999)].height + 54;
@@ -97,14 +93,9 @@
 - (void)setModel:(GCSearchModel *)model {
     _model = model;
     
-//    NSAttributedString *subject = [[NSAttributedString alloc] initWithData:[[NSString stringWithFormat:@"<div style='font-size:16px'>%@</div>", model.subject] dataUsingEncoding:NSUnicodeStringEncoding] options : @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     self.subjectLabel.attributedText = model.attributedSubject;
-    
     self.replyLabel.text = model.reply;
-
-//    NSAttributedString *content = [[NSAttributedString alloc] initWithData:[[NSString stringWithFormat:@"<div style='font-size:15px'>%@</div>", model.content] dataUsingEncoding:NSUnicodeStringEncoding] options : @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     self.contentLabel.attributedText = model.attributedContent;
-    
     self.datelineLabel.text = model.dateline;
     self.authorLabel.text = [NSString stringWithFormat:@"%@ - ", model.author];
     self.forumLabel.text = model.forum;
