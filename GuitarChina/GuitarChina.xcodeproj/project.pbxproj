@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
+		04091D801CFBECBC00B797B1 /* GCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 04091D7F1CFBECBC00B797B1 /* GCColor.m */; };
 		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
 		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
 		043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
@@ -165,6 +166,8 @@
 
 /* Begin PBXFileReference section */
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
+		04091D7E1CFBECBC00B797B1 /* GCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColor.h; sourceTree = "<group>"; };
+		04091D7F1CFBECBC00B797B1 /* GCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColor.m; sourceTree = "<group>"; };
 		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
 		042F84261CF83F7800102949 /* GCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchViewController.m; sourceTree = "<group>"; };
 		042F84291CF83FA600102949 /* GCSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchCell.h; sourceTree = "<group>"; };
@@ -553,6 +556,8 @@
 			children = (
 				0488C0A51C795E1C00920E72 /* UIColor+Custom.h */,
 				0488C0A61C795E1C00920E72 /* UIColor+Custom.m */,
+				04091D7E1CFBECBC00B797B1 /* GCColor.h */,
+				04091D7F1CFBECBC00B797B1 /* GCColor.m */,
 			);
 			path = Color;
 			sourceTree = "<group>";
@@ -758,19 +763,19 @@
 		4211924C1CE85D3200BCFF3E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4211924D1CE85D3200BCFF3E /* GCPostThreadViewController.xib */,
-				4211924F1CE85D3200BCFF3E /* GCForumDisplayViewController.h */,
-				421192501CE85D3200BCFF3E /* GCForumDisplayViewController.m */,
 				421192511CE85D3200BCFF3E /* GCForumIndexViewController.h */,
 				421192521CE85D3200BCFF3E /* GCForumIndexViewController.m */,
+				4211924F1CE85D3200BCFF3E /* GCForumDisplayViewController.h */,
+				421192501CE85D3200BCFF3E /* GCForumDisplayViewController.m */,
+				421192591CE85D3200BCFF3E /* GCThreadDetailViewController.h */,
+				4211925A1CE85D3200BCFF3E /* GCThreadDetailViewController.m */,
 				421192531CE85D3200BCFF3E /* GCPostThreadViewController.h */,
 				421192541CE85D3200BCFF3E /* GCPostThreadViewController.m */,
 				421192551CE85D3200BCFF3E /* GCReplyThreadViewController.h */,
 				421192561CE85D3200BCFF3E /* GCReplyThreadViewController.m */,
 				421192571CE85D3200BCFF3E /* GCReportThreadViewController.h */,
 				421192581CE85D3200BCFF3E /* GCReportThreadViewController.m */,
-				421192591CE85D3200BCFF3E /* GCThreadDetailViewController.h */,
-				4211925A1CE85D3200BCFF3E /* GCThreadDetailViewController.m */,
+				4211924D1CE85D3200BCFF3E /* GCPostThreadViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1517,6 +1522,7 @@
 				4238889D1BC57CA6002E1625 /* MJRefreshHeader.m in Sources */,
 				4238889F1BC57CA6002E1625 /* MJRefreshAutoNormalFooter.m in Sources */,
 				423889031BC57D0F002E1625 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
+				04091D801CFBECBC00B797B1 /* GCColor.m in Sources */,
 				421192F11CE8617F00BCFF3E /* GCMyThreadModel.m in Sources */,
 				421192E31CE860FC00BCFF3E /* GCForumDisplayModel.m in Sources */,
 				046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */,
