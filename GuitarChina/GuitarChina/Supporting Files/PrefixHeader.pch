@@ -45,7 +45,7 @@
 
 /* Version */
 
-#define CurrentVersion @"1.1.0"
+#define CurrentVersion @"1.2.0"
 
 /* NSUserDefault */
 
