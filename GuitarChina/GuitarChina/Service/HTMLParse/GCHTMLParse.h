@@ -18,6 +18,8 @@
 
 + (GCGuideThreadArray *)parseGuideThread:(NSData *)htmlData;
 
++ (BOOL)parseSearchOvertime:(NSData *)htmlData;
+
 + (GCSearchArray *)parseSearch:(NSData *)htmlData;
 
 @end

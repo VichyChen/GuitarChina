@@ -302,6 +302,8 @@
                      Success:(void (^)(NSData *htmlData))success
                      failure:(void (^)(NSError *error))failure {
     if (pageIndex == 1) {
+        [NSUD setObject:@"" forKey:kGCSEARCHURL];
+        [NSUD synchronize];
         [[GCNetworkBase sharedInstance] getWeb:@"http://bbs.guitarchina.com/search.php"
                                     parameters:nil
                                        success:^(NSURLSessionDataTask *task, id responseObject) {

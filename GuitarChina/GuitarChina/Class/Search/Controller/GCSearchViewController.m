@@ -221,7 +221,17 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             [self.searchTableView.header beginRefreshing];
         }
         [GCNetworkManager getSearchWithKeyWord:self.searchTextField.text pageIndex:self.pageIndex Success:^(NSData *htmlData) {
+            if ([GCHTMLParse parseSearchOvertime:htmlData]) {
+                [self.searchTableView.header endRefreshing];
+                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"抱歉，您在 30 秒内只能进行一次搜索", nil)];
+                return;
+            }
             GCSearchArray *searchArray = [GCHTMLParse parseSearch:htmlData];
+            if (self.pageIndex == 1 && searchArray.datas.count == 0) {
+                [self.searchTableView.header endRefreshing];
+                [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"对不起，没有找到匹配结果。", nil)];
+                return;
+            }
             if (self.pageIndex == 1) {
                 [self.searchArray removeAllObjects];
                 self.searchArray = searchArray.datas;
@@ -243,7 +253,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             self.searchTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
             [self.searchTableView reloadData];
             
-            if (searchArray.datas.count > 0) {
+            if (searchArray.datas.count == 50) {
                 self.searchTableView.footer = ({
                     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
                         self.pageIndex++;

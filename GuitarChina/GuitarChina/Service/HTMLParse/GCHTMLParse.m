@@ -100,6 +100,15 @@
     return array;
 }
 
++ (BOOL)parseSearchOvertime:(NSData *)htmlData {
+    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
+    NSArray *searchArray = [xpathParser searchWithXPathQuery:@"//div[@id='messagetext']"];
+    if (searchArray.count > 0) {
+        return YES;
+    }
+    return NO;
+}
+
 + (GCSearchArray *)parseSearch:(NSData *)htmlData {
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
 
@@ -153,7 +162,7 @@
         model.author = author;
         model.forum = forum;
         
-        NSAttributedString *attributedSubject = [[NSAttributedString alloc] initWithData:[[NSString stringWithFormat:@"<div style='font-size:16px'>%@</div>", model.subject] dataUsingEncoding:NSUnicodeStringEncoding] options : @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType } documentAttributes:nil error:nil];
+        NSAttributedString *attributedSubject = [[NSAttributedString alloc] initWithData:[[NSString stringWithFormat:@"<div style='font-size:15px'>%@</div>", model.subject] dataUsingEncoding:NSUnicodeStringEncoding] options : @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType } documentAttributes:nil error:nil];
         model.attributedSubject = attributedSubject;
         
         NSAttributedString *attributedContent = [[NSAttributedString alloc] initWithData:[[NSString stringWithFormat:@"<div style='font-size:15px'>%@</div>", model.content] dataUsingEncoding:NSUnicodeStringEncoding] options : @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType } documentAttributes:nil error:nil];
