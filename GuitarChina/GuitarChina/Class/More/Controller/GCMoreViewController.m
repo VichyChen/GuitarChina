@@ -55,21 +55,21 @@
     //            cell.leftImageView.image = [UIImage imageNamed:@"icon_document"];
     //            UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
     //            cell.accessoryView = switchView;
-    //            switchView.on = [[NSUserDefaults standardUserDefaults] boolForKey:kGCNIGHTMODE];
+    //            switchView.on = [NSUD boolForKey:kGCNIGHTMODE];
     //            [switchView addTarget:self action:@selector(nightModeAction:) forControlEvents:UIControlEventValueChanged];
     //        } else if (indexPath.row == 1) {
     //            cell.titleLabel.text = NSLocalizedString(@"Auto switch Night Mode", nil);
     //            cell.leftImageView.image = [UIImage imageNamed:@"icon_document"];
     //            UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
     //            cell.accessoryView = switchView;
-    //            switchView.on = [[NSUserDefaults standardUserDefaults] boolForKey:kGCAUTOSWITCHNIGHTMODE];
+    //            switchView.on = [NSUD boolForKey:kGCAUTOSWITCHNIGHTMODE];
     //            [switchView addTarget:self action:@selector(autoSwitchNightModeAction:) forControlEvents:UIControlEventValueChanged];
     //        } else if (indexPath.row == 2) {
     //            cell.titleLabel.text = NSLocalizedString(@"2G/3G/4G not load image", nil);
     //            cell.leftImageView.image = [UIImage imageNamed:@"icon_document"];
     //            UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
     //            cell.accessoryView = switchView;
-    //            switchView.on = [[NSUserDefaults standardUserDefaults] boolForKey:kGCLOADIMAGE];
+    //            switchView.on = [NSUD boolForKey:kGCLOADIMAGE];
     //            [switchView addTarget:self action:@selector(loadImageAction:) forControlEvents:UIControlEventValueChanged];
     //        }
     //    } else if (indexPath.section == 1) {
@@ -210,8 +210,8 @@
 
 - (void)nightModeAction:(id)sender {
     UISwitch *switchView = (UISwitch *)sender;
-    [[NSUserDefaults standardUserDefaults] setBool:switchView.on forKey:kGCNIGHTMODE];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NSUD setBool:switchView.on forKey:kGCNIGHTMODE];
+    [NSUD synchronize];
     
     if (switchView.on) {
         [DKNightVersionManager nightFalling];
@@ -222,14 +222,14 @@
 
 - (void)autoSwitchNightModeAction:(id)sender {
     UISwitch *switchView = (UISwitch *)sender;
-    [[NSUserDefaults standardUserDefaults] setBool:switchView.on forKey:kGCAUTOSWITCHNIGHTMODE];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NSUD setBool:switchView.on forKey:kGCAUTOSWITCHNIGHTMODE];
+    [NSUD synchronize];
 }
 
 - (void)loadImageAction:(id)sender {
     UISwitch *switchView = (UISwitch *)sender;
-    [[NSUserDefaults standardUserDefaults] setBool:switchView.on forKey:kGCLOADIMAGE];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NSUD setBool:switchView.on forKey:kGCLOADIMAGE];
+    [NSUD synchronize];
 }
 
 #pragma mark - Private Methods

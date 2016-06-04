@@ -100,13 +100,20 @@
     return array;
 }
 
-+ (BOOL)parseSearchOvertime:(NSData *)htmlData {
++ (NSString *)parseSearchOvertime:(NSData *)htmlData {
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
     NSArray *searchArray = [xpathParser searchWithXPathQuery:@"//div[@id='messagetext']"];
     if (searchArray.count > 0) {
-        return YES;
+        if ([((TFHppleElement *)searchArray[0]).content containString:@"抱歉，您在 30 秒内只能进行一次搜索"]) {
+            return @"抱歉，您在 30 秒内只能进行一次搜索";
+        }
+        if ([((TFHppleElement *)searchArray[0]).content containString:@"抱歉，站点设置每分钟系统最多响应搜索请求 6 次，请稍候再试"]) {
+            return @"抱歉，站点设置每分钟系统最多响应搜索请求 6 次，请稍候再试";
+        }
+
+        return @"";
     }
-    return NO;
+    return @"";
 }
 
 + (GCSearchArray *)parseSearch:(NSData *)htmlData {

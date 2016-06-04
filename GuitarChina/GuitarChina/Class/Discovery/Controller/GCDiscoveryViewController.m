@@ -150,6 +150,7 @@
         _scrollView.backgroundColor = [UIColor whiteColor];
         _scrollView.showsHorizontalScrollIndicator = NO;
         _scrollView.showsVerticalScrollIndicator = NO;
+        _scrollView.bounces = NO;
         _scrollView.delegate = self;
     }
     return _scrollView;

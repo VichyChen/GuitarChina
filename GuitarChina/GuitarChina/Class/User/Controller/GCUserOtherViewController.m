@@ -97,9 +97,9 @@
 - (void)logoutAction {
     [Util clearCookie];
     APP.tabBarController.selectedIndex = 0;
-    [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:kGCLOGIN];
-    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kGCLOGINNAME];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NSUD setObject:@"0" forKey:kGCLOGIN];
+    [NSUD setObject:@"" forKey:kGCLOGINNAME];
+    [NSUD synchronize];
     //    [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }

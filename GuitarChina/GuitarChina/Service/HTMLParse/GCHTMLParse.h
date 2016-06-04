@@ -18,7 +18,7 @@
 
 + (GCGuideThreadArray *)parseGuideThread:(NSData *)htmlData;
 
-+ (BOOL)parseSearchOvertime:(NSData *)htmlData;
++ (NSString *)parseSearchOvertime:(NSData *)htmlData;
 
 + (GCSearchArray *)parseSearch:(NSData *)htmlData;
 

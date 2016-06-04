@@ -66,9 +66,9 @@
     
     [Util clearCookie];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:kGCLOGIN];
-    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kGCLOGINNAME];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NSUD setObject:@"0" forKey:kGCLOGIN];
+    [NSUD setObject:@"" forKey:kGCLOGINNAME];
+    [NSUD synchronize];
     
     [self configureView];
     [self configureColor];
@@ -310,11 +310,11 @@
             if ([html rangeOfString:@"现在将转入登录前页面"].location != NSNotFound && ([html rangeOfString:@"点击此链接进行跳转"].location != NSNotFound || [html rangeOfString:@"如果您的浏览器没有自动跳转，请点击此链接"].location != NSNotFound)) {
                 NSLog(@"login success");
                 APP.tabBarController.selectedIndex = 2;
-                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLOGIN];
-                //                                                          [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:kGCLOGINID];
-                [[NSUserDefaults standardUserDefaults] setObject:self.usernameTextField.text forKey:kGCLOGINNAME];
-                //                                                          [[NSUserDefaults standardUserDefaults] setObject:model.member_level forKey:kGCLOGINLEVEL];
-                [[NSUserDefaults standardUserDefaults] synchronize];
+                [NSUD setObject:@"1" forKey:kGCLOGIN];
+                //                                                          [NSUD setObject:model.member_uid forKey:kGCLOGINID];
+                [NSUD setObject:self.usernameTextField.text forKey:kGCLOGINNAME];
+                //                                                          [NSUD setObject:model.member_level forKey:kGCLOGINLEVEL];
+                [NSUD synchronize];
                 
                 [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];

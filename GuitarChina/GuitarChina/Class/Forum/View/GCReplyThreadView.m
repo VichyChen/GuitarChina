@@ -80,7 +80,7 @@
         _avatarImage.layer.cornerRadius = 5;
         _avatarImage.layer.masksToBounds = YES;
         _avatarImage.backgroundColor = [UIColor GCLightGrayFontColor];
-        [_avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_URL_BIGAVTARIMAGE([[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINID])]
+        [_avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_URL_BIGAVTARIMAGE([NSUD stringForKey:kGCLOGINID])]
                             placeholderImage:nil
                                      options:SDWebImageRetryFailed];
     }
@@ -90,7 +90,7 @@
 - (UILabel *)userLabel {
     if (!_userLabel) {
         _userLabel = [UIView createLabel:CGRectZero
-                                    text:[[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME]
+                                    text:[NSUD stringForKey:kGCLOGINNAME]
                                     font:[UIFont boldSystemFontOfSize:16]
                                textColor:[UIColor GCBlueColor]];
     }

@@ -29,9 +29,9 @@
     self.title = NSLocalizedString(@"Me", nil);
     self.view.backgroundColor = [UIColor GCBackgroundColor];
     
-    self.userID = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINID];
-    self.username = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME];
-    self.userLevel = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINLEVEL];
+    self.userID = [NSUD stringForKey:kGCLOGINID];
+    self.username = [NSUD stringForKey:kGCLOGINNAME];
+    self.userLevel = [NSUD stringForKey:kGCLOGINLEVEL];
     
     [self configureView];
     [self configureNotification];
@@ -213,18 +213,18 @@
 #pragma mark - Event Responses
 
 - (void)refreshView {
-    self.userID = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINID];
-    self.username = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINNAME];
-    self.userLevel = [[NSUserDefaults standardUserDefaults] stringForKey:kGCLOGINLEVEL];
+    self.userID = [NSUD stringForKey:kGCLOGINID];
+    self.username = [NSUD stringForKey:kGCLOGINNAME];
+    self.userLevel = [NSUD stringForKey:kGCLOGINLEVEL];
     [self.tableView reloadData];
 }
 
 - (void)logoutAction {
     [Util clearCookie];
     APP.tabBarController.selectedIndex = 0;
-    [[NSUserDefaults standardUserDefaults] setObject:@"0" forKey:kGCLOGIN];
-    [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:kGCLOGINNAME];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [NSUD setObject:@"0" forKey:kGCLOGIN];
+    [NSUD setObject:@"" forKey:kGCLOGINNAME];
+    [NSUD synchronize];
     //    [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }

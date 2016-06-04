@@ -11,16 +11,14 @@
 @implementation Util
 
 + (NSString *)getCurrentLanguage {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
+    NSArray *languages = [NSUD objectForKey:@"AppleLanguages"];
     NSString *currentLanguage = [languages objectAtIndex:0];
     
     return currentLanguage;
 }
 
 + (BOOL)getCurrentLanguageIsChinese {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
+    NSArray *languages = [NSUD objectForKey:@"AppleLanguages"];
     NSString *currentLanguage = [languages objectAtIndex:0];
     if ([currentLanguage compare:@"zh-Hans" options:NSCaseInsensitiveSearch] == NSOrderedSame || [currentLanguage compare:@"zh-Hant" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
         return YES;

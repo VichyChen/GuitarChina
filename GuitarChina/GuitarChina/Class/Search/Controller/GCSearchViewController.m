@@ -158,9 +158,10 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField endEditing:YES];
-    
-    [self showView:GCSearchViewTypeSearch];
-    [self search:textField.text];
+    if (textField.text.length > 0) {
+        [self showView:GCSearchViewTypeSearch];
+        [self search:textField.text];
+    }
     
     return YES;
 }
@@ -221,9 +222,10 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             [self.searchTableView.header beginRefreshing];
         }
         [GCNetworkManager getSearchWithKeyWord:self.searchTextField.text pageIndex:self.pageIndex Success:^(NSData *htmlData) {
-            if ([GCHTMLParse parseSearchOvertime:htmlData]) {
+            NSString *checkString = [GCHTMLParse parseSearchOvertime:htmlData];
+            if (checkString.length > 0) {
                 [self.searchTableView.header endRefreshing];
-                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"抱歉，您在 30 秒内只能进行一次搜索", nil)];
+                [SVProgressHUD showErrorWithStatus:checkString];
                 return;
             }
             GCSearchArray *searchArray = [GCHTMLParse parseSearch:htmlData];
@@ -415,6 +417,9 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         if ([_searchTableView respondsToSelector:@selector(setLayoutMargins:)]) {
             [_searchTableView setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
         }
+        
+        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+        _searchTableView.tableFooterView = footerView;
     }
     return _searchTableView;
 }

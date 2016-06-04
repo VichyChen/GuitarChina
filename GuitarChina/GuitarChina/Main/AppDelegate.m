@@ -48,13 +48,13 @@
     
     
     if ([self firstStart]) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCAUTOSWITCHNIGHTMODE];
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCLOADIMAGE];
-        [[NSUserDefaults standardUserDefaults] setObject:@[] forKey:kGCFORUMBROWSERECORD];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        [NSUD setBool:YES forKey:kGCAUTOSWITCHNIGHTMODE];
+        [NSUD setBool:YES forKey:kGCLOADIMAGE];
+        [NSUD setObject:@[] forKey:kGCFORUMBROWSERECORD];
+        [NSUD synchronize];
     }
     
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:kGCNIGHTMODE]) {
+    if ([NSUD boolForKey:kGCNIGHTMODE]) {
         [DKNightVersionManager nightFalling];
     }
     
@@ -186,13 +186,13 @@
 }
 
 - (BOOL)firstStart {
-    BOOL result = [[NSUserDefaults standardUserDefaults] boolForKey:kGCFIRSTSTART];
+    BOOL result = [NSUD boolForKey:kGCFIRSTSTART];
     if (result) {
         return NO;
     }
     else {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kGCFIRSTSTART];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        [NSUD setBool:YES forKey:kGCFIRSTSTART];
+        [NSUD synchronize];
         return YES;
     }
 }
