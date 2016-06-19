@@ -140,7 +140,11 @@
         if ([self.uid isEqualToString:@"0"]) {
             GCLoginViewController *loginViewController = [[GCLoginViewController alloc] initWithNibName:@"GCLoginViewController" bundle:nil];
             [self presentViewController:loginViewController animated:YES completion:nil];
-        } else {
+        }
+        else if (!self.threadTypes || self.threadTypes.count == 0) {
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"GuitarChina Interface Error", nil)];
+        }
+        else {
             GCPostThreadViewController *controller = [[GCPostThreadViewController alloc] initWithNibName:@"GCPostThreadViewController" bundle:[NSBundle mainBundle]];
             controller.fid = self.fid;
             controller.formhash = self.formhash;
