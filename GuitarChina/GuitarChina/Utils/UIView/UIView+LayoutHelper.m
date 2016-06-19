@@ -11,6 +11,9 @@
 @implementation UIView (LayoutHelper)
 
 + (CGFloat)calculateLabelHeightWithText:(NSString *)text fontSize:(CGFloat)fontSize width:(CGFloat)width {
+    if (!text || [text isEqualToString:@""] || text.length == 0) {
+        return 0;
+    }
     NSDictionary *attribute = @{ NSFontAttributeName : [UIFont systemFontOfSize:fontSize] };
     CGSize size = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options: NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
     

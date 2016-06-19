@@ -62,8 +62,13 @@
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCForumModel *)model {
-    CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:14 width:ScreenWidth - 30];
-    return descriptLabelHeight + 45;
+    if (model) {
+        CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:14 width:ScreenWidth - 30];
+        return descriptLabelHeight + 45;
+    }
+    else {
+        return 45;
+    }
 }
 
 #pragma mark - Setters
