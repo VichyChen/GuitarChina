@@ -223,14 +223,14 @@
             header.stateLabel.hidden = YES;
             header;
         });
-        _webView.scrollView.footer = ({
-            MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
-            footer.mj_h = 44.0f;
-            footer.automaticallyRefresh = NO;
-            footer.refreshingTitleHidden = YES;
-            [footer setTitle:NSLocalizedString(@"Load More", nil) forState:MJRefreshStateIdle];
-            footer;
-        });
+//        _webView.scrollView.footer = ({
+//            MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
+//            footer.mj_h = 44.0f;
+//            footer.automaticallyRefresh = NO;
+//            footer.refreshingTitleHidden = YES;
+//            [footer setTitle:NSLocalizedString(@"Load More", nil) forState:MJRefreshStateIdle];
+//            footer;
+//        });
     }
     return _webView;
 }

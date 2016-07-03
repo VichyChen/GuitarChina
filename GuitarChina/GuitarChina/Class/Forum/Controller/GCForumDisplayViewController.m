@@ -105,6 +105,10 @@
             self.formhash = array.formhash;
             self.threadTypes = array.threadTypes;
             
+            if (!self.threadTypes || self.threadTypes.count == 0) {
+                self.navigationItem.rightBarButtonItem = nil;
+            }
+            
             if (self.pageIndex == 1) {
                 self.data = array.data;
                 [self.rowHeightArray removeAllObjects];

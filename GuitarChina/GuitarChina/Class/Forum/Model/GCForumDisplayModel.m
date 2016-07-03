@@ -50,9 +50,9 @@
         self.page             = [dictionary objectForKey:@"page"];
         
         self.threadTypes = [[dictionary objectForKey:@"threadtypes"] objectForKey:@"types"];
-        if (!self.threadTypes || self.threadTypes.count == 0) {
-            self.threadTypes = [[dictionary objectForKey:@"threadsorts"] objectForKey:@"types"];
-        }
+//        if (!self.threadTypes || self.threadTypes.count == 0) {
+//            self.threadTypes = [[dictionary objectForKey:@"threadsorts"] objectForKey:@"types"];
+//        }
         
         NSArray *threads = [dictionary objectForKey:@"forum_threadlist"];
         NSMutableArray *array = [[NSMutableArray alloc] init];
