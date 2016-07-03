@@ -37,6 +37,12 @@
 		0488C0AA1C795E7200920E72 /* JsonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A91C795E7200920E72 /* JsonTool.m */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
 		04B692BC1C4643E500913629 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B692BA1C4643E500913629 /* Info.plist */; };
+		04F8A35D1D28E19F007F2350 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3511D28E19F007F2350 /* WMFooldView.m */; };
+		04F8A35E1D28E19F007F2350 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3531D28E19F007F2350 /* WMMenuItem.m */; };
+		04F8A35F1D28E19F007F2350 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3551D28E19F007F2350 /* WMMenuView.m */; };
+		04F8A3601D28E19F007F2350 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3571D28E19F007F2350 /* WMProgressView.m */; };
+		04F8A3611D28E19F007F2350 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3591D28E19F007F2350 /* WMScrollView.m */; };
+		04F8A3621D28E19F007F2350 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A35C1D28E19F007F2350 /* WMPageController.m */; };
 		421191C71CE6D16600BCFF3E /* GCNetworkBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 421191C61CE6D16600BCFF3E /* GCNetworkBase.m */; };
 		421191D31CE8558B00BCFF3E /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 421191D11CE8558B00BCFF3E /* GuitarChina.xcdatamodeld */; };
 		421192351CE85D0800BCFF3E /* GCHTMLParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192311CE85D0800BCFF3E /* GCHTMLParse.m */; };
@@ -215,6 +221,19 @@
 		0488C0A91C795E7200920E72 /* JsonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonTool.m; sourceTree = "<group>"; };
 		04AF910D1BE8FAF10030AEEB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		04B692BA1C4643E500913629 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04F8A3501D28E19F007F2350 /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
+		04F8A3511D28E19F007F2350 /* WMFooldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMFooldView.m; sourceTree = "<group>"; };
+		04F8A3521D28E19F007F2350 /* WMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuItem.h; sourceTree = "<group>"; };
+		04F8A3531D28E19F007F2350 /* WMMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuItem.m; sourceTree = "<group>"; };
+		04F8A3541D28E19F007F2350 /* WMMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuView.h; sourceTree = "<group>"; };
+		04F8A3551D28E19F007F2350 /* WMMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuView.m; sourceTree = "<group>"; };
+		04F8A3561D28E19F007F2350 /* WMProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMProgressView.h; sourceTree = "<group>"; };
+		04F8A3571D28E19F007F2350 /* WMProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMProgressView.m; sourceTree = "<group>"; };
+		04F8A3581D28E19F007F2350 /* WMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMScrollView.h; sourceTree = "<group>"; };
+		04F8A3591D28E19F007F2350 /* WMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScrollView.m; sourceTree = "<group>"; };
+		04F8A35A1D28E19F007F2350 /* WMPageConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageConst.h; sourceTree = "<group>"; };
+		04F8A35B1D28E19F007F2350 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
+		04F8A35C1D28E19F007F2350 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
 		2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		2F829F5DD46C688C9B2385EC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		421191C51CE6D16600BCFF3E /* GCNetworkBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkBase.h; sourceTree = "<group>"; };
@@ -630,6 +649,34 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		04F8A34E1D28E19F007F2350 /* WMPageController */ = {
+			isa = PBXGroup;
+			children = (
+				04F8A34F1D28E19F007F2350 /* WMMenuView */,
+				04F8A35A1D28E19F007F2350 /* WMPageConst.h */,
+				04F8A35B1D28E19F007F2350 /* WMPageController.h */,
+				04F8A35C1D28E19F007F2350 /* WMPageController.m */,
+			);
+			path = WMPageController;
+			sourceTree = "<group>";
+		};
+		04F8A34F1D28E19F007F2350 /* WMMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				04F8A3501D28E19F007F2350 /* WMFooldView.h */,
+				04F8A3511D28E19F007F2350 /* WMFooldView.m */,
+				04F8A3521D28E19F007F2350 /* WMMenuItem.h */,
+				04F8A3531D28E19F007F2350 /* WMMenuItem.m */,
+				04F8A3541D28E19F007F2350 /* WMMenuView.h */,
+				04F8A3551D28E19F007F2350 /* WMMenuView.m */,
+				04F8A3561D28E19F007F2350 /* WMProgressView.h */,
+				04F8A3571D28E19F007F2350 /* WMProgressView.m */,
+				04F8A3581D28E19F007F2350 /* WMScrollView.h */,
+				04F8A3591D28E19F007F2350 /* WMScrollView.m */,
+			);
+			path = WMMenuView;
+			sourceTree = "<group>";
+		};
 		0F41C248D61EFD30EA073F7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -643,6 +690,7 @@
 		420D985D1B9297F600AEAED3 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				04F8A34E1D28E19F007F2350 /* WMPageController */,
 				047150E51BF03B2A007A8890 /* SVProgressHUD */,
 				045967471BC7A47D000181DE /* RTLabel */,
 				4238886C1BC57CA6002E1625 /* MJRefresh */,
@@ -1514,8 +1562,10 @@
 				047150F11BF03B2A007A8890 /* SVRadialGradientLayer.m in Sources */,
 				421192791CE85D3200BCFF3E /* GCThreadDetailViewController.m in Sources */,
 				421192E41CE860FC00BCFF3E /* GCForumIndexModel.m in Sources */,
+				04F8A3601D28E19F007F2350 /* WMProgressView.m in Sources */,
 				421192B21CE85F2200BCFF3E /* GCMineHeaderCell.m in Sources */,
 				423888FD1BC57D0F002E1625 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
+				04F8A3611D28E19F007F2350 /* WMScrollView.m in Sources */,
 				426BC3931CB9FA9800B3B827 /* HMSegmentedControl.m in Sources */,
 				423888A51BC57CA6002E1625 /* MJRefreshNormalHeader.m in Sources */,
 				423888AA1BC57CA6002E1625 /* UIScrollView+MJRefresh.m in Sources */,
@@ -1523,9 +1573,11 @@
 				4238889F1BC57CA6002E1625 /* MJRefreshAutoNormalFooter.m in Sources */,
 				423889031BC57D0F002E1625 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
 				04091D801CFBECBC00B797B1 /* GCColor.m in Sources */,
+				04F8A35F1D28E19F007F2350 /* WMMenuView.m in Sources */,
 				421192F11CE8617F00BCFF3E /* GCMyThreadModel.m in Sources */,
 				421192E31CE860FC00BCFF3E /* GCForumDisplayModel.m in Sources */,
 				046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */,
+				04F8A3621D28E19F007F2350 /* WMPageController.m in Sources */,
 				4211928A1CE85D7D00BCFF3E /* GCUserOtherViewController.m in Sources */,
 				421192A51CE85EEE00BCFF3E /* GCReplyThreadView.m in Sources */,
 				4238890E1BC57D0F002E1625 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
@@ -1592,6 +1644,7 @@
 				423888FC1BC57D0F002E1625 /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */,
 				421192A31CE85EEE00BCFF3E /* GCForumDisplayCell.m in Sources */,
 				423888FE1BC57D0F002E1625 /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */,
+				04F8A35D1D28E19F007F2350 /* WMFooldView.m in Sources */,
 				421192B81CE85F3A00BCFF3E /* GCMoreCell.m in Sources */,
 				046262441BAAC06800E66F03 /* NSString+Tools.m in Sources */,
 				4211927A1CE85D3200BCFF3E /* GCHotThreadViewController.m in Sources */,
@@ -1617,6 +1670,7 @@
 				0488C0AA1C795E7200920E72 /* JsonTool.m in Sources */,
 				421192881CE85D7D00BCFF3E /* GCMyThreadViewController.m in Sources */,
 				423888A11BC57CA6002E1625 /* MJRefreshBackGifFooter.m in Sources */,
+				04F8A35E1D28E19F007F2350 /* WMMenuItem.m in Sources */,
 				046DB7621BFC6F1900E05E17 /* DOPNavbarMenu.m in Sources */,
 				4260C6971BB64AB700705BE0 /* Util.m in Sources */,
 				0459674A1BC7A47D000181DE /* RTLabel.m in Sources */,
@@ -1713,8 +1767,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1759,7 +1813,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1786,8 +1840,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";
@@ -1825,8 +1879,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";

@@ -33,19 +33,6 @@
 #pragma mark - UIApplicationDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    [GCNetworkManager getSearchWithKeyWord:@"泰勒210" pageIndex:1 Success:^(NSData *htmlData) {
-        [GCHTMLParse parseSearch:htmlData];
-        [GCNetworkManager getSearchWithKeyWord:@"泰勒210" pageIndex:2 Success:^(NSData *htmlData) {
-            
-        } failure:^(NSError *error) {
-            
-        }];
-
-    } failure:^(NSError *error) {
-        
-    }];
-    
     
     if ([self firstStart]) {
         [NSUD setBool:YES forKey:kGCAUTOSWITCHNIGHTMODE];
@@ -136,36 +123,8 @@
     [UMSocialQQHandler setQQWithAppId:kQQ_APPID appKey:kQQ_APPKEY url:@"http://www.umeng.com/social"];
 }
 
-#pragma mark - Private Methods
-
 - (void)configureTabBarController {
     self.tabBarController = [[GCTabBarController alloc]init];
-    
-    GCDiscoveryViewController *discoveryViewController = [[GCDiscoveryViewController alloc] init];
-    GCNavigationController *discoveryNavigationController = [[GCNavigationController alloc] initWithRootViewController:discoveryViewController];
-    discoveryNavigationController.tabBarItem.title = NSLocalizedString(@"Home", nil);
-    discoveryNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_guitar"];
-    discoveryNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_guitar_on"];
-    
-    GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] init];
-    GCNavigationController *forumIndexNavigationController = [[GCNavigationController alloc] initWithRootViewController:forumIndexViewController];
-    forumIndexNavigationController.tabBarItem.title = NSLocalizedString(@"Forum", nil);
-    forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"icon_wave"] imageWithTintColor:[UIColor GCDeepGrayColor]];
-    forumIndexNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_wave_on"] imageWithTintColor:[UIColor GCDeepGrayColor]];
-    
-    GCUserViewController *userViewController = [[GCUserViewController alloc] init];
-    GCNavigationController *userNavigationController = [[GCNavigationController alloc] initWithRootViewController:userViewController];
-    userNavigationController.tabBarItem.title = NSLocalizedString(@"Me", nil);
-    userNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_ musicconductor"];
-    userNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_ musicconductor_on"];
-    
-    GCMoreViewController *moreViewController = [[GCMoreViewController alloc] init];
-    GCNavigationController *moreNavigationController = [[GCNavigationController alloc] initWithRootViewController:moreViewController];
-    moreNavigationController.tabBarItem.title = NSLocalizedString(@"More", nil);
-    moreNavigationController.tabBarItem.image = [UIImage imageNamed:@"icon_musicrecord"];
-    moreNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"icon_musicrecord_on"];
-    
-    self.tabBarController.viewControllers = @[discoveryNavigationController, forumIndexNavigationController, userNavigationController, moreNavigationController];
 }
 
 - (void)configureSVProgressHUD {

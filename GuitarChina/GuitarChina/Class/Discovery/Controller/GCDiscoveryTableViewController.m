@@ -13,6 +13,7 @@
 #import "MJRefresh.h"
 #import "GCHTMLParse.h"
 #import "GCForumDisplayViewController.h"
+#import "GCSearchViewController.h"
 
 @interface GCDiscoveryTableViewController ()
 
@@ -89,9 +90,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+#pragma mark - Event Response
+
 #pragma mark - Private Methods
 
-- (void)configureView {
+- (void)configureView {    
     [self.view addSubview:self.tableView];
     self.tableView.tableFooterView = [[UIView alloc] init];
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
