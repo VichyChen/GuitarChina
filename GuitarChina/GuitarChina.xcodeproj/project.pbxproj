@@ -771,11 +771,11 @@
 				4211925A1CE85D3200BCFF3E /* GCThreadDetailViewController.m */,
 				421192531CE85D3200BCFF3E /* GCPostThreadViewController.h */,
 				421192541CE85D3200BCFF3E /* GCPostThreadViewController.m */,
+				4211924D1CE85D3200BCFF3E /* GCPostThreadViewController.xib */,
 				421192551CE85D3200BCFF3E /* GCReplyThreadViewController.h */,
 				421192561CE85D3200BCFF3E /* GCReplyThreadViewController.m */,
 				421192571CE85D3200BCFF3E /* GCReportThreadViewController.h */,
 				421192581CE85D3200BCFF3E /* GCReportThreadViewController.m */,
-				4211924D1CE85D3200BCFF3E /* GCPostThreadViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
