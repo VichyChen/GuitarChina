@@ -62,13 +62,8 @@
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCForumModel *)model {
-    if (model) {
-        CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:14 width:ScreenWidth - 30];
-        return descriptLabelHeight + 45;
-    }
-    else {
-        return 45;
-    }
+    CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:14 width:ScreenWidth - 30];
+    return descriptLabelHeight + 45;
 }
 
 #pragma mark - Setters
@@ -79,9 +74,9 @@
     self.nameLabel.text = model.name;
     self.todayPostCountLabel.text = [model.todayposts isEqualToString:@"0"] ? @"" : [NSString stringWithFormat:@"(%@)" , model.todayposts ];
     self.descriptLabel.text = model.descript;
-   CGFloat labelHeight = [UIView calculateLabelHeightWithText:self.descriptLabel.text fontSize:self.descriptLabel.font.pointSize width:ScreenWidth - 30];
+    CGFloat labelHeight = [UIView calculateLabelHeightWithText:self.descriptLabel.text fontSize:self.descriptLabel.font.pointSize width:ScreenWidth - 30];
     self.descriptLabelHeight = labelHeight;
-//    self.forumDetailLabel.attributedText = model.forumDetailString;
+    //    self.forumDetailLabel.attributedText = model.forumDetailString;
 }
 
 #pragma mark - Getters
@@ -108,17 +103,17 @@
 
 - (UILabel *)descriptLabel {
     if (!_descriptLabel) {
-//        _descriptLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 40, ScreenWidth - 30, 0)];
-//        _descriptLabel.font = [UIFont systemFontOfSize:16];
-//        _descriptLabel.textColor = [UIColor GCDarkGrayFontColor];
-////        _descriptLabel.linkAttributes = @{@"color":@"red"};
-////        _descriptLabel.selectedLinkAttributes = @{@"color":@"red"};
+        //        _descriptLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 40, ScreenWidth - 30, 0)];
+        //        _descriptLabel.font = [UIFont systemFontOfSize:16];
+        //        _descriptLabel.textColor = [UIColor GCDarkGrayFontColor];
+        ////        _descriptLabel.linkAttributes = @{@"color":@"red"};
+        ////        _descriptLabel.selectedLinkAttributes = @{@"color":@"red"};
         _descriptLabel = [UIView createLabel:CGRectZero
-                                       text:@""
-                                       font:[UIFont systemFontOfSize:14]
-                                  textColor:[UIColor GCLightGrayFontColor]
-                              numberOfLines:0
-                    preferredMaxLayoutWidth:ScreenWidth - 30];
+                                        text:@""
+                                        font:[UIFont systemFontOfSize:14]
+                                   textColor:[UIColor GCLightGrayFontColor]
+                               numberOfLines:0
+                     preferredMaxLayoutWidth:ScreenWidth - 30];
         _descriptLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _descriptLabel;
