@@ -46,49 +46,48 @@
 
 /* Version */
 
-#define CurrentVersion @"1.2.0"
+#define CurrentVersion @"1.3.0"
 
 /* NSUserDefault */
 
-static NSString * const kGCFIRSTSTART = @"FIRSTSTART";
-static NSString * const kGCLOGIN = @"LOGIN";
-static NSString * const kGCLOGINID = @"LOGINID";
-static NSString * const kGCLOGINNAME = @"LOGINNAME";
-static NSString * const kGCLOGINLEVEL = @"LOGINLEVEL";
-static NSString * const kGCNIGHTMODE = @"NIGHTMODE";
-static NSString * const kGCAUTOSWITCHNIGHTMODE = @"AUTOSWITCHNIGHTMODE";
-static NSString * const kGCLOADIMAGE = @"LOADIMAGE";
-static NSString * const kGCFORUMINDEXDICTIONARY = @"FORUMINDEXDICTIONARY";
-static NSString * const kGCFORUMBROWSERECORD = @"FORUMBROWSERECORD";
-static NSString * const kGCSEARCHURL = @"SEARCHURL";
-static NSString * const kGCSEARCHHISTORY = @"kGCSEARCHHISTORY";
+#define kGCFirstStart @"GCFirstStart"
+#define kGCLogin @"GCLogin"
+#define kGCLoginID @"GCLoginID"
+#define kGCLoginName @"GCLoginName"
+#define kGCLoginLevel @"GCLoginLevel"
+#define kGCForumBrowseRecord @"GCForumBrowseRecord"
+#define kGCSearchURL @"GCSearchURL"
+#define kGCSearchHistory @"GCSearchHistory"
+#define kGCLoadImage @"GCLoadImage"
+#define kGCNightMode @"GCNightMode"
+#define kGCAutoSwitchNightMode @"GCAutoSwitchNightMode"
 
 /* Notification */
 
-static NSString * const kGCNOTIFICATION_LOGINSUCCESS = @"LOGINSUCCESS";
+static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSuccess";
 
 /* 第三方 */
 
 //微信appid
-static NSString * const kWECHAT_APPID = @"wx26165a2548b3611f";
+#define kWechatAppID @"wx26165a2548b3611f"
 //微信appsecret
-static NSString * const kWECHAT_APPSECRET = @"d4624c36b6795d1d99dcf0547af5443d";
+#define kWechatAppSecret @"d4624c36b6795d1d99dcf0547af5443d"
 //QQappid
-static NSString * const kQQ_APPID = @"1104956834";
+#define kQQAppID @"1104956834"
 //QQappkey
-static NSString * const kQQ_APPKEY = @"rmLJuaY5d3Bs8uE4";
+#define kQQAppKey @"rmLJuaY5d3Bs8uE4"
 
 /* Debug */
 #ifdef DEBUG
 
 //友盟appkey
-static NSString * const kUMENG_APPKEY = @"56d7ec72e0f55a701a000937";
+#define kUmengAppKey @"56d7ec72e0f55a701a000937"
 
 /* Release */
 #else
 
 //友盟appkey
-static NSString * const kUMENG_APPKEY = @"56d7ecd4e0f55a7090001026";
+#define kUmengAppKey @"56d7ecd4e0f55a7090001026"
 
 #define NSLog(...)
 

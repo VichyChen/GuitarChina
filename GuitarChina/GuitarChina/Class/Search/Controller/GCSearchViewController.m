@@ -277,7 +277,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     
     self.historyBlock = ^{
         @strongify(self);
-        self.historyArray = [NSMutableArray arrayWithArray:[NSUD arrayForKey:kGCSEARCHHISTORY] ? [NSUD arrayForKey:kGCSEARCHHISTORY] : @[]];
+        self.historyArray = [NSMutableArray arrayWithArray:[NSUD arrayForKey:kGCSearchHistory] ? [NSUD arrayForKey:kGCSearchHistory] : @[]];
         //        if (self.searchTextField.text.length > 0) {
         //            for (int i = (int)self.historyArray.count - 1; i >= 0; i--) {
         //                if (![self.historyArray[i] containString:self.searchTextField.text]) {
@@ -297,7 +297,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 
 - (void)search:(NSString *)text {
     if (text.length > 0) {
-        NSMutableArray *array = [NSMutableArray arrayWithArray:[NSUD arrayForKey:kGCSEARCHHISTORY] ? [NSUD arrayForKey:kGCSEARCHHISTORY] : @[]];
+        NSMutableArray *array = [NSMutableArray arrayWithArray:[NSUD arrayForKey:kGCSearchHistory] ? [NSUD arrayForKey:kGCSearchHistory] : @[]];
         for (int i = 0; i < array.count; i++) {
             if ([array[i] isEqualToString:text]) {
                 [array removeObjectAtIndex:i];
@@ -305,7 +305,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             }
         }
         [array insertObject:text atIndex:0];
-        [NSUD setObject:array forKey:kGCSEARCHHISTORY];
+        [NSUD setObject:array forKey:kGCSearchHistory];
         [NSUD synchronize];
         
         self.pageIndex = 1;
@@ -353,7 +353,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 }
 
 - (void)clearHistory {
-    [NSUD setObject:@[] forKey:kGCSEARCHHISTORY];
+    [NSUD setObject:@[] forKey:kGCSearchHistory];
     [NSUD synchronize];
     
     self.historyBlock();

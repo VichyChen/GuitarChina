@@ -29,9 +29,9 @@
     self.title = NSLocalizedString(@"Me", nil);
     self.view.backgroundColor = [UIColor GCBackgroundColor];
     
-    self.userID = [NSUD stringForKey:kGCLOGINID];
-    self.username = [NSUD stringForKey:kGCLOGINNAME];
-    self.userLevel = [NSUD stringForKey:kGCLOGINLEVEL];
+    self.userID = [NSUD stringForKey:kGCLoginID];
+    self.username = [NSUD stringForKey:kGCLoginName];
+    self.userLevel = [NSUD stringForKey:kGCLoginLevel];
     
     [self configureView];
     [self configureNotification];
@@ -55,13 +55,13 @@
 }
 
 - (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNotificationLoginSuccess object:nil];
 }
 
 #pragma mark - Notification
 
 - (void)configureNotification {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView) name:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshView) name:kGCNotificationLoginSuccess object:nil];
 }
 
 #pragma mark - UITableViewDataSource
@@ -213,19 +213,19 @@
 #pragma mark - Event Responses
 
 - (void)refreshView {
-    self.userID = [NSUD stringForKey:kGCLOGINID];
-    self.username = [NSUD stringForKey:kGCLOGINNAME];
-    self.userLevel = [NSUD stringForKey:kGCLOGINLEVEL];
+    self.userID = [NSUD stringForKey:kGCLoginID];
+    self.username = [NSUD stringForKey:kGCLoginName];
+    self.userLevel = [NSUD stringForKey:kGCLoginLevel];
     [self.tableView reloadData];
 }
 
 - (void)logoutAction {
     [Util clearCookie];
     APP.tabBarController.selectedIndex = 0;
-    [NSUD setObject:@"0" forKey:kGCLOGIN];
-    [NSUD setObject:@"" forKey:kGCLOGINNAME];
+    [NSUD setObject:@"0" forKey:kGCLogin];
+    [NSUD setObject:@"" forKey:kGCLoginName];
     [NSUD synchronize];
-    //    [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+    //    [[NSNotificationCenter defaultCenter] postNotificationName:kGCNotificationLoginSuccess object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

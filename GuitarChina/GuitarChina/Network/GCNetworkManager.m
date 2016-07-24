@@ -302,7 +302,7 @@
                      Success:(void (^)(NSData *htmlData))success
                      failure:(void (^)(NSError *error))failure {
     if (pageIndex == 1) {
-        [NSUD setObject:@"" forKey:kGCSEARCHURL];
+        [NSUD setObject:@"" forKey:kGCSearchURL];
         [NSUD synchronize];
         [[GCNetworkBase sharedInstance] getWeb:@"http://bbs.guitarchina.com/search.php"
                                     parameters:nil
@@ -317,7 +317,7 @@
                                            
                                            [[GCNetworkBase sharedInstance] postWeb:@"http://bbs.guitarchina.com/search.php?mod=forum" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
-                                               [NSUD setObject:operation.response.URL.absoluteString forKey:kGCSEARCHURL];
+                                               [NSUD setObject:operation.response.URL.absoluteString forKey:kGCSearchURL];
                                                [NSUD synchronize];
                                                
                                                NSLog(@"%@", operation.responseString);
@@ -333,7 +333,7 @@
                                        }];
     }
     else {
-        NSString *url = [[NSUD objectForKey:kGCSEARCHURL] stringByAppendingFormat:@"&page=%ld", pageIndex];
+        NSString *url = [[NSUD objectForKey:kGCSearchURL] stringByAppendingFormat:@"&page=%ld", pageIndex];
         [[GCNetworkBase sharedInstance] getWeb:url
                                     parameters:nil
                                        success:^(NSURLSessionDataTask *task, id responseObject) {

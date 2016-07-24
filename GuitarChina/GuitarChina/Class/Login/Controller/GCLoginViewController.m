@@ -66,8 +66,8 @@
     
     [Util clearCookie];
     
-    [NSUD setObject:@"0" forKey:kGCLOGIN];
-    [NSUD setObject:@"" forKey:kGCLOGINNAME];
+    [NSUD setObject:@"0" forKey:kGCLogin];
+    [NSUD setObject:@"" forKey:kGCLoginName];
     [NSUD synchronize];
     
     [self configureView];
@@ -249,14 +249,14 @@
     //            if ([model.message.messageval isEqualToString:@"login_succeed"]) {
     //                APP.tabBarController.selectedIndex = 2;
     //
-    //                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLOGIN];
-    //                [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:kGCLOGINID];
-    //                [[NSUserDefaults standardUserDefaults] setObject:model.member_username forKey:kGCLOGINNAME];
-    //                [[NSUserDefaults standardUserDefaults] setObject:model.member_level forKey:kGCLOGINLEVEL];
+    //                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLogin];
+    //                [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:GCLoginID];
+    //                [[NSUserDefaults standardUserDefaults] setObject:model.member_username forKey:kGCLoginName];
+    //                [[NSUserDefaults standardUserDefaults] setObject:model.member_level forKey:kGCLoginLevel];
     //                [[NSUserDefaults standardUserDefaults] synchronize];
     //
     //                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];
-    //                [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+    //                [[NSNotificationCenter defaultCenter] postNotificationName:kGCNotificationLoginSuccess object:nil];
     //                [self closeAction];
     //            } else if ([model.message.messageval isEqualToString:@"login_invalid"]) {
     //                [SVProgressHUD showErrorWithStatus:model.message.messagestr];
@@ -310,14 +310,14 @@
             if ([html rangeOfString:@"现在将转入登录前页面"].location != NSNotFound && ([html rangeOfString:@"点击此链接进行跳转"].location != NSNotFound || [html rangeOfString:@"如果您的浏览器没有自动跳转，请点击此链接"].location != NSNotFound)) {
                 NSLog(@"login success");
                 APP.tabBarController.selectedIndex = 2;
-                [NSUD setObject:@"1" forKey:kGCLOGIN];
-                //                                                          [NSUD setObject:model.member_uid forKey:kGCLOGINID];
-                [NSUD setObject:self.usernameTextField.text forKey:kGCLOGINNAME];
-                //                                                          [NSUD setObject:model.member_level forKey:kGCLOGINLEVEL];
+                [NSUD setObject:@"1" forKey:kGCLogin];
+                //                                                          [NSUD setObject:model.member_uid forKey:GCLoginID];
+                [NSUD setObject:self.usernameTextField.text forKey:kGCLoginName];
+                //                                                          [NSUD setObject:model.member_level forKey:kGCLoginLevel];
                 [NSUD synchronize];
                 
                 [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];
-                [[NSNotificationCenter defaultCenter] postNotificationName:kGCNOTIFICATION_LOGINSUCCESS object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kGCNotificationLoginSuccess object:nil];
                 [self closeAction];
                 
             } else if ([html rangeOfString:@"抱歉，验证码填写错误"].location != NSNotFound) {

@@ -35,13 +35,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     if ([self firstStart]) {
-        [NSUD setBool:YES forKey:kGCAUTOSWITCHNIGHTMODE];
-        [NSUD setBool:YES forKey:kGCLOADIMAGE];
-        [NSUD setObject:@[] forKey:kGCFORUMBROWSERECORD];
+        [NSUD setBool:YES forKey:kGCAutoSwitchNightMode];
+        [NSUD setBool:YES forKey:kGCLoadImage];
+        [NSUD setObject:@[] forKey:kGCForumBrowseRecord];
         [NSUD synchronize];
     }
     
-    if ([NSUD boolForKey:kGCNIGHTMODE]) {
+    if ([NSUD boolForKey:kGCNightMode]) {
         [DKNightVersionManager nightFalling];
     }
     
@@ -103,7 +103,7 @@
 #pragma mark - UMengAnalytics
 
 - (void)UMengAnalytics {
-    [MobClick startWithAppkey:kUMENG_APPKEY reportPolicy:BATCH channelId:@""];
+    [MobClick startWithAppkey:kUmengAppKey reportPolicy:BATCH channelId:@""];
     //version标识
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     [MobClick setAppVersion:version];
@@ -116,11 +116,11 @@
 #pragma mark - UMengSocial
 
 - (void)UMengSocial {
-    [UMSocialData setAppKey:kUMENG_APPKEY];
+    [UMSocialData setAppKey:kUmengAppKey];
     //设置微信AppID、appSecret
-    [UMSocialWechatHandler setWXAppId:kWECHAT_APPID appSecret:kWECHAT_APPSECRET url:nil];
+    [UMSocialWechatHandler setWXAppId:kWechatAppID appSecret:kWechatAppSecret url:nil];
     //设置QQAppID、appKey
-    [UMSocialQQHandler setQQWithAppId:kQQ_APPID appKey:kQQ_APPKEY url:@"http://www.umeng.com/social"];
+    [UMSocialQQHandler setQQWithAppId:kQQAppID appKey:kQQAppKey url:@"http://www.umeng.com/social"];
 }
 
 - (void)configureTabBarController {
@@ -145,12 +145,12 @@
 }
 
 - (BOOL)firstStart {
-    BOOL result = [NSUD boolForKey:kGCFIRSTSTART];
+    BOOL result = [NSUD boolForKey:kGCFirstStart];
     if (result) {
         return NO;
     }
     else {
-        [NSUD setBool:YES forKey:kGCFIRSTSTART];
+        [NSUD setBool:YES forKey:kGCFirstStart];
         [NSUD synchronize];
         return YES;
     }

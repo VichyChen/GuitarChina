@@ -75,7 +75,7 @@
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
     if ([viewController.tabBarItem.title isEqualToString:NSLocalizedString(@"Me", nil)]) {
-        if (![[NSUD stringForKey:kGCLOGIN] isEqualToString:@"1"]) {
+        if (![[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
             GCLoginViewController *loginViewController = [[GCLoginViewController alloc] initWithNibName:@"GCLoginViewController" bundle:nil];
             [self presentViewController:loginViewController animated:YES completion:nil];
 
