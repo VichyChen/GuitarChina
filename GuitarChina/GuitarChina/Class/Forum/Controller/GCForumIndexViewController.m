@@ -114,7 +114,7 @@
     //记录论坛浏览记录
     NSMutableArray *array = [NSMutableArray arrayWithArray:([NSUD arrayForKey:kGCFORUMBROWSERECORD] ? [NSUD arrayForKey:kGCFORUMBROWSERECORD] : @[])];
     for (int i = 0; i < array.count; i++) {
-        if (array[i] == forumModel.fid) {
+        if ([array[i] isEqualToString:forumModel.fid]) {
             //移除原有浏览记录
             [array removeObjectAtIndex:i];
             break;
