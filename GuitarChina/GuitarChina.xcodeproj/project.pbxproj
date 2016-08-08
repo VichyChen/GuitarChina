@@ -35,6 +35,7 @@
 		047150F11BF03B2A007A8890 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150ED1BF03B2A007A8890 /* SVRadialGradientLayer.m */; };
 		0488C0A71C795E1C00920E72 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A61C795E1C00920E72 /* UIColor+Custom.m */; };
 		0488C0AA1C795E7200920E72 /* JsonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A91C795E7200920E72 /* JsonTool.m */; };
+		048C3BBB1D583557000FCCFB /* UIImage+CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C3BBA1D583557000FCCFB /* UIImage+CommonMethods.m */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
 		04B692BC1C4643E500913629 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B692BA1C4643E500913629 /* Info.plist */; };
 		04F8A35D1D28E19F007F2350 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3511D28E19F007F2350 /* WMFooldView.m */; };
@@ -219,6 +220,8 @@
 		0488C0A61C795E1C00920E72 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
 		0488C0A81C795E7200920E72 /* JsonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonTool.h; sourceTree = "<group>"; };
 		0488C0A91C795E7200920E72 /* JsonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonTool.m; sourceTree = "<group>"; };
+		048C3BB91D583557000FCCFB /* UIImage+CommonMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CommonMethods.h"; sourceTree = "<group>"; };
+		048C3BBA1D583557000FCCFB /* UIImage+CommonMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CommonMethods.m"; sourceTree = "<group>"; };
 		04AF910D1BE8FAF10030AEEB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		04B692BA1C4643E500913629 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04F8A3501D28E19F007F2350 /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
@@ -566,6 +569,8 @@
 				046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */,
 				046262421BAAC06800E66F03 /* UIView+UICreateFactory.h */,
 				046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */,
+				048C3BB91D583557000FCCFB /* UIImage+CommonMethods.h */,
+				048C3BBA1D583557000FCCFB /* UIImage+CommonMethods.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1559,6 +1564,7 @@
 				421192D61CE8607100BCFF3E /* GCBaseViewController.m in Sources */,
 				4211928C1CE85D7D00BCFF3E /* GCUserViewController.m in Sources */,
 				4238889E1BC57CA6002E1625 /* MJRefreshAutoGifFooter.m in Sources */,
+				048C3BBB1D583557000FCCFB /* UIImage+CommonMethods.m in Sources */,
 				047150F11BF03B2A007A8890 /* SVRadialGradientLayer.m in Sources */,
 				421192791CE85D3200BCFF3E /* GCThreadDetailViewController.m in Sources */,
 				421192E41CE860FC00BCFF3E /* GCForumIndexModel.m in Sources */,
