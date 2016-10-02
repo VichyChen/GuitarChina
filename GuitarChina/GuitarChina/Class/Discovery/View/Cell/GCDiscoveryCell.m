@@ -34,7 +34,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.selectedBackgroundView.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
+        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
         [self configureView];
     }
     return self;
@@ -114,7 +114,7 @@
         _authorLabel = [UIView createLabel:CGRectZero
                                       text:@""
                                       font:[UIFont boldSystemFontOfSize:14]
-                                 textColor:[UIColor GCBlueColor]];
+                                 textColor:[GCColor blueColor]];
     }
     return _authorLabel;
 }
@@ -124,7 +124,7 @@
         _datelineLabel = [UIView createLabel:CGRectZero
                                         text:@""
                                         font:[UIFont systemFontOfSize:13]
-                                   textColor:[UIColor GCLightGrayFontColor]];
+                                   textColor:[GCColor grayColor3]];
     }
     return _datelineLabel;
 }
@@ -134,7 +134,7 @@
         _subjectLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:16]
-                                  textColor:[UIColor GCDarkGrayFontColor]
+                                  textColor:[GCColor fontColor]
                               numberOfLines:0
                     preferredMaxLayoutWidth:SubjectWidth];
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -145,7 +145,7 @@
 - (UIButton *)forumButton {
     if (!_forumButton) {
         _forumButton = [UIView createButton:CGRectZero text:@"" target:self action:@selector(buttonAction:)];
-        [_forumButton setTitleColor:[UIColor GCBlueColor] forState:UIControlStateNormal];
+        [_forumButton setTitleColor:[GCColor blueColor] forState:UIControlStateNormal];
         [_forumButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
         _forumButton.titleLabel.font = [UIFont systemFontOfSize:13];
     }
@@ -157,7 +157,7 @@
         _lastPostDetailLabel = [UIView createLabel:CGRectZero
                                               text:@""
                                               font:[UIFont systemFontOfSize:13]
-                                         textColor:[UIColor GCLightGrayFontColor]];
+                                         textColor:[GCColor grayColor3]];
     }
     return _lastPostDetailLabel;
 }
@@ -167,7 +167,7 @@
         _repliesLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:13]
-                                  textColor:[UIColor GCLightGrayFontColor]];
+                                  textColor:[GCColor grayColor3]];
         _repliesLabel.textAlignment = NSTextAlignmentRight;
     }
     return _repliesLabel;

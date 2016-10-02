@@ -23,7 +23,6 @@
     return [UIColor colorWithRed:0.600 green:0.004 blue:0.000 alpha:1.00];
 }
 
-//#4C85A3
 + (UIColor *)blueColor {
     return [UIColor colorWithRed:0.302f green:0.524f blue:0.639f alpha:1.00f];
 }
@@ -33,11 +32,26 @@
 }
 
 + (UIColor *)separatorLineColor {
-    return [UIColor colorWithRed:0.784f green:0.780f blue:0.800f alpha:1.00f];
+    return [UIColor colorWithRed:0.851 green:0.867 blue:0.871 alpha:1.00];
 }
 
 + (UIColor *)placeHolderColor {
     return [UIColor colorWithRed:0.780 green:0.780 blue:0.804 alpha:1.00];
+}
+
++ (UIColor *)grayColor1 {
+    return [UIColor colorWithRed:0.392 green:0.392 blue:0.392 alpha:1.00];
+}
+
++ (UIColor *)grayColor2 {
+    return [UIColor colorWithRed:0.592 green:0.592 blue:0.592 alpha:1.00];
+}
++ (UIColor *)grayColor3 {
+    return [UIColor colorWithRed:0.710 green:0.710 blue:0.710 alpha:1.00];
+}
+
++ (UIColor *)grayColor4 {
+    return [UIColor colorWithRed:0.851 green:0.867 blue:0.871 alpha:1.00];
 }
 
 @end

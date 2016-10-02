@@ -27,7 +27,7 @@
                                      forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.backBarButtonItem=backItem;
     
-    self.view.backgroundColor = [UIColor GCBackgroundColor];
+    self.view.backgroundColor = [GCColor backgroundColor];
     //    self.view.nightBackgroundColor = [UIColor whiteColor];
     
     //    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];

@@ -101,10 +101,10 @@
         UITouchGestureRecognizer *gr = [[UITouchGestureRecognizer alloc] initWithTarget:self action:@selector(dismissMenu)];
         [_background addGestureRecognizer:gr];
         
-        _textColor = [UIColor GCDarkGrayFontColor];
-        _separatarColor = [UIColor GCSeparatorLineColor];
+        _textColor = [GCColor grayColor1];
+        _separatarColor = [GCColor separatorLineColor];
         _iconColor = [UIColor whiteColor];
-        self.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
+        self.backgroundColor = [GCColor cellSelectedColor];
     }
     
     return self;

@@ -20,9 +20,8 @@
 #import "EXTScope.h"
 #import "DKNightVersion.h"
 #import <MagicalRecord/MagicalRecord.h>
-
 #import "GCNetworkManager.h"
-#import "UIColor+Custom.h"
+#import "GCColor.h"
 #import "UIView+UICreateFactory.h"
 #import "NSString+Tools.h"
 #import "UIImage+Tint.h"
@@ -35,21 +34,15 @@
 #define APP ((AppDelegate *)[UIApplication sharedApplication].delegate)
 #define iPhone UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
 #define iPad UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
-#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue]<8.0f)
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] < 8.0f)
 
-#define NSNC 
+#define NSNC [NSNotificationCenter defaultCenter]
 #define NSUD [NSUserDefaults standardUserDefaults]
 
-/* Apple ID */
-
+//Apple ID
 #define AppleID @"1089161305"
 
-/* Version */
-
-#define CurrentVersion @"1.3.0"
-
-/* NSUserDefault */
-
+//NSUserDefault
 #define kGCFirstStart @"GCFirstStart"
 #define kGCLogin @"GCLogin"
 #define kGCLoginID @"GCLoginID"
@@ -62,8 +55,7 @@
 #define kGCNightMode @"GCNightMode"
 #define kGCAutoSwitchNightMode @"GCAutoSwitchNightMode"
 
-/* Notification */
-
+//Notification
 static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSuccess";
 
 /* 第三方 */
@@ -77,13 +69,13 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 //QQappkey
 #define kQQAppKey @"rmLJuaY5d3Bs8uE4"
 
-/* Debug */
+//Debug
 #ifdef DEBUG
 
 //友盟appkey
 #define kUmengAppKey @"56d7ec72e0f55a701a000937"
 
-/* Release */
+//Release
 #else
 
 //友盟appkey

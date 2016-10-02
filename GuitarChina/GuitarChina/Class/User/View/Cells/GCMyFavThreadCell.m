@@ -30,7 +30,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.selectedBackgroundView.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
+        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
         [self configureView];
     }
     return self;
@@ -81,7 +81,7 @@
         _authorLabel = [UIView createLabel:CGRectZero
                                       text:@""
                                       font:[UIFont boldSystemFontOfSize:16]
-                                 textColor:[UIColor GCBlueColor]];
+                                 textColor:[GCColor blueColor]];
     }
     return _authorLabel;
 }
@@ -91,7 +91,7 @@
         _datelineLabel = [UIView createLabel:CGRectZero
                                         text:@""
                                         font:[UIFont systemFontOfSize:14]
-                                   textColor:[UIColor GCLightGrayFontColor]];
+                                   textColor:[GCColor grayColor3]];
     }
     return _datelineLabel;
 }
@@ -101,7 +101,7 @@
         _subjectLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:17]
-                                  textColor:[UIColor GCDarkGrayFontColor]
+                                  textColor:[GCColor grayColor1]
                               numberOfLines:0
                     preferredMaxLayoutWidth:SubjectWidth];
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -114,7 +114,7 @@
         _repliesLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:14]
-                                  textColor:[UIColor GCLightGrayFontColor]];
+                                  textColor:[GCColor grayColor3]];
         _repliesLabel.textAlignment = NSTextAlignmentRight;
     }
     return _repliesLabel;

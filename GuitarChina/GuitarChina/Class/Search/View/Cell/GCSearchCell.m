@@ -31,7 +31,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.selectedBackgroundView.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
+        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
         [self configureView];
     }
     return self;
@@ -73,7 +73,7 @@
     UILabel *subjectLabel = [UIView createLabel:CGRectZero
                                    text:@""
                                    font:[UIFont systemFontOfSize:15]
-                              textColor:[UIColor GCDarkGrayFontColor]
+                              textColor:[GCColor grayColor1]
                           numberOfLines:0
                 preferredMaxLayoutWidth:SubjectWidth];
     subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -82,7 +82,7 @@
     UILabel *contentLabel = [UIView createLabel:CGRectZero
                                    text:@""
                                    font:[UIFont systemFontOfSize:15]
-                              textColor:[UIColor GCDarkGrayFontColor]
+                              textColor:[GCColor grayColor1]
                           numberOfLines:0
                 preferredMaxLayoutWidth:SubjectWidth];
     contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -121,7 +121,7 @@
         _subjectLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:15]
-                                  textColor:[UIColor GCDarkGrayFontColor]
+                                  textColor:[GCColor grayColor1]
                               numberOfLines:0
                     preferredMaxLayoutWidth:SubjectWidth];
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -134,7 +134,7 @@
         _replyLabel = [UIView createLabel:CGRectZero
                                      text:@""
                                      font:[UIFont systemFontOfSize:12]
-                                textColor:[UIColor GCLightGrayFontColor]];
+                                textColor:[GCColor grayColor3]];
         _replyLabel.textAlignment = NSTextAlignmentLeft;
     }
     return _replyLabel;
@@ -145,7 +145,7 @@
         _contentLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:15]
-                                  textColor:[UIColor GCDarkGrayFontColor]
+                                  textColor:[GCColor grayColor1]
                               numberOfLines:0
                     preferredMaxLayoutWidth:SubjectWidth];
         _contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -158,7 +158,7 @@
         _datelineLabel = [UIView createLabel:CGRectZero
                                         text:@""
                                         font:[UIFont systemFontOfSize:12]
-                                   textColor:[UIColor GCLightGrayFontColor]];
+                                   textColor:[GCColor grayColor3]];
     }
     return _datelineLabel;
 }
@@ -168,7 +168,7 @@
         _authorLabel = [UIView createLabel:CGRectZero
                                       text:@""
                                       font:[UIFont systemFontOfSize:12]
-                                 textColor:[UIColor GCLightGrayFontColor]];
+                                 textColor:[GCColor grayColor3]];
     }
     return _authorLabel;
 }
@@ -178,7 +178,7 @@
         _forumLabel = [UIView createLabel:CGRectZero
                                      text:@""
                                      font:[UIFont systemFontOfSize:12]
-                                textColor:[UIColor GCLightGrayFontColor]];
+                                textColor:[GCColor grayColor3]];
         _forumLabel.textAlignment = NSTextAlignmentRight;
     }
     return _forumLabel;

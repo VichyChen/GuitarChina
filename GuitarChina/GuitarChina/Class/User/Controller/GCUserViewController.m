@@ -27,7 +27,7 @@
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"Me", nil);
-    self.view.backgroundColor = [UIColor GCBackgroundColor];
+    self.view.backgroundColor = [GCColor backgroundColor];
     
     self.userID = [NSUD stringForKey:kGCLoginID];
     self.username = [NSUD stringForKey:kGCLoginName];
@@ -40,7 +40,7 @@
     //                                       text:@"注销账号"
     //                                     target:self
     //                                     action:@selector(logOutAction)];
-    //    button.backgroundColor = [UIColor GCLightGrayFontColor];
+    //    button.backgroundColor = [GCColor grayColor3];
     //    button.layer.cornerRadius = 5;
     //    button.titleLabel.font = [UIFont boldSystemFontOfSize:17];
     //    button.tintColor = [UIColor whiteColor];
@@ -130,9 +130,9 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 28)];
-    view.backgroundColor = [UIColor GCBackgroundColor];
+    view.backgroundColor = [GCColor backgroundColor];
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 28, ScreenWidth, 0.5)];
-    line.backgroundColor = [UIColor GCSeparatorLineColor];
+    line.backgroundColor = [GCColor separatorLineColor];
     [view addSubview:line];
     
     return view;
@@ -234,7 +234,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
-        _tableView.backgroundColor = [UIColor GCBackgroundColor];
+        _tableView.backgroundColor = [GCColor backgroundColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -249,7 +249,7 @@
 //                                                 text:@"注销账号"
 //                                               target:self
 //                                               action:@selector(logOutAction)];
-//        button.backgroundColor = [UIColor GCRedColor];
+//        button.backgroundColor = [GCColor redColor];
 //        button.layer.cornerRadius = 5;
 //
 //        [view addSubview:button];

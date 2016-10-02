@@ -39,11 +39,11 @@
     self.typeLabel.text = NSLocalizedString(@"Select thread type.", nil);
     self.placeHoldLabel.text = NSLocalizedString(@"Write reply.", nil);
     
-    self.subjectTextField.textColor = [UIColor GCDarkGrayFontColor];
-    self.typeLabel.textColor = [UIColor UITextFieldPlaceHolderColor];
-    self.placeHoldLabel.textColor = [UIColor UITextFieldPlaceHolderColor];
-    self.messageTextView.textColor = [UIColor GCDarkGrayFontColor];
-    self.selectTypeCompleteButton.tintColor = [UIColor GCLightGrayFontColor];
+    self.subjectTextField.textColor = [GCColor grayColor1];
+    self.typeLabel.textColor = [GCColor placeHolderColor];
+    self.placeHoldLabel.textColor = [GCColor placeHolderColor];
+    self.messageTextView.textColor = [GCColor grayColor1];
+    self.selectTypeCompleteButton.tintColor = [GCColor grayColor3];
     
     self.scrollViewHeight.constant = ScreenHeight - 64 + 1;
 }
@@ -125,7 +125,7 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_checkmark"
-                                                                   normalColor:[UIColor GCDarkGrayFontColor]
+                                                                   normalColor:[GCColor grayColor1]
                                                               highlightedColor:[UIColor grayColor]
                                                                         target:self
                                                                         action:@selector(sendAction)];
@@ -163,7 +163,7 @@
 }
 
 - (IBAction)selectedPickerViewCompleteAction:(UIButton *)sender {
-    self.typeLabel.textColor = [UIColor GCDarkGrayFontColor];
+    self.typeLabel.textColor = [GCColor grayColor1];
     self.pickerViewSelectedIndex = [self.pickerView selectedRowInComponent:0];
     self.selectedType = [NSString stringWithFormat:@"%@", [[self.threadTypes allKeys] objectAtIndex:[self.pickerView selectedRowInComponent:0]]];
     self.typeLabel.text = [[self.threadTypes allValues] objectAtIndex:[self.pickerView selectedRowInComponent:0]];

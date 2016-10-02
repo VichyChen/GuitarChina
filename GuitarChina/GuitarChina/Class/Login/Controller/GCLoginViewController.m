@@ -233,8 +233,8 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_delete"
-                                                                   normalColor:[UIColor GCLightGrayFontColor]
-                                                              highlightedColor:[UIColor GCLightGrayFontColor]
+                                                                   normalColor:[GCColor grayColor3]
+                                                              highlightedColor:[GCColor grayColor3]
                                                                         target:self
                                                                         action:@selector(closeAction)];
     
@@ -354,9 +354,9 @@
 }
 
 - (void)configureColor {
-    self.usernameLabel.textColor = self.passwordLabel.textColor = self.questionLabel.textColor = self.questionTextLabel.textColor = self.answerLabel.textColor = self.seccodeVerifyLabel.textColor = self.usernameTextField.textColor = self.passwordTextField.textColor = self.answerTextField.textColor = self.seccodeVerifyTextField.textColor = [UIColor GCDarkGrayFontColor];
+    self.usernameLabel.textColor = self.passwordLabel.textColor = self.questionLabel.textColor = self.questionTextLabel.textColor = self.answerLabel.textColor = self.seccodeVerifyLabel.textColor = self.usernameTextField.textColor = self.passwordTextField.textColor = self.answerTextField.textColor = self.seccodeVerifyTextField.textColor = [GCColor grayColor1];
     
-    self.loginButton.backgroundColor = [UIColor GCRedColor];
+    self.loginButton.backgroundColor = [GCColor redColor];
 }
 
 - (void)hideAnswer {

@@ -26,7 +26,7 @@
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"More", nil);
-    self.view.backgroundColor = [UIColor GCBackgroundColor];
+    self.view.backgroundColor = [GCColor backgroundColor];
     
     [self configureView];
 }
@@ -113,13 +113,13 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
-    view.backgroundColor = [UIColor GCBackgroundColor];
+    view.backgroundColor = [GCColor backgroundColor];
     UILabel *label = [UIView createLabel:CGRectMake(15, 0, 200, 40)
                                     text:@""
                                     font:[UIFont systemFontOfSize:16]
-                               textColor:[UIColor GCBlueColor]];
+                               textColor:[GCColor blueColor]];
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, ScreenWidth, 0.5)];
-    line.backgroundColor = [UIColor GCSeparatorLineColor];
+    line.backgroundColor = [GCColor separatorLineColor];
     [view addSubview:label];
     [view addSubview:line];
     
@@ -244,7 +244,7 @@
     if (!_tableView) {
         //        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
-        _tableView.backgroundColor = [UIColor GCBackgroundColor];
+        _tableView.backgroundColor = [GCColor backgroundColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.dataSource = self;
         _tableView.delegate = self;
@@ -261,7 +261,7 @@
         NSDictionary *developer = @{@"title" : NSLocalizedString(@"Information Development", nil), @"enable" : @YES };
         NSDictionary *feedback = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES };
         NSDictionary *score = @{@"title" : NSLocalizedString(@"To Score", nil), @"enable" : @YES };
-        NSDictionary *version = @{@"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), CurrentVersion], @"enable" : @NO };
+        NSDictionary *version = @{@"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]], @"enable" : @NO };
         
         _dictionary = @{ NSLocalizedString(@"Official", nil) : @[guitarchina, musicInstrument, mushroomMusic],
                          NSLocalizedString(@"Others", nil) : @[developer, feedback, score, version] };

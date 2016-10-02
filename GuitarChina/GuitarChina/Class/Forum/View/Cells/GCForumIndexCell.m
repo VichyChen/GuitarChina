@@ -26,7 +26,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.selectedBackgroundView.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
+        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
         [self configureView];
     }
     return self;
@@ -86,7 +86,7 @@
         _nameLabel = [UIView createLabel:CGRectZero
                                     text:@""
                                     font:[UIFont systemFontOfSize:16]
-                               textColor:[UIColor GCDarkGrayFontColor]];
+                               textColor:[GCColor grayColor1]];
     }
     return _nameLabel;
 }
@@ -96,7 +96,7 @@
         _todayPostCountLabel = [UIView createLabel:CGRectZero
                                               text:@""
                                               font:[UIFont systemFontOfSize:15]
-                                         textColor:[UIColor GCLightGrayFontColor]];
+                                         textColor:[GCColor grayColor3]];
     }
     return _todayPostCountLabel;
 }
@@ -105,13 +105,13 @@
     if (!_descriptLabel) {
         //        _descriptLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 40, ScreenWidth - 30, 0)];
         //        _descriptLabel.font = [UIFont systemFontOfSize:16];
-        //        _descriptLabel.textColor = [UIColor GCDarkGrayFontColor];
+        //        _descriptLabel.textColor = [GCColor grayColor1];
         ////        _descriptLabel.linkAttributes = @{@"color":@"red"};
         ////        _descriptLabel.selectedLinkAttributes = @{@"color":@"red"};
         _descriptLabel = [UIView createLabel:CGRectZero
                                         text:@""
                                         font:[UIFont systemFontOfSize:14]
-                                   textColor:[UIColor GCLightGrayFontColor]
+                                   textColor:[GCColor grayColor3]
                                numberOfLines:0
                      preferredMaxLayoutWidth:ScreenWidth - 30];
         _descriptLabel.lineBreakMode = NSLineBreakByWordWrapping;

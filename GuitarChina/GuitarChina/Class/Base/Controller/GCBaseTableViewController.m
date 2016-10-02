@@ -20,7 +20,6 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _hiddenNavigationBarWhenScrollToBottom = NO;
         _autoBeginRefresh = YES;
     }
     return self;
@@ -39,10 +38,8 @@
     [self.tableView setSeparatorInset:(UIEdgeInsetsMake(0, 0, 0, 0))];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.view.backgroundColor = [UIColor GCBackgroundColor];
-    //    self.view.nightBackgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [GCColor backgroundColor];
     self.tableView.backgroundColor = [UIColor whiteColor];
-    //    self.tableView.nightBackgroundColor = [UIColor whiteColor];
     
     self.tableView.header = ({
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(beginRefresh)];
@@ -121,30 +118,7 @@
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (_hiddenNavigationBarWhenScrollToBottom == YES) {
-        if (lastContentOffsetY >= scrollView.contentOffset.y) {
-            lastContentOffsetY = scrollView.contentOffset.y;
-            if (lastPosition != 0) {
-                [UIView animateWithDuration:0.2 animations:^{
-                    self.navigationController.navigationBar.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0.f,0);
-                    lastPosition = 0;
-                }];
-            }
-        } else {
-            NSInteger position = scrollView.contentOffset.y;
-            lastContentOffsetY = position;
-            if (position < 0) {
-                position = 0;
-            }
-            else if (position > 44) {
-                position = 64;
-            }
-            [UIView animateWithDuration:0.25 animations:^{
-                self.navigationController.navigationBar.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0.f,-position);
-            }];
-            lastPosition = -position;
-        }
-    }
+  
 }
 
 #pragma mark - UITableViewDelegate

@@ -36,7 +36,6 @@ typedef void(^Action)(void);
 
 @end
 
-//iOS7+
 @interface DOPNavbarMenu : UIView
 
 @property (copy, nonatomic, readonly) NSArray *rowItems;

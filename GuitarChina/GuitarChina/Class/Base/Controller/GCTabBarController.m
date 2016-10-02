@@ -29,7 +29,7 @@
     
     self.delegate = self;
     
-    self.tabBar.tintColor = [UIColor GCRedColor];
+    self.tabBar.tintColor = [GCColor redColor];
     self.tabBar.barTintColor = [UIColor whiteColor];
     
     [self configureView];
@@ -44,8 +44,8 @@
     GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] init];
     GCNavigationController *forumIndexNavigationController = [[GCNavigationController alloc] initWithRootViewController:forumIndexViewController];
     forumIndexNavigationController.tabBarItem.title = NSLocalizedString(@"Forum", nil);
-    forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"icon_wave"] imageWithTintColor:[UIColor GCDeepGrayColor]];
-    forumIndexNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_wave_on"] imageWithTintColor:[UIColor GCDeepGrayColor]];
+    forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"icon_wave"] imageWithTintColor:[GCColor grayColor2]];
+    forumIndexNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_wave_on"] imageWithTintColor:[GCColor grayColor2]];
     
     GCUserViewController *userViewController = [[GCUserViewController alloc] init];
     GCNavigationController *userNavigationController = [[GCNavigationController alloc] initWithRootViewController:userViewController];
@@ -109,8 +109,8 @@
     pageVC.pageAnimatable = YES;
     pageVC.menuHeight = 40;
     pageVC.menuViewStyle = WMMenuViewStyleLine;
-    pageVC.titleColorSelected = [UIColor GCRedColor];
-    pageVC.titleColorNormal = [UIColor GCDarkGrayFontColor];
+    pageVC.titleColorSelected = [GCColor redColor];
+    pageVC.titleColorNormal = [GCColor grayColor1];
     pageVC.progressColor = [UIColor colorWithRed:168.0/255.0 green:20.0/255.0 blue:4/255.0 alpha:1];
     pageVC.menuItemWidth = ScreenWidth / 4;
     pageVC.preloadPolicy = WMPageControllerPreloadPolicyNever;
@@ -118,13 +118,13 @@
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(0, 0, 100, 44);
     label.text = NSLocalizedString(@"GuitarChina", nil);
-    label.textColor = [UIColor GCDarkGrayFontColor];
+    label.textColor = [GCColor fontColor];
     label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont systemFontOfSize:16];
+    label.font = [UIFont systemFontOfSize:18];
     pageVC.navigationItem.titleView = label;
     
     pageVC.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_search"
-                                                                   normalColor:[UIColor GCDarkGrayFontColor]
+                                                                   normalColor:[GCColor grayColor1]
                                                               highlightedColor:[UIColor grayColor]
                                                                         target:self
                                                                         action:@selector(searchAction)];

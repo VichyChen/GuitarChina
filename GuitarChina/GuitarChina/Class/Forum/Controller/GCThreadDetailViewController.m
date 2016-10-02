@@ -217,7 +217,7 @@
     leftButton.frame = CGRectMake(0, 0, 25, 25);
     [leftButton setAdjustsImageWhenHighlighted:YES];
     UIImage *image = [UIImage imageNamed:@"icon_ellipsis"];
-    [leftButton setImage:[image imageWithTintColor:[UIColor GCDarkGrayFontColor]] forState:UIControlStateNormal];
+    [leftButton setImage:[image imageWithTintColor:[GCColor grayColor1]] forState:UIControlStateNormal];
 //    [leftButton setImage:[image imageWithTintColor:[UIColor grayColor]] forState:UIControlStateHighlighted];
     [leftButton addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
@@ -414,28 +414,28 @@
         _menu.delegate = self;
 
         DOPNavbarMenuItem *replyItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Reply", nil)
-                                                                   icon:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[UIColor GCDarkGrayFontColor]]
+                                                                   icon:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[GCColor grayColor1]]
                                                                     row:0
                                                             actionBlock:self.replyBlock];
         DOPNavbarMenuItem *favoriteItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Favorite", nil)
-                                                                      icon:[[UIImage imageNamed:@"icon_collect"] imageWithTintColor:[UIColor GCDarkGrayFontColor]]
+                                                                      icon:[[UIImage imageNamed:@"icon_collect"] imageWithTintColor:[GCColor grayColor1]]
                                                                        row:0
                                                                actionBlock:self.favoriteBlock];
         DOPNavbarMenuItem *copyItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Copy URL", nil)
-                                                                  icon:[[UIImage imageNamed:@"icon_link"] imageWithTintColor:[UIColor GCDarkGrayFontColor]]
+                                                                  icon:[[UIImage imageNamed:@"icon_link"] imageWithTintColor:[GCColor grayColor1]]
                                                                    row:0
                                                            actionBlock:^{
                                                                [Util copyToPasteboard:GCNETWORKAPI_URL_THREAD(self.tid)];
                                                                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy Complete", nil)];
                                                            }];
         DOPNavbarMenuItem *refreshItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Refresh", nil)
-                                                                     icon:[[UIImage imageNamed:@"icon_refresh"] imageWithTintColor:[UIColor GCDarkGrayFontColor]]
+                                                                     icon:[[UIImage imageNamed:@"icon_refresh"] imageWithTintColor:[GCColor grayColor1]]
                                                                       row:0
                                                               actionBlock:^{
                                                                   [self.threadDetailView webViewStartRefresh];
                                                               }];
         DOPNavbarMenuItem *reportItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Report", nil)
-                                                                    icon:[[UIImage imageNamed:@"icon_error"] imageWithTintColor:[UIColor GCDarkGrayFontColor]]
+                                                                    icon:[[UIImage imageNamed:@"icon_error"] imageWithTintColor:[GCColor grayColor1]]
                                                                      row:0
                                                              actionBlock:self.reportBlock];
         

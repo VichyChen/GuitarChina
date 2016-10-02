@@ -231,7 +231,7 @@
                          originX:(CGFloat)originX
                          originY:(CGFloat)originY {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(originX, originY, length, 0.5)];
-    view.backgroundColor = [UIColor GCSeparatorLineColor];
+    view.backgroundColor = [GCColor separatorLineColor];
     
     return view;
 }
@@ -250,7 +250,7 @@
                        originX:(CGFloat)originX
                        originY:(CGFloat)originY {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(originX, originY, 1, length)];
-    view.backgroundColor = [UIColor GCSeparatorLineColor];
+    view.backgroundColor = [GCColor separatorLineColor];
     
     return view;
 }

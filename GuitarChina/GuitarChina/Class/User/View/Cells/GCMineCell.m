@@ -22,7 +22,7 @@
     if (self) {
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.selectedBackgroundView.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
+        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
         [self configureView];
     }
     return self;
@@ -57,7 +57,7 @@
         _titleLabel = [UIView createLabel:CGRectZero
                                     text:@"陈大捷"
                                     font:[UIFont systemFontOfSize:16]
-                               textColor:[UIColor GCDarkGrayFontColor]];
+                               textColor:[GCColor fontColor]];
     }
     return _titleLabel;
 }
@@ -65,7 +65,7 @@
 - (UIView *)separatorViewBottom {
     if (!_separatorViewBottom) {
         _separatorViewBottom = [[UIView alloc] initWithFrame:CGRectZero];
-        _separatorViewBottom.backgroundColor = [UIColor GCSeparatorLineColor];
+        _separatorViewBottom.backgroundColor = [GCColor separatorLineColor];
     }
     return _separatorViewBottom;
 }

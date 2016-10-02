@@ -81,7 +81,7 @@
     if (!_placeholderLabel) {
         _placeholderLabel = [UIView createLabel:CGRectZero
                                            text:NSLocalizedString(@"Write report content.", nil)
-                                           font:[UIFont systemFontOfSize:16] textColor:[UIColor GCLightGrayFontColor]];
+                                           font:[UIFont systemFontOfSize:16] textColor:[GCColor grayColor3]];
     }
     return _placeholderLabel;
 }

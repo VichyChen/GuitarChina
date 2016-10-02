@@ -17,7 +17,7 @@
         [_repliesString appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@  ", _replies]]];
         
         NSTextAttachment *repliesAttachment = [[NSTextAttachment alloc] initWithData:nil ofType:nil] ;
-        repliesAttachment.image = [[UIImage imageNamed:@"icon_replycount"] imageWithTintColor:[UIColor GCLightGrayFontColor]];
+        repliesAttachment.image = [[UIImage imageNamed:@"icon_replycount"] imageWithTintColor:[GCColor grayColor3]];
         repliesAttachment.bounds = CGRectMake(0, -2, 15, 15);
         NSAttributedString *repliesAttachmentString = [NSAttributedString attributedStringWithAttachment:repliesAttachment];
         [_repliesString insertAttributedString:repliesAttachmentString atIndex:_repliesString.length];

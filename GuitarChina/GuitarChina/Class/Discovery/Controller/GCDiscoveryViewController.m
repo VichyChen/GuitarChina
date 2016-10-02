@@ -30,7 +30,7 @@
     self.title = NSLocalizedString(@"Home", nil);
     
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_search"
-                                                                   normalColor:[UIColor GCDarkGrayFontColor]
+                                                                   normalColor:[GCColor grayColor1]
                                                               highlightedColor:[UIColor grayColor]
                                                                         target:self
                                                                         action:@selector(searchAction)];
@@ -79,9 +79,9 @@
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(0, 0, 100, 44);
     label.text = NSLocalizedString(@"GuitarChina", nil);
-    label.textColor = [UIColor GCDarkGrayFontColor];
+    label.textColor = [GCColor fontColor];
     label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont systemFontOfSize:16];
+    label.font = [UIFont systemFontOfSize:18];
     self.navigationItem.titleView = label;
     
     [self.view addSubview:self.segmentedControl];
@@ -130,10 +130,10 @@
         _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[NSLocalizedString(@"Hottest", nil), NSLocalizedString(@"Newest", nil), NSLocalizedString(@"Sofa", nil), NSLocalizedString(@"Essence", nil)]];
         _segmentedControl.frame = CGRectMake(0, 64, ScreenWidth, 40);
         _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationNone;
-        _segmentedControl.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
-        _segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor GCDarkGrayFontColor],
+        _segmentedControl.backgroundColor = [GCColor cellSelectedColor];
+        _segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : [GCColor grayColor1],
                                                   NSFontAttributeName : [UIFont systemFontOfSize:15]};
-        _segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : [UIColor GCRedColor],
+        _segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : [GCColor redColor],
                                                           NSFontAttributeName : [UIFont systemFontOfSize:15]};
         [_segmentedControl addTarget:self action:@selector(segmentedControlChangedValue) forControlEvents:UIControlEventValueChanged];
     }

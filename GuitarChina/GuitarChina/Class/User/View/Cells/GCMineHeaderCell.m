@@ -50,7 +50,7 @@
                                    contentMode:UIViewContentModeScaleAspectFit];
         _avatarImage.layer.cornerRadius = 5;
         _avatarImage.layer.masksToBounds = YES;
-        _avatarImage.backgroundColor = [UIColor GCLightGrayFontColor];
+        _avatarImage.backgroundColor = [GCColor grayColor3];
     }
     return _avatarImage;
 }
@@ -60,7 +60,7 @@
         _userLabel = [UIView createLabel:CGRectZero
                                       text:@""
                                       font:[UIFont boldSystemFontOfSize:17]
-                                 textColor:[UIColor GCBlueColor]];
+                                 textColor:[GCColor blueColor]];
     }
     return _userLabel;
 }
@@ -70,7 +70,7 @@
         _levelLabel = [UIView createLabel:CGRectZero
                                     text:@""
                                     font:[UIFont systemFontOfSize:15]
-                               textColor:[UIColor GCLightGrayFontColor]];
+                               textColor:[GCColor grayColor3]];
     }
     return _levelLabel;
 }
@@ -78,7 +78,7 @@
 - (UIView *)separatorViewBottom {
     if (!_separatorViewBottom) {
         _separatorViewBottom = [[UIView alloc] initWithFrame:CGRectZero];
-        _separatorViewBottom.backgroundColor = [UIColor GCSeparatorLineColor];
+        _separatorViewBottom.backgroundColor = [GCColor separatorLineColor];
     }
     return _separatorViewBottom;
 }

@@ -41,10 +41,6 @@
         [NSUD synchronize];
     }
     
-    if ([NSUD boolForKey:kGCNightMode]) {
-        [DKNightVersionManager nightFalling];
-    }
-    
     //设置MagicalRecord
     [self setupMagicalRecord];
     
@@ -57,8 +53,6 @@
     [self configureForumDictionary];
     [self configureSVProgressHUD];
     [self configureTabBarController];
-    //    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-//    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -129,7 +123,7 @@
 
 - (void)configureSVProgressHUD {
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
-    [SVProgressHUD setBackgroundColor:[UIColor GCDeepGrayColor]];
+    [SVProgressHUD setBackgroundColor:[GCColor grayColor2]];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
 }
 

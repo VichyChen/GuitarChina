@@ -238,7 +238,7 @@
 - (UIView *)toolBarView {
     if (!_toolBarView) {
         _toolBarView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 64 - 40, ScreenWidth, 40)];
-        _toolBarView.backgroundColor = [UIColor GCBackgroundColor];
+        _toolBarView.backgroundColor = [GCColor backgroundColor];
         _toolBarView.alpha = 0.0f;
         [_toolBarView addSubview:self.pageButton];
         [_toolBarView addSubview:self.previousPageButton];
@@ -252,7 +252,7 @@
 
 - (UIView *)separatorLineView {
     if (!_separatorLineView) {
-        _separatorLineView = [UIView createHorizontalLine:ScreenWidth originX:0 originY:0 color:[UIColor GCSeparatorLineColor]];
+        _separatorLineView = [UIView createHorizontalLine:ScreenWidth originX:0 originY:0 color:[GCColor separatorLineColor]];
     }
     return _separatorLineView;
 }
@@ -263,7 +263,7 @@
                                       text:@"1"
                                     target:self
                                     action:@selector(pageAction)];
-        _pageButton.tintColor = [UIColor GCDarkGrayFontColor];
+        _pageButton.tintColor = [GCColor grayColor1];
         _pageButton.titleLabel.font = [UIFont systemFontOfSize:16];
     }
     return _pageButton;
@@ -275,7 +275,7 @@
                                     target:self
                                     action:@selector(backAction)];
 //        [_previousPageButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-        _previousPageButton.tintColor = [UIColor GCDarkGrayFontColor];
+        _previousPageButton.tintColor = [GCColor grayColor1];
         [_previousPageButton setTitle:NSLocalizedString(@"Prev", nil) forState:UIControlStateNormal];
     }
     return _previousPageButton;
@@ -287,7 +287,7 @@
                                        target:self
                                        action:@selector(forwardAction)];
 //        [_nextPageButton setImage:[UIImage imageNamed:@"icon_forward"] forState:UIControlStateNormal];
-        _nextPageButton.tintColor = [UIColor GCDarkGrayFontColor];
+        _nextPageButton.tintColor = [GCColor grayColor1];
         [_nextPageButton setTitle:NSLocalizedString(@"Next", nil) forState:UIControlStateNormal];
     }
     return _nextPageButton;
@@ -298,11 +298,11 @@
         _replyButton = [UIView createButton:CGRectMake(ScreenWidth - 40, 9, 22, 22)
                                          target:self
                                          action:@selector(replyAction)];
-        [_replyButton setImage:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[UIColor GCDarkGrayFontColor]] forState:UIControlStateNormal];
+        [_replyButton setImage:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[GCColor grayColor1]] forState:UIControlStateNormal];
         _replyButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         _replyButton.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
         _replyButton.contentMode = UIViewContentModeScaleAspectFit;
-        _replyButton.tintColor = [UIColor GCDarkGrayFontColor];
+        _replyButton.tintColor = [GCColor grayColor1];
     }
     return _replyButton;
 }
@@ -319,8 +319,8 @@
 - (UIView *)pickerContentView {
     if (!_pickerContentView) {
         _pickerContentView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 66 + 1, ScreenWidth, 200)];
-        _pickerContentView.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
-        _pickerContentView.layer.borderColor = [UIColor GCSeparatorLineColor].CGColor;
+        _pickerContentView.backgroundColor = [GCColor cellSelectedColor];
+        _pickerContentView.layer.borderColor = [GCColor separatorLineColor].CGColor;
         _pickerContentView.layer.borderWidth = 1;
         _pickerContentView.layer.masksToBounds = YES;
         

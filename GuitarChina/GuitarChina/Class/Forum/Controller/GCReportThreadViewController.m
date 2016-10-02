@@ -51,13 +51,13 @@
 
 - (void)configureView {
     self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_delete"
-                                                                   normalColor:[UIColor GCDarkGrayFontColor]
+                                                                   normalColor:[GCColor grayColor1]
                                                               highlightedColor:[UIColor grayColor]
                                                                         target:self
                                                                         action:@selector(closeAction)];
     
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_checkmark"
-                                                                   normalColor:[UIColor GCDarkGrayFontColor]
+                                                                   normalColor:[GCColor grayColor1]
                                                               highlightedColor:[UIColor grayColor]
                                                                         target:self
                                                                         action:@selector(sendAction)];

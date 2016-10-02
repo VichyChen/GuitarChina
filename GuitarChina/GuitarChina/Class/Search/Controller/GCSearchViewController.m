@@ -82,7 +82,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             cell = [[GCHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         cell.textLabel.font = [UIFont systemFontOfSize:16];
-        cell.textLabel.textColor = [UIColor GCDarkGrayFontColor];
+        cell.textLabel.textColor = [GCColor grayColor1];
         cell.textLabel.text = self.historyArray[indexPath.row];
         
         return cell;
@@ -170,20 +170,20 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 
 - (void)configureNavigationBar {
     self.navigationItem.rightBarButtonItem = [UIView createBarButtonItem:NSLocalizedString(@"Cancel", nil) target:self action:@selector(closeAction)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor GCRedColor];
+    self.navigationItem.rightBarButtonItem.tintColor = [GCColor redColor];
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:16], NSFontAttributeName, nil] forState:UIControlStateNormal];
     
     UIImageView *leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(7, 7, 14, 14)];
-    leftImageView.image = [[UIImage imageNamed:@"icon_search"] imageWithTintColor:[UIColor GCDarkGrayFontColor]];
+    leftImageView.image = [[UIImage imageNamed:@"icon_search"] imageWithTintColor:[GCColor grayColor1]];
     
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 26, 28)];
     [leftView addSubview:leftImageView];
     
-    self.searchTextField = [UIView createTextField:CGRectMake(0, 0, ScreenWidth, 28) borderStyle:UITextBorderStyleNone text:@"" textColor:[UIColor GCBlackFontColor] placeholder:NSLocalizedString(@"Enter Keywords", nil) textAlignment:NSTextAlignmentLeft];
+    self.searchTextField = [UIView createTextField:CGRectMake(0, 0, ScreenWidth, 28) borderStyle:UITextBorderStyleNone text:@"" textColor:[GCColor fontColor] placeholder:NSLocalizedString(@"Enter Keywords", nil) textAlignment:NSTextAlignmentLeft];
     self.searchTextField.delegate = self;
     self.searchTextField.font = [UIFont systemFontOfSize:14];
-    self.searchTextField.textColor = [UIColor GCDarkGrayFontColor];
-    self.searchTextField.backgroundColor = [UIColor GCCellSelectedBackgroundColor];
+    self.searchTextField.textColor = [GCColor grayColor1];
+    self.searchTextField.backgroundColor = [GCColor cellSelectedColor];
     self.searchTextField.layer.cornerRadius = 5;
     self.searchTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.searchTextField.leftViewMode = UITextFieldViewModeAlways;
@@ -376,7 +376,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 34)];
         
-        UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth - 30, 34) text:NSLocalizedString(@"Search History", nil) font:[UIFont systemFontOfSize:15] textColor:[UIColor GCLightGrayFontColor]];
+        UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth - 30, 34) text:NSLocalizedString(@"Search History", nil) font:[UIFont systemFontOfSize:15] textColor:[GCColor grayColor3]];
         UIView *headerLine = [UIView createHorizontalLine:ScreenWidth - 20 originX:10 originY:34];
         
         [headerView addSubview:label];
@@ -388,9 +388,9 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 80)];
         
         UIButton *button = [UIView createButton:CGRectMake(0, 0, ScreenWidth - 60, 40) buttonType:UIButtonTypeSystem text:NSLocalizedString(@"Clean History", nil) target:self action:@selector(clearHistory)];
-        button.tintColor = [UIColor GCRedColor];
+        button.tintColor = [GCColor redColor];
         button.layer.cornerRadius = 5;
-        button.layer.borderColor = [UIColor GCRedColor].CGColor;
+        button.layer.borderColor = [GCColor redColor].CGColor;
         button.layer.borderWidth = 1;
         button.center = footerView.center;
         

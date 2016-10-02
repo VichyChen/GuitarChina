@@ -33,7 +33,10 @@
 		047150EF1BF03B2A007A8890 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 047150E91BF03B2A007A8890 /* SVProgressHUD.bundle */; };
 		047150F01BF03B2A007A8890 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150EB1BF03B2A007A8890 /* SVProgressHUD.m */; };
 		047150F11BF03B2A007A8890 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150ED1BF03B2A007A8890 /* SVRadialGradientLayer.m */; };
-		0488C0A71C795E1C00920E72 /* UIColor+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A61C795E1C00920E72 /* UIColor+Custom.m */; };
+		0479424E1DA0076900E810DF /* GCForumIndexCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479424C1DA0076900E810DF /* GCForumIndexCollectionViewCell.m */; };
+		0479424F1DA0076900E810DF /* GCForumIndexCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0479424D1DA0076900E810DF /* GCForumIndexCollectionViewCell.xib */; };
+		047942531DA00A5B00E810DF /* GCForumIndexCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047942511DA00A5B00E810DF /* GCForumIndexCollectionReusableView.m */; };
+		047942541DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047942521DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib */; };
 		0488C0AA1C795E7200920E72 /* JsonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A91C795E7200920E72 /* JsonTool.m */; };
 		048C3BBB1D583557000FCCFB /* UIImage+CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C3BBA1D583557000FCCFB /* UIImage+CommonMethods.m */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
@@ -216,8 +219,12 @@
 		047150EB1BF03B2A007A8890 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		047150EC1BF03B2A007A8890 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		047150ED1BF03B2A007A8890 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
-		0488C0A51C795E1C00920E72 /* UIColor+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Custom.h"; sourceTree = "<group>"; };
-		0488C0A61C795E1C00920E72 /* UIColor+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Custom.m"; sourceTree = "<group>"; };
+		0479424B1DA0076900E810DF /* GCForumIndexCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexCollectionViewCell.h; sourceTree = "<group>"; };
+		0479424C1DA0076900E810DF /* GCForumIndexCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexCollectionViewCell.m; sourceTree = "<group>"; };
+		0479424D1DA0076900E810DF /* GCForumIndexCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCForumIndexCollectionViewCell.xib; sourceTree = "<group>"; };
+		047942501DA00A5B00E810DF /* GCForumIndexCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumIndexCollectionReusableView.h; sourceTree = "<group>"; };
+		047942511DA00A5B00E810DF /* GCForumIndexCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCForumIndexCollectionReusableView.m; sourceTree = "<group>"; };
+		047942521DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GCForumIndexCollectionReusableView.xib; sourceTree = "<group>"; };
 		0488C0A81C795E7200920E72 /* JsonTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonTool.h; sourceTree = "<group>"; };
 		0488C0A91C795E7200920E72 /* JsonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonTool.m; sourceTree = "<group>"; };
 		048C3BB91D583557000FCCFB /* UIImage+CommonMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CommonMethods.h"; sourceTree = "<group>"; };
@@ -578,8 +585,6 @@
 		0463E6F61BD49FBA001F7290 /* Color */ = {
 			isa = PBXGroup;
 			children = (
-				0488C0A51C795E1C00920E72 /* UIColor+Custom.h */,
-				0488C0A61C795E1C00920E72 /* UIColor+Custom.m */,
 				04091D7E1CFBECBC00B797B1 /* GCColor.h */,
 				04091D7F1CFBECBC00B797B1 /* GCColor.m */,
 			);
@@ -1007,6 +1012,12 @@
 				4211929A1CE85EEE00BCFF3E /* GCForumDisplayCell.m */,
 				4211929B1CE85EEE00BCFF3E /* GCForumIndexCell.h */,
 				4211929C1CE85EEE00BCFF3E /* GCForumIndexCell.m */,
+				0479424B1DA0076900E810DF /* GCForumIndexCollectionViewCell.h */,
+				0479424C1DA0076900E810DF /* GCForumIndexCollectionViewCell.m */,
+				0479424D1DA0076900E810DF /* GCForumIndexCollectionViewCell.xib */,
+				047942501DA00A5B00E810DF /* GCForumIndexCollectionReusableView.h */,
+				047942511DA00A5B00E810DF /* GCForumIndexCollectionReusableView.m */,
+				047942521DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1448,6 +1459,7 @@
 					425FB2DE1B84C23B00B6A89B = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = VJ9XJ78H9K;
+						ProvisioningStyle = Automatic;
 					};
 					425FB2FA1B84C23B00B6A89B = {
 						CreatedOnToolsVersion = 6.4;
@@ -1489,9 +1501,11 @@
 				421192C71CE8601E00BCFF3E /* GCLoginViewController.xib in Resources */,
 				043648E01BCF9BD80005162D /* Images.xcassets in Resources */,
 				42C5546A1C878334000AF010 /* Default-568h@2x.png in Resources */,
+				0479424F1DA0076900E810DF /* GCForumIndexCollectionViewCell.xib in Resources */,
 				047150EF1BF03B2A007A8890 /* SVProgressHUD.bundle in Resources */,
 				423888A71BC57CA6002E1625 /* MJRefresh.bundle in Resources */,
 				42657DDC1B99CAA2001F8DFC /* Localizable.strings in Resources */,
+				047942541DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib in Resources */,
 				047125911BCDF478000C8BC1 /* GCThreadWebView.css in Resources */,
 				043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */,
 				04B692BC1C4643E500913629 /* Info.plist in Resources */,
@@ -1602,11 +1616,11 @@
 				421192B41CE85F2200BCFF3E /* GCMyThreadCell.m in Sources */,
 				423888F71BC57D0F002E1625 /* DGActivityIndicatorBallPulseAnimation.m in Sources */,
 				423888A21BC57CA6002E1625 /* MJRefreshBackNormalFooter.m in Sources */,
+				0479424E1DA0076900E810DF /* GCForumIndexCollectionViewCell.m in Sources */,
 				423888F11BC57D0F002E1625 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
 				423889051BC57D0F002E1625 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
 				421192FA1CE861AF00BCFF3E /* GCBaseNoticeModel.m in Sources */,
 				4238890A1BC57D0F002E1625 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
-				0488C0A71C795E1C00920E72 /* UIColor+Custom.m in Sources */,
 				423889091BC57D0F002E1625 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */,
 				423888A31BC57CA6002E1625 /* MJRefreshBackStateFooter.m in Sources */,
 				046DB76B1BFC6F9700E05E17 /* TFHpple.m in Sources */,
@@ -1681,6 +1695,7 @@
 				4260C6971BB64AB700705BE0 /* Util.m in Sources */,
 				0459674A1BC7A47D000181DE /* RTLabel.m in Sources */,
 				042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */,
+				047942531DA00A5B00E810DF /* GCForumIndexCollectionReusableView.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,
 				4211928B1CE85D7D00BCFF3E /* GCUserProtocolViewController.m in Sources */,
 				421192351CE85D0800BCFF3E /* GCHTMLParse.m in Sources */,
@@ -1847,8 +1862,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = VJ9XJ78H9K;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
@@ -1886,8 +1902,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dajie Chen (LUZLSYQP4B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = VJ9XJ78H9K;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
