@@ -1,16 +1,16 @@
 //
-//  GCMoreViewController.m
+//  GCAboutViewController.m
 //  GuitarChina
 //
 //  Created by mac on 15/9/25.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCMoreViewController.h"
-#import "GCMoreCell.h"
+#import "GCAboutViewController.h"
+#import "GCAboutCell.h"
 #import "GCThreadDetailViewController.h"
 
-@interface GCMoreViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface GCAboutViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -20,12 +20,12 @@
 
 @end
 
-@implementation GCMoreViewController
+@implementation GCAboutViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"More", nil);
+    self.title = NSLocalizedString(@"About", nil);
     self.view.backgroundColor = [GCColor backgroundColor];
     
     [self configureView];
@@ -47,7 +47,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //    GCMoreCell *cell = [[GCMoreCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    //    GCAboutCell *cell = [[GCAboutCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     //    if (indexPath.section == 0) {
     //        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     //        if (indexPath.row == 0) {
@@ -91,7 +91,7 @@
     NSArray *array = [self.dictionary objectForKey:key];
     NSDictionary *dictionary = [array objectAtIndex:indexPath.row];
     
-    GCMoreCell *cell = [[GCMoreCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    GCAboutCell *cell = [[GCAboutCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell.titleLabel.text = [dictionary objectForKey:@"title"];
     
     NSNumber *enable = [dictionary objectForKey:@"enable"];

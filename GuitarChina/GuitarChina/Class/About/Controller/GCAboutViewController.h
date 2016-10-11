@@ -1,5 +1,5 @@
 //
-//  GCMoreViewController.h
+//  GCAboutViewController.h
 //  GuitarChina
 //
 //  Created by mac on 15/9/25.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "GCBaseViewController.h"
 
-@interface GCMoreViewController : GCBaseViewController
+@interface GCAboutViewController : GCBaseViewController
 
 @end

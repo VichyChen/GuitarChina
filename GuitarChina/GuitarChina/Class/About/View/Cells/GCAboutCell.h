@@ -1,5 +1,5 @@
 //
-//  GCMoreCell.h
+//  GCAboutCell.h
 //  GuitarChina
 //
 //  Created by mac on 15/11/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCMoreCell : UITableViewCell
+@interface GCAboutCell : UITableViewCell
 
 @property (nonatomic, strong) UIImageView *leftImageView;
 @property (nonatomic, strong) UILabel *titleLabel;

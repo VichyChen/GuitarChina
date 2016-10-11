@@ -11,7 +11,7 @@
 #import "GCDiscoveryViewController.h"
 #import "GCForumIndexViewController.h"
 #import "GCUserViewController.h"
-#import "GCMoreViewController.h"
+#import "GCAboutViewController.h"
 #import "MobClick.h"
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"

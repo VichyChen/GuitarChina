@@ -76,12 +76,12 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 35)];
-    view.backgroundColor = [GCColor backgroundColor];
+    view.backgroundColor = [UIColor GCBackgroundColor];
     GCForumGroupModel *model = [self.data objectAtIndex:section];
     UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth, 35)
                                     text:[NSString stringWithFormat:@"%@", model.name]
                                     font:[UIFont systemFontOfSize:16]
-                               textColor:[GCColor blueColor]];
+                               textColor:[UIColor GCBlueColor]];
     [view addSubview:label];
     
     return view;
@@ -149,17 +149,19 @@
     GCForumGroupModel *forumGroupModel = [self.data objectAtIndex:indexPath.section];
     GCForumModel *forumModel = [forumGroupModel.forums objectAtIndex:indexPath.row];
     
-    NSString *title = forumModel.name;
+    NSString *title = [forumModel.todayposts isEqualToString:@"0"] ? forumModel.name : [NSString stringWithFormat:@"%@(%@)", forumModel.name, forumModel.todayposts];
     title = [title replace:@"&amp;" toNewString:@"&"];
-//    cell.titleLabel.text = title;
+    cell.titleLabel.text = title;
     
-    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] init];
-    [string appendAttributedString:[[NSAttributedString alloc] initWithString:title]];
-    if (![forumModel.todayposts isEqualToString:@"0"]) {
-        [string appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"(%@)", forumModel.todayposts] attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [GCColor grayColor2] }]];
-    }
-    cell.titleLabel.attributedText = string;
+    //    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] init];
+    //    [string appendAttributedString:[[NSAttributedString alloc] initWithString:title]];
+    //    if (![forumModel.todayposts isEqualToString:@"0"]) {
+    //        [string appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"(%@)", forumModel.todayposts] attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [GCColor grayColor2] }]];
+    //    }
+    //    cell.titleLabel.attributedText = string;
     
+    
+
     return cell;
 }
 
