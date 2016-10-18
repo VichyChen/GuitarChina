@@ -225,7 +225,7 @@
     [NSUD setObject:@"0" forKey:kGCLogin];
     [NSUD setObject:@"" forKey:kGCLoginName];
     [NSUD synchronize];
-    //    [[NSNotificationCenter defaultCenter] postNotificationName:kGCNotificationLoginSuccess object:nil];
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -241,20 +241,5 @@
     }
     return _tableView;
 }
-
-//- (UIView *)tableFooterView {
-//    if (!_tableFooterView) {
-//        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
-//        UIButton *button = [UIView createButton:CGRectMake(15, 28, ScreenWidth - 30, 44)
-//                                                 text:@"注销账号"
-//                                               target:self
-//                                               action:@selector(logOutAction)];
-//        button.backgroundColor = [GCColor redColor];
-//        button.layer.cornerRadius = 5;
-//
-//        [view addSubview:button];
-//    }
-//    return _tableFooterView;
-//}
 
 @end

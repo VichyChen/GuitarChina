@@ -70,15 +70,15 @@
 #pragma mark - UITableViewDelegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
     view.backgroundColor = [GCColor cellSelectedColor];
     GCForumGroupModel *model = [self.data objectAtIndex:section];
-    UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth, 44)
+    UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth, 40)
                                     text:[NSString stringWithFormat:@"%@", model.name]
                                     font:[UIFont systemFontOfSize:16]
                                textColor:[GCColor fontColor]];
     
-    UIView *redView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 3, 44)];
+    UIView *redView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 3, 40)];
     redView.backgroundColor = [GCColor redColor];
     [view addSubview:redView];
     [view addSubview:label];
@@ -87,7 +87,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 44;
+    return 40;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {

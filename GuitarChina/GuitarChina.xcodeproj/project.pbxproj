@@ -952,6 +952,8 @@
 		421192691CE85D3200BCFF3E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				421192851CE85D7D00BCFF3E /* GCUserViewController.h */,
+				421192861CE85D7D00BCFF3E /* GCUserViewController.m */,
 				4211927B1CE85D7D00BCFF3E /* GCMyFavThreadViewController.h */,
 				4211927C1CE85D7D00BCFF3E /* GCMyFavThreadViewController.m */,
 				4211927D1CE85D7D00BCFF3E /* GCMyThreadViewController.h */,
@@ -962,8 +964,6 @@
 				421192821CE85D7D00BCFF3E /* GCUserOtherViewController.m */,
 				421192831CE85D7D00BCFF3E /* GCUserProtocolViewController.h */,
 				421192841CE85D7D00BCFF3E /* GCUserProtocolViewController.m */,
-				421192851CE85D7D00BCFF3E /* GCUserViewController.h */,
-				421192861CE85D7D00BCFF3E /* GCUserViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
