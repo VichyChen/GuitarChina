@@ -9,12 +9,8 @@
 #import "GCForumIndexViewController.h"
 #import "GCForumDisplayViewController.h"
 #import "GCForumIndexCell.h"
-#import "GCForumIndexCollectionViewCell.h"
-#import "GCForumIndexCollectionReusableView.h"
 
-@interface GCForumIndexViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
-
-@property (nonatomic, strong) UICollectionView *collectionView;
+@interface GCForumIndexViewController ()
 
 @property (nonatomic, strong) NSMutableArray *data;
 
@@ -26,23 +22,22 @@
 
 - (void)loadView {
     [super loadView];
-        
+    
+    self.autoBeginRefresh = YES;
     self.title = NSLocalizedString(@"Forum", nil);
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.view addSubview:self.collectionView];
-    
-    [self.collectionView.header beginRefreshing];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self configureBlock];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-/*
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -75,20 +70,24 @@
 #pragma mark - UITableViewDelegate
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 35)];
-    view.backgroundColor = [UIColor GCBackgroundColor];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
+    view.backgroundColor = [GCColor cellSelectedColor];
     GCForumGroupModel *model = [self.data objectAtIndex:section];
-    UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth, 35)
+    UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth, 44)
                                     text:[NSString stringWithFormat:@"%@", model.name]
                                     font:[UIFont systemFontOfSize:16]
-                               textColor:[UIColor GCBlueColor]];
+                               textColor:[GCColor fontColor]];
+    
+    UIView *redView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 3, 44)];
+    redView.backgroundColor = [GCColor redColor];
+    [view addSubview:redView];
     [view addSubview:label];
     
     return view;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 35;
+    return 44;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -118,7 +117,7 @@
     //记录论坛浏览记录
     NSMutableArray *array = [NSMutableArray arrayWithArray:([NSUD arrayForKey:kGCForumBrowseRecord] ? [NSUD arrayForKey:kGCForumBrowseRecord] : @[])];
     for (int i = 0; i < array.count; i++) {
-        if ([array[i] isEqualToString:forumModel.fid]) {
+        if (array[i] == forumModel.fid) {
             //移除原有浏览记录
             [array removeObjectAtIndex:i];
             break;
@@ -130,171 +129,56 @@
     [NSUD synchronize];
 }
 
-*/
+#pragma mark - Private Methods
 
-#pragma mark - UICollectionView Delegate/dataSource
-
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return [self.data count];
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    GCForumGroupModel *model = [self.data objectAtIndex:section];
-    return [model.forums count];
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    GCForumIndexCollectionViewCell *cell = (GCForumIndexCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"GCForumIndexCollectionViewCell" forIndexPath:indexPath];
-    
-    GCForumGroupModel *forumGroupModel = [self.data objectAtIndex:indexPath.section];
-    GCForumModel *forumModel = [forumGroupModel.forums objectAtIndex:indexPath.row];
-    
-    NSString *title = [forumModel.todayposts isEqualToString:@"0"] ? forumModel.name : [NSString stringWithFormat:@"%@(%@)", forumModel.name, forumModel.todayposts];
-    title = [title replace:@"&amp;" toNewString:@"&"];
-    cell.titleLabel.text = title;
-    
-    //    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] init];
-    //    [string appendAttributedString:[[NSAttributedString alloc] initWithString:title]];
-    //    if (![forumModel.todayposts isEqualToString:@"0"]) {
-    //        [string appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"(%@)", forumModel.todayposts] attributes:@{ NSFontAttributeName : [UIFont systemFontOfSize:13], NSForegroundColorAttributeName : [GCColor grayColor2] }]];
-    //    }
-    //    cell.titleLabel.attributedText = string;
-    
-    
-
-    return cell;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    GCForumGroupModel *forumGroupModel = [self.data objectAtIndex:indexPath.section];
-//    return [GCForumIndexCollectionViewCell getCellHeight:forumGroupModel.forums];
-    if (indexPath.section == self.data.count - 1 && indexPath.row == forumGroupModel.forums.count - 1) {
-        return CGSizeMake((ScreenWidth - 13 * 3) / 2, 55);
-    } else {
-        return CGSizeMake((ScreenWidth - 13 * 3) / 2, 40);
-    }
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    if (kind == UICollectionElementKindSectionHeader) {
-        GCForumIndexCollectionReusableView *reusableView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"GCForumIndexCollectionReusableView" forIndexPath:indexPath];
-        GCForumGroupModel *model = [self.data objectAtIndex:indexPath.section];
-        reusableView.titleLabel.text = model.name;
-        
-        return reusableView;
-    }
-    
-    return nil;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(ScreenWidth, 44);
-}
-
--(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(0, 13, 0, 13);
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 13;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 13;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    GCForumDisplayViewController *controller = [[GCForumDisplayViewController alloc] init];
-    controller.hidesBottomBarWhenPushed = YES;
-    GCForumGroupModel *forumGroupModel = [self.data objectAtIndex:indexPath.section];
-    GCForumModel *forumModel = [forumGroupModel.forums objectAtIndex:indexPath.row];
-    controller.title = forumModel.name;
-    controller.fid = forumModel.fid;
-    [self.navigationController pushViewController:controller animated:YES];
-    
-    //记录论坛浏览记录
-    NSMutableArray *array = [NSMutableArray arrayWithArray:([NSUD arrayForKey:kGCForumBrowseRecord] ? [NSUD arrayForKey:kGCForumBrowseRecord] : @[])];
-    for (int i = 0; i < array.count; i++) {
-        if ([array[i] isEqualToString:forumModel.fid]) {
-            //移除原有浏览记录
-            [array removeObjectAtIndex:i];
-            break;
-        }
-    }
-    [array insertObject:forumModel.fid atIndex:0];
-    array = [NSMutableArray arrayWithArray:[array subarrayWithRange:NSMakeRange(0, array.count >= 5 ? 5 : array.count)]];
-    [NSUD setObject:array forKey:kGCForumBrowseRecord];
-    [NSUD synchronize];
-}
-
-#pragma mark - HTTP
-
-- (void)getForumIndex {
+- (void)configureBlock {
     @weakify(self);
-    [GCNetworkManager getForumIndexSuccess:^(GCForumIndexArray *array) {
+    self.refreshBlock = ^{
         @strongify(self);
-        self.data = array.data;
-        
-        //增加最近浏览分类
-        //最近浏览记录
-        NSArray *browseArray = [NSMutableArray arrayWithArray:([NSUD arrayForKey:kGCForumBrowseRecord] ? [NSUD arrayForKey:kGCForumBrowseRecord] : @[])];
-        if (browseArray.count > 0) {
-            GCForumGroupModel *forumGroupModel = [[GCForumGroupModel alloc] init];
-            forumGroupModel.fid = @"0";
-            forumGroupModel.name = @"最近浏览";
-            forumGroupModel.forums = [NSMutableArray arrayWithArray:browseArray];
-            for (GCForumGroupModel *tempForumGroupModel in array.data) {
-                for (GCForumModel *tempForumModel in tempForumGroupModel.forums) {
-                    if ([browseArray containsObject:tempForumModel.fid]) {
-                        for (int i = 0; i < browseArray.count; i++) {
-                            if ([browseArray[i] isEqualToString:tempForumModel.fid]) {
-                                [forumGroupModel.forums replaceObjectAtIndex:i withObject:[tempForumModel copy]];
-                                //                                    ((GCForumModel *)forumGroupModel.forums[i]).todayposts = @"0";
-                                break;
+        [GCNetworkManager getForumIndexSuccess:^(GCForumIndexArray *array) {
+            self.data = array.data;
+            
+            //增加最近浏览分类
+            //最近浏览记录
+            NSArray *browseArray = [NSMutableArray arrayWithArray:([NSUD arrayForKey:kGCForumBrowseRecord] ? [NSUD arrayForKey:kGCForumBrowseRecord] : @[])];
+            if (browseArray.count > 0) {
+                GCForumGroupModel *forumGroupModel = [[GCForumGroupModel alloc] init];
+                forumGroupModel.fid = @"0";
+                forumGroupModel.name = @"最近浏览";
+                forumGroupModel.forums = [NSMutableArray arrayWithArray:browseArray];
+                for (GCForumGroupModel *tempForumGroupModel in array.data) {
+                    for (GCForumModel *tempForumModel in tempForumGroupModel.forums) {
+                        if ([browseArray containsObject:tempForumModel.fid]) {
+                            for (int i = 0; i < browseArray.count; i++) {
+                                if ([browseArray[i] isEqualToString:tempForumModel.fid]) {
+                                    [forumGroupModel.forums replaceObjectAtIndex:i withObject:[tempForumModel copy]];
+                                    //                                    ((GCForumModel *)forumGroupModel.forums[i]).todayposts = @"0";
+                                    break;
+                                }
                             }
                         }
                     }
                 }
+                [self.data insertObject:forumGroupModel atIndex:0];
             }
-            [self.data insertObject:forumGroupModel atIndex:0];
-        }
-        
-        for (int i = 0; i < self.data.count; i++) {
-            GCForumGroupModel *model = (GCForumGroupModel *)self.data[i];
-            NSMutableArray *heightArray = [NSMutableArray array];
-            for (GCForumModel *forumModel in model.forums) {
-                [heightArray addObject: [NSNumber numberWithFloat:[GCForumIndexCell getCellHeightWithModel:forumModel]]];
+            
+            [self.rowHeightDictionary removeAllObjects];
+            for (int i = 0; i < self.data.count; i++) {
+                GCForumGroupModel *model = (GCForumGroupModel *)self.data[i];
+                NSMutableArray *heightArray = [NSMutableArray array];
+                for (GCForumModel *forumModel in model.forums) {
+                    [heightArray addObject: [NSNumber numberWithFloat:[GCForumIndexCell getCellHeightWithModel:forumModel]]];
+                }
+                [self.rowHeightDictionary setObject:heightArray forKey:[NSNumber numberWithInt:i]];
             }
-        }
-        
-        [self.collectionView reloadData];
-        [self.collectionView.header endRefreshing];
-    } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
-    }];
-}
-
-- (UICollectionView *)collectionView {
-    if (!_collectionView) {
-        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
-        _collectionView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
-        _collectionView.backgroundColor = [GCColor backgroundColor];
-        _collectionView.delegate = self;
-        _collectionView.dataSource = self;
-        
-        [_collectionView registerNib:[UINib nibWithNibName:@"GCForumIndexCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"GCForumIndexCollectionViewCell"];
-        [_collectionView registerNib:[UINib nibWithNibName:@"GCForumIndexCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"GCForumIndexCollectionReusableView"];
-
-        _collectionView.header = ({
-            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getForumIndex)];
-            header.lastUpdatedTimeLabel.hidden = YES;
-            header.stateLabel.hidden = YES;
-            header;
-        });
-    }
-    return _collectionView;
+            
+            [self.tableView reloadData];
+            [self endRefresh];
+        } failure:^(NSError *error) {
+            [self endRefresh];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        }];
+    };
 }
 
 @end

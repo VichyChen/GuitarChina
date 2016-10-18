@@ -29,7 +29,7 @@
     
     self.delegate = self;
     
-    self.tabBar.tintColor = [GCColor grayColor2];
+    self.tabBar.tintColor = [GCColor redColor];
     self.tabBar.barTintColor = [UIColor whiteColor];
     
     [self configureView];
@@ -38,26 +38,26 @@
 - (void)configureView {
     GCNavigationController *discoveryNavigationController = [[GCNavigationController alloc] initWithRootViewController:self.wmPageController];
     discoveryNavigationController.tabBarItem.title = NSLocalizedString(@"Home", nil);
-    discoveryNavigationController.tabBarItem.image = [UIImage imageNamed:@"tabbar_home"];
-    discoveryNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_home_filled"];
+    discoveryNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_home"] imageWithTintColor:[GCColor grayColor2]];
+    discoveryNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_home_filled"] imageWithTintColor:[GCColor redColor]];
     
-    GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] init];
+    GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] initWithStyle:UITableViewStyleGrouped];
     GCNavigationController *forumIndexNavigationController = [[GCNavigationController alloc] initWithRootViewController:forumIndexViewController];
     forumIndexNavigationController.tabBarItem.title = NSLocalizedString(@"Forum", nil);
     forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_forum"] imageWithTintColor:[GCColor grayColor2]];
-    forumIndexNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_forum_filled"] imageWithTintColor:[GCColor grayColor2]];
+    forumIndexNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_forum_filled"] imageWithTintColor:[GCColor redColor]];
     
     GCUserViewController *userViewController = [[GCUserViewController alloc] init];
     GCNavigationController *userNavigationController = [[GCNavigationController alloc] initWithRootViewController:userViewController];
     userNavigationController.tabBarItem.title = NSLocalizedString(@"Me", nil);
-    userNavigationController.tabBarItem.image = [UIImage imageNamed:@"tabbar_user"];
-    userNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_user_filled"];
+    userNavigationController.tabBarItem.image = [[UIImage imageNamed:@"icon_mine"] imageWithTintColor:[GCColor grayColor2]];
+    userNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_mine_on"] imageWithTintColor:[GCColor redColor]];
     
     GCAboutViewController *moreViewController = [[GCAboutViewController alloc] init];
     GCNavigationController *moreNavigationController = [[GCNavigationController alloc] initWithRootViewController:moreViewController];
     moreNavigationController.tabBarItem.title = NSLocalizedString(@"About", nil);
-    moreNavigationController.tabBarItem.image = [UIImage imageNamed:@"tabbar_about"];
-    moreNavigationController.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_about_filled"];
+    moreNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor grayColor2]];
+    moreNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_about_filled"] imageWithTintColor:[GCColor redColor]];
     
     self.viewControllers = @[discoveryNavigationController, forumIndexNavigationController, userNavigationController, moreNavigationController];
 }

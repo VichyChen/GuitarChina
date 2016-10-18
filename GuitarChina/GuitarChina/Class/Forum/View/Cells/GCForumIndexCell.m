@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *descriptLabel;
 @property (nonatomic, strong) UILabel *todayPostCountLabel;
+@property (nonatomic, strong) UIView *separatorView;
 
 @end
 
@@ -40,6 +41,7 @@
     self.todayPostCountLabel.frame = CGRectMake(15 + self.nameLabel.frame.size.width + 5, 10, 100, 20);
     self.descriptLabel.frame = CGRectMake(15, 35, ScreenWidth - 30, self.descriptLabelHeight);
     [self.descriptLabel sizeToFit];
+    self.separatorView.frame = CGRectMake(0, 35 + self.descriptLabelHeight + 9.5, ScreenWidth, 0.5);
 }
 
 #pragma mark RTLabel delegate
@@ -57,6 +59,7 @@
     [self.contentView addSubview:self.nameLabel];
     [self.contentView addSubview:self.descriptLabel];
     [self.contentView addSubview:self.todayPostCountLabel];
+    [self.contentView addSubview:self.separatorView];
 }
 
 #pragma mark - Class Method
@@ -86,7 +89,7 @@
         _nameLabel = [UIView createLabel:CGRectZero
                                     text:@""
                                     font:[UIFont systemFontOfSize:16]
-                               textColor:[GCColor grayColor1]];
+                               textColor:[GCColor fontColor]];
     }
     return _nameLabel;
 }
@@ -96,18 +99,13 @@
         _todayPostCountLabel = [UIView createLabel:CGRectZero
                                               text:@""
                                               font:[UIFont systemFontOfSize:15]
-                                         textColor:[GCColor grayColor3]];
+                                         textColor:[GCColor grayColor2]];
     }
     return _todayPostCountLabel;
 }
 
 - (UILabel *)descriptLabel {
     if (!_descriptLabel) {
-        //        _descriptLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 40, ScreenWidth - 30, 0)];
-        //        _descriptLabel.font = [UIFont systemFontOfSize:16];
-        //        _descriptLabel.textColor = [GCColor grayColor1];
-        ////        _descriptLabel.linkAttributes = @{@"color":@"red"};
-        ////        _descriptLabel.selectedLinkAttributes = @{@"color":@"red"};
         _descriptLabel = [UIView createLabel:CGRectZero
                                         text:@""
                                         font:[UIFont systemFontOfSize:14]
@@ -118,5 +116,14 @@
     }
     return _descriptLabel;
 }
+
+- (UIView *)separatorView {
+    if (!_separatorView) {
+        _separatorView = [[UIView alloc] init];
+        _separatorView.backgroundColor = [GCColor separatorLineColor];
+    }
+    return _separatorView;
+}
+
 
 @end

@@ -1008,10 +1008,10 @@
 		421192981CE85EEE00BCFF3E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				421192991CE85EEE00BCFF3E /* GCForumDisplayCell.h */,
-				4211929A1CE85EEE00BCFF3E /* GCForumDisplayCell.m */,
 				4211929B1CE85EEE00BCFF3E /* GCForumIndexCell.h */,
 				4211929C1CE85EEE00BCFF3E /* GCForumIndexCell.m */,
+				421192991CE85EEE00BCFF3E /* GCForumDisplayCell.h */,
+				4211929A1CE85EEE00BCFF3E /* GCForumDisplayCell.m */,
 				0479424B1DA0076900E810DF /* GCForumIndexCollectionViewCell.h */,
 				0479424C1DA0076900E810DF /* GCForumIndexCollectionViewCell.m */,
 				0479424D1DA0076900E810DF /* GCForumIndexCollectionViewCell.xib */,

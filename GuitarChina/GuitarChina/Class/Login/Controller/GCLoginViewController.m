@@ -74,10 +74,6 @@
     [self configureColor];
     [self configureBlock];
     
-    //    self.usernameTextField.text = @"Vichy_Chen";
-    //    self.passwordTextField.text = @"88436658cdj";
-    //    self.answerTextField.text = @"汕头";
-    
     self.getLoginWebBlock();
 }
 
@@ -124,23 +120,6 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 }
-
-#pragma mark - UITextFieldDelegate
-
-//- (void)textFieldDidChange:(UITextView *)textView {
-//
-//}
-//
-//- (void)textViewDidBeginEditing:(UITextView *)textView {
-//    if (self.usernameTextField.text.length == 0 ||
-//        self.passwordTextField.text.length == 0 ||
-//        self.answerTextField.text.length == 0 ||
-//        self.seccodeVerifyTextField.text.length == 0) {
-//        self.loginButton.enabled = NO;
-//    } else {
-//        self.loginButton.enabled = YES;
-//    }
-//}
 
 #pragma mark - UIPickerViewDataSource
 
@@ -372,35 +351,6 @@
     self.answerLabel.hidden = NO;
     self.answerBottomSeparatorView.hidden = NO;
 }
-
-#pragma mark - Getters
-
-//- (GCLoginView *)loginView {
-//    if (!_loginView) {
-//        _loginView = [[GCLoginView alloc] initWithFrame:CGRectMake(0, 20, ScreenWidth, ScreenHeight)];
-//        @weakify(self);
-//        _loginView.loginActionBlock = ^{
-//            @strongify(self);
-//            self.loginBlock();
-//
-//
-//            //            NSArray* activities = @[ [CustomActivety new] ];
-//            //            UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:nil applicationActivities:activities];
-//            //
-//            //            [self presentViewController:activityVC animated:YES completion:nil];
-//        };
-//        _loginView.webLoginActionBlock = ^{
-//            @strongify(self);
-//            self.webLoginBlock();
-//        };
-//        _loginView.usernameTextField.text = @"Vichy_Chen";
-//        _loginView.passwordTextField.text = @"88436658cdj";
-//    }
-//    return _loginView;
-//}
-
-
-
 
 @end
 

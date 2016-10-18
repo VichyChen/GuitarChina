@@ -17,22 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //    self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc]init];
     if (!iOS7) {
-        [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backArrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];//更改背景图片
+        [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backArrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     }
     [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-500, 0)
                                      forBarMetrics:UIBarMetricsDefault];
-    self.navigationItem.backBarButtonItem=backItem;
+    self.navigationItem.backBarButtonItem = backItem;
     
     self.view.backgroundColor = [GCColor backgroundColor];
-    //    self.view.nightBackgroundColor = [UIColor whiteColor];
-    
-    //    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    //    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-    
 }
 
 - (void)didReceiveMemoryWarning {

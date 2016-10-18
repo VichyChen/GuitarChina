@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GCBaseViewController.h"
+#import "GCBaseTableViewController.h"
 
-@interface GCForumIndexViewController : GCBaseViewController
+@interface GCForumIndexViewController : GCBaseTableViewController
 
 @end

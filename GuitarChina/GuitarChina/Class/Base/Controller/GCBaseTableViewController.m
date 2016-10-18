@@ -27,52 +27,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIBarButtonItem *backItem=[[UIBarButtonItem alloc]init];
+    
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc]init];
     if (!iOS7) {
-        [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backArrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];//更改背景图片
+        [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backArrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     }
     [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-500, 0)
                                      forBarMetrics:UIBarMetricsDefault];
-    self.navigationItem.backBarButtonItem=backItem;
-    
-    [self.tableView setSeparatorInset:(UIEdgeInsetsMake(0, 0, 0, 0))];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.navigationItem.backBarButtonItem = backItem;
     
     self.view.backgroundColor = [GCColor backgroundColor];
     self.tableView.backgroundColor = [UIColor whiteColor];
-    
     self.tableView.header = ({
         MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(beginRefresh)];
         header.lastUpdatedTimeLabel.hidden = YES;
         header.stateLabel.hidden = YES;
         header;
     });
-    
     if (self.pageIndex == 1) {
         self.tableView.footer = ({
-            //            MJRefreshAutoStateFooter *footer = [MJRefreshAutoStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
-            //            footer.automaticallyRefresh = NO;
-            //
-            //            footer;
             MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
-            footer.automaticallyRefresh = NO;
+            footer.automaticallyRefresh = YES;
             footer.refreshingTitleHidden = YES;
             [footer setTitle:NSLocalizedString(@"Load More", nil) forState:MJRefreshStateIdle];
             footer;
         });
     }
-    if (self.autoBeginRefresh) {
-        [self.tableView.header beginRefreshing];
-    }
-    
     self.tableView.tableFooterView = [[UIView alloc] init];
-    
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
         [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     }
     if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
         [self.tableView setLayoutMargins:UIEdgeInsetsZero];
-    }    
+    }
+    
+    if (self.autoBeginRefresh) {
+        [self.tableView.header beginRefreshing];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,9 +87,6 @@
 }
 
 - (void)endRefresh {
-    if (self.tableView.separatorStyle == UITableViewCellSeparatorStyleNone) {
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    }
     [self.tableView.header endRefreshing];
 }
 
