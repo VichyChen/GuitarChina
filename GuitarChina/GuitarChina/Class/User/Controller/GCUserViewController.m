@@ -33,21 +33,19 @@
     self.username = [NSUD stringForKey:kGCLoginName];
     self.userLevel = [NSUD stringForKey:kGCLoginLevel];
     
+    @weakify(self);
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[[UIImage imageNamed:@"icon_exit"] imageWithTintColor:[GCColor grayColor1]] style:UIBarButtonItemStyleDone handler:^(id sender) {
+        [UIAlertView bk_showAlertViewWithTitle:@"" message:@"确定要注销账号吗？" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+            @strongify(self);
+            if (buttonIndex == 1) {
+                [self logoutAction];
+            }
+        }];
+    }];
+    self.navigationItem.rightBarButtonItem.tintColor = [GCColor fontColor];
+    
     [self configureView];
     [self configureNotification];
-    //    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
-    //    UIButton *button = [UIView createButton:CGRectMake(15, 28, ScreenWidth - 30, 44)
-    //                                       text:@"注销账号"
-    //                                     target:self
-    //                                     action:@selector(logOutAction)];
-    //    button.backgroundColor = [GCColor grayColor3];
-    //    button.layer.cornerRadius = 5;
-    //    button.titleLabel.font = [UIFont boldSystemFontOfSize:17];
-    //    button.tintColor = [UIColor whiteColor];
-    //
-    //    [view addSubview:button];
-    //    self.tableView.tableFooterView = view;
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,7 +72,7 @@
     if (section == 0) {
         return 1;
     } else if (section == 1) {
-        return 4;
+        return 2;
     } else if (section == 2) {
         return 0;
     }

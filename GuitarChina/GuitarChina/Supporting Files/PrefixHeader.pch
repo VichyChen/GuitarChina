@@ -28,6 +28,7 @@
 #import "Util.h"
 #import "JsonTool.h"
 #import "GCHTMLParse.h"
+#import "BlocksKit+UIKit.h"
 
 #define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
 #define ScreenWidth ([UIScreen mainScreen].bounds.size.width)
