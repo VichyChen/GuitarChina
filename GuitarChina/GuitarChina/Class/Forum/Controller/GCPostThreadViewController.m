@@ -82,14 +82,6 @@
  
 }
 
-//- (void)textViewDidEndEditing:(UITextView *)textView {
-//    if (self.messageTextView.text.length > 0) {
-//        self.placeHoldLabel.hidden = YES;
-//    } else {
-//        self.placeHoldLabel.hidden = NO;
-//    }
-//}
-
 - (void)textViewDidChange:(UITextView *)textView {
     if (self.messageTextView.text.length > 0) {
         self.placeHoldLabel.hidden = YES;

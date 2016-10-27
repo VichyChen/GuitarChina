@@ -100,7 +100,6 @@
     [NSUD setObject:@"0" forKey:kGCLogin];
     [NSUD setObject:@"" forKey:kGCLoginName];
     [NSUD synchronize];
-    //    [[NSNotificationCenter defaultCenter] postNotificationName:kGCNotificationLoginSuccess object:nil];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

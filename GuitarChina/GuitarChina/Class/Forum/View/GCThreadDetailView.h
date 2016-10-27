@@ -47,6 +47,4 @@
 @property (nonatomic, assign) NSInteger pickerViewCount;
 @property (nonatomic, assign) NSInteger pickerViewIndex;
 
-@property (nonatomic, copy) void (^swipeLeftActionBlock)();
-
 @end

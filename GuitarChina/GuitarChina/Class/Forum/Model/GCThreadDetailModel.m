@@ -106,7 +106,7 @@
             
             NSString *string = [item objectForKey:@"message"];
             string = [string replace:@"src=\"static/image/smiley/gc/em" toNewString:@"src=\"http://bbs.guitarchina.com/static/image/smiley/gc/em"];
-            model.message      = string ? string : @"";
+            model.message = string ? string : @"";
             model.message = [model.message replace:@"[media]" toNewString:@""];
             model.message = [model.message replace:@"[/media]" toNewString:@""];
             
@@ -127,8 +127,6 @@
             model.author       = [item objectForKey:@"author"];
             model.authorid     = [item objectForKey:@"authorid"];
             model.dateline     = [item objectForKey:@"dateline"];
-            
-            
             model.anonymous    = [item objectForKey:@"anonymous"];
             model.attachment   = [item objectForKey:@"attachment"];
             model.status       = [item objectForKey:@"status"];

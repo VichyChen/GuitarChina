@@ -9,10 +9,7 @@
 #import "GCThreadDetailView.h"
 #import "MJRefresh.h"
 
-@interface GCThreadDetailView ()  <UIPickerViewDataSource, UIPickerViewDelegate, UIScrollViewDelegate> {
-    NSInteger lastContentOffsetY;
-    NSInteger lastPosition;
-}
+@interface GCThreadDetailView ()  <UIPickerViewDataSource, UIPickerViewDelegate, UIScrollViewDelegate>
 
 @end
 
@@ -22,7 +19,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self configureView];
-        [self configureGesture];
     }
     return self;
 }
@@ -48,41 +44,12 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-//    self.pickerSelectActionBlock(row + 1);
 }
 
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [self hidePickerContentView];
-//    if (scrollView.contentOffset.y + (ScreenHeight - 64 - 44) >= scrollView.contentSize.height) {
-//        [UIView animateWithDuration:0.2 animations:^{
-//            self.toolBarView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0.f, 0);
-//        }];
-//    } else {
-//        if (lastContentOffsetY >= scrollView.contentOffset.y) {
-//            lastContentOffsetY = scrollView.contentOffset.y;
-//            if (lastPosition != 0) {
-//                [UIView animateWithDuration:0.2 animations:^{
-//                    self.toolBarView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0.f, 0);
-//                    lastPosition = 0;
-//                }];
-//            }
-//        } else {
-//            NSInteger position = scrollView.contentOffset.y;
-//            lastContentOffsetY = position;
-//            if (position < 0) {
-//                position = 0;
-//            }
-//            else if (position >= 44) {
-//                position = 44;
-//            }
-//            [UIView animateWithDuration:0.2 animations:^{
-//                self.toolBarView.transform = CGAffineTransformTranslate(CGAffineTransformIdentity, 0.f, position);
-//            }];
-//            lastPosition = -position;
-//        }
-//    }
 }
 
 #pragma mark - Public Methods
@@ -109,17 +76,6 @@
     [self addSubview:self.webView];
     [self addSubview:self.pickerContentView];
     [self addSubview:self.toolBarView];
-}
-
-- (void)configureGesture {
-    UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeFromLeft:)];
-    [recognizer setDirection:(UISwipeGestureRecognizerDirectionLeft)];
-    [self addGestureRecognizer:recognizer];
-    
-//        UITapGestureRecognizer *gestureRecognizer;
-//        gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
-//                                                                    action:@selector(hidePickerContentView)];
-//        [self.webView addGestureRecognizer:gestureRecognizer];
 }
 
 - (void)hidePickerContentView {
@@ -186,12 +142,6 @@
     }
 }
 
--(void)handleSwipeFromLeft:(UISwipeGestureRecognizer *)recognizer{
-    if (self.swipeLeftActionBlock) {
-        self.swipeLeftActionBlock();
-    }
-}
-
 #pragma mark - Setters
 
 - (void)setPickerViewCount:(NSInteger)pickerViewCount {
@@ -223,14 +173,6 @@
             header.stateLabel.hidden = YES;
             header;
         });
-//        _webView.scrollView.footer = ({
-//            MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(beginFetchMore)];
-//            footer.mj_h = 44.0f;
-//            footer.automaticallyRefresh = NO;
-//            footer.refreshingTitleHidden = YES;
-//            [footer setTitle:NSLocalizedString(@"Load More", nil) forState:MJRefreshStateIdle];
-//            footer;
-//        });
     }
     return _webView;
 }
@@ -274,7 +216,6 @@
         _previousPageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 40 - 60, 0, 60, 40)
                                     target:self
                                     action:@selector(backAction)];
-//        [_previousPageButton setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
         _previousPageButton.tintColor = [GCColor grayColor1];
         [_previousPageButton setTitle:NSLocalizedString(@"Prev", nil) forState:UIControlStateNormal];
     }
@@ -286,7 +227,6 @@
         _nextPageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 + 40, 0, 60, 40)
                                        target:self
                                        action:@selector(forwardAction)];
-//        [_nextPageButton setImage:[UIImage imageNamed:@"icon_forward"] forState:UIControlStateNormal];
         _nextPageButton.tintColor = [GCColor grayColor1];
         [_nextPageButton setTitle:NSLocalizedString(@"Next", nil) forState:UIControlStateNormal];
     }

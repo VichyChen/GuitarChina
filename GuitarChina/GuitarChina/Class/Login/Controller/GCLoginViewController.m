@@ -221,31 +221,6 @@
 
 - (void)configureBlock {
     @weakify(self);
-    //    self.loginBlock = ^{
-    //        @strongify(self);
-    //        self.loginView.loginButton.enabled = NO;
-    //        [GCNetworkManager postLoginWithUsername:self.loginView.usernameTextField.text password:self.loginView.passwordTextField.text Success:^(GCLoginModel *model) {
-    //            if ([model.message.messageval isEqualToString:@"login_succeed"]) {
-    //                APP.tabBarController.selectedIndex = 2;
-    //
-    //                [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kGCLogin];
-    //                [[NSUserDefaults standardUserDefaults] setObject:model.member_uid forKey:GCLoginID];
-    //                [[NSUserDefaults standardUserDefaults] setObject:model.member_username forKey:kGCLoginName];
-    //                [[NSUserDefaults standardUserDefaults] setObject:model.member_level forKey:kGCLoginLevel];
-    //                [[NSUserDefaults standardUserDefaults] synchronize];
-    //
-    //                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];
-    //                [[NSNotificationCenter defaultCenter] postNotificationName:kGCNotificationLoginSuccess object:nil];
-    //                [self closeAction];
-    //            } else if ([model.message.messageval isEqualToString:@"login_invalid"]) {
-    //                [SVProgressHUD showErrorWithStatus:model.message.messagestr];
-    //            }
-    //            self.loginView.loginButton.enabled = YES;
-    //        } failure:^(NSError *error) {
-    //            self.loginView.loginButton.enabled = YES;
-    //            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
-    //        }];
-    //    };
     
     self.getLoginWebBlock = ^{
         @strongify(self);
@@ -282,17 +257,15 @@
     
     self.loginBlock = ^{
         @strongify(self);
-        
         NSString *fastLoginType = [self.usernameTextField.text containString:@"@"] ? @"email" : @"username";
         [GCNetworkManager postLoginWithUsername:self.usernameTextField.text password:self.passwordTextField.text fastloginfield:fastLoginType seccodeverify:self.seccodeVerifyTextField.text questionid:[NSString stringWithFormat:@"%ld", (long)self.questionIndex] answer:self.answerTextField.text seccodehash:self.seccode formhash:self.formhash postURL:self.postURL success:^(NSString *html) {
             NSLog(@"%@", html);
+            
             if ([html rangeOfString:@"现在将转入登录前页面"].location != NSNotFound && ([html rangeOfString:@"点击此链接进行跳转"].location != NSNotFound || [html rangeOfString:@"如果您的浏览器没有自动跳转，请点击此链接"].location != NSNotFound)) {
                 NSLog(@"login success");
                 APP.tabBarController.selectedIndex = 2;
                 [NSUD setObject:@"1" forKey:kGCLogin];
-                //                                                          [NSUD setObject:model.member_uid forKey:GCLoginID];
                 [NSUD setObject:self.usernameTextField.text forKey:kGCLoginName];
-                //                                                          [NSUD setObject:model.member_level forKey:kGCLoginLevel];
                 [NSUD synchronize];
                 
                 [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];
@@ -301,9 +274,7 @@
                 
             } else if ([html rangeOfString:@"抱歉，验证码填写错误"].location != NSNotFound) {
                 [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"SecCode Error", nil)];
-                //                self.seccodeVerifyTextField.text = @"";
                 NSLog(@"seccodeverify error");
-                //                self.getSeccodeVerifyImageBlock(self.seccode);
             } else if ([html rangeOfString:@"登录失败，您还可以尝试"].location != NSNotFound) {
                 [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Password Error", nil)];
                 NSLog(@"password error");

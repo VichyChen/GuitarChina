@@ -16,7 +16,7 @@
 #import "DOPNavbarMenu.h"
 #import "GCSocial.h"
 
-@interface GCThreadDetailViewController () <UIWebViewDelegate, DOPNavbarMenuDelegate> {
+@interface GCThreadDetailViewController () <UIWebViewDelegate> {
     
 }
 
@@ -56,14 +56,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    _offsetY = -1;
-    _loaded = false;
-    _tabBarSelectedIndex = APP.tabBarController.selectedIndex;
-    _pageIndex = 1;
-    _pageSize = 40;
-    _replyCount = 0;
-    _pageCount = 0;
-    _htmlString = [[NSMutableString alloc] init];
+    self.offsetY = -1;
+    self.loaded = false;
+    self.tabBarSelectedIndex = APP.tabBarController.selectedIndex;
+    self.pageIndex = 1;
+    self.pageSize = 40;
+    self.replyCount = 0;
+    self.pageCount = 0;
+    self.htmlString = [[NSMutableString alloc] init];
     
     [self configureView];
     [self configureBlock];
@@ -164,23 +164,6 @@
     return YES;
 }
 
-#pragma mark - DOPNavbarMenuDelegate
-
-
-- (void)didShowMenu:(DOPNavbarMenu *)menu {
-    
-}
-
-- (void)didDismissMenu:(DOPNavbarMenu *)menu {
-    
-}
-
-- (void)didSelectedMenu:(DOPNavbarMenu *)menu atIndex:(NSInteger)index {
-    //    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"you selected" message:[NSString stringWithFormat:@"number %@", @(index+1)] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    //    [av show];
-}
-
-
 #pragma mark - Notification
 
 - (void)configureNotification {
@@ -218,7 +201,6 @@
     [leftButton setAdjustsImageWhenHighlighted:YES];
     UIImage *image = [UIImage imageNamed:@"icon_ellipsis"];
     [leftButton setImage:[image imageWithTintColor:[GCColor grayColor1]] forState:UIControlStateNormal];
-//    [leftButton setImage:[image imageWithTintColor:[UIColor grayColor]] forState:UIControlStateHighlighted];
     [leftButton addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
     self.navigationItem.rightBarButtonItem = barItem;
@@ -226,19 +208,10 @@
     [self.view addSubview:self.threadDetailView];
 }
 
-- (void)showRightMenuViewController {
-    if (!self.loaded) {
-        return;
-    }
-}
-
 - (void)configureBlock {
     @weakify(self);
     self.refreshBlock = ^(void (^success)(GCThreadDetailModel *)){
         @strongify(self);
-        //1993403
-        //1993030
-        //1994974
         [GCNetworkManager getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize success:^(GCThreadDetailModel *model) {
             self.loaded = true;
             self.uid = model.member_uid;
@@ -401,18 +374,12 @@
             @strongify(self);
             self.replyBlock();
         };
-        _threadDetailView.swipeLeftActionBlock = ^{
-            @strongify(self);
-            [self showRightMenuViewController];
-        };
     }
     return _threadDetailView;
 }
 
 - (DOPNavbarMenu *)menu {
     if (!_menu) {
-        _menu.delegate = self;
-
         DOPNavbarMenuItem *replyItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Reply", nil)
                                                                    icon:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[GCColor grayColor1]]
                                                                     row:0
@@ -493,37 +460,8 @@
    
         _menu = [[DOPNavbarMenu alloc] initWithRowItems:shareArray];
     }
+    
     return _menu;
 }
-
-//- (void)beginFetchMore {
-//    [self.htmlString appendString:@"<div style=\"margin:0 12px 0 12px;\">"];
-//    [self.htmlString appendFormat:@"<div style=\"margin:0 10px 0 0;float:left;\">%@</div>", @"111"];
-//    [self.htmlString appendFormat:@"<div style=\"margin:0 0 0 0;float:left;\">%@</div>", @"111"];
-//    [self.htmlString appendFormat:@"<div style=\"margin:0 0 0 12px;float:right;\">%@楼</div>", @"111"];
-//    [self.htmlString appendString:@"<div style = \"clear:both;\"></div>"];
-//
-//    [self.htmlString appendString:@"</div>"];
-//    [self.htmlString appendFormat:@"<div style=\"margin:10px 12px 0 12px;\">%@</div>", @"111"];
-//    [self.htmlString appendString:@"<div style=\"height:1px;background:#D3DCE2;overflow:hidden;margin:10px 10px 10px 10px;\"></div>"];
-//
-//    [self.webView loadHTMLString:self.htmlString baseURL:nil];
-
-//    [self.webView stringByEvaluatingJavaScriptFromString:@"var div = document.createElement(\"div\");div.innerHTML = \"<img src=\"http://bbs.guitarchina.com/static/image/common/logo.gif\"></img>\";document.body.appendChild(div);"];
-
-//    [self.webView stringByEvaluatingJavaScriptFromString:@"var div = document.createElement(\"div\");div.innerHTML = \"<p>2333</p>\";document.body.appendChild(div);"];
-//
-//    [self.webView.scrollView.footer endRefreshing];
-
-
-
-
-//    [self.webView stringByEvaluatingJavaScriptFromString:@"var a = document.createElement(\"a\");a.innerHTML = \"aaa\";a.href=\"www.baidu.com\";document.body.appendChild(div);"];
-
-//    [self.htmlString appendString:@"<img src=\"http://bbs.guitarchina.com/static/image/common/logo.gif\"></img>"];
-//    [self.webView loadHTMLString:self.htmlString baseURL:nil];
-//
-
-//}
 
 @end

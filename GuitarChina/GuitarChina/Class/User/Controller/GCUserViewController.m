@@ -35,7 +35,7 @@
     
     @weakify(self);
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[[UIImage imageNamed:@"icon_exit"] imageWithTintColor:[GCColor grayColor1]] style:UIBarButtonItemStyleDone handler:^(id sender) {
-        [UIAlertView bk_showAlertViewWithTitle:@"确定要注销账号吗？" message:@"" cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+        [UIAlertView bk_showAlertViewWithTitle:NSLocalizedString(@"Are you sure you want to exit?", nil) message:@"" cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@[NSLocalizedString(@"OK", nil)] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
             @strongify(self);
             if (buttonIndex == 1) {
                 [self logoutAction];
@@ -119,10 +119,6 @@
     
     return nil;
 }
-
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-//    return @" ";
-//}
 
 #pragma mark - UITableViewDelegate
 

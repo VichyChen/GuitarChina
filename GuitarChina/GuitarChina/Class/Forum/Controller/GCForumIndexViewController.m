@@ -77,10 +77,6 @@
                                     text:[NSString stringWithFormat:@"%@", model.name]
                                     font:[UIFont systemFontOfSize:16]
                                textColor:[GCColor blueColor]];
-    
-//    UIView *redView = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, ScreenWidth, 0.5)];
-//    redView.backgroundColor = [GCColor separatorLineColor];
-//    [view addSubview:redView];
     [view addSubview:label];
     
     return view;

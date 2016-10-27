@@ -17,14 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-//    self.title = NSLocalizedString(@"User Info", nil);
     self.view.backgroundColor = [UIColor whiteColor];
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 

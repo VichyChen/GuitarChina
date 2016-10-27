@@ -57,7 +57,7 @@
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCMyFavThreadModel *)model {
-    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.title fontSize:17 width:SubjectWidth];
+    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.title fontSize:16 width:SubjectWidth];
     return subjectLabelHeight + 70;
 }
 
@@ -80,8 +80,8 @@
     if (!_authorLabel) {
         _authorLabel = [UIView createLabel:CGRectZero
                                       text:@""
-                                      font:[UIFont boldSystemFontOfSize:16]
-                                 textColor:[GCColor blueColor]];
+                                      font:[UIFont systemFontOfSize:15]
+                                 textColor:[GCColor fontColor]];
     }
     return _authorLabel;
 }
@@ -100,8 +100,8 @@
     if (!_subjectLabel) {
         _subjectLabel = [UIView createLabel:CGRectZero
                                        text:@""
-                                       font:[UIFont systemFontOfSize:17]
-                                  textColor:[GCColor grayColor1]
+                                       font:[UIFont systemFontOfSize:16]
+                                  textColor:[GCColor fontColor]
                               numberOfLines:0
                     preferredMaxLayoutWidth:SubjectWidth];
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;

@@ -57,6 +57,7 @@
 "Logout Account" = "退出";
 
 "Go" = "跳转";
+"OK" = "确定";
 "Cancel" = "取消";
 "Send" = "发送";
 "Write reply" = "写回复";
@@ -105,3 +106,4 @@
 "Search History" = "搜索历史";
 
 "GuitarChina Interface Error" = "吉他中国接口数据错误";
+"Are you sure you want to exit?" = "确定要注销账号吗？";
