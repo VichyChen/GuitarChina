@@ -76,11 +76,11 @@
     UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth, 40)
                                     text:[NSString stringWithFormat:@"%@", model.name]
                                     font:[UIFont systemFontOfSize:16]
-                               textColor:[GCColor fontColor]];
+                               textColor:[GCColor blueColor]];
     
-    UIView *redView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 3, 40)];
-    redView.backgroundColor = [GCColor redColor];
-    [view addSubview:redView];
+//    UIView *redView = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, ScreenWidth, 0.5)];
+//    redView.backgroundColor = [GCColor separatorLineColor];
+//    [view addSubview:redView];
     [view addSubview:label];
     
     return view;

@@ -44,7 +44,7 @@
     [super layoutSubviews];
     
     self.avatarImage.frame = CGRectMake(15, 10, 40, 40);
-    self.authorLabel.frame = CGRectMake(65, 8, ScreenWidth - 65, 20);
+    self.authorLabel.frame = CGRectMake(65, 9, ScreenWidth - 65, 20);
     self.datelineLabel.frame = CGRectMake(65, 33, ScreenWidth - 65, 20);
     self.subjectLabel.frame = CGRectMake(15, 60, SubjectWidth, self.subjectLabelHeight);
     self.forumButton.frame = CGRectMake(15, 60 + self.subjectLabelHeight + 2, 150, 26);
@@ -103,8 +103,6 @@
 - (UIImageView *)avatarImage {
     if (!_avatarImage) {
         _avatarImage = [UIView createImageView:CGRectZero contentMode:UIViewContentModeScaleToFill];
-        //        _avatarImage.layer.cornerRadius = 5;
-        //        _avatarImage.layer.masksToBounds = YES;
     }
     return _avatarImage;
 }
@@ -113,8 +111,8 @@
     if (!_authorLabel) {
         _authorLabel = [UIView createLabel:CGRectZero
                                       text:@""
-                                      font:[UIFont boldSystemFontOfSize:14]
-                                 textColor:[GCColor blueColor]];
+                                      font:[UIFont systemFontOfSize:15]
+                                 textColor:[GCColor fontColor]];
     }
     return _authorLabel;
 }

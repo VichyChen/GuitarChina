@@ -333,7 +333,7 @@
 }
 
 - (void)configureColor {
-    self.usernameLabel.textColor = self.passwordLabel.textColor = self.questionLabel.textColor = self.questionTextLabel.textColor = self.answerLabel.textColor = self.seccodeVerifyLabel.textColor = self.usernameTextField.textColor = self.passwordTextField.textColor = self.answerTextField.textColor = self.seccodeVerifyTextField.textColor = [GCColor grayColor1];
+    self.usernameLabel.textColor = self.passwordLabel.textColor = self.questionLabel.textColor = self.questionTextLabel.textColor = self.answerLabel.textColor = self.seccodeVerifyLabel.textColor = self.usernameTextField.textColor = self.passwordTextField.textColor = self.answerTextField.textColor = self.seccodeVerifyTextField.textColor = [GCColor fontColor];
     
     self.loginButton.backgroundColor = [GCColor redColor];
 }

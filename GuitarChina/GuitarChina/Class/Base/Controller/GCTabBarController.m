@@ -41,7 +41,7 @@
     discoveryNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_home"] imageWithTintColor:[GCColor grayColor2]];
     discoveryNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_home_filled"] imageWithTintColor:[GCColor redColor]];
     
-    GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] initWithStyle:UITableViewStylePlain];
     GCNavigationController *forumIndexNavigationController = [[GCNavigationController alloc] initWithRootViewController:forumIndexViewController];
     forumIndexNavigationController.tabBarItem.title = NSLocalizedString(@"Forum", nil);
     forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_forum"] imageWithTintColor:[GCColor grayColor2]];
@@ -108,7 +108,7 @@
     pageVC.titleSizeNormal = 15;
     pageVC.pageAnimatable = YES;
     pageVC.menuHeight = 40;
-    pageVC.menuViewStyle = WMMenuViewStyleLine;
+    pageVC.menuViewStyle = WMMenuViewStyleDefault;
     pageVC.titleColorSelected = [GCColor redColor];
     pageVC.titleColorNormal = [GCColor grayColor1];
     pageVC.progressColor = [UIColor colorWithRed:168.0/255.0 green:20.0/255.0 blue:4/255.0 alpha:1];

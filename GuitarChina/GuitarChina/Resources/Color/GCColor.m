@@ -21,10 +21,12 @@
 //#E83126
 + (UIColor *)redColor {
     return [UIColor colorWithRed:0.600 green:0.004 blue:0.000 alpha:1.00];
+//    return [GCColor blueColor];
 }
 
 + (UIColor *)blueColor {
-    return [UIColor colorWithRed:0.302f green:0.524f blue:0.639f alpha:1.00f];
+//    return [UIColor colorWithRed:0.302f green:0.524f blue:0.639f alpha:1.00f];
+        return [GCColor redColor];
 }
 
 + (UIColor *)cellSelectedColor {
