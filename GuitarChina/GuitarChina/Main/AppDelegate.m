@@ -26,6 +26,11 @@
 
 @interface AppDelegate ()
 
+//相机
+@property (nonatomic, strong) UIImagePickerController *cameraImagePicker;
+//相册
+@property (nonatomic, strong) UIImagePickerController *albumImagePicker;
+
 @end
 
 @implementation AppDelegate
@@ -48,7 +53,7 @@
     [self UMengAnalytics];
     //友盟分享
     [self UMengSocial];
-    
+
     [self configureIQKeyboardManager];
     [self configureForumDictionary];
     [self configureSVProgressHUD];
@@ -92,6 +97,39 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     return [UMSocialSnsService handleOpenURL:url];
+}
+
+#pragma mark - Public Methods
+
+- (void)selectImage:(UIViewController *)controller success:(void(^)(UIImage *image, NSDictionary *info))success {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] bk_initWithTitle:@"选择图片"];
+    @weakify(self);
+    [actionSheet bk_addButtonWithTitle:@"拍照" handler:^{
+        @strongify(self);
+        self.cameraImagePicker.bk_didFinishPickingMediaBlock = ^(UIImagePickerController *picker, NSDictionary *info) {
+            @strongify(self);
+            UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+            [self.cameraImagePicker dismissViewControllerAnimated:YES completion:^{
+                success(image, info);
+            }];
+        };
+        [controller presentViewController:self.cameraImagePicker animated:YES completion:nil];
+    }];
+    [actionSheet bk_addButtonWithTitle:@"从相册选择" handler:^{
+        @strongify(self);
+        self.albumImagePicker.bk_didFinishPickingMediaBlock = ^(UIImagePickerController *picker, NSDictionary *info) {
+            @strongify(self);
+            UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+            [self.albumImagePicker dismissViewControllerAnimated:YES completion:^{
+                success(image, info);
+            }];
+        };
+        [controller presentViewController:self.albumImagePicker animated:YES completion:nil];
+    }];
+    [actionSheet bk_setCancelButtonWithTitle:@"取消" handler:^{
+        
+    }];
+    [actionSheet showInView:controller.view];
 }
 
 #pragma mark - UMengAnalytics
@@ -158,6 +196,44 @@
 
 - (void)saveContext {
     [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+}
+
+#pragma mark - Getters
+
+- (UIImagePickerController *)cameraImagePicker {
+    if (!_cameraImagePicker) {
+        _cameraImagePicker = [[UIImagePickerController alloc]init];
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            [_cameraImagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+        } else {
+            [_cameraImagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        }
+        _cameraImagePicker.allowsEditing = NO;
+        _cameraImagePicker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *)kUTTypeImage, nil];
+        @weakify(self);
+        _cameraImagePicker.bk_didCancelBlock = ^(UIImagePickerController *picker) {
+            @strongify(self);
+            [self.cameraImagePicker dismissViewControllerAnimated:YES completion:nil];
+        };
+    }
+    
+    return _cameraImagePicker;
+}
+
+- (UIImagePickerController *)albumImagePicker {
+    if (!_albumImagePicker) {
+        _albumImagePicker = [[UIImagePickerController alloc]init];
+        [_albumImagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        _albumImagePicker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *)kUTTypeImage, nil];
+        _albumImagePicker.allowsEditing = NO;
+        @weakify(self);
+        _albumImagePicker.bk_didCancelBlock = ^(UIImagePickerController *picker) {
+            @strongify(self);
+            [self.albumImagePicker dismissViewControllerAnimated:YES completion:nil];
+        };
+    }
+    
+    return _albumImagePicker;
 }
 
 @end

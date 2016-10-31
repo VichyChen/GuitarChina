@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
 		04091D801CFBECBC00B797B1 /* GCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 04091D7F1CFBECBC00B797B1 /* GCColor.m */; };
+		04100E261DC743E4006639F3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04100E251DC743E4006639F3 /* Info.plist */; };
 		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
 		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
 		043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
@@ -40,7 +41,6 @@
 		0488C0AA1C795E7200920E72 /* JsonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A91C795E7200920E72 /* JsonTool.m */; };
 		048C3BBB1D583557000FCCFB /* UIImage+CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C3BBA1D583557000FCCFB /* UIImage+CommonMethods.m */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
-		04B692BC1C4643E500913629 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04B692BA1C4643E500913629 /* Info.plist */; };
 		04F8A35D1D28E19F007F2350 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3511D28E19F007F2350 /* WMFooldView.m */; };
 		04F8A35E1D28E19F007F2350 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3531D28E19F007F2350 /* WMMenuItem.m */; };
 		04F8A35F1D28E19F007F2350 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3551D28E19F007F2350 /* WMMenuView.m */; };
@@ -178,6 +178,7 @@
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
 		04091D7E1CFBECBC00B797B1 /* GCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColor.h; sourceTree = "<group>"; };
 		04091D7F1CFBECBC00B797B1 /* GCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColor.m; sourceTree = "<group>"; };
+		04100E251DC743E4006639F3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GuitarChina/Info.plist; sourceTree = SOURCE_ROOT; };
 		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
 		042F84261CF83F7800102949 /* GCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchViewController.m; sourceTree = "<group>"; };
 		042F84291CF83FA600102949 /* GCSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchCell.h; sourceTree = "<group>"; };
@@ -230,7 +231,6 @@
 		048C3BB91D583557000FCCFB /* UIImage+CommonMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CommonMethods.h"; sourceTree = "<group>"; };
 		048C3BBA1D583557000FCCFB /* UIImage+CommonMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CommonMethods.m"; sourceTree = "<group>"; };
 		04AF910D1BE8FAF10030AEEB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		04B692BA1C4643E500913629 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04F8A3501D28E19F007F2350 /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
 		04F8A3511D28E19F007F2350 /* WMFooldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMFooldView.m; sourceTree = "<group>"; };
 		04F8A3521D28E19F007F2350 /* WMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuItem.h; sourceTree = "<group>"; };
@@ -652,8 +652,8 @@
 		04B692B91C4643BB00913629 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04100E251DC743E4006639F3 /* Info.plist */,
 				42CB56B51C888BA100F304CD /* PrefixHeader.pch */,
-				04B692BA1C4643E500913629 /* Info.plist */,
 				42657DDE1B99CAA2001F8DFC /* Localizable.strings */,
 			);
 			path = "Supporting Files";
@@ -1502,13 +1502,13 @@
 				043648E01BCF9BD80005162D /* Images.xcassets in Resources */,
 				42C5546A1C878334000AF010 /* Default-568h@2x.png in Resources */,
 				0479424F1DA0076900E810DF /* GCForumIndexCollectionViewCell.xib in Resources */,
+				04100E261DC743E4006639F3 /* Info.plist in Resources */,
 				047150EF1BF03B2A007A8890 /* SVProgressHUD.bundle in Resources */,
 				423888A71BC57CA6002E1625 /* MJRefresh.bundle in Resources */,
 				42657DDC1B99CAA2001F8DFC /* Localizable.strings in Resources */,
 				047942541DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib in Resources */,
 				047125911BCDF478000C8BC1 /* GCThreadWebView.css in Resources */,
 				043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */,
-				04B692BC1C4643E500913629 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1809,6 +1809,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1847,6 +1848,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PROVISIONING_PROFILE = "";
@@ -1948,7 +1950,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = GuitarChinaTests/Info.plist;
+				INFOPLIST_FILE = GuitarChina/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "GuitarChina.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1965,7 +1967,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = GuitarChinaTests/Info.plist;
+				INFOPLIST_FILE = GuitarChina/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "GuitarChina.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";

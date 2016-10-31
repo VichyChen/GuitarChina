@@ -20,5 +20,7 @@
 
 - (void)saveContext;
 
+- (void)selectImage:(UIViewController *)controller success:(void(^)(UIImage *image, NSDictionary *info))success;
+
 @end
 
