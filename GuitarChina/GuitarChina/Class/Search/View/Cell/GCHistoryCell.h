@@ -10,5 +10,10 @@
 
 @interface GCHistoryCell : UITableViewCell
 
+@property (nonatomic, copy) void(^didSelectButtonBlock)(NSInteger index);
+
+- (void)configure:(NSArray *)array;
+
++ (CGSize)getCellHeightWithArray:(NSArray *)array;
 
 @end

@@ -67,7 +67,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView.tag == 0) {
-        return self.historyArray.count;
+        return 1;
     }
     else {
         return self.searchArray.count;
@@ -81,9 +81,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         if (!cell) {
             cell = [[GCHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
-        cell.textLabel.font = [UIFont systemFontOfSize:16];
-        cell.textLabel.textColor = [GCColor grayColor1];
-        cell.textLabel.text = self.historyArray[indexPath.row];
+        [cell configure:self.historyArray];
         
         return cell;
     }
@@ -104,7 +102,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView.tag == 0) {
-        return 44;
+        return [GCHistoryCell getCellHeightWithArray:self.historyArray].height;
     }
     else {
         NSNumber *height = [self.searchRowHeightArray objectAtIndex:indexPath.row];
@@ -135,9 +133,11 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     [self.searchTextField endEditing:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (tableView.tag == 0) {
+        /*
         self.searchTextField.text = self.historyArray[indexPath.row];
         [self showView:GCSearchViewTypeSearch];
         [self search:self.historyArray[indexPath.row]];
+         */
     }
     else {
         GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
@@ -373,6 +373,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         _historyTableView.tag = 0;
         _historyTableView.delegate = self;
         _historyTableView.dataSource = self;
+        _historyTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         if ([_historyTableView respondsToSelector:@selector(setSeparatorInset:)]) {
             [_historyTableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
         }
@@ -380,13 +381,10 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             [_historyTableView setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 10)];
         }
         
-        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 34)];
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
         
-        UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth - 30, 34) text:NSLocalizedString(@"Search History", nil) font:[UIFont systemFontOfSize:15] textColor:[GCColor grayColor3]];
-        UIView *headerLine = [UIView createHorizontalLine:ScreenWidth - 20 originX:10 originY:34];
-        
+        UILabel *label = [UIView createLabel:CGRectMake(13, 0, ScreenWidth - 30, 44) text:NSLocalizedString(@"Search History", nil) font:[UIFont systemFontOfSize:15] textColor:[GCColor grayColor1]];
         [headerView addSubview:label];
-        [headerView addSubview:headerLine];
         
         _historyTableView.tableHeaderView = headerView;
         
@@ -399,11 +397,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         button.layer.borderColor = [GCColor redColor].CGColor;
         button.layer.borderWidth = 1;
         button.center = footerView.center;
-        
-        UIView *footerLine = [UIView createHorizontalLine:ScreenWidth - 20 originX:10 originY:0];
-        
         [footerView addSubview:button];
-        [footerView addSubview:footerLine];
         
         _historyTableView.tableFooterView = footerView;
     }
