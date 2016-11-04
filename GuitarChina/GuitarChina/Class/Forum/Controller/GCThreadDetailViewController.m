@@ -121,8 +121,7 @@
     if (navigationType == UIWebViewNavigationTypeLinkClicked) {
         //登陆链接
         if ([request.mainDocumentURL.relativeString endsWith:@"GuitarChina.app/member.php?mod=logging&action=login"]) {
-            GCLoginViewController *loginViewController = [[GCLoginViewController alloc] initWithNibName:@"GCLoginViewController" bundle:nil];
-            [self presentViewController:loginViewController animated:YES completion:nil];
+            [self presentLoginViewController];
             
             return false;
         }
@@ -338,7 +337,8 @@
 
 - (void)presentLoginViewController {
     GCLoginViewController *loginViewController = [[GCLoginViewController alloc] initWithNibName:@"GCLoginViewController" bundle:nil];
-    [self presentViewController:loginViewController animated:YES completion:nil];
+    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
+    [self presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark - Getters

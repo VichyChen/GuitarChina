@@ -42,7 +42,6 @@
 - (IBAction)backgroundClickAction:(UITapGestureRecognizer *)sender;
 - (IBAction)showQuestionAction:(UITapGestureRecognizer *)sender;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollviewHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentWidth;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentOriginY;
 
@@ -86,10 +85,8 @@
     
     //4,4s
     if (ScreenHeight == 480) {
-        self.scrollviewHeight.constant = 568;
     } else {
-        self.scrollviewHeight.constant = ScreenHeight + 1;
-        self.contentOriginY.constant = 100;
+        self.contentOriginY.constant = 20;
     }
     if (iPhone) {
         //iphone
@@ -203,6 +200,7 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
+    self.title = NSLocalizedString(@"GuitarChina", nil);
     
     [self.usernameTextField addTarget:self action:@selector(textFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
     [self.passwordTextField addTarget:self action:@selector(textFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
@@ -211,9 +209,9 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_delete"
-                                                                   normalColor:[GCColor grayColor3]
-                                                              highlightedColor:[GCColor grayColor3]
+    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_delete"
+                                                                   normalColor:[UIColor whiteColor]
+                                                              highlightedColor:[GCColor grayColor4]
                                                                         target:self
                                                                         action:@selector(closeAction)];
     

@@ -143,7 +143,8 @@
     if (self.loaded == YES) {
         if ([self.uid isEqualToString:@"0"]) {
             GCLoginViewController *loginViewController = [[GCLoginViewController alloc] initWithNibName:@"GCLoginViewController" bundle:nil];
-            [self presentViewController:loginViewController animated:YES completion:nil];
+            GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
+            [self presentViewController:navigationController animated:YES completion:nil];
         }
         else if (!self.threadTypes || self.threadTypes.count == 0) {
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"GuitarChina Interface Error", nil)];
