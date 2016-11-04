@@ -29,8 +29,8 @@
     
     self.delegate = self;
     
-    self.tabBar.tintColor = [GCColor redColor];
-    self.tabBar.barTintColor = [UIColor whiteColor];
+    self.tabBar.tintColor = [UIColor whiteColor];
+    self.tabBar.barTintColor = [UIColor colorWithRed:0.100 green:0.100 blue:0.100 alpha:1.00];
     
     [self configureView];
 }
@@ -38,26 +38,26 @@
 - (void)configureView {
     GCNavigationController *discoveryNavigationController = [[GCNavigationController alloc] initWithRootViewController:self.wmPageController];
     discoveryNavigationController.tabBarItem.title = NSLocalizedString(@"Home", nil);
-    discoveryNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_home"] imageWithTintColor:[GCColor grayColor2]];
-    discoveryNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_home_filled"] imageWithTintColor:[GCColor redColor]];
+    discoveryNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_home"] imageWithTintColor:[GCColor grayColor4]];
+    discoveryNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_home"] imageWithTintColor:[GCColor redColor]];
     
-    GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] initWithStyle:UITableViewStylePlain];
+    GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] initWithStyle:UITableViewStyleGrouped];
     GCNavigationController *forumIndexNavigationController = [[GCNavigationController alloc] initWithRootViewController:forumIndexViewController];
     forumIndexNavigationController.tabBarItem.title = NSLocalizedString(@"Forum", nil);
-    forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_forum"] imageWithTintColor:[GCColor grayColor2]];
-    forumIndexNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_forum_filled"] imageWithTintColor:[GCColor redColor]];
+    forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_forum"] imageWithTintColor:[GCColor grayColor4]];
+    forumIndexNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_forum"] imageWithTintColor:[GCColor redColor]];
     
     GCUserViewController *userViewController = [[GCUserViewController alloc] init];
     GCNavigationController *userNavigationController = [[GCNavigationController alloc] initWithRootViewController:userViewController];
     userNavigationController.tabBarItem.title = NSLocalizedString(@"Me", nil);
-    userNavigationController.tabBarItem.image = [[UIImage imageNamed:@"icon_mine"] imageWithTintColor:[GCColor grayColor2]];
-    userNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_mine_on"] imageWithTintColor:[GCColor redColor]];
+    userNavigationController.tabBarItem.image = [[UIImage imageNamed:@"icon_mine"] imageWithTintColor:[GCColor grayColor4]];
+    userNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_mine"] imageWithTintColor:[GCColor redColor]];
     
     GCAboutViewController *moreViewController = [[GCAboutViewController alloc] init];
     GCNavigationController *moreNavigationController = [[GCNavigationController alloc] initWithRootViewController:moreViewController];
     moreNavigationController.tabBarItem.title = NSLocalizedString(@"About", nil);
-    moreNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor grayColor2]];
-    moreNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_about_filled"] imageWithTintColor:[GCColor redColor]];
+    moreNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor grayColor4]];
+    moreNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor redColor]];
     
     self.viewControllers = @[discoveryNavigationController, forumIndexNavigationController, userNavigationController, moreNavigationController];
 }
@@ -108,24 +108,25 @@
     pageVC.titleSizeNormal = 15;
     pageVC.pageAnimatable = YES;
     pageVC.menuHeight = 40;
-    pageVC.menuViewStyle = WMMenuViewStyleDefault;
+    pageVC.menuViewStyle = WMMenuViewStyleLine;
     pageVC.titleColorSelected = [GCColor redColor];
     pageVC.titleColorNormal = [GCColor grayColor1];
-    pageVC.progressColor = [UIColor colorWithRed:168.0/255.0 green:20.0/255.0 blue:4/255.0 alpha:1];
+    pageVC.progressColor = [GCColor redColor];
+    pageVC.menuBGColor = [GCColor cellSelectedColor];
     pageVC.menuItemWidth = ScreenWidth / 4;
     pageVC.preloadPolicy = WMPageControllerPreloadPolicyNever;
     
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(0, 0, 100, 44);
     label.text = NSLocalizedString(@"GuitarChina", nil);
-    label.textColor = [GCColor fontColor];
+    label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont systemFontOfSize:17];
     pageVC.navigationItem.titleView = label;
     
     pageVC.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_search"
-                                                                   normalColor:[GCColor grayColor1]
-                                                              highlightedColor:[UIColor grayColor]
+                                                                   normalColor:[UIColor whiteColor]
+                                                              highlightedColor:[UIColor whiteColor]
                                                                         target:self
                                                                         action:@selector(searchAction)];
     

@@ -14,7 +14,7 @@
 + (UIColor *)backgroundColor;
 //323232
 + (UIColor *)fontColor;
-//#E83126
+//#c30003
 + (UIColor *)redColor;
 //#4C85A3
 + (UIColor *)blueColor;

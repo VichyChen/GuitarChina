@@ -169,22 +169,28 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 #pragma mark - Private Methods
 
 - (void)configureNavigationBar {
-    self.navigationItem.rightBarButtonItem = [UIView createBarButtonItem:NSLocalizedString(@"Cancel", nil) target:self action:@selector(closeAction)];
-    self.navigationItem.rightBarButtonItem.tintColor = [GCColor redColor];
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:16], NSFontAttributeName, nil] forState:UIControlStateNormal];
+    UIBarButtonItem *flexSpaceButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:self action:nil];
+    flexSpaceButton.width = -10;
     
-    UIImageView *leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(7, 7, 14, 14)];
-    leftImageView.image = [[UIImage imageNamed:@"icon_search"] imageWithTintColor:[GCColor grayColor1]];
+    UIBarButtonItem *closeButton = [UIView createBarButtonItem:NSLocalizedString(@"Cancel", nil) target:self action:@selector(closeAction)];
+    closeButton.tintColor = [UIColor whiteColor];
+    [closeButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:16], NSFontAttributeName, nil] forState:UIControlStateNormal];
+
+    self.navigationItem.rightBarButtonItems = @[flexSpaceButton, closeButton];
     
-    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 26, 28)];
+    UIImageView *leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(6, 6, 16, 16)];
+    leftImageView.image = [[UIImage imageNamed:@"icon_search"] imageWithTintColor:[GCColor grayColor2]];
+    
+    UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
     [leftView addSubview:leftImageView];
     
     self.searchTextField = [UIView createTextField:CGRectMake(0, 0, ScreenWidth, 28) borderStyle:UITextBorderStyleNone text:@"" textColor:[GCColor fontColor] placeholder:NSLocalizedString(@"Enter Keywords", nil) textAlignment:NSTextAlignmentLeft];
     self.searchTextField.delegate = self;
-    self.searchTextField.font = [UIFont systemFontOfSize:14];
-    self.searchTextField.textColor = [GCColor grayColor1];
+    self.searchTextField.font = [UIFont systemFontOfSize:15];
+    self.searchTextField.textColor = [GCColor fontColor];
+    self.searchTextField.tintColor = [GCColor redColor];
     self.searchTextField.backgroundColor = [GCColor cellSelectedColor];
-    self.searchTextField.layer.cornerRadius = 5;
+    self.searchTextField.layer.cornerRadius = 3;
     self.searchTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.searchTextField.leftViewMode = UITextFieldViewModeAlways;
     self.searchTextField.leftView = leftView;

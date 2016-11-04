@@ -71,13 +71,17 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
-    view.backgroundColor = [GCColor cellSelectedColor];
+    view.backgroundColor = [UIColor whiteColor];
     GCForumGroupModel *model = [self.data objectAtIndex:section];
     UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth, 40)
                                     text:[NSString stringWithFormat:@"%@", model.name]
                                     font:[UIFont systemFontOfSize:16]
                                textColor:[GCColor blueColor]];
     [view addSubview:label];
+    
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, ScreenWidth, 0.5)];
+    lineView.backgroundColor = [GCColor separatorLineColor];
+    [view addSubview:lineView];
     
     return view;
 }

@@ -62,14 +62,14 @@
     self.title = NSLocalizedString(@"Write reply", nil);
     
     self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_delete"
-                                                                  normalColor:[GCColor grayColor1]
-                                                             highlightedColor:[UIColor grayColor]
+                                                                  normalColor:[UIColor whiteColor]
+                                                             highlightedColor:[GCColor grayColor4]
                                                                        target:self
                                                                        action:@selector(closeAction)];
     
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_checkmark"
-                                                                   normalColor:[GCColor grayColor1]
-                                                              highlightedColor:[UIColor grayColor]
+                                                                   normalColor:[UIColor whiteColor]
+                                                              highlightedColor:[GCColor grayColor4]
                                                                         target:self
                                                                         action:@selector(sendAction)];
     
