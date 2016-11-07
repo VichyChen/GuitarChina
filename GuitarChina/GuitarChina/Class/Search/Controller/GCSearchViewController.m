@@ -82,7 +82,14 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             cell = [[GCHistoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         }
         [cell configure:self.historyArray];
-        
+        @weakify(self);
+        cell.didSelectButtonBlock = ^(NSInteger index){
+            @strongify(self);
+            self.searchTextField.text = self.historyArray[index];
+            [self showView:GCSearchViewTypeSearch];
+            [self search:self.historyArray[indexPath.row]];
+        };
+
         return cell;
     }
     else {
