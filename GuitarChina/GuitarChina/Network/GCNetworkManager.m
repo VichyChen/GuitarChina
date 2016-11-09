@@ -100,6 +100,83 @@
     }];
 }
 
+
++ (void)postWebReplyWithTid:(NSString *)tid
+                        fid:(NSString *)fid
+                    message:(NSString *)message
+                     attach:(NSString *)attach
+                   formhash:(NSString *)formhash
+                    success:(void (^)(GCSendReplyModel *model))success
+                    failure:(void (^)(NSError *error))failure {
+    [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_POSTWEBSECURE parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"success");
+        
+        NSDictionary *parameters = @{ @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash, @"posttime" : @"", @"wysiwyg" : @"0", @"noticeauthor" : @"", @"noticetrimstr" : @"", @"noticeauthormsg" : @"", @"subject" : @"", @"checkbox" : @"0", @"message" : message, @"usesig" : @"1", @"save" : @"" , [NSString stringWithFormat:@"attachnew[%@][description]", attach] : @""};
+        
+        [[GCNetworkBase sharedInstance] postWeb:GCNETWORKAPI_POST_WEBSENDREPLY(fid, tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            NSLog(@"%@", operation.responseString);
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failure(error);
+        }];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(error);
+        NSLog(@"failure");
+    }];
+}
+
++ (void)postWebReplyImageWithFid:(NSString *)fid
+                           image:(UIImage *)image
+                        formhash:(NSString *)formhash
+                         success:(void (^)(NSString *string))success
+                         failure:(void (^)(NSError *error))failure {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+    [manager.requestSerializer setValue:@"*/*" forHTTPHeaderField:@"Accept"];
+    [manager.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    [manager.requestSerializer setValue:@"Shockwave Flash" forHTTPHeaderField:@"User-Agent"];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [manager POST:GCNETWORKAPI_POST_WEBSENDREPLYIMAGE(fid) parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        [formData appendPartWithFormData:[@"test1.jpg" dataUsingEncoding:NSUTF8StringEncoding] name:@"Filename"];
+        [formData appendPartWithFormData:[formhash dataUsingEncoding:NSUTF8StringEncoding] name:@"hash"];
+        [formData appendPartWithFormData:[@"image" dataUsingEncoding:NSUTF8StringEncoding] name:@"type"];
+        [formData appendPartWithFormData:[@".jpg" dataUsingEncoding:NSUTF8StringEncoding] name:@"filetype"];
+        [formData appendPartWithFormData:[@"1627015" dataUsingEncoding:NSUTF8StringEncoding] name:@"uid"];
+        [formData appendPartWithFormData:[@"Submit Query" dataUsingEncoding:NSUTF8StringEncoding] name:@"Upload"];
+        
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(image, 1) name:@"Filedata" fileName:@"test1.jpg" mimeType:@"application/octet-stream"];
+        
+        
+    }success:^(AFHTTPRequestOperation *operation,id responseObject) {
+        NSLog(@"%@", responseObject);
+        
+        NSString *string = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        success(string);
+    }failure:^(AFHTTPRequestOperation *operation,NSError *error) {
+        NSLog(@"#######upload error%@", error);
+        NSLog(@"%@", operation.responseString);
+    }];
+}
+
++ (void)getWebReplyWithFid:(NSString *)fid
+                       tid:(NSString *)tid
+                   success:(void (^)(NSData *htmlData))success
+                   failure:(void (^)(NSError *error))failure {
+    [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_WEBREPLY(fid, tid)
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   }
+                                   failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
+}
+
 + (void)postNewThreadWithFid:(NSString *)fid
                      subject:(NSString *)subject
                      message:(NSString *)message

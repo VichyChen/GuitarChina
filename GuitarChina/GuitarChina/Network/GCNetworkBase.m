@@ -105,7 +105,7 @@
     
     AFHTTPSessionManager *manager=[AFHTTPSessionManager manager];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", @"text/xml", nil];
     [manager.requestSerializer setValue:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36" forHTTPHeaderField:@"User-Agent"];
     
     [manager GET:url parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject) {

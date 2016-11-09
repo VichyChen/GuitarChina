@@ -11,6 +11,7 @@
 
 @interface GCReplyThreadViewController : GCBaseViewController
 
+@property (nonatomic, copy) NSString *fid;
 @property (nonatomic, copy) NSString *tid;
 @property (nonatomic, copy) NSString *formhash;
 

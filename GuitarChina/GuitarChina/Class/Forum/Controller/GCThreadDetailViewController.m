@@ -215,6 +215,7 @@
         [GCNetworkManager getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize success:^(GCThreadDetailModel *model) {
             self.loaded = true;
             self.uid = model.member_uid;
+            self.fid = model.fid;
             self.formhash = model.formhash;
             self.threadSubject = model.subject;
             if ([model.postlist isKindOfClass:[NSArray class]] && model.postlist.count > 0) {
@@ -254,6 +255,7 @@
             [self presentLoginViewController];
         } else {
             GCReplyThreadViewController *controller = [[GCReplyThreadViewController alloc] init];
+            controller.fid = self.fid;
             controller.tid = self.tid;
             controller.formhash = self.formhash;
             GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];

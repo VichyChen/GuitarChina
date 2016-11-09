@@ -181,4 +181,13 @@
     return array;
 }
 
++ (NSString *)parseWebReply:(NSData *)htmlData {
+    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
+    NSArray *array = [xpathParser searchWithXPathQuery:@"//form[@id='imgattachform']/input[@name='hash']"];
+    TFHppleElement *element = [array firstObject];
+    NSString *formhash = [element objectForKey:@"value"];
+    
+    return formhash;
+}
+
 @end

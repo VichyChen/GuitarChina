@@ -42,18 +42,47 @@
     [self.replyThreadView.textView resignFirstResponder];
     NSLog(@"click");
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    [GCNetworkManager postReplyWithTid:self.tid message:[self.replyThreadView.textView.text stringByAppendingString:@"\n"] formhash:self.formhash success:^(GCSendReplyModel *model) {
-        self.navigationItem.rightBarButtonItem.enabled = YES;
-        if ([model.message.messageval isEqualToString:@"post_reply_succeed"]) {
-            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
-            [self closeAction];
-        } else {
-            [SVProgressHUD showSuccessWithStatus:model.message.messagestr];
-        }
-    } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
-        self.navigationItem.rightBarButtonItem.enabled = YES;
+    
+    
+    [APP selectImage:self success:^(UIImage *image, NSDictionary *info) {
+        
+        [GCNetworkManager getWebReplyWithFid:self.fid tid:self.tid success:^(NSData *htmlData) {
+            NSString *formhash = [GCHTMLParse parseWebReply:htmlData];
+            
+            [GCNetworkManager postWebReplyImageWithFid:self.fid image:image formhash:formhash success:^(NSString *imageID) {
+                
+                [GCNetworkManager postWebReplyWithTid:self.tid fid:self.fid message:[self.replyThreadView.textView.text stringByAppendingString:@"\n"] attach:imageID formhash:self.formhash success:^(GCSendReplyModel *model) {
+                    
+                } failure:^(NSError *error) {
+                    
+                }];
+                
+            } failure:^(NSError *error) {
+                
+            }];
+            
+        } failure:^(NSError *error) {
+            
+        }];
+        
+        
     }];
+    
+    /*
+     ** old
+     [GCNetworkManager postReplyWithTid:self.tid message:[self.replyThreadView.textView.text stringByAppendingString:@"\n"] formhash:self.formhash success:^(GCSendReplyModel *model) {
+     self.navigationItem.rightBarButtonItem.enabled = YES;
+     if ([model.message.messageval isEqualToString:@"post_reply_succeed"]) {
+     [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
+     [self closeAction];
+     } else {
+     [SVProgressHUD showSuccessWithStatus:model.message.messagestr];
+     }
+     } failure:^(NSError *error) {
+     [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+     self.navigationItem.rightBarButtonItem.enabled = YES;
+     }];
+     */
 }
 
 #pragma mark - Private Methods
@@ -81,6 +110,18 @@
 - (GCReplyThreadView *)replyThreadView {
     if (!_replyThreadView) {
         _replyThreadView = [[GCReplyThreadView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
+        _replyThreadView.viewController = self;
+        /*
+        @weakify(self);
+        _replyThreadView.selectImageBlock = ^{
+            @strongify(self);
+            [APP selectImage:self success:^(UIImage *image, NSDictionary *info) {
+                @strongify(self);
+                return image;
+            }];
+            return [UIImage alloc];
+        };
+         */
     }
     return _replyThreadView;
 }

@@ -10,10 +10,14 @@
 
 @interface GCReplyThreadView : UIView
 
-@property (nonatomic, strong) UIImageView *avatarImage;
-@property (nonatomic, strong) UILabel *userLabel;
-@property (nonatomic, strong) UIView *separatorLineView;
+@property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UILabel *placeholderLabel;
+@property (nonatomic, strong) UIView *separatorView;
+@property (nonatomic, strong) UICollectionView *collectionView;
+
+@property (nonatomic, strong) UIViewController *viewController;
+
+@property (nonatomic, copy) UIImage *(^selectImageBlock)(void);
 
 @end

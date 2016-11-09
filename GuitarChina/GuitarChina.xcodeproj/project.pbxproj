@@ -40,6 +40,7 @@
 		047942541DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047942521DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib */; };
 		0488C0AA1C795E7200920E72 /* JsonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A91C795E7200920E72 /* JsonTool.m */; };
 		048C3BBB1D583557000FCCFB /* UIImage+CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C3BBA1D583557000FCCFB /* UIImage+CommonMethods.m */; };
+		048D45081DD1BE1500A7824F /* GCReplyAddImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D45071DD1BE1500A7824F /* GCReplyAddImageCell.m */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
 		04F8A35D1D28E19F007F2350 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3511D28E19F007F2350 /* WMFooldView.m */; };
 		04F8A35E1D28E19F007F2350 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3531D28E19F007F2350 /* WMMenuItem.m */; };
@@ -230,6 +231,8 @@
 		0488C0A91C795E7200920E72 /* JsonTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonTool.m; sourceTree = "<group>"; };
 		048C3BB91D583557000FCCFB /* UIImage+CommonMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CommonMethods.h"; sourceTree = "<group>"; };
 		048C3BBA1D583557000FCCFB /* UIImage+CommonMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CommonMethods.m"; sourceTree = "<group>"; };
+		048D45061DD1BE1500A7824F /* GCReplyAddImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCReplyAddImageCell.h; sourceTree = "<group>"; };
+		048D45071DD1BE1500A7824F /* GCReplyAddImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReplyAddImageCell.m; sourceTree = "<group>"; };
 		04AF910D1BE8FAF10030AEEB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		04F8A3501D28E19F007F2350 /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
 		04F8A3511D28E19F007F2350 /* WMFooldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMFooldView.m; sourceTree = "<group>"; };
@@ -1018,6 +1021,8 @@
 				047942501DA00A5B00E810DF /* GCForumIndexCollectionReusableView.h */,
 				047942511DA00A5B00E810DF /* GCForumIndexCollectionReusableView.m */,
 				047942521DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib */,
+				048D45061DD1BE1500A7824F /* GCReplyAddImageCell.h */,
+				048D45071DD1BE1500A7824F /* GCReplyAddImageCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1666,6 +1671,7 @@
 				423888FE1BC57D0F002E1625 /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */,
 				04F8A35D1D28E19F007F2350 /* WMFooldView.m in Sources */,
 				421192B81CE85F3A00BCFF3E /* GCAboutCell.m in Sources */,
+				048D45081DD1BE1500A7824F /* GCReplyAddImageCell.m in Sources */,
 				046262441BAAC06800E66F03 /* NSString+Tools.m in Sources */,
 				4211927A1CE85D3200BCFF3E /* GCHotThreadViewController.m in Sources */,
 				423888F41BC57D0F002E1625 /* DGActivityIndicatorBallClipRotatePulseAnimation.m in Sources */,

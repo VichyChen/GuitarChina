@@ -57,6 +57,16 @@
 #define GCNETWORKAPI_GET_POSTSECURE [NSString stringWithFormat:@"%@mobile=no&version=1&module=secure&type=post", GCNETWORKAPI_SERVICE_URL]
 //回复
 #define GCNETWORKAPI_POST_SENDREPLY(tid) [NSString stringWithFormat:@"%@mobile=no&version=1&module=sendreply&seccodeverify=&sechash=&replysubmit=yes&tid=%@", GCNETWORKAPI_SERVICE_URL, (tid)]
+
+//WEB回复页面获取
+#define GCNETWORKAPI_GET_WEBREPLY(fid, tid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=reply&fid=%@&tid=%@", (fid), (tid)]
+//WEB回复上传图片
+#define GCNETWORKAPI_POST_WEBSENDREPLYIMAGE(fid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/misc.php?mod=swfupload&action=swfupload&operation=upload&fid=%@", (fid)]
+//WEB回复前调用
+#define GCNETWORKAPI_GET_POSTWEBSECURE @"http://bbs.guitarchina.com/forum.php?mod=ajax&action=checkpostrule&ac=reply&inajax=yes"
+//WEB回复
+#define GCNETWORKAPI_POST_WEBSENDREPLY(fid, tid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=reply&fid=%@&tid=%@&extra=&replysubmit=yes", (fid), (tid)]
+
 //发布主题
 #define GCNETWORKAPI_POST_NEWTHREAD(fid) [NSString stringWithFormat:@"%@mobile=no&version=1&module=newthread&seccodeverify=&sechash=&topicsubmit=yes&fid=%@", GCNETWORKAPI_SERVICE_URL, (fid)]
 

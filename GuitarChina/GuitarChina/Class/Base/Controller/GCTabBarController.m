@@ -31,7 +31,11 @@
     
     self.tabBar.tintColor = [UIColor whiteColor];
     self.tabBar.barTintColor = [UIColor colorWithRed:0.100 green:0.100 blue:0.100 alpha:1.00];
-    
+    /*
+    self.tabBar.tintColor = [GCColor redColor];
+    self.tabBar.barTintColor = [UIColor whiteColor];
+     */
+
     [self configureView];
 }
 

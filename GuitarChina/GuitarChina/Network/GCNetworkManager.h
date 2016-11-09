@@ -59,6 +59,25 @@
                  success:(void (^)(GCSendReplyModel *model))success
                  failure:(void (^)(NSError *error))failure;
 
++ (void)postWebReplyWithTid:(NSString *)tid
+                        fid:(NSString *)fid
+                    message:(NSString *)message
+                     attach:(NSString *)attach
+                   formhash:(NSString *)formhash
+                    success:(void (^)(GCSendReplyModel *model))success
+                    failure:(void (^)(NSError *error))failure;
+
++ (void)postWebReplyImageWithFid:(NSString *)fid
+                           image:(UIImage *)image
+                        formhash:(NSString *)formhash
+                         success:(void (^)(NSString *string))success
+                         failure:(void (^)(NSError *error))failure;
+
++ (void)getWebReplyWithFid:(NSString *)fid
+                       tid:(NSString *)tid
+                   success:(void (^)(NSData *htmlData))success
+                   failure:(void (^)(NSError *error))failure;
+
 //发布主题
 + (void)postNewThreadWithFid:(NSString *)fid
                      subject:(NSString *)subject

@@ -7,8 +7,13 @@
 //
 
 #import "GCReplyThreadView.h"
+#import "GCReplyAddImageCell.h"
 
-@interface GCReplyThreadView() <UITextViewDelegate>
+#define AddImage @"upload_img"
+
+@interface GCReplyThreadView() <UITextViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+
+@property (nonatomic, strong) NSMutableArray *array;
 
 @end
 
@@ -19,30 +24,80 @@
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         [self configureView];
+        [self configureFrame];
     }
     return self;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
-    [self configureFrame];
 }
 
 - (void)configureView {
-//    [self addSubview:self.avatarImage];
-//    [self addSubview:self.userLabel];
-//    [self addSubview:self.separatorLineView];
-    [self addSubview:self.placeholderLabel];
-    [self addSubview:self.textView];
+    [self addSubview:self.scrollView];
+    [self.scrollView addSubview:self.textView];
+    [self.scrollView addSubview:self.placeholderLabel];
+    [self.scrollView addSubview:self.separatorView];
+    [self.scrollView addSubview:self.collectionView];
 }
 
 - (void)configureFrame {
-//    self.avatarImage.frame = CGRectMake(10, 10, 30, 30);
-//    self.userLabel.frame = CGRectMake(50, 10, ScreenWidth - 55, 30);
-//    self.separatorLineView.frame = CGRectMake(10, 50, ScreenWidth - 20, 0.5);
-    self.textView.frame = CGRectMake(10, 10, ScreenWidth - 20, ScreenHeight - 64 - 65);
+    self.scrollView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64);
+    self.scrollView.contentSize = CGSizeMake(ScreenWidth, ScreenHeight - 64 + 1);
+    self.textView.frame = CGRectMake(10, 10, ScreenWidth - 20, ScreenHeight / 3);
     self.placeholderLabel.frame = CGRectMake(15, 18, 200, 20);
+    self.separatorView.frame = CGRectMake(10, self.textView.frame.origin.y + self.textView.frame.size.height - 1, ScreenWidth - 20, 0.5);
+    self.collectionView.frame = CGRectMake(0, self.textView.frame.origin.y + self.textView.frame.size.height, ScreenWidth, ((ScreenWidth - 10 * 5) / 4) * 2 + 30);
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.array.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    GCReplyAddImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GCReplyAddImageCell" forIndexPath:indexPath];
+    if ([[self.array objectAtIndex:indexPath.row] isKindOfClass:[UIImage class]]) {
+        cell.imageView.image = [self.array objectAtIndex:indexPath.row];
+    } else {
+        cell.imageView.image = [UIImage imageNamed:AddImage];
+    }
+
+    return cell;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake((ScreenWidth - 10 * 5) / 4, (ScreenWidth - 10 * 5) / 4);
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 10;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 10;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self.textView resignFirstResponder];
+
+    if ([[self.array objectAtIndex:indexPath.row] isKindOfClass:[NSString class]]) {
+        @weakify(self);
+        [APP selectImage:self.viewController success:^(UIImage *image, NSDictionary *info) {
+            @strongify(self);
+            [self.array insertObject:image atIndex:self.array.count - 1];
+            [self.collectionView reloadData];
+        }];
+    } else {
+        
+    }
 }
 
 #pragma mark - UITextViewDelegate
@@ -73,36 +128,21 @@
 
 #pragma mark - Getters
 
-- (UIImageView *)avatarImage {
-    if (!_avatarImage) {
-        _avatarImage = [UIView createImageView:CGRectZero
-                                   contentMode:UIViewContentModeScaleAspectFit];
-        _avatarImage.layer.cornerRadius = 5;
-        _avatarImage.layer.masksToBounds = YES;
-        _avatarImage.backgroundColor = [GCColor grayColor3];
-        [_avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_URL_BIGAVTARIMAGE([NSUD stringForKey:kGCLoginID])]
-                            placeholderImage:nil
-                                     options:SDWebImageRetryFailed];
+- (UIScrollView *)scrollView {
+    if (!_scrollView) {
+        _scrollView = [[UIScrollView alloc] init];
     }
-    return _avatarImage;
+    
+    return _scrollView;
 }
 
-- (UILabel *)userLabel {
-    if (!_userLabel) {
-        _userLabel = [UIView createLabel:CGRectZero
-                                    text:[NSUD stringForKey:kGCLoginName]
-                                    font:[UIFont boldSystemFontOfSize:16]
-                               textColor:[GCColor blueColor]];
+- (NSMutableArray *)array {
+    if (!_array) {
+        _array = [NSMutableArray array];
+        [_array addObject:AddImage];
     }
-    return _userLabel;
-}
-
-- (UIView *)separatorLineView {
-    if (!_separatorLineView) {
-        _separatorLineView = [[UIView alloc] initWithFrame:CGRectZero];
-        _separatorLineView.backgroundColor = [GCColor separatorLineColor];
-    }
-    return _separatorLineView;
+    
+    return _array;
 }
 
 - (UITextView *)textView {
@@ -122,6 +162,28 @@
                                            font:[UIFont systemFontOfSize:16] textColor:[GCColor grayColor3]];
     }
     return _placeholderLabel;
+}
+
+- (UIView *)separatorView {
+    if (!_separatorView) {
+        _separatorView = [[UIView alloc] init];
+        _separatorView.backgroundColor = [GCColor separatorLineColor];
+    }
+    
+    return _separatorView;
+}
+
+- (UICollectionView *)collectionView {
+    if (!_collectionView) {
+        UICollectionViewFlowLayout *layout= [[UICollectionViewFlowLayout alloc]init];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        _collectionView.backgroundColor = [UIColor clearColor];
+        _collectionView.bounces = NO;
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        [_collectionView registerClass:[GCReplyAddImageCell class] forCellWithReuseIdentifier:@"GCReplyAddImageCell"];
+    }
+    return _collectionView;
 }
 
 @end

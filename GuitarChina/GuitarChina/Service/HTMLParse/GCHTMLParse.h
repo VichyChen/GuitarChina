@@ -22,4 +22,6 @@
 
 + (GCSearchArray *)parseSearch:(NSData *)htmlData;
 
++ (NSString *)parseWebReply:(NSData *)htmlData;
+
 @end
