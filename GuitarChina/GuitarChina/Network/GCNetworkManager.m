@@ -104,26 +104,27 @@
 + (void)postWebReplyWithTid:(NSString *)tid
                         fid:(NSString *)fid
                     message:(NSString *)message
-                     attach:(NSString *)attach
+                     attachArray:(NSArray *)attachArray
                    formhash:(NSString *)formhash
-                    success:(void (^)(GCSendReplyModel *model))success
+                    success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_POSTWEBSECURE parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"success");
-        
-        NSDictionary *parameters = @{ @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash, @"posttime" : @"", @"wysiwyg" : @"0", @"noticeauthor" : @"", @"noticetrimstr" : @"", @"noticeauthormsg" : @"", @"subject" : @"", @"checkbox" : @"0", @"message" : message, @"usesig" : @"1", @"save" : @"" , [NSString stringWithFormat:@"attachnew[%@][description]", attach] : @""};
+
+        NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{ @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash, @"posttime" : @"", @"wysiwyg" : @"0", @"noticeauthor" : @"", @"noticetrimstr" : @"", @"noticeauthormsg" : @"", @"subject" : @"", @"checkbox" : @"0", @"message" : message, @"usesig" : @"1", @"save" : @""}];
+        if (attachArray) {
+            for (NSString *attach in attachArray) {
+                [parameters setObject:@"" forKey:[NSString stringWithFormat:@"attachnew[%@][description]", attach]];
+            }
+        }
         
         [[GCNetworkBase sharedInstance] postWeb:GCNETWORKAPI_POST_WEBSENDREPLY(fid, tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
-            NSLog(@"%@", operation.responseString);
-            
+            success();
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(error);
         }];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(error);
-        NSLog(@"failure");
     }];
 }
 

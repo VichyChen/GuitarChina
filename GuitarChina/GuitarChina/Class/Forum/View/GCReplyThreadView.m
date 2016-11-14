@@ -8,10 +8,11 @@
 
 #import "GCReplyThreadView.h"
 #import "GCReplyAddImageCell.h"
+#import "ZLPhoto.h"
 
 #define AddImage @"upload_img"
 
-@interface GCReplyThreadView() <UITextViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface GCReplyThreadView() <UITextViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, ZLPhotoPickerBrowserViewControllerDelegate, ZLPhotoPickerBrowserViewControllerDataSource>
 
 @property (nonatomic, strong) NSMutableArray *array;
 
@@ -90,14 +91,69 @@
 
     if ([[self.array objectAtIndex:indexPath.row] isKindOfClass:[NSString class]]) {
         @weakify(self);
-        [APP selectImage:self.viewController success:^(UIImage *image, NSDictionary *info) {
+        ZLPhotoPickerViewController *controller = [[ZLPhotoPickerViewController alloc] init];
+        controller.status = PickerViewShowStatusCameraRoll;
+        if ([[self.array objectAtIndex:self.array.count - 1] isKindOfClass:[NSString class]]) {
+            controller.maxCount = 8 - (self.array.count - 1);
+        } else {
+            controller.maxCount = 8;
+        }
+        controller.callBack = ^(id obj) {
             @strongify(self);
-            [self.array insertObject:image atIndex:self.array.count - 1];
-            [self.collectionView reloadData];
-        }];
-    } else {
+            if ([obj isKindOfClass:[NSArray class]]) {
+                for (ZLPhotoAssets *asset in obj) {
+//                    [self.array insertObject:UIImageJPEGRepresentation(asset.originImage, 0.1) atIndex:0];
+                    [self.array insertObject:asset.originImage atIndex:0];
+                }
+                if (self.array.count == 9) {
+                    [self.array removeObjectAtIndex:8];
+                }
+                [self.collectionView reloadData];
+            }
+        };
+        [controller showPickerVc:self.viewController];
         
+    } else {
+        ZLPhotoPickerBrowserViewController *pickerBrowser = [[ZLPhotoPickerBrowserViewController alloc] init];
+        pickerBrowser.delegate = self;
+        pickerBrowser.dataSource = self;
+        //是否可以删除照片
+        pickerBrowser.editing = YES;
+        pickerBrowser.status = UIViewAnimationAnimationStatusFade;
+        //当前选中的值
+        pickerBrowser.currentIndexPath = [NSIndexPath indexPathForItem:indexPath.row inSection:0];
+        [pickerBrowser showPickerVc:self.viewController];
     }
+}
+
+#pragma mark - ZLPhotoPickerBrowserViewControllerDataSource
+
+- (long)photoBrowser:(ZLPhotoPickerBrowserViewController *)photoBrowser numberOfItemsInSection:(NSUInteger)section {
+    if ([[self.array objectAtIndex:self.array.count - 1] isKindOfClass:[NSString class]]) {
+        return self.array.count - 1;
+    } else {
+        return self.array.count;
+    }
+}
+
+- (ZLPhotoPickerBrowserPhoto *)photoBrowser:(ZLPhotoPickerBrowserViewController *)pickerBrowser photoAtIndexPath:(NSIndexPath *)indexPath{
+    ZLPhotoPickerBrowserPhoto *photo = [ZLPhotoPickerBrowserPhoto photoAnyImageObjWith:[self.array objectAtIndex:indexPath.row]];
+    
+    return photo;
+}
+
+#pragma mark - ZLPhotoPickerBrowserViewControllerDelegate
+
+//删除照片
+- (void)photoBrowser:(ZLPhotoPickerBrowserViewController *)photoBrowser removePhotoAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row > [self.array count]) {
+        return;
+    }
+    [self.array removeObjectAtIndex:indexPath.row];
+    if (![[self.array objectAtIndex:self.array.count - 1] isKindOfClass:[NSString class]]) {
+        [self.array addObject:AddImage];
+    }
+    [self.collectionView reloadData];
 }
 
 #pragma mark - UITextViewDelegate
@@ -131,6 +187,7 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
+        _scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     }
     
     return _scrollView;
@@ -184,6 +241,14 @@
         [_collectionView registerClass:[GCReplyAddImageCell class] forCellWithReuseIdentifier:@"GCReplyAddImageCell"];
     }
     return _collectionView;
+}
+
+- (NSArray *)imageArray {
+    NSMutableArray *array = [NSMutableArray arrayWithArray:self.array];
+    if ([[array lastObject] isKindOfClass:[NSString class]]) {
+        [array removeLastObject];
+    }
+    return array;
 }
 
 @end

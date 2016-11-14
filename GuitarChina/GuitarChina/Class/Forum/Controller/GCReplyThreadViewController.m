@@ -35,38 +35,52 @@
 }
 
 - (void)sendAction {
-    
     if ([self.replyThreadView.textView.text trim].length == 0) {
         return;
     }
     [self.replyThreadView.textView resignFirstResponder];
-    NSLog(@"click");
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
+    @weakify(self);
+    void (^postWebReplyBlock)(NSArray *) = ^(NSArray *attachArray){
+        @strongify(self);
+        [GCNetworkManager postWebReplyWithTid:self.tid fid:self.fid message:[self.replyThreadView.textView.text stringByAppendingString:@"\n[url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305][color=Gray]发自吉他中国iOS客户端[/color][/url]"] attachArray:attachArray formhash:self.formhash success:^{
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
+            [self closeAction];
+        } failure:^(NSError *error) {
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        }];
+    };
     
-    [APP selectImage:self success:^(UIImage *image, NSDictionary *info) {
-        
+    NSArray *imageArray = self.replyThreadView.imageArray;
+    NSUInteger imageCount = self.replyThreadView.imageArray.count;
+    
+    if (imageCount > 0) {
         [GCNetworkManager getWebReplyWithFid:self.fid tid:self.tid success:^(NSData *htmlData) {
+            //获取web页面formhash
             NSString *formhash = [GCHTMLParse parseWebReply:htmlData];
-            
-            [GCNetworkManager postWebReplyImageWithFid:self.fid image:image formhash:formhash success:^(NSString *imageID) {
-                
-                [GCNetworkManager postWebReplyWithTid:self.tid fid:self.fid message:[self.replyThreadView.textView.text stringByAppendingString:@"\n"] attach:imageID formhash:self.formhash success:^(GCSendReplyModel *model) {
+            @strongify(self);
+            __block int tempCount = 0;
+            NSMutableArray *attachArray = [NSMutableArray array];
+            for (int i = 0; i < imageCount; i++) {
+                [GCNetworkManager postWebReplyImageWithFid:self.fid image:imageArray[i] formhash:formhash success:^(NSString *imageID) {
+                    
+                    tempCount++;
+                    [attachArray addObject:imageID];
+                    if (tempCount == imageCount) {
+                        postWebReplyBlock(attachArray);
+                    }
                     
                 } failure:^(NSError *error) {
-                    
+                    [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Other Error", nil)];
                 }];
-                
-            } failure:^(NSError *error) {
-                
-            }];
-            
+            }
         } failure:^(NSError *error) {
-            
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
         }];
-        
-        
-    }];
+    } else {
+        postWebReplyBlock(nil);
+    }
     
     /*
      ** old
@@ -111,17 +125,6 @@
     if (!_replyThreadView) {
         _replyThreadView = [[GCReplyThreadView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
         _replyThreadView.viewController = self;
-        /*
-        @weakify(self);
-        _replyThreadView.selectImageBlock = ^{
-            @strongify(self);
-            [APP selectImage:self success:^(UIImage *image, NSDictionary *info) {
-                @strongify(self);
-                return image;
-            }];
-            return [UIImage alloc];
-        };
-         */
     }
     return _replyThreadView;
 }

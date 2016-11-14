@@ -18,6 +18,6 @@
 
 @property (nonatomic, strong) UIViewController *viewController;
 
-@property (nonatomic, copy) UIImage *(^selectImageBlock)(void);
+@property (nonatomic, copy) NSArray *imageArray;
 
 @end

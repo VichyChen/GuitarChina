@@ -62,9 +62,9 @@
 + (void)postWebReplyWithTid:(NSString *)tid
                         fid:(NSString *)fid
                     message:(NSString *)message
-                     attach:(NSString *)attach
+                attachArray:(NSArray *)attachArray
                    formhash:(NSString *)formhash
-                    success:(void (^)(GCSendReplyModel *model))success
+                    success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure;
 
 + (void)postWebReplyImageWithFid:(NSString *)fid
