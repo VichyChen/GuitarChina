@@ -48,6 +48,9 @@
 //字符串转NSDate
 + (NSDate *)getNSDateWithDateString:(NSString *)dateString format:(NSString *)format;
 
+//url query转字典
++ (NSDictionary *)parseURLQueryStringToDictionary:(NSURL *)url;
+
 #pragma mark - Cookie
 
 //清除cookie

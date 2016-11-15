@@ -38,6 +38,8 @@
 @property (nonatomic, copy) NSString *number;
 @property (nonatomic, copy) NSString *dbdateline;
 
+@property (nonatomic, strong) NSMutableArray *attachImageURLArray;
+
 @property (nonatomic, strong) NSMutableDictionary *attachmentsList;    //GCThreadDetailPostAttachmentsModel
 
 @end

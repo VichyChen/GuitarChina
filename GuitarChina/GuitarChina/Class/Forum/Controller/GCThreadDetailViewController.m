@@ -15,8 +15,9 @@
 #import "GCLoginViewController.h"
 #import "DOPNavbarMenu.h"
 #import "GCSocial.h"
+#import "ZLPhoto.h"
 
-@interface GCThreadDetailViewController () <UIWebViewDelegate> {
+@interface GCThreadDetailViewController () <UIWebViewDelegate, ZLPhotoPickerBrowserViewControllerDataSource,ZLPhotoPickerBrowserViewControllerDelegate> {
     
 }
 
@@ -44,6 +45,9 @@
 
 @property (nonatomic, copy) NSString *threadSubject;  //标题
 @property (nonatomic, copy) NSString *threadContent;//内容
+
+@property (nonatomic, strong) GCThreadDetailModel *model;
+@property (nonatomic, copy) NSString *seletImagePid;
 
 @end
 
@@ -152,6 +156,24 @@
             
             return false;
         }
+        //附件图片大图
+        if ([request.mainDocumentURL.relativeString startsWith:@"http://bbs.guitarchina.com/"] &&
+            [[[Util parseURLQueryStringToDictionary:request.mainDocumentURL] objectForKey:@"type"] isEqualToString:@"GuitarChinaImage"]) {
+        
+            NSDictionary *dictionary = [Util parseURLQueryStringToDictionary:request.mainDocumentURL];
+            NSString *pid = dictionary[@"pid"];
+            self.seletImagePid = pid;
+            NSString *index = dictionary[@"index"];
+            
+            ZLPhotoPickerBrowserViewController *pickerBrowser = [[ZLPhotoPickerBrowserViewController alloc] init];
+            pickerBrowser.delegate = self;
+            pickerBrowser.dataSource = self;
+            pickerBrowser.status = UIViewAnimationAnimationStatusFade;
+            pickerBrowser.currentIndexPath = [NSIndexPath indexPathForItem:[index integerValue] inSection:0];
+            [pickerBrowser showPickerVc:self];
+            
+            return false;
+        }
         //苹果商店地址
         if ([request.mainDocumentURL.relativeString isEqualToString:@"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305"]) {
 
@@ -166,6 +188,34 @@
     }
     
     return YES;
+}
+
+//显示大图
+#pragma mark - ZLPhotoPickerBrowserViewControllerDataSource
+
+- (NSInteger)numberOfSectionInPhotosInPickerBrowser:(ZLPhotoPickerBrowserViewController *)pickerBrowser {
+    return 1;
+}
+
+- (NSInteger)photoBrowser:(ZLPhotoPickerBrowserViewController *)photoBrowser numberOfItemsInSection:(NSUInteger)section {
+    for (GCThreadDetailPostModel *model in self.model.postlist) {
+        if ([model.pid isEqualToString:self.seletImagePid]) {
+            return model.attachImageURLArray.count;
+        }
+    }
+    return 0;
+}
+
+- (ZLPhotoPickerBrowserPhoto *)photoBrowser:(ZLPhotoPickerBrowserViewController *)pickerBrowser photoAtIndexPath:(NSIndexPath *)indexPath {
+    for (GCThreadDetailPostModel *model in self.model.postlist) {
+        if ([model.pid isEqualToString:self.seletImagePid]) {
+            ZLPhotoAssets *imageObj = [model.attachImageURLArray objectAtIndex:indexPath.row];
+            ZLPhotoPickerBrowserPhoto *photo = [ZLPhotoPickerBrowserPhoto photoAnyImageObjWith:imageObj];
+            return photo;
+        }
+    }
+    
+    return nil;
 }
 
 #pragma mark - Notification
@@ -218,6 +268,8 @@
     self.refreshBlock = ^(void (^success)(GCThreadDetailModel *)){
         @strongify(self);
         [GCNetworkManager getViewThreadWithThreadID:self.tid pageIndex:self.pageIndex pageSize:self.pageSize success:^(GCThreadDetailModel *model) {
+            @strongify(self);
+            self.model = model;
             self.loaded = true;
             self.uid = model.member_uid;
             self.fid = model.fid;
@@ -248,6 +300,7 @@
                 }];
             }
         } failure:^(NSError *error) {
+            @strongify(self);
             [self.threadDetailView webViewEndRefresh];
             [self.threadDetailView webViewEndFetchMore];
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];

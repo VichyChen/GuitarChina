@@ -100,6 +100,21 @@
     return date;
 }
 
++ (NSDictionary *)parseURLQueryStringToDictionary:(NSURL *)url {
+    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+    NSArray *array = [url.query componentsSeparatedByString:@"&"];
+    for (NSString *item in array) {
+        if (item.length > 0) {
+            NSArray *parameter = [item componentsSeparatedByString:@"="];
+            if (parameter.count == 2) {
+                [dictionary setObject:parameter[1] forKey:parameter[0]];
+            }
+        }
+    }
+
+    return dictionary;
+}
+
 #pragma mark - Cookie
 
 + (void)clearCookie {

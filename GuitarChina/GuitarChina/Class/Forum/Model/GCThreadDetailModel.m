@@ -103,24 +103,6 @@
         NSMutableArray *postArray = [[NSMutableArray alloc] init];
         for (NSDictionary *item in postlist) {
             GCThreadDetailPostModel *model = [[GCThreadDetailPostModel alloc] init];
-            
-            NSString *string = [item objectForKey:@"message"];
-            string = [string replace:@"src=\"static/image/smiley/gc/em" toNewString:@"src=\"http://bbs.guitarchina.com/static/image/smiley/gc/em"];
-            model.message = string ? string : @"";
-            model.message = [model.message replace:@"[media]" toNewString:@""];
-            model.message = [model.message replace:@"[/media]" toNewString:@""];
-            
-            //处理附件图片，替换<attach>成<img>
-            model.attachmentsList = [item objectForKey:@"attachments"];
-            NSEnumerator * enumeratorKey = [model.attachmentsList keyEnumerator];
-            for (NSString *attachmentKey in enumeratorKey) {
-                if ([model.message containString:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey]]) {
-                    model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey] toNewString:[NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 30, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];
-                } else {
-                    model.message = [NSString stringWithFormat:@"%@%@", model.message, [NSString stringWithFormat:@"<img class=\"image\" width=\"%.f\" src=\"http://bbs.guitarchina.com/%@%@\">", ScreenWidth - 30, [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]]];
-                }
-            }
-            
             model.pid          = [item objectForKey:@"pid"];
             model.tid          = [item objectForKey:@"tid"];
             model.first        = [item objectForKey:@"first"];
@@ -135,6 +117,43 @@
             model.groupidfield = [item objectForKey:@"groupidfield"];
             model.memberstatus = [item objectForKey:@"memberstatus"];
             model.number       = [item objectForKey:@"number"];
+            //内容
+            NSString *string = [item objectForKey:@"message"];
+            model.message = string ? string : @"";
+            
+            //处理附件图片，替换<attach>成<img>
+            model.attachmentsList = [item objectForKey:@"attachments"];
+            NSMutableArray *attachImageURLArray = [NSMutableArray array];
+//            NSEnumerator *enumeratorKey = [model.attachmentsList keyEnumerator];
+//            for (NSString *attachmentKey in enumeratorKey) {
+//                //附件图片url
+//                NSString *imageURL = [NSString stringWithFormat:@"http://bbs.guitarchina.com/%@%@", [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]];
+//                //<img>
+//                NSString *imageHTML = [NSString stringWithFormat:@"<a href=\"\"><img class=\"image\" width=\"%.f\" src=\"%@\"></a>", ScreenWidth - 30, imageURL];
+//                if ([model.message containString:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey]]) {
+//                    model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey] toNewString:imageHTML];
+//                } else {
+//                    model.message = [NSString stringWithFormat:@"%@%@", model.message, imageHTML];
+//                }
+//                [attachImageURLArray addObject:imageURL];
+//            }
+
+            for (int i = 0; i < model.attachmentsList.allKeys.count; i++) {
+                //附件图片url
+                NSString *imageURL = [NSString stringWithFormat:@"http://bbs.guitarchina.com/%@%@%@", [[model.attachmentsList objectForKey:model.attachmentsList.allKeys[i]] objectForKey:@"url"], [[model.attachmentsList objectForKey:model.attachmentsList.allKeys[i]] objectForKey:@"attachment"], [NSString stringWithFormat:@"?type=%@&pid=%@&index=%d", @"GuitarChinaImage", model.pid, i]];
+                //<img>
+                NSString *imageHTML = [NSString stringWithFormat:@"<a href=\"%@\"><img class=\"image\" width=\"%.f\" src=\"%@\"></a>", imageURL, ScreenWidth - 30, imageURL];
+                if ([model.message containString:[NSString stringWithFormat:@"[attach]%@[/attach]", model.attachmentsList.allKeys[i]]]) {
+                    model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", model.attachmentsList.allKeys[i]] toNewString:imageHTML];
+                } else {
+                    model.message = [NSString stringWithFormat:@"%@%@", model.message, imageHTML];
+                }
+                [attachImageURLArray addObject:imageURL];
+            }
+            
+            //附件图片数组
+            model.attachImageURLArray = attachImageURLArray;
+            
             [postArray addObject:model];
         }
         self.postlist = postArray;
@@ -166,6 +185,11 @@
 
     //处理尾巴样式
     html = [html replace:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305\" target=\"_blank\"><font color=\"Gray\">发自吉他中国iPhone客户端</font></a>" toNewString:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305\" target=\"_blank\" style='margin:10px 0px 8px -5px;font-size:13px'><font color=\"Gray\">发自吉他中国iPhone客户端</font></a>"];
+    //替换表情链接
+    html = [html replace:@"src=\"static/image/smiley/gc/em" toNewString:@"src=\"http://bbs.guitarchina.com/static/image/smiley/gc/em"];
+    //替换视频
+    html = [html replace:@"[media]" toNewString:@""];
+    html = [html replace:@"[/media]" toNewString:@""];
     
     return html;
 }
