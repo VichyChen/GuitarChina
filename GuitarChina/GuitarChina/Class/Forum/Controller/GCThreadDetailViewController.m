@@ -143,7 +143,7 @@
             
             return false;
         }
-        
+        //GC帖子
         if ([request.mainDocumentURL.relativeString startsWith:@"http://bbs.guitarchina.com/thread-"] && [request.mainDocumentURL.relativePath endsWith:@".html"]) {
             NSArray *array = [request.mainDocumentURL.relativeString split:@"-"];
             GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
@@ -151,6 +151,11 @@
             [self.navigationController pushViewController:controller animated:YES];
             
             return false;
+        }
+        //苹果商店地址
+        if ([request.mainDocumentURL.relativeString isEqualToString:@"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305"]) {
+
+            return YES;
         }
         
         GCWebViewController *controller = [[GCWebViewController alloc] init];

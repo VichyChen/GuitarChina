@@ -163,6 +163,9 @@
     }
     NSString *htmlPage = [Util getBundleHTMLString:@"GCThreadWebViewHtml"];
     [html appendFormat:htmlPage, ScreenWidth - 30, self.subject, [Util getDateStringWithTimeStamp:self.dateline format:@"yyyy-MM-dd HH:mm"], [NSString stringWithFormat:@"%@，%@回复 %@浏览", [APP.forumDictionary objectForKey: self.fid], self.replies, self.views], htmlCellString];
+
+    //处理尾巴样式
+    html = [html replace:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305\" target=\"_blank\"><font color=\"Gray\">发自吉他中国iPhone客户端</font></a>" toNewString:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305\" target=\"_blank\" style='margin:10px 0px 8px -5px;font-size:13px'><font color=\"Gray\">发自吉他中国iPhone客户端</font></a>"];
     
     return html;
 }

@@ -44,7 +44,7 @@
     @weakify(self);
     void (^postWebReplyBlock)(NSArray *) = ^(NSArray *attachArray){
         @strongify(self);
-        [GCNetworkManager postWebReplyWithTid:self.tid fid:self.fid message:[self.replyThreadView.textView.text stringByAppendingString:@"\n[url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305][color=Gray]发自吉他中国iOS客户端[/color][/url]"] attachArray:attachArray formhash:self.formhash success:^{
+        [GCNetworkManager postWebReplyWithTid:self.tid fid:self.fid message:[self.replyThreadView.textView.text stringByAppendingString:@"\n[size=1][url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305][color=Gray]发自吉他中国iPhone客户端[/color][/url][/size]"] attachArray:attachArray formhash:self.formhash success:^{
             [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
             [self closeAction];
         } failure:^(NSError *error) {
