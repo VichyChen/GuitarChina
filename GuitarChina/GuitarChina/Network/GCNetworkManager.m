@@ -51,6 +51,7 @@
                           success:(void (^)(GCThreadDetailModel *model))success
                           failure:(void (^)(NSError *error))failure {
     NSLog(@"threadID=%@", threadID);
+    NSLog(@"%@", GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize));
     [[GCNetworkBase sharedInstance] get:GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         GCThreadDetailModel *model = [[GCThreadDetailModel alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
         success(model);

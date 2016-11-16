@@ -123,36 +123,27 @@
             
             //处理附件图片，替换<attach>成<img>
             model.attachmentsList = [item objectForKey:@"attachments"];
-            NSMutableArray *attachImageURLArray = [NSMutableArray array];
-//            NSEnumerator *enumeratorKey = [model.attachmentsList keyEnumerator];
-//            for (NSString *attachmentKey in enumeratorKey) {
-//                //附件图片url
-//                NSString *imageURL = [NSString stringWithFormat:@"http://bbs.guitarchina.com/%@%@", [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"url"], [[model.attachmentsList objectForKey:attachmentKey] objectForKey:@"attachment"]];
-//                //<img>
-//                NSString *imageHTML = [NSString stringWithFormat:@"<a href=\"\"><img class=\"image\" width=\"%.f\" src=\"%@\"></a>", ScreenWidth - 30, imageURL];
-//                if ([model.message containString:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey]]) {
-//                    model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", attachmentKey] toNewString:imageHTML];
-//                } else {
-//                    model.message = [NSString stringWithFormat:@"%@%@", model.message, imageHTML];
-//                }
-//                [attachImageURLArray addObject:imageURL];
-//            }
-
-            for (int i = 0; i < model.attachmentsList.allKeys.count; i++) {
+            NSArray *postImageList = [item objectForKey:@"imagelist"];
+            if ([postImageList isKindOfClass:[NSArray class]]) {
+                model.attachImageURLArray = [NSMutableArray arrayWithArray:postImageList];
+            } else {
+                model.attachImageURLArray = [NSMutableArray array];
+            }
+            for (int i = 0; i < model.attachImageURLArray.count; i++) {
+                NSMutableDictionary *imageInfo = [NSMutableDictionary dictionaryWithDictionary:[model.attachmentsList objectForKey:model.attachImageURLArray[i]]];
                 //附件图片url
-                NSString *imageURL = [NSString stringWithFormat:@"http://bbs.guitarchina.com/%@%@%@", [[model.attachmentsList objectForKey:model.attachmentsList.allKeys[i]] objectForKey:@"url"], [[model.attachmentsList objectForKey:model.attachmentsList.allKeys[i]] objectForKey:@"attachment"], [NSString stringWithFormat:@"?type=%@&pid=%@&index=%d", @"GuitarChinaImage", model.pid, i]];
+                NSString *imageURL = [NSString stringWithFormat:@"http://bbs.guitarchina.com/%@%@%@", [imageInfo objectForKey:@"url"], [imageInfo objectForKey:@"attachment"], [NSString stringWithFormat:@"?type=%@&pid=%@&index=%d", @"GuitarChinaImage", model.pid, i]];
                 //<img>
                 NSString *imageHTML = [NSString stringWithFormat:@"<a href=\"%@\"><img class=\"image\" width=\"%.f\" src=\"%@\"></a>", imageURL, ScreenWidth - 30, imageURL];
-                if ([model.message containString:[NSString stringWithFormat:@"[attach]%@[/attach]", model.attachmentsList.allKeys[i]]]) {
-                    model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", model.attachmentsList.allKeys[i]] toNewString:imageHTML];
+                //替换[attach]
+                if ([model.message containString:[NSString stringWithFormat:@"[attach]%@[/attach]", model.attachImageURLArray[i]]]) {
+                    model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", model.attachImageURLArray[i]] toNewString:imageHTML];
                 } else {
                     model.message = [NSString stringWithFormat:@"%@%@", model.message, imageHTML];
                 }
-                [attachImageURLArray addObject:imageURL];
+                //imageList有排序，里面的id替换成url，用于看大图
+                [model.attachImageURLArray replaceObjectAtIndex:i withObject:imageURL];
             }
-            
-            //附件图片数组
-            model.attachImageURLArray = attachImageURLArray;
             
             [postArray addObject:model];
         }
