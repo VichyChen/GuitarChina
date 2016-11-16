@@ -63,7 +63,7 @@
     moreNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor grayColor4]];
     moreNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor redColor]];
     
-    self.viewControllers = @[discoveryNavigationController, forumIndexNavigationController, userNavigationController, moreNavigationController];
+    self.viewControllers = @[discoveryNavigationController, forumIndexNavigationController, moreNavigationController];
 }
 
 #pragma mark - WMPageControllerDataSource

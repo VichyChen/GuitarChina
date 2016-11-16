@@ -11,4 +11,6 @@
 
 @interface GCLoginViewController : GCBaseViewController
 
+@property (nonatomic, copy) void(^loginSuccessBlock)(void);
+
 @end

@@ -21,20 +21,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"Others", nil);
+    self.title = NSLocalizedString(@"Setting", nil);
     self.view.backgroundColor = [GCColor backgroundColor];
     
     [self configureView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -43,10 +39,6 @@
     cell.leftImageView.image = [UIImage imageNamed:@"icon_law"];
     
     return cell;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @" ";
 }
 
 #pragma mark - UITableViewDelegate
@@ -62,28 +54,17 @@
     [self.navigationController pushViewController:userProtocolViewController animated:YES];
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
-    view.backgroundColor = [GCColor backgroundColor];
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 28, ScreenWidth, 0.5)];
-    line.backgroundColor = [GCColor separatorLineColor];
-    [view addSubview:line];
-    
-    return view;
-}
-
-
 #pragma mark - Private Methods
 
 - (void)configureView {
     [self.view addSubview:self.tableView];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
-    UIButton *button = [UIView createButton:CGRectMake(15, 28, ScreenWidth - 30, 44)
+    UIButton *button = [UIView createButton:CGRectMake(15, 28, ScreenWidth - 30, 42)
                                        text:NSLocalizedString(@"Logout Account", nil)
                                      target:self
                                      action:@selector(logoutAction)];
-    button.backgroundColor = [GCColor grayColor3];
+    button.backgroundColor = [GCColor redColor];
     button.layer.cornerRadius = 5;
     button.titleLabel.font = [UIFont boldSystemFontOfSize:17];
     button.tintColor = [UIColor whiteColor];
@@ -96,7 +77,7 @@
 
 - (void)logoutAction {
     [Util clearCookie];
-    APP.tabBarController.selectedIndex = 0;
+//    APP.tabBarController.selectedIndex = 0;
     [NSUD setObject:@"0" forKey:kGCLogin];
     [NSUD setObject:@"" forKey:kGCLoginName];
     [NSUD synchronize];
@@ -111,7 +92,6 @@
         _tableView.backgroundColor = [GCColor backgroundColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableFooterView = [[UIView alloc] init];
-        _tableView.bounces = NO;
         _tableView.dataSource = self;
         _tableView.delegate = self;
     }

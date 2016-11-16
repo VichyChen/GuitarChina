@@ -141,6 +141,9 @@
 #pragma mark - Event Responses
 
 - (void)closeAction {
+    if (self.loginSuccessBlock) {
+        self.loginSuccessBlock();
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
