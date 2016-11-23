@@ -148,7 +148,7 @@
         [formData appendPartWithFormData:[formhash dataUsingEncoding:NSUTF8StringEncoding] name:@"hash"];
         [formData appendPartWithFormData:[@"image" dataUsingEncoding:NSUTF8StringEncoding] name:@"type"];
         [formData appendPartWithFormData:[@".jpg" dataUsingEncoding:NSUTF8StringEncoding] name:@"filetype"];
-        [formData appendPartWithFormData:[@"1627015" dataUsingEncoding:NSUTF8StringEncoding] name:@"uid"];
+        [formData appendPartWithFormData:[[NSUD stringForKey:kGCLoginID] dataUsingEncoding:NSUTF8StringEncoding] name:@"uid"];
         [formData appendPartWithFormData:[@"Submit Query" dataUsingEncoding:NSUTF8StringEncoding] name:@"Upload"];
         
         [formData appendPartWithFileData:UIImageJPEGRepresentation(image, 1) name:@"Filedata" fileName:@"test1.jpg" mimeType:@"application/octet-stream"];

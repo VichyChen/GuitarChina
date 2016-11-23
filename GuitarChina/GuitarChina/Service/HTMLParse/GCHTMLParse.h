@@ -14,6 +14,8 @@
 + (void)parseLoginWeb:(NSData *)htmlData
                result:(void (^)(NSString *seccode, NSString *formhash, NSString *postURL, NSArray *questionArray))result;
 
++ (NSString *)parseLoginWebUID:(NSString *)html;
+
 + (NSString *)parseSeccodeVerifyImage:(NSData *)htmlData;
 
 + (GCGuideThreadArray *)parseGuideThread:(NSData *)htmlData;

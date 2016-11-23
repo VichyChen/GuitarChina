@@ -41,6 +41,14 @@
     result(seccode, formhash, postURL, questionArray);
 }
 
++ (NSString *)parseLoginWebUID:(NSString *)html {
+    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:[html dataUsingEncoding:NSUTF8StringEncoding]];
+    TFHppleElement *element = [[xpathParser searchWithXPathQuery:@"//a[@class='icon_userinfo']"] firstObject];
+    NSString *url = [element.attributes objectForKey:@"href"];
+    NSDictionary *dictionary = [Util parseURLQueryStringToDictionary:[NSURL URLWithString:url]];
+    return dictionary[@"uid"];
+}
+
 + (NSString *)parseSeccodeVerifyImage:(NSData *)htmlData {
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
     TFHppleElement *imgElement = [[xpathParser searchWithXPathQuery:@"//img"] objectAtIndex:2];

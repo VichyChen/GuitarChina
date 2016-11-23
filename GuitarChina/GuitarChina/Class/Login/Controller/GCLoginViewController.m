@@ -266,6 +266,7 @@
                 NSLog(@"login success");
                 APP.tabBarController.selectedIndex = 2;
                 [NSUD setObject:@"1" forKey:kGCLogin];
+                [NSUD setObject:[GCHTMLParse parseLoginWebUID:html] forKey:kGCLoginID];
                 [NSUD setObject:self.usernameTextField.text forKey:kGCLoginName];
                 [NSUD synchronize];
                 
