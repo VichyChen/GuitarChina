@@ -202,6 +202,20 @@
     }];
 }
 
++ (void)getWebNewThreadWithFid:(NSString *)fid
+                       success:(void (^)(NSData *htmlData))success
+                       failure:(void (^)(NSError *error))failure {
+    [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_WEBNEWTHREAD(fid)
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   }
+                                   failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
+}
+
+
 + (void)postReportWithTid:(NSString *)tid
                      text:(NSString *)text
                   success:(void (^)(void))success

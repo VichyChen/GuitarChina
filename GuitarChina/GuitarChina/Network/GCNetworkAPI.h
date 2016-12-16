@@ -70,6 +70,9 @@
 //发布主题
 #define GCNETWORKAPI_POST_NEWTHREAD(fid) [NSString stringWithFormat:@"%@mobile=no&version=1&module=newthread&seccodeverify=&sechash=&topicsubmit=yes&fid=%@", GCNETWORKAPI_SERVICE_URL, (fid)]
 
+//WEB发帖页面获取
+#define GCNETWORKAPI_GET_WEBNEWTHREAD(fid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=newthread&fid=%@", (fid)]
+
 //举报
 #define GCNETWORKAPI_POST_REPORT(tid) [NSString stringWithFormat:@"http://art.365day.tv/api/set.html?act=SetSayReport&say_id=%@&V=1.1.1&F=ios&key=&user_name=&sign=", (tid)]
 

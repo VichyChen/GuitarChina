@@ -87,6 +87,10 @@
                      success:(void (^)(GCNewThreadModel *model))success
                      failure:(void (^)(NSError *error))failure;
 
++ (void)getWebNewThreadWithFid:(NSString *)fid
+                       success:(void (^)(NSData *htmlData))success
+                       failure:(void (^)(NSError *error))failure;
+
 //举报
 + (void)postReportWithTid:(NSString *)tid
                      text:(NSString *)text

@@ -191,11 +191,27 @@
 
 + (NSString *)parseWebReply:(NSData *)htmlData {
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
-    NSArray *array = [xpathParser searchWithXPathQuery:@"//form[@id='imgattachform']/input[@name='hash']"];
-    TFHppleElement *element = [array firstObject];
+    TFHppleElement *element = [[xpathParser searchWithXPathQuery:@"//form[@id='imgattachform']/input[@name='hash']"] firstObject];
     NSString *formhash = [element objectForKey:@"value"];
     
     return formhash;
+}
+
++ (void)parseWebNewThread:(NSData *)htmlData
+                   result:(void (^)(NSString *hash, NSArray *typeArray))result {
+    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
+    //hash
+    TFHppleElement *hashElement = [[xpathParser searchWithXPathQuery:@"//form[@id='imgattachform']/input[@name='hash']"] firstObject];
+    NSString *hash = [hashElement objectForKey:@"value"];
+    
+    //typeArray
+    NSMutableArray *typeArray = [NSMutableArray array];
+    NSArray *tempTypeArray = [xpathParser searchWithXPathQuery:@"//select[@id='typeid']/option"];
+    for (TFHppleElement *typeElement in tempTypeArray) {
+        [typeArray addObject:@{ @"text" : typeElement.content, @"value" : [typeElement objectForKey:@"value"]}];
+    }
+    
+    result(hash, typeArray);
 }
 
 @end

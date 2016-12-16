@@ -31,16 +31,6 @@
     self.view.backgroundColor = [GCColor backgroundColor];
     self.edgesForExtendedLayout = UIRectEdgeAll;
     
-    @weakify(self);
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[UIImage imageNamed:@"icon_setting"] style:UIBarButtonItemStylePlain handler:^(id sender) {
-        @strongify(self);
-        GCUserOtherViewController *userOtherViewController = [[GCUserOtherViewController alloc] init];
-        userOtherViewController.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:userOtherViewController animated:YES];
-    }];
-    rightBarButtonItem.tintColor = [UIColor whiteColor];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
-    
     [self configureView];
 }
 
@@ -95,7 +85,6 @@
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 80)];
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 50, 50)];
-        imageView.backgroundColor = [GCColor redColor];
         imageView.clipsToBounds = YES;
         imageView.layer.cornerRadius = 8;
         [imageView sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_URL_BIGAVTARIMAGE([NSUD stringForKey:kGCLoginID])]];
@@ -243,6 +232,14 @@
                     
                     break;
                 }
+                case 3:
+                {
+                    GCUserOtherViewController *userOtherViewController = [[GCUserOtherViewController alloc] init];
+                    userOtherViewController.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:userOtherViewController animated:YES];
+
+                    break;
+                }
             }
             break;
     }
@@ -323,11 +320,12 @@
         NSDictionary *developer = @{@"title" : NSLocalizedString(@"Information Development", nil), @"enable" : @YES };
         NSDictionary *feedback = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES };
         NSDictionary *score = @{@"title" : NSLocalizedString(@"To Score", nil), @"enable" : @YES };
+        NSDictionary *setting = @{@"title" : NSLocalizedString(@"Setting", nil), @"enable" : @YES };
         NSDictionary *version = @{@"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]], @"enable" : @NO };
         
         NSDictionary *meDictionary = @{NSLocalizedString(@"Me", nil) : @[myTheme, myFavour] };
         NSDictionary *officialDictionary = @{ NSLocalizedString(@"Official", nil) : @[guitarchina, musicInstrument, mushroomMusic] };
-        NSDictionary *othersDictionary = @{ NSLocalizedString(@"Others", nil) : @[developer, feedback, score, version] };
+        NSDictionary *othersDictionary = @{ NSLocalizedString(@"Others", nil) : @[developer, feedback, score, setting, version] };
         
         _array = @[meDictionary, officialDictionary, othersDictionary];
     }

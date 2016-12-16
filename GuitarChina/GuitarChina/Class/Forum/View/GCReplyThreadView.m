@@ -7,7 +7,7 @@
 //
 
 #import "GCReplyThreadView.h"
-#import "GCReplyAddImageCell.h"
+#import "GCAddImageCell.h"
 #import "ZLPhoto.h"
 
 #define AddImage @"upload_img"
@@ -58,7 +58,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    GCReplyAddImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GCReplyAddImageCell" forIndexPath:indexPath];
+    GCAddImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GCAddImageCell" forIndexPath:indexPath];
     if ([[self.array objectAtIndex:indexPath.row] isKindOfClass:[UIImage class]]) {
         cell.imageView.image = [self.array objectAtIndex:indexPath.row];
     } else {
@@ -238,7 +238,7 @@
         _collectionView.bounces = NO;
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
-        [_collectionView registerClass:[GCReplyAddImageCell class] forCellWithReuseIdentifier:@"GCReplyAddImageCell"];
+        [_collectionView registerClass:[GCAddImageCell class] forCellWithReuseIdentifier:@"GCAddImageCell"];
     }
     return _collectionView;
 }
