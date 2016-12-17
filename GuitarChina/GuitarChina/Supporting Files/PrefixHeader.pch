@@ -21,6 +21,7 @@
 #import "DKNightVersion.h"
 #import <MagicalRecord/MagicalRecord.h>
 #import "GCNetworkManager.h"
+#import "GCNetworkCache.h"
 #import "GCColor.h"
 #import "UIView+UICreateFactory.h"
 #import "NSString+Tools.h"

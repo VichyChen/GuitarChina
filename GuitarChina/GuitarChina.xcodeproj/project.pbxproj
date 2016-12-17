@@ -41,6 +41,9 @@
 		0488C0AA1C795E7200920E72 /* JsonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A91C795E7200920E72 /* JsonTool.m */; };
 		048C3BBB1D583557000FCCFB /* UIImage+CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C3BBA1D583557000FCCFB /* UIImage+CommonMethods.m */; };
 		048D45081DD1BE1500A7824F /* GCAddImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D45071DD1BE1500A7824F /* GCAddImageCell.m */; };
+		049085091E0395CF00CF5C1C /* GCNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 049085081E0395CF00CF5C1C /* GCNetworkCache.m */; };
+		049085141E03EE8000CF5C1C /* UITableViewCell+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 049085111E03EE8000CF5C1C /* UITableViewCell+Extension.m */; };
+		049085151E03EE8000CF5C1C /* GCTableViewDataDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 049085131E03EE8000CF5C1C /* GCTableViewDataDelegate.m */; };
 		04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
 		04C0D4E71DD41A2A007A5113 /* UIImage+ZLPhotoLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4A31DD41A2A007A5113 /* UIImage+ZLPhotoLib.m */; };
 		04C0D4E81DD41A2A007A5113 /* UIView+ZLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4A51DD41A2A007A5113 /* UIView+ZLExtension.m */; };
@@ -261,6 +264,12 @@
 		048C3BBA1D583557000FCCFB /* UIImage+CommonMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CommonMethods.m"; sourceTree = "<group>"; };
 		048D45061DD1BE1500A7824F /* GCAddImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAddImageCell.h; sourceTree = "<group>"; };
 		048D45071DD1BE1500A7824F /* GCAddImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAddImageCell.m; sourceTree = "<group>"; };
+		049085071E0395CF00CF5C1C /* GCNetworkCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkCache.h; sourceTree = "<group>"; };
+		049085081E0395CF00CF5C1C /* GCNetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNetworkCache.m; sourceTree = "<group>"; };
+		049085101E03EE8000CF5C1C /* UITableViewCell+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Extension.h"; sourceTree = "<group>"; };
+		049085111E03EE8000CF5C1C /* UITableViewCell+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Extension.m"; sourceTree = "<group>"; };
+		049085121E03EE8000CF5C1C /* GCTableViewDataDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCTableViewDataDelegate.h; sourceTree = "<group>"; };
+		049085131E03EE8000CF5C1C /* GCTableViewDataDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCTableViewDataDelegate.m; sourceTree = "<group>"; };
 		04AF910D1BE8FAF10030AEEB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		04C0D4A21DD41A2A007A5113 /* UIImage+ZLPhotoLib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZLPhotoLib.h"; sourceTree = "<group>"; };
 		04C0D4A31DD41A2A007A5113 /* UIImage+ZLPhotoLib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZLPhotoLib.m"; sourceTree = "<group>"; };
@@ -735,6 +744,17 @@
 				047150ED1BF03B2A007A8890 /* SVRadialGradientLayer.m */,
 			);
 			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		0490850F1E03EE8000CF5C1C /* GCTableViewDataDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				049085121E03EE8000CF5C1C /* GCTableViewDataDelegate.h */,
+				049085131E03EE8000CF5C1C /* GCTableViewDataDelegate.m */,
+				049085101E03EE8000CF5C1C /* UITableViewCell+Extension.h */,
+				049085111E03EE8000CF5C1C /* UITableViewCell+Extension.m */,
+			);
+			path = GCTableViewDataDelegate;
 			sourceTree = "<group>";
 		};
 		04B692B91C4643BB00913629 /* Supporting Files */ = {
@@ -1389,6 +1409,7 @@
 		4219A6611B9A7C67005D2164 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0490850F1E03EE8000CF5C1C /* GCTableViewDataDelegate */,
 				046DB7641BFC6F9700E05E17 /* Hpple */,
 				0462623A1BAAC06800E66F03 /* Foundation */,
 				0462623D1BAAC06800E66F03 /* UIView */,
@@ -1668,6 +1689,8 @@
 				421191C61CE6D16600BCFF3E /* GCNetworkBase.m */,
 				428260661B84CE03007CBCF4 /* GCNetworkManager.h */,
 				428260671B84CE03007CBCF4 /* GCNetworkManager.m */,
+				049085071E0395CF00CF5C1C /* GCNetworkCache.h */,
+				049085081E0395CF00CF5C1C /* GCNetworkCache.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1901,6 +1924,7 @@
 				04C0D4F21DD41A2A007A5113 /* ZLPhotoPickerBrowserViewController.m in Sources */,
 				0479424E1DA0076900E810DF /* GCForumIndexCollectionViewCell.m in Sources */,
 				423888F11BC57D0F002E1625 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
+				049085151E03EE8000CF5C1C /* GCTableViewDataDelegate.m in Sources */,
 				04C0D4EC1DD41A2A007A5113 /* ZLCameraImageView.m in Sources */,
 				04C0D4ED1DD41A2A007A5113 /* ZLCameraView.m in Sources */,
 				04C0D4E81DD41A2A007A5113 /* UIView+ZLExtension.m in Sources */,
@@ -1997,9 +2021,11 @@
 				042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */,
 				047942531DA00A5B00E810DF /* GCForumIndexCollectionReusableView.m in Sources */,
 				04C0D4EF1DD41A2A007A5113 /* ZLPhotoPickerBrowserPhoto.m in Sources */,
+				049085091E0395CF00CF5C1C /* GCNetworkCache.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,
 				4211928B1CE85D7D00BCFF3E /* GCUserProtocolViewController.m in Sources */,
 				421192351CE85D0800BCFF3E /* GCHTMLParse.m in Sources */,
+				049085141E03EE8000CF5C1C /* UITableViewCell+Extension.m in Sources */,
 				421192891CE85D7D00BCFF3E /* GCUserInfoViewController.m in Sources */,
 				04C0D4F61DD41A2A007A5113 /* ZLPhotoPickerCustomToolBarView.m in Sources */,
 				423888F91BC57D0F002E1625 /* DGActivityIndicatorBallRotateAnimation.m in Sources */,
