@@ -61,4 +61,6 @@
 //打开AppStore评论页面
 + (void)openScorePageInAppStore:(NSString *)appleID;
 
++ (void)openAppInAppStore:(NSString *)appleID;
+
 @end

@@ -133,4 +133,10 @@
     [[UIApplication sharedApplication] openURL:url];
 }
 
++ (void)openAppInAppStore:(NSString *)appleID {
+    NSString *urlString = [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id%@", appleID];
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 @end

@@ -53,6 +53,13 @@
 
 @implementation GCThreadDetailViewController
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
 - (void)loadView {
     [super loadView];
 }

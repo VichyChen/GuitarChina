@@ -9,7 +9,7 @@
 #import "GCUserViewController.h"
 #import "GCMineHeaderCell.h"
 #import "GCMineCell.h"
-#import "GCUserOtherViewController.h"
+#import "GCSettingViewController.h"
 #import "GCUserInfoViewController.h"
 #import "GCMyThreadViewController.h"
 #import "GCMyFavThreadViewController.h"
@@ -33,23 +33,8 @@
     self.username = [NSUD stringForKey:kGCLoginName];
     self.userLevel = [NSUD stringForKey:kGCLoginLevel];
     
-    @weakify(self);
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] bk_initWithImage:[[UIImage imageNamed:@"icon_exit"] imageWithTintColor:[GCColor grayColor1]] style:UIBarButtonItemStyleDone handler:^(id sender) {
-        [UIAlertView bk_showAlertViewWithTitle:NSLocalizedString(@"Are you sure you want to exit?", nil) message:@"" cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@[NSLocalizedString(@"OK", nil)] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
-            @strongify(self);
-            if (buttonIndex == 1) {
-                [self logoutAction];
-            }
-        }];
-    }];
-    self.navigationItem.rightBarButtonItem.tintColor = [GCColor fontColor];
-    
     [self configureView];
     [self configureNotification];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 - (void)dealloc {
@@ -185,13 +170,12 @@
                 break;
                 
             case 3://注销
-                [self logoutAction];
                 
                 break;
         }
     } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {//其它
-            GCUserOtherViewController *userOtherViewController = [[GCUserOtherViewController alloc] init];
+            GCSettingViewController *userOtherViewController = [[GCSettingViewController alloc] init];
             userOtherViewController.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:userOtherViewController animated:YES];
         }
@@ -211,16 +195,6 @@
     self.username = [NSUD stringForKey:kGCLoginName];
     self.userLevel = [NSUD stringForKey:kGCLoginLevel];
     [self.tableView reloadData];
-}
-
-- (void)logoutAction {
-    [Util clearCookie];
-    APP.tabBarController.selectedIndex = 0;
-    [NSUD setObject:@"0" forKey:kGCLogin];
-    [NSUD setObject:@"" forKey:kGCLoginName];
-    [NSUD synchronize];
-
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Getters

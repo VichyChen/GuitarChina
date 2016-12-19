@@ -10,7 +10,7 @@
 #import "GCAboutCell.h"
 #import "GCThreadDetailViewController.h"
 #import "GCLoginViewController.h"
-#import "GCUserOtherViewController.h"
+#import "GCSettingViewController.h"
 #import "GCMyThreadViewController.h"
 #import "GCMyFavThreadViewController.h"
 
@@ -87,7 +87,6 @@
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 50, 50)];
         imageView.clipsToBounds = YES;
         imageView.layer.cornerRadius = 8;
-        [imageView sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_URL_BIGAVTARIMAGE([NSUD stringForKey:kGCLoginID])]];
         [view addSubview:imageView];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -98,10 +97,12 @@
         [view addSubview:button];
         if ([[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
             [button setTitle:[NSUD stringForKey:kGCLoginName] forState:UIControlStateNormal];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_URL_BIGAVTARIMAGE([NSUD stringForKey:kGCLoginID])]];
             button.titleLabel.font = [UIFont systemFontOfSize:16];
         } else {
             [button setTitle:@"未登录" forState:UIControlStateNormal];
             button.titleLabel.font = [UIFont systemFontOfSize:15];
+
         }
 
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 79.5, ScreenWidth, 0.5)];
@@ -174,39 +175,39 @@
             }
             break;
             
-        case 1:
-            switch (indexPath.row) {
-                case 0://吉他中国
-                {
-                    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
-                    controller.hidesBottomBarWhenPushed = YES;
-                    controller.tid = @"58664";
-                    [self.navigationController pushViewController:controller animated:YES];
-                    
-                    break;
-                }
-                case 1://琴国乐器
-                {
-                    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
-                    controller.hidesBottomBarWhenPushed = YES;
-                    controller.tid = @"1790525";
-                    [self.navigationController pushViewController:controller animated:YES];
-                    
-                    break;
-                }
-                case 2://蘑菇音乐
-                {
-                    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
-                    controller.hidesBottomBarWhenPushed = YES;
-                    controller.tid = @"2040865";
-                    [self.navigationController pushViewController:controller animated:YES];
-
-                    break;
-                }
-            }
-            break;
+//        case 1:
+//            switch (indexPath.row) {
+//                case 0://吉他中国
+//                {
+//                    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+//                    controller.hidesBottomBarWhenPushed = YES;
+//                    controller.tid = @"58664";
+//                    [self.navigationController pushViewController:controller animated:YES];
+//                    
+//                    break;
+//                }
+//                case 1://琴国乐器
+//                {
+//                    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+//                    controller.hidesBottomBarWhenPushed = YES;
+//                    controller.tid = @"1790525";
+//                    [self.navigationController pushViewController:controller animated:YES];
+//                    
+//                    break;
+//                }
+//                case 2://蘑菇音乐
+//                {
+//                    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+//                    controller.hidesBottomBarWhenPushed = YES;
+//                    controller.tid = @"2040865";
+//                    [self.navigationController pushViewController:controller animated:YES];
+//
+//                    break;
+//                }
+//            }
+//            break;
             
-        case 2:
+        case 1:
             switch (indexPath.row) {
                 case 0://开发信息
                 {
@@ -234,7 +235,7 @@
                 }
                 case 3:
                 {
-                    GCUserOtherViewController *userOtherViewController = [[GCUserOtherViewController alloc] init];
+                    GCSettingViewController *userOtherViewController = [[GCSettingViewController alloc] init];
                     userOtherViewController.hidesBottomBarWhenPushed = YES;
                     [self.navigationController pushViewController:userOtherViewController animated:YES];
 
@@ -246,30 +247,6 @@
 }
 
 #pragma mark - Event Responses
-
-- (void)nightModeAction:(id)sender {
-    UISwitch *switchView = (UISwitch *)sender;
-    [NSUD setBool:switchView.on forKey:kGCNightMode];
-    [NSUD synchronize];
-    
-    if (switchView.on) {
-        [DKNightVersionManager nightFalling];
-    } else {
-        [DKNightVersionManager dawnComing];
-    }
-}
-
-- (void)autoSwitchNightModeAction:(id)sender {
-    UISwitch *switchView = (UISwitch *)sender;
-    [NSUD setBool:switchView.on forKey:kGCAutoSwitchNightMode];
-    [NSUD synchronize];
-}
-
-- (void)loadImageAction:(id)sender {
-    UISwitch *switchView = (UISwitch *)sender;
-    [NSUD setBool:switchView.on forKey:kGCLoadImage];
-    [NSUD synchronize];
-}
 
 - (void)loginAction {
     if (![[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
@@ -309,25 +286,21 @@
         NSDictionary *myTheme = @{@"title" : NSLocalizedString(@"My Theme", nil), @"enable" : @YES };
         NSDictionary *myFavour = @{@"title" : NSLocalizedString(@"My Favour", nil), @"enable" : @YES };
 
-        NSDictionary *guitarchina = @{@"title" : NSLocalizedString(@"GuitarChina", nil), @"enable" : @YES };
-        NSDictionary *musicInstrument = @{@"title" : NSLocalizedString(@"Musical Instruments", nil), @"enable" : @YES };
-        NSDictionary *mushroomMusic = @{@"title" : NSLocalizedString(@"Mushroom Music", nil), @"enable" : @YES };
-        NSDictionary *guitarChinaTaobao = @{@"title" : NSLocalizedString(@"Taobao", nil), @"enable" : @YES };
-        NSDictionary *guitarChinaWeixin = @{@"title" : NSLocalizedString(@"WechatShop", nil), @"enable" : @YES };
-        NSDictionary *weibo = @{@"title" : NSLocalizedString(@"Weibo", nil), @"enable" : @YES };
-        NSDictionary *weixin = @{@"title" : NSLocalizedString(@"Wechat", nil), @"enable" : @YES };
+//        NSDictionary *guitarchina = @{@"title" : NSLocalizedString(@"GuitarChina", nil), @"enable" : @YES };
+//        NSDictionary *musicInstrument = @{@"title" : NSLocalizedString(@"Musical Instruments", nil), @"enable" : @YES };
+//        NSDictionary *mushroomMusic = @{@"title" : NSLocalizedString(@"Mushroom Music", nil), @"enable" : @YES };
 
         NSDictionary *developer = @{@"title" : NSLocalizedString(@"Information Development", nil), @"enable" : @YES };
         NSDictionary *feedback = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES };
         NSDictionary *score = @{@"title" : NSLocalizedString(@"To Score", nil), @"enable" : @YES };
         NSDictionary *setting = @{@"title" : NSLocalizedString(@"Setting", nil), @"enable" : @YES };
-        NSDictionary *version = @{@"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]], @"enable" : @NO };
+//        NSDictionary *version = @{@"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]], @"enable" : @NO };
         
         NSDictionary *meDictionary = @{NSLocalizedString(@"Me", nil) : @[myTheme, myFavour] };
-        NSDictionary *officialDictionary = @{ NSLocalizedString(@"Official", nil) : @[guitarchina, musicInstrument, mushroomMusic] };
-        NSDictionary *othersDictionary = @{ NSLocalizedString(@"Others", nil) : @[developer, feedback, score, setting, version] };
+//        NSDictionary *officialDictionary = @{ NSLocalizedString(@"Official", nil) : @[guitarchina, musicInstrument, mushroomMusic] };
+        NSDictionary *othersDictionary = @{ NSLocalizedString(@"Others", nil) : @[developer, feedback, score, setting] };
         
-        _array = @[meDictionary, officialDictionary, othersDictionary];
+        _array = @[meDictionary, othersDictionary];
     }
     
     return _array;

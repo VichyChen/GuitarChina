@@ -10,37 +10,18 @@
 
 @implementation UITableViewCell (Extension)
 
-#pragma mark --
-+ (UINib *)nibWithIdentifier:(NSString *)identifier
-{
-    return [UINib nibWithNibName:identifier bundle:nil];
-}
-
-#pragma mark - Public
-+ (void)registerTable:(UITableView *)table
-        nibIdentifier:(NSString *)identifier
-{
-    [table registerNib:[self nibWithIdentifier:identifier] forCellReuseIdentifier:identifier] ;
-}
-
-#pragma mark --
-#pragma mark - Rewrite these func in SubClass !
 - (void)configure:(UITableViewCell *)cell
-        customObj:(id)obj
-        indexPath:(NSIndexPath *)indexPath
-{
-    // Rewrite this func in SubClass !
-    
+        customObj:(id)object
+        indexPath:(NSIndexPath *)indexPath {
+
 }
 
-+ (CGFloat)getCellHeightWithCustomObj:(id)obj
-                            indexPath:(NSIndexPath *)indexPath
-{
-    // Rewrite this func in SubClass if necessary
-    if (!obj) {
-        return 0.0f ; // if obj is null .
++ (CGFloat)getCellHeightWithCustomObject:(id)object
+                            indexPath:(NSIndexPath *)indexPath {
+    if (object) {
+        return 44.0f;
     }
-    return 44.0f ; // default cell height
+    return 0.0f;
 }
 
 @end
