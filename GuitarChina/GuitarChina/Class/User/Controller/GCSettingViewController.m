@@ -27,7 +27,6 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title = NSLocalizedString(@"Setting", nil);
     
-    
     [self configureView];
 }
 
@@ -40,13 +39,14 @@
 #pragma mark - Event Responses
 
 - (void)logoutAction {
-    [UIAlertView bk_showAlertViewWithTitle:NSLocalizedString(@"确定要退出帐号吗？", nil) message:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@[NSLocalizedString(@"OK", nil)] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+    [UIAlertView bk_showAlertViewWithTitle:NSLocalizedString(@"Are you sure you want to exit?", nil) message:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@[NSLocalizedString(@"OK", nil)] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
         if (buttonIndex == 1) {
             [Util clearCookie];
             [NSUD setObject:@"0" forKey:kGCLogin];
             [NSUD setObject:@"" forKey:kGCLoginName];
             [NSUD synchronize];
-            [self.navigationController popViewControllerAnimated:YES];
+            [self.navigationController popViewControllerAnimated:NO];
+            APP.tabBarController.selectedIndex = 0;
         }
     }];
 }
@@ -90,11 +90,7 @@
             mineCell.titleLabel.text = dictionary[@"title"];
         };
         self.tableViewKit.heightForRowBlock = ^(NSIndexPath *indexPath, id item) {
-            if (indexPath.row == self.array.count - 1 && [[NSUD stringForKey:kGCLogin] isEqualToString:@"0"]) {
-                return 0.0;
-            } else {
-                return 44.0;
-            }
+            return 44.0;
         };
         self.tableViewKit.didSelectCellBlock = ^(NSIndexPath *indexPath, id item) {
             @strongify(self);

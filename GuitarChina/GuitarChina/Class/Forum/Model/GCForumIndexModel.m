@@ -72,7 +72,7 @@
         for (NSDictionary *item in forums) {
             GCForumModel *forumModel = [[GCForumModel alloc] init];
             forumModel.fid        = [item objectForKey:@"fid"];
-            forumModel.name       = [item objectForKey:@"name"];
+            forumModel.name       = [[item objectForKey:@"name"] replace:@"&amp;" toNewString:@"&"];
             forumModel.threads    = [item objectForKey:@"threads"];
             forumModel.posts      = [item objectForKey:@"posts"];
             forumModel.todayposts = [item objectForKey:@"todayposts"];
@@ -83,7 +83,7 @@
                 //                [string insertString:@"<br>" atIndex:range.location];
                 string = [string substringFrom:0 toIndex:range.location];
             }
-            forumModel.descript = string;
+            forumModel.descript = [string replace:@"&nbsp;" toNewString:@" "];
             
             [forumsDictionary setObject:forumModel forKey:[item objectForKey:@"fid"]];
         }

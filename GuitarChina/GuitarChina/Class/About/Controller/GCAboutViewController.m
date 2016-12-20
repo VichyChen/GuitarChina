@@ -92,6 +92,7 @@
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = CGRectMake(80, 30, 200, 20);
+        button.enabled = NO;
         button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         [button setTitleColor:[GCColor fontColor] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(loginAction) forControlEvents:UIControlEventTouchUpInside];
@@ -103,12 +104,18 @@
         } else {
             [button setTitle:@"未登录" forState:UIControlStateNormal];
             button.titleLabel.font = [UIFont systemFontOfSize:15];
-
+            //
         }
 
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 79.5, ScreenWidth, 0.5)];
         line.backgroundColor = [GCColor separatorLineColor];
         [view addSubview:line];
+        
+        @weakify(self);
+        [view bk_whenTapped:^{
+            @strongify(self);
+            [self loginAction];
+        }];
         
         return view;
     } else {
