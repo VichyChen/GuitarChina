@@ -24,8 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title = NSLocalizedString(@"Setting", nil);
-    self.view.backgroundColor = [GCColor backgroundColor];
+    
     
     [self configureView];
 }
@@ -55,12 +56,30 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
-        _tableView.tableFooterView = [[UIView alloc] init];
+        _tableView.backgroundColor = [GCColor backgroundColor];
+
+        UIView *footerView = [[UIView alloc] init];
+        
+        if ([[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
+            footerView.frame = CGRectMake(0, 0, ScreenWidth, 80);
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+            button.frame = CGRectMake(0, 20, ScreenWidth, 40);
+            button.backgroundColor = [UIColor whiteColor];
+            [button setTitleColor:[GCColor redColor] forState:UIControlStateNormal];
+            button.titleLabel.font = [UIFont systemFontOfSize:16];
+            [button setTitle:NSLocalizedString(@"Logout Account", nil) forState:UIControlStateNormal];
+            [button addTarget:self action:@selector(logoutAction) forControlEvents:UIControlEventTouchUpInside];
+            [footerView addSubview:button];
+        }
+        
+        _tableView.tableFooterView = footerView;
+
+        
         if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [_tableView setSeparatorInset:UIEdgeInsetsZero];
+            [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 13, 0, 0)];
         }
         if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-            [_tableView setLayoutMargins:UIEdgeInsetsZero];
+            [_tableView setLayoutMargins:UIEdgeInsetsMake(0, 13, 0, 0)];
         }
         
         self.tableViewKit = [[GCTableViewKit alloc] initWithItems:self.array cellType:ConfigureCellTypeClass cellIdentifier:@"GCMineCell"];
@@ -96,7 +115,7 @@
 
 - (NSArray *)array {
     if (!_array) {
-        _array = @[@{@"image" : @"", @"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]]}, @{@"image" : @"icon_law", @"title" :NSLocalizedString(@"Logout Account", nil)}];
+        _array = @[@{@"image" : @"", @"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]]}];
     }
     return _array;
 }

@@ -28,7 +28,7 @@
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"About", nil);
-    self.view.backgroundColor = [GCColor backgroundColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeAll;
     
     [self configureView];
@@ -83,6 +83,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 80)];
+        view.backgroundColor = [UIColor whiteColor];
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 50, 50)];
         imageView.clipsToBounds = YES;

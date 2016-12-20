@@ -11,7 +11,7 @@
 @implementation GCColor
 
 + (UIColor *)backgroundColor {
-    return [UIColor whiteColor];
+    return [UIColor colorWithRed:0.960 green:0.960 blue:0.960 alpha:1.00];
 }
 
 + (UIColor *)fontColor {

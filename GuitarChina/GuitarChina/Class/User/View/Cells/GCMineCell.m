@@ -20,7 +20,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         self.clipsToBounds = YES;
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
         self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];

@@ -25,7 +25,7 @@
                                      forBarMetrics:UIBarMetricsDefault];
     self.navigationItem.backBarButtonItem = backItem;
     
-    self.view.backgroundColor = [GCColor backgroundColor];
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {

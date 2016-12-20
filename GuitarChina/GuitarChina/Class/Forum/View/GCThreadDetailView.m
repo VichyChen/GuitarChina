@@ -180,7 +180,7 @@
 - (UIView *)toolBarView {
     if (!_toolBarView) {
         _toolBarView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 64 - 40, ScreenWidth, 40)];
-        _toolBarView.backgroundColor = [GCColor backgroundColor];
+        _toolBarView.backgroundColor = [UIColor whiteColor];
         _toolBarView.alpha = 0.0f;
         [_toolBarView addSubview:self.pageButton];
         [_toolBarView addSubview:self.previousPageButton];

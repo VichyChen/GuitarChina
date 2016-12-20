@@ -38,12 +38,13 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+        _tableView.backgroundColor = [GCColor backgroundColor];
         _tableView.tableFooterView = [[UIView alloc] init];
         if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [_tableView setSeparatorInset:UIEdgeInsetsZero];
+            [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 13, 0, 0)];
         }
         if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-            [_tableView setLayoutMargins:UIEdgeInsetsZero];
+            [_tableView setLayoutMargins:UIEdgeInsetsMake(0, 13, 0, 0)];
         }
 
         self.tableViewKit = [[GCTableViewKit alloc] initWithItems:self.array cellType:ConfigureCellTypeClass cellIdentifier:@"OfficialCell"];

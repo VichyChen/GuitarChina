@@ -33,7 +33,7 @@
     
     self.leftImageView.frame = CGRectMake(15, 12, 20, 20);
     self.titleLabel.frame = CGRectMake(15, 0, ScreenWidth - 80, 44);
-    self.separatorViewBottom.frame = CGRectMake(0, 43.5, ScreenWidth, 0.5);
+    self.separatorViewBottom.frame = CGRectMake(13, 43.5, ScreenWidth - 13, 0.5);
 }
 
 - (void)configureView {

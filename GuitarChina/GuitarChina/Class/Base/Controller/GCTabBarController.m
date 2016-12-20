@@ -120,7 +120,7 @@
     pageVC.titleSizeNormal = 15;
     pageVC.pageAnimatable = YES;
     pageVC.menuHeight = 40;
-    pageVC.menuViewStyle = WMMenuViewStyleLine;
+    pageVC.menuViewStyle = WMMenuViewStyleDefault;
     pageVC.titleColorSelected = [GCColor redColor];
     pageVC.titleColorNormal = [GCColor grayColor1];
     pageVC.progressColor = [GCColor redColor];

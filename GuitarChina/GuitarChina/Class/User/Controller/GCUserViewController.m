@@ -27,7 +27,7 @@
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"Me", nil);
-    self.view.backgroundColor = [GCColor backgroundColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     self.userID = [NSUD stringForKey:kGCLoginID];
     self.username = [NSUD stringForKey:kGCLoginName];
@@ -109,7 +109,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 28)];
-    view.backgroundColor = [GCColor backgroundColor];
+    view.backgroundColor = [UIColor whiteColor];
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 28, ScreenWidth, 0.5)];
     line.backgroundColor = [GCColor separatorLineColor];
     [view addSubview:line];
@@ -202,7 +202,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
-        _tableView.backgroundColor = [GCColor backgroundColor];
+        _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.dataSource = self;
         _tableView.delegate = self;
