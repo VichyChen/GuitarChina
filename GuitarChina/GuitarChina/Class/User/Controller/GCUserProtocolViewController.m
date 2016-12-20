@@ -28,10 +28,6 @@
     [self configureView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark - Private Methods
 
 - (void)configureView {

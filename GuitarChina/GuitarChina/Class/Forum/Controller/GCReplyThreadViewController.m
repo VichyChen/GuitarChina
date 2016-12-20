@@ -24,10 +24,6 @@
     [self configureView];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark - Event Responses
 
 - (void)closeAction {

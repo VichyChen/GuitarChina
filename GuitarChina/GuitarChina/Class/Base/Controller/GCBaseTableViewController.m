@@ -66,10 +66,6 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 #pragma mark - Public Methods
 
 - (void)beginRefresh {
