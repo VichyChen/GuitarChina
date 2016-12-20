@@ -46,7 +46,7 @@
     discoveryNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_home"] imageWithTintColor:[GCColor grayColor4]];
     discoveryNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_home"] imageWithTintColor:[GCColor redColor]];
     
-    GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] init];
     GCNavigationController *forumIndexNavigationController = [[GCNavigationController alloc] initWithRootViewController:forumIndexViewController];
     forumIndexNavigationController.tabBarItem.title = NSLocalizedString(@"Forum", nil);
     forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_forum"] imageWithTintColor:[GCColor grayColor4]];

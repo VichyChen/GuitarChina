@@ -25,8 +25,8 @@
 + (void)getForumIndexSuccess:(void (^)(GCForumIndexArray *array))success
                      failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] get:GCNETWORKAPI_GET_FORUMINDEX parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //[NSUD setObject:operation.responseString forKey:@"ForumIndexCache"];
-        //[NSUD synchronize];
+        [NSUD setObject:operation.responseString forKey:kForumIndexCache];
+        [NSUD synchronize];
         GCForumIndexArray *array = [[GCForumIndexArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
         success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

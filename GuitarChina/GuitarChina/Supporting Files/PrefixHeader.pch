@@ -61,6 +61,9 @@
 //Notification
 static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSuccess";
 
+//Network Cache
+#define kForumIndexCache @"ForumIndexCache"
+
 /* 第三方 */
 
 //微信appid

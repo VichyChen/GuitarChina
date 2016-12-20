@@ -57,7 +57,7 @@
     switch (self.configureStyle) {
         case ConfigureStyleSystem:
             if (self.numberOfRowsInSectionBlock) {
-                self.numberOfRowsInSectionBlock(section);
+                return self.numberOfRowsInSectionBlock(section);
             }
             break;
             
@@ -65,7 +65,7 @@
             return self.items.count ;
             break;
     }
-
+    
     return 0;
 }
 
@@ -74,7 +74,7 @@
         case ConfigureStyleSystem:
         {
             if (self.cellForRowAtIndexPathBlock) {
-                self.cellForRowAtIndexPathBlock(indexPath);
+                return self.cellForRowAtIndexPathBlock(indexPath);
             }
         }
             break;
@@ -129,34 +129,34 @@
         }
             break;
     }
-
+    
     return 0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (self.viewForHeaderInSectionBlock) {
-        self.viewForHeaderInSectionBlock(section);
+        return self.viewForHeaderInSectionBlock(section);
     }
     return nil;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (self.viewForFooterInSectionBlock) {
-        self.viewForFooterInSectionBlock(section);
+        return self.viewForFooterInSectionBlock(section);
     }
     return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (self.heightForHeaderInSectionBlock) {
-        self.heightForHeaderInSectionBlock(section);
+        return self.heightForHeaderInSectionBlock(section);
     }
     return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (self.heightForFooterInSectionBlock) {
-        self.heightForFooterInSectionBlock(section);
+        return self.heightForFooterInSectionBlock(section);
     }
     return 0;
 }
