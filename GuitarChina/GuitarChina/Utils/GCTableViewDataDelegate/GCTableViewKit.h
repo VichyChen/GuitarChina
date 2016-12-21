@@ -17,7 +17,12 @@ typedef NS_ENUM(NSInteger, ConfigureCellType) {
     ConfigureCellTypeClass
 };
 
+//Custom
+typedef void (^CellForRowBlock)(NSIndexPath *indexPath, id item, UITableViewCell *cell);
+typedef CGFloat (^HeightForRowBlock)(NSIndexPath *indexPath, id item);
+typedef void (^DidSelectRowBlock)(NSIndexPath *indexPath, id item);
 
+//System
 //UITableViewDataSource
 typedef NSInteger (^NumberOfSectionsInTableViewBlock)(void);
 typedef NSInteger (^NumberOfRowsInSectionBlock)(NSInteger section);
@@ -29,10 +34,6 @@ typedef CGFloat (^HeightForHeaderInSectionBlock)(NSInteger section);
 typedef UIView* (^ViewForFooterInSectionBlock)(NSInteger section);
 typedef CGFloat (^HeightForFooterInSectionBlock)(NSInteger section);
 typedef void (^DidSelectRowAtIndexPathBlock)(NSIndexPath *indexPath);
-//Custom
-typedef void (^CellForRowBlock)(NSIndexPath *indexPath, id item, UITableViewCell *cell);
-typedef CGFloat (^HeightForRowBlock)(NSIndexPath *indexPath, id item);
-typedef void (^DidSelectRowBlock)(NSIndexPath *indexPath, id item);
 
 
 @interface GCTableViewKit : NSObject <UITableViewDelegate,UITableViewDataSource>
@@ -44,6 +45,11 @@ typedef void (^DidSelectRowBlock)(NSIndexPath *indexPath, id item);
 @property (nonatomic, assign) ConfigureCellType configureCellType;
 @property (nonatomic, copy) NSString *cellIdentifier;
 
+@property (nonatomic, copy) CellForRowBlock cellForRowBlock;
+@property (nonatomic, copy) HeightForRowBlock heightForRowBlock;
+@property (nonatomic, copy) DidSelectRowBlock didSelectCellBlock;
+
+//System
 //UITableViewDataSource
 @property (nonatomic, copy) NumberOfSectionsInTableViewBlock numberOfSectionsInTableViewBlock;
 @property (nonatomic, copy) NumberOfRowsInSectionBlock numberOfRowsInSectionBlock;
@@ -55,10 +61,6 @@ typedef void (^DidSelectRowBlock)(NSIndexPath *indexPath, id item);
 @property (nonatomic, copy) ViewForFooterInSectionBlock viewForFooterInSectionBlock;
 @property (nonatomic, copy) HeightForFooterInSectionBlock heightForFooterInSectionBlock;
 @property (nonatomic, copy) DidSelectRowAtIndexPathBlock didSelectRowAtIndexPathBlock;
-//Custom
-@property (nonatomic, copy) CellForRowBlock cellForRowBlock;
-@property (nonatomic, copy) HeightForRowBlock heightForRowBlock;
-@property (nonatomic, copy) DidSelectRowBlock didSelectCellBlock;
 
 - (id)initWithSystem;
 

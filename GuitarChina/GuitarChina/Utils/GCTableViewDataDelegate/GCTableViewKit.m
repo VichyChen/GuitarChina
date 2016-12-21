@@ -7,7 +7,6 @@
 
 @interface GCTableViewKit ()
 
-
 @end
 
 @implementation GCTableViewKit
@@ -182,7 +181,6 @@
         }
             break;
     }
-    
 }
 
 @end

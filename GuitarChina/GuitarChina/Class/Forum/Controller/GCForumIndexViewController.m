@@ -27,23 +27,72 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.rowHeightDictionary = [NSMutableDictionary dictionary];
     
     self.title = NSLocalizedString(@"Forum", nil);
-    self.view.backgroundColor = [UIColor whiteColor];
     
     [self configureView];
     
+    @weakify(self);
     [GCNetworkCache getForumIndex:^(GCForumIndexArray *array) {
+        @strongify(self);
+        self.data = array.data;
+        
+        //增加最近浏览分类
+        //最近浏览记录
+        GCForumGroupModel *forumGroupModel = [self getForumBrowseRecord:array];
+        if (forumGroupModel) {
+            [self.data insertObject:forumGroupModel atIndex:0];
+        }
+        //计算高度
+        [self calculateRowHeight];
+        
+        [self.tableView reloadData];
     }];
 
-    [self.tableView.header beginRefreshing];
+    [self getForumIndex];
 }
 
 #pragma mark - Private Methods
 
 - (void)configureView {
     [self.view addSubview:self.tableView];
+}
+
+- (void)calculateRowHeight {
+    self.rowHeightDictionary = [NSMutableDictionary dictionary];
+    for (int i = 0; i < self.data.count; i++) {
+        GCForumGroupModel *model = (GCForumGroupModel *)self.data[i];
+        NSMutableArray *heightArray = [NSMutableArray array];
+        for (GCForumModel *forumModel in model.forums) {
+            [heightArray addObject: [NSNumber numberWithFloat:[GCForumIndexCell getCellHeightWithModel:forumModel]]];
+        }
+        [self.rowHeightDictionary setObject:heightArray forKey:[NSNumber numberWithInt:i]];
+    }
+}
+
+- (GCForumGroupModel *)getForumBrowseRecord:(GCForumIndexArray *)array {
+    NSArray *browseArray = [NSUD arrayForKey:kGCForumBrowseRecord] ? [NSUD arrayForKey:kGCForumBrowseRecord] : @[];
+    if (browseArray.count > 0) {
+        GCForumGroupModel *forumGroupModel = [[GCForumGroupModel alloc] init];
+        forumGroupModel.fid = @"0";
+        forumGroupModel.name = @"最近浏览";
+        forumGroupModel.forums = [NSMutableArray arrayWithArray:browseArray];
+        for (GCForumGroupModel *tempForumGroupModel in array.data) {
+            for (GCForumModel *tempForumModel in tempForumGroupModel.forums) {
+                if ([browseArray containsObject:tempForumModel.fid]) {
+                    for (int i = 0; i < browseArray.count; i++) {
+                        if ([browseArray[i] isEqualToString:tempForumModel.fid]) {
+                            [forumGroupModel.forums replaceObjectAtIndex:i withObject:[tempForumModel copy]];
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        return forumGroupModel;
+    } else {
+        return nil;
+    }
 }
 
 #pragma mark - HTTP
@@ -54,36 +103,12 @@
         
         //增加最近浏览分类
         //最近浏览记录
-        NSArray *browseArray = [NSUD arrayForKey:kGCForumBrowseRecord] ? [NSUD arrayForKey:kGCForumBrowseRecord] : @[];
-        if (browseArray.count > 0) {
-            GCForumGroupModel *forumGroupModel = [[GCForumGroupModel alloc] init];
-            forumGroupModel.fid = @"0";
-            forumGroupModel.name = @"最近浏览";
-            forumGroupModel.forums = [NSMutableArray arrayWithArray:browseArray];
-            for (GCForumGroupModel *tempForumGroupModel in array.data) {
-                for (GCForumModel *tempForumModel in tempForumGroupModel.forums) {
-                    if ([browseArray containsObject:tempForumModel.fid]) {
-                        for (int i = 0; i < browseArray.count; i++) {
-                            if ([browseArray[i] isEqualToString:tempForumModel.fid]) {
-                                [forumGroupModel.forums replaceObjectAtIndex:i withObject:[tempForumModel copy]];
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
+        GCForumGroupModel *forumGroupModel = [self getForumBrowseRecord:array];
+        if (forumGroupModel) {
             [self.data insertObject:forumGroupModel atIndex:0];
         }
-        
-        [self.rowHeightDictionary removeAllObjects];
-        for (int i = 0; i < self.data.count; i++) {
-            GCForumGroupModel *model = (GCForumGroupModel *)self.data[i];
-            NSMutableArray *heightArray = [NSMutableArray array];
-            for (GCForumModel *forumModel in model.forums) {
-                [heightArray addObject: [NSNumber numberWithFloat:[GCForumIndexCell getCellHeightWithModel:forumModel]]];
-            }
-            [self.rowHeightDictionary setObject:heightArray forKey:[NSNumber numberWithInt:i]];
-        }
+        //计算高度
+        [self calculateRowHeight];
         
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
@@ -141,7 +166,7 @@
         self.tableViewKit.viewForHeaderInSectionBlock = ^(NSInteger section) {
             @strongify(self);
             UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
-            view.backgroundColor = [UIColor whiteColor];
+            view.backgroundColor = [GCColor backgroundColor];
             GCForumGroupModel *model = [self.data objectAtIndex:section];
             UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth, 40)
                                             text:[NSString stringWithFormat:@"%@", model.name]
