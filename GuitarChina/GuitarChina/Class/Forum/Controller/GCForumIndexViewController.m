@@ -49,7 +49,8 @@
         [self.tableView reloadData];
     }];
 
-    [self getForumIndex];
+//    [self getForumIndex];
+    [self.tableView.header beginRefreshing];
 }
 
 #pragma mark - Private Methods
@@ -166,7 +167,7 @@
         self.tableViewKit.viewForHeaderInSectionBlock = ^(NSInteger section) {
             @strongify(self);
             UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
-            view.backgroundColor = [GCColor backgroundColor];
+            view.backgroundColor = [UIColor whiteColor];
             GCForumGroupModel *model = [self.data objectAtIndex:section];
             UILabel *label = [UIView createLabel:CGRectMake(15, 0, ScreenWidth, 40)
                                             text:[NSString stringWithFormat:@"%@", model.name]

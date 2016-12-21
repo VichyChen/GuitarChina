@@ -15,11 +15,11 @@
     if (string) {
         GCForumIndexArray *array = [[GCForumIndexArray alloc] initWithDictionary:[[JsonTool jsonToDictionary:string] objectForKey:@"Variables"]];
         //清空今日帖子数
-        for (GCForumGroupModel *tempForumGroupModel in array.data) {
-            for (GCForumModel *tempForumModel in tempForumGroupModel.forums) {
-                tempForumModel.todayposts = @"0";
-            }
-        }
+//        for (GCForumGroupModel *tempForumGroupModel in array.data) {
+//            for (GCForumModel *tempForumModel in tempForumGroupModel.forums) {
+//                tempForumModel.todayposts = @"0";
+//            }
+//        }
         success(array);
     }
 }
