@@ -15,7 +15,7 @@
 #import "GCUserViewController.h"
 #import "GCAboutViewController.h"
 #import "GCSearchViewController.h"
-#import "OfficialViewController.h"
+#import "GCOfficialViewController.h"
 
 @interface GCTabBarController () <UITabBarControllerDelegate, WMPageControllerDataSource>
 
@@ -58,7 +58,7 @@
     userNavigationController.tabBarItem.image = [[UIImage imageNamed:@"icon_mine"] imageWithTintColor:[GCColor grayColor4]];
     userNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_mine"] imageWithTintColor:[GCColor redColor]];
     
-    OfficialViewController *officialViewController = [[OfficialViewController alloc] init];
+    GCOfficialViewController *officialViewController = [[GCOfficialViewController alloc] init];
     GCNavigationController *officialNavigationController = [[GCNavigationController alloc] initWithRootViewController:officialViewController];
     officialViewController.tabBarItem.title = NSLocalizedString(@"Official", nil);
     officialViewController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor grayColor4]];

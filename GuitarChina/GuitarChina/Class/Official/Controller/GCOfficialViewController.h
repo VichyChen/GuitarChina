@@ -1,5 +1,5 @@
 //
-//  OfficialViewController.h
+//  GCOfficialViewController.h
 //  GuitarChina
 //
 //  Created by mac on 16/12/17.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "GCBaseViewController.h"
 
-@interface OfficialViewController : GCBaseViewController
+@interface GCOfficialViewController : GCBaseViewController
 
 @end

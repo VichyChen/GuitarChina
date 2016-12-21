@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040212311E058E2D002D74F6 /* OfficialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040212301E058E2D002D74F6 /* OfficialViewController.m */; };
-		040212341E06DC3F002D74F6 /* OfficialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040212331E06DC3F002D74F6 /* OfficialCell.m */; };
+		040212311E058E2D002D74F6 /* GCOfficialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040212301E058E2D002D74F6 /* GCOfficialViewController.m */; };
+		040212341E06DC3F002D74F6 /* GCOfficialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040212331E06DC3F002D74F6 /* GCOfficialCell.m */; };
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
 		04091D801CFBECBC00B797B1 /* GCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 04091D7F1CFBECBC00B797B1 /* GCColor.m */; };
 		04100E261DC743E4006639F3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04100E251DC743E4006639F3 /* Info.plist */; };
@@ -209,10 +209,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0402122F1E058E2D002D74F6 /* OfficialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfficialViewController.h; sourceTree = "<group>"; };
-		040212301E058E2D002D74F6 /* OfficialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfficialViewController.m; sourceTree = "<group>"; };
-		040212321E06DC3F002D74F6 /* OfficialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OfficialCell.h; sourceTree = "<group>"; };
-		040212331E06DC3F002D74F6 /* OfficialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfficialCell.m; sourceTree = "<group>"; };
+		0402122F1E058E2D002D74F6 /* GCOfficialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCOfficialViewController.h; sourceTree = "<group>"; };
+		040212301E058E2D002D74F6 /* GCOfficialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCOfficialViewController.m; sourceTree = "<group>"; };
+		040212321E06DC3F002D74F6 /* GCOfficialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCOfficialCell.h; sourceTree = "<group>"; };
+		040212331E06DC3F002D74F6 /* GCOfficialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCOfficialCell.m; sourceTree = "<group>"; };
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
 		04091D7E1CFBECBC00B797B1 /* GCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColor.h; sourceTree = "<group>"; };
 		04091D7F1CFBECBC00B797B1 /* GCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColor.m; sourceTree = "<group>"; };
@@ -617,8 +617,8 @@
 		0402122B1E058E14002D74F6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0402122F1E058E2D002D74F6 /* OfficialViewController.h */,
-				040212301E058E2D002D74F6 /* OfficialViewController.m */,
+				0402122F1E058E2D002D74F6 /* GCOfficialViewController.h */,
+				040212301E058E2D002D74F6 /* GCOfficialViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -641,8 +641,8 @@
 		0402122E1E058E14002D74F6 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				040212321E06DC3F002D74F6 /* OfficialCell.h */,
-				040212331E06DC3F002D74F6 /* OfficialCell.m */,
+				040212321E06DC3F002D74F6 /* GCOfficialCell.h */,
+				040212331E06DC3F002D74F6 /* GCOfficialCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1962,7 +1962,7 @@
 				421192A41CE85EEE00BCFF3E /* GCForumIndexCell.m in Sources */,
 				046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */,
 				423889001BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
-				040212341E06DC3F002D74F6 /* OfficialCell.m in Sources */,
+				040212341E06DC3F002D74F6 /* GCOfficialCell.m in Sources */,
 				421192A71CE85EEE00BCFF3E /* GCThreadDetailView.m in Sources */,
 				421192EB1CE8615400BCFF3E /* GCSendReplyModel.m in Sources */,
 				4211928F1CE85DE100BCFF3E /* GCAboutViewController.m in Sources */,
@@ -2067,7 +2067,7 @@
 				04F8A35E1D28E19F007F2350 /* WMMenuItem.m in Sources */,
 				046DB7621BFC6F1900E05E17 /* DOPNavbarMenu.m in Sources */,
 				4260C6971BB64AB700705BE0 /* Util.m in Sources */,
-				040212311E058E2D002D74F6 /* OfficialViewController.m in Sources */,
+				040212311E058E2D002D74F6 /* GCOfficialViewController.m in Sources */,
 				04C0D4FE1DD41A2A007A5113 /* ZLPhotoPickerCollectionViewCell.m in Sources */,
 				0459674A1BC7A47D000181DE /* RTLabel.m in Sources */,
 				042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */,

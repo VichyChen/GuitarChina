@@ -1,5 +1,5 @@
 //
-//  OfficialCell.h
+//  GCOfficialCell.h
 //  GuitarChina
 //
 //  Created by mac on 16/12/18.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OfficialCell : UITableViewCell
+@interface GCOfficialCell : UITableViewCell
 
 @property (nonatomic, strong) UIImageView *leftImageView;
 @property (nonatomic, strong) UILabel *titleLabel;
