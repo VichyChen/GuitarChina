@@ -198,6 +198,9 @@
             GCForumModel *forumModel = [forumGroupModel.forums objectAtIndex:indexPath.row];
             controller.title = forumModel.name;
             controller.fid = forumModel.fid;
+            controller.threads = forumModel.threads;
+            controller.posts = forumModel.posts;
+            controller.todayposts = forumModel.todayposts;
             [self.navigationController pushViewController:controller animated:YES];
             
             //记录论坛浏览记录
