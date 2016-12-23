@@ -22,6 +22,13 @@
 
 @implementation GCForumDisplayViewController
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
 #pragma mark - life cycle
 
 - (void)loadView {

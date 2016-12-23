@@ -47,8 +47,12 @@
             [_tableView setLayoutMargins:UIEdgeInsetsMake(0, 13, 0, 0)];
         }
 
-        self.tableViewKit = [[GCTableViewKit alloc] initWithItems:self.array cellType:ConfigureCellTypeClass cellIdentifier:@"GCOfficialCell"];
+        self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCOfficialCell"];
         @weakify(self);
+        self.tableViewKit.getItemsBlock = ^{
+            @strongify(self);
+            return self.array;
+        };
         self.tableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
             GCOfficialCell *officialCell = (GCOfficialCell *)cell;
             NSDictionary *dictionary = item;

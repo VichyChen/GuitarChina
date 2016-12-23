@@ -7,6 +7,8 @@
 
 @interface GCTableViewKit ()
 
+@property (nonatomic, strong) NSArray *items;
+
 @end
 
 @implementation GCTableViewKit
@@ -20,14 +22,12 @@
     return self;
 }
 
-- (id)initWithItems:(NSArray *)items
-           cellType:(ConfigureCellType)cellType
+- (id)initWithCellType:(ConfigureCellType)cellType
      cellIdentifier:(NSString *)cellIdentifier {
     self = [super init];
     if (self) {
         self.configureStyle = ConfigureStyleCustom;
         self.configureCellType = cellType;
-        self.items = items;
         self.cellIdentifier = cellIdentifier;
     }
     
@@ -61,7 +61,10 @@
             break;
             
         case ConfigureStyleCustom:
-            return self.items.count ;
+            if (self.getItemsBlock) {
+                self.items = self.getItemsBlock();
+                return self.items.count;
+            }
             break;
     }
     

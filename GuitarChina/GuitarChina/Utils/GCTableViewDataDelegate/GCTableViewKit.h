@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, ConfigureCellType) {
 };
 
 //Custom
+typedef NSArray* (^GetItemsBlock)(void);
 typedef void (^CellForRowBlock)(NSIndexPath *indexPath, id item, UITableViewCell *cell);
 typedef CGFloat (^HeightForRowBlock)(NSIndexPath *indexPath, id item);
 typedef void (^DidSelectRowBlock)(NSIndexPath *indexPath, id item);
@@ -41,10 +42,10 @@ typedef void (^DidSelectRowAtIndexPathBlock)(NSIndexPath *indexPath);
 @property (nonatomic, assign) ConfigureStyle configureStyle;
 
 //Custom
-@property (nonatomic, strong) NSArray *items;
 @property (nonatomic, assign) ConfigureCellType configureCellType;
 @property (nonatomic, copy) NSString *cellIdentifier;
 
+@property (nonatomic, copy) GetItemsBlock getItemsBlock;
 @property (nonatomic, copy) CellForRowBlock cellForRowBlock;
 @property (nonatomic, copy) HeightForRowBlock heightForRowBlock;
 @property (nonatomic, copy) DidSelectRowBlock didSelectCellBlock;
@@ -64,9 +65,8 @@ typedef void (^DidSelectRowAtIndexPathBlock)(NSIndexPath *indexPath);
 
 - (id)initWithSystem;
 
-- (id)initWithItems:(NSArray *)items
-           cellType:(ConfigureCellType)cellType
-     cellIdentifier:(NSString *)cellIdentifier;
+- (id)initWithCellType:(ConfigureCellType)cellType
+        cellIdentifier:(NSString *)cellIdentifier;
 
 - (void)configureTableView:(UITableView *)tableView;
 

@@ -16,16 +16,8 @@ typedef NS_ENUM(NSInteger, GCDiscoveryTableViewType) {
     GCDiscoveryTableViewTypeDigest
 };
 
-@interface GCDiscoveryTableViewController : GCBaseViewController <UITableViewDataSource, UITableViewDelegate>
+@interface GCDiscoveryTableViewController : GCBaseViewController
 
 @property (nonatomic, assign) GCDiscoveryTableViewType discoveryTableViewType;
-
-@property (nonatomic, strong) UITableView *tableView;
-
-@property (nonatomic, strong) NSMutableArray *data;
-
-@property (nonatomic, strong) NSMutableArray *rowHeightArray;
-
-@property (nonatomic, assign) NSInteger pageIndex;
 
 @end
