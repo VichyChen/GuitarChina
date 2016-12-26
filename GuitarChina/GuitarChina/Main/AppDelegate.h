@@ -12,11 +12,11 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) UIWindow *window;
 
-@property (strong, nonatomic) GCTabBarController *tabBarController;
+@property (nonatomic, strong) GCTabBarController *tabBarController;
 
-@property (strong, nonatomic) NSDictionary *forumDictionary;
+@property (nonatomic, strong) NSDictionary *forumDictionary;
 
 - (void)saveContext;
 

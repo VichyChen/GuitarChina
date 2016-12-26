@@ -38,16 +38,16 @@
 @interface DOPNavbarMenu ()
 
 //灰色半透明背景
-@property (strong, nonatomic) UIView *background;
-@property (assign, nonatomic) CGRect beforeAnimationFrame;
-@property (assign, nonatomic) CGRect afterAnimationFrame;
+@property (nonatomic, strong) UIView *background;
+@property (nonatomic, assign) CGRect beforeAnimationFrame;
+@property (nonatomic, assign) CGRect afterAnimationFrame;
 
-@property (assign, nonatomic) CGFloat menuViewHeight;
-@property (assign, nonatomic) CGFloat topScrollViewHeight;
-@property (assign, nonatomic) CGFloat bottomScrollViewHeight;
-@property (assign, nonatomic) CGFloat width;
-@property (assign, nonatomic) CGFloat interval;
-@property (assign, nonatomic) CGFloat fontSize;
+@property (nonatomic, assign) CGFloat menuViewHeight;
+@property (nonatomic, assign) CGFloat topScrollViewHeight;
+@property (nonatomic, assign) CGFloat bottomScrollViewHeight;
+@property (nonatomic, assign) CGFloat width;
+@property (nonatomic, assign) CGFloat interval;
+@property (nonatomic, assign) CGFloat fontSize;
 
 //CGFloat topScrollViewHeight, bottomScrollViewHeight, width, interval, fontSize;
 @end

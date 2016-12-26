@@ -14,7 +14,7 @@
 
 @interface GCDiscoveryViewController () <UIScrollViewDelegate>
 
-@property (strong, nonatomic) NSMutableArray *controllerArray;
+@property (nonatomic, strong) NSMutableArray *controllerArray;
 
 @property (nonatomic, strong) HMSegmentedControl *segmentedControl;
 

@@ -10,6 +10,6 @@
 
 @interface GCAddImageCell : UICollectionViewCell
 
-@property (strong, nonatomic) UIImageView *imageView;
+@property (nonatomic, strong) UIImageView *imageView;
 
 @end

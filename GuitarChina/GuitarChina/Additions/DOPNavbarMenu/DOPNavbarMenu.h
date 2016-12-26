@@ -17,10 +17,10 @@
 
 typedef void(^Action)(void);
 
-@property (copy, nonatomic) NSString *title;
-@property (strong, nonatomic) UIImage *icon;
-@property (assign, nonatomic) NSInteger row;
-@property (copy, nonatomic) Action action;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, strong) UIImage *icon;
+@property (nonatomic, assign) NSInteger row;
+@property (nonatomic, copy) Action action;
 
 - (instancetype)initWithTitle:(NSString *)title icon:(UIImage *)icon row:(NSInteger)row actionBlock:(Action)actionBlock;
 + (DOPNavbarMenuItem *)ItemWithTitle:(NSString *)title icon:(UIImage *)icon row:(NSInteger)row actionBlock:(Action)actionBlock;
@@ -38,15 +38,15 @@ typedef void(^Action)(void);
 
 @interface DOPNavbarMenu : UIView
 
-@property (copy, nonatomic, readonly) NSArray *rowItems;
+@property (nonatomic, copy, readonly) NSArray *rowItems;
 
-@property (assign, nonatomic, getter=isOpen) BOOL open;
+@property (nonatomic, assign, getter=isOpen) BOOL open;
 @property (weak, nonatomic) id <DOPNavbarMenuDelegate> delegate;
 
-@property (strong, nonatomic) UIColor *textColor;
-@property (strong, nonatomic) UIColor *separatarColor;
-@property (strong, nonatomic) UIColor *menuColor;
-@property (strong, nonatomic) UIColor *iconColor;
+@property (nonatomic, strong) UIColor *textColor;
+@property (nonatomic, strong) UIColor *separatarColor;
+@property (nonatomic, strong) UIColor *menuColor;
+@property (nonatomic, strong) UIColor *iconColor;
 
 
 - (instancetype)initWithRowItems:(NSArray *)rowItems;

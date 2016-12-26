@@ -24,8 +24,8 @@
 - (IBAction)selectTypeAction:(UITapGestureRecognizer *)sender;
 - (IBAction)selectedPickerViewCompleteAction:(UIButton *)sender;
 
-@property (assign, nonatomic) NSInteger pickerViewSelectedIndex;
-@property (copy, nonatomic) NSString *selectedType;
+@property (nonatomic, assign) NSInteger pickerViewSelectedIndex;
+@property (nonatomic, copy) NSString *selectedType;
 
 @end
 
