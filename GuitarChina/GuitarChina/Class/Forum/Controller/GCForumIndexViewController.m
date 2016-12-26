@@ -26,16 +26,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     self.title = NSLocalizedString(@"Forum", nil);
-    
     [self configureView];
     
     @weakify(self);
     [GCNetworkCache getForumIndex:^(GCForumIndexArray *array) {
         @strongify(self);
         self.data = array.data;
-        
         //增加最近浏览分类
         //最近浏览记录
         GCForumGroupModel *forumGroupModel = [self getForumBrowseRecord:array];
@@ -44,11 +41,9 @@
         }
         //计算高度
         [self calculateRowHeight];
-        
         [self.tableView reloadData];
     }];
 
-//    [self getForumIndex];
     [self.tableView.header beginRefreshing];
 }
 

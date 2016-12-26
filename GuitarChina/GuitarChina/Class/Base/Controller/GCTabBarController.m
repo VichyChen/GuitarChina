@@ -12,8 +12,7 @@
 #import "WMPageController.h"
 #import "GCDiscoveryTableViewController.h"
 #import "GCForumIndexViewController.h"
-#import "GCUserViewController.h"
-#import "GCAboutViewController.h"
+#import "GCMoreViewController.h"
 #import "GCSearchViewController.h"
 #import "GCOfficialViewController.h"
 
@@ -52,21 +51,15 @@
     forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_forum"] imageWithTintColor:[GCColor grayColor4]];
     forumIndexNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_forum"] imageWithTintColor:[GCColor redColor]];
     
-    GCUserViewController *userViewController = [[GCUserViewController alloc] init];
-    GCNavigationController *userNavigationController = [[GCNavigationController alloc] initWithRootViewController:userViewController];
-    userNavigationController.tabBarItem.title = NSLocalizedString(@"Me", nil);
-    userNavigationController.tabBarItem.image = [[UIImage imageNamed:@"icon_mine"] imageWithTintColor:[GCColor grayColor4]];
-    userNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_mine"] imageWithTintColor:[GCColor redColor]];
-    
     GCOfficialViewController *officialViewController = [[GCOfficialViewController alloc] init];
     GCNavigationController *officialNavigationController = [[GCNavigationController alloc] initWithRootViewController:officialViewController];
     officialViewController.tabBarItem.title = NSLocalizedString(@"Official", nil);
-    officialViewController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor grayColor4]];
-    officialViewController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor redColor]];
+    officialViewController.tabBarItem.image = [[UIImage imageNamed:@"icon_guitar"] imageWithTintColor:[GCColor grayColor4]];
+    officialViewController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_guitar"] imageWithTintColor:[GCColor redColor]];
 
-    GCAboutViewController *moreViewController = [[GCAboutViewController alloc] init];
+    GCMoreViewController *moreViewController = [[GCMoreViewController alloc] init];
     GCNavigationController *moreNavigationController = [[GCNavigationController alloc] initWithRootViewController:moreViewController];
-    moreNavigationController.tabBarItem.title = NSLocalizedString(@"About", nil);
+    moreNavigationController.tabBarItem.title = NSLocalizedString(@"More", nil);
     moreNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor grayColor4]];
     moreNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor redColor]];
     

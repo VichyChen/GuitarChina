@@ -1,12 +1,12 @@
 //
-//  GCAboutViewController.m
+//  GCMoreViewController.m
 //  GuitarChina
 //
 //  Created by mac on 15/9/25.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCAboutViewController.h"
+#import "GCMoreViewController.h"
 #import "GCAboutCell.h"
 #import "GCThreadDetailViewController.h"
 #import "GCLoginViewController.h"
@@ -14,7 +14,7 @@
 #import "GCMyThreadViewController.h"
 #import "GCMyFavThreadViewController.h"
 
-@interface GCAboutViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface GCMoreViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -22,12 +22,12 @@
 
 @end
 
-@implementation GCAboutViewController
+@implementation GCMoreViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"About", nil);
+    self.title = NSLocalizedString(@"More", nil);
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeAll;
     
