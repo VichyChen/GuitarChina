@@ -10,7 +10,6 @@
 #import "GCNetworkAPI.h"
 #import "GCNetworkBase.h"
 
-#import "GCHotThreadModel.h"
 #import "GCForumIndexModel.h"
 #import "GCForumDisplayModel.h"
 #import "GCThreadDetailModel.h"
@@ -21,10 +20,6 @@
 #import "GCGuideThreadModel.h"
 
 @interface GCNetworkManager : NSObject
-
-//获取热帖
-+ (void)getHotThreadSuccess:(void (^)(GCHotThreadArray *array))success
-                    failure:(void (^)(NSError *error))failure;
 
 //获取论坛模块列表
 + (void)getForumIndexSuccess:(void (^)(GCForumIndexArray *array))success
@@ -102,10 +97,6 @@
                     formhash:(NSString *)formhash
                      success:(void (^)(NSString *string))success
                      failure:(void (^)(NSError *error))failure;
-
-
-+ (void)getProfileSuccess:(void (^)(GCHotThreadArray *array))success
-                  failure:(void (^)(NSError *error))failure;
 
 //获取web登录信息
 + (void)getLoginWebSuccess:(void (^)(NSData *htmlData))success

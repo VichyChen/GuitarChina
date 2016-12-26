@@ -197,7 +197,7 @@
         };
         [self.tableViewKit configureTableView:_tableView];
         
-        self.tableView.header = ({
+        _tableView.header = ({
             @weakify(self);
             MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
                 @strongify(self);
@@ -208,7 +208,7 @@
             header.stateLabel.hidden = YES;
             header;
         });
-        self.tableView.footer = ({
+        _tableView.footer = ({
             @weakify(self);
             MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
                 @strongify(self);

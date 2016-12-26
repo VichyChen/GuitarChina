@@ -9,10 +9,15 @@
 #import "GCMyThreadViewController.h"
 #import "GCMyThreadCell.h"
 #import "GCThreadDetailViewController.h"
+#import "MJRefresh.h"
 
 @interface GCMyThreadViewController ()
 
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) GCTableViewKit *tableViewKit;
+
 @property (nonatomic, strong) NSMutableArray *data;
+@property (nonatomic, strong) NSMutableArray *rowHeightArray;
 
 @end
 
@@ -29,61 +34,87 @@
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"My Theme", nil);
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self configureBlock];
-}
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.data count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"GCUserThreadCell";
-    GCMyThreadCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[GCMyThreadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    cell.model = [self.data objectAtIndex:indexPath.row];
+    [self configureView];
     
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSNumber *height = [self.rowHeightArray objectAtIndex:indexPath.row];
-    return [height floatValue];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
-    GCMyThreadModel *model = [self.data objectAtIndex:indexPath.row];
-    controller.tid = model.tid;
-    [self.navigationController pushViewController:controller animated:YES];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.tableView.header beginRefreshing];
 }
 
 #pragma mark - Private Methods
 
-- (void)configureBlock {
+- (void)configureView {
+    [self.view addSubview:self.tableView];
+}
+
+#pragma mark - HTTP
+
+- (void)getMyThread {
     @weakify(self);
-    self.refreshBlock = ^{
+    [GCNetworkManager getMyThreadSuccess:^(GCMyThreadArray *array) {
         @strongify(self);
-        [GCNetworkManager getMyThreadSuccess:^(GCMyThreadArray *array) {
-            self.data = array.data;
-            [self.rowHeightArray removeAllObjects];
-            for (GCMyThreadModel *model in self.data) {
-                [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCMyThreadCell getCellHeightWithModel:model]]];
-            }
-            [self.tableView reloadData];
-            [self endRefresh];
-        } failure:^(NSError *error) {
-            [self endRefresh];
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
-        }];
-    };
+        self.data = array.data;
+        self.rowHeightArray = [NSMutableArray array];
+        for (GCMyThreadModel *model in self.data) {
+            [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCMyThreadCell getCellHeightWithModel:model]]];
+        }
+        [self.tableView reloadData];
+        [self.tableView.header endRefreshing];
+    } failure:^(NSError *error) {
+        @strongify(self);
+        [self.tableView.header endRefreshing];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+    }];
+}
+
+#pragma mark - Getters
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+        _tableView.backgroundColor = [GCColor backgroundColor];
+        _tableView.tableFooterView = [[UIView alloc] init];
+        if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+            [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+        }
+        if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+            [_tableView setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
+        }
+        
+        self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCMyThreadCell"];
+        @weakify(self);
+        self.tableViewKit.getItemsBlock = ^{
+            @strongify(self);
+            return self.data;
+        };
+        self.tableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
+            GCMyThreadCell *myThreadCell = (GCMyThreadCell *)cell;
+            myThreadCell.model = item;
+        };
+        self.tableViewKit.heightForRowBlock = ^(NSIndexPath *indexPath, id item) {
+            @strongify(self);
+            NSNumber *height = [self.rowHeightArray objectAtIndex:indexPath.row];
+            return (CGFloat)[height floatValue];
+        };
+        self.tableViewKit.didSelectCellBlock = ^(NSIndexPath *indexPath, id item) {
+            @strongify(self);
+            GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+            GCMyThreadModel *model = item;
+            controller.tid = model.tid;
+            [self.navigationController pushViewController:controller animated:YES];
+        };
+        [self.tableViewKit configureTableView:_tableView];
+        
+        _tableView.header = ({
+            @weakify(self);
+            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+                @strongify(self);
+                [self getMyThread];
+            }];
+            header.lastUpdatedTimeLabel.hidden = YES;
+            header.stateLabel.hidden = YES;
+            header;
+        });
+    }
+    return _tableView;
 }
 
 @end

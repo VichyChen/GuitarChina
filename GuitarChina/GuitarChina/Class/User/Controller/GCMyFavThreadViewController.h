@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GCBaseTableViewController.h"
+#import "GCBaseViewController.h"
 
-@interface GCMyFavThreadViewController : GCBaseTableViewController
+@interface GCMyFavThreadViewController : GCBaseViewController
 
 @end

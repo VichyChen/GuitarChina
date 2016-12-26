@@ -152,7 +152,7 @@
         };
         [self.tableViewKit configureTableView:_tableView];
         
-        self.tableView.header = ({
+        _tableView.header = ({
             MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
                 self.pageIndex = 1;
                 [self getDiscovery];

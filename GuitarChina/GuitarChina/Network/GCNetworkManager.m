@@ -12,16 +12,6 @@
 
 @implementation GCNetworkManager
 
-+ (void)getHotThreadSuccess:(void (^)(GCHotThreadArray *array))success
-                    failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] get:GCNETWORKAPI_GET_HOTTHREAD parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        GCHotThreadArray *array = [[GCHotThreadArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
-        success(array);
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        failure(error);
-    }];
-}
-
 + (void)getForumIndexSuccess:(void (^)(GCForumIndexArray *array))success
                      failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] get:GCNETWORKAPI_GET_FORUMINDEX parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -246,19 +236,6 @@
             failure(error);
         }
     }];
-}
-
-+ (void)getProfileSuccess:(void (^)(GCHotThreadArray *array))success
-                  failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:@"http://bbs.guitarchina.com/home.php?mod=space&uid=1627015&do=profile" parameters:nil
-                                   success:^(NSURLSessionDataTask *task, id responseObject) {
-                                       //                        TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:responseObject];
-                                       //                        NSArray *elements  = [xpathParser searchWithXPathQuery:@"//*[@id='pbbs']/li"];                                            NSLog(@"%ld", elements.count);
-                                       //                        TFHppleElement *element = [elements objectAtIndex:0];
-                                       //                        NSString *elementContent = [element content];
-                                       //                        NSLog(@"result = %@",elementContent);
-                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                   }];
 }
 
 + (void)getLoginWebSuccess:(void (^)(NSData *htmlData))success
