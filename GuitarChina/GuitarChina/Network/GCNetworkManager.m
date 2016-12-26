@@ -14,7 +14,7 @@
 
 + (void)getForumIndexSuccess:(void (^)(GCForumIndexArray *array))success
                      failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] get:GCNETWORKAPI_GET_FORUMINDEX parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[GCNetworkBase sharedInstance] get:GCNetworkAPI_Get_ForumIndex parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [NSUD setObject:operation.responseString forKey:kForumIndexCache];
         [NSUD synchronize];
         GCForumIndexArray *array = [[GCForumIndexArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
@@ -29,7 +29,7 @@
                           pageSize:(NSInteger)pageSize
                            success:(void (^)(GCForumDisplayArray *array))success
                            failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] get:GCNETWORKAPI_GET_FORUMDISPLAY(forumID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[GCNetworkBase sharedInstance] get:GCNetworkAPI_Get_ForumDisplay(forumID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         GCForumDisplayArray *array = [[GCForumDisplayArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
         success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -43,8 +43,8 @@
                           success:(void (^)(GCThreadDetailModel *model))success
                           failure:(void (^)(NSError *error))failure {
     NSLog(@"threadID=%@", threadID);
-    NSLog(@"%@", GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize));
-    [[GCNetworkBase sharedInstance] get:GCNETWORKAPI_GET_VIEWTHREAD(threadID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSLog(@"%@", GCNetworkAPI_Get_ViewThread(threadID, pageIndex, pageSize));
+    [[GCNetworkBase sharedInstance] get:GCNetworkAPI_Get_ViewThread(threadID, pageIndex, pageSize) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         GCThreadDetailModel *model = [[GCThreadDetailModel alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
         success(model);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -54,7 +54,7 @@
 
 + (void)getMyFavThreadSuccess:(void (^)(GCMyFavThreadArray *array))success
                       failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] get:GCNETWORKAPI_GET_MYFAVTHREAD parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[GCNetworkBase sharedInstance] get:GCNetworkAPI_Get_MyFavThread parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         GCMyFavThreadArray *array = [[GCMyFavThreadArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
         success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -64,7 +64,7 @@
 
 + (void)getMyThreadSuccess:(void (^)(GCMyThreadArray *array))success
                    failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] get:GCNETWORKAPI_GET_MYTHREAD parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[GCNetworkBase sharedInstance] get:GCNetworkAPI_Get_MyThread parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         GCMyThreadArray *array = [[GCMyThreadArray alloc] initWithDictionary:[responseObject objectForKey:@"Variables"]];
         success(array);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -77,10 +77,10 @@
                 formhash:(NSString *)formhash
                  success:(void (^)(GCSendReplyModel *model))success
                  failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] get:GCNETWORKAPI_GET_POSTSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[GCNetworkBase sharedInstance] get:GCNetworkAPI_Get_PostSecure parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *parameters = @{ @"message" : message, @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash };
-        [[GCNetworkBase sharedInstance] post:GCNETWORKAPI_POST_SENDREPLY(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[GCNetworkBase sharedInstance] post:GCNetworkAPI_Post_SendReply(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSDictionary *dictionary = [JsonTool jsonToDictionary:operation.responseString];
             GCSendReplyModel *model = [[GCSendReplyModel alloc] initWithDictionary:dictionary];
             success(model);
@@ -101,7 +101,7 @@
                    formhash:(NSString *)formhash
                     success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_POSTWEBSECURE parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_PostWebSecure parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
 
         NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{ @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash, @"posttime" : @"", @"wysiwyg" : @"0", @"noticeauthor" : @"", @"noticetrimstr" : @"", @"noticeauthormsg" : @"", @"subject" : @"", @"checkbox" : @"0", @"message" : message, @"usesig" : @"1", @"save" : @""}];
         if (attachArray) {
@@ -110,7 +110,7 @@
             }
         }
         
-        [[GCNetworkBase sharedInstance] postWeb:GCNETWORKAPI_POST_WEBSENDREPLY(fid, tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[GCNetworkBase sharedInstance] postWeb:GCNetworkAPI_Post_WebSendreply(fid, tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             success();
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(error);
@@ -134,7 +134,7 @@
     [manager.requestSerializer setValue:@"Shockwave Flash" forHTTPHeaderField:@"User-Agent"];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-    [manager POST:GCNETWORKAPI_POST_WEBSENDREPLYIMAGE(fid) parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [manager POST:GCNetworkAPI_Post_WebSendReplyImage(fid) parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         [formData appendPartWithFormData:[@"test1.jpg" dataUsingEncoding:NSUTF8StringEncoding] name:@"Filename"];
         [formData appendPartWithFormData:[formhash dataUsingEncoding:NSUTF8StringEncoding] name:@"hash"];
@@ -161,7 +161,7 @@
                        tid:(NSString *)tid
                    success:(void (^)(NSData *htmlData))success
                    failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_WEBREPLY(fid, tid)
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebReply(fid, tid)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        success(responseObject);
@@ -178,10 +178,10 @@
                     formhash:(NSString *)formhash
                      success:(void (^)(GCNewThreadModel *model))success
                      failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] get:GCNETWORKAPI_GET_POSTSECURE parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[GCNetworkBase sharedInstance] get:GCNetworkAPI_Get_PostSecure parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *parameters = @{ @"allownoticeauthor" : @"1", @"message" : message, @"subject" : subject, @"mobiletype" : @"1", @"formhash" : formhash, @"typeid" : type };
-        [[GCNetworkBase sharedInstance] post:GCNETWORKAPI_POST_NEWTHREAD(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[GCNetworkBase sharedInstance] post:GCNetworkAPI_Post_NewThread(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSDictionary *dictionary = [JsonTool jsonToDictionary:operation.responseString];
             GCNewThreadModel *model = [[GCNewThreadModel alloc] initWithDictionary:dictionary];
             success(model);
@@ -197,7 +197,7 @@
 + (void)getWebNewThreadWithFid:(NSString *)fid
                        success:(void (^)(NSData *htmlData))success
                        failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_WEBNEWTHREAD(fid)
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebNewThread(fid)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        success(responseObject);
@@ -213,7 +213,7 @@
                   success:(void (^)(void))success
                   failure:(void (^)(NSError *error))failure {
     NSDictionary *parameters = @{ @"text" : text};
-    [[GCNetworkBase sharedInstance] postWap:GCNETWORKAPI_POST_REPORT(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[GCNetworkBase sharedInstance] postWap:GCNetworkAPI_Post_Report(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success();
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
@@ -225,7 +225,7 @@
                     formhash:(NSString *)formhash
                      success:(void (^)(NSString *string))success
                      failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] get:GCNETWORKAPI_GET_COLLECTION(tid, formhash) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[GCNetworkBase sharedInstance] get:GCNetworkAPI_Get_Collection(tid, formhash) parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(@"");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if ([operation.responseString containString:@"信息收藏成功"]) {
@@ -240,7 +240,7 @@
 
 + (void)getLoginWebSuccess:(void (^)(NSData *htmlData))success
                    failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_URL_LOGIN
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_URL_Login
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        success(responseObject);
@@ -253,7 +253,7 @@
 + (void)getSeccodeVerifyImage:(NSString *)idhash
                       success:(void (^)(NSData *htmlData))success
                       failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCSECCODE(idhash) parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[GCNetworkBase sharedInstance] getWeb:GCSeccode(idhash) parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         success(responseObject);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(error);
@@ -265,7 +265,7 @@
                                   failure:(void (^)(NSError *error))failure {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     [request addValue:@"bbs.guitarchina.com" forHTTPHeaderField:@"Host"];
-    [request addValue:GCNETWORKAPI_URL_LOGIN forHTTPHeaderField:@"Referer"];
+    [request addValue:GCNetworkAPI_URL_Login forHTTPHeaderField:@"Referer"];
     
     AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
@@ -312,7 +312,7 @@
 + (void)getGuideHotSuccessWithPageIndex:(NSInteger)pageIndex
                                 success:(void (^)(NSData *htmlData))success
                                 failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_GUIDEHOT(pageIndex)
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideHot(pageIndex)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        success(responseObject);
@@ -324,7 +324,7 @@
 + (void)getGuideDigestSuccessWithPageIndex:(NSInteger)pageIndex
                                    success:(void (^)(NSData *htmlData))success
                                    failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_GUIDEDIGEST(pageIndex)
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideDigest(pageIndex)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        success(responseObject);
@@ -336,7 +336,7 @@
 + (void)getGuideNewSuccessWithPageIndex:(NSInteger)pageIndex
                                 success:(void (^)(NSData *htmlData))success
                                 failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_GUIDENEW(pageIndex)
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideNew(pageIndex)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        success(responseObject);
@@ -348,7 +348,7 @@
 + (void)getGuideNewThreadSuccessWithPageIndex:(NSInteger)pageIndex
                                       success:(void (^)(NSData *htmlData))success
                                       failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_GUIDENEWTHREAD(pageIndex)
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideNewThread(pageIndex)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        success(responseObject);
@@ -360,7 +360,7 @@
 + (void)getGuideSofaSuccessWithPageIndex:(NSInteger)pageIndex
                                  success:(void (^)(NSData *htmlData))success
                                  failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNETWORKAPI_GET_GUIDESOFA(pageIndex)
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideSofa(pageIndex)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        success(responseObject);

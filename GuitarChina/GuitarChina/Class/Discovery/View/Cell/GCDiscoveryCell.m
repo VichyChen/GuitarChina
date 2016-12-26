@@ -85,7 +85,7 @@
 - (void)setModel:(GCGuideThreadModel *)model {
     _model = model;
     
-    [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNETWORKAPI_URL_SMALLAVTARIMAGE(model.authorid)]
+    [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNetworkAPI_URL_SmallAvtarImage(model.authorid)]
                         placeholderImage:nil
                                  options:SDWebImageRetryFailed];
     self.authorLabel.text = model.author;

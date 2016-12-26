@@ -132,7 +132,7 @@
         if ([request.mainDocumentURL.relativeString startsWith:@"http://player.youku.com/player.php/sid/"] && [request.mainDocumentURL.relativeString endsWith:@".swf"]) {
             NSArray *array = [request.mainDocumentURL.relativeString split:@"/"];
             GCWebViewController *controller = [[GCWebViewController alloc] init];
-            controller.urlString = GCVIDEO_URL_YOUKU([array objectAtIndex:5]);
+            controller.urlString = GCVideo_URL_Youku([array objectAtIndex:5]);
             [self.navigationController pushViewController:controller animated:YES];
             
             return false;
@@ -141,7 +141,7 @@
         if ([request.mainDocumentURL.relativeString startsWith:@"http://www.tudou.com/v/"] && [request.mainDocumentURL.relativeString endsWith:@".swf"]) {
             NSArray *array = [request.mainDocumentURL.relativeString split:@"/"];
             GCWebViewController *controller = [[GCWebViewController alloc] init];
-            controller.urlString = GCVIDEO_URL_TUDOU([array objectAtIndex:4]);
+            controller.urlString = GCVideo_URL_Tudou([array objectAtIndex:4]);
             [self.navigationController pushViewController:controller animated:YES];
             
             return false;
@@ -452,7 +452,7 @@
                                                                   icon:[[UIImage imageNamed:@"icon_link"] imageWithTintColor:[GCColor grayColor1]]
                                                                    row:0
                                                            actionBlock:^{
-                                                               [Util copyToPasteboard:GCNETWORKAPI_URL_THREAD(self.tid)];
+                                                               [Util copyToPasteboard:GCNetworkAPI_URL_Thread(self.tid)];
                                                                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy Complete", nil)];
                                                            }];
         DOPNavbarMenuItem *refreshItem = [DOPNavbarMenuItem ItemWithTitle:NSLocalizedString(@"Refresh", nil)
@@ -470,7 +470,7 @@
                                                                     icon:[UIImage imageNamed:@"icon_safari"]
                                                                      row:1
                                                              actionBlock:^{
-                                                                 [Util openUrlInSafari:GCNETWORKAPI_URL_THREAD(self.tid)];
+                                                                 [Util openUrlInSafari:GCNetworkAPI_URL_Thread(self.tid)];
                                                              }];
         
         NSMutableArray *shareArray = [NSMutableArray arrayWithObjects:replyItem, favoriteItem, copyItem, refreshItem, reportItem, safariItem, nil];
@@ -480,7 +480,7 @@
                                                                                icon:[UIImage imageNamed:@"icon_wechatSession"]
                                                                                 row:1
                                                                         actionBlock:^{
-                                                                            [GCSocial ShareToWechatSession:GCNETWORKAPI_URL_THREAD(self.tid) title:self.threadSubject content:self.threadContent Success:^{
+                                                                            [GCSocial ShareToWechatSession:GCNetworkAPI_URL_Thread(self.tid) title:self.threadSubject content:self.threadContent Success:^{
                                                                                 
                                                                             } failure:^{
                                                                                 
@@ -494,7 +494,7 @@
                                                                                 icon:[UIImage imageNamed:@"icon_wechatTimeline"]
                                                                                  row:1
                                                                          actionBlock:^{
-                                                                             [GCSocial ShareToWechatTimeline:GCNETWORKAPI_URL_THREAD(self.tid) title:self.threadSubject Success:^{
+                                                                             [GCSocial ShareToWechatTimeline:GCNetworkAPI_URL_Thread(self.tid) title:self.threadSubject Success:^{
                                                                                  
                                                                              } failure:^{
                                                                                  
@@ -508,7 +508,7 @@
                                                                     icon:[UIImage imageNamed:@"icon_qq"]
                                                                      row:1
                                                              actionBlock:^{
-                                                                 [GCSocial ShareToQQ:GCNETWORKAPI_URL_THREAD(self.tid) title:self.threadSubject content:self.threadContent Success:^{
+                                                                 [GCSocial ShareToQQ:GCNetworkAPI_URL_Thread(self.tid) title:self.threadSubject content:self.threadContent Success:^{
                                                                      
                                                                  } failure:^{
                                                                      

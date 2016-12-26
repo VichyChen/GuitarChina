@@ -166,9 +166,9 @@
                 [tableRow appendFormat:@"<tr><td>%@</td><td>%@</td></tr>", option.title, option.value];
             }
             [tableString appendFormat:tableHtml, self.optionsortname, tableRow];
-            [htmlCellString appendFormat:htmlCell, GCNETWORKAPI_URL_SMALLAVTARIMAGE(item.authorid),item.author, item.dateline, [item.number isEqualToString:@"1"] ? @"楼主" : [NSString stringWithFormat:@"%@楼", item.number], tableString, item.message];
+            [htmlCellString appendFormat:htmlCell, GCNetworkAPI_URL_SmallAvtarImage(item.authorid),item.author, item.dateline, [item.number isEqualToString:@"1"] ? @"楼主" : [NSString stringWithFormat:@"%@楼", item.number], tableString, item.message];
         } else {
-            [htmlCellString appendFormat:htmlCell, GCNETWORKAPI_URL_SMALLAVTARIMAGE(item.authorid), item.author, item.dateline, [item.number isEqualToString:@"1"] ? @"楼主" : [NSString stringWithFormat:@"%@楼", item.number], @"", item.message];
+            [htmlCellString appendFormat:htmlCell, GCNetworkAPI_URL_SmallAvtarImage(item.authorid), item.author, item.dateline, [item.number isEqualToString:@"1"] ? @"楼主" : [NSString stringWithFormat:@"%@楼", item.number], @"", item.message];
         }
     }
     NSString *htmlPage = [Util getBundleHTMLString:@"GCThreadWebViewHtml"];
