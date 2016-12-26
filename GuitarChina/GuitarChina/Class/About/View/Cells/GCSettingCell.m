@@ -1,20 +1,20 @@
 //
-//  GCMineCell.m
+//  GCSettingCell.m
 //  GuitarChina
 //
 //  Created by mac on 15/10/28.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCMineCell.h"
+#import "GCSettingCell.h"
 
-@interface GCMineCell()
+@interface GCSettingCell()
 
 @property (nonatomic, strong) UIView *separatorViewBottom;
 
 @end
 
-@implementation GCMineCell
+@implementation GCSettingCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

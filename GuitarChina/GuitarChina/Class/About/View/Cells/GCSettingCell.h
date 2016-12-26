@@ -1,5 +1,5 @@
 //
-//  GCMineCell.h
+//  GCSettingCell.h
 //  GuitarChina
 //
 //  Created by mac on 15/10/28.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCMineCell : UITableViewCell
+@interface GCSettingCell : UITableViewCell
 
 @property (nonatomic, strong) UIImageView *leftImageView;
 @property (nonatomic, strong) UILabel *titleLabel;

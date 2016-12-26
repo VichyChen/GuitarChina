@@ -11,6 +11,9 @@
 		040212341E06DC3F002D74F6 /* GCOfficialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040212331E06DC3F002D74F6 /* GCOfficialCell.m */; };
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
 		04091D801CFBECBC00B797B1 /* GCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 04091D7F1CFBECBC00B797B1 /* GCColor.m */; };
+		040FEF131E10E5C0006DA6FA /* GCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF121E10E5C0006DA6FA /* GCSettingViewController.m */; };
+		040FEF161E10E5DA006DA6FA /* GCSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF151E10E5DA006DA6FA /* GCSettingCell.m */; };
+		040FEF231E10E665006DA6FA /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF221E10E665006DA6FA /* GCUserProtocolViewController.m */; };
 		04100E261DC743E4006639F3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04100E251DC743E4006639F3 /* Info.plist */; };
 		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
 		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
@@ -96,9 +99,6 @@
 		4211927A1CE85D3200BCFF3E /* GCHotThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192611CE85D3200BCFF3E /* GCHotThreadViewController.m */; };
 		421192871CE85D7D00BCFF3E /* GCMyFavThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211927C1CE85D7D00BCFF3E /* GCMyFavThreadViewController.m */; };
 		421192881CE85D7D00BCFF3E /* GCMyThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211927E1CE85D7D00BCFF3E /* GCMyThreadViewController.m */; };
-		421192891CE85D7D00BCFF3E /* GCUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192801CE85D7D00BCFF3E /* GCUserInfoViewController.m */; };
-		4211928A1CE85D7D00BCFF3E /* GCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192821CE85D7D00BCFF3E /* GCSettingViewController.m */; };
-		4211928B1CE85D7D00BCFF3E /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192841CE85D7D00BCFF3E /* GCUserProtocolViewController.m */; };
 		4211928F1CE85DE100BCFF3E /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211928E1CE85DE100BCFF3E /* GCMoreViewController.m */; };
 		421192931CE85EB700BCFF3E /* GCDiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192921CE85EB700BCFF3E /* GCDiscoveryCell.m */; };
 		421192971CE85ECC00BCFF3E /* GCHotThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192961CE85ECC00BCFF3E /* GCHotThreadCell.m */; };
@@ -107,11 +107,9 @@
 		421192A51CE85EEE00BCFF3E /* GCReplyThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211929E1CE85EEE00BCFF3E /* GCReplyThreadView.m */; };
 		421192A61CE85EEE00BCFF3E /* GCReportThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192A01CE85EEE00BCFF3E /* GCReportThreadView.m */; };
 		421192A71CE85EEE00BCFF3E /* GCThreadDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192A21CE85EEE00BCFF3E /* GCThreadDetailView.m */; };
-		421192B11CE85F2200BCFF3E /* GCMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192AA1CE85F2200BCFF3E /* GCMineCell.m */; };
-		421192B21CE85F2200BCFF3E /* GCMineHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192AC1CE85F2200BCFF3E /* GCMineHeaderCell.m */; };
 		421192B31CE85F2200BCFF3E /* GCMyFavThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192AE1CE85F2200BCFF3E /* GCMyFavThreadCell.m */; };
 		421192B41CE85F2200BCFF3E /* GCMyThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192B01CE85F2200BCFF3E /* GCMyThreadCell.m */; };
-		421192B81CE85F3A00BCFF3E /* GCAboutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192B71CE85F3A00BCFF3E /* GCAboutCell.m */; };
+		421192B81CE85F3A00BCFF3E /* GCMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192B71CE85F3A00BCFF3E /* GCMoreCell.m */; };
 		421192C71CE8601E00BCFF3E /* GCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421192C21CE8601E00BCFF3E /* GCLoginViewController.xib */; };
 		421192C81CE8601E00BCFF3E /* GCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192C51CE8601E00BCFF3E /* GCLoginViewController.m */; };
 		421192D51CE8607100BCFF3E /* GCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192CB1CE8607100BCFF3E /* GCBaseTableViewController.m */; };
@@ -214,6 +212,12 @@
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
 		04091D7E1CFBECBC00B797B1 /* GCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColor.h; sourceTree = "<group>"; };
 		04091D7F1CFBECBC00B797B1 /* GCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColor.m; sourceTree = "<group>"; };
+		040FEF111E10E5C0006DA6FA /* GCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSettingViewController.h; sourceTree = "<group>"; };
+		040FEF121E10E5C0006DA6FA /* GCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSettingViewController.m; sourceTree = "<group>"; };
+		040FEF141E10E5DA006DA6FA /* GCSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSettingCell.h; sourceTree = "<group>"; };
+		040FEF151E10E5DA006DA6FA /* GCSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSettingCell.m; sourceTree = "<group>"; };
+		040FEF211E10E665006DA6FA /* GCUserProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserProtocolViewController.h; sourceTree = "<group>"; };
+		040FEF221E10E665006DA6FA /* GCUserProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserProtocolViewController.m; sourceTree = "<group>"; };
 		04100E251DC743E4006639F3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GuitarChina/Info.plist; sourceTree = SOURCE_ROOT; };
 		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
 		042F84261CF83F7800102949 /* GCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchViewController.m; sourceTree = "<group>"; };
@@ -376,12 +380,6 @@
 		4211927C1CE85D7D00BCFF3E /* GCMyFavThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyFavThreadViewController.m; sourceTree = "<group>"; };
 		4211927D1CE85D7D00BCFF3E /* GCMyThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyThreadViewController.h; sourceTree = "<group>"; };
 		4211927E1CE85D7D00BCFF3E /* GCMyThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyThreadViewController.m; sourceTree = "<group>"; };
-		4211927F1CE85D7D00BCFF3E /* GCUserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserInfoViewController.h; sourceTree = "<group>"; };
-		421192801CE85D7D00BCFF3E /* GCUserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserInfoViewController.m; sourceTree = "<group>"; };
-		421192811CE85D7D00BCFF3E /* GCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSettingViewController.h; sourceTree = "<group>"; };
-		421192821CE85D7D00BCFF3E /* GCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSettingViewController.m; sourceTree = "<group>"; };
-		421192831CE85D7D00BCFF3E /* GCUserProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserProtocolViewController.h; sourceTree = "<group>"; };
-		421192841CE85D7D00BCFF3E /* GCUserProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserProtocolViewController.m; sourceTree = "<group>"; };
 		4211928D1CE85DE100BCFF3E /* GCMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreViewController.h; sourceTree = "<group>"; };
 		4211928E1CE85DE100BCFF3E /* GCMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreViewController.m; sourceTree = "<group>"; };
 		421192911CE85EB700BCFF3E /* GCDiscoveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscoveryCell.h; sourceTree = "<group>"; };
@@ -398,16 +396,12 @@
 		421192A01CE85EEE00BCFF3E /* GCReportThreadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReportThreadView.m; sourceTree = "<group>"; };
 		421192A11CE85EEE00BCFF3E /* GCThreadDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailView.h; sourceTree = "<group>"; };
 		421192A21CE85EEE00BCFF3E /* GCThreadDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailView.m; sourceTree = "<group>"; };
-		421192A91CE85F2200BCFF3E /* GCMineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMineCell.h; sourceTree = "<group>"; };
-		421192AA1CE85F2200BCFF3E /* GCMineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMineCell.m; sourceTree = "<group>"; };
-		421192AB1CE85F2200BCFF3E /* GCMineHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMineHeaderCell.h; sourceTree = "<group>"; };
-		421192AC1CE85F2200BCFF3E /* GCMineHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMineHeaderCell.m; sourceTree = "<group>"; };
 		421192AD1CE85F2200BCFF3E /* GCMyFavThreadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyFavThreadCell.h; sourceTree = "<group>"; };
 		421192AE1CE85F2200BCFF3E /* GCMyFavThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyFavThreadCell.m; sourceTree = "<group>"; };
 		421192AF1CE85F2200BCFF3E /* GCMyThreadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyThreadCell.h; sourceTree = "<group>"; };
 		421192B01CE85F2200BCFF3E /* GCMyThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyThreadCell.m; sourceTree = "<group>"; };
-		421192B61CE85F3A00BCFF3E /* GCAboutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAboutCell.h; sourceTree = "<group>"; };
-		421192B71CE85F3A00BCFF3E /* GCAboutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAboutCell.m; sourceTree = "<group>"; };
+		421192B61CE85F3A00BCFF3E /* GCMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreCell.h; sourceTree = "<group>"; };
+		421192B71CE85F3A00BCFF3E /* GCMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreCell.m; sourceTree = "<group>"; };
 		421192C31CE8601E00BCFF3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GCLoginViewController.xib; sourceTree = "<group>"; };
 		421192C41CE8601E00BCFF3E /* GCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLoginViewController.h; sourceTree = "<group>"; };
 		421192C51CE8601E00BCFF3E /* GCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLoginViewController.m; sourceTree = "<group>"; };
@@ -1079,9 +1073,9 @@
 				421192431CE85D3200BCFF3E /* Discovery */,
 				4211925E1CE85D3200BCFF3E /* HotThread */,
 				4211924B1CE85D3200BCFF3E /* Forum */,
-				421192681CE85D3200BCFF3E /* User */,
 				040212251E058DCC002D74F6 /* Official */,
 				421192641CE85D3200BCFF3E /* About */,
+				421192681CE85D3200BCFF3E /* User */,
 				421192FB1CE863CE00BCFF3E /* Search */,
 				421192B91CE85FC200BCFF3E /* Login */,
 			);
@@ -1247,6 +1241,10 @@
 			children = (
 				4211928D1CE85DE100BCFF3E /* GCMoreViewController.h */,
 				4211928E1CE85DE100BCFF3E /* GCMoreViewController.m */,
+				040FEF111E10E5C0006DA6FA /* GCSettingViewController.h */,
+				040FEF121E10E5C0006DA6FA /* GCSettingViewController.m */,
+				040FEF211E10E665006DA6FA /* GCUserProtocolViewController.h */,
+				040FEF221E10E665006DA6FA /* GCUserProtocolViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1283,12 +1281,6 @@
 				4211927C1CE85D7D00BCFF3E /* GCMyFavThreadViewController.m */,
 				4211927D1CE85D7D00BCFF3E /* GCMyThreadViewController.h */,
 				4211927E1CE85D7D00BCFF3E /* GCMyThreadViewController.m */,
-				4211927F1CE85D7D00BCFF3E /* GCUserInfoViewController.h */,
-				421192801CE85D7D00BCFF3E /* GCUserInfoViewController.m */,
-				421192811CE85D7D00BCFF3E /* GCSettingViewController.h */,
-				421192821CE85D7D00BCFF3E /* GCSettingViewController.m */,
-				421192831CE85D7D00BCFF3E /* GCUserProtocolViewController.h */,
-				421192841CE85D7D00BCFF3E /* GCUserProtocolViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1352,10 +1344,6 @@
 		421192A81CE85F2200BCFF3E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				421192A91CE85F2200BCFF3E /* GCMineCell.h */,
-				421192AA1CE85F2200BCFF3E /* GCMineCell.m */,
-				421192AB1CE85F2200BCFF3E /* GCMineHeaderCell.h */,
-				421192AC1CE85F2200BCFF3E /* GCMineHeaderCell.m */,
 				421192AD1CE85F2200BCFF3E /* GCMyFavThreadCell.h */,
 				421192AE1CE85F2200BCFF3E /* GCMyFavThreadCell.m */,
 				421192AF1CE85F2200BCFF3E /* GCMyThreadCell.h */,
@@ -1367,8 +1355,10 @@
 		421192B51CE85F3A00BCFF3E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				421192B61CE85F3A00BCFF3E /* GCAboutCell.h */,
-				421192B71CE85F3A00BCFF3E /* GCAboutCell.m */,
+				421192B61CE85F3A00BCFF3E /* GCMoreCell.h */,
+				421192B71CE85F3A00BCFF3E /* GCMoreCell.m */,
+				040FEF141E10E5DA006DA6FA /* GCSettingCell.h */,
+				040FEF151E10E5DA006DA6FA /* GCSettingCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1916,13 +1906,13 @@
 				421192E41CE860FC00BCFF3E /* GCForumIndexModel.m in Sources */,
 				04F8A3601D28E19F007F2350 /* WMProgressView.m in Sources */,
 				04C0D4EA1DD41A2A007A5113 /* DALabeledCircularProgressView.m in Sources */,
-				421192B21CE85F2200BCFF3E /* GCMineHeaderCell.m in Sources */,
 				423888FD1BC57D0F002E1625 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
 				04F8A3611D28E19F007F2350 /* WMScrollView.m in Sources */,
 				426BC3931CB9FA9800B3B827 /* HMSegmentedControl.m in Sources */,
 				423888A51BC57CA6002E1625 /* MJRefreshNormalHeader.m in Sources */,
 				423888AA1BC57CA6002E1625 /* UIScrollView+MJRefresh.m in Sources */,
 				4238889D1BC57CA6002E1625 /* MJRefreshHeader.m in Sources */,
+				040FEF131E10E5C0006DA6FA /* GCSettingViewController.m in Sources */,
 				4238889F1BC57CA6002E1625 /* MJRefreshAutoNormalFooter.m in Sources */,
 				04C0D4F51DD41A2A007A5113 /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
 				423889031BC57D0F002E1625 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
@@ -1934,7 +1924,6 @@
 				421192E31CE860FC00BCFF3E /* GCForumDisplayModel.m in Sources */,
 				046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */,
 				04F8A3621D28E19F007F2350 /* WMPageController.m in Sources */,
-				4211928A1CE85D7D00BCFF3E /* GCSettingViewController.m in Sources */,
 				421192A51CE85EEE00BCFF3E /* GCReplyThreadView.m in Sources */,
 				4238890E1BC57D0F002E1625 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
 				423888F81BC57D0F002E1625 /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */,
@@ -2005,6 +1994,7 @@
 				04C0D4F81DD41A2A007A5113 /* ZLPhotoPickerDatas.m in Sources */,
 				421192D71CE8607100BCFF3E /* GCNavigationController.m in Sources */,
 				046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */,
+				040FEF231E10E665006DA6FA /* GCUserProtocolViewController.m in Sources */,
 				421192B31CE85F2200BCFF3E /* GCMyFavThreadCell.m in Sources */,
 				423889081BC57D0F002E1625 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				423888AB1BC57CA6002E1625 /* UIView+MJExtension.m in Sources */,
@@ -2017,7 +2007,7 @@
 				421192A31CE85EEE00BCFF3E /* GCForumDisplayCell.m in Sources */,
 				423888FE1BC57D0F002E1625 /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */,
 				04F8A35D1D28E19F007F2350 /* WMFooldView.m in Sources */,
-				421192B81CE85F3A00BCFF3E /* GCAboutCell.m in Sources */,
+				421192B81CE85F3A00BCFF3E /* GCMoreCell.m in Sources */,
 				048D45081DD1BE1500A7824F /* GCAddImageCell.m in Sources */,
 				046262441BAAC06800E66F03 /* NSString+Tools.m in Sources */,
 				04C0D4F91DD41A2A007A5113 /* ZLPhotoPickerGroup.m in Sources */,
@@ -2029,10 +2019,10 @@
 				421192F91CE861AF00BCFF3E /* GCBaseModel.m in Sources */,
 				046DB76C1BFC6F9700E05E17 /* TFHppleElement.m in Sources */,
 				421191C71CE6D16600BCFF3E /* GCNetworkBase.m in Sources */,
+				040FEF161E10E5DA006DA6FA /* GCSettingCell.m in Sources */,
 				421192781CE85D3200BCFF3E /* GCReportThreadViewController.m in Sources */,
 				421193011CF0AAD300BCFF3E /* GCSearchModel.m in Sources */,
 				423889071BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
-				421192B11CE85F2200BCFF3E /* GCMineCell.m in Sources */,
 				421192931CE85EB700BCFF3E /* GCDiscoveryCell.m in Sources */,
 				423888FA1BC57D0F002E1625 /* DGActivityIndicatorBallScaleAnimation.m in Sources */,
 				421192721CE85D3200BCFF3E /* GCDiscoveryViewController.m in Sources */,
@@ -2055,10 +2045,8 @@
 				04C0D4EF1DD41A2A007A5113 /* ZLPhotoPickerBrowserPhoto.m in Sources */,
 				049085091E0395CF00CF5C1C /* GCNetworkCache.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,
-				4211928B1CE85D7D00BCFF3E /* GCUserProtocolViewController.m in Sources */,
 				421192351CE85D0800BCFF3E /* GCHTMLParse.m in Sources */,
 				049085141E03EE8000CF5C1C /* UITableViewCell+Extension.m in Sources */,
-				421192891CE85D7D00BCFF3E /* GCUserInfoViewController.m in Sources */,
 				04C0D4F61DD41A2A007A5113 /* ZLPhotoPickerCustomToolBarView.m in Sources */,
 				423888F91BC57D0F002E1625 /* DGActivityIndicatorBallRotateAnimation.m in Sources */,
 				04C0D4EB1DD41A2A007A5113 /* ZLCamera.m in Sources */,

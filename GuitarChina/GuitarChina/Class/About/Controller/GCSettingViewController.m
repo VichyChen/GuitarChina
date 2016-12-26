@@ -7,7 +7,7 @@
 //
 
 #import "GCSettingViewController.h"
-#import "GCMineCell.h"
+#import "GCSettingCell.h"
 #import "GCUserProtocolViewController.h"
 
 @interface GCSettingViewController ()
@@ -82,16 +82,16 @@
             [_tableView setLayoutMargins:UIEdgeInsetsMake(0, 13, 0, 0)];
         }
         
-        self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCMineCell"];
+        self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCSettingCell"];
         @weakify(self);
         self.tableViewKit.getItemsBlock = ^{
             @strongify(self);
             return self.array;
         };
         self.tableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
-            GCMineCell *mineCell = (GCMineCell *)cell;
+            GCSettingCell *settingCell = (GCSettingCell *)cell;
             NSDictionary *dictionary = item;
-            mineCell.titleLabel.text = dictionary[@"title"];
+            settingCell.titleLabel.text = dictionary[@"title"];
         };
         self.tableViewKit.heightForRowBlock = ^(NSIndexPath *indexPath, id item) {
             return 44.0;

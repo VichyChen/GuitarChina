@@ -1,20 +1,20 @@
 //
-//  GCAboutCell.m
+//  GCMoreCell.m
 //  GuitarChina
 //
 //  Created by mac on 15/11/13.
 //  Copyright © 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCAboutCell.h"
+#import "GCMoreCell.h"
 
-@interface GCAboutCell()
+@interface GCMoreCell()
 
 @property (nonatomic, strong) UIView *separatorViewBottom;
 
 @end
 
-@implementation GCAboutCell
+@implementation GCMoreCell
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

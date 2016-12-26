@@ -7,7 +7,7 @@
 //
 
 #import "GCMoreViewController.h"
-#import "GCAboutCell.h"
+#import "GCMoreCell.h"
 #import "GCThreadDetailViewController.h"
 #import "GCLoginViewController.h"
 #import "GCSettingViewController.h"
@@ -56,7 +56,7 @@
     NSArray *array = self.array[indexPath.section][[self.array[indexPath.section] allKeys][0]];
     NSDictionary *dictionary = [array objectAtIndex:indexPath.row];
     
-    GCAboutCell *cell = [[GCAboutCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    GCMoreCell *cell = [[GCMoreCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
     cell.titleLabel.text = [dictionary objectForKey:@"title"];
     
     NSNumber *enable = [dictionary objectForKey:@"enable"];
