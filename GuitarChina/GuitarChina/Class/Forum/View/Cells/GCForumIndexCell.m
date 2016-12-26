@@ -7,10 +7,9 @@
 //
 
 #import "GCForumIndexCell.h"
-#import "RTLabel.h"
 #import "UIView+LayoutHelper.h"
 
-@interface GCForumIndexCell() <RTLabelDelegate>
+@interface GCForumIndexCell()
 
 @property (nonatomic, strong) UIImageView *forumImage;
 @property (nonatomic, strong) UILabel *nameLabel;
@@ -42,14 +41,6 @@
     self.descriptLabel.frame = CGRectMake(15, 35, ScreenWidth - 30, self.descriptLabelHeight);
     [self.descriptLabel sizeToFit];
     self.separatorView.frame = CGRectMake(0, 35 + self.descriptLabelHeight + 9.5, ScreenWidth, 0.5);
-}
-
-#pragma mark RTLabel delegate
-
-- (void)rtLabel:(id)rtLabel didSelectLinkWithURL:(NSURL*)url
-{
-    NSLog(@"did select url %@", url);
-    [Util openUrlInSafari:url.absoluteString];
 }
 
 #pragma mark - Private Method

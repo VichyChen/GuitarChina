@@ -12,11 +12,20 @@
 #import "GCThreadDetailViewController.h"
 #import "GCNavigationController.h"
 #import "GCLoginViewController.h"
+#import "MJRefresh.h"
+#import <CoreText/CoreText.h>
 
 @interface GCForumDisplayViewController ()
 
 @property (nonatomic, assign) BOOL loaded;
+
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) GCTableViewKit *tableViewKit;
+
+@property (nonatomic, assign) NSInteger pageIndex;
+@property (nonatomic, assign) NSInteger pageSize;
 @property (nonatomic, strong) NSMutableArray *data;
+@property (nonatomic, strong) NSMutableArray *rowHeightArray;
 
 @end
 
@@ -29,10 +38,8 @@
     return self;
 }
 
-#pragma mark - life cycle
-
-- (void)loadView {
-    [super loadView];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     
     self.loaded = false;
     self.uid = 0;
@@ -44,50 +51,15 @@
                                                               highlightedColor:[GCColor grayColor4]
                                                                         target:self
                                                                         action:@selector(newThreadAction)];
-}
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self configureBlock];
+    [self configureView];
     [self configureNotification];
+    
+    [self.tableView.header beginRefreshing];
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNotificationLoginSuccess object:nil];
-}
-
-#pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.data count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"GCForumDisplayCell";
-    GCForumDisplayCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[GCForumDisplayCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-    }
-    GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
-    [cell setModel:model];
-    
-    return cell;
-}
-
-#pragma mark - UITableViewDelegate
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSNumber *height = [self.rowHeightArray objectAtIndex:indexPath.row];
-    return [height floatValue];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
-    GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
-    controller.tid = model.tid;
-    [self.navigationController pushViewController:controller animated:YES];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Notification
@@ -98,48 +70,16 @@
 
 #pragma mark - Private Methods
 
-- (void)configureBlock {
-    @weakify(self);
-    self.refreshBlock = ^{
-        @strongify(self);
-        [GCNetworkManager getForumDisplayWithForumID:self.fid pageIndex:self.pageIndex pageSize:self.pageSize success:^(GCForumDisplayArray *array) {
-            self.loaded = true;
-            self.uid = array.member_uid;
-            self.formhash = array.formhash;
-            self.threadTypes = array.threadTypes;
-            
-            if (!self.threadTypes || self.threadTypes.count == 0) {
-                self.navigationItem.rightBarButtonItem = nil;
-            }
-            
-            if (self.pageIndex == 1) {
-                self.data = array.data;
-                [self.rowHeightArray removeAllObjects];
-                for (GCForumThreadModel *model in self.data) {
-                    [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCForumDisplayCell getCellHeightWithModel:model]]];
-                }
-                [self.tableView reloadData];
-                [self endRefresh];
-            } else {
-                for (GCForumThreadModel *model in array.data) {
-                    [self.data addObject:model];
-                    [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCForumDisplayCell getCellHeightWithModel:model]]];
-                }
-                [self.tableView reloadData];
-                [self endFetchMore];
-            }
-        } failure:^(NSError *error) {
-            [self endRefresh];
-            [self endFetchMore];
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
-        }];
-    };
+- (void)configureView {
+    [self.view addSubview:self.tableView];
 }
+
+#pragma mark - Event Response
 
 - (void)refreshAction {
     self.loaded = false;
     APP.tabBarController.selectedIndex = 1;
-    [self beginRefresh];
+    [self.tableView.header beginRefreshing];
 }
 
 - (void)newThreadAction {
@@ -162,5 +102,126 @@
     }
 }
 
+#pragma mark - HTTP
+
+- (void)getForumDisplay {
+    @weakify(self);
+    [GCNetworkManager getForumDisplayWithForumID:self.fid pageIndex:self.pageIndex pageSize:self.pageSize success:^(GCForumDisplayArray *array) {
+        @strongify(self);
+        self.loaded = true;
+        self.uid = array.member_uid;
+        self.formhash = array.formhash;
+        self.threadTypes = array.threadTypes;
+        
+        if (!self.threadTypes || self.threadTypes.count == 0) {
+            self.navigationItem.rightBarButtonItem = nil;
+        }
+        
+        if (self.pageIndex == 1) {
+            self.data = array.data;
+            self.rowHeightArray = [NSMutableArray array];
+            for (GCForumThreadModel *model in self.data) {
+                [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCForumDisplayCell getCellHeightWithModel:model]]];
+            }
+            [self.tableView.header endRefreshing];
+        } else {
+            for (GCForumThreadModel *model in array.data) {
+                [self.data addObject:model];
+                [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCForumDisplayCell getCellHeightWithModel:model]]];
+            }
+            [self.tableView.footer endRefreshing];
+        }
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        @strongify(self);
+        [self.tableView.header endRefreshing];
+        [self.tableView.footer endRefreshing];
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+    }];
+}
+
+#pragma mark - Getters
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] init];
+        _tableView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+        if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+            [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+        }
+        if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+            [_tableView setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
+        }
+//        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
+//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, ScreenWidth, 44)];
+//        label.font = [UIFont systemFontOfSize:15];
+//        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] init];
+//        [string appendAttributedString:[[NSAttributedString alloc] initWithString:@"XXX"
+//                                                                       attributes:
+//                                         @{NSFontAttributeName:[UIFont systemFontOfSize:12.f],
+//                                           (id)kCTForegroundColorAttributeName:(id)[UIColor redColor].CGColor,
+//                                           NSBackgroundColorAttributeName:[UIColor blueColor]}]];
+//        [string appendAttributedString:[[NSAttributedString alloc] initWithString:self.threads attributes:@{}]];
+//        [string appendAttributedString:[[NSAttributedString alloc] initWithString:@" | 回复:" attributes:@{}]];
+//        [string appendAttributedString:[[NSAttributedString alloc] initWithString:self.posts attributes:@{}]];
+//        [string appendAttributedString:[[NSAttributedString alloc] initWithString:@" | 今日:" attributes:@{}]];
+//        [string appendAttributedString:[[NSAttributedString alloc] initWithString:self.todayposts attributes:@{}]];
+//        label.attributedText = string;
+//        [headerView addSubview:label];
+//        _tableView.tableHeaderView = headerView;
+
+        _tableView.tableFooterView = [[UIView alloc] init];
+        
+        self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCForumDisplayCell"];
+        @weakify(self);
+        self.tableViewKit.getItemsBlock = ^{
+            @strongify(self);
+            return self.data;
+        };
+        self.tableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
+            GCForumDisplayCell *forumDisplayCell = (GCForumDisplayCell *)cell;
+            GCForumThreadModel *forumThreadModel = (GCForumThreadModel *)item;
+            forumDisplayCell.model = forumThreadModel;
+        };
+        self.tableViewKit.heightForRowBlock = ^(NSIndexPath *indexPath, id item) {
+            @strongify(self);
+            NSNumber *height = [self.rowHeightArray objectAtIndex:indexPath.row];
+            return (CGFloat)[height floatValue];
+        };
+        self.tableViewKit.didSelectCellBlock = ^(NSIndexPath *indexPath, id item) {
+            @strongify(self);
+            GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+            GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
+            controller.tid = model.tid;
+            [self.navigationController pushViewController:controller animated:YES];
+        };
+        [self.tableViewKit configureTableView:_tableView];
+        
+        self.tableView.header = ({
+            @weakify(self);
+            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+                @strongify(self);
+                self.pageIndex = 1;
+                [self getForumDisplay];
+            }];
+            header.lastUpdatedTimeLabel.hidden = YES;
+            header.stateLabel.hidden = YES;
+            header;
+        });
+        self.tableView.footer = ({
+            @weakify(self);
+            MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+                @strongify(self);
+                self.pageIndex++;
+                [self getForumDisplay];
+            }];
+            footer.automaticallyRefresh = YES;
+            footer.refreshingTitleHidden = YES;
+            [footer setTitle:NSLocalizedString(@"Load More", nil) forState:MJRefreshStateIdle];
+            footer;
+        });
+    }
+    return _tableView;
+}
 
 @end

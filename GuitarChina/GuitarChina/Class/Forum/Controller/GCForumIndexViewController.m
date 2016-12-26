@@ -9,6 +9,7 @@
 #import "GCForumIndexViewController.h"
 #import "GCForumDisplayViewController.h"
 #import "GCForumIndexCell.h"
+#import "MJRefresh.h"
 
 @interface GCForumIndexViewController ()
 
@@ -21,8 +22,6 @@
 @end
 
 @implementation GCForumIndexViewController
-
-#pragma mark - life cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];

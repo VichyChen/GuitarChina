@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GCBaseTableViewController.h"
+#import "GCBaseViewController.h"
 
-@interface GCForumDisplayViewController : GCBaseTableViewController
+@interface GCForumDisplayViewController : GCBaseViewController
 
 @property (nonatomic, copy) NSString *uid;
 @property (nonatomic, copy) NSString *fid;

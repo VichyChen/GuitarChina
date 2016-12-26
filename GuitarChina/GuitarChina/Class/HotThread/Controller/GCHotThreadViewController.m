@@ -18,18 +18,11 @@
 
 @implementation GCHotThreadViewController
 
-#pragma mark - life cycle
-
-- (void)loadView {
-    [super loadView];
-    
-    self.title = NSLocalizedString(@"Newest", nil);
-    self.navigationController.navigationBarHidden = YES;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = NSLocalizedString(@"Newest", nil);
+    self.navigationController.navigationBarHidden = YES;
     [self configureBlock];
 }
 

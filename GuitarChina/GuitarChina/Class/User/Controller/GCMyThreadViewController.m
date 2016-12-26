@@ -18,9 +18,6 @@
 
 @implementation GCMyThreadViewController
 
-
-#pragma mark - life cycle
-
 - (instancetype)init {
     if (self = [super init]) {
         self.hidesBottomBarWhenPushed = YES;
@@ -28,16 +25,11 @@
     return self;
 }
 
-- (void)loadView {
-    [super loadView];
-    
-    self.title = NSLocalizedString(@"My Theme", nil);
-    self.view.backgroundColor = [UIColor whiteColor];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = NSLocalizedString(@"My Theme", nil);
+    self.view.backgroundColor = [UIColor whiteColor];
     [self configureBlock];
 }
 
