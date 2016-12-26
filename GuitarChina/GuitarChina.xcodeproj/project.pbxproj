@@ -14,6 +14,7 @@
 		040FEF131E10E5C0006DA6FA /* GCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF121E10E5C0006DA6FA /* GCSettingViewController.m */; };
 		040FEF161E10E5DA006DA6FA /* GCSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF151E10E5DA006DA6FA /* GCSettingCell.m */; };
 		040FEF231E10E665006DA6FA /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF221E10E665006DA6FA /* GCUserProtocolViewController.m */; };
+		040FEF341E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF331E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m */; };
 		04100E261DC743E4006639F3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04100E251DC743E4006639F3 /* Info.plist */; };
 		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
 		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
@@ -26,8 +27,6 @@
 		046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */; };
 		046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */; };
 		0463E6FC1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */; };
-		046DB7621BFC6F1900E05E17 /* DOPNavbarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB75F1BFC6F1900E05E17 /* DOPNavbarMenu.m */; };
-		046DB7631BFC6F1900E05E17 /* UIView+DOPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB7611BFC6F1900E05E17 /* UIView+DOPExtension.m */; };
 		046DB76B1BFC6F9700E05E17 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB7661BFC6F9700E05E17 /* TFHpple.m */; };
 		046DB76C1BFC6F9700E05E17 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB7681BFC6F9700E05E17 /* TFHppleElement.m */; };
 		046DB76D1BFC6F9700E05E17 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB76A1BFC6F9700E05E17 /* XPathQuery.m */; };
@@ -214,6 +213,8 @@
 		040FEF151E10E5DA006DA6FA /* GCSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSettingCell.m; sourceTree = "<group>"; };
 		040FEF211E10E665006DA6FA /* GCUserProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserProtocolViewController.h; sourceTree = "<group>"; };
 		040FEF221E10E665006DA6FA /* GCUserProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserProtocolViewController.m; sourceTree = "<group>"; };
+		040FEF321E111EB2006DA6FA /* GCBelowNavigationBarMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBelowNavigationBarMenuView.h; sourceTree = "<group>"; };
+		040FEF331E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBelowNavigationBarMenuView.m; sourceTree = "<group>"; };
 		04100E251DC743E4006639F3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GuitarChina/Info.plist; sourceTree = SOURCE_ROOT; };
 		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
 		042F84261CF83F7800102949 /* GCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchViewController.m; sourceTree = "<group>"; };
@@ -232,10 +233,6 @@
 		046262421BAAC06800E66F03 /* UIView+UICreateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UICreateFactory.h"; sourceTree = "<group>"; };
 		046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UICreateFactory.m"; sourceTree = "<group>"; };
 		0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewTableHtml.html; sourceTree = "<group>"; };
-		046DB75E1BFC6F1900E05E17 /* DOPNavbarMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPNavbarMenu.h; sourceTree = "<group>"; };
-		046DB75F1BFC6F1900E05E17 /* DOPNavbarMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPNavbarMenu.m; sourceTree = "<group>"; };
-		046DB7601BFC6F1900E05E17 /* UIView+DOPExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DOPExtension.h"; sourceTree = "<group>"; };
-		046DB7611BFC6F1900E05E17 /* UIView+DOPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DOPExtension.m"; sourceTree = "<group>"; };
 		046DB7651BFC6F9700E05E17 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
 		046DB7661BFC6F9700E05E17 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
 		046DB7671BFC6F9700E05E17 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
@@ -704,17 +701,6 @@
 			path = Color;
 			sourceTree = "<group>";
 		};
-		046DB75D1BFC6F1900E05E17 /* DOPNavbarMenu */ = {
-			isa = PBXGroup;
-			children = (
-				046DB75E1BFC6F1900E05E17 /* DOPNavbarMenu.h */,
-				046DB75F1BFC6F1900E05E17 /* DOPNavbarMenu.m */,
-				046DB7601BFC6F1900E05E17 /* UIView+DOPExtension.h */,
-				046DB7611BFC6F1900E05E17 /* UIView+DOPExtension.m */,
-			);
-			path = DOPNavbarMenu;
-			sourceTree = "<group>";
-		};
 		046DB7641BFC6F9700E05E17 /* Hpple */ = {
 			isa = PBXGroup;
 			children = (
@@ -1013,7 +999,6 @@
 				047150E51BF03B2A007A8890 /* SVProgressHUD */,
 				4238886C1BC57CA6002E1625 /* MJRefresh */,
 				423888AC1BC57D0F002E1625 /* DGActivityIndicatorView */,
-				046DB75D1BFC6F1900E05E17 /* DOPNavbarMenu */,
 				426BC3901CB9FA9800B3B827 /* HMSegmentedControl */,
 			);
 			path = Additions;
@@ -1173,6 +1158,8 @@
 				421192A01CE85EEE00BCFF3E /* GCReportThreadView.m */,
 				421192A11CE85EEE00BCFF3E /* GCThreadDetailView.h */,
 				421192A21CE85EEE00BCFF3E /* GCThreadDetailView.m */,
+				040FEF321E111EB2006DA6FA /* GCBelowNavigationBarMenuView.h */,
+				040FEF331E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1874,6 +1861,7 @@
 				423889001BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
 				040212341E06DC3F002D74F6 /* GCOfficialCell.m in Sources */,
 				421192A71CE85EEE00BCFF3E /* GCThreadDetailView.m in Sources */,
+				040FEF341E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m in Sources */,
 				421192EB1CE8615400BCFF3E /* GCSendReplyModel.m in Sources */,
 				4211928F1CE85DE100BCFF3E /* GCMoreViewController.m in Sources */,
 				421192741CE85D3200BCFF3E /* GCForumDisplayViewController.m in Sources */,
@@ -1924,7 +1912,6 @@
 				421192F41CE8619900BCFF3E /* GCGuideThreadModel.m in Sources */,
 				421192F01CE8617F00BCFF3E /* GCMyFavThreadModel.m in Sources */,
 				423889041BC57D0F002E1625 /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
-				046DB7631BFC6F1900E05E17 /* UIView+DOPExtension.m in Sources */,
 				4238890B1BC57D0F002E1625 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
 				421192871CE85D7D00BCFF3E /* GCMyFavThreadViewController.m in Sources */,
 				04C0D5011DD41A2A007A5113 /* ZLPhotoPickerImageView.m in Sources */,
@@ -1972,7 +1959,6 @@
 				421192881CE85D7D00BCFF3E /* GCMyThreadViewController.m in Sources */,
 				423888A11BC57CA6002E1625 /* MJRefreshBackGifFooter.m in Sources */,
 				04F8A35E1D28E19F007F2350 /* WMMenuItem.m in Sources */,
-				046DB7621BFC6F1900E05E17 /* DOPNavbarMenu.m in Sources */,
 				4260C6971BB64AB700705BE0 /* Util.m in Sources */,
 				040212311E058E2D002D74F6 /* GCOfficialViewController.m in Sources */,
 				04C0D4FE1DD41A2A007A5113 /* ZLPhotoPickerCollectionViewCell.m in Sources */,
