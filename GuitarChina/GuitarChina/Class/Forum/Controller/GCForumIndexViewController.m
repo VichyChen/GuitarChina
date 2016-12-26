@@ -187,7 +187,6 @@
         self.tableViewKit.didSelectRowAtIndexPathBlock = ^(NSIndexPath *indexPath) {
             @strongify(self);
             GCForumDisplayViewController *controller = [[GCForumDisplayViewController alloc] init];
-            controller.hidesBottomBarWhenPushed = YES;
             GCForumGroupModel *forumGroupModel = [self.data objectAtIndex:indexPath.section];
             GCForumModel *forumModel = [forumGroupModel.forums objectAtIndex:indexPath.row];
             controller.title = forumModel.name;

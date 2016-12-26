@@ -110,7 +110,6 @@
 		421192B81CE85F3A00BCFF3E /* GCMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192B71CE85F3A00BCFF3E /* GCMoreCell.m */; };
 		421192C71CE8601E00BCFF3E /* GCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421192C21CE8601E00BCFF3E /* GCLoginViewController.xib */; };
 		421192C81CE8601E00BCFF3E /* GCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192C51CE8601E00BCFF3E /* GCLoginViewController.m */; };
-		421192D51CE8607100BCFF3E /* GCBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192CB1CE8607100BCFF3E /* GCBaseTableViewController.m */; };
 		421192D61CE8607100BCFF3E /* GCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192CD1CE8607100BCFF3E /* GCBaseViewController.m */; };
 		421192D71CE8607100BCFF3E /* GCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192CF1CE8607100BCFF3E /* GCNavigationController.m */; };
 		421192D81CE8607100BCFF3E /* GCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192D11CE8607100BCFF3E /* GCTabBarController.m */; };
@@ -399,8 +398,6 @@
 		421192C41CE8601E00BCFF3E /* GCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLoginViewController.h; sourceTree = "<group>"; };
 		421192C51CE8601E00BCFF3E /* GCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLoginViewController.m; sourceTree = "<group>"; };
 		421192C61CE8601E00BCFF3E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/GCLoginViewController.xib"; sourceTree = "<group>"; };
-		421192CA1CE8607100BCFF3E /* GCBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBaseTableViewController.h; sourceTree = "<group>"; };
-		421192CB1CE8607100BCFF3E /* GCBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseTableViewController.m; sourceTree = "<group>"; };
 		421192CC1CE8607100BCFF3E /* GCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBaseViewController.h; sourceTree = "<group>"; };
 		421192CD1CE8607100BCFF3E /* GCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseViewController.m; sourceTree = "<group>"; };
 		421192CE1CE8607100BCFF3E /* GCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNavigationController.h; sourceTree = "<group>"; };
@@ -1329,8 +1326,6 @@
 		421192C91CE8607100BCFF3E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				421192CA1CE8607100BCFF3E /* GCBaseTableViewController.h */,
-				421192CB1CE8607100BCFF3E /* GCBaseTableViewController.m */,
 				421192CC1CE8607100BCFF3E /* GCBaseViewController.h */,
 				421192CD1CE8607100BCFF3E /* GCBaseViewController.m */,
 				421192CE1CE8607100BCFF3E /* GCNavigationController.h */,
@@ -1942,7 +1937,6 @@
 				421192B31CE85F2200BCFF3E /* GCMyFavThreadCell.m in Sources */,
 				423889081BC57D0F002E1625 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				423888AB1BC57CA6002E1625 /* UIView+MJExtension.m in Sources */,
-				421192D51CE8607100BCFF3E /* GCBaseTableViewController.m in Sources */,
 				046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */,
 				423888F31BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */,
 				423888991BC57CA6002E1625 /* MJRefreshAutoFooter.m in Sources */,

@@ -148,7 +148,6 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     }
     else {
         GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
-        controller.hidesBottomBarWhenPushed = YES;
         GCSearchModel *model = self.searchArray[indexPath.row];
         controller.tid = model.tid;
         [self.navigationController pushViewController:controller animated:YES];
