@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "GCTabBarController.h"
+#import "GCAdInterstitial.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -17,6 +18,8 @@
 @property (nonatomic, strong) GCTabBarController *tabBarController;
 
 @property (nonatomic, strong) NSDictionary *forumDictionary;
+
+@property (nonatomic, strong) GCAdInterstitial *adInterstitial;
 
 - (void)saveContext;
 

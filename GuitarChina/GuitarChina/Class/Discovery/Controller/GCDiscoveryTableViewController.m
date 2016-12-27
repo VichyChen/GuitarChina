@@ -110,7 +110,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 40 - 44);
+        _tableView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 40 - 48);
         if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
             [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 13, 0, 0)];
         }

@@ -17,10 +17,8 @@
 #import "UMSocialQQHandler.h"
 #import "IQKeyboardManager.h"
 #import "KeyboardManager.h"
-
 #import "GCReplyThreadViewController.h"
 #import "GCReportThreadViewController.h"
-
 #import "GCHTMLParse.h"
 
 @interface AppDelegate ()
@@ -64,6 +62,10 @@
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    
+    if (kIsFree) {
+        self.adInterstitial = [[GCAdInterstitial alloc] init];
+    }
     
     return YES;
 }

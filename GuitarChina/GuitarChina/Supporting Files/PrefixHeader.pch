@@ -45,6 +45,9 @@
 //Apple ID
 #define AppleID @"1089161305"
 
+//区分免费or收费版
+#define kIsFree @"YES"
+
 //NSUserDefault
 #define kGCFirstStart @"GCFirstStart"
 #define kGCLogin @"GCLogin"
@@ -81,11 +84,23 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 //友盟appkey
 #define kUmengAppKey @"56d7ec72e0f55a701a000937"
 
+//AdMob
+//首页底部栏
+#define kAdMobIDDiscovery @"ca-app-pub-3940256099942544/2934735716"
+//进入前台全屏
+#define kAdMobIDEnterForeground @"ca-app-pub-3940256099942544/4411468910"
+
 //Release
 #else
 
 //友盟appkey
 #define kUmengAppKey @"56d7ecd4e0f55a7090001026"
+
+//AdMob
+//首页底部栏
+#define kAdMobIDDiscovery @"ca-app-pub-3276115365350448/6981479019"
+//进入前台全屏
+#define kAdMobIDEnterForeground @"ca-app-pub-3276115365350448/5129642617"
 
 #define NSLog(...)
 

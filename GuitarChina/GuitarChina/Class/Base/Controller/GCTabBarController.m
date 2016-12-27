@@ -15,6 +15,7 @@
 #import "GCMoreViewController.h"
 #import "GCSearchViewController.h"
 #import "GCOfficialViewController.h"
+#import "GCDiscoveryViewController.h"
 
 @interface GCTabBarController () <UITabBarControllerDelegate, WMPageControllerDataSource>
 
@@ -39,7 +40,8 @@
 }
 
 - (void)configureView {
-    GCNavigationController *discoveryNavigationController = [[GCNavigationController alloc] initWithRootViewController:self.wmPageController];
+    GCDiscoveryViewController *discoveryViewController = [[GCDiscoveryViewController alloc] init];
+    GCNavigationController *discoveryNavigationController = [[GCNavigationController alloc] initWithRootViewController:discoveryViewController];
     discoveryNavigationController.tabBarItem.title = NSLocalizedString(@"Home", nil);
     discoveryNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_home"] imageWithTintColor:[GCColor grayColor4]];
     discoveryNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_home"] imageWithTintColor:[GCColor redColor]];
