@@ -11,10 +11,12 @@
 		040212341E06DC3F002D74F6 /* GCOfficialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040212331E06DC3F002D74F6 /* GCOfficialCell.m */; };
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
 		04091D801CFBECBC00B797B1 /* GCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 04091D7F1CFBECBC00B797B1 /* GCColor.m */; };
-		040FEF131E10E5C0006DA6FA /* GCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF121E10E5C0006DA6FA /* GCSettingViewController.m */; };
-		040FEF161E10E5DA006DA6FA /* GCSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF151E10E5DA006DA6FA /* GCSettingCell.m */; };
-		040FEF231E10E665006DA6FA /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF221E10E665006DA6FA /* GCUserProtocolViewController.m */; };
 		040FEF341E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF331E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m */; };
+		040FEF441E1237F9006DA6FA /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF391E1237F9006DA6FA /* GCMoreViewController.m */; };
+		040FEF451E1237F9006DA6FA /* GCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF3B1E1237F9006DA6FA /* GCSettingViewController.m */; };
+		040FEF461E1237F9006DA6FA /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF3D1E1237F9006DA6FA /* GCUserProtocolViewController.m */; };
+		040FEF471E1237F9006DA6FA /* GCMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF411E1237F9006DA6FA /* GCMoreCell.m */; };
+		040FEF481E1237F9006DA6FA /* GCSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF431E1237F9006DA6FA /* GCSettingCell.m */; };
 		04100E261DC743E4006639F3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04100E251DC743E4006639F3 /* Info.plist */; };
 		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
 		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
@@ -97,7 +99,6 @@
 		421192791CE85D3200BCFF3E /* GCThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211925A1CE85D3200BCFF3E /* GCThreadDetailViewController.m */; };
 		421192871CE85D7D00BCFF3E /* GCMyFavThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211927C1CE85D7D00BCFF3E /* GCMyFavThreadViewController.m */; };
 		421192881CE85D7D00BCFF3E /* GCMyThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211927E1CE85D7D00BCFF3E /* GCMyThreadViewController.m */; };
-		4211928F1CE85DE100BCFF3E /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211928E1CE85DE100BCFF3E /* GCMoreViewController.m */; };
 		421192931CE85EB700BCFF3E /* GCDiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192921CE85EB700BCFF3E /* GCDiscoveryCell.m */; };
 		421192A31CE85EEE00BCFF3E /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211929A1CE85EEE00BCFF3E /* GCForumDisplayCell.m */; };
 		421192A41CE85EEE00BCFF3E /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211929C1CE85EEE00BCFF3E /* GCForumIndexCell.m */; };
@@ -106,7 +107,6 @@
 		421192A71CE85EEE00BCFF3E /* GCThreadDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192A21CE85EEE00BCFF3E /* GCThreadDetailView.m */; };
 		421192B31CE85F2200BCFF3E /* GCMyFavThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192AE1CE85F2200BCFF3E /* GCMyFavThreadCell.m */; };
 		421192B41CE85F2200BCFF3E /* GCMyThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192B01CE85F2200BCFF3E /* GCMyThreadCell.m */; };
-		421192B81CE85F3A00BCFF3E /* GCMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192B71CE85F3A00BCFF3E /* GCMoreCell.m */; };
 		421192C71CE8601E00BCFF3E /* GCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421192C21CE8601E00BCFF3E /* GCLoginViewController.xib */; };
 		421192C81CE8601E00BCFF3E /* GCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192C51CE8601E00BCFF3E /* GCLoginViewController.m */; };
 		421192D61CE8607100BCFF3E /* GCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192CD1CE8607100BCFF3E /* GCBaseViewController.m */; };
@@ -207,14 +207,18 @@
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
 		04091D7E1CFBECBC00B797B1 /* GCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColor.h; sourceTree = "<group>"; };
 		04091D7F1CFBECBC00B797B1 /* GCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColor.m; sourceTree = "<group>"; };
-		040FEF111E10E5C0006DA6FA /* GCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSettingViewController.h; sourceTree = "<group>"; };
-		040FEF121E10E5C0006DA6FA /* GCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSettingViewController.m; sourceTree = "<group>"; };
-		040FEF141E10E5DA006DA6FA /* GCSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSettingCell.h; sourceTree = "<group>"; };
-		040FEF151E10E5DA006DA6FA /* GCSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSettingCell.m; sourceTree = "<group>"; };
-		040FEF211E10E665006DA6FA /* GCUserProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserProtocolViewController.h; sourceTree = "<group>"; };
-		040FEF221E10E665006DA6FA /* GCUserProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserProtocolViewController.m; sourceTree = "<group>"; };
 		040FEF321E111EB2006DA6FA /* GCBelowNavigationBarMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBelowNavigationBarMenuView.h; sourceTree = "<group>"; };
 		040FEF331E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBelowNavigationBarMenuView.m; sourceTree = "<group>"; };
+		040FEF381E1237F9006DA6FA /* GCMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreViewController.h; sourceTree = "<group>"; };
+		040FEF391E1237F9006DA6FA /* GCMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreViewController.m; sourceTree = "<group>"; };
+		040FEF3A1E1237F9006DA6FA /* GCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSettingViewController.h; sourceTree = "<group>"; };
+		040FEF3B1E1237F9006DA6FA /* GCSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSettingViewController.m; sourceTree = "<group>"; };
+		040FEF3C1E1237F9006DA6FA /* GCUserProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCUserProtocolViewController.h; sourceTree = "<group>"; };
+		040FEF3D1E1237F9006DA6FA /* GCUserProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCUserProtocolViewController.m; sourceTree = "<group>"; };
+		040FEF401E1237F9006DA6FA /* GCMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreCell.h; sourceTree = "<group>"; };
+		040FEF411E1237F9006DA6FA /* GCMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreCell.m; sourceTree = "<group>"; };
+		040FEF421E1237F9006DA6FA /* GCSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSettingCell.h; sourceTree = "<group>"; };
+		040FEF431E1237F9006DA6FA /* GCSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSettingCell.m; sourceTree = "<group>"; };
 		04100E251DC743E4006639F3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GuitarChina/Info.plist; sourceTree = SOURCE_ROOT; };
 		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
 		042F84261CF83F7800102949 /* GCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchViewController.m; sourceTree = "<group>"; };
@@ -371,8 +375,6 @@
 		4211927C1CE85D7D00BCFF3E /* GCMyFavThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyFavThreadViewController.m; sourceTree = "<group>"; };
 		4211927D1CE85D7D00BCFF3E /* GCMyThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyThreadViewController.h; sourceTree = "<group>"; };
 		4211927E1CE85D7D00BCFF3E /* GCMyThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyThreadViewController.m; sourceTree = "<group>"; };
-		4211928D1CE85DE100BCFF3E /* GCMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreViewController.h; sourceTree = "<group>"; };
-		4211928E1CE85DE100BCFF3E /* GCMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreViewController.m; sourceTree = "<group>"; };
 		421192911CE85EB700BCFF3E /* GCDiscoveryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscoveryCell.h; sourceTree = "<group>"; };
 		421192921CE85EB700BCFF3E /* GCDiscoveryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscoveryCell.m; sourceTree = "<group>"; };
 		421192991CE85EEE00BCFF3E /* GCForumDisplayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCForumDisplayCell.h; sourceTree = "<group>"; };
@@ -389,8 +391,6 @@
 		421192AE1CE85F2200BCFF3E /* GCMyFavThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyFavThreadCell.m; sourceTree = "<group>"; };
 		421192AF1CE85F2200BCFF3E /* GCMyThreadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyThreadCell.h; sourceTree = "<group>"; };
 		421192B01CE85F2200BCFF3E /* GCMyThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyThreadCell.m; sourceTree = "<group>"; };
-		421192B61CE85F3A00BCFF3E /* GCMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreCell.h; sourceTree = "<group>"; };
-		421192B71CE85F3A00BCFF3E /* GCMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreCell.m; sourceTree = "<group>"; };
 		421192C31CE8601E00BCFF3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GCLoginViewController.xib; sourceTree = "<group>"; };
 		421192C41CE8601E00BCFF3E /* GCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLoginViewController.h; sourceTree = "<group>"; };
 		421192C51CE8601E00BCFF3E /* GCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLoginViewController.m; sourceTree = "<group>"; };
@@ -625,6 +625,47 @@
 			children = (
 			);
 			path = Advertisement;
+			sourceTree = "<group>";
+		};
+		040FEF361E1237F9006DA6FA /* More */ = {
+			isa = PBXGroup;
+			children = (
+				040FEF371E1237F9006DA6FA /* Controller */,
+				040FEF3E1E1237F9006DA6FA /* View */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		040FEF371E1237F9006DA6FA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				040FEF381E1237F9006DA6FA /* GCMoreViewController.h */,
+				040FEF391E1237F9006DA6FA /* GCMoreViewController.m */,
+				040FEF3A1E1237F9006DA6FA /* GCSettingViewController.h */,
+				040FEF3B1E1237F9006DA6FA /* GCSettingViewController.m */,
+				040FEF3C1E1237F9006DA6FA /* GCUserProtocolViewController.h */,
+				040FEF3D1E1237F9006DA6FA /* GCUserProtocolViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		040FEF3E1E1237F9006DA6FA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				040FEF3F1E1237F9006DA6FA /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		040FEF3F1E1237F9006DA6FA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				040FEF401E1237F9006DA6FA /* GCMoreCell.h */,
+				040FEF411E1237F9006DA6FA /* GCMoreCell.m */,
+				040FEF421E1237F9006DA6FA /* GCSettingCell.h */,
+				040FEF431E1237F9006DA6FA /* GCSettingCell.m */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		042F84231CF83F4500102949 /* Controller */ = {
@@ -1053,7 +1094,7 @@
 				421192431CE85D3200BCFF3E /* Discovery */,
 				4211924B1CE85D3200BCFF3E /* Forum */,
 				040212251E058DCC002D74F6 /* Official */,
-				421192641CE85D3200BCFF3E /* About */,
+				040FEF361E1237F9006DA6FA /* More */,
 				421192681CE85D3200BCFF3E /* User */,
 				421192FB1CE863CE00BCFF3E /* Search */,
 				421192B91CE85FC200BCFF3E /* Login */,
@@ -1171,44 +1212,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		421192641CE85D3200BCFF3E /* About */ = {
-			isa = PBXGroup;
-			children = (
-				421192651CE85D3200BCFF3E /* Controller */,
-				421192661CE85D3200BCFF3E /* Model */,
-				421192671CE85D3200BCFF3E /* View */,
-			);
-			path = About;
-			sourceTree = "<group>";
-		};
-		421192651CE85D3200BCFF3E /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				4211928D1CE85DE100BCFF3E /* GCMoreViewController.h */,
-				4211928E1CE85DE100BCFF3E /* GCMoreViewController.m */,
-				040FEF111E10E5C0006DA6FA /* GCSettingViewController.h */,
-				040FEF121E10E5C0006DA6FA /* GCSettingViewController.m */,
-				040FEF211E10E665006DA6FA /* GCUserProtocolViewController.h */,
-				040FEF221E10E665006DA6FA /* GCUserProtocolViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		421192661CE85D3200BCFF3E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		421192671CE85D3200BCFF3E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				421192B51CE85F3A00BCFF3E /* Cells */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		421192681CE85D3200BCFF3E /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1284,17 +1287,6 @@
 				421192AE1CE85F2200BCFF3E /* GCMyFavThreadCell.m */,
 				421192AF1CE85F2200BCFF3E /* GCMyThreadCell.h */,
 				421192B01CE85F2200BCFF3E /* GCMyThreadCell.m */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		421192B51CE85F3A00BCFF3E /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				421192B61CE85F3A00BCFF3E /* GCMoreCell.h */,
-				421192B71CE85F3A00BCFF3E /* GCMoreCell.m */,
-				040FEF141E10E5DA006DA6FA /* GCSettingCell.h */,
-				040FEF151E10E5DA006DA6FA /* GCSettingCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1847,7 +1839,6 @@
 				423888A51BC57CA6002E1625 /* MJRefreshNormalHeader.m in Sources */,
 				423888AA1BC57CA6002E1625 /* UIScrollView+MJRefresh.m in Sources */,
 				4238889D1BC57CA6002E1625 /* MJRefreshHeader.m in Sources */,
-				040FEF131E10E5C0006DA6FA /* GCSettingViewController.m in Sources */,
 				4238889F1BC57CA6002E1625 /* MJRefreshAutoNormalFooter.m in Sources */,
 				04C0D4F51DD41A2A007A5113 /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
 				423889031BC57D0F002E1625 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
@@ -1855,6 +1846,7 @@
 				04C0D4E91DD41A2A007A5113 /* DACircularProgressView.m in Sources */,
 				04F8A35F1D28E19F007F2350 /* WMMenuView.m in Sources */,
 				421192F11CE8617F00BCFF3E /* GCMyThreadModel.m in Sources */,
+				040FEF441E1237F9006DA6FA /* GCMoreViewController.m in Sources */,
 				04C0D4FA1DD41A2A007A5113 /* ZLPhotoPickerAssetsViewController.m in Sources */,
 				421192E31CE860FC00BCFF3E /* GCForumDisplayModel.m in Sources */,
 				046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */,
@@ -1871,7 +1863,6 @@
 				421192A71CE85EEE00BCFF3E /* GCThreadDetailView.m in Sources */,
 				040FEF341E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m in Sources */,
 				421192EB1CE8615400BCFF3E /* GCSendReplyModel.m in Sources */,
-				4211928F1CE85DE100BCFF3E /* GCMoreViewController.m in Sources */,
 				421192741CE85D3200BCFF3E /* GCForumDisplayViewController.m in Sources */,
 				421191D31CE8558B00BCFF3E /* GuitarChina.xcdatamodeld in Sources */,
 				423889021BC57D0F002E1625 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
@@ -1896,6 +1887,7 @@
 				423889061BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
 				4238890F1BC57D0F002E1625 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
 				421192D81CE8607100BCFF3E /* GCTabBarController.m in Sources */,
+				040FEF481E1237F9006DA6FA /* GCSettingCell.m in Sources */,
 				421192711CE85D3200BCFF3E /* GCDiscoveryTableViewController.m in Sources */,
 				4238889B1BC57CA6002E1625 /* MJRefreshComponent.m in Sources */,
 				423888F21BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
@@ -1928,9 +1920,9 @@
 				04C0D4F81DD41A2A007A5113 /* ZLPhotoPickerDatas.m in Sources */,
 				421192D71CE8607100BCFF3E /* GCNavigationController.m in Sources */,
 				046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */,
-				040FEF231E10E665006DA6FA /* GCUserProtocolViewController.m in Sources */,
 				421192B31CE85F2200BCFF3E /* GCMyFavThreadCell.m in Sources */,
 				423889081BC57D0F002E1625 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
+				040FEF471E1237F9006DA6FA /* GCMoreCell.m in Sources */,
 				423888AB1BC57CA6002E1625 /* UIView+MJExtension.m in Sources */,
 				046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */,
 				423888F31BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */,
@@ -1939,7 +1931,6 @@
 				421192A31CE85EEE00BCFF3E /* GCForumDisplayCell.m in Sources */,
 				423888FE1BC57D0F002E1625 /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */,
 				04F8A35D1D28E19F007F2350 /* WMFooldView.m in Sources */,
-				421192B81CE85F3A00BCFF3E /* GCMoreCell.m in Sources */,
 				048D45081DD1BE1500A7824F /* GCAddImageCell.m in Sources */,
 				046262441BAAC06800E66F03 /* NSString+Tools.m in Sources */,
 				04C0D4F91DD41A2A007A5113 /* ZLPhotoPickerGroup.m in Sources */,
@@ -1950,12 +1941,13 @@
 				421192F91CE861AF00BCFF3E /* GCBaseModel.m in Sources */,
 				046DB76C1BFC6F9700E05E17 /* TFHppleElement.m in Sources */,
 				421191C71CE6D16600BCFF3E /* GCNetworkBase.m in Sources */,
-				040FEF161E10E5DA006DA6FA /* GCSettingCell.m in Sources */,
 				421192781CE85D3200BCFF3E /* GCReportThreadViewController.m in Sources */,
+				040FEF451E1237F9006DA6FA /* GCSettingViewController.m in Sources */,
 				421193011CF0AAD300BCFF3E /* GCSearchModel.m in Sources */,
 				423889071BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
 				421192931CE85EB700BCFF3E /* GCDiscoveryCell.m in Sources */,
 				423888FA1BC57D0F002E1625 /* DGActivityIndicatorBallScaleAnimation.m in Sources */,
+				040FEF461E1237F9006DA6FA /* GCUserProtocolViewController.m in Sources */,
 				421192721CE85D3200BCFF3E /* GCDiscoveryViewController.m in Sources */,
 				423888A01BC57CA6002E1625 /* MJRefreshAutoStateFooter.m in Sources */,
 				423888A41BC57CA6002E1625 /* MJRefreshGifHeader.m in Sources */,
