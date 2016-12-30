@@ -28,4 +28,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 
+- (void)showAlertView:(NSString *)message{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil message:message delegate:nil cancelButtonTitle:NSLocalizedString(@"OK", nil) otherButtonTitles:nil];
+    [alertView show];
+}
+
 @end

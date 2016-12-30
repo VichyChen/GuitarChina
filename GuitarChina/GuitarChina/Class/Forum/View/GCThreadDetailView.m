@@ -74,6 +74,9 @@
 
 - (void)configureView {
     [self addSubview:self.webView];
+//    if (kIsFree) {
+//        [self addSubview:self.bannner];
+//    }
     [self addSubview:self.pickerContentView];
     [self addSubview:self.toolBarView];
 }
@@ -288,6 +291,15 @@
         _pickerView.delegate = self;
     }
     return _pickerView;
+}
+
+- (GCAdBannerView *)bannner {
+    if (!_bannner) {
+        _bannner = [[GCAdBannerView alloc] initWithRootViewController:APP.window.rootViewController countDown:15];
+        _bannner.alpha = 0.0f;
+        _bannner.frame = CGRectMake(0, self.toolBarView.frame.origin.y - 50, ScreenWidth, 50);
+    }
+    return _bannner;
 }
 
 @end

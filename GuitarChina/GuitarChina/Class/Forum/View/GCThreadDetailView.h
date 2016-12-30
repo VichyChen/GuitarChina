@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCAdBannerView.h"
 
 @interface GCThreadDetailView : UIView
+
+@property (nonatomic, weak) UIViewController *controller;
 
 @property (nonatomic, strong) UIWebView *webView;
 
@@ -29,6 +32,7 @@
 @property (nonatomic, copy) void (^replyActionBlock)();
 
 @property (nonatomic, strong) UIView *pickerContentView;
+@property (nonatomic, strong) GCAdBannerView *bannner;
 
 @property (nonatomic, strong) UIButton *goButton;
 @property (nonatomic, copy) void (^goActionBlock)(NSInteger page);

@@ -85,6 +85,7 @@
 "Question or Answer Error" = "请选择安全提问以及填写正确的答案";
 "Login after 15 minute" = "密码错误次数过多，请 15 分钟后重新登录";
 "Other Error" = "其他未知错误";
+"Image Upload Error" = "图片上传错误！";
 
 "No Network Connection" = "没有网络连接！";
 

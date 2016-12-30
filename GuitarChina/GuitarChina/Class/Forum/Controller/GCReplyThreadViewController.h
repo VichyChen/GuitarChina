@@ -15,4 +15,6 @@
 @property (nonatomic, copy) NSString *tid;
 @property (nonatomic, copy) NSString *formhash;
 
+@property (nonatomic, copy) void(^replySuccessBlock)(void);
+
 @end

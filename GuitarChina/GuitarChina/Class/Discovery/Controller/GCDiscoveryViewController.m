@@ -11,7 +11,7 @@
 #import "GCDiscoveryTableViewController.h"
 #import "GCNavigationController.h"
 #import "GCSearchViewController.h"
-#import "GCDiscoveryAdBannerView.h"
+#import "GCAdBannerView.h"
 
 @interface GCDiscoveryViewController () <UIScrollViewDelegate>
 
@@ -21,7 +21,7 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
-@property (nonatomic, strong) GCDiscoveryAdBannerView *bannner;
+@property (nonatomic, strong) GCAdBannerView *bannner;
 
 @end
 
@@ -129,7 +129,7 @@
 
 - (HMSegmentedControl *)segmentedControl {
     if (!_segmentedControl) {
-        _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[NSLocalizedString(@"Hottest", nil), NSLocalizedString(@"Newest", nil), [NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Sofa", nil)], NSLocalizedString(@"Essence", nil)]];
+        _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[[NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Hottest", nil)], [NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Newest", nil)], [NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Sofa", nil)], [NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Essence", nil)]]];
         _segmentedControl.frame = CGRectMake(0, 64, ScreenWidth, 40);
         _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationNone;
         _segmentedControl.backgroundColor = [GCColor cellSelectedColor];
@@ -158,9 +158,9 @@
     return _scrollView;
 }
 
-- (GCDiscoveryAdBannerView *)bannner {
+- (GCAdBannerView *)bannner {
     if (!_bannner) {
-        _bannner = [[GCDiscoveryAdBannerView alloc] initWithRootViewController:self];
+        _bannner = [[GCAdBannerView alloc] initWithRootViewController:self countDown:100.0];
         _bannner.frame = CGRectMake(0, ScreenHeight - 48 - 50, ScreenWidth, 50);
     }
     return _bannner;

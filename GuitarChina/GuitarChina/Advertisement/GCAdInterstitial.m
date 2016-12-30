@@ -20,9 +20,16 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _interstitial = [self createAndLoadInterstitial];
+//        _interstitial = [self createAndLoadInterstitial];
+        [self createAndLoadInterstitial];
     }
     return self;
+}
+
+- (void)presentFromViewController:(UIViewController *)viewController {
+    if ([self.interstitial isReady]) {
+        [self.interstitial presentFromRootViewController:viewController];
+    }
 }
 
 - (void)presentFromRootViewController {
@@ -31,12 +38,18 @@
     }
 }
 
-- (GADInterstitial *)createAndLoadInterstitial {
-    GADInterstitial *interstitial = [[GADInterstitial alloc] initWithAdUnitID:kAdMobIDEnterForeground];
-    interstitial.delegate = self;
-    [interstitial loadRequest:[GADRequest request]];
-    
-    return interstitial;
+//- (GADInterstitial *)createAndLoadInterstitial {
+//    GADInterstitial *interstitial = [[GADInterstitial alloc] initWithAdUnitID:kAdMobIDEnterForeground];
+//    interstitial.delegate = self;
+//    [interstitial loadRequest:[GADRequest request]];
+//    
+//    return interstitial;
+//}
+
+- (void)createAndLoadInterstitial {
+    self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:kAdMobIDEnterForeground];
+    self.interstitial.delegate = self;
+    [self.interstitial loadRequest:[GADRequest request]];
 }
 
 #pragma mark - GADInterstitialDelegate
@@ -61,7 +74,12 @@
 }
 
 - (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
-    self.interstitial = [self createAndLoadInterstitial];
+//    self.interstitial = [self createAndLoadInterstitial];
+    [self createAndLoadInterstitial];
+    if (self.dismissScreenBlock) {
+        self.dismissScreenBlock();
+        self.dismissScreenBlock = nil;
+    }
 }
 
 - (void)interstitialWillLeaveApplication:(GADInterstitial *)ad {

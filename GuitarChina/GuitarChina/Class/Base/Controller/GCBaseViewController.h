@@ -10,4 +10,6 @@
 
 @interface GCBaseViewController : UIViewController
 
+- (void)showAlertView:(NSString *)message;
+
 @end

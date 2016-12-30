@@ -17,7 +17,6 @@
 		040FEF461E1237F9006DA6FA /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF3D1E1237F9006DA6FA /* GCUserProtocolViewController.m */; };
 		040FEF471E1237F9006DA6FA /* GCMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF411E1237F9006DA6FA /* GCMoreCell.m */; };
 		040FEF481E1237F9006DA6FA /* GCSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF431E1237F9006DA6FA /* GCSettingCell.m */; };
-		040FEF4B1E123B23006DA6FA /* GCDiscoveryAdBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF4A1E123B23006DA6FA /* GCDiscoveryAdBannerView.m */; };
 		04100E261DC743E4006639F3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04100E251DC743E4006639F3 /* Info.plist */; };
 		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
 		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
@@ -80,6 +79,7 @@
 		04C0D5011DD41A2A007A5113 /* ZLPhotoPickerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4E41DD41A2A007A5113 /* ZLPhotoPickerImageView.m */; };
 		04C0D5021DD41A2A007A5113 /* ZLPhotoLib.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C0D4E61DD41A2A007A5113 /* ZLPhotoLib.bundle */; };
 		04D350661E1273F500047725 /* GCAdInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350651E1273F500047725 /* GCAdInterstitial.m */; };
+		04D350691E13ACE900047725 /* GCAdBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350681E13ACE900047725 /* GCAdBannerView.m */; };
 		04F8A35D1D28E19F007F2350 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3511D28E19F007F2350 /* WMFooldView.m */; };
 		04F8A35E1D28E19F007F2350 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3531D28E19F007F2350 /* WMMenuItem.m */; };
 		04F8A35F1D28E19F007F2350 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3551D28E19F007F2350 /* WMMenuView.m */; };
@@ -221,8 +221,6 @@
 		040FEF411E1237F9006DA6FA /* GCMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreCell.m; sourceTree = "<group>"; };
 		040FEF421E1237F9006DA6FA /* GCSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSettingCell.h; sourceTree = "<group>"; };
 		040FEF431E1237F9006DA6FA /* GCSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSettingCell.m; sourceTree = "<group>"; };
-		040FEF491E123B23006DA6FA /* GCDiscoveryAdBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscoveryAdBannerView.h; sourceTree = "<group>"; };
-		040FEF4A1E123B23006DA6FA /* GCDiscoveryAdBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscoveryAdBannerView.m; sourceTree = "<group>"; };
 		04100E251DC743E4006639F3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GuitarChina/Info.plist; sourceTree = SOURCE_ROOT; };
 		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
 		042F84261CF83F7800102949 /* GCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchViewController.m; sourceTree = "<group>"; };
@@ -337,6 +335,8 @@
 		04C0D4E61DD41A2A007A5113 /* ZLPhotoLib.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZLPhotoLib.bundle; sourceTree = "<group>"; };
 		04D350641E1273F500047725 /* GCAdInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAdInterstitial.h; sourceTree = "<group>"; };
 		04D350651E1273F500047725 /* GCAdInterstitial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAdInterstitial.m; sourceTree = "<group>"; };
+		04D350671E13ACE900047725 /* GCAdBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAdBannerView.h; sourceTree = "<group>"; };
+		04D350681E13ACE900047725 /* GCAdBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAdBannerView.m; sourceTree = "<group>"; };
 		04F8A3501D28E19F007F2350 /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
 		04F8A3511D28E19F007F2350 /* WMFooldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMFooldView.m; sourceTree = "<group>"; };
 		04F8A3521D28E19F007F2350 /* WMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuItem.h; sourceTree = "<group>"; };
@@ -629,8 +629,8 @@
 		040FEF351E12192A006DA6FA /* Advertisement */ = {
 			isa = PBXGroup;
 			children = (
-				040FEF491E123B23006DA6FA /* GCDiscoveryAdBannerView.h */,
-				040FEF4A1E123B23006DA6FA /* GCDiscoveryAdBannerView.m */,
+				04D350671E13ACE900047725 /* GCAdBannerView.h */,
+				04D350681E13ACE900047725 /* GCAdBannerView.m */,
 				04D350641E1273F500047725 /* GCAdInterstitial.h */,
 				04D350651E1273F500047725 /* GCAdInterstitial.m */,
 			);
@@ -1849,7 +1849,6 @@
 				423888A51BC57CA6002E1625 /* MJRefreshNormalHeader.m in Sources */,
 				423888AA1BC57CA6002E1625 /* UIScrollView+MJRefresh.m in Sources */,
 				4238889D1BC57CA6002E1625 /* MJRefreshHeader.m in Sources */,
-				040FEF4B1E123B23006DA6FA /* GCDiscoveryAdBannerView.m in Sources */,
 				4238889F1BC57CA6002E1625 /* MJRefreshAutoNormalFooter.m in Sources */,
 				04C0D4F51DD41A2A007A5113 /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
 				423889031BC57D0F002E1625 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
@@ -1956,6 +1955,7 @@
 				040FEF451E1237F9006DA6FA /* GCSettingViewController.m in Sources */,
 				421193011CF0AAD300BCFF3E /* GCSearchModel.m in Sources */,
 				423889071BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
+				04D350691E13ACE900047725 /* GCAdBannerView.m in Sources */,
 				421192931CE85EB700BCFF3E /* GCDiscoveryCell.m in Sources */,
 				423888FA1BC57D0F002E1625 /* DGActivityIndicatorBallScaleAnimation.m in Sources */,
 				040FEF461E1237F9006DA6FA /* GCUserProtocolViewController.m in Sources */,

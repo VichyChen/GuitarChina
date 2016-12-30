@@ -54,6 +54,10 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     });
 }
 
+- (void)dealloc {
+    NSLog(@"GCSearchViewController dealloc");
+}
+
 #pragma mark - Private Methods
 
 - (void)configureNavigationBar {
@@ -124,6 +128,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             [self.searchTableView.header beginRefreshing];
         }
         [GCNetworkManager getSearchWithKeyWord:self.searchTextField.text pageIndex:self.pageIndex Success:^(NSData *htmlData) {
+            @strongify(self);
             NSString *checkString = [GCHTMLParse parseSearchOvertime:htmlData];
             if (checkString.length > 0) {
                 [self.searchTableView.header endRefreshing];
@@ -159,6 +164,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             if (searchArray.datas.count == 50) {
                 self.searchTableView.footer = ({
                     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+                        @strongify(self);
                         self.pageIndex++;
                         self.searchBlock();
                     }];
@@ -201,6 +207,10 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         [array insertObject:text atIndex:0];
         [NSUD setObject:array forKey:kGCSearchHistory];
         [NSUD synchronize];
+        
+        if (kIsFree) {
+            [APP.adInterstitial presentFromViewController:self];
+        }
         
         self.pageIndex = 1;
         self.searchBlock();

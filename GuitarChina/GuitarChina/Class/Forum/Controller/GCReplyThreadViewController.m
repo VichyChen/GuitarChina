@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) GCReplyThreadView *replyThreadView;
 
+@property (nonatomic, copy) void(^replyResultBlock)(void);
+
 @end
 
 @implementation GCReplyThreadViewController
@@ -24,10 +26,15 @@
     [self configureView];
 }
 
+- (void)dealloc {
+    NSLog(@"GCReplyThreadViewController dealloc");
+}
+
 #pragma mark - Event Responses
 
 - (void)closeAction {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)sendAction {
@@ -41,7 +48,11 @@
     void (^postWebReplyBlock)(NSArray *) = ^(NSArray *attachArray){
         @strongify(self);
         [GCNetworkManager postWebReplyWithTid:self.tid fid:self.fid message:[self.replyThreadView.textView.text stringByAppendingString:@"\n[size=1][url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305][color=Gray]发自吉他中国iPhone客户端[/color][/url][/size]"] attachArray:attachArray formhash:self.formhash success:^{
+            @strongify(self);
             [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
+            if (self.replySuccessBlock) {
+                self.replySuccessBlock();
+            }
             [self closeAction];
         } failure:^(NSError *error) {
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
@@ -53,22 +64,20 @@
     
     if (imageCount > 0) {
         [GCNetworkManager getWebReplyWithFid:self.fid tid:self.tid success:^(NSData *htmlData) {
+            @strongify(self);
             //获取web页面formhash
             NSString *formhash = [GCHTMLParse parseWebReply:htmlData];
-            @strongify(self);
             __block int tempCount = 0;
             NSMutableArray *attachArray = [NSMutableArray array];
             for (int i = 0; i < imageCount; i++) {
                 [GCNetworkManager postWebReplyImageWithFid:self.fid image:imageArray[i] formhash:formhash success:^(NSString *imageID) {
-                    
                     tempCount++;
                     [attachArray addObject:imageID];
                     if (tempCount == imageCount) {
                         postWebReplyBlock(attachArray);
                     }
-                    
                 } failure:^(NSError *error) {
-                    [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Other Error", nil)];
+                    [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Image Upload Error", nil)];
                 }];
             }
         } failure:^(NSError *error) {
@@ -100,11 +109,11 @@
 - (void)configureView {
     self.title = NSLocalizedString(@"Write reply", nil);
     
-    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_delete"
-                                                                  normalColor:[UIColor whiteColor]
-                                                             highlightedColor:[GCColor grayColor4]
-                                                                       target:self
-                                                                       action:@selector(closeAction)];
+//    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_delete"
+//                                                                  normalColor:[UIColor whiteColor]
+//                                                             highlightedColor:[GCColor grayColor4]
+//                                                                       target:self
+//                                                                       action:@selector(closeAction)];
     
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_checkmark"
                                                                    normalColor:[UIColor whiteColor]

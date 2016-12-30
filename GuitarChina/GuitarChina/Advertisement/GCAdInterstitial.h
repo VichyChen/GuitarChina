@@ -10,6 +10,10 @@
 
 @interface GCAdInterstitial : NSObject
 
+- (void)presentFromViewController:(UIViewController *)viewController;
+
 - (void)presentFromRootViewController;
+
+@property (nonatomic, copy) void(^dismissScreenBlock)(void);
 
 @end

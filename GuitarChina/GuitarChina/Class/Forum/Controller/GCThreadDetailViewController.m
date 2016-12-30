@@ -91,6 +91,7 @@
 }
 
 - (void)dealloc {
+    NSLog(@"GCThreadDetailViewController dealloc");
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNotificationLoginSuccess object:nil];
 }
 
@@ -290,6 +291,9 @@
             success(model);
             if (self.threadDetailView.toolBarView.alpha == 0.0f) {
                 [UIView animateWithDuration:1.0 animations:^{
+//                    if (kIsFree) {
+//                        self.threadDetailView.bannner.alpha = 1.0f;
+//                    }
                     self.threadDetailView.toolBarView.alpha = 1.0f;
                 }];
             }
@@ -310,8 +314,13 @@
             controller.fid = self.fid;
             controller.tid = self.tid;
             controller.formhash = self.formhash;
-            GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];
-            [self presentViewController:navigationController animated:YES completion:nil];
+            @weakify(self);
+            controller.replySuccessBlock = ^{
+                @strongify(self);
+                self.pageIndex = 1;
+                [self.threadDetailView webViewStartRefresh];
+            };
+            [self.navigationController pushViewController:controller animated:YES];
         }
     };
     self.favoriteBlock = ^{
@@ -435,6 +444,7 @@
 
 - (GCBelowNavigationBarMenuView *)menu {
     if (!_menu) {
+        @weakify(self);
         GCBelowNavigationBarMenuItem *replyItem = [GCBelowNavigationBarMenuItem itemWithTitle:NSLocalizedString(@"Reply", nil)
                                                                    icon:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[GCColor grayColor1]]
                                                                     row:0
@@ -447,6 +457,7 @@
                                                                   icon:[[UIImage imageNamed:@"icon_link"] imageWithTintColor:[GCColor grayColor1]]
                                                                    row:0
                                                            actionBlock:^{
+                                                               @strongify(self);
                                                                [Util copyToPasteboard:GCNetworkAPI_URL_Thread(self.tid)];
                                                                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy Complete", nil)];
                                                            }];
@@ -454,6 +465,7 @@
                                                                      icon:[[UIImage imageNamed:@"icon_refresh"] imageWithTintColor:[GCColor grayColor1]]
                                                                       row:0
                                                               actionBlock:^{
+                                                                  @strongify(self);
                                                                   [self.threadDetailView webViewStartRefresh];
                                                               }];
         GCBelowNavigationBarMenuItem *reportItem = [GCBelowNavigationBarMenuItem itemWithTitle:NSLocalizedString(@"Report", nil)
@@ -465,6 +477,7 @@
                                                                     icon:[UIImage imageNamed:@"icon_safari"]
                                                                      row:1
                                                              actionBlock:^{
+                                                                 @strongify(self);
                                                                  [Util openUrlInSafari:GCNetworkAPI_URL_Thread(self.tid)];
                                                              }];
         
@@ -475,6 +488,7 @@
                                                                                icon:[UIImage imageNamed:@"icon_wechatSession"]
                                                                                 row:1
                                                                         actionBlock:^{
+                                                                            @strongify(self);
                                                                             [GCSocial ShareToWechatSession:GCNetworkAPI_URL_Thread(self.tid) title:self.threadSubject content:self.threadContent Success:^{
                                                                                 
                                                                             } failure:^{
@@ -489,6 +503,7 @@
                                                                                 icon:[UIImage imageNamed:@"icon_wechatTimeline"]
                                                                                  row:1
                                                                          actionBlock:^{
+                                                                             @strongify(self);
                                                                              [GCSocial ShareToWechatTimeline:GCNetworkAPI_URL_Thread(self.tid) title:self.threadSubject Success:^{
                                                                                  
                                                                              } failure:^{
@@ -503,6 +518,7 @@
                                                                     icon:[UIImage imageNamed:@"icon_qq"]
                                                                      row:1
                                                              actionBlock:^{
+                                                                 @strongify(self);
                                                                  [GCSocial ShareToQQ:GCNetworkAPI_URL_Thread(self.tid) title:self.threadSubject content:self.threadContent Success:^{
                                                                      
                                                                  } failure:^{

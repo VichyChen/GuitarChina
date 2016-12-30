@@ -16,7 +16,7 @@
 @property (nonatomic, strong) UIView *separatorView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
-@property (nonatomic, strong) UIViewController *viewController;
+@property (nonatomic, weak) UIViewController *viewController;
 
 @property (nonatomic, copy) NSArray *imageArray;
 
