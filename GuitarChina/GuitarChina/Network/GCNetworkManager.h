@@ -126,29 +126,34 @@
                       failure:(void (^)(NSError *error))failure;
 
 //导读－最新热门
-+ (void)getGuideHotSuccessWithPageIndex:(NSInteger)pageIndex
-                                success:(void (^)(NSData *htmlData))success
-                                failure:(void (^)(NSError *error))failure;
++ (void)getGuideHotWithPageIndex:(NSInteger)pageIndex
+                         success:(void (^)(NSData *htmlData))success
+                         failure:(void (^)(NSError *error))failure;
 
 //导读－最新精华
-+ (void)getGuideDigestSuccessWithPageIndex:(NSInteger)pageIndex
-                                   success:(void (^)(NSData *htmlData))success
-                                   failure:(void (^)(NSError *error))failure;
++ (void)getGuideDigestWithPageIndex:(NSInteger)pageIndex
+                            success:(void (^)(NSData *htmlData))success
+                            failure:(void (^)(NSError *error))failure;
 
 //导读－最新回复
-+ (void)getGuideNewSuccessWithPageIndex:(NSInteger)pageIndex
-                                success:(void (^)(NSData *htmlData))success
-                                failure:(void (^)(NSError *error))failure;
++ (void)getGuideNewWithPageIndex:(NSInteger)pageIndex
+                         success:(void (^)(NSData *htmlData))success
+                         failure:(void (^)(NSError *error))failure;
 
 //导读－最新发表
-+ (void)getGuideNewThreadSuccessWithPageIndex:(NSInteger)pageIndex
-                                      success:(void (^)(NSData *htmlData))success
-                                      failure:(void (^)(NSError *error))failure;
++ (void)getGuideNewThreadWithPageIndex:(NSInteger)pageIndex
+                               success:(void (^)(NSData *htmlData))success
+                               failure:(void (^)(NSError *error))failure;
 
 //导读－抢沙发
-+ (void)getGuideSofaSuccessWithPageIndex:(NSInteger)pageIndex
-                                 success:(void (^)(NSData *htmlData))success
-                                 failure:(void (^)(NSError *error))failure;
++ (void)getGuideSofaWithPageIndex:(NSInteger)pageIndex
+                          success:(void (^)(NSData *htmlData))success
+                          failure:(void (^)(NSError *error))failure;
+
+//个人资料
++ (void)getProfileWithUID:(NSInteger)uid
+                  success:(void (^)(NSData *htmlData))success
+                  failure:(void (^)(NSError *error))failure;
 
 + (void)getSearchWithKeyWord:(NSString *)keyWord
                    pageIndex:(NSInteger)pageIndex

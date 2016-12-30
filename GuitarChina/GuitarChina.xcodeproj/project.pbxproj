@@ -80,6 +80,7 @@
 		04C0D5021DD41A2A007A5113 /* ZLPhotoLib.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C0D4E61DD41A2A007A5113 /* ZLPhotoLib.bundle */; };
 		04D350661E1273F500047725 /* GCAdInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350651E1273F500047725 /* GCAdInterstitial.m */; };
 		04D350691E13ACE900047725 /* GCAdBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350681E13ACE900047725 /* GCAdBannerView.m */; };
+		04D3506C1E1634A700047725 /* GCProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3506B1E1634A700047725 /* GCProfileViewController.m */; };
 		04F8A35D1D28E19F007F2350 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3511D28E19F007F2350 /* WMFooldView.m */; };
 		04F8A35E1D28E19F007F2350 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3531D28E19F007F2350 /* WMMenuItem.m */; };
 		04F8A35F1D28E19F007F2350 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3551D28E19F007F2350 /* WMMenuView.m */; };
@@ -337,6 +338,8 @@
 		04D350651E1273F500047725 /* GCAdInterstitial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAdInterstitial.m; sourceTree = "<group>"; };
 		04D350671E13ACE900047725 /* GCAdBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAdBannerView.h; sourceTree = "<group>"; };
 		04D350681E13ACE900047725 /* GCAdBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAdBannerView.m; sourceTree = "<group>"; };
+		04D3506A1E1634A700047725 /* GCProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCProfileViewController.h; sourceTree = "<group>"; };
+		04D3506B1E1634A700047725 /* GCProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCProfileViewController.m; sourceTree = "<group>"; };
 		04F8A3501D28E19F007F2350 /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
 		04F8A3511D28E19F007F2350 /* WMFooldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMFooldView.m; sourceTree = "<group>"; };
 		04F8A3521D28E19F007F2350 /* WMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuItem.h; sourceTree = "<group>"; };
@@ -1235,6 +1238,8 @@
 		421192691CE85D3200BCFF3E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04D3506A1E1634A700047725 /* GCProfileViewController.h */,
+				04D3506B1E1634A700047725 /* GCProfileViewController.m */,
 				4211927B1CE85D7D00BCFF3E /* GCMyFavThreadViewController.h */,
 				4211927C1CE85D7D00BCFF3E /* GCMyFavThreadViewController.m */,
 				4211927D1CE85D7D00BCFF3E /* GCMyThreadViewController.h */,
@@ -1883,6 +1888,7 @@
 				0479424E1DA0076900E810DF /* GCForumIndexCollectionViewCell.m in Sources */,
 				423888F11BC57D0F002E1625 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
 				049085151E03EE8000CF5C1C /* GCTableViewKit.m in Sources */,
+				04D3506C1E1634A700047725 /* GCProfileViewController.m in Sources */,
 				04C0D4EC1DD41A2A007A5113 /* ZLCameraImageView.m in Sources */,
 				04C0D4ED1DD41A2A007A5113 /* ZLCameraView.m in Sources */,
 				04C0D4E81DD41A2A007A5113 /* UIView+ZLExtension.m in Sources */,

@@ -97,12 +97,12 @@
 + (void)postWebReplyWithTid:(NSString *)tid
                         fid:(NSString *)fid
                     message:(NSString *)message
-                     attachArray:(NSArray *)attachArray
+                attachArray:(NSArray *)attachArray
                    formhash:(NSString *)formhash
                     success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_PostWebSecure parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-
+        
         NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{ @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash, @"posttime" : @"", @"wysiwyg" : @"0", @"noticeauthor" : @"", @"noticetrimstr" : @"", @"noticeauthormsg" : @"", @"subject" : @"", @"checkbox" : @"0", @"message" : message, @"usesig" : @"1", @"save" : @""}];
         if (attachArray) {
             for (NSString *attach in attachArray) {
@@ -309,9 +309,9 @@
     }];
 }
 
-+ (void)getGuideHotSuccessWithPageIndex:(NSInteger)pageIndex
-                                success:(void (^)(NSData *htmlData))success
-                                failure:(void (^)(NSError *error))failure {
++ (void)getGuideHotWithPageIndex:(NSInteger)pageIndex
+                         success:(void (^)(NSData *htmlData))success
+                         failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideHot(pageIndex)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -321,9 +321,9 @@
                                    }];
 }
 
-+ (void)getGuideDigestSuccessWithPageIndex:(NSInteger)pageIndex
-                                   success:(void (^)(NSData *htmlData))success
-                                   failure:(void (^)(NSError *error))failure {
++ (void)getGuideDigestWithPageIndex:(NSInteger)pageIndex
+                            success:(void (^)(NSData *htmlData))success
+                            failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideDigest(pageIndex)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -333,9 +333,9 @@
                                    }];
 }
 
-+ (void)getGuideNewSuccessWithPageIndex:(NSInteger)pageIndex
-                                success:(void (^)(NSData *htmlData))success
-                                failure:(void (^)(NSError *error))failure {
++ (void)getGuideNewWithPageIndex:(NSInteger)pageIndex
+                         success:(void (^)(NSData *htmlData))success
+                         failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideNew(pageIndex)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -345,9 +345,9 @@
                                    }];
 }
 
-+ (void)getGuideNewThreadSuccessWithPageIndex:(NSInteger)pageIndex
-                                      success:(void (^)(NSData *htmlData))success
-                                      failure:(void (^)(NSError *error))failure {
++ (void)getGuideNewThreadWithPageIndex:(NSInteger)pageIndex
+                               success:(void (^)(NSData *htmlData))success
+                               failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideNewThread(pageIndex)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -357,9 +357,9 @@
                                    }];
 }
 
-+ (void)getGuideSofaSuccessWithPageIndex:(NSInteger)pageIndex
-                                 success:(void (^)(NSData *htmlData))success
-                                 failure:(void (^)(NSError *error))failure {
++ (void)getGuideSofaWithPageIndex:(NSInteger)pageIndex
+                          success:(void (^)(NSData *htmlData))success
+                          failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideSofa(pageIndex)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -368,6 +368,20 @@
                                        failure(error);
                                    }];
 }
+
+//个人资料
++ (void)getProfileWithUID:(NSInteger)uid
+                  success:(void (^)(NSData *htmlData))success
+                  failure:(void (^)(NSError *error))failure {
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_Profile(uid)
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
+}
+
 
 + (void)getSearchWithKeyWord:(NSString *)keyWord
                    pageIndex:(NSInteger)pageIndex
@@ -388,7 +402,7 @@
                                                                         @"searchsubmit" : @"yes"};
                                            
                                            [[GCNetworkBase sharedInstance] postWeb:@"http://bbs.guitarchina.com/search.php?mod=forum" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-
+                                               
                                                [NSUD setObject:operation.response.URL.absoluteString forKey:kGCSearchURL];
                                                [NSUD synchronize];
                                                
@@ -399,7 +413,7 @@
                                            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                                                failure(error);
                                            }];
-
+                                           
                                        } failure:^(NSURLSessionDataTask *task, NSError *error) {
                                            failure(error);
                                        }];

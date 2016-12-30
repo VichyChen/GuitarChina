@@ -65,7 +65,7 @@
     switch (self.discoveryTableViewType) {
         case GCDiscoveryTableViewTypeHot:
         {
-            [GCNetworkManager getGuideHotSuccessWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
+            [GCNetworkManager getGuideHotWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
                 successBlock(htmlData);
             } failure:^(NSError *error) {
                 failureBlock();
@@ -75,7 +75,7 @@
             
         case GCDiscoveryTableViewTypeNew:
         {
-            [GCNetworkManager getGuideNewSuccessWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
+            [GCNetworkManager getGuideNewWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
                 successBlock(htmlData);
             } failure:^(NSError *error) {
                 failureBlock();
@@ -85,7 +85,7 @@
             
         case GCDiscoveryTableViewTypeSofa:
         {
-            [GCNetworkManager getGuideSofaSuccessWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
+            [GCNetworkManager getGuideSofaWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
                 successBlock(htmlData);
             } failure:^(NSError *error) {
                 failureBlock();
@@ -95,7 +95,7 @@
             
         case GCDiscoveryTableViewTypeDigest:
         {
-            [GCNetworkManager getGuideDigestSuccessWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
+            [GCNetworkManager getGuideDigestWithPageIndex:self.pageIndex success:^(NSData *htmlData) {
                 successBlock(htmlData);
             } failure:^(NSError *error) {
                 failureBlock();
