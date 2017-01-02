@@ -50,20 +50,21 @@
     [self UMengAnalytics];
     //友盟分享
     [self UMengSocial];
-
+    
     [self configureIQKeyboardManager];
     [self configureForumDictionary];
     [self configureSVProgressHUD];
     [self configureTabBarController];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
-
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
     if (kIsFree) {
+        [self setupADInterstitialTime];
         self.adInterstitial = [[GCAdInterstitial alloc] init];
     }
     
@@ -75,7 +76,7 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -83,11 +84,18 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    
+    if (kIsFree) {
+        NSDate *date = [Util getNSDateWithDateString:[NSUD stringForKey:kGCToday] format:@"yyyy-MM-dd HH:mm:ss"];
+        NSTimeInterval timeInterVal = -[date timeIntervalSinceDate:[Util getDate]];
+        if (timeInterVal > kAdMobEnterForegroundTimeInterval) {
+            [self setupADInterstitialTime];
+            [self.adInterstitial presentFromRootViewController];
+        }
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-
+    
 }
 
 - (BOOL)application:(UIApplication *)application
@@ -189,6 +197,11 @@
         [NSUD synchronize];
         return YES;
     }
+}
+
+- (void)setupADInterstitialTime {
+    [NSUD setObject:[Util getDateStringWithNSDate:[Util getDate] format:@"yyyy-MM-dd HH:mm:ss"] forKey:kGCToday];
+    [NSUD synchronize];
 }
 
 #pragma mark - MagicalRecord

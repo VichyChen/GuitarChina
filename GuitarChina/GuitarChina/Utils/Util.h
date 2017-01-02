@@ -36,6 +36,8 @@
 
 #pragma mark - Date
 
++ (NSDate *)getDate;
+
 //时间戳转NSDate
 + (NSDate *)getNSDateWithTimeStamp:(NSString *)stamp;
 

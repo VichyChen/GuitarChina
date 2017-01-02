@@ -50,6 +50,7 @@
 
 //NSUserDefault
 #define kGCFirstStart @"GCFirstStart"
+#define kGCToday @"GCToday"
 #define kGCLogin @"GCLogin"
 #define kGCLoginID @"GCLoginID"
 #define kGCLoginName @"GCLoginName"
@@ -89,6 +90,8 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kAdMobIDDiscovery @"ca-app-pub-3940256099942544/2934735716"
 //进入前台全屏
 #define kAdMobIDEnterForeground @"ca-app-pub-3940256099942544/4411468910"
+//进入前台展示广告间隔
+#define kAdMobEnterForegroundTimeInterval 10
 
 //Release
 #else

@@ -66,6 +66,14 @@
 
 #pragma mark - Date
 
++ (NSDate *)getDate {
+    NSDate *date = [NSDate date];
+    NSTimeZone *zone = [NSTimeZone systemTimeZone];
+    NSInteger interval = [zone secondsFromGMTForDate:date];
+    NSDate *localDate = [date dateByAddingTimeInterval:interval];
+    return localDate;
+}
+
 + (NSDate *)getNSDateWithTimeStamp:(NSString *)stamp {
     NSTimeInterval time = [stamp doubleValue];
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:time];
@@ -78,6 +86,7 @@
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:time];
     
     NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
     [dateFormat setDateFormat:format];
     NSString *dateString = [dateFormat stringFromDate:date];
     
@@ -86,6 +95,7 @@
 
 + (NSString *)getDateStringWithNSDate:(NSDate *)date format:(NSString *)format {
     NSDateFormatter* dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
     [dateFormat setDateFormat:format];
     NSString *dateString = [dateFormat stringFromDate:date];
     
@@ -94,6 +104,7 @@
 
 + (NSDate *)getNSDateWithDateString:(NSString *)dateString format:(NSString *)format {
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"UTC"]];
     [dateFormat setDateFormat:format];
     NSDate *date = [dateFormat dateFromString:dateString];
     

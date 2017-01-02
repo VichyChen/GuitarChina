@@ -85,9 +85,9 @@
     
     [self.view addSubview:self.segmentedControl];
     [self.view addSubview:self.scrollView];
-    if (kIsFree) {
-        [self.view addSubview:self.bannner];
-    }
+//    if (kIsFree) {
+//        [self.view addSubview:self.bannner];
+//    }
     
     GCDiscoveryTableViewController *hot = [[GCDiscoveryTableViewController alloc] init];
     hot.discoveryTableViewType = GCDiscoveryTableViewTypeHot;
