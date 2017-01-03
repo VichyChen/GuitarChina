@@ -104,16 +104,10 @@
         };
         [self.tableViewKit configureTableView:_tableView];
         
-        _tableView.header = ({
-            @weakify(self);
-            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-                @strongify(self);
-                [self getMyFavThread];
-            }];
-            header.lastUpdatedTimeLabel.hidden = YES;
-            header.stateLabel.hidden = YES;
-            header;
-        });
+        _tableView.headerRefreshing = ^{
+            @strongify(self);
+            [self getMyFavThread];
+        };
     }
     return _tableView;
 }

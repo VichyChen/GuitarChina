@@ -120,15 +120,13 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStyleGrouped];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor whiteColor];
-        _tableView.header = ({
-            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getForumIndex)];
-            header.lastUpdatedTimeLabel.hidden = YES;
-            header.stateLabel.hidden = YES;
-            header;
-        });
+        @weakify(self);
+        _tableView.headerRefreshing = ^{
+            @strongify(self);
+            [self getForumIndex];
+        };
 
         self.tableViewKit = [[GCTableViewKit alloc] initWithSystem];
-        @weakify(self);
         self.tableViewKit.numberOfSectionsInTableViewBlock = ^{
             @strongify(self);
             return (NSInteger)self.data.count;

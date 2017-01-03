@@ -170,12 +170,11 @@
         _webView.scrollView.delegate = self;
         _webView.scrollView.showsHorizontalScrollIndicator = NO;
         _webView.scrollView.contentSize = CGSizeMake(ScreenWidth, ScreenHeight);
-        _webView.scrollView.header = ({
-            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(beginRefresh)];
-            header.lastUpdatedTimeLabel.hidden = YES;
-            header.stateLabel.hidden = YES;
-            header;
-        });
+        @weakify(self);
+        _webView.scrollView.headerRefreshing = ^{
+            @strongify(self);
+            [self beginRefresh];
+        };
     }
     return _webView;
 }

@@ -152,15 +152,11 @@
         };
         [self.tableViewKit configureTableView:_tableView];
         
-        _tableView.header = ({
-            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-                self.pageIndex = 1;
-                [self getDiscovery];
-            }];
-            header.lastUpdatedTimeLabel.hidden = YES;
-            header.stateLabel.hidden = YES;
-            header;
-        });
+        _tableView.headerRefreshing = ^{
+            @strongify(self);
+            self.pageIndex = 1;
+            [self getDiscovery];
+        };
     }
     return _tableView;
 }

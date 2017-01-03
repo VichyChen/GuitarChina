@@ -197,29 +197,16 @@
         };
         [self.tableViewKit configureTableView:_tableView];
         
-        _tableView.header = ({
-            @weakify(self);
-            MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-                @strongify(self);
-                self.pageIndex = 1;
-                [self getForumDisplay];
-            }];
-            header.lastUpdatedTimeLabel.hidden = YES;
-            header.stateLabel.hidden = YES;
-            header;
-        });
-        _tableView.footer = ({
-            @weakify(self);
-            MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-                @strongify(self);
-                self.pageIndex++;
-                [self getForumDisplay];
-            }];
-            footer.automaticallyRefresh = YES;
-            footer.refreshingTitleHidden = YES;
-            [footer setTitle:NSLocalizedString(@"Load More", nil) forState:MJRefreshStateIdle];
-            footer;
-        });
+        _tableView.headerRefreshing = ^{
+            @strongify(self);
+            self.pageIndex = 1;
+            [self getForumDisplay];
+        };
+        _tableView.footerRefreshing = ^{
+            @strongify(self);
+            self.pageIndex++;
+            [self getForumDisplay];
+        };
     }
     return _tableView;
 }

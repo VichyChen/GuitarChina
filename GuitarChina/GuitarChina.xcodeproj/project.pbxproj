@@ -29,6 +29,7 @@
 		046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */; };
 		046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */; };
 		0463E6FC1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */; };
+		0464A93C1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0464A93B1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m */; };
 		046DB76B1BFC6F9700E05E17 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB7661BFC6F9700E05E17 /* TFHpple.m */; };
 		046DB76C1BFC6F9700E05E17 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB7681BFC6F9700E05E17 /* TFHppleElement.m */; };
 		046DB76D1BFC6F9700E05E17 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB76A1BFC6F9700E05E17 /* XPathQuery.m */; };
@@ -240,6 +241,8 @@
 		046262421BAAC06800E66F03 /* UIView+UICreateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UICreateFactory.h"; sourceTree = "<group>"; };
 		046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UICreateFactory.m"; sourceTree = "<group>"; };
 		0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewTableHtml.html; sourceTree = "<group>"; };
+		0464A93A1E1B4F3B00B9E1C9 /* UIScrollView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extension.h"; sourceTree = "<group>"; };
+		0464A93B1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extension.m"; sourceTree = "<group>"; };
 		046DB7651BFC6F9700E05E17 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
 		046DB7661BFC6F9700E05E17 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
 		046DB7671BFC6F9700E05E17 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
@@ -816,6 +819,8 @@
 				049085131E03EE8000CF5C1C /* GCTableViewKit.m */,
 				049085101E03EE8000CF5C1C /* UITableViewCell+Extension.h */,
 				049085111E03EE8000CF5C1C /* UITableViewCell+Extension.m */,
+				0464A93A1E1B4F3B00B9E1C9 /* UIScrollView+Extension.h */,
+				0464A93B1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m */,
 			);
 			path = GCTableViewDataDelegate;
 			sourceTree = "<group>";
@@ -1891,6 +1896,7 @@
 				04D3506C1E1634A700047725 /* GCProfileViewController.m in Sources */,
 				04C0D4EC1DD41A2A007A5113 /* ZLCameraImageView.m in Sources */,
 				04C0D4ED1DD41A2A007A5113 /* ZLCameraView.m in Sources */,
+				0464A93C1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m in Sources */,
 				04C0D4E81DD41A2A007A5113 /* UIView+ZLExtension.m in Sources */,
 				423889051BC57D0F002E1625 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
 				421192FA1CE861AF00BCFF3E /* GCBaseNoticeModel.m in Sources */,

@@ -71,6 +71,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     [super viewDidAppear:animated];
     
     self.navigationItem.hidesBackButton = YES;
+    [self.searchTextField becomeFirstResponder];
 }
 
 - (void)dealloc {
@@ -134,13 +135,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     self.searchBlock = ^{
         @strongify(self);
         if (self.pageIndex == 1) {
-            self.searchTableView.header = ({
-                MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-                }];
-                header.lastUpdatedTimeLabel.hidden = YES;
-                header.stateLabel.hidden = YES;
-                header;
-            });
+            self.searchTableView.headerRefreshing = ^{};
             self.searchTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
             self.searchTableView.footer = nil;
             
@@ -183,17 +178,11 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             [self.searchTableView reloadData];
             
             if (searchArray.datas.count == 50) {
-                self.searchTableView.footer = ({
-                    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-                        @strongify(self);
-                        self.pageIndex++;
-                        self.searchBlock();
-                    }];
-                    footer.automaticallyRefresh = NO;
-                    footer.refreshingTitleHidden = YES;
-                    [footer setTitle:NSLocalizedString(@"Load More", nil) forState:MJRefreshStateIdle];
-                    footer;
-                });
+                self.searchTableView.footerRefreshing = ^{
+                    @strongify(self);
+                    self.pageIndex++;
+                    self.searchBlock();
+                };
             }
             else {
                 self.searchTableView.footer = nil;

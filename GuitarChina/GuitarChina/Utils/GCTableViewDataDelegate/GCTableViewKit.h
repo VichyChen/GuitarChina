@@ -6,6 +6,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "UITableViewCell+Extension.h"
+#import "UIScrollView+Extension.h"
 
 typedef NS_ENUM(NSInteger, ConfigureStyle) {
     ConfigureStyleSystem,
