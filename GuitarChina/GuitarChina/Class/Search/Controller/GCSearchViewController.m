@@ -40,6 +40,13 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 
 @implementation GCSearchViewController
 
+- (instancetype)init {
+    if (self = [super init]) {
+        self.hidesBottomBarWhenPushed = YES;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -48,10 +55,22 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     [self configureBlock];
     
     self.historyBlock();
+
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.05 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//        [self.searchTextField becomeFirstResponder];
+//    });
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.05 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [self.searchTextField becomeFirstResponder];
-    });
+    self.navigationItem.hidesBackButton = YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)dealloc {
@@ -69,7 +88,9 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     [closeButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:16], NSFontAttributeName, nil] forState:UIControlStateNormal];
 
     self.navigationItem.rightBarButtonItems = @[flexSpaceButton, closeButton];
-    
+    self.navigationItem.hidesBackButton = YES;
+    self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+
     UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 28, 28)];
     UIImageView *leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(6, 6, 16, 16)];
     leftImageView.image = [[UIImage imageNamed:@"icon_search"] imageWithTintColor:[GCColor grayColor2]];
@@ -240,9 +261,10 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 
 - (void)closeAction {
     [self.searchTextField endEditing:YES];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.25 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-        [self dismissViewControllerAnimated:YES completion:nil];
-    });
+    [self.navigationController popViewControllerAnimated:NO];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.25 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    });
 }
 
 - (void)searchTextFieldValueChange:(UITextField *)TextField {
@@ -286,8 +308,13 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         [footerView addSubview:button];
         _historyTableView.tableFooterView = footerView;
         
-        self.historyTableViewKit = [[GCTableViewKit alloc] initWithSystem];
         @weakify(self);
+        [_historyTableView bk_whenTapped:^{
+            @strongify(self);
+            [self.searchTextField endEditing:YES];
+        }];
+        
+        self.historyTableViewKit = [[GCTableViewKit alloc] initWithSystem];
         self.historyTableViewKit.numberOfRowsInSectionBlock = ^(NSInteger section) {
             return (NSInteger)1;
         };
@@ -298,6 +325,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             [cell configure:self.historyArray];
             cell.didSelectButtonBlock = ^(NSInteger index){
                 @strongify(self);
+                [self.searchTextField endEditing:YES];
                 self.searchTextField.text = self.historyArray[index];
                 [self showView:GCSearchViewTypeSearch];
                 [self search:self.historyArray[indexPath.row]];

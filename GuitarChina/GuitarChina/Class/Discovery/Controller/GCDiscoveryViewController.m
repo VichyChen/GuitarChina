@@ -65,10 +65,7 @@
 
 - (void)searchAction {
     GCSearchViewController *controller = [[GCSearchViewController alloc] init];
-    GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:controller];
-    [self presentViewController:navigationController animated:NO completion:^{
-        
-    }];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - Private Methods
