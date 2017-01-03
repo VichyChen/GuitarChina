@@ -94,6 +94,9 @@
         if (timeInterVal > kAdMobEnterForegroundTimeInterval) {
             [self setupADInterstitialTime];
             [self.adInterstitial presentFromRootViewController];
+            
+            [self.adCenterBannerView showAfterSecond:kAdMobCenterBannerViewFirstTime];
+            [self.adCenterBannerView showAfterSecond:kAdMobCenterBannerViewSecondTime];
         }
     }
 }
