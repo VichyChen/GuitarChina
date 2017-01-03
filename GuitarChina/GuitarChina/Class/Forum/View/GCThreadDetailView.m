@@ -7,7 +7,6 @@
 //
 
 #import "GCThreadDetailView.h"
-#import "MJRefresh.h"
 
 @interface GCThreadDetailView ()  <UIPickerViewDataSource, UIPickerViewDelegate, UIScrollViewDelegate>
 
@@ -55,19 +54,19 @@
 #pragma mark - Public Methods
 
 - (void)webViewStartRefresh {
-    [self.webView.scrollView.header beginRefreshing];
+    [self.webView.scrollView headerBeginRefresh];
 }
 
 - (void)webViewStartFetchMore {
-    [self.webView.scrollView.header beginRefreshing];
+    [self.webView.scrollView headerBeginRefresh];
 }
 
 - (void)webViewEndRefresh {
-    [self.webView.scrollView.header endRefreshing];
+    [self.webView.scrollView headerEndRefresh];
 }
 
 - (void)webViewEndFetchMore {
-    [self.webView.scrollView.footer endRefreshing];
+    [self.webView.scrollView footerEndRefresh];
 }
 
 #pragma mark - Private Methods
@@ -171,7 +170,7 @@
         _webView.scrollView.showsHorizontalScrollIndicator = NO;
         _webView.scrollView.contentSize = CGSizeMake(ScreenWidth, ScreenHeight);
         @weakify(self);
-        _webView.scrollView.headerRefreshing = ^{
+        _webView.scrollView.headerRefreshBlock = ^{
             @strongify(self);
             [self beginRefresh];
         };

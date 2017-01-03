@@ -11,17 +11,17 @@
 
 @implementation UIScrollView (Extension)
 
-- (void(^)(void))headerRefreshing {
-    return objc_getAssociatedObject(self, @selector(headerRefreshing));
+- (void(^)(void))headerRefreshBlock {
+    return objc_getAssociatedObject(self, @selector(headerRefreshBlock));
 }
 
-- (void)setHeaderRefreshing:(void (^)(void))headerRefreshing {
-    objc_setAssociatedObject(self, @selector(headerRefreshing), headerRefreshing, OBJC_ASSOCIATION_COPY_NONATOMIC);
+- (void)setHeaderRefreshBlock:(void (^)(void))headerRefreshBlock {
+    objc_setAssociatedObject(self, @selector(headerRefreshBlock), headerRefreshBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
     
-    if (headerRefreshing) {
+    if (headerRefreshBlock) {
         self.header = ({
             MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-                headerRefreshing();
+                headerRefreshBlock();
             }];
             header.lastUpdatedTimeLabel.hidden = YES;
             header.stateLabel.hidden = YES;
@@ -32,17 +32,17 @@
     }
 }
 
-- (void(^)(void))footerRefreshing {
-    return objc_getAssociatedObject(self, @selector(footerRefreshing));
+- (void(^)(void))footerRefreshBlock {
+    return objc_getAssociatedObject(self, @selector(footerRefreshBlock));
 }
 
-- (void)setFooterRefreshing:(void (^)(void))footerRefreshing {
-    objc_setAssociatedObject(self, @selector(footerRefreshing), footerRefreshing, OBJC_ASSOCIATION_COPY_NONATOMIC);
+- (void)setFooterRefreshBlock:(void (^)(void))footerRefreshBlock {
+    objc_setAssociatedObject(self, @selector(footerRefreshBlock), footerRefreshBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
     
-    if (footerRefreshing) {
+    if (footerRefreshBlock) {
         self.footer = ({
             MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-                footerRefreshing();
+                footerRefreshBlock();
             }];
             footer.automaticallyRefresh = YES;
             footer.refreshingTitleHidden = YES;
@@ -52,6 +52,22 @@
     } else {
         self.footer = nil;
     }
+}
+
+- (void)headerBeginRefresh {
+    [self.header beginRefreshing];
+}
+
+- (void)headerEndRefresh {
+    [self.header endRefreshing];
+}
+
+- (void)footerBeginRefresh {
+    [self.footer beginRefreshing];
+}
+
+- (void)footerEndRefresh {
+    [self.footer endRefreshing];
 }
 
 @end

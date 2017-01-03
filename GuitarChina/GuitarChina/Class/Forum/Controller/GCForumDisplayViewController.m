@@ -12,7 +12,6 @@
 #import "GCThreadDetailViewController.h"
 #import "GCNavigationController.h"
 #import "GCLoginViewController.h"
-#import "MJRefresh.h"
 #import <CoreText/CoreText.h>
 
 @interface GCForumDisplayViewController ()
@@ -55,7 +54,7 @@
     [self configureView];
     [self configureNotification];
     
-    [self.tableView.header beginRefreshing];
+    [self.tableView headerBeginRefresh];
 }
 
 - (void)dealloc {
@@ -79,7 +78,7 @@
 - (void)refreshAction {
     self.loaded = false;
     APP.tabBarController.selectedIndex = 1;
-    [self.tableView.header beginRefreshing];
+    [self.tableView headerBeginRefresh];
 }
 
 - (void)newThreadAction {
@@ -123,19 +122,19 @@
             for (GCForumThreadModel *model in self.data) {
                 [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCForumDisplayCell getCellHeightWithModel:model]]];
             }
-            [self.tableView.header endRefreshing];
+            [self.tableView headerEndRefresh];
         } else {
             for (GCForumThreadModel *model in array.data) {
                 [self.data addObject:model];
                 [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCForumDisplayCell getCellHeightWithModel:model]]];
             }
-            [self.tableView.footer endRefreshing];
+            [self.tableView footerEndRefresh];
         }
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         @strongify(self);
-        [self.tableView.header endRefreshing];
-        [self.tableView.footer endRefreshing];
+        [self.tableView headerEndRefresh];
+        [self.tableView footerEndRefresh];
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
     }];
 }
@@ -197,12 +196,12 @@
         };
         [self.tableViewKit configureTableView:_tableView];
         
-        _tableView.headerRefreshing = ^{
+        _tableView.headerRefreshBlock = ^{
             @strongify(self);
             self.pageIndex = 1;
             [self getForumDisplay];
         };
-        _tableView.footerRefreshing = ^{
+        _tableView.footerRefreshBlock = ^{
             @strongify(self);
             self.pageIndex++;
             [self getForumDisplay];

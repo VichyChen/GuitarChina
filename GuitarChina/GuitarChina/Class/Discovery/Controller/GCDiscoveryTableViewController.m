@@ -10,7 +10,6 @@
 #import "GCDiscoveryCell.h"
 #import "GCGuideThreadModel.h"
 #import "GCThreadDetailViewController.h"
-#import "MJRefresh.h"
 #import "GCHTMLParse.h"
 #import "GCForumDisplayViewController.h"
 #import "GCSearchViewController.h"
@@ -33,7 +32,7 @@
     
     [self configureView];
     
-    [self.tableView.header beginRefreshing];
+    [self.tableView headerBeginRefresh];
 }
 
 #pragma mark - Private Methods
@@ -55,11 +54,11 @@
             [self.rowHeightArray addObject: [NSNumber numberWithFloat:[GCDiscoveryCell getCellHeightWithModel:model]]];
         }
         [self.tableView reloadData];
-        [self.tableView.header endRefreshing];
+        [self.tableView headerEndRefresh];
     };
     void (^failureBlock)() = ^{
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
-        [self.tableView.header endRefreshing];
+        [self.tableView headerEndRefresh];
     };
     
     switch (self.discoveryTableViewType) {
@@ -152,7 +151,7 @@
         };
         [self.tableViewKit configureTableView:_tableView];
         
-        _tableView.headerRefreshing = ^{
+        _tableView.headerRefreshBlock = ^{
             @strongify(self);
             self.pageIndex = 1;
             [self getDiscovery];

@@ -10,7 +10,6 @@
 #import "GCForumIndexCell.h"
 #import "GCThreadDetailViewController.h"
 #import "GCMyFavThreadCell.h"
-#import "MJRefresh.h"
 
 @interface GCMyFavThreadViewController ()
 
@@ -37,7 +36,7 @@
     self.title = NSLocalizedString(@"My Favour", nil);
     [self configureView];
     
-    [self.tableView.header beginRefreshing];
+    [self.tableView headerBeginRefresh];
 }
 
 #pragma mark - Private Methods
@@ -58,10 +57,10 @@
             [self.rowHeightArray addObject:[NSNumber numberWithFloat:[GCMyFavThreadCell getCellHeightWithModel:model]]];
         }
         [self.tableView reloadData];
-        [self.tableView.header endRefreshing];
+        [self.tableView headerEndRefresh];
     } failure:^(NSError *error) {
         @strongify(self);
-        [self.tableView.header endRefreshing];
+        [self.tableView headerEndRefresh];
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
     }];
 }
@@ -104,7 +103,7 @@
         };
         [self.tableViewKit configureTableView:_tableView];
         
-        _tableView.headerRefreshing = ^{
+        _tableView.headerRefreshBlock = ^{
             @strongify(self);
             [self getMyFavThread];
         };

@@ -9,7 +9,6 @@
 #import "GCForumIndexViewController.h"
 #import "GCForumDisplayViewController.h"
 #import "GCForumIndexCell.h"
-#import "MJRefresh.h"
 
 @interface GCForumIndexViewController ()
 
@@ -44,7 +43,7 @@
         [self.tableView reloadData];
     }];
 
-    [self.tableView.header beginRefreshing];
+    [self.tableView headerBeginRefresh];
 }
 
 #pragma mark - Private Methods
@@ -106,9 +105,9 @@
         [self calculateRowHeight];
         
         [self.tableView reloadData];
-        [self.tableView.header endRefreshing];
+        [self.tableView headerEndRefresh];
     } failure:^(NSError *error) {
-        [self.tableView.header endRefreshing];
+        [self.tableView headerEndRefresh];
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
     }];
 }
@@ -121,7 +120,7 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor whiteColor];
         @weakify(self);
-        _tableView.headerRefreshing = ^{
+        _tableView.headerRefreshBlock = ^{
             @strongify(self);
             [self getForumIndex];
         };

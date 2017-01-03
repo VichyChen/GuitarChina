@@ -10,8 +10,13 @@
 
 @interface UIScrollView (Extension)
 
-@property (nonatomic, copy) void(^headerRefreshing)(void);
+@property (nonatomic, copy) void(^headerRefreshBlock)(void);
 
-@property (nonatomic, copy) void(^footerRefreshing)(void);
+@property (nonatomic, copy) void(^footerRefreshBlock)(void);
+
+- (void)headerBeginRefresh;
+- (void)headerEndRefresh;
+- (void)footerBeginRefresh;
+- (void)footerEndRefresh;
 
 @end

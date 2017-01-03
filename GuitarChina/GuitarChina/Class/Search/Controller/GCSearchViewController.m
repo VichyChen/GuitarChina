@@ -10,7 +10,6 @@
 #import "GCThreadDetailViewController.h"
 #import "GCSearchCell.h"
 #import "GCHistoryCell.h"
-#import "MJRefresh.h"
 #import "GCSearchModel.h"
 
 typedef NS_ENUM(NSInteger, GCSearchViewType) {
@@ -135,25 +134,25 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     self.searchBlock = ^{
         @strongify(self);
         if (self.pageIndex == 1) {
-            self.searchTableView.headerRefreshing = ^{};
+            self.searchTableView.headerRefreshBlock = ^{};
             self.searchTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-            self.searchTableView.footer = nil;
+            self.searchTableView.footerRefreshBlock = nil;
             
             self.searchArray = [NSMutableArray array];
             [self.searchTableView reloadData];
-            [self.searchTableView.header beginRefreshing];
+            [self.searchTableView headerBeginRefresh];
         }
         [GCNetworkManager getSearchWithKeyWord:self.searchTextField.text pageIndex:self.pageIndex Success:^(NSData *htmlData) {
             @strongify(self);
             NSString *checkString = [GCHTMLParse parseSearchOvertime:htmlData];
             if (checkString.length > 0) {
-                [self.searchTableView.header endRefreshing];
+                [self.searchTableView headerEndRefresh];
                 [SVProgressHUD showErrorWithStatus:checkString];
                 return;
             }
             GCSearchArray *searchArray = [GCHTMLParse parseSearch:htmlData];
             if (self.pageIndex == 1 && searchArray.datas.count == 0) {
-                [self.searchTableView.header endRefreshing];
+                [self.searchTableView headerEndRefresh];
                 [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"对不起，没有找到匹配结果。", nil)];
                 return;
             }
@@ -165,8 +164,8 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
                     [self.searchRowHeightArray addObject:[NSNumber numberWithFloat:[GCSearchCell getCellHeightWithModel:model]]];
                 }
                 
-                [self.searchTableView.header endRefreshing];
-                self.searchTableView.header = nil;
+                [self.searchTableView headerEndRefresh];
+                self.searchTableView.headerRefreshBlock = nil;
             }
             else {
                 for (int i = 0; i < searchArray.datas.count; i++) {
@@ -178,14 +177,14 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             [self.searchTableView reloadData];
             
             if (searchArray.datas.count == 50) {
-                self.searchTableView.footerRefreshing = ^{
+                self.searchTableView.footerRefreshBlock = ^{
                     @strongify(self);
                     self.pageIndex++;
                     self.searchBlock();
                 };
             }
             else {
-                self.searchTableView.footer = nil;
+                self.searchTableView.footerRefreshBlock = nil;
             }
             
         } failure:^(NSError *error) {
