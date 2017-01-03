@@ -86,10 +86,13 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kUmengAppKey @"56d7ec72e0f55a701a000937"
 
 //AdMob
-//首页底部栏
-#define kAdMobIDDiscovery @"ca-app-pub-3940256099942544/2934735716"
+//帖子详情底部
+#define kAdMobIDDetailBottom @"ca-app-pub-3940256099942544/2934735716"
 //进入前台全屏
 #define kAdMobIDEnterForeground @"ca-app-pub-3940256099942544/4411468910"
+//中间弹框
+#define kAdMobIDCenter @"ca-app-pub-3940256099942544/2934735716"
+
 //进入前台展示广告间隔
 #define kAdMobEnterForegroundTimeInterval 10
 //中间弹广告时间
@@ -103,10 +106,13 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kUmengAppKey @"56d7ecd4e0f55a7090001026"
 
 //AdMob
-//首页底部栏
-#define kAdMobIDDiscovery @"ca-app-pub-3276115365350448/6981479019"
+//帖子详情底部
+#define kAdMobIDDetailBottom @"ca-app-pub-3276115365350448/6981479019"
 //进入前台全屏
 #define kAdMobIDEnterForeground @"ca-app-pub-3276115365350448/5129642617"
+//中间弹框
+#define kAdMobIDCenter @"ca-app-pub-3276115365350448/3458629418"
+
 //进入前台展示广告间隔
 #define kAdMobEnterForegroundTimeInterval 120
 //中间弹广告时间

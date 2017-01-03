@@ -20,7 +20,6 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-//        _interstitial = [self createAndLoadInterstitial];
         [self createAndLoadInterstitial];
     }
     return self;
@@ -37,14 +36,6 @@
         [self.interstitial presentFromRootViewController:APP.window.rootViewController];
     }
 }
-
-//- (GADInterstitial *)createAndLoadInterstitial {
-//    GADInterstitial *interstitial = [[GADInterstitial alloc] initWithAdUnitID:kAdMobIDEnterForeground];
-//    interstitial.delegate = self;
-//    [interstitial loadRequest:[GADRequest request]];
-//    
-//    return interstitial;
-//}
 
 - (void)createAndLoadInterstitial {
     self.interstitial = [[GADInterstitial alloc] initWithAdUnitID:kAdMobIDEnterForeground];
@@ -74,7 +65,6 @@
 }
 
 - (void)interstitialDidDismissScreen:(GADInterstitial *)ad {
-//    self.interstitial = [self createAndLoadInterstitial];
     [self createAndLoadInterstitial];
     if (self.dismissScreenBlock) {
         self.dismissScreenBlock();

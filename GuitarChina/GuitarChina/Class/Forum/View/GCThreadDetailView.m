@@ -73,9 +73,12 @@
 
 - (void)configureView {
     [self addSubview:self.webView];
-//    if (kIsFree) {
-//        [self addSubview:self.bannner];
-//    }
+    if (kIsFree) {
+        int random = arc4random() % 100;
+        if (random < 33.333) {
+            [self addSubview:self.bannner];
+        }
+    }
     [self addSubview:self.pickerContentView];
     [self addSubview:self.toolBarView];
 }

@@ -291,9 +291,9 @@
             success(model);
             if (self.threadDetailView.toolBarView.alpha == 0.0f) {
                 [UIView animateWithDuration:1.0 animations:^{
-//                    if (kIsFree) {
-//                        self.threadDetailView.bannner.alpha = 1.0f;
-//                    }
+                    if (kIsFree) {
+                        self.threadDetailView.bannner.alpha = 1.0f;
+                    }
                     self.threadDetailView.toolBarView.alpha = 1.0f;
                 }];
             }

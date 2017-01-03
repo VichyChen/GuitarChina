@@ -28,7 +28,7 @@
 
 - (void)configureView:(UIViewController *)viewController {
     GADBannerView *bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
-    bannerView.adUnitID = kAdMobIDDiscovery;
+    bannerView.adUnitID = kAdMobIDDetailBottom;
     bannerView.rootViewController = viewController;
     [bannerView loadRequest:[GADRequest request]];
     [self addSubview:bannerView];

@@ -31,7 +31,7 @@
         [self.bannerView removeFromSuperview];
     }
     self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeMediumRectangle];
-    self.bannerView.adUnitID = kAdMobIDDiscovery;
+    self.bannerView.adUnitID = kAdMobIDCenter;
     self.bannerView.rootViewController = APP.window.rootViewController;
     [self.bannerView loadRequest:[GADRequest request]];
     [self insertSubview:self.bannerView atIndex:0];
