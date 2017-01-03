@@ -92,6 +92,9 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kAdMobIDEnterForeground @"ca-app-pub-3940256099942544/4411468910"
 //进入前台展示广告间隔
 #define kAdMobEnterForegroundTimeInterval 10
+//中间弹广告时间
+#define kAdMobCenterBannerViewFirstTime 10
+#define kAdMobCenterBannerViewSecondTime 20
 
 //Release
 #else
@@ -104,6 +107,11 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kAdMobIDDiscovery @"ca-app-pub-3276115365350448/6981479019"
 //进入前台全屏
 #define kAdMobIDEnterForeground @"ca-app-pub-3276115365350448/5129642617"
+//进入前台展示广告间隔
+#define kAdMobEnterForegroundTimeInterval 120
+//中间弹广告时间
+#define kAdMobCenterBannerViewFirstTime 45
+#define kAdMobCenterBannerViewSecondTime 120
 
 #define NSLog(...)
 

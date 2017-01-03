@@ -44,7 +44,7 @@
     self.frame = self.bannerView.bounds;
     self.center = APP.window.center;
     self.bannerView.frame = self.bounds;
-    self.closeButton.frame = CGRectMake(self.frame.size.width - 40, 0, 40, 30);
+    self.closeButton.frame = CGRectMake(self.frame.size.width - 40, self.frame.size.height - 30, 40, 30);
     [APP.window addSubview:self];
 }
 
