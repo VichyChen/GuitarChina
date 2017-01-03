@@ -66,6 +66,10 @@
     if (kIsFree) {
         [self setupADInterstitialTime];
         self.adInterstitial = [[GCAdInterstitial alloc] init];
+
+        self.adCenterBannerView = [[GCAdCenterBannerView alloc] init];
+        [self.adCenterBannerView showAfterSecond:45];
+        [self.adCenterBannerView showAfterSecond:150];
     }
     
     return YES;

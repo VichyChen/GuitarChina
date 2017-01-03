@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "GCTabBarController.h"
 #import "GCAdInterstitial.h"
+#import "GCAdCenterBannerView.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -19,6 +20,7 @@
 
 @property (nonatomic, strong) NSDictionary *forumDictionary;
 
+@property (nonatomic, strong) GCAdCenterBannerView *adCenterBannerView;
 @property (nonatomic, strong) GCAdInterstitial *adInterstitial;
 
 - (void)saveContext;

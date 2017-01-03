@@ -30,6 +30,7 @@
 		046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */; };
 		0463E6FC1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */; };
 		0464A93C1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0464A93B1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m */; };
+		0464A93F1E1B771E00B9E1C9 /* GCAdCenterBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0464A93E1E1B771E00B9E1C9 /* GCAdCenterBannerView.m */; };
 		046DB76B1BFC6F9700E05E17 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB7661BFC6F9700E05E17 /* TFHpple.m */; };
 		046DB76C1BFC6F9700E05E17 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB7681BFC6F9700E05E17 /* TFHppleElement.m */; };
 		046DB76D1BFC6F9700E05E17 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB76A1BFC6F9700E05E17 /* XPathQuery.m */; };
@@ -243,6 +244,8 @@
 		0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewTableHtml.html; sourceTree = "<group>"; };
 		0464A93A1E1B4F3B00B9E1C9 /* UIScrollView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extension.h"; sourceTree = "<group>"; };
 		0464A93B1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extension.m"; sourceTree = "<group>"; };
+		0464A93D1E1B771E00B9E1C9 /* GCAdCenterBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAdCenterBannerView.h; sourceTree = "<group>"; };
+		0464A93E1E1B771E00B9E1C9 /* GCAdCenterBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAdCenterBannerView.m; sourceTree = "<group>"; };
 		046DB7651BFC6F9700E05E17 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
 		046DB7661BFC6F9700E05E17 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
 		046DB7671BFC6F9700E05E17 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
@@ -637,6 +640,8 @@
 			children = (
 				04D350671E13ACE900047725 /* GCAdBannerView.h */,
 				04D350681E13ACE900047725 /* GCAdBannerView.m */,
+				0464A93D1E1B771E00B9E1C9 /* GCAdCenterBannerView.h */,
+				0464A93E1E1B771E00B9E1C9 /* GCAdCenterBannerView.m */,
 				04D350641E1273F500047725 /* GCAdInterstitial.h */,
 				04D350651E1273F500047725 /* GCAdInterstitial.m */,
 			);
@@ -1891,6 +1896,7 @@
 				423888A21BC57CA6002E1625 /* MJRefreshBackNormalFooter.m in Sources */,
 				04C0D4F21DD41A2A007A5113 /* ZLPhotoPickerBrowserViewController.m in Sources */,
 				0479424E1DA0076900E810DF /* GCForumIndexCollectionViewCell.m in Sources */,
+				0464A93F1E1B771E00B9E1C9 /* GCAdCenterBannerView.m in Sources */,
 				423888F11BC57D0F002E1625 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
 				049085151E03EE8000CF5C1C /* GCTableViewKit.m in Sources */,
 				04D3506C1E1634A700047725 /* GCProfileViewController.m in Sources */,
