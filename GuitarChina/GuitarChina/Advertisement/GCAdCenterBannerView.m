@@ -57,7 +57,7 @@
     });
 }
 
-- (void)closeAction {
+- (void)close {
     if (self.superview) {
         [self removeFromSuperview];
         [self configureBannerView];
@@ -72,7 +72,7 @@
         [_closeButton setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
         _closeButton.backgroundColor = [UIColor blackColor];
         [_closeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_closeButton addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
+        [_closeButton addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_closeButton];
     }
     return _closeButton;

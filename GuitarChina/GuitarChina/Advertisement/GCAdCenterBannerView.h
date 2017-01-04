@@ -12,5 +12,6 @@
 
 - (void)show;
 - (void)showAfterSecond:(CGFloat)second;
+- (void)close;
 
 @end

@@ -94,10 +94,10 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kAdMobIDCenter @"ca-app-pub-3940256099942544/2934735716"
 
 //进入前台展示广告间隔
-#define kAdMobEnterForegroundTimeInterval 120
+#define kAdMobEnterForegroundTimeInterval 20
 //中间弹广告时间
-#define kAdMobCenterBannerViewFirstTime 45
-#define kAdMobCenterBannerViewSecondTime 120
+#define kAdMobCenterBannerViewFirstTime 5
+#define kAdMobCenterBannerViewSecondTime 10
 
 //Release
 #else

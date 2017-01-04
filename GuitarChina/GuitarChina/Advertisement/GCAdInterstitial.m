@@ -27,12 +27,14 @@
 
 - (void)presentFromViewController:(UIViewController *)viewController {
     if ([self.interstitial isReady]) {
+        [APP.adCenterBannerView close];
         [self.interstitial presentFromRootViewController:viewController];
     }
 }
 
 - (void)presentFromRootViewController {
     if ([self.interstitial isReady]) {
+        [APP.adCenterBannerView close];
         [self.interstitial presentFromRootViewController:APP.window.rootViewController];
     }
 }
