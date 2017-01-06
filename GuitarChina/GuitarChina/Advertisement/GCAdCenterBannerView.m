@@ -9,7 +9,7 @@
 #import "GCAdCenterBannerView.h"
 #import <GoogleMobileAds/GADBannerView.h>
 
-@interface GCAdCenterBannerView()
+@interface GCAdCenterBannerView() <GADBannerViewDelegate>
 
 @property (nonatomic, strong) GADBannerView *bannerView;
 @property (nonatomic, strong) UIButton *closeButton;
@@ -22,6 +22,11 @@
     if (self = [super init]) {
         self.backgroundColor = [UIColor clearColor];
         [self configureBannerView];
+        
+        self.frame = self.bannerView.bounds;
+        self.center = APP.window.center;
+        self.bannerView.frame = self.bounds;
+        self.closeButton.frame = CGRectMake(self.frame.size.width - 40, self.frame.size.height - 30, 40, 30);
     }
     return self;
 }
@@ -31,9 +36,9 @@
         [self.bannerView removeFromSuperview];
     }
     self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeMediumRectangle];
+    self.bannerView.delegate = self;
     self.bannerView.adUnitID = kAdMobIDCenter;
     self.bannerView.rootViewController = APP.window.rootViewController;
-    [self.bannerView loadRequest:[GADRequest request]];
     [self insertSubview:self.bannerView atIndex:0];
 }
 
@@ -41,11 +46,7 @@
     if (self.superview) {
         [self removeFromSuperview];
     }
-    self.frame = self.bannerView.bounds;
-    self.center = APP.window.center;
-    self.bannerView.frame = self.bounds;
-    self.closeButton.frame = CGRectMake(self.frame.size.width - 40, self.frame.size.height - 30, 40, 30);
-    [APP.window addSubview:self];
+    [self.bannerView loadRequest:[GADRequest request]];
 }
 
 - (void)showAfterSecond:(CGFloat)second {
@@ -60,8 +61,13 @@
 - (void)close {
     if (self.superview) {
         [self removeFromSuperview];
-        [self configureBannerView];
     }
+}
+
+#pragma mark - GADBannerViewDelegate 
+
+- (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
+    [APP.window addSubview:self];
 }
 
 #pragma mark - Getters
