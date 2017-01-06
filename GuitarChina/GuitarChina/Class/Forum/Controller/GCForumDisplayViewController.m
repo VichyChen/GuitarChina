@@ -55,6 +55,8 @@
     [self configureNotification];
     
     [self.tableView headerBeginRefresh];
+    
+    [GCStatistics event:GCStatisticsEventForumDisplay extra:@{ @"forumName" : self.title}];
 }
 
 - (void)dealloc {

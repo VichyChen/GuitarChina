@@ -55,6 +55,8 @@
         }
         [self.tableView reloadData];
         [self.tableView headerEndRefresh];
+        
+        [GCStatistics event:GCStatisticsEventDiscovery extra:@{ @"index" : [NSString stringWithFormat:@"%ld", self.discoveryTableViewType]}];
     };
     void (^failureBlock)() = ^{
         [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];

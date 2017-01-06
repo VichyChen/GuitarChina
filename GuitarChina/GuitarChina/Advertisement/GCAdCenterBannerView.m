@@ -68,6 +68,22 @@
 
 - (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
     [APP.window addSubview:self];
+    [GCStatistics event:GCStatisticsEventAdMobCenterBannerShow extra:nil];
+}
+
+- (void)adViewWillPresentScreen:(GADBannerView *)bannerView {
+    
+}
+- (void)adViewWillDismissScreen:(GADBannerView *)bannerView {
+    
+}
+
+- (void)adViewDidDismissScreen:(GADBannerView *)bannerView {
+    
+}
+
+- (void)adViewWillLeaveApplication:(GADBannerView *)bannerView {
+    [GCStatistics event:GCStatisticsEventAdMobCenterBannerClick extra:nil];
 }
 
 #pragma mark - Getters

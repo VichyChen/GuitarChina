@@ -69,6 +69,16 @@
     [self.webView.scrollView footerEndRefresh];
 }
 
+- (void)showOtherView {
+    if (self.toolBarView.alpha == 0.0f) {
+        [UIView animateWithDuration:1.0 animations:^{
+            if (kIsFree && _bannner) {
+                self.bannner.alpha = 1.0f;
+            }
+            self.toolBarView.alpha = 1.0f;
+        }];
+    }}
+
 #pragma mark - Private Methods
 
 - (void)configureView {

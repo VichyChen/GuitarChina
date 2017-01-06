@@ -269,7 +269,7 @@
                 [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kGCNotificationLoginSuccess object:nil];
                 [self closeAction];
-                
+                [GCStatistics event:GCStatisticsEventLogin extra:@{ @"username" : self.usernameTextField.text}];
             } else if ([html rangeOfString:@"抱歉，验证码填写错误"].location != NSNotFound) {
                 [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"SecCode Error", nil)];
                 NSLog(@"seccodeverify error");

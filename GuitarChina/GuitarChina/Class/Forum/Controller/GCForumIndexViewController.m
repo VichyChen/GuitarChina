@@ -44,6 +44,8 @@
     }];
 
     [self.tableView headerBeginRefresh];
+    
+    [GCStatistics event:GCStatisticsEventForumIndex extra:nil];
 }
 
 #pragma mark - Private Methods

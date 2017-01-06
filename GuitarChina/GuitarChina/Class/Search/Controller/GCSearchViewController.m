@@ -223,6 +223,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         
         self.pageIndex = 1;
         self.searchBlock();
+        [GCStatistics event:GCStatisticsEventSearch extra:@{@"searchText" : text}];
     }
 }
 

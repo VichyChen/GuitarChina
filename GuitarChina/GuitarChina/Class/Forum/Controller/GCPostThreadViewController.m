@@ -132,6 +132,7 @@
         self.navigationItem.rightBarButtonItem.enabled = YES;
         if ([model.message.messageval isEqualToString:@"post_newthread_succeed"]) {
             [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Post Success", nil)];
+            [GCStatistics event:GCStatisticsEventPostThread extra:@{ @"fid" : self.fid, @"subjectText" : self.subjectTextField.text}];
             [self.navigationController popViewControllerAnimated:YES];
         } else {
             [SVProgressHUD showSuccessWithStatus:model.message.messagestr];

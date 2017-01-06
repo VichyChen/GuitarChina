@@ -9,6 +9,10 @@
 #import "GCAdBannerView.h"
 #import <GoogleMobileAds/GADBannerView.h>
 
+@interface GCAdBannerView() <GADBannerViewDelegate>
+
+@end
+
 @implementation GCAdBannerView
 
 - (instancetype)initWithRootViewController:(UIViewController *)viewController {
@@ -28,6 +32,7 @@
 
 - (void)configureView:(UIViewController *)viewController {
     GADBannerView *bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
+    bannerView.delegate = self;
     bannerView.adUnitID = kAdMobIDDetailBottom;
     bannerView.rootViewController = viewController;
     [bannerView loadRequest:[GADRequest request]];
@@ -46,6 +51,27 @@
             [self removeFromSuperview];
         }];
     });
+}
+
+#pragma mark - GADBannerViewDelegate
+
+- (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
+    [GCStatistics event:GCStatisticsEventAdMobBannerShow extra:nil];
+}
+
+- (void)adViewWillPresentScreen:(GADBannerView *)bannerView {
+    
+}
+- (void)adViewWillDismissScreen:(GADBannerView *)bannerView {
+    
+}
+
+- (void)adViewDidDismissScreen:(GADBannerView *)bannerView {
+    
+}
+
+- (void)adViewWillLeaveApplication:(GADBannerView *)bannerView {
+    [GCStatistics event:GCStatisticsEventAdMobBannerClick extra:nil];
 }
 
 @end

@@ -72,10 +72,11 @@
         self.dismissScreenBlock();
         self.dismissScreenBlock = nil;
     }
+    [GCStatistics event:GCStatisticsEventAdMobInterstitialShow extra:nil];
 }
 
 - (void)interstitialWillLeaveApplication:(GADInterstitial *)ad {
-
+    [GCStatistics event:GCStatisticsEventAdMobInterstitialClick extra:nil];
 }
 
 @end

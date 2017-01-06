@@ -48,6 +48,8 @@
 - (void)webViewEndRefresh;
 - (void)webViewEndFetchMore;
 
+- (void)showOtherView;
+
 @property (nonatomic, assign) NSInteger pickerViewCount;
 @property (nonatomic, assign) NSInteger pickerViewIndex;
 

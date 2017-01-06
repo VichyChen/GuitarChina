@@ -76,6 +76,7 @@
     [self configureNotification];
     
     [self.threadDetailView webViewStartRefresh];
+    [GCStatistics event:GCStatisticsEventThreadDetail extra:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -289,14 +290,7 @@
             self.threadDetailView.pickerViewCount = self.pageCount;
             self.threadDetailView.pickerViewIndex = self.pageIndex - 1;
             success(model);
-            if (self.threadDetailView.toolBarView.alpha == 0.0f) {
-                [UIView animateWithDuration:1.0 animations:^{
-                    if (kIsFree) {
-                        self.threadDetailView.bannner.alpha = 1.0f;
-                    }
-                    self.threadDetailView.toolBarView.alpha = 1.0f;
-                }];
-            }
+            [self.threadDetailView showOtherView];
         } failure:^(NSError *error) {
             @strongify(self);
             [self.threadDetailView webViewEndRefresh];

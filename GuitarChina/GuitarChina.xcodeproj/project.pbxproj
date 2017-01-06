@@ -28,6 +28,7 @@
 		046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623F1BAAC06800E66F03 /* UIImage+Tint.m */; };
 		046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */; };
 		046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */; };
+		046365C71E1F6E8B002E1744 /* GCStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 046365C61E1F6E8B002E1744 /* GCStatistics.m */; };
 		0463E6FC1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */; };
 		0464A93C1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0464A93B1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m */; };
 		0464A93F1E1B771E00B9E1C9 /* GCAdCenterBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0464A93E1E1B771E00B9E1C9 /* GCAdCenterBannerView.m */; };
@@ -241,6 +242,8 @@
 		046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LayoutHelper.m"; sourceTree = "<group>"; };
 		046262421BAAC06800E66F03 /* UIView+UICreateFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UICreateFactory.h"; sourceTree = "<group>"; };
 		046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UICreateFactory.m"; sourceTree = "<group>"; };
+		046365C51E1F6E8B002E1744 /* GCStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCStatistics.h; sourceTree = "<group>"; };
+		046365C61E1F6E8B002E1744 /* GCStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCStatistics.m; sourceTree = "<group>"; };
 		0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewTableHtml.html; sourceTree = "<group>"; };
 		0464A93A1E1B4F3B00B9E1C9 /* UIScrollView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Extension.h"; sourceTree = "<group>"; };
 		0464A93B1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Extension.m"; sourceTree = "<group>"; };
@@ -761,6 +764,15 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		046365C41E1F6E7B002E1744 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				046365C51E1F6E8B002E1744 /* GCStatistics.h */,
+				046365C61E1F6E8B002E1744 /* GCStatistics.m */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 		0463E6F61BD49FBA001F7290 /* Color */ = {
 			isa = PBXGroup;
 			children = (
@@ -1088,6 +1100,7 @@
 			children = (
 				4211922F1CE85D0800BCFF3E /* HTMLParse */,
 				421192321CE85D0800BCFF3E /* SocialShare */,
+				046365C41E1F6E7B002E1744 /* Statistics */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1913,6 +1926,7 @@
 				04C0D4F11DD41A2A007A5113 /* ZLPhotoPickerBrowserViewController+SignlePhotoBrowser.m in Sources */,
 				04C0D4E71DD41A2A007A5113 /* UIImage+ZLPhotoLib.m in Sources */,
 				423889061BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
+				046365C71E1F6E8B002E1744 /* GCStatistics.m in Sources */,
 				4238890F1BC57D0F002E1625 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
 				421192D81CE8607100BCFF3E /* GCTabBarController.m in Sources */,
 				040FEF481E1237F9006DA6FA /* GCSettingCell.m in Sources */,

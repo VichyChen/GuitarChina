@@ -53,6 +53,7 @@
             if (self.replySuccessBlock) {
                 self.replySuccessBlock();
             }
+            [GCStatistics event:GCStatisticsEventReplyThread extra:@{ @"tid" : self.tid }];
             [self closeAction];
         } failure:^(NSError *error) {
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];

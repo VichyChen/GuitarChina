@@ -31,6 +31,7 @@
 #import "GCHTMLParse.h"
 #import "BlocksKit+UIKit.h"
 #import "GCTableViewKit.h"
+#import "GCStatistics.h"
 
 #define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
 #define ScreenWidth ([UIScreen mainScreen].bounds.size.width)
@@ -96,8 +97,8 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 //进入前台展示广告间隔
 #define kAdMobEnterForegroundTimeInterval 120
 //中间弹广告时间
-#define kAdMobCenterBannerViewFirstTime 40
-#define kAdMobCenterBannerViewSecondTime 100
+#define kAdMobCenterBannerViewFirstTime 30
+#define kAdMobCenterBannerViewSecondTime 90
 
 //Release
 #else
@@ -116,8 +117,8 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 //进入前台展示广告间隔
 #define kAdMobEnterForegroundTimeInterval 120
 //中间弹广告时间
-#define kAdMobCenterBannerViewFirstTime 40
-#define kAdMobCenterBannerViewSecondTime 100
+#define kAdMobCenterBannerViewFirstTime 30
+#define kAdMobCenterBannerViewSecondTime 90
 
 #define NSLog(...)
 
