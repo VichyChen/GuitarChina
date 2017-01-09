@@ -39,15 +39,23 @@
 #define iPhone UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
 #define iPad UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] < 8.0f)
-
 #define NSNC [NSNotificationCenter defaultCenter]
 #define NSUD [NSUserDefaults standardUserDefaults]
+
+//区分免费or收费版
+#define kIsFree true
+
+#if kIsFree==true
 
 //Apple ID
 #define AppleID @"1089161305"
 
-//区分免费or收费版
-#define kIsFree @"YES"
+#else
+
+//Apple ID
+#define AppleID @"1193034315"
+
+#endif
 
 //NSUserDefault
 #define kGCFirstStart @"GCFirstStart"
@@ -69,8 +77,6 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 //Network Cache
 #define kForumIndexCache @"ForumIndexCache"
 
-/* 第三方 */
-
 //微信appid
 #define kWechatAppID @"wx26165a2548b3611f"
 //微信appsecret
@@ -80,8 +86,12 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 //QQappkey
 #define kQQAppKey @"rmLJuaY5d3Bs8uE4"
 
+
 //Debug
 #ifdef DEBUG
+
+//免费版
+#if kIsFree==true
 
 //友盟appkey
 #define kUmengAppKey @"56d7ec72e0f55a701a000937"
@@ -100,8 +110,25 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kAdMobCenterBannerViewFirstTime 30
 #define kAdMobCenterBannerViewSecondTime 90
 
+//收费版
+#else
+
+//友盟appkey
+#define kUmengAppKey @"5871afc3677baa1aef002ab4"
+#define kAdMobIDDetailBottom @""
+#define kAdMobIDEnterForeground @""
+#define kAdMobIDCenter @""
+#define kAdMobEnterForegroundTimeInterval 0
+#define kAdMobCenterBannerViewFirstTime 0
+#define kAdMobCenterBannerViewSecondTime 0
+
+#endif
+
 //Release
 #else
+
+//免费版
+#if kIsFree==true
 
 //友盟appkey
 #define kUmengAppKey @"56d7ecd4e0f55a7090001026"
@@ -119,6 +146,20 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 //中间弹广告时间
 #define kAdMobCenterBannerViewFirstTime 30
 #define kAdMobCenterBannerViewSecondTime 90
+
+//收费版
+#else
+
+//友盟appkey
+#define kUmengAppKey @"5871affbae1bf868920026ed"
+#define kAdMobIDDetailBottom @""
+#define kAdMobIDEnterForeground @""
+#define kAdMobIDCenter @""
+#define kAdMobEnterForegroundTimeInterval 0
+#define kAdMobCenterBannerViewFirstTime 0
+#define kAdMobCenterBannerViewSecondTime 0
+
+#endif
 
 #define NSLog(...)
 

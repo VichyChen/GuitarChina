@@ -93,7 +93,7 @@
 #define GCNetworkAPI_Get_GuideSofa(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=sofa&page=%ld", (pageIndex)]
 
 //个人资料
-#define GCNetworkAPI_Get_Profile(uid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/home.php?mod=space&uid=%@&do=profile", (uid)]
+#define GCNetworkAPI_Get_Profile(uid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/home.php?mod=space&uid=%ld&do=profile", (uid)]
 
 //优酷视频地址
 #define GCVideo_URL_Youku(id) [NSString stringWithFormat:@"http://v.youku.com/v_show/id_%@.html", (id)]
