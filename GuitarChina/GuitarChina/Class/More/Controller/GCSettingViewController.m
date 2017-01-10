@@ -96,9 +96,16 @@
             return self.array;
         };
         self.tableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
+            @strongify(self);
             GCSettingCell *settingCell = (GCSettingCell *)cell;
             NSDictionary *dictionary = item;
             settingCell.titleLabel.text = dictionary[@"title"];
+            settingCell.valueLabel.text = dictionary[@"value"];
+            if (indexPath.row == self.array.count - 1) {
+                settingCell.accessoryType = UITableViewCellAccessoryNone;
+            } else {
+                settingCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            }
         };
         self.tableViewKit.heightForRowBlock = ^(NSIndexPath *indexPath, id item) {
             return 44.0;
@@ -107,11 +114,11 @@
             @strongify(self);
             switch (indexPath.row) {
                 case 0:
-                    [Util openAppInAppStore:AppleID];
+                    [[SDImageCache sharedImageCache] clearDisk];
+                    [self.tableView reloadData];
                     break;
-                    
                 case 1:
-                    [self logoutAction];
+                    [Util openAppInAppStore:AppleID];
                     break;
             }
         };
@@ -121,10 +128,7 @@
 }
 
 - (NSArray *)array {
-    if (!_array) {
-        _array = @[@{@"image" : @"", @"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]]}];
-    }
-    return _array;
+    return @[@{@"image" : @"", @"title" : NSLocalizedString(@"Clear Cache", nil), @"value" : [NSString stringWithFormat:@"%.2fMB", [[SDImageCache sharedImageCache] getSize] / 1000.0 / 1000.0]}, @{@"image" : @"", @"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]],  @"value" : @""}];
 }
 
 @end

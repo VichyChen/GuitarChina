@@ -33,13 +33,15 @@
     [super layoutSubviews];
     
 //    self.leftImageView.frame = CGRectMake(15, 12, 20, 20);
-    self.titleLabel.frame = CGRectMake(15, 0, ScreenWidth - 80, 44);
+    self.titleLabel.frame = CGRectMake(15, 0, ScreenWidth - 30, 44);
+    self.valueLabel.frame = CGRectMake(15, 0, ScreenWidth - 30 - 20, 44);
     self.separatorViewBottom.frame = CGRectMake(0, 43.5, ScreenWidth, 0.5);
 }
 
 - (void)configureView {
     [self.contentView addSubview:self.leftImageView];
     [self.contentView addSubview:self.titleLabel];
+    [self.contentView addSubview:self.valueLabel];
     [self.contentView addSubview:self.separatorViewBottom];
 }
 
@@ -56,11 +58,22 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [UIView createLabel:CGRectZero
-                                    text:@"陈大捷"
+                                    text:@""
                                     font:[UIFont systemFontOfSize:16]
                                textColor:[GCColor fontColor]];
     }
     return _titleLabel;
+}
+
+- (UILabel *)valueLabel {
+    if (!_valueLabel) {
+        _valueLabel = [UIView createLabel:CGRectZero
+                                     text:@""
+                                     font:[UIFont systemFontOfSize:16]
+                                textColor:[GCColor fontColor]];
+        _valueLabel.textAlignment = NSTextAlignmentRight;
+    }
+    return _valueLabel;
 }
 
 - (UIView *)separatorViewBottom {
