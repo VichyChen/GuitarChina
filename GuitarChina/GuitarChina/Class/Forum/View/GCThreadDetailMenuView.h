@@ -1,6 +1,6 @@
 //
-//  GCBelowNavigationBarMenuView.h
-//  GCBelowNavigationBarMenuView
+//  GCThreadDetailMenuView.h
+//  GCThreadDetailMenuView
 //
 //  Created by mac on 15/10/16.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCBelowNavigationBarMenuItem : NSObject
+@interface GCThreadDetailMenuItem : NSObject
 
 typedef void(^ActionBlock)(void);
 
@@ -17,14 +17,14 @@ typedef void(^ActionBlock)(void);
 @property (nonatomic, assign) NSInteger row;
 @property (nonatomic, copy) ActionBlock actionBlock;
 
-+ (GCBelowNavigationBarMenuItem *)itemWithTitle:(NSString *)title icon:(UIImage *)icon row:(NSInteger)row actionBlock:(ActionBlock)actionBlock;
++ (GCThreadDetailMenuItem *)itemWithTitle:(NSString *)title icon:(UIImage *)icon row:(NSInteger)row actionBlock:(ActionBlock)actionBlock;
 
 @end
 
 
-@class GCBelowNavigationBarMenuView;
+@class GCThreadDetailMenuView;
 
-@interface GCBelowNavigationBarMenuView : UIView
+@interface GCThreadDetailMenuView : UIView
 
 @property (nonatomic, copy) NSArray *rowItems;
 @property (nonatomic, assign) BOOL open;

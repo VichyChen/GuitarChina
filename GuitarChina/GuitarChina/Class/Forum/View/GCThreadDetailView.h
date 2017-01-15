@@ -8,37 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "GCAdBannerView.h"
+#import "GCThreadDetailToolBarView.h"
+#import "GCThreadDetailPagePickerView.h"
 
 @interface GCThreadDetailView : UIView
 
-@property (nonatomic, weak) UIViewController *controller;
-
 @property (nonatomic, strong) UIWebView *webView;
-
-@property (nonatomic, strong) UIView *toolBarView;
-@property (nonatomic, strong) UIView *separatorLineView;
-
-@property (nonatomic, strong) UIButton *pageButton;
-@property (nonatomic, copy) void (^pageActionBlock)();
-
-@property (nonatomic, strong) UIButton *previousPageButton;
-@property (nonatomic, copy) void (^previousPageActionBlock)();
-
-@property (nonatomic, strong) UIButton *nextPageButton;
-@property (nonatomic, copy) void (^nextPageActionBlock)();
-
-@property (nonatomic, strong) UIButton *replyButton;
-@property (nonatomic, strong) UIView *replyBackgroundView;
-@property (nonatomic, copy) void (^replyActionBlock)();
-
-@property (nonatomic, strong) UIView *pickerContentView;
+@property (nonatomic, strong) GCThreadDetailToolBarView *toolBarView;
+@property (nonatomic, strong) GCThreadDetailPagePickerView *pagePickerView;
 @property (nonatomic, strong) GCAdBannerView *bannner;
 
-@property (nonatomic, strong) UIButton *goButton;
+@property (nonatomic, copy) void (^previousPageActionBlock)();
+@property (nonatomic, copy) void (^nextPageActionBlock)();
 @property (nonatomic, copy) void (^goActionBlock)(NSInteger page);
-
-@property (nonatomic, strong) UIPickerView *pickerView;
-
+@property (nonatomic, copy) void (^replyActionBlock)();
 
 @property (nonatomic, copy) void (^webViewRefreshBlock)();
 @property (nonatomic, copy) void (^webViewFetchMoreBlock)();
@@ -49,8 +32,5 @@
 - (void)webViewEndFetchMore;
 
 - (void)showOtherView;
-
-@property (nonatomic, assign) NSInteger pickerViewCount;
-@property (nonatomic, assign) NSInteger pickerViewIndex;
 
 @end

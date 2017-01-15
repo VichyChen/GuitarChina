@@ -13,7 +13,7 @@
 #import "GCReportThreadViewController.h"
 #import "GCNavigationController.h"
 #import "GCLoginViewController.h"
-#import "GCBelowNavigationBarMenuView.h"
+#import "GCThreadDetailMenuView.h"
 #import "GCSocial.h"
 #import "ZLPhoto.h"
 
@@ -26,7 +26,7 @@
 @property (nonatomic, assign) NSInteger tabBarSelectedIndex;
 
 @property (nonatomic, strong) GCThreadDetailView *threadDetailView;
-@property (nonatomic, strong) GCBelowNavigationBarMenuView *menu;
+@property (nonatomic, strong) GCThreadDetailMenuView *menu;
 
 @property (nonatomic, copy) void (^refreshBlock)();
 @property (nonatomic, copy) void (^replyBlock)();       //回复
@@ -287,8 +287,8 @@
                 self.currentPageReplyCount = self.replyCount % ((self.pageIndex - 1) * self.pageSize) + 1;
             }
             
-            self.threadDetailView.pickerViewCount = self.pageCount;
-            self.threadDetailView.pickerViewIndex = self.pageIndex - 1;
+            self.threadDetailView.pagePickerView.pickerViewCount = self.pageCount;
+            self.threadDetailView.pagePickerView.pickerViewIndex = self.pageIndex - 1;
             success(model);
             [self.threadDetailView showOtherView];
         } failure:^(NSError *error) {
@@ -342,7 +342,7 @@
     self.refreshBlock(^(GCThreadDetailModel *model) {
         [self.htmlString setString:[model getGCThreadDetailModelHtml]];
         [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util getBundlePathURL]];
-        [self.threadDetailView.pageButton setTitle:[NSString stringWithFormat:@"%ld / %ld", self.pageIndex, self.pageCount] forState:UIControlStateNormal];
+        [self.threadDetailView.toolBarView.pageButton setTitle:[NSString stringWithFormat:@"%ld / %ld", self.pageIndex, self.pageCount] forState:UIControlStateNormal];
         [self.threadDetailView webViewEndRefresh];
     });
 }
@@ -366,7 +366,7 @@
         return;
     } else {
         self.pageIndex--;
-        [self.threadDetailView.pageButton setTitle:[NSString stringWithFormat:@"%ld / %ld", self.pageIndex, self.pageCount] forState:UIControlStateNormal];
+        [self.threadDetailView.toolBarView.pageButton setTitle:[NSString stringWithFormat:@"%ld / %ld", self.pageIndex, self.pageCount] forState:UIControlStateNormal];
         self.refreshBlock(^(GCThreadDetailModel *model) {
             [self.htmlString setString:[model getGCThreadDetailModelHtml]];
             [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util getBundlePathURL]];
@@ -382,7 +382,7 @@
         return;
     } else {
         self.pageIndex++;
-        [self.threadDetailView.pageButton setTitle:[NSString stringWithFormat:@"%ld / %ld", self.pageIndex, self.pageCount] forState:UIControlStateNormal];
+        [self.threadDetailView.toolBarView.pageButton setTitle:[NSString stringWithFormat:@"%ld / %ld", self.pageIndex, self.pageCount] forState:UIControlStateNormal];
         self.refreshBlock(^(GCThreadDetailModel *model) {
             [self.htmlString setString:[model getGCThreadDetailModelHtml]];
             [self.threadDetailView.webView loadHTMLString:self.htmlString baseURL:[Util getBundlePathURL]];
@@ -402,7 +402,7 @@
 
 - (GCThreadDetailView *)threadDetailView {
     if (!_threadDetailView) {
-        _threadDetailView = [[GCThreadDetailView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight)];
+        _threadDetailView = [[GCThreadDetailView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64)];
         _threadDetailView.webView.delegate = self;
         @weakify(self);
         _threadDetailView.webViewRefreshBlock = ^{
@@ -436,18 +436,18 @@
     return _threadDetailView;
 }
 
-- (GCBelowNavigationBarMenuView *)menu {
+- (GCThreadDetailMenuView *)menu {
     if (!_menu) {
         @weakify(self);
-        GCBelowNavigationBarMenuItem *replyItem = [GCBelowNavigationBarMenuItem itemWithTitle:NSLocalizedString(@"Reply", nil)
+        GCThreadDetailMenuItem *replyItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Reply", nil)
                                                                    icon:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[GCColor grayColor1]]
                                                                     row:0
                                                             actionBlock:self.replyBlock];
-        GCBelowNavigationBarMenuItem *favoriteItem = [GCBelowNavigationBarMenuItem itemWithTitle:NSLocalizedString(@"Favorite", nil)
+        GCThreadDetailMenuItem *favoriteItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Favorite", nil)
                                                                       icon:[[UIImage imageNamed:@"icon_collect"] imageWithTintColor:[GCColor grayColor1]]
                                                                        row:0
                                                                actionBlock:self.favoriteBlock];
-        GCBelowNavigationBarMenuItem *copyItem = [GCBelowNavigationBarMenuItem itemWithTitle:NSLocalizedString(@"Copy URL", nil)
+        GCThreadDetailMenuItem *copyItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Copy URL", nil)
                                                                   icon:[[UIImage imageNamed:@"icon_link"] imageWithTintColor:[GCColor grayColor1]]
                                                                    row:0
                                                            actionBlock:^{
@@ -455,19 +455,19 @@
                                                                [Util copyToPasteboard:GCNetworkAPI_URL_Thread(self.tid)];
                                                                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy Complete", nil)];
                                                            }];
-        GCBelowNavigationBarMenuItem *refreshItem = [GCBelowNavigationBarMenuItem itemWithTitle:NSLocalizedString(@"Refresh", nil)
+        GCThreadDetailMenuItem *refreshItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Refresh", nil)
                                                                      icon:[[UIImage imageNamed:@"icon_refresh"] imageWithTintColor:[GCColor grayColor1]]
                                                                       row:0
                                                               actionBlock:^{
                                                                   @strongify(self);
                                                                   [self.threadDetailView webViewStartRefresh];
                                                               }];
-        GCBelowNavigationBarMenuItem *reportItem = [GCBelowNavigationBarMenuItem itemWithTitle:NSLocalizedString(@"Report", nil)
+        GCThreadDetailMenuItem *reportItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Report", nil)
                                                                     icon:[[UIImage imageNamed:@"icon_error"] imageWithTintColor:[GCColor grayColor1]]
                                                                      row:0
                                                              actionBlock:self.reportBlock];
         
-        GCBelowNavigationBarMenuItem *safariItem = [GCBelowNavigationBarMenuItem itemWithTitle:NSLocalizedString(@"Open in Safari", nil)
+        GCThreadDetailMenuItem *safariItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Open in Safari", nil)
                                                                     icon:[UIImage imageNamed:@"icon_safari"]
                                                                      row:1
                                                              actionBlock:^{
@@ -478,7 +478,7 @@
         NSMutableArray *shareArray = [NSMutableArray arrayWithObjects:replyItem, favoriteItem, copyItem, refreshItem, reportItem, safariItem, nil];
 
         if ([GCSocial WXAppInstalled]) {
-            GCBelowNavigationBarMenuItem *wechatSessionItem = [GCBelowNavigationBarMenuItem itemWithTitle:NSLocalizedString(@"Wechat Session", nil)
+            GCThreadDetailMenuItem *wechatSessionItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Wechat Session", nil)
                                                                                icon:[UIImage imageNamed:@"icon_wechatSession"]
                                                                                 row:1
                                                                         actionBlock:^{
@@ -493,7 +493,7 @@
             [shareArray addObject:wechatSessionItem];
         }
         if ([GCSocial WXAppInstalled]) {
-            GCBelowNavigationBarMenuItem *wechatTimelineItem = [GCBelowNavigationBarMenuItem itemWithTitle:NSLocalizedString(@"Wechat Timeline", nil)
+            GCThreadDetailMenuItem *wechatTimelineItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Wechat Timeline", nil)
                                                                                 icon:[UIImage imageNamed:@"icon_wechatTimeline"]
                                                                                  row:1
                                                                          actionBlock:^{
@@ -508,7 +508,7 @@
             [shareArray addObject:wechatTimelineItem];
         }
         if ([GCSocial QQInstalled]) {
-            GCBelowNavigationBarMenuItem *qqItem = [GCBelowNavigationBarMenuItem itemWithTitle:NSLocalizedString(@"QQ", nil)
+            GCThreadDetailMenuItem *qqItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"QQ", nil)
                                                                     icon:[UIImage imageNamed:@"icon_qq"]
                                                                      row:1
                                                              actionBlock:^{
@@ -523,7 +523,7 @@
             [shareArray addObject:qqItem];
         }
    
-        _menu = [[GCBelowNavigationBarMenuView alloc] initWithRowItems:shareArray];
+        _menu = [[GCThreadDetailMenuView alloc] initWithRowItems:shareArray];
     }
     
     return _menu;

@@ -1,14 +1,14 @@
 //
-//  GCBelowNavigationBarMenuView.m
-//  GCBelowNavigationBarMenuView
+//  GCThreadDetailMenuView.m
+//  GCThreadDetailMenuView
 //
 //  Created by mac on 15/10/16.
 //  Copyright (c) 2015年 陈大捷. All rights reserved.
 //
 
-#import "GCBelowNavigationBarMenuView.h"
+#import "GCThreadDetailMenuView.h"
 
-@implementation GCBelowNavigationBarMenuItem
+@implementation GCThreadDetailMenuItem
 
 - (instancetype)initWithTitle:(NSString *)title icon:(UIImage *)icon row:(NSInteger)row actionBlock:(ActionBlock)actionBlock{
     if (self == [super init]) {
@@ -20,14 +20,14 @@
     return self;
 }
 
-+ (GCBelowNavigationBarMenuItem *)itemWithTitle:(NSString *)title icon:(UIImage *)icon row:(NSInteger)row actionBlock:(ActionBlock)actionBlock {
++ (GCThreadDetailMenuItem *)itemWithTitle:(NSString *)title icon:(UIImage *)icon row:(NSInteger)row actionBlock:(ActionBlock)actionBlock {
     return [[self alloc] initWithTitle:title icon:icon row:(NSInteger)row actionBlock:actionBlock];
 }
 
 @end
 
 
-@interface GCBelowNavigationBarMenuView ()
+@interface GCThreadDetailMenuView ()
 
 @property (nonatomic, strong) UIView *transparentView;
 
@@ -42,7 +42,7 @@
 
 @end
 
-@implementation GCBelowNavigationBarMenuView
+@implementation GCThreadDetailMenuView
 
 - (instancetype)initWithRowItems:(NSArray *)rowItems {
     self = [super initWithFrame:CGRectMake(0, 0, ScreenWidth, 0)];
@@ -101,7 +101,7 @@
     
     NSInteger count = 0;
     for (int i = 0; i < self.rowItems.count; i++) {
-        GCBelowNavigationBarMenuItem *obj = self.rowItems[i];
+        GCThreadDetailMenuItem *obj = self.rowItems[i];
         
         if (obj.row == 0) {
             count++;
@@ -191,7 +191,7 @@
 }
 
 - (void)buttonTapped:(UIButton *)button {
-    GCBelowNavigationBarMenuItem *obj = self.rowItems[button.tag];
+    GCThreadDetailMenuItem *obj = self.rowItems[button.tag];
     if (obj.actionBlock) {
         obj.actionBlock();
     }

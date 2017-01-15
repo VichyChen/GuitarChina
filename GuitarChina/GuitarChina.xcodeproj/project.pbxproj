@@ -11,7 +11,7 @@
 		040212341E06DC3F002D74F6 /* GCOfficialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040212331E06DC3F002D74F6 /* GCOfficialCell.m */; };
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
 		04091D801CFBECBC00B797B1 /* GCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 04091D7F1CFBECBC00B797B1 /* GCColor.m */; };
-		040FEF341E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF331E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m */; };
+		040FEF341E111EB2006DA6FA /* GCThreadDetailMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF331E111EB2006DA6FA /* GCThreadDetailMenuView.m */; };
 		040FEF441E1237F9006DA6FA /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF391E1237F9006DA6FA /* GCMoreViewController.m */; };
 		040FEF451E1237F9006DA6FA /* GCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF3B1E1237F9006DA6FA /* GCSettingViewController.m */; };
 		040FEF461E1237F9006DA6FA /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF3D1E1237F9006DA6FA /* GCUserProtocolViewController.m */; };
@@ -84,6 +84,8 @@
 		04D350661E1273F500047725 /* GCAdInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350651E1273F500047725 /* GCAdInterstitial.m */; };
 		04D350691E13ACE900047725 /* GCAdBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350681E13ACE900047725 /* GCAdBannerView.m */; };
 		04D3506C1E1634A700047725 /* GCProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3506B1E1634A700047725 /* GCProfileViewController.m */; };
+		04D48E691E28DC2800212137 /* GCThreadDetailToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D48E681E28DC2800212137 /* GCThreadDetailToolBarView.m */; };
+		04D48E6C1E28DC4100212137 /* GCThreadDetailPagePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D48E6B1E28DC4100212137 /* GCThreadDetailPagePickerView.m */; };
 		04F8A35D1D28E19F007F2350 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3511D28E19F007F2350 /* WMFooldView.m */; };
 		04F8A35E1D28E19F007F2350 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3531D28E19F007F2350 /* WMMenuItem.m */; };
 		04F8A35F1D28E19F007F2350 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3551D28E19F007F2350 /* WMMenuView.m */; };
@@ -213,8 +215,8 @@
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
 		04091D7E1CFBECBC00B797B1 /* GCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColor.h; sourceTree = "<group>"; };
 		04091D7F1CFBECBC00B797B1 /* GCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColor.m; sourceTree = "<group>"; };
-		040FEF321E111EB2006DA6FA /* GCBelowNavigationBarMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBelowNavigationBarMenuView.h; sourceTree = "<group>"; };
-		040FEF331E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBelowNavigationBarMenuView.m; sourceTree = "<group>"; };
+		040FEF321E111EB2006DA6FA /* GCThreadDetailMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailMenuView.h; sourceTree = "<group>"; };
+		040FEF331E111EB2006DA6FA /* GCThreadDetailMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailMenuView.m; sourceTree = "<group>"; };
 		040FEF381E1237F9006DA6FA /* GCMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMoreViewController.h; sourceTree = "<group>"; };
 		040FEF391E1237F9006DA6FA /* GCMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMoreViewController.m; sourceTree = "<group>"; };
 		040FEF3A1E1237F9006DA6FA /* GCSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSettingViewController.h; sourceTree = "<group>"; };
@@ -349,6 +351,10 @@
 		04D350681E13ACE900047725 /* GCAdBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAdBannerView.m; sourceTree = "<group>"; };
 		04D3506A1E1634A700047725 /* GCProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCProfileViewController.h; sourceTree = "<group>"; };
 		04D3506B1E1634A700047725 /* GCProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCProfileViewController.m; sourceTree = "<group>"; };
+		04D48E671E28DC2800212137 /* GCThreadDetailToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailToolBarView.h; sourceTree = "<group>"; };
+		04D48E681E28DC2800212137 /* GCThreadDetailToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailToolBarView.m; sourceTree = "<group>"; };
+		04D48E6A1E28DC4100212137 /* GCThreadDetailPagePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCThreadDetailPagePickerView.h; sourceTree = "<group>"; };
+		04D48E6B1E28DC4100212137 /* GCThreadDetailPagePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCThreadDetailPagePickerView.m; sourceTree = "<group>"; };
 		04F8A3501D28E19F007F2350 /* WMFooldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMFooldView.h; sourceTree = "<group>"; };
 		04F8A3511D28E19F007F2350 /* WMFooldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMFooldView.m; sourceTree = "<group>"; };
 		04F8A3521D28E19F007F2350 /* WMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuItem.h; sourceTree = "<group>"; };
@@ -1242,8 +1248,12 @@
 				421192A01CE85EEE00BCFF3E /* GCReportThreadView.m */,
 				421192A11CE85EEE00BCFF3E /* GCThreadDetailView.h */,
 				421192A21CE85EEE00BCFF3E /* GCThreadDetailView.m */,
-				040FEF321E111EB2006DA6FA /* GCBelowNavigationBarMenuView.h */,
-				040FEF331E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m */,
+				040FEF321E111EB2006DA6FA /* GCThreadDetailMenuView.h */,
+				040FEF331E111EB2006DA6FA /* GCThreadDetailMenuView.m */,
+				04D48E671E28DC2800212137 /* GCThreadDetailToolBarView.h */,
+				04D48E681E28DC2800212137 /* GCThreadDetailToolBarView.m */,
+				04D48E6A1E28DC4100212137 /* GCThreadDetailPagePickerView.h */,
+				04D48E6B1E28DC4100212137 /* GCThreadDetailPagePickerView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1876,10 +1886,12 @@
 				426BC3931CB9FA9800B3B827 /* HMSegmentedControl.m in Sources */,
 				423888A51BC57CA6002E1625 /* MJRefreshNormalHeader.m in Sources */,
 				423888AA1BC57CA6002E1625 /* UIScrollView+MJRefresh.m in Sources */,
+				04D48E6C1E28DC4100212137 /* GCThreadDetailPagePickerView.m in Sources */,
 				4238889D1BC57CA6002E1625 /* MJRefreshHeader.m in Sources */,
 				4238889F1BC57CA6002E1625 /* MJRefreshAutoNormalFooter.m in Sources */,
 				04C0D4F51DD41A2A007A5113 /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
 				423889031BC57D0F002E1625 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
+				04D48E691E28DC2800212137 /* GCThreadDetailToolBarView.m in Sources */,
 				04091D801CFBECBC00B797B1 /* GCColor.m in Sources */,
 				04C0D4E91DD41A2A007A5113 /* DACircularProgressView.m in Sources */,
 				04F8A35F1D28E19F007F2350 /* WMMenuView.m in Sources */,
@@ -1899,7 +1911,7 @@
 				423889001BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
 				040212341E06DC3F002D74F6 /* GCOfficialCell.m in Sources */,
 				421192A71CE85EEE00BCFF3E /* GCThreadDetailView.m in Sources */,
-				040FEF341E111EB2006DA6FA /* GCBelowNavigationBarMenuView.m in Sources */,
+				040FEF341E111EB2006DA6FA /* GCThreadDetailMenuView.m in Sources */,
 				421192EB1CE8615400BCFF3E /* GCSendReplyModel.m in Sources */,
 				421192741CE85D3200BCFF3E /* GCForumDisplayViewController.m in Sources */,
 				421191D31CE8558B00BCFF3E /* GuitarChina.xcdatamodeld in Sources */,
