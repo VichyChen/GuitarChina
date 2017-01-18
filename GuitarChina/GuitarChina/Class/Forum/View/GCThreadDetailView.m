@@ -57,8 +57,7 @@
 - (void)configureView {
     [self addSubview:self.webView];
     if (kIsFree) {
-        int random = arc4random() % 100;
-        if (random < 33.333) {
+        if ((arc4random() % 100) < kAdMobThreadDetailBannerProbability) {
             [self addSubview:self.bannner];
         }
     }

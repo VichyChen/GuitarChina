@@ -109,6 +109,8 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 //中间弹广告时间
 #define kAdMobCenterBannerViewFirstTime 30
 #define kAdMobCenterBannerViewSecondTime 90
+//帖子详情页banner出现概率
+#define kAdMobThreadDetailBannerProbability 100
 
 //收费版
 #else
@@ -121,6 +123,7 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kAdMobEnterForegroundTimeInterval 0
 #define kAdMobCenterBannerViewFirstTime 0
 #define kAdMobCenterBannerViewSecondTime 0
+#define kAdMobThreadDetailBannerProbability 0
 
 #endif
 
@@ -142,10 +145,12 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kAdMobIDCenter @"ca-app-pub-3276115365350448/3458629418"
 
 //进入前台展示广告间隔
-#define kAdMobEnterForegroundTimeInterval 120
+#define kAdMobEnterForegroundTimeInterval 300
 //中间弹广告时间
-#define kAdMobCenterBannerViewFirstTime 30
-#define kAdMobCenterBannerViewSecondTime 90
+#define kAdMobCenterBannerViewFirstTime 300
+#define kAdMobCenterBannerViewSecondTime 600
+//帖子详情页banner出现概率
+#define kAdMobThreadDetailBannerProbability 50
 
 //收费版
 #else
@@ -158,6 +163,7 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kAdMobEnterForegroundTimeInterval 0
 #define kAdMobCenterBannerViewFirstTime 0
 #define kAdMobCenterBannerViewSecondTime 0
+#define kAdMobThreadDetailBannerProbability 0
 
 #endif
 
