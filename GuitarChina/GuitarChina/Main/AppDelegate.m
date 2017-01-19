@@ -69,7 +69,6 @@
 
         self.adCenterBannerView = [[GCAdCenterBannerView alloc] init];
         [self.adCenterBannerView showAfterSecond:kAdMobCenterBannerViewFirstTime];
-        [self.adCenterBannerView showAfterSecond:kAdMobCenterBannerViewSecondTime];
     }
     
     return YES;
@@ -96,7 +95,6 @@
             [self.adInterstitial presentFromRootViewController];
             
             [self.adCenterBannerView showAfterSecond:kAdMobCenterBannerViewFirstTime];
-            [self.adCenterBannerView showAfterSecond:kAdMobCenterBannerViewSecondTime];
         }
     }
 }

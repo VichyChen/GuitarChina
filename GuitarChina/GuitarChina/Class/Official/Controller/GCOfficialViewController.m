@@ -60,8 +60,8 @@
             officialCell.titleLabel.text = dictionary[@"title"];
             officialCell.descriptionLabel.text = dictionary[@"description"];
         };
-        self.tableViewKit.heightForRowBlock = ^(NSIndexPath *indexPath, id item) {
-            return 76.0;
+        self.tableViewKit.heightForRowBlock = ^CGFloat(NSIndexPath *indexPath, id item) {
+            return 76.0f;
         };
         self.tableViewKit.didSelectCellBlock = ^(NSIndexPath *indexPath, id item) {
             @strongify(self);

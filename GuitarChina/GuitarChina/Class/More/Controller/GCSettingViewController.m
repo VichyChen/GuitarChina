@@ -107,8 +107,8 @@
                 settingCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
         };
-        self.tableViewKit.heightForRowBlock = ^(NSIndexPath *indexPath, id item) {
-            return 44.0;
+        self.tableViewKit.heightForRowBlock = ^CGFloat(NSIndexPath *indexPath, id item) {
+            return 44.0f;
         };
         self.tableViewKit.didSelectCellBlock = ^(NSIndexPath *indexPath, id item) {
             @strongify(self);

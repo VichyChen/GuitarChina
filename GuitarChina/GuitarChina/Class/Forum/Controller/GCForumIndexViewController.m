@@ -174,14 +174,14 @@
             
             return view;
         };
-        self.tableViewKit.heightForHeaderInSectionBlock = ^(NSInteger section) {
-            return 40.0;
+        self.tableViewKit.heightForHeaderInSectionBlock = ^CGFloat(NSInteger section) {
+            return 40.0f;
         };
         self.tableViewKit.viewForFooterInSectionBlock = ^(NSInteger section) {
             return [[UIView alloc] init];
         };
-        self.tableViewKit.heightForFooterInSectionBlock = ^(NSInteger section) {
-            return 0.01;
+        self.tableViewKit.heightForFooterInSectionBlock = ^CGFloat(NSInteger section) {
+            return 0.01f;
         };
         self.tableViewKit.didSelectRowAtIndexPathBlock = ^(NSIndexPath *indexPath) {
             @strongify(self);
