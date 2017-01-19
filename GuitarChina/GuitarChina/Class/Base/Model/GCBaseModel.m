@@ -30,6 +30,12 @@
         noticeModel.newprompt = [notice objectForKey:@"newprompt"];
         noticeModel.newmypost = [notice objectForKey:@"newmypost"];
         self.notice = noticeModel;
+        
+        if ([NSUD integerForKey:kGCNewMyPost] != [noticeModel.newmypost integerValue]) {
+            [NSUD setInteger:[noticeModel.newmypost integerValue] forKey:kGCNewMyPost];
+            [NSUD synchronize];
+        }
+        [APP.tabBarController updateMorePromptRedCount];
     }
     return self;
 }

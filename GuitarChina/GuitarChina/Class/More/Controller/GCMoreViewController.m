@@ -13,6 +13,7 @@
 #import "GCSettingViewController.h"
 #import "GCMyThreadViewController.h"
 #import "GCMyFavThreadViewController.h"
+#import "GCMyPromptViewController.h"
 
 @interface GCMoreViewController ()
 
@@ -176,26 +177,26 @@
             @strongify(self);
             switch (indexPath.section) {
                 case 0:
+                    if (![[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
+                        [self loginAction];
+                    }
                     switch (indexPath.row) {
                         case 0://我的主题
                         {
-                            if ([[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
-                                GCMyThreadViewController *userThreadViewController = [[GCMyThreadViewController alloc] init];
-                                [self.navigationController pushViewController:userThreadViewController animated:YES];
-                            } else {
-                                [self loginAction];
-                            }
+                            GCMyThreadViewController *userThreadViewController = [[GCMyThreadViewController alloc] init];
+                            [self.navigationController pushViewController:userThreadViewController animated:YES];
                             break;
                         }
                         case 1://我的收藏
                         {
-                            if ([[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
-                                GCMyFavThreadViewController *myFavThreadViewController = [[GCMyFavThreadViewController alloc] init];
-                                [self.navigationController pushViewController:myFavThreadViewController animated:YES];
-                            } else {
-                                [self loginAction];
-                            }
+                            GCMyFavThreadViewController *myFavThreadViewController = [[GCMyFavThreadViewController alloc] init];
+                            [self.navigationController pushViewController:myFavThreadViewController animated:YES];
                             break;
+                        }
+                        case 2://我的提醒
+                        {
+                            GCMyPromptViewController * myPromptViewController = [[GCMyPromptViewController alloc] init];
+                            [self.navigationController pushViewController:myPromptViewController animated:YES];
                         }
                     }
                     break;
@@ -244,13 +245,14 @@
     if (!_array) {
         NSDictionary *myTheme = @{@"title" : NSLocalizedString(@"My Theme", nil), @"enable" : @YES };
         NSDictionary *myFavour = @{@"title" : NSLocalizedString(@"My Favour", nil), @"enable" : @YES };
-        
+        NSDictionary *myPromtpt = @{@"title" : NSLocalizedString(@"My Promtpt", nil), @"enable" : @YES };
+
         NSDictionary *developer = @{@"title" : NSLocalizedString(@"Information Development", nil), @"enable" : @YES };
         NSDictionary *feedback = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES };
         NSDictionary *score = @{@"title" : NSLocalizedString(@"To Score", nil), @"enable" : @YES };
         NSDictionary *setting = @{@"title" : NSLocalizedString(@"Setting", nil), @"enable" : @YES };
         
-        NSDictionary *meDictionary = @{NSLocalizedString(@"Me", nil) : @[myTheme, myFavour] };
+        NSDictionary *meDictionary = @{NSLocalizedString(@"Me", nil) : @[myTheme, myFavour, myPromtpt] };
         NSDictionary *othersDictionary = @{ NSLocalizedString(@"Others", nil) : @[developer, feedback, score, setting] };
         
         _array = @[meDictionary, othersDictionary];

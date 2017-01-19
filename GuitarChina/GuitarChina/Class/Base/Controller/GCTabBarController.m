@@ -67,6 +67,15 @@
     self.viewControllers = @[discoveryNavigationController, forumIndexNavigationController, officialNavigationController, moreNavigationController];
 }
 
+- (void)updateMorePromptRedCount {
+    NSInteger redCount = [NSUD integerForKey:kGCNewMyPost];
+    if (redCount == 0) {
+        self.viewControllers[3].tabBarItem.badgeValue = nil;
+    } else {
+        self.viewControllers[3].tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", redCount];
+    }
+}
+
 #pragma mark - WMPageControllerDataSource
 
 - (__kindof UIViewController *)pageController:(WMPageController *)pageController viewControllerAtIndex:(NSInteger)index {

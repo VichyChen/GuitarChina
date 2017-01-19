@@ -8,5 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCTabBarController : UITabBarController 
+@interface GCTabBarController : UITabBarController
+
+- (void)updateMorePromptRedCount;
+
 @end

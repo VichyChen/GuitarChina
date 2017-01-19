@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "GCSearchModel.h"
+#import "GCGuideThreadModel.h"
+#import "GCMyPromptModel.h"
 
 @interface GCHTMLParse : NSObject
 
@@ -28,5 +30,7 @@
 
 + (void)parseWebNewThread:(NSData *)htmlData
                    result:(void (^)(NSString *hash, NSArray *typeArray))result;
+
++ (GCMyPromptArray *)parseMyPrompt:(NSData *)htmlData;
 
 @end

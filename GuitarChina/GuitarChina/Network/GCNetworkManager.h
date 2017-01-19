@@ -47,6 +47,10 @@
 + (void)getMyThreadSuccess:(void (^)(GCMyThreadArray *array))success
                    failure:(void (^)(NSError *error))failure;
 
+//我的提醒
++ (void)getMyPromptSuccess:(void (^)(NSData *htmlData))success
+                   failure:(void (^)(NSError *error))failure;
+
 //回复帖子
 + (void)postReplyWithTid:(NSString *)tid
                  message:(NSString *)message

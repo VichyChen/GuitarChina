@@ -18,6 +18,9 @@
 		040FEF471E1237F9006DA6FA /* GCMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF411E1237F9006DA6FA /* GCMoreCell.m */; };
 		040FEF481E1237F9006DA6FA /* GCSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF431E1237F9006DA6FA /* GCSettingCell.m */; };
 		04100E261DC743E4006639F3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04100E251DC743E4006639F3 /* Info.plist */; };
+		0416D70C1E30AB270042BE66 /* GCMyPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D70B1E30AB270042BE66 /* GCMyPromptViewController.m */; };
+		0416D70F1E30AC130042BE66 /* GCMyPromptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D70E1E30AC130042BE66 /* GCMyPromptCell.m */; };
+		0416D7121E30BA080042BE66 /* GCMyPromptModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7111E30BA080042BE66 /* GCMyPromptModel.m */; };
 		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
 		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
 		043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
@@ -228,6 +231,12 @@
 		040FEF421E1237F9006DA6FA /* GCSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSettingCell.h; sourceTree = "<group>"; };
 		040FEF431E1237F9006DA6FA /* GCSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSettingCell.m; sourceTree = "<group>"; };
 		04100E251DC743E4006639F3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GuitarChina/Info.plist; sourceTree = SOURCE_ROOT; };
+		0416D70A1E30AB270042BE66 /* GCMyPromptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyPromptViewController.h; sourceTree = "<group>"; };
+		0416D70B1E30AB270042BE66 /* GCMyPromptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyPromptViewController.m; sourceTree = "<group>"; };
+		0416D70D1E30AC130042BE66 /* GCMyPromptCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyPromptCell.h; sourceTree = "<group>"; };
+		0416D70E1E30AC130042BE66 /* GCMyPromptCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyPromptCell.m; sourceTree = "<group>"; };
+		0416D7101E30BA080042BE66 /* GCMyPromptModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyPromptModel.h; sourceTree = "<group>"; };
+		0416D7111E30BA080042BE66 /* GCMyPromptModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyPromptModel.m; sourceTree = "<group>"; };
 		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
 		042F84261CF83F7800102949 /* GCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchViewController.m; sourceTree = "<group>"; };
 		042F84291CF83FA600102949 /* GCSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchCell.h; sourceTree = "<group>"; };
@@ -1277,6 +1286,8 @@
 				4211927C1CE85D7D00BCFF3E /* GCMyFavThreadViewController.m */,
 				4211927D1CE85D7D00BCFF3E /* GCMyThreadViewController.h */,
 				4211927E1CE85D7D00BCFF3E /* GCMyThreadViewController.m */,
+				0416D70A1E30AB270042BE66 /* GCMyPromptViewController.h */,
+				0416D70B1E30AB270042BE66 /* GCMyPromptViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1288,6 +1299,8 @@
 				421192ED1CE8617F00BCFF3E /* GCMyFavThreadModel.m */,
 				421192EE1CE8617F00BCFF3E /* GCMyThreadModel.h */,
 				421192EF1CE8617F00BCFF3E /* GCMyThreadModel.m */,
+				0416D7101E30BA080042BE66 /* GCMyPromptModel.h */,
+				0416D7111E30BA080042BE66 /* GCMyPromptModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1335,6 +1348,8 @@
 				421192AE1CE85F2200BCFF3E /* GCMyFavThreadCell.m */,
 				421192AF1CE85F2200BCFF3E /* GCMyThreadCell.h */,
 				421192B01CE85F2200BCFF3E /* GCMyThreadCell.m */,
+				0416D70D1E30AC130042BE66 /* GCMyPromptCell.h */,
+				0416D70E1E30AC130042BE66 /* GCMyPromptCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1907,6 +1922,7 @@
 				42A600A91CF9EECA002F709F /* GCHistoryCell.m in Sources */,
 				421192761CE85D3200BCFF3E /* GCPostThreadViewController.m in Sources */,
 				421192A41CE85EEE00BCFF3E /* GCForumIndexCell.m in Sources */,
+				0416D7121E30BA080042BE66 /* GCMyPromptModel.m in Sources */,
 				046F9E681BC6192F0044EB1D /* AppDelegate.m in Sources */,
 				423889001BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
 				040212341E06DC3F002D74F6 /* GCOfficialCell.m in Sources */,
@@ -1917,6 +1933,7 @@
 				421191D31CE8558B00BCFF3E /* GuitarChina.xcdatamodeld in Sources */,
 				423889021BC57D0F002E1625 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
 				421192B41CE85F2200BCFF3E /* GCMyThreadCell.m in Sources */,
+				0416D70C1E30AB270042BE66 /* GCMyPromptViewController.m in Sources */,
 				423888F71BC57D0F002E1625 /* DGActivityIndicatorBallPulseAnimation.m in Sources */,
 				423888A21BC57CA6002E1625 /* MJRefreshBackNormalFooter.m in Sources */,
 				04C0D4F21DD41A2A007A5113 /* ZLPhotoPickerBrowserViewController.m in Sources */,
@@ -2034,6 +2051,7 @@
 				421192EA1CE8615400BCFF3E /* GCNewThreadModel.m in Sources */,
 				423889111BC57D0F002E1625 /* DGActivityIndicatorView.m in Sources */,
 				04C0D4FD1DD41A2A007A5113 /* ZLPhotoPickerCollectionView.m in Sources */,
+				0416D70F1E30AC130042BE66 /* GCMyPromptCell.m in Sources */,
 				046F9E691BC6192F0044EB1D /* main.m in Sources */,
 				423888A61BC57CA6002E1625 /* MJRefreshStateHeader.m in Sources */,
 			);

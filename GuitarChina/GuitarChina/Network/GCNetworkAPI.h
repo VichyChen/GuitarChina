@@ -51,6 +51,9 @@
 //我的主题
 #define GCNetworkAPI_Get_MyThread @"http://bbs.guitarchina.com/api/mobile/index.php?mobile=no&version=1&module=mythread&page=1"
 
+//我的提醒
+#define GCNetworkAPI_Get_MyPrompt @"http://bbs.guitarchina.com/home.php?mod=space&do=notice&view=mypost"
+
 //回复、发布主题前的授权
 #define GCNetworkAPI_Get_PostSecure @"http://bbs.guitarchina.com/api/mobile/index.php?mobile=no&version=1&module=secure&type=post"
 //回复

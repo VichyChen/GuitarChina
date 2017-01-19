@@ -51,8 +51,10 @@
             [Util clearCookie];
             [NSUD setObject:@"0" forKey:kGCLogin];
             [NSUD setObject:@"" forKey:kGCLoginName];
+            [NSUD setInteger:0 forKey:kGCNewMyPost];
             [NSUD synchronize];
             [self.navigationController popViewControllerAnimated:NO];
+            [APP.tabBarController updateMorePromptRedCount];
             APP.tabBarController.selectedIndex = 0;
         }
     }];

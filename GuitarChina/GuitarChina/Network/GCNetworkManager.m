@@ -72,6 +72,17 @@
     }];
 }
 
++ (void)getMyPromptSuccess:(void (^)(NSData *htmlData))success
+                   failure:(void (^)(NSError *error))failure {
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_MyPrompt
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
+}
+
 + (void)postReplyWithTid:(NSString *)tid
                  message:(NSString *)message
                 formhash:(NSString *)formhash

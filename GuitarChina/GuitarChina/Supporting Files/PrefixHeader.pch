@@ -70,6 +70,7 @@
 #define kGCLoadImage @"GCLoadImage"
 #define kGCNightMode @"GCNightMode"
 #define kGCAutoSwitchNightMode @"GCAutoSwitchNightMode"
+#define kGCNewMyPost @"GCNewMyPost"
 
 //Notification
 static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSuccess";
