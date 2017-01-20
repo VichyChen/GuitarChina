@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *tid;
 @property (nonatomic, copy) NSString *threadTitle;
 @property (nonatomic, copy) NSString *remarkString;
+@property (nonatomic, copy) NSString *time;
 
 @end
 

@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) UILabel *remarkLabel;
 @property (nonatomic, strong) UILabel *subjectLabel;
+@property (nonatomic, strong) UILabel *timeLabel;
 
 //标题高度
 @property (nonatomic, assign) CGFloat subjectLabelHeight;
@@ -35,8 +36,9 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.remarkLabel.frame = CGRectMake(15, 10, ScreenWidth - 30, 20);
-    self.subjectLabel.frame = CGRectMake(15, 40, ScreenWidth - 30, self.subjectLabelHeight);
+    self.remarkLabel.frame = CGRectMake(15, 8, ScreenWidth - 30, 20);
+    self.subjectLabel.frame = CGRectMake(15, 35, ScreenWidth - 30, self.subjectLabelHeight);
+    self.timeLabel.frame = CGRectMake(15, 36 + self.subjectLabelHeight + 8, ScreenWidth - 30, 15);
 }
 
 #pragma mark - Private Method
@@ -44,6 +46,7 @@
 - (void)configureView {
     [self.contentView addSubview:self.remarkLabel];
     [self.contentView addSubview:self.subjectLabel];
+    [self.contentView addSubview:self.timeLabel];
 }
 
 #pragma mark - Setters
@@ -55,11 +58,12 @@
     self.subjectLabel.text = model.threadTitle;
     CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:self.subjectLabel.text fontSize:self.subjectLabel.font.pointSize width:ScreenWidth - 30];
     self.subjectLabelHeight = subjectLabelHeight;
+    self.timeLabel.text = model.time;
 }
 
 + (CGFloat)getCellHeightWithModel:(GCMyPromptModel *)model {
     CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.threadTitle fontSize:16 width:ScreenWidth - 30];
-    return subjectLabelHeight + 50;
+    return subjectLabelHeight + 66;
 }
 
 #pragma mark - Getters
@@ -69,7 +73,7 @@
         _remarkLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:14]
-                                  textColor:[GCColor grayColor2]
+                                  textColor:[GCColor grayColor1]
                               numberOfLines:0
                     preferredMaxLayoutWidth:ScreenWidth - 30];
         _remarkLabel.lineBreakMode = NSLineBreakByWordWrapping;
@@ -88,6 +92,19 @@
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _subjectLabel;
+}
+
+- (UILabel *)timeLabel {
+    if (!_timeLabel) {
+        _timeLabel = [UIView createLabel:CGRectZero
+                                       text:@""
+                                       font:[UIFont systemFontOfSize:13]
+                                  textColor:[GCColor grayColor2]
+                              numberOfLines:0
+                    preferredMaxLayoutWidth:ScreenWidth - 30];
+        _timeLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    }
+    return _timeLabel;
 }
 
 @end

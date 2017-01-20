@@ -219,15 +219,19 @@
     GCMyPromptArray *array = [[GCMyPromptArray alloc] init];
     array.data = [NSMutableArray array];
 
-    NSArray *ddArray = [xpathParser searchWithXPathQuery:@"//dd[@class='ntc_body']"];
+    NSArray *ddArray = [xpathParser searchWithXPathQuery:@"//dl[@class='cl ']"];
     for (TFHppleElement *element in ddArray) {
         GCMyPromptModel *model = [[GCMyPromptModel alloc] init];
+        TFHppleElement *timeElement = [[[[TFHpple alloc] initWithHTMLData:[element.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//span"] lastObject];
+        model.time = timeElement.content;
         
         NSArray *aArray = [[[TFHpple alloc] initWithHTMLData:[element.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//dd[@class='ntc_body']/a"];
         TFHppleElement *nameElement = aArray[0];
         model.uid = [([[nameElement objectForKey:@"href"] split:@"-"][2]) split:@"."][0];
         model.name = nameElement.content;
-        model.remarkString = ((TFHppleElement *)element.children[2]).content;
+        
+        TFHppleElement *remarkElement = [[xpathParser searchWithXPathQuery:@"//dd[@class='ntc_body']"] firstObject];
+        model.remarkString = ((TFHppleElement *)remarkElement.children[2]).content;
         TFHppleElement *threadElement = aArray[1];
         model.tid = [[Util parseURLQueryStringToDictionary:[NSURL URLWithString:[threadElement objectForKey:@"href"]]] objectForKey:@"ptid"];
         model.threadTitle = threadElement.content;
