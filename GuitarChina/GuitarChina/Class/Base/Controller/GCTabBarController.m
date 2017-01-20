@@ -39,6 +39,12 @@
     [self configureView];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self updateMorePromptRedCount];
+}
+
 - (void)configureView {
     GCDiscoveryViewController *discoveryViewController = [[GCDiscoveryViewController alloc] init];
     GCNavigationController *discoveryNavigationController = [[GCNavigationController alloc] initWithRootViewController:discoveryViewController];

@@ -259,23 +259,19 @@
 }
 
 - (NSArray *)array {
-    if (!_array) {
-        NSDictionary *myTheme = @{@"title" : NSLocalizedString(@"My Theme", nil), @"enable" : @YES, @"redCount" : @"0" };
-        NSDictionary *myFavour = @{@"title" : NSLocalizedString(@"My Favour", nil), @"enable" : @YES, @"redCount" : @"0" };
-        NSDictionary *myPromtpt = @{@"title" : NSLocalizedString(@"My Promtpt", nil), @"enable" : @YES, @"redCount" : [NSString stringWithFormat:@"%ld", [NSUD integerForKey:kGCNewMyPost]] };
-
-        NSDictionary *developer = @{@"title" : NSLocalizedString(@"Information Development", nil), @"enable" : @YES, @"redCount" : @"0" };
-        NSDictionary *feedback = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES, @"redCount" : @"0" };
-        NSDictionary *score = @{@"title" : NSLocalizedString(@"To Score", nil), @"enable" : @YES, @"redCount" : @"0" };
-        NSDictionary *setting = @{@"title" : NSLocalizedString(@"Setting", nil), @"enable" : @YES, @"redCount" : @"0" };
-        
-        NSDictionary *meDictionary = @{NSLocalizedString(@"Me", nil) : @[myTheme, myFavour, myPromtpt] };
-        NSDictionary *othersDictionary = @{ NSLocalizedString(@"Others", nil) : @[developer, feedback, score, setting] };
-        
-        _array = @[meDictionary, othersDictionary];
-    }
+    NSDictionary *myTheme = @{@"title" : NSLocalizedString(@"My Theme", nil), @"enable" : @YES, @"redCount" : @"0" };
+    NSDictionary *myFavour = @{@"title" : NSLocalizedString(@"My Favour", nil), @"enable" : @YES, @"redCount" : @"0" };
+    NSDictionary *myPromtpt = @{@"title" : NSLocalizedString(@"My Promtpt", nil), @"enable" : @YES, @"redCount" : [NSString stringWithFormat:@"%ld", [NSUD integerForKey:kGCNewMyPost]] };
     
-    return _array;
+    NSDictionary *developer = @{@"title" : NSLocalizedString(@"Information Development", nil), @"enable" : @YES, @"redCount" : @"0" };
+    NSDictionary *feedback = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES, @"redCount" : @"0" };
+    NSDictionary *score = @{@"title" : NSLocalizedString(@"To Score", nil), @"enable" : @YES, @"redCount" : @"0" };
+    NSDictionary *setting = @{@"title" : NSLocalizedString(@"Setting", nil), @"enable" : @YES, @"redCount" : @"0" };
+    
+    NSDictionary *meDictionary = @{NSLocalizedString(@"Me", nil) : @[myTheme, myFavour, myPromtpt] };
+    NSDictionary *othersDictionary = @{ NSLocalizedString(@"Others", nil) : @[developer, feedback, score, setting] };
+    
+    return @[meDictionary, othersDictionary];
 }
 
 @end
