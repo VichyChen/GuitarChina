@@ -10,6 +10,7 @@
 #import "GCLoginViewController.h"
 #import "GCWebViewController.h"
 #import "GCHTMLParse.h"
+#import "GCLoginPickerView.h"
 
 @interface GCLoginViewController () <UIScrollViewDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -34,6 +35,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (weak, nonatomic) IBOutlet UIView *pickerBackgroundView;
+
+@property (strong, nonatomic) GCLoginPickerView *questionPickerView;
 
 - (IBAction)selectedPickerViewCompleteAction:(UIButton *)sender;
 - (IBAction)loginAction:(UIButton *)sender;
@@ -64,7 +67,6 @@
     [super viewDidLoad];
     
     [Util clearCookie];
-    
     [NSUD setObject:@"0" forKey:kGCLogin];
     [NSUD setObject:@"" forKey:kGCLoginName];
     [NSUD synchronize];
@@ -74,10 +76,6 @@
     [self configureBlock];
     
     self.getLoginWebBlock();
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -95,14 +93,6 @@
         //ipad
         self.contentWidth.constant = 414;
     }
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
 }
 
 - (void)dealloc {
@@ -164,9 +154,10 @@
 
 - (IBAction)showQuestionAction:(UITapGestureRecognizer *)sender {
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-    [UIView animateWithDuration:0.3 animations:^{
-        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight - 240, ScreenWidth, 240);
-    }];
+//    [UIView animateWithDuration:0.3 animations:^{
+//        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight - 240, ScreenWidth, 240);
+//    }];
+    [self.questionPickerView show];
 }
 
 - (IBAction)selectedPickerViewCompleteAction:(UIButton *)sender {
@@ -214,6 +205,7 @@
                                                                         target:self
                                                                         action:@selector(closeAction)];
     
+    [self.view addSubview:self.questionPickerView];
 }
 
 - (void)configureBlock {
@@ -228,6 +220,8 @@
                 self.postURL = postURL;
                 self.questionArray = questionArray;
                 [self.pickerView reloadAllComponents];
+                
+                self.questionPickerView.array = questionArray;
                 
                 self.getSeccodeVerifyImageBlock(seccode);
             }];
@@ -258,11 +252,13 @@
         [GCNetworkManager postLoginWithUsername:self.usernameTextField.text password:self.passwordTextField.text fastloginfield:fastLoginType seccodeverify:self.seccodeVerifyTextField.text questionid:[NSString stringWithFormat:@"%ld", (long)self.questionIndex] answer:self.answerTextField.text seccodehash:self.seccode formhash:self.formhash postURL:self.postURL success:^(NSString *html) {
             NSLog(@"%@", html);
             
-            if ([html rangeOfString:@"现在将转入登录前页面"].location != NSNotFound && ([html rangeOfString:@"点击此链接进行跳转"].location != NSNotFound || [html rangeOfString:@"如果您的浏览器没有自动跳转，请点击此链接"].location != NSNotFound)) {
+            NSString *loginID = [GCHTMLParse parseLoginWebUID:html];
+            
+            if (loginID.length > 0) {
                 NSLog(@"login success");
                 APP.tabBarController.selectedIndex = 3;
                 [NSUD setObject:@"1" forKey:kGCLogin];
-                [NSUD setObject:[GCHTMLParse parseLoginWebUID:html] forKey:kGCLoginID];
+                [NSUD setObject:loginID forKey:kGCLoginID];
                 [NSUD setObject:self.usernameTextField.text forKey:kGCLoginName];
                 [NSUD synchronize];
                 
@@ -319,6 +315,28 @@
     self.answerTextField.hidden = NO;
     self.answerLabel.hidden = NO;
     self.answerBottomSeparatorView.hidden = NO;
+}
+
+#pragma mark - Getters
+
+- (GCLoginPickerView *)questionPickerView {
+    if (!_questionPickerView) {
+        _questionPickerView = [[GCLoginPickerView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 64, ScreenWidth, ScreenHeight - 64)];
+        @weakify(self);
+        _questionPickerView.okActionBlock = ^(NSInteger index){
+            @strongify(self);
+            if (index == 0) {
+                [self hideAnswer];
+                self.answerTextField.text = @"";
+            } else {
+                [self showAnswer];
+            }
+            self.questionIndex = index;
+            self.questionTextLabel.text = [self.questionArray objectAtIndex:index];
+            [self textFieldValueChange:nil];
+        };
+    }
+    return _questionPickerView;
 }
 
 @end

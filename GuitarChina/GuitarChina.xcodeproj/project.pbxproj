@@ -21,6 +21,7 @@
 		0416D70C1E30AB270042BE66 /* GCMyPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D70B1E30AB270042BE66 /* GCMyPromptViewController.m */; };
 		0416D70F1E30AC130042BE66 /* GCMyPromptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D70E1E30AC130042BE66 /* GCMyPromptCell.m */; };
 		0416D7121E30BA080042BE66 /* GCMyPromptModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7111E30BA080042BE66 /* GCMyPromptModel.m */; };
+		0416D7161E320FE40042BE66 /* GCLoginPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7151E320FE40042BE66 /* GCLoginPickerView.m */; };
 		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
 		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
 		043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
@@ -237,6 +238,8 @@
 		0416D70E1E30AC130042BE66 /* GCMyPromptCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyPromptCell.m; sourceTree = "<group>"; };
 		0416D7101E30BA080042BE66 /* GCMyPromptModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMyPromptModel.h; sourceTree = "<group>"; };
 		0416D7111E30BA080042BE66 /* GCMyPromptModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyPromptModel.m; sourceTree = "<group>"; };
+		0416D7141E320FE40042BE66 /* GCLoginPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLoginPickerView.h; sourceTree = "<group>"; };
+		0416D7151E320FE40042BE66 /* GCLoginPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLoginPickerView.m; sourceTree = "<group>"; };
 		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
 		042F84261CF83F7800102949 /* GCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchViewController.m; sourceTree = "<group>"; };
 		042F84291CF83FA600102949 /* GCSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchCell.h; sourceTree = "<group>"; };
@@ -705,6 +708,15 @@
 				040FEF431E1237F9006DA6FA /* GCSettingCell.m */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		0416D7131E320FE40042BE66 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0416D7141E320FE40042BE66 /* GCLoginPickerView.h */,
+				0416D7151E320FE40042BE66 /* GCLoginPickerView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		042F84231CF83F4500102949 /* Controller */ = {
@@ -1358,6 +1370,7 @@
 			isa = PBXGroup;
 			children = (
 				421192C11CE8601E00BCFF3E /* Controller */,
+				0416D7131E320FE40042BE66 /* View */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1953,6 +1966,7 @@
 				423888A31BC57CA6002E1625 /* MJRefreshBackStateFooter.m in Sources */,
 				046DB76B1BFC6F9700E05E17 /* TFHpple.m in Sources */,
 				04C0D4F11DD41A2A007A5113 /* ZLPhotoPickerBrowserViewController+SignlePhotoBrowser.m in Sources */,
+				0416D7161E320FE40042BE66 /* GCLoginPickerView.m in Sources */,
 				04C0D4E71DD41A2A007A5113 /* UIImage+ZLPhotoLib.m in Sources */,
 				423889061BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
 				046365C71E1F6E8B002E1744 /* GCStatistics.m in Sources */,
