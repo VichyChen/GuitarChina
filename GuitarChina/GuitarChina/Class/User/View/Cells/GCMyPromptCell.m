@@ -73,7 +73,7 @@
         _remarkLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:14]
-                                  textColor:[GCColor grayColor1]
+                                  textColor:[GCColor grayColor2]
                               numberOfLines:0
                     preferredMaxLayoutWidth:ScreenWidth - 30];
         _remarkLabel.lineBreakMode = NSLineBreakByWordWrapping;

@@ -91,7 +91,7 @@
         _datelineLabel = [UIView createLabel:CGRectZero
                                         text:@""
                                         font:[UIFont systemFontOfSize:14]
-                                   textColor:[GCColor grayColor3]];
+                                   textColor:[GCColor grayColor2]];
     }
     return _datelineLabel;
 }
@@ -114,7 +114,7 @@
         _repliesLabel = [UIView createLabel:CGRectZero
                                        text:@""
                                        font:[UIFont systemFontOfSize:14]
-                                  textColor:[GCColor grayColor3]];
+                                  textColor:[GCColor grayColor2]];
         _repliesLabel.textAlignment = NSTextAlignmentRight;
     }
     return _repliesLabel;

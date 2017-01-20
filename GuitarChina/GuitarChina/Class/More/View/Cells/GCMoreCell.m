@@ -32,13 +32,12 @@
     [super layoutSubviews];
     
     self.leftImageView.frame = CGRectMake(15, 12, 20, 20);
-    self.titleLabel.frame = CGRectMake(15, 0, ScreenWidth - 80, 44);
-    self.separatorViewBottom.frame = CGRectMake(13, 43.5, ScreenWidth - 13, 0.5);
 }
 
 - (void)configureView {
 //    [self.contentView addSubview:self.leftImageView];
     [self.contentView addSubview:self.titleLabel];
+    [self.contentView addSubview:self.redCountLabel];
     [self.contentView addSubview:self.separatorViewBottom];
 }
 
@@ -54,17 +53,30 @@
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [UIView createLabel:CGRectZero
-                                     text:@"陈大捷"
+        _titleLabel = [UIView createLabel:CGRectMake(15, 14, ScreenWidth - 80, 16)
+                                     text:@""
                                      font:[UIFont systemFontOfSize:16]
                                 textColor:[GCColor fontColor]];
     }
     return _titleLabel;
 }
 
+- (UILabel *)redCountLabel {
+    if (!_redCountLabel) {
+        _redCountLabel = [UIView createLabel:CGRectZero
+                                     text:@""
+                                     font:[UIFont systemFontOfSize:14]
+                                textColor:[UIColor whiteColor]];
+        _redCountLabel.backgroundColor = [UIColor redColor];
+        _redCountLabel.clipsToBounds = YES;
+        _redCountLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _redCountLabel;
+}
+
 - (UIView *)separatorViewBottom {
     if (!_separatorViewBottom) {
-        _separatorViewBottom = [[UIView alloc] initWithFrame:CGRectZero];
+        _separatorViewBottom = [[UIView alloc] initWithFrame:CGRectMake(13, 43.5, ScreenWidth - 13, 0.5)];
         _separatorViewBottom.backgroundColor = [GCColor separatorLineColor];
     }
     return _separatorViewBottom;

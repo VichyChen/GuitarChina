@@ -89,6 +89,23 @@
             
             GCMoreCell *cell = [[GCMoreCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
             cell.titleLabel.text = [dictionary objectForKey:@"title"];
+            [cell.titleLabel sizeToFit];
+            
+            NSString *redCount = [dictionary objectForKey:@"redCount"];
+            if ([redCount integerValue] == 0) {
+                cell.redCountLabel.hidden = YES;
+            } else {
+                cell.redCountLabel.hidden = NO;
+                if ([redCount integerValue] > 0) {
+                    cell.redCountLabel.text = redCount;
+                    cell.redCountLabel.frame = CGRectMake(cell.titleLabel.frame.origin.x + cell.titleLabel.frame.size.width + 20, cell.titleLabel.frame.origin.y, cell.titleLabel.frame.size.height, cell.titleLabel.frame.size.height);
+                    cell.redCountLabel.layer.cornerRadius = cell.redCountLabel.frame.size.height / 2;
+                } else if ([redCount integerValue] == -1) {
+                    cell.redCountLabel.text = @" ";
+                    cell.redCountLabel.frame = CGRectMake(cell.titleLabel.frame.origin.x + cell.titleLabel.frame.size.width + 10, cell.titleLabel.frame.origin.y, 8, 8);
+                    cell.redCountLabel.layer.cornerRadius = 4;
+                }
+            }
             
             NSNumber *enable = [dictionary objectForKey:@"enable"];
             if ([enable boolValue]) {
@@ -243,14 +260,14 @@
 
 - (NSArray *)array {
     if (!_array) {
-        NSDictionary *myTheme = @{@"title" : NSLocalizedString(@"My Theme", nil), @"enable" : @YES };
-        NSDictionary *myFavour = @{@"title" : NSLocalizedString(@"My Favour", nil), @"enable" : @YES };
-        NSDictionary *myPromtpt = @{@"title" : NSLocalizedString(@"My Promtpt", nil), @"enable" : @YES };
+        NSDictionary *myTheme = @{@"title" : NSLocalizedString(@"My Theme", nil), @"enable" : @YES, @"redCount" : @"0" };
+        NSDictionary *myFavour = @{@"title" : NSLocalizedString(@"My Favour", nil), @"enable" : @YES, @"redCount" : @"0" };
+        NSDictionary *myPromtpt = @{@"title" : NSLocalizedString(@"My Promtpt", nil), @"enable" : @YES, @"redCount" : [NSString stringWithFormat:@"%ld", [NSUD integerForKey:kGCNewMyPost]] };
 
-        NSDictionary *developer = @{@"title" : NSLocalizedString(@"Information Development", nil), @"enable" : @YES };
-        NSDictionary *feedback = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES };
-        NSDictionary *score = @{@"title" : NSLocalizedString(@"To Score", nil), @"enable" : @YES };
-        NSDictionary *setting = @{@"title" : NSLocalizedString(@"Setting", nil), @"enable" : @YES };
+        NSDictionary *developer = @{@"title" : NSLocalizedString(@"Information Development", nil), @"enable" : @YES, @"redCount" : @"0" };
+        NSDictionary *feedback = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES, @"redCount" : @"0" };
+        NSDictionary *score = @{@"title" : NSLocalizedString(@"To Score", nil), @"enable" : @YES, @"redCount" : @"0" };
+        NSDictionary *setting = @{@"title" : NSLocalizedString(@"Setting", nil), @"enable" : @YES, @"redCount" : @"0" };
         
         NSDictionary *meDictionary = @{NSLocalizedString(@"Me", nil) : @[myTheme, myFavour, myPromtpt] };
         NSDictionary *othersDictionary = @{ NSLocalizedString(@"Others", nil) : @[developer, feedback, score, setting] };
