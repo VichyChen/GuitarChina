@@ -7,17 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCReplyPostThreadToolBarView.h"
 
 @interface GCReplyThreadView : UIView
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UILabel *placeholderLabel;
-@property (nonatomic, strong) UIView *separatorView;
 @property (nonatomic, strong) UICollectionView *collectionView;
+
+@property (nonatomic, strong) GCReplyPostThreadToolBarView *toolBarView;
 
 @property (nonatomic, weak) UIViewController *viewController;
 
-@property (nonatomic, copy) NSArray *imageArray;
+@property (nonatomic, strong) NSMutableArray *imageArray;
 
 @end

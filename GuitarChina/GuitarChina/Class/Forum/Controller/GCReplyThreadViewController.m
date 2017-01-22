@@ -23,6 +23,7 @@
     [super viewDidLoad];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self configureView];
 }
 
@@ -47,7 +48,7 @@
     @weakify(self);
     void (^postWebReplyBlock)(NSArray *) = ^(NSArray *attachArray){
         @strongify(self);
-        [GCNetworkManager postWebReplyWithTid:self.tid fid:self.fid message:[self.replyThreadView.textView.text stringByAppendingString:@"\n[size=1][url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305][color=Gray]发自吉他中国iPhone客户端[/color][/url][/size]"] attachArray:attachArray formhash:self.formhash success:^{
+        [GCNetworkManager postWebReplyWithTid:self.tid fid:self.fid message:[self.replyThreadView.textView.text stringByAppendingString:kSuffix] attachArray:attachArray formhash:self.formhash success:^{
             @strongify(self);
             [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
             if (self.replySuccessBlock) {
@@ -109,12 +110,6 @@
 
 - (void)configureView {
     self.title = NSLocalizedString(@"Write reply", nil);
-    
-//    self.navigationItem.leftBarButtonItem = [UIView createCustomBarButtonItem:@"icon_delete"
-//                                                                  normalColor:[UIColor whiteColor]
-//                                                             highlightedColor:[GCColor grayColor4]
-//                                                                       target:self
-//                                                                       action:@selector(closeAction)];
     
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_checkmark"
                                                                    normalColor:[UIColor whiteColor]

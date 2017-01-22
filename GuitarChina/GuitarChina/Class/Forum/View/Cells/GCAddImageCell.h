@@ -11,5 +11,8 @@
 @interface GCAddImageCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIButton *deleteButton;
+
+@property (nonatomic, copy) void(^deleteActionBlock)(void);
 
 @end

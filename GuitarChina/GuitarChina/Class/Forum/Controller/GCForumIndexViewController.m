@@ -150,12 +150,12 @@
             
             return cell;
         };
-        self.tableViewKit.heightForRowAtIndexPathBlock = ^(NSIndexPath *indexPath) {
+        self.tableViewKit.heightForRowAtIndexPathBlock = ^CGFloat(NSIndexPath *indexPath) {
             @strongify(self);
             NSArray *heightArray = [self.rowHeightDictionary objectForKey:[NSNumber numberWithInteger:indexPath.section]];
             NSNumber *number = [heightArray objectAtIndex:indexPath.row];
             
-            return (CGFloat)number.floatValue;
+            return number.floatValue;
         };
         self.tableViewKit.viewForHeaderInSectionBlock = ^(NSInteger section) {
             @strongify(self);

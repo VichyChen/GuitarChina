@@ -49,11 +49,13 @@
 
 //Apple ID
 #define AppleID @"1089161305"
+#define kSuffix @"\n[size=1][url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305][color=Gray]发自吉他中国iPhone客户端[/color][/url][/size]"
 
 #else
 
 //Apple ID
 #define AppleID @"1193034315"
+#define kSuffix @"\n[size=1][url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305][color=Gray]发自吉他中国iPhone Pro客户端[/color][/url][/size]"
 
 #endif
 

@@ -22,6 +22,7 @@
 		0416D70F1E30AC130042BE66 /* GCMyPromptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D70E1E30AC130042BE66 /* GCMyPromptCell.m */; };
 		0416D7121E30BA080042BE66 /* GCMyPromptModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7111E30BA080042BE66 /* GCMyPromptModel.m */; };
 		0416D7161E320FE40042BE66 /* GCLoginPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7151E320FE40042BE66 /* GCLoginPickerView.m */; };
+		0416D7191E3312E80042BE66 /* GCReplyPostThreadToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7181E3312E80042BE66 /* GCReplyPostThreadToolBarView.m */; };
 		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
 		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
 		043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
@@ -240,6 +241,8 @@
 		0416D7111E30BA080042BE66 /* GCMyPromptModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMyPromptModel.m; sourceTree = "<group>"; };
 		0416D7141E320FE40042BE66 /* GCLoginPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLoginPickerView.h; sourceTree = "<group>"; };
 		0416D7151E320FE40042BE66 /* GCLoginPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLoginPickerView.m; sourceTree = "<group>"; };
+		0416D7171E3312E80042BE66 /* GCReplyPostThreadToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCReplyPostThreadToolBarView.h; sourceTree = "<group>"; };
+		0416D7181E3312E80042BE66 /* GCReplyPostThreadToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReplyPostThreadToolBarView.m; sourceTree = "<group>"; };
 		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
 		042F84261CF83F7800102949 /* GCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchViewController.m; sourceTree = "<group>"; };
 		042F84291CF83FA600102949 /* GCSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchCell.h; sourceTree = "<group>"; };
@@ -1275,6 +1278,8 @@
 				04D48E681E28DC2800212137 /* GCThreadDetailToolBarView.m */,
 				04D48E6A1E28DC4100212137 /* GCThreadDetailPagePickerView.h */,
 				04D48E6B1E28DC4100212137 /* GCThreadDetailPagePickerView.m */,
+				0416D7171E3312E80042BE66 /* GCReplyPostThreadToolBarView.h */,
+				0416D7181E3312E80042BE66 /* GCReplyPostThreadToolBarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1913,6 +1918,7 @@
 				04F8A3611D28E19F007F2350 /* WMScrollView.m in Sources */,
 				426BC3931CB9FA9800B3B827 /* HMSegmentedControl.m in Sources */,
 				423888A51BC57CA6002E1625 /* MJRefreshNormalHeader.m in Sources */,
+				0416D7191E3312E80042BE66 /* GCReplyPostThreadToolBarView.m in Sources */,
 				423888AA1BC57CA6002E1625 /* UIScrollView+MJRefresh.m in Sources */,
 				04D48E6C1E28DC4100212137 /* GCThreadDetailPagePickerView.m in Sources */,
 				4238889D1BC57CA6002E1625 /* MJRefreshHeader.m in Sources */,
