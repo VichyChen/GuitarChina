@@ -30,6 +30,10 @@
     return self;
 }
 
+- (void)dealloc {
+    NSLog(@"GCAdBannerView dealloc");
+}
+
 - (void)configureView:(UIViewController *)viewController {
     GADBannerView *bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
     bannerView.delegate = self;
@@ -45,10 +49,16 @@
     @weakify(self);
     dispatch_after(popTime, dispatch_get_main_queue(), ^{
         @strongify(self);
-        [UIView animateWithDuration:1 animations:^{
+        if (self.beginRemoveFromSuperviewBlock) {
+            self.beginRemoveFromSuperviewBlock();
+        }
+        [UIView animateWithDuration:0.5 animations:^{
             self.alpha = 0;
         } completion:^(BOOL finished) {
             [self removeFromSuperview];
+            if (self.endRemoveFromSuperviewBlock) {
+                self.endRemoveFromSuperviewBlock();
+            }
         }];
     });
 }

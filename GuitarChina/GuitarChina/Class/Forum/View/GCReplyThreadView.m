@@ -61,7 +61,7 @@
     self.scrollView.frame = CGRectMake(0, 0, ScreenWidth, self.frame.size.height - 44);
     self.toolBarView.frame = CGRectMake(0, self.frame.size.height - 44, ScreenWidth, 44);
     self.textView.frame = CGRectMake(6, 0, ScreenWidth - 12, 100);
-    self.placeholderLabel.frame = CGRectMake(15, 8, 200, 20);
+    self.placeholderLabel.frame = CGRectMake(12, 8, 200, 20);
     self.collectionView.frame = CGRectMake(0, self.textView.frame.size.height, ScreenWidth, [self calculateCollectionViewHeight]);
     
     CGFloat scrollViewContentSizeHeight = self.collectionView.frame.origin.y + self.collectionView.frame.size.height + 10;
@@ -147,7 +147,7 @@
     self.keyboardHeight = keyboardRect.size.height ;
     self.scrollView.contentSize = CGSizeMake(ScreenWidth, self.scrollView.contentSize.height + self.keyboardHeight);
 
-    CGFloat delayInSeconds = 0.05;
+    CGFloat delayInSeconds = 0.15;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
     @weakify(self);
     dispatch_after(popTime, dispatch_get_main_queue(), ^{

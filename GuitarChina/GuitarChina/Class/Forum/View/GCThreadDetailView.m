@@ -10,6 +10,8 @@
 
 @interface GCThreadDetailView ()
 
+@property (nonatomic, assign) BOOL adMobFlag;
+
 @end
 
 @implementation GCThreadDetailView
@@ -17,7 +19,9 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
+        self.adMobFlag = (kIsFree && (arc4random() % 100) < kAdMobThreadDetailBannerProbability) ? YES : NO;
         [self configureView];
+        [self configureFrame];
     }
     return self;
 }
@@ -43,7 +47,7 @@
 - (void)showOtherView {
     if (self.toolBarView.alpha == 0.0f) {
         [UIView animateWithDuration:1.0 animations:^{
-            if (kIsFree && _bannner) {
+            if (self.adMobFlag) {
                 self.bannner.alpha = 1.0f;
             }
             self.toolBarView.alpha = 1.0f;
@@ -56,13 +60,19 @@
 
 - (void)configureView {
     [self addSubview:self.webView];
-    if (kIsFree) {
-        if ((arc4random() % 100) < kAdMobThreadDetailBannerProbability) {
-            [self addSubview:self.bannner];
-        }
+    if (self.adMobFlag) {
+        [self addSubview:self.bannner];
     }
     [self addSubview:self.pagePickerView];
     [self addSubview:self.toolBarView];
+}
+
+- (void)configureFrame {
+    if (self.adMobFlag) {
+        self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 40 - 50);
+    } else {
+        self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 40);
+    }
 }
 
 #pragma mark - Event Responses
@@ -83,7 +93,7 @@
 
 - (UIWebView *)webView {
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 44)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 40)];
         _webView.dataDetectorTypes = UIDataDetectorTypeLink;
         _webView.opaque = NO;
         _webView.backgroundColor = [UIColor clearColor];
@@ -158,6 +168,14 @@
         _bannner = [[GCAdBannerView alloc] initWithRootViewController:APP.window.rootViewController countDown:15];
         _bannner.alpha = 0.0f;
         _bannner.frame = CGRectMake(0, self.toolBarView.frame.origin.y - 50, ScreenWidth, 50);
+        @weakify(self);
+        _bannner.beginRemoveFromSuperviewBlock = ^{
+            @strongify(self);
+            [UIView animateWithDuration:0.5 animations:^{
+                self.bannner.frame = CGRectMake(0, self.toolBarView.frame.origin.y, ScreenWidth, 50);
+                self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 40);
+            }];
+        };
     }
     return _bannner;
 }

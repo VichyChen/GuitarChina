@@ -10,6 +10,9 @@
 
 @interface GCAdBannerView : UIView
 
+@property (nonatomic, copy) void(^beginRemoveFromSuperviewBlock)(void);
+@property (nonatomic, copy) void(^endRemoveFromSuperviewBlock)(void);
+
 - (instancetype)initWithRootViewController:(UIViewController *)viewController;
 
 - (instancetype)initWithRootViewController:(UIViewController *)viewController countDown:(CGFloat)countDown;
