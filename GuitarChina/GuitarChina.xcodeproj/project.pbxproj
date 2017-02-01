@@ -10,6 +10,8 @@
 		040212311E058E2D002D74F6 /* GCOfficialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040212301E058E2D002D74F6 /* GCOfficialViewController.m */; };
 		040212341E06DC3F002D74F6 /* GCOfficialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040212331E06DC3F002D74F6 /* GCOfficialCell.m */; };
 		0403AAEE1E3F7A8700D6FD20 /* GCNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAED1E3F7A8700D6FD20 /* GCNewsViewController.m */; };
+		0403AAF11E4039C100D6FD20 /* GCNewPostThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF01E4039C100D6FD20 /* GCNewPostThreadViewController.m */; };
+		0403AAF41E403F8E00D6FD20 /* GCNewPostThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF31E403F8E00D6FD20 /* GCNewPostThreadCell.m */; };
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
 		04091D801CFBECBC00B797B1 /* GCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 04091D7F1CFBECBC00B797B1 /* GCColor.m */; };
 		040FEF341E111EB2006DA6FA /* GCThreadDetailMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF331E111EB2006DA6FA /* GCThreadDetailMenuView.m */; };
@@ -220,6 +222,10 @@
 		040212331E06DC3F002D74F6 /* GCOfficialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCOfficialCell.m; sourceTree = "<group>"; };
 		0403AAEC1E3F7A8700D6FD20 /* GCNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsViewController.h; sourceTree = "<group>"; };
 		0403AAED1E3F7A8700D6FD20 /* GCNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewsViewController.m; sourceTree = "<group>"; };
+		0403AAEF1E4039C100D6FD20 /* GCNewPostThreadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewPostThreadViewController.h; sourceTree = "<group>"; };
+		0403AAF01E4039C100D6FD20 /* GCNewPostThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewPostThreadViewController.m; sourceTree = "<group>"; };
+		0403AAF21E403F8E00D6FD20 /* GCNewPostThreadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewPostThreadCell.h; sourceTree = "<group>"; };
+		0403AAF31E403F8E00D6FD20 /* GCNewPostThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewPostThreadCell.m; sourceTree = "<group>"; };
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
 		04091D7E1CFBECBC00B797B1 /* GCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColor.h; sourceTree = "<group>"; };
 		04091D7F1CFBECBC00B797B1 /* GCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColor.m; sourceTree = "<group>"; };
@@ -1282,6 +1288,8 @@
 				421192531CE85D3200BCFF3E /* GCPostThreadViewController.h */,
 				421192541CE85D3200BCFF3E /* GCPostThreadViewController.m */,
 				4211924D1CE85D3200BCFF3E /* GCPostThreadViewController.xib */,
+				0403AAEF1E4039C100D6FD20 /* GCNewPostThreadViewController.h */,
+				0403AAF01E4039C100D6FD20 /* GCNewPostThreadViewController.m */,
 				421192551CE85D3200BCFF3E /* GCReplyThreadViewController.h */,
 				421192561CE85D3200BCFF3E /* GCReplyThreadViewController.m */,
 				421192571CE85D3200BCFF3E /* GCReportThreadViewController.h */,
@@ -1399,6 +1407,8 @@
 				047942521DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib */,
 				048D45061DD1BE1500A7824F /* GCAddImageCell.h */,
 				048D45071DD1BE1500A7824F /* GCAddImageCell.m */,
+				0403AAF21E403F8E00D6FD20 /* GCNewPostThreadCell.h */,
+				0403AAF31E403F8E00D6FD20 /* GCNewPostThreadCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1982,6 +1992,7 @@
 				04F8A3621D28E19F007F2350 /* WMPageController.m in Sources */,
 				421192A51CE85EEE00BCFF3E /* GCReplyThreadView.m in Sources */,
 				4238890E1BC57D0F002E1625 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
+				0403AAF41E403F8E00D6FD20 /* GCNewPostThreadCell.m in Sources */,
 				423888F81BC57D0F002E1625 /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */,
 				42A600A91CF9EECA002F709F /* GCHistoryCell.m in Sources */,
 				421192761CE85D3200BCFF3E /* GCPostThreadViewController.m in Sources */,
@@ -2068,6 +2079,7 @@
 				421192A31CE85EEE00BCFF3E /* GCForumDisplayCell.m in Sources */,
 				423888FE1BC57D0F002E1625 /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */,
 				04F8A35D1D28E19F007F2350 /* WMFooldView.m in Sources */,
+				0403AAF11E4039C100D6FD20 /* GCNewPostThreadViewController.m in Sources */,
 				048D45081DD1BE1500A7824F /* GCAddImageCell.m in Sources */,
 				046262441BAAC06800E66F03 /* NSString+Tools.m in Sources */,
 				04C0D4F91DD41A2A007A5113 /* ZLPhotoPickerGroup.m in Sources */,
