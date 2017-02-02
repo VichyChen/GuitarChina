@@ -9,11 +9,10 @@
 #import "GCNewPostThreadViewController.h"
 #import "GCNewPostThreadCell.h"
 
-//NSArray *array2 = @[@{@"title" : @"品牌", @"type" : @1},
-//                    @{@"title" : @"成色", @"type" : @5},
-//                    @{@"title" : @"型号", @"type" : @1},
-//                    @{@"title" : @"QQ", @"type" : @1},
-//                    @{@"title" : @"商品所在地", @"type" : @1}];
+#define SortIDArray @[@"182", @"192"]
+#define ChengSeArray @[@"1", @"2", @"3", @"4", @"5", @"6", @"7"]
+#define ZhongJieArray @[@"1", @"2", @"3"]
+#define FuKuangFangShiArray @[@"1", @"2", @"3", @"4", @"5"]
 
 @interface GCNewPostThreadViewController ()
 
@@ -21,6 +20,8 @@
 @property (nonatomic, strong) GCTableViewKit *tableViewKit;
 
 @property (nonatomic, copy) NSArray *data;
+
+@property (nonatomic, copy) NSString *sortid;
 
 @property (nonatomic, copy) NSString *sPinPai;
 @property (nonatomic, copy) NSString *sXingHao;
@@ -44,6 +45,7 @@
 
 @property (nonatomic, copy) NSString *subject;
 @property (nonatomic, copy) NSString *message;
+@property (nonatomic, copy) NSString *selectedType;
 
 @end
 
@@ -105,10 +107,24 @@
                 {
                     cell.titleLabel.text = dictionary[@"title"];
                     NSArray *dataArray = dictionary[@"dataArray"];
-                    for (NSInteger i = 0; i < dataArray.count; i++) {
-                        NSString *title = dataArray[i];
-                        [cell.segmentedControl setTitle:title forSegmentAtIndex:i];
+                    [cell.segmentedControl removeAllSegments];
+                    for (int i = 0; i < dataArray.count; i++) {
+                        [cell.segmentedControl insertSegmentWithTitle:dataArray[i] atIndex:i animated:NO];
                     }
+                    NSArray *valueArray = dictionary[@"valueArray"];
+                    NSString *value = dictionary[@"value"];
+                    for (int i = 0; i <valueArray.count; i++) {
+                        if ([valueArray[i] isEqualToString:value]) {
+                            cell.segmentedControl.selectedSegmentIndex = i;
+                            break;
+                        }
+                    }
+                    void (^block)(NSInteger selectedIndex) = dictionary[@"block"];
+                    cell.segmentControlValueChangeBlock = ^(UISegmentedControl *segmentedControl) {
+                        if (block) {
+                            block(segmentedControl.selectedSegmentIndex);
+                        }
+                    };
                 }
                     break;
                     
@@ -165,8 +181,12 @@
                     break;
                     
                 case GCNewPostThreadCellStyleRadioButton:
+                {
                     cell.titleLabel.text = dictionary[@"title"];
-                    
+                    NSArray *dataArray = dictionary[@"dataArray"];
+                    NSArray *valueArray = dictionary[@"valueArray"];
+                    NSString *value = dictionary[@"value"];
+                }
                     break;
                     
                 case GCNewPostThreadCellStyleCheckButton:
@@ -176,7 +196,15 @@
                     
                 case GCNewPostThreadCellStyleLabelArrow:
                     cell.titleLabel.text = dictionary[@"title"];
-                    
+                    NSString *value = dictionary[@"value"];
+                    cell.valueLabel.text = value.length > 0 ? value : @"请选择";
+                    cell.valueLabel.textColor = [cell.valueLabel.text isEqualToString:@"请选择"] ? [GCColor placeHolderColor] : [GCColor fontColor];
+                    void (^block)(void) = dictionary[@"block"];
+                    cell.didSelectRowBlock = ^{
+                        if (block) {
+                            block();
+                        }
+                    };
                     break;
             }
             
@@ -228,7 +256,10 @@
     @weakify(self);
     NSArray *array0 = @[@{@"title" : @"发帖说明",
                           @"type" : @0,
-                          @"dataArray" : @[@"诚意转让", @"我要求购"]}];
+                          @"dataArray" : @[@"诚意转让", @"我要求购"],
+                          @"valueArray" : SortIDArray,
+                          @"value" : (self.sortid ? self.sortid : SortIDArray[0]),
+                          @"block" : ^(NSInteger selectedIndex){@strongify(self); self.sortid = SortIDArray[selectedIndex];}}];
     NSArray *array1 = @[@{@"title" : @"品牌",
                           @"type" : @1,
                           @"value" : (self.sPinPai ? self.sPinPai : @""),
@@ -239,7 +270,9 @@
                           @"block" : ^(NSString *text){@strongify(self); self.sXingHao = text;}},
                         @{@"title" : @"成色",
                           @"type" : @5,
-                          @"value" : (self.sChengSe ? self.sChengSe : @""),
+                          @"dataArray" : @[@"9成新", @"8成新", @"7成新", @"6成新", @"5成新", @"4成新", @"3成新"],
+                          @"valueArray" : ChengSeArray,
+                          @"value" : (self.sChengSe ? self.sChengSe : ChengSeArray[0]),
                           @"block" : ^(NSString *text){@strongify(self); self.sChengSe = text;}},
                         @{@"title" : @"数量",
                           @"type" : @1,
@@ -275,19 +308,25 @@
                           @"block" : ^(NSString *text){@strongify(self); self.sAddress = text;}},
                         @{@"title" : @"是否中介",
                           @"type" : @5,
+                          @"dataArray" : @[@"是", @"否", @"无所谓"],
+                          @"valueArray" : ZhongJieArray,
                           @"value" : (self.sZhongJie ? self.sZhongJie : @""),
                           @"block" : ^(NSString *text){@strongify(self); self.sZhongJie = text;}},
                         @{@"title" : @"付款方式",
                           @"type" : @6,
-                          @"value" : (self.sFuKuangFangShi ? self.sFuKuangFangShi : @""),
-                          @"block" : ^(NSString *text){@strongify(self); self.sFuKuangFangShi = text;}}];
+                          @"dataArray" : @[@"中介", @"支付宝", @"银行汇款", @"现金面交", @"严禁先款"],
+                          @"valueArray" : FuKuangFangShiArray,
+                          @"value" : (self.sFuKuangFangShi ? self.sFuKuangFangShi : @[]),
+                          @"block" : ^(NSString *text){@strongify(self);  }}];
     NSArray *array2 = @[@{@"title" : @"品牌",
                           @"type" : @1,
                           @"value" : (self.bPinPai ? self.bPinPai : @""),
                           @"block" : ^(NSString *text){@strongify(self); self.bPinPai = text;}},
                         @{@"title" : @"成色",
                           @"type" : @5,
-                          @"value" : (self.bChengSe ? self.bChengSe : @""),
+                          @"dataArray" : @[@"9成新", @"8成新", @"7成新", @"6成新", @"5成新", @"4成新", @"3成新"],
+                          @"valueArray" : ChengSeArray,
+                          @"value" : (self.bChengSe ? self.bChengSe : ChengSeArray[0]),
                           @"block" : ^(NSString *text){@strongify(self); self.bChengSe = text;}},
                         @{@"title" : @"型号",
                           @"type" : @1,
@@ -305,7 +344,10 @@
                           @"type" : @2,
                           @"value" : (self.subject ? self.subject : @""),
                           @"block" : ^(NSString *text){@strongify(self); self.subject = text;}},
-                        @{@"title" : @"选择主题分类", @"type" : @7},
+                        @{@"title" : @"选择主题分类",
+                          @"type" : @7,
+                          @"value" : (self.selectedType ? self.selectedType : @""),
+                          @"block" : ^{@strongify(self);        }},
                         @{@"title" : @"内容",
                           @"type" : @4,
                           @"value" : (self.message ? self.message : @""),

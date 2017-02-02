@@ -10,6 +10,8 @@
 
 @interface GCNewPostThreadCell() <UITextViewDelegate>
 
+@property (nonatomic, strong) NSMutableArray *buttonArray;
+
 @end
 
 @implementation GCNewPostThreadCell
@@ -21,6 +23,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
         self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
+        self.buttonArray = [NSMutableArray array];
         [self configureView];
     }
     return self;
@@ -57,6 +60,12 @@
     }
 }
 
+- (void)segmentedControlValueChange:(UISegmentedControl *)segmentedControl {
+    if (self.segmentControlValueChangeBlock) {
+        self.segmentControlValueChangeBlock(segmentedControl);
+    }
+}
+
 #pragma mark - Private Method
 
 - (void)configureView {
@@ -71,8 +80,13 @@
     for (UIView *subView in self.containView.subviews) {
         [subView removeFromSuperview];
     }
+    for (UIButton *button in self.buttonArray) {
+        [button removeFromSuperview];
+    }
+    [self.buttonArray removeAllObjects];
     
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    [self.contentView bk_whenTapped:nil];
     
     switch (cellStyle) {
         case GCNewPostThreadCellStyleSegmentedControl:
@@ -144,7 +158,31 @@
             self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
             self.valueLabel.frame = CGRectMake(13 + 100, 0, ScreenWidth - 13 - 100 - 13 - 7 - 5, 44);
             self.arrowImageView.frame = CGRectMake(ScreenWidth - 13 - 7, 12, 14, 20);
+            @weakify(self);
+            [self.contentView bk_whenTapped:^{
+                @strongify(self);
+                if (self.didSelectRowBlock) {
+                    self.didSelectRowBlock();
+                }
+            }];
             break;
+    }
+}
+
+- (void)setButtonTitleArray:(NSArray *)buttonTitleArray {
+    _buttonTitleArray = buttonTitleArray;
+    
+    UIView *buttonContentView = [[UIView alloc] init];
+    buttonContentView.frame = CGRectMake(0, 0, 0, 0);
+    
+    for (int i = 0; i < buttonTitleArray.count; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:buttonTitleArray[i] forState:UIControlStateNormal];
+        button.frame = CGRectMake(0, 0, 0, 0);
+        
+        
+        [buttonContentView addSubview:button];
+        [self.buttonArray addObject:button];
     }
 }
 
@@ -169,8 +207,9 @@
 
 - (UISegmentedControl *)segmentedControl {
     if (!_segmentedControl) {
-        _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"", @""]];
+        _segmentedControl = [[UISegmentedControl alloc] init];
         [_segmentedControl setTintColor:[GCColor redColor]];
+        [_segmentedControl addTarget:self action:@selector(segmentedControlValueChange:) forControlEvents:UIControlEventValueChanged];
     }
     return _segmentedControl;
 }

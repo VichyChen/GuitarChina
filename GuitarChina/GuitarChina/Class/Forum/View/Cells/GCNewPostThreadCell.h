@@ -32,8 +32,12 @@ typedef NS_OPTIONS(NSUInteger, GCNewPostThreadCellStyle) {
 
 @property (nonatomic, assign) GCNewPostThreadCellStyle cellStyle;
 
+@property (nonatomic, copy) NSArray *buttonTitleArray;
+
+@property (nonatomic, copy) void(^segmentControlValueChangeBlock)(UISegmentedControl *segmentedControl);
 @property (nonatomic, copy) void(^textFieldValueChangeBlock)(UITextField *textField);
 @property (nonatomic, copy) void(^textViewValueChangeBlock)(UITextView *textView);
+@property (nonatomic, copy) void(^didSelectRowBlock)(void);
 
 + (CGFloat)getCellHeightWithDictionary:(NSDictionary *)dictionary;
 
