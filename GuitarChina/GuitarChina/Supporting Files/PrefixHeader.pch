@@ -10,6 +10,7 @@
 #define GuitarChina_PrefixHeader_pch
 
 #import <UIKit/UIKit.h>
+#import "UITextView+Placeholder.h"
 #import <Foundation/Foundation.h>
 
 #import "AppDelegate.h"

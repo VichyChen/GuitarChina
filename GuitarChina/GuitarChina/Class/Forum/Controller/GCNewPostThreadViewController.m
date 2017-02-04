@@ -247,7 +247,11 @@
                 case GCNewPostThreadCellStyleLabelArrow:
                     cell.titleLabel.text = dictionary[@"title"];
                     NSString *value = dictionary[@"value"];
-                    cell.valueLabel.text = value.length > 0 ? value : @"请选择";
+                    if (value.length > 0) {
+                        cell.valueLabel.text = dictionary[@"dictionary"][value];
+                    } else {
+                        cell.valueLabel.text = @"请选择";
+                    }
                     cell.valueLabel.textColor = [cell.valueLabel.text isEqualToString:@"请选择"] ? [GCColor placeHolderColor] : [GCColor fontColor];
                     void (^block)(void) = dictionary[@"block"];
                     cell.didSelectRowBlock = ^{
@@ -445,6 +449,7 @@
                           @"block" : ^(NSString *text){@strongify(self); self.subject = text;}},
                         @{@"title" : @"选择主题分类",
                           @"type" : @7,
+                          @"dictionary" : self.threadTypes ? self.threadTypes : @{},
                           @"value" : (self.selectedType ? self.selectedType : @""),
                           @"block" : ^{
                               @strongify(self);
@@ -462,6 +467,7 @@
                                           break;
                                       }
                                   }
+                                  [self.tableView reloadData];
                               };
                               [questionPickerView showInView:self.view];
                           },

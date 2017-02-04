@@ -12,6 +12,7 @@
 		0403AAEE1E3F7A8700D6FD20 /* GCNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAED1E3F7A8700D6FD20 /* GCNewsViewController.m */; };
 		0403AAF11E4039C100D6FD20 /* GCNewPostThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF01E4039C100D6FD20 /* GCNewPostThreadViewController.m */; };
 		0403AAF41E403F8E00D6FD20 /* GCNewPostThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF31E403F8E00D6FD20 /* GCNewPostThreadCell.m */; };
+		0403AAF81E45D84A00D6FD20 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF71E45D84A00D6FD20 /* UITextView+Placeholder.m */; };
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
 		04091D801CFBECBC00B797B1 /* GCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 04091D7F1CFBECBC00B797B1 /* GCColor.m */; };
 		040FEF341E111EB2006DA6FA /* GCThreadDetailMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF331E111EB2006DA6FA /* GCThreadDetailMenuView.m */; };
@@ -226,6 +227,8 @@
 		0403AAF01E4039C100D6FD20 /* GCNewPostThreadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewPostThreadViewController.m; sourceTree = "<group>"; };
 		0403AAF21E403F8E00D6FD20 /* GCNewPostThreadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewPostThreadCell.h; sourceTree = "<group>"; };
 		0403AAF31E403F8E00D6FD20 /* GCNewPostThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewPostThreadCell.m; sourceTree = "<group>"; };
+		0403AAF61E45D84A00D6FD20 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		0403AAF71E45D84A00D6FD20 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
 		04091D7E1CFBECBC00B797B1 /* GCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColor.h; sourceTree = "<group>"; };
 		04091D7F1CFBECBC00B797B1 /* GCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColor.m; sourceTree = "<group>"; };
@@ -709,6 +712,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		0403AAF51E45D84A00D6FD20 /* UITextView+Placeholder */ = {
+			isa = PBXGroup;
+			children = (
+				0403AAF61E45D84A00D6FD20 /* UITextView+Placeholder.h */,
+				0403AAF71E45D84A00D6FD20 /* UITextView+Placeholder.m */,
+			);
+			path = "UITextView+Placeholder";
+			sourceTree = "<group>";
+		};
 		040FEF351E12192A006DA6FA /* Advertisement */ = {
 			isa = PBXGroup;
 			children = (
@@ -1157,6 +1169,7 @@
 		420D985D1B9297F600AEAED3 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				0403AAF51E45D84A00D6FD20 /* UITextView+Placeholder */,
 				04C0D49E1DD41A2A007A5113 /* ZLPhotoLib */,
 				04F8A34E1D28E19F007F2350 /* WMPageController */,
 				047150E51BF03B2A007A8890 /* SVProgressHUD */,
@@ -2071,6 +2084,7 @@
 				421192B31CE85F2200BCFF3E /* GCMyFavThreadCell.m in Sources */,
 				423889081BC57D0F002E1625 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				040FEF471E1237F9006DA6FA /* GCMoreCell.m in Sources */,
+				0403AAF81E45D84A00D6FD20 /* UITextView+Placeholder.m in Sources */,
 				423888AB1BC57CA6002E1625 /* UIView+MJExtension.m in Sources */,
 				046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */,
 				423888F31BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */,

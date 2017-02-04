@@ -239,7 +239,7 @@
             [self.containView addSubview:self.textView];
 
             self.containView.frame = CGRectMake(0, 0, ScreenWidth, 100);
-            self.textView.frame = CGRectMake(13, 3, ScreenWidth - 26, 100 - 6);
+            self.textView.frame = CGRectMake(10, 3, ScreenWidth - 20, 100 - 6);
             break;
             
         case GCNewPostThreadCellStyleRadioButton:
@@ -353,6 +353,7 @@
         _textView = [[UITextView alloc] init];
         _textView.font = [UIFont systemFontOfSize:16];
         _textView.textColor = [GCColor fontColor];
+        _textView.placeholder = @"请输入";
         _textView.delegate = self;
     }
     return _textView;

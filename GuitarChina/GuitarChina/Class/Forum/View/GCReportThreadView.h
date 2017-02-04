@@ -11,6 +11,5 @@
 @interface GCReportThreadView : UIView
 
 @property (nonatomic, strong) UITextView *textView;
-@property (nonatomic, strong) UILabel *placeholderLabel;
 
 @end

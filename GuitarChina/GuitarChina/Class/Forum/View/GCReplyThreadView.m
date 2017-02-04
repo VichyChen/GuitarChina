@@ -53,7 +53,6 @@
     [self addSubview:self.scrollView];
     [self addSubview:self.toolBarView];
     [self.scrollView addSubview:self.textView];
-    [self.scrollView addSubview:self.placeholderLabel];
     [self.scrollView addSubview:self.collectionView];
 }
 
@@ -61,7 +60,6 @@
     self.scrollView.frame = CGRectMake(0, 0, ScreenWidth, self.frame.size.height - 44);
     self.toolBarView.frame = CGRectMake(0, self.frame.size.height - 44, ScreenWidth, 44);
     self.textView.frame = CGRectMake(6, 0, ScreenWidth - 12, 100);
-    self.placeholderLabel.frame = CGRectMake(12, 8, 200, 20);
     self.collectionView.frame = CGRectMake(0, self.textView.frame.size.height, ScreenWidth, [self calculateCollectionViewHeight]);
     
     CGFloat scrollViewContentSizeHeight = self.collectionView.frame.origin.y + self.collectionView.frame.size.height + 10;
@@ -74,16 +72,7 @@
 
 #pragma mark - UITextViewDelegate
 
-- (void)textViewDidBeginEditing:(UITextView *)textView {
-    [self textViewChange];
-}
-
-- (void)textViewDidEndEditing:(UITextView *)textView {
-    [self textViewChange];
-}
-
 - (void)textViewDidChange:(UITextView *)textView {
-    [self textViewChange];
     
     CGFloat textViewHeight = [self calculateTextViewHeightWithText:self.textView.text];
     if (textViewHeight > 100) {
@@ -292,18 +281,6 @@
 }
 
 
-#pragma mark - Event Responses
-
-#pragma mark - Private Methods
-
-- (void)textViewChange {
-    if ([self.textView.text isEqualToString:@""]) {
-        self.placeholderLabel.hidden = NO;
-    } else {
-        self.placeholderLabel.hidden = YES;
-    }
-}
-
 #pragma mark - Getters
 
 - (UIScrollView *)scrollView {
@@ -322,18 +299,10 @@
         _textView.backgroundColor = [UIColor clearColor];
         _textView.font = [UIFont systemFontOfSize:16];
         _textView.scrollEnabled = NO;
+        _textView.placeholder = NSLocalizedString(@"Write reply.", nil);
         _textView.delegate = self;
  }
     return _textView;
-}
-
-- (UILabel *)placeholderLabel {
-    if (!_placeholderLabel) {
-        _placeholderLabel = [UIView createLabel:CGRectZero
-                                           text:NSLocalizedString(@"Write reply.", nil)
-                                           font:[UIFont systemFontOfSize:16] textColor:[GCColor grayColor3]];
-    }
-    return _placeholderLabel;
 }
 
 - (UICollectionView *)collectionView {

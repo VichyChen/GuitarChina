@@ -13,7 +13,6 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UITextView *textView;
-@property (nonatomic, strong) UILabel *placeholderLabel;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
 @property (nonatomic, strong) GCReplyPostThreadToolBarView *toolBarView;
