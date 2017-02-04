@@ -95,7 +95,7 @@
             GCNewPostThreadViewController *controller = [[GCNewPostThreadViewController alloc] init];
             controller.fid = self.fid;
             controller.formhash = self.formhash;
-            if (self.threadTypes) {
+            if (self.threadTypes.count > 0) {
                 controller.threadTypes = self.threadTypes;
             }
             [self.navigationController pushViewController:controller animated:YES];
@@ -187,11 +187,9 @@
         };
         self.tableViewKit.didSelectCellBlock = ^(NSIndexPath *indexPath, id item) {
             @strongify(self);
-//            GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
-//            GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
-//            controller.tid = model.tid;
-//            [self.navigationController pushViewController:controller animated:YES];
-            GCNewPostThreadViewController *controller = [[GCNewPostThreadViewController alloc] init];
+            GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+            GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
+            controller.tid = model.tid;
             [self.navigationController pushViewController:controller animated:YES];
         };
         [self.tableViewKit configureTableView:_tableView];

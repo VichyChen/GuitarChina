@@ -317,7 +317,6 @@
             return 0.01f;
         };
         self.tableViewKit.didSelectRowAtIndexPathBlock = ^(NSIndexPath *indexPath) {
-            @strongify(self);
             
         };
         [self.tableViewKit configureTableView:_tableView];
