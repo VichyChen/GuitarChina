@@ -17,11 +17,12 @@
 
 @implementation GCLoginPickerView
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+- (instancetype)init {
+    self = [super init];
     if (self) {
         self.show = NO;
-        self.originFrame = frame;
+        self.frame = CGRectMake(0, ScreenHeight - 64, ScreenWidth, ScreenHeight - 64);
+        self.originFrame = self.frame;
         self.afterMoveFrame = CGRectMake(0, 0, ScreenWidth, self.frame.size.height);
         [self configureView];
     }
@@ -54,12 +55,14 @@
         } completion:^(BOOL finished) {
             self.frame = self.originFrame;
             self.show = NO;
+            [self removeFromSuperview];
         }];
     }
 }
 
-- (void)show {
+- (void)showInView:(UIView *)view {
     if (!self.isShow) {
+        [view addSubview:self];
         self.frame = self.afterMoveFrame;
         self.contentView.frame = CGRectMake(0, self.frame.size.height, ScreenWidth, 210);
         self.transparentView.alpha = 0.0f;

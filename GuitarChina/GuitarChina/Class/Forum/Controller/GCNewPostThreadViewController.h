@@ -12,6 +12,6 @@
 
 @property (nonatomic, copy) NSString *fid;
 @property (nonatomic, copy) NSString *formhash;
-@property (nonatomic, strong) NSDictionary *threadTypes;
+@property (nonatomic, copy) NSDictionary *threadTypes;
 
 @end

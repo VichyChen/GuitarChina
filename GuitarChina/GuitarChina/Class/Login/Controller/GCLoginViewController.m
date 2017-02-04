@@ -157,7 +157,7 @@
 //    [UIView animateWithDuration:0.3 animations:^{
 //        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight - 240, ScreenWidth, 240);
 //    }];
-    [self.questionPickerView show];
+    [self.questionPickerView showInView:self.view];
 }
 
 - (IBAction)selectedPickerViewCompleteAction:(UIButton *)sender {
@@ -204,8 +204,6 @@
                                                               highlightedColor:[GCColor grayColor4]
                                                                         target:self
                                                                         action:@selector(closeAction)];
-    
-    [self.view addSubview:self.questionPickerView];
 }
 
 - (void)configureBlock {
@@ -321,7 +319,7 @@
 
 - (GCLoginPickerView *)questionPickerView {
     if (!_questionPickerView) {
-        _questionPickerView = [[GCLoginPickerView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 64, ScreenWidth, ScreenHeight - 64)];
+        _questionPickerView = [[GCLoginPickerView alloc] init];
         @weakify(self);
         _questionPickerView.okActionBlock = ^(NSInteger index){
             @strongify(self);

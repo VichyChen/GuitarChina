@@ -8,6 +8,7 @@
 
 #import "GCNewPostThreadViewController.h"
 #import "GCNewPostThreadCell.h"
+#import "GCLoginPickerView.h"
 
 #define SortIDArray @[@"182", @"192"]
 #define ChengSeDataArray @[@"9成新", @"8成新", @"7成新", @"6成新", @"5成新", @"4成新", @"3成新"]
@@ -58,7 +59,8 @@
     [super viewDidLoad];
     
     self.title = NSLocalizedString(@"Post Thread", nil);
-    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_checkmark"
                                                                    normalColor:[UIColor whiteColor]
                                                               highlightedColor:[GCColor grayColor4]
@@ -78,11 +80,14 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
         //        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-        _tableView.backgroundColor = [UIColor whiteColor];
-        
+        _tableView.backgroundColor = [GCColor backgroundColor];
+        if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+            [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+        }
+
         self.tableViewKit = [[GCTableViewKit alloc] initWithSystem];
         @weakify(self);
         self.tableViewKit.numberOfSectionsInTableViewBlock = ^NSInteger{
@@ -133,6 +138,7 @@
                     
                 case GCNewPostThreadCellStyleTextField:
                 {
+                    cell.textField.placeholder = @"请输入";
                     cell.titleLabel.text = dictionary[@"title"];
                     cell.textField.text = dictionary[@"value"];
                     void (^block)(NSString *text) = dictionary[@"block"];
@@ -146,6 +152,7 @@
                     
                 case GCNewPostThreadCellStyleOnlyTextField:
                 {
+                    cell.textField.placeholder = dictionary[@"title"];
                     cell.textField.text = dictionary[@"value"];
                     void (^block)(NSString *text) = dictionary[@"block"];
                     cell.textFieldValueChangeBlock = ^(UITextField *textField) {
@@ -257,6 +264,24 @@
             @strongify(self);
             NSArray *array = [self.data objectAtIndex:indexPath.section];
             NSDictionary *dictionary = array[indexPath.row];
+
+            if ([dictionary.allKeys containsObject:@"rowHeight"]) {
+                CGFloat (^block)(void) = dictionary[@"rowHeight"];
+                CGFloat height = block();
+                return height;
+            }
+            
+            if (self.threadTypes && indexPath.section != 3) {
+                return 0;
+            }
+            
+            if (indexPath.section == 1 && [self.sortid isEqualToString:SortIDArray[1]]) {
+                return 0;
+            }
+            if (indexPath.section == 2 && (!self.sortid || [self.sortid isEqualToString:SortIDArray[0]])) {
+                return 0;
+            }
+            
             return [GCNewPostThreadCell getCellHeightWithDictionary:dictionary];
         };
         self.tableViewKit.viewForHeaderInSectionBlock = ^(NSInteger section) {
@@ -272,7 +297,7 @@
             return view;
         };
         self.tableViewKit.heightForHeaderInSectionBlock = ^CGFloat(NSInteger section) {
-            if (section == 3) {
+            if (section == 3 && !self.threadTypes) {
                 return 13;
             } else {
                 return 0.01;
@@ -282,6 +307,9 @@
             return [[UIView alloc] init];
         };
         self.tableViewKit.heightForFooterInSectionBlock = ^CGFloat(NSInteger section) {
+            if (section == 0 && !self.threadTypes) {
+                return 13;
+            }
             return 0.01f;
         };
         self.tableViewKit.didSelectRowAtIndexPathBlock = ^(NSIndexPath *indexPath) {
@@ -302,7 +330,11 @@
                           @"dataArray" : @[@"诚意转让", @"我要求购"],
                           @"valueArray" : SortIDArray,
                           @"value" : (self.sortid ? self.sortid : SortIDArray[0]),
-                          @"block" : ^(NSInteger selectedIndex){@strongify(self); self.sortid = SortIDArray[selectedIndex];}}];
+                          @"block" : ^(NSInteger selectedIndex){
+                              @strongify(self);
+                              self.sortid = SortIDArray[selectedIndex];
+                              [self.tableView reloadData];
+                          }}];
     NSArray *array1 = @[@{@"title" : @"品牌",
                           @"type" : @1,
                           @"value" : (self.sPinPai ? self.sPinPai : @""),
@@ -407,14 +439,40 @@
                           @"type" : @1,
                           @"value" : (self.bAddress ? self.bAddress : @""),
                           @"block" : ^(NSString *text){@strongify(self); self.bAddress = text;}}];
-    NSArray *array3 = @[@{@"title" : @"标题",
+    NSArray *array3 = @[@{@"title" : @"请输入标题",
                           @"type" : @2,
                           @"value" : (self.subject ? self.subject : @""),
                           @"block" : ^(NSString *text){@strongify(self); self.subject = text;}},
                         @{@"title" : @"选择主题分类",
                           @"type" : @7,
                           @"value" : (self.selectedType ? self.selectedType : @""),
-                          @"block" : ^{@strongify(self);        }},
+                          @"block" : ^{
+                              @strongify(self);
+                              [self.view endEditing:YES];
+                              
+                              GCLoginPickerView *questionPickerView = [[GCLoginPickerView alloc] init];
+                              questionPickerView.array = self.threadTypes.allValues;
+                              @weakify(self);
+                              questionPickerView.okActionBlock = ^(NSInteger index){
+                                  @strongify(self);
+                                  NSString *value = self.threadTypes.allValues[index];
+                                  for (NSString *key in self.threadTypes.allKeys) {
+                                      if ([self.threadTypes[key] isEqualToString:value]) {
+                                          self.selectedType = key;
+                                          break;
+                                      }
+                                  }
+                              };
+                              [questionPickerView showInView:self.view];
+                          },
+                          @"rowHeight" : ^(CGFloat rowHeight){
+                              @strongify(self);
+                              if (self.threadTypes) {
+                                  return 44.0;
+                              } else {
+                                  return 0.0;
+                              }
+                          }},
                         @{@"title" : @"内容",
                           @"type" : @4,
                           @"value" : (self.message ? self.message : @""),
@@ -422,7 +480,5 @@
     _data = @[array0, array1, array2, array3];
     return _data;
 }
-/*
- 
- */
+
 @end

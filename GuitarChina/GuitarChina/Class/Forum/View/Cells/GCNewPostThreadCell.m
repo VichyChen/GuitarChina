@@ -20,6 +20,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.clipsToBounds = YES;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
         self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
@@ -160,7 +161,7 @@
         [button setBackgroundImage:[[UIImage imageNamed:@"grayBackground"] imageWithTintColor:[GCColor redColor]] forState:UIControlStateSelected];
         button.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         button.titleLabel.font = [UIFont systemFontOfSize:14];
-        button.layer.cornerRadius = 3;
+        button.layer.cornerRadius = 1;
         button.tag = i;
 //        [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         

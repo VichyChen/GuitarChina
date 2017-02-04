@@ -24,6 +24,6 @@
 @property (nonatomic, assign, getter=isShow) BOOL show;
 
 - (void)dismiss;
-- (void)show;
+- (void)showInView:(UIView *)view;
 
 @end

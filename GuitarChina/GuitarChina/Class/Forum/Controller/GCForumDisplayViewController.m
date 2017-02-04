@@ -9,6 +9,8 @@
 #import "GCForumDisplayViewController.h"
 #import "GCForumDisplayCell.h"
 #import "GCPostThreadViewController.h"
+#import "GCNewPostThreadViewController.h"
+#import "GCNewPostThreadViewController.h"
 #import "GCThreadDetailViewController.h"
 #import "GCNavigationController.h"
 #import "GCLoginViewController.h"
@@ -89,15 +91,13 @@
             GCLoginViewController *loginViewController = [[GCLoginViewController alloc] initWithNibName:@"GCLoginViewController" bundle:nil];
             GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
             [self presentViewController:navigationController animated:YES completion:nil];
-        }
-        else if (!self.threadTypes || self.threadTypes.count == 0) {
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"GuitarChina Interface Error", nil)];
-        }
-        else {
-            GCPostThreadViewController *controller = [[GCPostThreadViewController alloc] initWithNibName:@"GCPostThreadViewController" bundle:[NSBundle mainBundle]];
+        } else {
+            GCNewPostThreadViewController *controller = [[GCNewPostThreadViewController alloc] init];
             controller.fid = self.fid;
             controller.formhash = self.formhash;
-            controller.threadTypes = self.threadTypes;
+            if (self.threadTypes) {
+                controller.threadTypes = self.threadTypes;
+            }
             [self.navigationController pushViewController:controller animated:YES];
         }
     }
@@ -113,10 +113,6 @@
         self.uid = array.member_uid;
         self.formhash = array.formhash;
         self.threadTypes = array.threadTypes;
-        
-        if (!self.threadTypes || self.threadTypes.count == 0) {
-            self.navigationItem.rightBarButtonItem = nil;
-        }
         
         if (self.pageIndex == 1) {
             self.data = array.data;
@@ -191,9 +187,11 @@
         };
         self.tableViewKit.didSelectCellBlock = ^(NSIndexPath *indexPath, id item) {
             @strongify(self);
-            GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
-            GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
-            controller.tid = model.tid;
+//            GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
+//            GCForumThreadModel *model = [self.data objectAtIndex:indexPath.row];
+//            controller.tid = model.tid;
+//            [self.navigationController pushViewController:controller animated:YES];
+            GCNewPostThreadViewController *controller = [[GCNewPostThreadViewController alloc] init];
             [self.navigationController pushViewController:controller animated:YES];
         };
         [self.tableViewKit configureTableView:_tableView];
