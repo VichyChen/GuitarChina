@@ -32,12 +32,18 @@ typedef NS_OPTIONS(NSUInteger, GCNewPostThreadCellStyle) {
 
 @property (nonatomic, assign) GCNewPostThreadCellStyle cellStyle;
 
-@property (nonatomic, copy) NSArray *buttonTitleArray;
+@property (nonatomic, copy) NSArray *radioButtonTitleArray;
+@property (nonatomic, copy) NSArray *checkButtonTitleArray;
+
+- (void)setRadioButtonTitleArray:(NSArray *)radioButtonTitleArray value:(NSString *)value;
+- (void)setCheckButtonTitleArray:(NSArray *)checkButtonTitleArray value:(NSArray *)value;
 
 @property (nonatomic, copy) void(^segmentControlValueChangeBlock)(UISegmentedControl *segmentedControl);
 @property (nonatomic, copy) void(^textFieldValueChangeBlock)(UITextField *textField);
 @property (nonatomic, copy) void(^textViewValueChangeBlock)(UITextView *textView);
 @property (nonatomic, copy) void(^didSelectRowBlock)(void);
+@property (nonatomic, copy) void(^radioButtonSelectBlock)(UIButton *button);
+@property (nonatomic, copy) void(^checkButtonSelectBlock)(NSArray *buttonArray);
 
 + (CGFloat)getCellHeightWithDictionary:(NSDictionary *)dictionary;
 

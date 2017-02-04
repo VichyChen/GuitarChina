@@ -10,9 +10,12 @@
 #import "GCNewPostThreadCell.h"
 
 #define SortIDArray @[@"182", @"192"]
-#define ChengSeArray @[@"1", @"2", @"3", @"4", @"5", @"6", @"7"]
-#define ZhongJieArray @[@"1", @"2", @"3"]
-#define FuKuangFangShiArray @[@"1", @"2", @"3", @"4", @"5"]
+#define ChengSeDataArray @[@"9成新", @"8成新", @"7成新", @"6成新", @"5成新", @"4成新", @"3成新"]
+#define ChengSeValueArray @[@"1", @"2", @"3", @"4", @"5", @"6", @"7"]
+#define ZhongJieDataArray @[@"是", @"否", @"无所谓"]
+#define ZhongJieValueArray @[@"1", @"2", @"3"]
+#define FuKuangFangShiDataArray @[@"中介", @"支付宝", @"银行汇款", @"现金面交", @"严禁先款"]
+#define FuKuangFangShiValueArray @[@"1", @"2", @"3", @"4", @"5"]
 
 @interface GCNewPostThreadViewController ()
 
@@ -35,7 +38,7 @@
 @property (nonatomic, copy) NSString *sEmail;
 @property (nonatomic, copy) NSString *sAddress;
 @property (nonatomic, copy) NSString *sZhongJie;
-@property (nonatomic, strong) NSMutableArray *sFuKuangFangShi;
+@property (nonatomic, copy) NSArray *sFuKuangFangShi;
 
 @property (nonatomic, copy) NSString *bPinPai;
 @property (nonatomic, copy) NSString *bChengSe;
@@ -186,12 +189,52 @@
                     NSArray *dataArray = dictionary[@"dataArray"];
                     NSArray *valueArray = dictionary[@"valueArray"];
                     NSString *value = dictionary[@"value"];
+                    NSString *defaultValue = @"";
+                    for (int i = 0; i < valueArray.count; i++) {
+                        if ([valueArray[i] isEqualToString:value]) {
+                            defaultValue = dataArray[i];
+                        }
+                    }
+                    [cell setRadioButtonTitleArray:dataArray value:defaultValue];
+                    void (^block)(NSString *text) = dictionary[@"block"];
+                    cell.radioButtonSelectBlock = ^(UIButton *button) {
+                        if (block) {
+                            block(button.titleLabel.text);
+                        }
+                    };
                 }
                     break;
                     
                 case GCNewPostThreadCellStyleCheckButton:
+                {
                     cell.titleLabel.text = dictionary[@"title"];
-                    
+                    NSArray *dataArray = dictionary[@"dataArray"];
+                    NSArray *valueArray = dictionary[@"valueArray"];
+                    NSArray *value = dictionary[@"value"];
+                    NSMutableArray *defaultValue = [NSMutableArray array];
+                    for (NSString *string in value) {
+                        for (int i = 0; i < valueArray.count; i++) {
+                            if ([valueArray[i] isEqualToString:string]) {
+                                [defaultValue addObject:dataArray[i]];
+                            }
+                        }
+                    }
+                    [cell setCheckButtonTitleArray:dataArray value:defaultValue];
+                    void (^block)(NSArray *array) = dictionary[@"block"];
+                    cell.checkButtonSelectBlock = ^(NSArray *buttonArray) {
+                        NSMutableArray *array = [NSMutableArray array];
+                        for (UIButton *button in buttonArray) {
+                            for (int i = 0; i < dataArray.count; i++) {
+                                if ([button.titleLabel.text isEqualToString:dataArray[i]]) {
+                                    [array addObject:valueArray[i]];
+                                }
+                            }
+                        }
+                        if (block) {
+                            block(array);
+                        }
+                    };
+                }
                     break;
                     
                 case GCNewPostThreadCellStyleLabelArrow:
@@ -270,10 +313,18 @@
                           @"block" : ^(NSString *text){@strongify(self); self.sXingHao = text;}},
                         @{@"title" : @"成色",
                           @"type" : @5,
-                          @"dataArray" : @[@"9成新", @"8成新", @"7成新", @"6成新", @"5成新", @"4成新", @"3成新"],
-                          @"valueArray" : ChengSeArray,
-                          @"value" : (self.sChengSe ? self.sChengSe : ChengSeArray[0]),
-                          @"block" : ^(NSString *text){@strongify(self); self.sChengSe = text;}},
+                          @"dataArray" : ChengSeDataArray,
+                          @"valueArray" : ChengSeValueArray,
+                          @"value" : (self.sChengSe ? self.sChengSe : @""),
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              for (int i = 0; i < ChengSeDataArray.count; i++) {
+                                  if ([ChengSeDataArray[i] isEqualToString:text]) {
+                                      self.sChengSe = ChengSeValueArray[i];
+                                  }
+                              }
+                          }
+                          },
                         @{@"title" : @"数量",
                           @"type" : @1,
                           @"value" : (self.sTrade_num ? self.sTrade_num : @""),
@@ -308,26 +359,42 @@
                           @"block" : ^(NSString *text){@strongify(self); self.sAddress = text;}},
                         @{@"title" : @"是否中介",
                           @"type" : @5,
-                          @"dataArray" : @[@"是", @"否", @"无所谓"],
-                          @"valueArray" : ZhongJieArray,
+                          @"dataArray" : ZhongJieDataArray,
+                          @"valueArray" : ZhongJieValueArray,
                           @"value" : (self.sZhongJie ? self.sZhongJie : @""),
-                          @"block" : ^(NSString *text){@strongify(self); self.sZhongJie = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              for (int i = 0; i < ZhongJieDataArray.count; i++) {
+                                  if ([ZhongJieDataArray[i] isEqualToString:text]) {
+                                      self.sZhongJie = ZhongJieValueArray[i];
+                                  }
+                              }
+                          }
+                          },
                         @{@"title" : @"付款方式",
                           @"type" : @6,
-                          @"dataArray" : @[@"中介", @"支付宝", @"银行汇款", @"现金面交", @"严禁先款"],
-                          @"valueArray" : FuKuangFangShiArray,
+                          @"dataArray" : FuKuangFangShiDataArray,
+                          @"valueArray" : FuKuangFangShiValueArray,
                           @"value" : (self.sFuKuangFangShi ? self.sFuKuangFangShi : @[]),
-                          @"block" : ^(NSString *text){@strongify(self);  }}];
+                          @"block" : ^(NSArray *array){@strongify(self); self.sFuKuangFangShi = array;}}];
     NSArray *array2 = @[@{@"title" : @"品牌",
                           @"type" : @1,
                           @"value" : (self.bPinPai ? self.bPinPai : @""),
                           @"block" : ^(NSString *text){@strongify(self); self.bPinPai = text;}},
                         @{@"title" : @"成色",
                           @"type" : @5,
-                          @"dataArray" : @[@"9成新", @"8成新", @"7成新", @"6成新", @"5成新", @"4成新", @"3成新"],
-                          @"valueArray" : ChengSeArray,
-                          @"value" : (self.bChengSe ? self.bChengSe : ChengSeArray[0]),
-                          @"block" : ^(NSString *text){@strongify(self); self.bChengSe = text;}},
+                          @"dataArray" : ChengSeDataArray,
+                          @"valueArray" : ChengSeValueArray,
+                          @"value" : (self.bChengSe ? self.bChengSe : @""),
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              for (int i = 0; i < ChengSeDataArray.count; i++) {
+                                  if ([ChengSeDataArray[i] isEqualToString:text]) {
+                                      self.bChengSe = ChengSeValueArray[i];
+                                  }
+                              }
+                          }
+                          },
                         @{@"title" : @"型号",
                           @"type" : @1,
                           @"value" : (self.bXingHao ? self.bXingHao : @""),

@@ -32,7 +32,33 @@
 + (CGFloat)getCellHeightWithDictionary:(NSDictionary *)dictionary {
     if ([dictionary[@"type"] isEqualToNumber:@(GCNewPostThreadCellStyleRadioButton)] ||
         [dictionary[@"type"] isEqualToNumber:@(GCNewPostThreadCellStyleCheckButton)] ) {
-        return 44;
+
+        NSArray *buttonTitleArray = dictionary[@"dataArray"];
+
+        CGFloat rowOriginX = 0;
+        CGFloat rowOriginY = 10;
+        CGFloat buttonWidth = 0;
+        CGFloat buttonHeight = 30;
+        CGFloat buttonVerticalSpace = 10;
+        CGFloat buttonHorizontalSpace = 10;
+        
+        for (int i = 0; i < buttonTitleArray.count; i++) {
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button setTitle:buttonTitleArray[i] forState:UIControlStateNormal];
+            button.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+            button.titleLabel.font = [UIFont systemFontOfSize:14];
+
+            buttonWidth = (ScreenWidth - 13 - 100 - 13 - 10 * 2) / 3;
+            if (buttonWidth + rowOriginX > ScreenWidth - 13 - 100 - 13) {
+                rowOriginY += (buttonHeight + buttonVerticalSpace);
+                rowOriginX = 0;
+            }
+            button.frame = CGRectMake(rowOriginX, rowOriginY, buttonWidth, buttonHeight);
+            rowOriginX += (buttonHorizontalSpace + buttonWidth);
+        }
+        
+        return rowOriginY + buttonHeight + buttonVerticalSpace;
+    
     } else {
         NSString *value = [@{@(GCNewPostThreadCellStyleSegmentedControl) : @"44.0",
                                      @(GCNewPostThreadCellStyleTextField) : @"44.0",
@@ -49,6 +75,45 @@
 - (void)textFieldValueChange:(UITextField *)textField {
     if (self.textFieldValueChangeBlock) {
         self.textFieldValueChangeBlock(textField);
+    }
+}
+
+- (void)singleButtonAction:(UIButton *)button {
+    for (UIButton *button in self.buttonArray) {
+        button.selected = NO;
+        [button setTitleColor:[GCColor redColor] forState:UIControlStateNormal];
+    }
+
+    button.selected = !button.selected;
+    
+    if (button.selected) {
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    } else {
+        [button setTitleColor:[GCColor redColor] forState:UIControlStateNormal];
+    }
+    
+    if (self.radioButtonSelectBlock) {
+        self.radioButtonSelectBlock(button);
+    }
+}
+
+- (void)mutableButtonAction:(UIButton *)button {
+    button.selected = !button.selected;
+    
+    if (button.selected) {
+        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    } else {
+        [button setTitleColor:[GCColor redColor] forState:UIControlStateNormal];
+    }
+    
+    NSMutableArray *array = [NSMutableArray array];
+    for (UIButton *button in self.buttonArray) {
+        if (button.selected) {
+            [array addObject:button];
+        }
+    }
+    if (self.checkButtonSelectBlock) {
+        self.checkButtonSelectBlock(array);
     }
 }
 
@@ -70,6 +135,49 @@
 
 - (void)configureView {
     [self.contentView addSubview:self.containView];
+}
+
+- (void)createButtonsWithStringArray:(NSArray *)stringArray {
+    UIView *buttonContentView = [[UIView alloc] init];
+    buttonContentView.frame = CGRectMake(13 + 100, 0, ScreenWidth - 13 - 100 - 13, 0);
+    [self.containView addSubview:buttonContentView];
+    
+    CGFloat rowOriginX = 0;
+    CGFloat rowOriginY = 10;
+    CGFloat buttonWidth = 0;
+    CGFloat buttonHeight = 30;
+    CGFloat buttonVerticalSpace = 10;
+    CGFloat buttonHorizontalSpace = 10;
+    
+    for (int i = 0; i < stringArray.count; i++) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button setTitle:stringArray[i] forState:UIControlStateNormal];
+        [button setTitleColor:[GCColor redColor] forState:UIControlStateNormal];
+        //        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+        //        [button setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+        [button setBackgroundImage:[[UIImage imageNamed:@"grayborder"] imageWithTintColor:[GCColor redColor]] forState:UIControlStateNormal];
+        [button setBackgroundImage:[[UIImage imageNamed:@"grayBackground"] imageWithTintColor:[GCColor redColor]] forState:UIControlStateHighlighted];
+        [button setBackgroundImage:[[UIImage imageNamed:@"grayBackground"] imageWithTintColor:[GCColor redColor]] forState:UIControlStateSelected];
+        button.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+        button.titleLabel.font = [UIFont systemFontOfSize:14];
+        button.layer.cornerRadius = 3;
+        button.tag = i;
+//        [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [buttonContentView addSubview:button];
+        [self.buttonArray addObject:button];
+        
+        buttonWidth = (buttonContentView.frame.size.width - 10 * 2) / 3;
+        if (buttonWidth + rowOriginX > buttonContentView.frame.size.width) {
+            rowOriginY += (buttonHeight + buttonVerticalSpace);
+            rowOriginX = 0;
+        }
+        button.frame = CGRectMake(rowOriginX, rowOriginY, buttonWidth, buttonHeight);
+        rowOriginX += (buttonHorizontalSpace + buttonWidth);
+    }
+    
+    buttonContentView.frame = CGRectMake(13 + 100, 0, ScreenWidth - 13 - 100 - 13, rowOriginY + buttonHeight + buttonVerticalSpace);
+    self.containView.frame = CGRectMake(0, 0, ScreenWidth, rowOriginY + buttonHeight + buttonVerticalSpace);
 }
 
 #pragma mark - Setters
@@ -169,20 +277,34 @@
     }
 }
 
-- (void)setButtonTitleArray:(NSArray *)buttonTitleArray {
-    _buttonTitleArray = buttonTitleArray;
+- (void)setRadioButtonTitleArray:(NSArray *)radioButtonTitleArray value:(NSString *)value {
+    [self createButtonsWithStringArray:radioButtonTitleArray];
     
-    UIView *buttonContentView = [[UIView alloc] init];
-    buttonContentView.frame = CGRectMake(0, 0, 0, 0);
+    for (UIButton *button in self.buttonArray) {
+        if ([button.titleLabel.text isEqualToString:value]) {
+            button.selected = YES;
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        } else {
+            button.selected = NO;
+            [button setTitleColor:[GCColor redColor] forState:UIControlStateNormal];
+        }
+
+        [button addTarget:self action:@selector(singleButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    }
+}
+
+- (void)setCheckButtonTitleArray:(NSArray *)checkButtonTitleArray value:(NSArray *)value {
+    [self createButtonsWithStringArray:checkButtonTitleArray];
     
-    for (int i = 0; i < buttonTitleArray.count; i++) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitle:buttonTitleArray[i] forState:UIControlStateNormal];
-        button.frame = CGRectMake(0, 0, 0, 0);
-        
-        
-        [buttonContentView addSubview:button];
-        [self.buttonArray addObject:button];
+    for (UIButton *button in self.buttonArray) {
+        if ([value containsObject:button.titleLabel.text]) {
+            button.selected = YES;
+            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        } else {
+            button.selected = NO;
+            [button setTitleColor:[GCColor redColor] forState:UIControlStateNormal];
+        }
+        [button addTarget:self action:@selector(mutableButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 
@@ -230,8 +352,6 @@
         _textView = [[UITextView alloc] init];
         _textView.font = [UIFont systemFontOfSize:16];
         _textView.textColor = [GCColor fontColor];
-        _textView.backgroundColor = [UIColor greenColor];
-        _textView.text = @"zzzzzz";
         _textView.delegate = self;
     }
     return _textView;
