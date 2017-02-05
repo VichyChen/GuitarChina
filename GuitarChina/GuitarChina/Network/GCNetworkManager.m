@@ -112,7 +112,7 @@
                    formhash:(NSString *)formhash
                     success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_PostWebSecure parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebReplySecure parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{ @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash, @"posttime" : @"", @"wysiwyg" : @"0", @"noticeauthor" : @"", @"noticetrimstr" : @"", @"noticeauthormsg" : @"", @"subject" : @"", @"checkbox" : @"0", @"message" : message, @"usesig" : @"1", @"save" : @""}];
         if (attachArray) {
@@ -121,7 +121,7 @@
             }
         }
         
-        [[GCNetworkBase sharedInstance] postWeb:GCNetworkAPI_Post_WebSendreply(fid, tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [[GCNetworkBase sharedInstance] postWeb:GCNetworkAPI_Post_WebReply(fid, tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             success();
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(error);
@@ -145,7 +145,7 @@
     [manager.requestSerializer setValue:@"Shockwave Flash" forHTTPHeaderField:@"User-Agent"];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-    [manager POST:GCNetworkAPI_Post_WebSendReplyImage(fid) parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    [manager POST:GCNetworkAPI_Post_WebUploadImage(fid) parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
         [formData appendPartWithFormData:[@"test1.jpg" dataUsingEncoding:NSUTF8StringEncoding] name:@"Filename"];
         [formData appendPartWithFormData:[formhash dataUsingEncoding:NSUTF8StringEncoding] name:@"hash"];

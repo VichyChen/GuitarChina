@@ -58,25 +58,6 @@
                  success:(void (^)(GCSendReplyModel *model))success
                  failure:(void (^)(NSError *error))failure;
 
-+ (void)postWebReplyWithTid:(NSString *)tid
-                        fid:(NSString *)fid
-                    message:(NSString *)message
-                attachArray:(NSArray *)attachArray
-                   formhash:(NSString *)formhash
-                    success:(void (^)(void))success
-                    failure:(void (^)(NSError *error))failure;
-
-+ (void)postWebReplyImageWithFid:(NSString *)fid
-                           image:(UIImage *)image
-                        formhash:(NSString *)formhash
-                         success:(void (^)(NSString *string))success
-                         failure:(void (^)(NSError *error))failure;
-
-+ (void)getWebReplyWithFid:(NSString *)fid
-                       tid:(NSString *)tid
-                   success:(void (^)(NSData *htmlData))success
-                   failure:(void (^)(NSError *error))failure;
-
 //发布主题
 + (void)postNewThreadWithFid:(NSString *)fid
                      subject:(NSString *)subject
@@ -85,6 +66,29 @@
                     formhash:(NSString *)formhash
                      success:(void (^)(GCNewThreadModel *model))success
                      failure:(void (^)(NSError *error))failure;
+
+//WEB上传图片
++ (void)postWebReplyImageWithFid:(NSString *)fid
+                           image:(UIImage *)image
+                        formhash:(NSString *)formhash
+                         success:(void (^)(NSString *string))success
+                         failure:(void (^)(NSError *error))failure;
+
+//WEB回复页面获取
++ (void)getWebReplyWithFid:(NSString *)fid
+                       tid:(NSString *)tid
+                   success:(void (^)(NSData *htmlData))success
+                   failure:(void (^)(NSError *error))failure;
+
+//WEB回复
++ (void)postWebReplyWithTid:(NSString *)tid
+                        fid:(NSString *)fid
+                    message:(NSString *)message
+                attachArray:(NSArray *)attachArray
+                   formhash:(NSString *)formhash
+                    success:(void (^)(void))success
+                    failure:(void (^)(NSError *error))failure;
+
 
 + (void)getWebNewThreadWithFid:(NSString *)fid
                        success:(void (^)(NSData *htmlData))success
