@@ -59,6 +59,9 @@
 //回复
 #define GCNetworkAPI_Post_SendReply(tid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/api/mobile/index.php?mobile=no&version=1&module=sendreply&seccodeverify=&sechash=&replysubmit=yes&tid=%@", (tid)]
 
+//发布主题
+#define GCNetworkAPI_Post_NewThread(fid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/api/mobile/index.php?mobile=no&version=1&module=newthread&seccodeverify=&sechash=&topicsubmit=yes&fid=%@", (fid)]
+
 //WEB上传图片
 #define GCNetworkAPI_Post_WebUploadImage(fid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/misc.php?mod=swfupload&action=swfupload&operation=upload&fid=%@", (fid)]
 
@@ -76,11 +79,6 @@
 //WEB发布
 #define GCNetworkAPI_Post_WebPostThread(fid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=newthread&fid=%@&extra=&topicsubmit=yes", (fid)]
 
-//发布主题
-#define GCNetworkAPI_Post_NewThread(fid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/api/mobile/index.php?mobile=no&version=1&module=newthread&seccodeverify=&sechash=&topicsubmit=yes&fid=%@", (fid)]
-
-//WEB发帖页面获取
-#define GCNetworkAPI_Get_WebNewThread(fid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=newthread&fid=%@", (fid)]
 
 //举报
 #define GCNetworkAPI_Post_Report(tid) [NSString stringWithFormat:@"http://art.365day.tv/api/set.html?act=SetSayReport&say_id=%@&V=1.1.1&F=ios&key=&user_name=&sign=", (tid)]

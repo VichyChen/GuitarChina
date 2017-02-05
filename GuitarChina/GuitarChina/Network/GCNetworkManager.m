@@ -104,30 +104,25 @@
     }];
 }
 
-
-+ (void)postWebReplyWithTid:(NSString *)tid
-                        fid:(NSString *)fid
-                    message:(NSString *)message
-                attachArray:(NSArray *)attachArray
-                   formhash:(NSString *)formhash
-                    success:(void (^)(void))success
-                    failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebReplySecure parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
++ (void)postNewThreadWithFid:(NSString *)fid
+                     subject:(NSString *)subject
+                     message:(NSString *)message
+                        type:(NSString *)type
+                    formhash:(NSString *)formhash
+                     success:(void (^)(GCNewThreadModel *model))success
+                     failure:(void (^)(NSError *error))failure {
+    [[GCNetworkBase sharedInstance] get:GCNetworkAPI_Get_PostSecure parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{ @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash, @"posttime" : @"", @"wysiwyg" : @"0", @"noticeauthor" : @"", @"noticetrimstr" : @"", @"noticeauthormsg" : @"", @"subject" : @"", @"checkbox" : @"0", @"message" : message, @"usesig" : @"1", @"save" : @""}];
-        if (attachArray) {
-            for (NSString *attach in attachArray) {
-                [parameters setObject:@"" forKey:[NSString stringWithFormat:@"attachnew[%@][description]", attach]];
-            }
-        }
-        
-        [[GCNetworkBase sharedInstance] postWeb:GCNetworkAPI_Post_WebReply(fid, tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            success();
+        NSDictionary *parameters = @{ @"allownoticeauthor" : @"1", @"message" : message, @"subject" : subject, @"mobiletype" : @"1", @"formhash" : formhash, @"typeid" : type };
+        [[GCNetworkBase sharedInstance] post:GCNetworkAPI_Post_NewThread(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSDictionary *dictionary = [JsonTool jsonToDictionary:operation.responseString];
+            GCNewThreadModel *model = [[GCNewThreadModel alloc] initWithDictionary:dictionary];
+            success(model);
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(error);
         }];
         
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);
     }];
 }
@@ -182,33 +177,38 @@
                                    }];
 }
 
-+ (void)postNewThreadWithFid:(NSString *)fid
-                     subject:(NSString *)subject
-                     message:(NSString *)message
-                        type:(NSString *)type
-                    formhash:(NSString *)formhash
-                     success:(void (^)(GCNewThreadModel *model))success
-                     failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] get:GCNetworkAPI_Get_PostSecure parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
++ (void)postWebReplyWithTid:(NSString *)tid
+                        fid:(NSString *)fid
+                    message:(NSString *)message
+                attachArray:(NSArray *)attachArray
+                   formhash:(NSString *)formhash
+                    success:(void (^)(void))success
+                    failure:(void (^)(NSError *error))failure {
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebReplySecure parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        NSDictionary *parameters = @{ @"allownoticeauthor" : @"1", @"message" : message, @"subject" : subject, @"mobiletype" : @"1", @"formhash" : formhash, @"typeid" : type };
-        [[GCNetworkBase sharedInstance] post:GCNetworkAPI_Post_NewThread(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSDictionary *dictionary = [JsonTool jsonToDictionary:operation.responseString];
-            GCNewThreadModel *model = [[GCNewThreadModel alloc] initWithDictionary:dictionary];
-            success(model);
+        NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{ @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash, @"posttime" : @"", @"wysiwyg" : @"0", @"noticeauthor" : @"", @"noticetrimstr" : @"", @"noticeauthormsg" : @"", @"subject" : @"", @"checkbox" : @"0", @"message" : message, @"usesig" : @"1", @"save" : @""}];
+        if (attachArray) {
+            for (NSString *attach in attachArray) {
+                [parameters setObject:@"" forKey:[NSString stringWithFormat:@"attachnew[%@][description]", attach]];
+            }
+        }
+        
+        [[GCNetworkBase sharedInstance] postWeb:GCNetworkAPI_Post_WebReply(fid, tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            success();
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             failure(error);
         }];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(error);
     }];
 }
 
 + (void)getWebNewThreadWithFid:(NSString *)fid
+                        sortid:(NSString *)sordid
                        success:(void (^)(NSData *htmlData))success
                        failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebNewThread(fid)
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebPostThread(fid, sordid)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        success(responseObject);

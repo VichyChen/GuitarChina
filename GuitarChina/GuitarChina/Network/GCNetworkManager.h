@@ -89,8 +89,9 @@
                     success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure;
 
-
+//WEB发布主题页面获取
 + (void)getWebNewThreadWithFid:(NSString *)fid
+                        sortid:(NSString *)sordid
                        success:(void (^)(NSData *htmlData))success
                        failure:(void (^)(NSError *error))failure;
 
