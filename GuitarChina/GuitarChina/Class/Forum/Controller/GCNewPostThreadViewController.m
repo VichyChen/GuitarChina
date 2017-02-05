@@ -207,6 +207,9 @@
                                     [self.imageArray addObject:asset.originImage];
                                 }
                                 [self.tableView reloadData];
+                                if (self.tableView.contentOffset.y + self.tableView.frame.size.height < self.tableView.contentSize.height) {
+                                    [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentOffset.y + (self.tableView.contentSize.height - self.tableView.contentOffset.y - self.tableView.frame.size.height)) animated:YES];
+                                }
                             }
                         };
                         [controller showPickerVc:self];
@@ -314,7 +317,7 @@
                 return height;
             }
             
-            if (self.threadTypes && indexPath.section != 3) {
+            if (self.threadTypes && (indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 2 )) {
                 return 0;
             }
             
@@ -491,6 +494,9 @@
                           @"value" : (self.selectedType ? self.selectedType : @""),
                           @"block" : ^{
                               @strongify(self);
+                              if (!self.threadTypes) {
+                                  return;
+                              }
                               [self.view endEditing:YES];
                               
                               GCLoginPickerView *questionPickerView = [[GCLoginPickerView alloc] init];

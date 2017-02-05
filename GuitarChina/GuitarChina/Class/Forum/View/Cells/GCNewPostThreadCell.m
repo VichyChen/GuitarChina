@@ -347,6 +347,7 @@
         case GCNewPostThreadCellStyleCollectionView:
             [self.containView addSubview:self.collectionView];
             
+            self.containView.frame = CGRectMake(0, 0, ScreenWidth, 44);
             self.collectionView.frame = CGRectMake(0, 0, ScreenWidth, [self calculateCollectionViewHeight]);
             break;
     }
