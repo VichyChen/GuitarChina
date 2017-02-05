@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCReplyPostThreadToolBarView.h"
 
 typedef NS_OPTIONS(NSUInteger, GCNewPostThreadCellStyle) {
     GCNewPostThreadCellStyleSegmentedControl    = 0,
@@ -16,7 +17,8 @@ typedef NS_OPTIONS(NSUInteger, GCNewPostThreadCellStyle) {
     GCNewPostThreadCellStyleOnlyTextView        = 4,
     GCNewPostThreadCellStyleRadioButton         = 5,
     GCNewPostThreadCellStyleCheckButton         = 6,
-    GCNewPostThreadCellStyleLabelArrow          = 7
+    GCNewPostThreadCellStyleLabelArrow          = 7,
+    GCNewPostThreadCellStyleCollectionView      = 8,
 };
 
 @interface GCNewPostThreadCell : UITableViewCell
@@ -29,6 +31,8 @@ typedef NS_OPTIONS(NSUInteger, GCNewPostThreadCellStyle) {
 @property (nonatomic, strong) UITextView *textView;
 @property (nonatomic, strong) UILabel *valueLabel;
 @property (nonatomic, strong) UIImageView *arrowImageView;
+@property (nonatomic, strong) GCReplyPostThreadToolBarView *toolBarView;
+@property (nonatomic, strong) UICollectionView *collectionView;
 
 @property (nonatomic, assign) GCNewPostThreadCellStyle cellStyle;
 
@@ -38,12 +42,16 @@ typedef NS_OPTIONS(NSUInteger, GCNewPostThreadCellStyle) {
 - (void)setRadioButtonTitleArray:(NSArray *)radioButtonTitleArray value:(NSString *)value;
 - (void)setCheckButtonTitleArray:(NSArray *)checkButtonTitleArray value:(NSArray *)value;
 
+@property (nonatomic, copy) NSArray *imageArray;
+
 @property (nonatomic, copy) void(^segmentControlValueChangeBlock)(UISegmentedControl *segmentedControl);
 @property (nonatomic, copy) void(^textFieldValueChangeBlock)(UITextField *textField);
 @property (nonatomic, copy) void(^textViewValueChangeBlock)(UITextView *textView);
 @property (nonatomic, copy) void(^didSelectRowBlock)(void);
 @property (nonatomic, copy) void(^radioButtonSelectBlock)(UIButton *button);
 @property (nonatomic, copy) void(^checkButtonSelectBlock)(NSArray *buttonArray);
+@property (nonatomic, copy) void(^addImageBlock)(void);
+@property (nonatomic, copy) void(^deleteImageBlock)(NSInteger index);
 
 + (CGFloat)getCellHeightWithDictionary:(NSDictionary *)dictionary;
 

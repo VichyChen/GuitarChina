@@ -9,6 +9,7 @@
 #import "GCNewPostThreadViewController.h"
 #import "GCNewPostThreadCell.h"
 #import "GCLoginPickerView.h"
+#import "ZLPhoto.h"
 
 #define SortIDArray @[@"182", @"192"]
 #define ChengSeDataArray @[@"9成新", @"8成新", @"7成新", @"6成新", @"5成新", @"4成新", @"3成新"]
@@ -51,6 +52,8 @@
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, copy) NSString *selectedType;
 
+@property (nonatomic, strong) NSMutableArray *imageArray;
+
 @end
 
 @implementation GCNewPostThreadViewController
@@ -60,7 +63,8 @@
     
     self.title = NSLocalizedString(@"Post Thread", nil);
     self.edgesForExtendedLayout = UIRectEdgeNone;
-
+    self.imageArray = [NSMutableArray array];
+    
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_checkmark"
                                                                    normalColor:[UIColor whiteColor]
                                                               highlightedColor:[GCColor grayColor4]
@@ -187,6 +191,26 @@
                             block(textView.text);
                         }
                     };
+                    @weakify(self);
+                    cell.addImageBlock = ^{
+                        @strongify(self);
+                        if (self.imageArray.count == 9) {
+                            return;
+                        }
+                        ZLPhotoPickerViewController *controller = [[ZLPhotoPickerViewController alloc] init];
+                        controller.status = PickerViewShowStatusCameraRoll;
+                        controller.maxCount = 9 - self.imageArray.count;
+                        controller.callBack = ^(id obj) {
+                            @strongify(self);
+                            if ([obj isKindOfClass:[NSArray class]]) {
+                                for (ZLPhotoAssets *asset in obj) {
+                                    [self.imageArray addObject:asset.originImage];
+                                }
+                                [self.tableView reloadData];
+                            }
+                        };
+                        [controller showPickerVc:self];
+                    };
                 }
                     break;
                     
@@ -245,6 +269,7 @@
                     break;
                     
                 case GCNewPostThreadCellStyleLabelArrow:
+                {
                     cell.titleLabel.text = dictionary[@"title"];
                     NSString *value = dictionary[@"value"];
                     if (value.length > 0) {
@@ -259,6 +284,20 @@
                             block();
                         }
                     };
+                }
+                    break;
+                    
+                case GCNewPostThreadCellStyleCollectionView:
+                {
+                    NSArray *imageArray = dictionary[@"value"];
+                    cell.imageArray = imageArray;
+                    @weakify(self);
+                    cell.deleteImageBlock = ^(NSInteger index) {
+                        @strongify(self);
+                        [self.imageArray removeObjectAtIndex:index];
+                        [self.tableView reloadData];
+                    };
+                }
                     break;
             }
             
@@ -482,7 +521,9 @@
                           @"type" : @4,
                           @"value" : (self.message ? self.message : @""),
                           @"block" : ^(NSString *text){@strongify(self); self.message = text;}}];
-    _data = @[array0, array1, array2, array3];
+    NSArray *array4 = @[@{@"type" : @8,
+                          @"value" : (self.imageArray.count > 0 ? self.imageArray : @[])}];
+    _data = @[array0, array1, array2, array3, array4];
     return _data;
 }
 

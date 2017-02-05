@@ -7,8 +7,14 @@
 //
 
 #import "GCNewPostThreadCell.h"
+#import "GCAddImageCell.h"
+#import "ZLPhoto.h"
+#import "GCReplyPostThreadToolBarView.h"
 
-@interface GCNewPostThreadCell() <UITextViewDelegate>
+#define AddImage @"upload_img"
+#define ImageViewWidth ((ScreenWidth - 10 * 4) / 3)
+
+@interface GCNewPostThreadCell() <UITextViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) NSMutableArray *buttonArray;
 
@@ -31,7 +37,15 @@
 }
 
 + (CGFloat)getCellHeightWithDictionary:(NSDictionary *)dictionary {
-    if ([dictionary[@"type"] isEqualToNumber:@(GCNewPostThreadCellStyleRadioButton)] ||
+    if ([dictionary[@"type"] isEqualToNumber:@(GCNewPostThreadCellStyleCollectionView)]) {
+        NSArray *imageArray = dictionary[@"value"];
+        if (imageArray.count == 0) {
+            return 0;
+        } else {
+            return imageArray.count / 3 * (ImageViewWidth + 10) + (imageArray.count % 3 == 0 ? 0 : (ImageViewWidth + 10)) + 10;
+        }
+    }
+    else if ([dictionary[@"type"] isEqualToNumber:@(GCNewPostThreadCellStyleRadioButton)] ||
         [dictionary[@"type"] isEqualToNumber:@(GCNewPostThreadCellStyleCheckButton)] ) {
 
         NSArray *buttonTitleArray = dictionary[@"dataArray"];
@@ -132,6 +146,47 @@
     }
 }
 
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.imageArray.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    GCAddImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GCAddImageCell" forIndexPath:indexPath];
+    cell.imageView.image = [self.imageArray objectAtIndex:indexPath.row];
+    @weakify(self);
+    cell.deleteActionBlock = ^{
+        @strongify(self);
+        if (self.deleteImageBlock) {
+            self.deleteImageBlock(indexPath.row);
+        }
+    };
+    return cell;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(ImageViewWidth, ImageViewWidth);
+}
+
+-(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 10;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+
+}
+
 #pragma mark - Private Method
 
 - (void)configureView {
@@ -179,6 +234,14 @@
     
     buttonContentView.frame = CGRectMake(13 + 100, 0, ScreenWidth - 13 - 100 - 13, rowOriginY + buttonHeight + buttonVerticalSpace);
     self.containView.frame = CGRectMake(0, 0, ScreenWidth, rowOriginY + buttonHeight + buttonVerticalSpace);
+}
+
+- (CGFloat)calculateCollectionViewHeight {
+    if (self.imageArray.count == 0) {
+        return 0;
+    } else {
+        return self.imageArray.count / 3 * (ImageViewWidth + 10) + (self.imageArray.count % 3 == 0 ? 0 : (ImageViewWidth + 10)) + 10;
+    }
 }
 
 #pragma mark - Setters
@@ -229,6 +292,7 @@
         case GCNewPostThreadCellStyleTextView:
             [self.containView addSubview:self.titleLabel];
             [self.containView addSubview:self.textView];
+            self.textView.inputAccessoryView = nil;
 
             self.containView.frame = CGRectMake(0, 0, ScreenWidth, 100);
             self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
@@ -237,7 +301,8 @@
             
         case GCNewPostThreadCellStyleOnlyTextView:
             [self.containView addSubview:self.textView];
-
+            self.textView.inputAccessoryView = self.toolBarView;
+            
             self.containView.frame = CGRectMake(0, 0, ScreenWidth, 100);
             self.textView.frame = CGRectMake(10, 3, ScreenWidth - 20, 100 - 6);
             break;
@@ -255,14 +320,16 @@
             self.containView.frame = CGRectMake(0, 0, ScreenWidth, 44);
             self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
             break;
-            
-        case GCNewPostThreadCellStyleLabelArrow:
-            self.selectionStyle = UITableViewCellSelectionStyleDefault;
 
+
+        case GCNewPostThreadCellStyleLabelArrow:
+        {
+            self.selectionStyle = UITableViewCellSelectionStyleDefault;
+            
             [self.containView addSubview:self.titleLabel];
             [self.containView addSubview:self.valueLabel];
             [self.containView addSubview:self.arrowImageView];
-
+            
             self.containView.frame = CGRectMake(0, 0, ScreenWidth, 44);
             self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
             self.valueLabel.frame = CGRectMake(13 + 100, 0, ScreenWidth - 13 - 100 - 13 - 7 - 5, 44);
@@ -274,6 +341,13 @@
                     self.didSelectRowBlock();
                 }
             }];
+        }
+            break;
+            
+        case GCNewPostThreadCellStyleCollectionView:
+            [self.containView addSubview:self.collectionView];
+            
+            self.collectionView.frame = CGRectMake(0, 0, ScreenWidth, [self calculateCollectionViewHeight]);
             break;
     }
 }
@@ -307,6 +381,14 @@
         }
         [button addTarget:self action:@selector(mutableButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
+}
+
+- (void)setImageArray:(NSArray *)imageArray {
+    _imageArray = imageArray;
+    
+    [self.collectionView reloadData];
+    self.collectionView.frame = CGRectMake(0, 0, ScreenWidth, [self calculateCollectionViewHeight]);
+    self.containView.frame = CGRectMake(self.containView.frame.origin.x, self.containView.frame.origin.y, self.containView.frame.size.width, self.collectionView.frame.size.height);
 }
 
 #pragma mark - Getters
@@ -376,6 +458,34 @@
         _arrowImageView.image = [UIImage imageNamed:@"icon_forward"];
     }
     return _arrowImageView;
+}
+
+- (GCReplyPostThreadToolBarView *)toolBarView {
+    if (!_toolBarView) {
+        _toolBarView = [[GCReplyPostThreadToolBarView alloc] init];
+        @weakify(self);
+        _toolBarView.selectImageBlock = ^{
+            @strongify(self);
+            if (self.addImageBlock) {
+                self.addImageBlock();
+            }
+        };
+    }
+    return _toolBarView;
+}
+
+- (UICollectionView *)collectionView {
+    if (!_collectionView) {
+        UICollectionViewFlowLayout *layout= [[UICollectionViewFlowLayout alloc]init];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        _collectionView.backgroundColor = [UIColor clearColor];
+        _collectionView.bounces = NO;
+        _collectionView.scrollEnabled = NO;
+        _collectionView.delegate = self;
+        _collectionView.dataSource = self;
+        [_collectionView registerClass:[GCAddImageCell class] forCellWithReuseIdentifier:@"GCAddImageCell"];
+    }
+    return _collectionView;
 }
 
 @end
