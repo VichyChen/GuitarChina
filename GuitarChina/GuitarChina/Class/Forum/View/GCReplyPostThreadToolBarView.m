@@ -37,7 +37,7 @@
     [self addSubview:view];
 //    [self addSubview:self.closeButton];
     [self addSubview:self.selectImageButton];
-    [self addSubview:self.inputImageURLButton];
+//    [self addSubview:self.inputImageURLButton];
 }
 
 - (void)configureFrame {
@@ -63,9 +63,7 @@
 - (UIButton *)selectImageButton {
     if (!_selectImageButton) {
         _selectImageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_selectImageButton setTitle:@"aa" forState:UIControlStateNormal];
-        [_selectImageButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        _selectImageButton.backgroundColor = [UIColor greenColor];
+        [_selectImageButton setBackgroundImage:[[UIImage imageNamed:@"icon_image"] imageWithTintColor:[GCColor grayColor1]] forState:UIControlStateNormal];
         [_selectImageButton addTarget:self action:@selector(selectImageAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _selectImageButton;
