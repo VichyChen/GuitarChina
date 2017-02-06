@@ -95,6 +95,19 @@
                        success:(void (^)(NSData *htmlData))success
                        failure:(void (^)(NSError *error))failure;
 
+//WEB发布主题
++ (void)postWebNewThreadWithFid:(NSString *)fid
+                         typeid:(NSString *)type
+                        subject:(NSString *)subject
+                        message:(NSString *)message
+                    attachArray:(NSArray *)attachArray
+                tableDictionary:(NSDictionary *)tableDictionary
+                       posttime:(NSString *)posttime
+                       formhash:(NSString *)formhash
+                        success:(void (^)(void))success
+                        failure:(void (^)(NSError *error))failure;
+
+
 //举报
 + (void)postReportWithTid:(NSString *)tid
                      text:(NSString *)text

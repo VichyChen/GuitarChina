@@ -208,7 +208,7 @@
                         sortid:(NSString *)sordid
                        success:(void (^)(NSData *htmlData))success
                        failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebPostThread(fid, sordid)
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebPostThread(fid, (sordid.length > 0 ? sordid : @""))
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        success(responseObject);
@@ -217,6 +217,56 @@
                                        failure(error);
                                    }];
 }
+
++ (void)postWebNewThreadWithFid:(NSString *)fid
+                         typeid:(NSString *)type
+                        subject:(NSString *)subject
+                        message:(NSString *)message
+                    attachArray:(NSArray *)attachArray
+                tableDictionary:(NSDictionary *)tableDictionary
+                       posttime:(NSString *)posttime
+                       formhash:(NSString *)formhash
+                        success:(void (^)(void))success
+                        failure:(void (^)(NSError *error))failure {
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebPostThreadSecure parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary *dictionary = @{@"formhash" : formhash,
+                                     @"posttime" : posttime,
+                                     @"subject" : subject,
+                                     @"message" : message,
+                                     @"wysiwyg" : @"1",//???
+                                     @"replycredit_extcredits" : @"0",
+                                     @"replycredit_times" : @"1",
+                                     @"replycredit_membertimes" : @"1",
+                                     @"replycredit_random" : @"100",
+                                     @"allownoticeauthor" : @"1",
+                                     @"usesig" : @"1",
+                                     @"save" : @"", };
+        
+        NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:dictionary];
+        if (type.length > 0) {
+            [parameters setObject:type forKey:@"typeid"];
+        }
+        if (tableDictionary.allKeys.count > 0) {
+            [parameters addEntriesFromDictionary:tableDictionary];
+        }
+        if (attachArray) {
+            for (NSString *attach in attachArray) {
+                [parameters setObject:@"" forKey:[NSString stringWithFormat:@"attachnew[%@][description]", attach]];
+            }
+        }
+        
+        [[GCNetworkBase sharedInstance] postWeb:GCNetworkAPI_Post_WebPostThread(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            success();
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failure(error);
+        }];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        failure(error);
+    }];
+}
+
 
 
 + (void)postReportWithTid:(NSString *)tid

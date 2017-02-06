@@ -13,6 +13,7 @@
 		0403AAF11E4039C100D6FD20 /* GCNewPostThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF01E4039C100D6FD20 /* GCNewPostThreadViewController.m */; };
 		0403AAF41E403F8E00D6FD20 /* GCNewPostThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF31E403F8E00D6FD20 /* GCNewPostThreadCell.m */; };
 		0403AAF81E45D84A00D6FD20 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF71E45D84A00D6FD20 /* UITextView+Placeholder.m */; };
+		0403AB1A1E486D8000D6FD20 /* GCPostThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AB191E486D8000D6FD20 /* GCPostThreadModel.m */; };
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
 		04091D801CFBECBC00B797B1 /* GCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 04091D7F1CFBECBC00B797B1 /* GCColor.m */; };
 		040FEF341E111EB2006DA6FA /* GCThreadDetailMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF331E111EB2006DA6FA /* GCThreadDetailMenuView.m */; };
@@ -229,6 +230,8 @@
 		0403AAF31E403F8E00D6FD20 /* GCNewPostThreadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewPostThreadCell.m; sourceTree = "<group>"; };
 		0403AAF61E45D84A00D6FD20 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		0403AAF71E45D84A00D6FD20 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		0403AB181E486D8000D6FD20 /* GCPostThreadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPostThreadModel.h; sourceTree = "<group>"; };
+		0403AB191E486D8000D6FD20 /* GCPostThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPostThreadModel.m; sourceTree = "<group>"; };
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
 		04091D7E1CFBECBC00B797B1 /* GCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColor.h; sourceTree = "<group>"; };
 		04091D7F1CFBECBC00B797B1 /* GCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColor.m; sourceTree = "<group>"; };
@@ -1324,6 +1327,8 @@
 				421192E71CE8615400BCFF3E /* GCNewThreadModel.m */,
 				421192E81CE8615400BCFF3E /* GCSendReplyModel.h */,
 				421192E91CE8615400BCFF3E /* GCSendReplyModel.m */,
+				0403AB181E486D8000D6FD20 /* GCPostThreadModel.h */,
+				0403AB191E486D8000D6FD20 /* GCPostThreadModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2106,6 +2111,7 @@
 				421191C71CE6D16600BCFF3E /* GCNetworkBase.m in Sources */,
 				421192781CE85D3200BCFF3E /* GCReportThreadViewController.m in Sources */,
 				040FEF451E1237F9006DA6FA /* GCSettingViewController.m in Sources */,
+				0403AB1A1E486D8000D6FD20 /* GCPostThreadModel.m in Sources */,
 				421193011CF0AAD300BCFF3E /* GCSearchModel.m in Sources */,
 				423889071BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
 				04D350691E13ACE900047725 /* GCAdBannerView.m in Sources */,

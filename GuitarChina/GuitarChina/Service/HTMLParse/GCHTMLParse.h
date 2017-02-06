@@ -29,7 +29,7 @@
 + (NSString *)parseWebReply:(NSData *)htmlData;
 
 + (void)parseWebNewThread:(NSData *)htmlData
-                   result:(void (^)(NSString *hash, NSArray *typeArray))result;
+                   result:(void (^)(NSString *formhash, NSString *posttime))result;
 
 + (GCMyPromptArray *)parseMyPrompt:(NSData *)htmlData;
 

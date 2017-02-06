@@ -57,7 +57,9 @@
             [GCStatistics event:GCStatisticsEventReplyThread extra:@{ @"tid" : self.tid }];
             [self closeAction];
         } failure:^(NSError *error) {
+            @strongify(self);
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+            self.navigationItem.rightBarButtonItem.enabled = YES;
         }];
     };
     
@@ -79,11 +81,15 @@
                         postWebReplyBlock(attachArray);
                     }
                 } failure:^(NSError *error) {
+                    @strongify(self);
                     [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Image Upload Error", nil)];
+                    self.navigationItem.rightBarButtonItem.enabled = YES;
                 }];
             }
         } failure:^(NSError *error) {
+            @strongify(self);
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+            self.navigationItem.rightBarButtonItem.enabled = YES;
         }];
     } else {
         postWebReplyBlock(nil);

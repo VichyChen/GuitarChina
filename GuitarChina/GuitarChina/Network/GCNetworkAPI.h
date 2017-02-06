@@ -73,7 +73,7 @@
 #define GCNetworkAPI_Post_WebReply(fid, tid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=reply&fid=%@&tid=%@&extra=&replysubmit=yes", (fid), (tid)]
 
 //WEB发布主题页面获取
-#define GCNetworkAPI_Get_WebPostThread(fid, sortid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=newthread&sortid=%@&fid=%@&cedit=yes&extra=", (fid), (sortid)]
+#define GCNetworkAPI_Get_WebPostThread(fid, sortid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=newthread&fid=%@&sortid=%@&cedit=yes&extra=", (fid), (sortid)]
 //WEB发布主题前调用
 #define GCNetworkAPI_Get_WebPostThreadSecure @"http://bbs.guitarchina.com/forum.php?mod=ajax&action=checkpostrule&ac=newthread&inajax=yes"
 //WEB发布

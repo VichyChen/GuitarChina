@@ -96,7 +96,15 @@
             controller.fid = self.fid;
             controller.formhash = self.formhash;
             if (self.threadTypes.count > 0) {
-                controller.threadTypes = self.threadTypes;
+                if ([self.threadTypes isKindOfClass:[NSArray class]]) {
+                    NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
+                    for (int i = 0; i < self.threadTypes.count; i++) {
+                        [dictionary setObject:((NSArray *)self.threadTypes)[i] forKey:[NSString stringWithFormat:@"%d", i]];
+                    }
+                    controller.threadTypes = dictionary;
+                } else {
+                    controller.threadTypes = self.threadTypes;
+                }
             }
             [self.navigationController pushViewController:controller animated:YES];
         }

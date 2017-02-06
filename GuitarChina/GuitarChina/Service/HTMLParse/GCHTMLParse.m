@@ -197,20 +197,21 @@
 }
 
 + (void)parseWebNewThread:(NSData *)htmlData
-                   result:(void (^)(NSString *hash, NSArray *typeArray))result {
+                   result:(void (^)(NSString *formhash, NSString *posttime))result {
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
     //hash
-    TFHppleElement *hashElement = [[xpathParser searchWithXPathQuery:@"//form[@id='imgattachform']/input[@name='hash']"] firstObject];
-    NSString *hash = [hashElement objectForKey:@"value"];
+    TFHppleElement *formhashElement = [[xpathParser searchWithXPathQuery:@"//form[@id='imgattachform']/input[@name='hash']"] firstObject];
+    NSString *formhash = [formhashElement objectForKey:@"value"];
+    TFHppleElement *posttimeElement = [[xpathParser searchWithXPathQuery:@"//input[@id='posttime']"] firstObject];
+    NSString *posttime = [posttimeElement objectForKey:@"value"];
+//    //typeArray
+//    NSMutableArray *typeArray = [NSMutableArray array];
+//    NSArray *tempTypeArray = [xpathParser searchWithXPathQuery:@"//select[@id='typeid']/option"];
+//    for (TFHppleElement *typeElement in tempTypeArray) {
+//        [typeArray addObject:@{ @"text" : typeElement.content, @"value" : [typeElement objectForKey:@"value"]}];
+//    }
     
-    //typeArray
-    NSMutableArray *typeArray = [NSMutableArray array];
-    NSArray *tempTypeArray = [xpathParser searchWithXPathQuery:@"//select[@id='typeid']/option"];
-    for (TFHppleElement *typeElement in tempTypeArray) {
-        [typeArray addObject:@{ @"text" : typeElement.content, @"value" : [typeElement objectForKey:@"value"]}];
-    }
-    
-    result(hash, typeArray);
+    result(formhash, posttime);
 }
 
 + (GCMyPromptArray *)parseMyPrompt:(NSData *)htmlData {

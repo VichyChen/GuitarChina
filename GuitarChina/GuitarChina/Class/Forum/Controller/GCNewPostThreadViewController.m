@@ -82,6 +82,100 @@
     [self.view addSubview:self.tableView];
 }
 
+- (void)sendAction {
+//    if (XXX) {
+//        return;
+//    }
+    [self.view endEditing:YES];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    
+    @weakify(self);
+    void (^postNewThreadBlock)(NSArray *, NSString *) = ^(NSArray *attachArray, NSString *posttime){
+        @strongify(self);
+        
+        NSMutableDictionary *tableDictionary = [NSMutableDictionary dictionary];
+        if (!self.threadTypes) {
+            NSString *sortid = (self.sortid ? self.sortid : SortIDArray[0]);
+            if ([sortid isEqualToString:SortIDArray[0]]) {
+                [tableDictionary addEntriesFromDictionary:@{@"selectsortid" : sortid,
+                                                            @"sortid" : sortid,
+                                                           @"typeoption[pinpai]" : self.sPinPai,
+                                                           @"typeoption[xinghao]" : self.sXingHao,
+                                                           @"typeoption[chengse]" : self.sChengSe,
+                                                           @"typeoption[trade_num]" : self.sTrade_num,
+                                                           @"typeoption[jiage]" : self.sJiaGe,
+                                                           @"typeoption[xiangxi]" : self.sXiangXi,
+                                                           @"typeoption[name]" : self.sName,
+                                                           @"typeoption[phone]" : self.sPhone,
+                                                           @"typeoption[QQ]" : self.sQQ,
+                                                           @"typeoption[email1]" : self.sEmail,
+                                                           @"typeoption[address]" : self.sAddress,
+                                                           @"typeoption[zhongjie]" : self.sZhongJie}];
+                for (NSString *string in self.sFuKuangFangShi) {
+                    [tableDictionary setObject:string forKey:@"typeoption[fukangfang][]"];
+                }
+            }
+            else if ([sortid isEqualToString:SortIDArray[1]]) {
+                [tableDictionary addEntriesFromDictionary:@{@"selectsortid" : sortid,
+                                                            @"sortid" : sortid,
+                                    @"typeoption[pinpai]" : self.bPinPai,
+                                    @"typeoption[chengse]" : self.bChengSe,
+                                    @"typeoption[xinghao]" : self.bXingHao,
+                                    @"typeoption[QQ]" : self.bQQ,
+                                    @"typeoption[address]" : self.bAddress}];
+            }
+        }
+        
+        [GCNetworkManager postWebNewThreadWithFid:self.fid typeid:self.selectedType subject:self.subject message:[self.message stringByAppendingString:kSuffix] attachArray:attachArray tableDictionary:tableDictionary posttime:posttime formhash:self.formhash success:^{
+            @strongify(self);
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Post Success", nil)];
+            [GCStatistics event:GCStatisticsEventPostThread extra:@{ @"fid" : self.fid, @"subjectText" : self.subject}];
+            [self closeAction];
+            
+        } failure:^(NSError *error) {
+            @strongify(self);
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+        }];
+    };
+
+    [GCNetworkManager getWebNewThreadWithFid:self.fid sortid:self.sortid success:^(NSData *htmlData) {
+        [GCHTMLParse parseWebNewThread:htmlData result:^(NSString *formhash, NSString *posttime) {
+            @strongify(self);
+            __block int tempCount = 0;
+            NSMutableArray *attachArray = [NSMutableArray array];
+            NSArray *imageArray = self.imageArray;
+            NSUInteger imageCount = self.imageArray.count;
+            
+            if (imageCount > 0) {
+                for (int i = 0; i < imageCount; i++) {
+                    [GCNetworkManager postWebReplyImageWithFid:self.fid image:imageArray[i] formhash:formhash success:^(NSString *imageID) {
+                        tempCount++;
+                        [attachArray addObject:imageID];
+                        if (tempCount == imageCount) {
+                            postNewThreadBlock(attachArray, posttime);
+                        }
+                    } failure:^(NSError *error) {
+                        @strongify(self);
+                        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Image Upload Error", nil)];
+                        self.navigationItem.rightBarButtonItem.enabled = YES;
+                    }];
+                }
+            } else {
+                postNewThreadBlock(nil, posttime);
+            }
+        }];
+    } failure:^(NSError *error) {
+        @strongify(self);
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }];
+}
+
+- (void)closeAction {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
