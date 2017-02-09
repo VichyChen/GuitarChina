@@ -63,7 +63,7 @@
 - (UIButton *)selectImageButton {
     if (!_selectImageButton) {
         _selectImageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_selectImageButton setBackgroundImage:[[UIImage imageNamed:@"icon_image"] imageWithTintColor:[GCColor grayColor1]] forState:UIControlStateNormal];
+        [_selectImageButton setImage:[[UIImage imageNamed:@"icon_image"] imageWithTintColor:[GCColor grayColor1]] forState:UIControlStateNormal];
         [_selectImageButton addTarget:self action:@selector(selectImageAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _selectImageButton;
