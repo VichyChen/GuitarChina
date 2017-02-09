@@ -39,10 +39,12 @@
 }
 
 - (void)sendAction {
-    if ([self.replyThreadView.textView.text trim].length == 0) {
+    if ([self.replyThreadView.textView.text trim].length < 8) {
+        [self showAlertView:@"回复内容要多于8个字！"];
         return;
     }
-    [self.replyThreadView.textView resignFirstResponder];
+    
+    [self.view endEditing:YES];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
     @weakify(self);

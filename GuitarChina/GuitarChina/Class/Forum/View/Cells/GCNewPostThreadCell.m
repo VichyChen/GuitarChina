@@ -276,7 +276,7 @@
 
             self.containView.frame = CGRectMake(0, 0, ScreenWidth, 44);
             self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
-            self.textField.frame = CGRectMake(ScreenWidth - 13 - 100, 0, 100, 44);
+            self.textField.frame = CGRectMake(13 + 100 + 13, 0, ScreenWidth - 100 - 13 * 3, 44);
             
             self.textField.textAlignment = NSTextAlignmentRight;
             break;

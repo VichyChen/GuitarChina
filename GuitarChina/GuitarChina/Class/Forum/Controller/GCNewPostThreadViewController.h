@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCBaseViewController.h"
 
-@interface GCNewPostThreadViewController : UIViewController
+@interface GCNewPostThreadViewController : GCBaseViewController
 
 @property (nonatomic, copy) NSString *fid;
 @property (nonatomic, copy) NSString *formhash;

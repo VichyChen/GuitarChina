@@ -83,9 +83,56 @@
 }
 
 - (void)sendAction {
-//    if (XXX) {
-//        return;
-//    }
+    if ([self.subject trim].length == 0) {
+        [self showAlertView:@"请输入标题！"];
+        return;
+    }
+    if ([self.message trim].length < 8) {
+        [self showAlertView:@"回复内容要多于8个字！"];
+        return;
+    }
+    if (self.threadTypes && self.selectedType.length == 0) {
+        [self showAlertView:@"请选择帖子分类！"];
+        return;
+    }
+    
+    if (!self.threadTypes) {
+        NSString *sortid = (self.sortid ? self.sortid : SortIDArray[0]);
+        if ([sortid isEqualToString:SortIDArray[0]]) {
+            if ([self.sPinPai trim].length == 0) {
+                [self showAlertView:@"请输入品牌！"];
+                return;
+            }
+            if ([self.sPinPai trim].length == 0) {
+                [self showAlertView:@"请选择成色！"];
+                return;
+            }
+            if ([self.sJiaGe trim].length == 0) {
+                [self showAlertView:@"请输入价格！"];
+                return;
+            }
+            if ([self.sXiangXi trim].length == 0) {
+                [self showAlertView:@"请输入详细描述！"];
+                return;
+            }
+            if ([self.sName trim].length == 0) {
+                [self showAlertView:@"请输入姓名！"];
+                return;
+            }
+            if ([self.sPhone trim].length == 0) {
+                [self showAlertView:@"请输入电话！"];
+                return;
+            }
+            if ([self.sAddress trim].length == 0) {
+                [self showAlertView:@"请输入商品所在地！"];
+                return;
+            }
+        }
+        else if ([sortid isEqualToString:SortIDArray[1]]) {
+            
+        }
+    }
+
     [self.view endEditing:YES];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
@@ -99,17 +146,17 @@
             if ([sortid isEqualToString:SortIDArray[0]]) {
                 [tableDictionary addEntriesFromDictionary:@{@"selectsortid" : sortid,
                                                             @"sortid" : sortid,
-                                                            @"typeoption[pinpai]" : (self.sPinPai ? self.sPinPai : @" "),
-                                                           @"typeoption[xinghao]" : (self.sXingHao ? self.sXingHao : @" "),
+                                                            @"typeoption[pinpai]" : (self.sPinPai ? self.sPinPai : @""),
+                                                           @"typeoption[xinghao]" : (self.sXingHao ? self.sXingHao : @""),
                                                            @"typeoption[chengse]" : (self.sChengSe ? self.sChengSe : ChengSeValueArray[0]),
-                                                           @"typeoption[trade_num]" : (self.sTrade_num ? self.sTrade_num : @" "),
-                                                           @"typeoption[jiage]" : (self.sJiaGe ? self.sJiaGe : @" "),
-                                                           @"typeoption[xiangxi]" : (self.sXiangXi ? self.sXiangXi : @" "),
-                                                           @"typeoption[name]" : (self.sName ? self.sName : @" "),
-                                                           @"typeoption[phone]" : (self.sPhone ? self.sPhone : @" "),
-                                                           @"typeoption[QQ]" : (self.sQQ ? self.sQQ : @" "),
-                                                           @"typeoption[email1]" : (self.sEmail ? self.sEmail : @" "),
-                                                           @"typeoption[address]" : (self.sAddress ? self.sAddress : @" "),
+                                                           @"typeoption[trade_num]" : (self.sTrade_num ? self.sTrade_num : @""),
+                                                           @"typeoption[jiage]" : (self.sJiaGe ? self.sJiaGe : @""),
+                                                           @"typeoption[xiangxi]" : (self.sXiangXi ? self.sXiangXi : @""),
+                                                           @"typeoption[name]" : (self.sName ? self.sName : @""),
+                                                           @"typeoption[phone]" : (self.sPhone ? self.sPhone : @""),
+                                                           @"typeoption[QQ]" : (self.sQQ ? self.sQQ : @""),
+                                                           @"typeoption[email1]" : (self.sEmail ? self.sEmail : @""),
+                                                           @"typeoption[address]" : (self.sAddress ? self.sAddress : @""),
                                                            @"typeoption[zhongjie]" : (self.sZhongJie ? self.sZhongJie : ZhongJieValueArray[2])}];
                 if (self.sFuKuangFangShi.count > 0) {
 //                    for (NSString *string in self.sFuKuangFangShi) {
@@ -125,9 +172,9 @@
                                                             @"sortid" : sortid,
                                     @"typeoption[pinpai]" : (self.bPinPai ? self.bPinPai : @""),
                                     @"typeoption[chengse]" : (self.bChengSe ? self.bChengSe : ChengSeValueArray[0]),
-                                    @"typeoption[xinghao]" : (self.bXingHao ? self.bXingHao : @" "),
-                                    @"typeoption[QQ]" : (self.bQQ ? self.bQQ : @" "),
-                                    @"typeoption[address]" : (self.bAddress ? self.bAddress : @" ")}];
+                                    @"typeoption[xinghao]" : (self.bXingHao ? self.bXingHao : @""),
+                                    @"typeoption[QQ]" : (self.bQQ ? self.bQQ : @""),
+                                    @"typeoption[address]" : (self.bAddress ? self.bAddress : @"")}];
             }
         }
         
@@ -244,6 +291,7 @@
                     cell.textField.placeholder = @"请输入";
                     cell.titleLabel.text = dictionary[@"title"];
                     cell.textField.text = dictionary[@"value"];
+                    cell.textField.keyboardType = ((NSNumber *)dictionary[@"keyboardType"]).integerValue;
                     void (^block)(NSString *text) = dictionary[@"block"];
                     cell.textFieldValueChangeBlock = ^(UITextField *textField) {
                         if (block) {
@@ -257,6 +305,7 @@
                 {
                     cell.textField.placeholder = dictionary[@"title"];
                     cell.textField.text = dictionary[@"value"];
+                    cell.textField.keyboardType = ((NSNumber *)dictionary[@"keyboardType"]).integerValue;
                     void (^block)(NSString *text) = dictionary[@"block"];
                     cell.textFieldValueChangeBlock = ^(UITextField *textField) {
                         if (block) {
@@ -482,10 +531,12 @@
     NSArray *array1 = @[@{@"title" : @"品牌",
                           @"type" : @1,
                           @"value" : (self.sPinPai ? self.sPinPai : @""),
+                          @"keyboardType" : @(UIKeyboardTypeDefault),
                           @"block" : ^(NSString *text){@strongify(self); self.sPinPai = text;}},
                         @{@"title" : @"型号",
                           @"type" : @1,
                           @"value" : (self.sXingHao ? self.sXingHao : @""),
+                          @"keyboardType" : @(UIKeyboardTypeDefault),
                           @"block" : ^(NSString *text){@strongify(self); self.sXingHao = text;}},
                         @{@"title" : @"成色",
                           @"type" : @5,
@@ -504,10 +555,12 @@
                         @{@"title" : @"数量",
                           @"type" : @1,
                           @"value" : (self.sTrade_num ? self.sTrade_num : @""),
+                          @"keyboardType" : @(UIKeyboardTypeNumberPad),
                           @"block" : ^(NSString *text){@strongify(self); self.sTrade_num = text;}},
                         @{@"title" : @"价格",
                           @"type" : @1,
                           @"value" : (self.sJiaGe ? self.sJiaGe : @""),
+                          @"keyboardType" : @(UIKeyboardTypeDecimalPad),
                           @"block" : ^(NSString *text){@strongify(self); self.sJiaGe = text;}},
                         @{@"title" : @"详细描述",
                           @"type" : @3,
@@ -516,22 +569,27 @@
                         @{@"title" : @"姓名",
                           @"type" : @1,
                           @"value" : (self.sName ? self.sName : @""),
+                          @"keyboardType" : @(UIKeyboardTypeDefault),
                           @"block" : ^(NSString *text){@strongify(self); self.sName = text;}},
                         @{@"title" : @"电话",
                           @"type" : @1,
                           @"value" : (self.sPhone ? self.sPhone : @""),
+                          @"keyboardType" : @(UIKeyboardTypePhonePad),
                           @"block" : ^(NSString *text){@strongify(self); self.sPhone = text;}},
                         @{@"title" : @"QQ",
                           @"type" : @1,
                           @"value" : (self.sQQ ? self.sQQ : @""),
+                          @"keyboardType" : @(UIKeyboardTypeNumberPad),
                           @"block" : ^(NSString *text){@strongify(self); self.sQQ = text;}},
                         @{@"title" : @"电子邮件",
                           @"type" : @1,
                           @"value" : (self.sEmail ? self.sEmail : @""),
+                          @"keyboardType" : @(UIKeyboardTypeEmailAddress),
                           @"block" : ^(NSString *text){@strongify(self); self.sEmail = text;}},
                         @{@"title" : @"商品所在地",
                           @"type" : @1,
                           @"value" : (self.sAddress ? self.sAddress : @""),
+                          @"keyboardType" : @(UIKeyboardTypeDefault),
                           @"block" : ^(NSString *text){@strongify(self); self.sAddress = text;}},
                         @{@"title" : @"是否中介",
                           @"type" : @5,
@@ -556,6 +614,7 @@
     NSArray *array2 = @[@{@"title" : @"品牌",
                           @"type" : @1,
                           @"value" : (self.bPinPai ? self.bPinPai : @""),
+                          @"keyboardType" : @(UIKeyboardTypeDefault),
                           @"block" : ^(NSString *text){@strongify(self); self.bPinPai = text;}},
                         @{@"title" : @"成色",
                           @"type" : @5,
@@ -574,18 +633,22 @@
                         @{@"title" : @"型号",
                           @"type" : @1,
                           @"value" : (self.bXingHao ? self.bXingHao : @""),
+                          @"keyboardType" : @(UIKeyboardTypeDefault),
                           @"block" : ^(NSString *text){@strongify(self); self.bXingHao = text;}},
                         @{@"title" : @"QQ",
                           @"type" : @1,
                           @"value" : (self.bQQ ? self.bQQ : @""),
+                          @"keyboardType" : @(UIKeyboardTypeNumberPad),
                           @"block" : ^(NSString *text){@strongify(self); self.bQQ = text;}},
                         @{@"title" : @"商品所在地",
                           @"type" : @1,
                           @"value" : (self.bAddress ? self.bAddress : @""),
+                          @"keyboardType" : @(UIKeyboardTypeDefault),
                           @"block" : ^(NSString *text){@strongify(self); self.bAddress = text;}}];
     NSArray *array3 = @[@{@"title" : @"请输入标题",
                           @"type" : @2,
                           @"value" : (self.subject ? self.subject : @""),
+                          @"keyboardType" : @(UIKeyboardTypeDefault),
                           @"block" : ^(NSString *text){@strongify(self); self.subject = text;}},
                         @{@"title" : @"选择主题分类",
                           @"type" : @7,
