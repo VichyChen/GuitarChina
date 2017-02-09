@@ -99,30 +99,35 @@
             if ([sortid isEqualToString:SortIDArray[0]]) {
                 [tableDictionary addEntriesFromDictionary:@{@"selectsortid" : sortid,
                                                             @"sortid" : sortid,
-                                                           @"typeoption[pinpai]" : self.sPinPai,
-                                                           @"typeoption[xinghao]" : self.sXingHao,
-                                                           @"typeoption[chengse]" : self.sChengSe,
-                                                           @"typeoption[trade_num]" : self.sTrade_num,
-                                                           @"typeoption[jiage]" : self.sJiaGe,
-                                                           @"typeoption[xiangxi]" : self.sXiangXi,
-                                                           @"typeoption[name]" : self.sName,
-                                                           @"typeoption[phone]" : self.sPhone,
-                                                           @"typeoption[QQ]" : self.sQQ,
-                                                           @"typeoption[email1]" : self.sEmail,
-                                                           @"typeoption[address]" : self.sAddress,
-                                                           @"typeoption[zhongjie]" : self.sZhongJie}];
-                for (NSString *string in self.sFuKuangFangShi) {
-                    [tableDictionary setObject:string forKey:@"typeoption[fukangfang][]"];
+                                                            @"typeoption[pinpai]" : (self.sPinPai ? self.sPinPai : @" "),
+                                                           @"typeoption[xinghao]" : (self.sXingHao ? self.sXingHao : @" "),
+                                                           @"typeoption[chengse]" : (self.sChengSe ? self.sChengSe : ChengSeValueArray[0]),
+                                                           @"typeoption[trade_num]" : (self.sTrade_num ? self.sTrade_num : @" "),
+                                                           @"typeoption[jiage]" : (self.sJiaGe ? self.sJiaGe : @" "),
+                                                           @"typeoption[xiangxi]" : (self.sXiangXi ? self.sXiangXi : @" "),
+                                                           @"typeoption[name]" : (self.sName ? self.sName : @" "),
+                                                           @"typeoption[phone]" : (self.sPhone ? self.sPhone : @" "),
+                                                           @"typeoption[QQ]" : (self.sQQ ? self.sQQ : @" "),
+                                                           @"typeoption[email1]" : (self.sEmail ? self.sEmail : @" "),
+                                                           @"typeoption[address]" : (self.sAddress ? self.sAddress : @" "),
+                                                           @"typeoption[zhongjie]" : (self.sZhongJie ? self.sZhongJie : ZhongJieValueArray[2])}];
+                if (self.sFuKuangFangShi.count > 0) {
+//                    for (NSString *string in self.sFuKuangFangShi) {
+//                        [tableDictionary setObject:string forKey:@"typeoption[fukangfang][]"];
+//                    }
+                    [tableDictionary setObject:[NSSet setWithArray:self.sFuKuangFangShi] forKey:@"typeoption[fukangfang][]"];
+                } else {
+                    [tableDictionary setObject:FuKuangFangShiValueArray[4] forKey:@"typeoption[fukangfang][]"];
                 }
             }
             else if ([sortid isEqualToString:SortIDArray[1]]) {
                 [tableDictionary addEntriesFromDictionary:@{@"selectsortid" : sortid,
                                                             @"sortid" : sortid,
-                                    @"typeoption[pinpai]" : self.bPinPai,
-                                    @"typeoption[chengse]" : self.bChengSe,
-                                    @"typeoption[xinghao]" : self.bXingHao,
-                                    @"typeoption[QQ]" : self.bQQ,
-                                    @"typeoption[address]" : self.bAddress}];
+                                    @"typeoption[pinpai]" : (self.bPinPai ? self.bPinPai : @""),
+                                    @"typeoption[chengse]" : (self.bChengSe ? self.bChengSe : ChengSeValueArray[0]),
+                                    @"typeoption[xinghao]" : (self.bXingHao ? self.bXingHao : @" "),
+                                    @"typeoption[QQ]" : (self.bQQ ? self.bQQ : @" "),
+                                    @"typeoption[address]" : (self.bAddress ? self.bAddress : @" ")}];
             }
         }
         
