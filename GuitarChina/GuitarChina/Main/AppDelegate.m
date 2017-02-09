@@ -100,7 +100,7 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 - (BOOL)application:(UIApplication *)application
