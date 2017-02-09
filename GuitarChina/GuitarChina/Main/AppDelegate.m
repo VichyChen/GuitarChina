@@ -67,8 +67,8 @@
         [self setupADInterstitialTime];
         self.adInterstitial = [[GCAdInterstitial alloc] init];
 
-        self.adCenterBannerView = [[GCAdCenterBannerView alloc] init];
-        [self.adCenterBannerView showAfterSecond:kAdMobCenterBannerViewFirstTime];
+//        self.adCenterBannerView = [[GCAdCenterBannerView alloc] init];
+//        [self.adCenterBannerView showAfterSecond:kAdMobCenterBannerViewFirstTime];
     }
     
     return YES;
@@ -94,7 +94,7 @@
             [self setupADInterstitialTime];
             [self.adInterstitial presentFromRootViewController];
             
-            [self.adCenterBannerView showAfterSecond:kAdMobCenterBannerViewFirstTime];
+//            [self.adCenterBannerView showAfterSecond:kAdMobCenterBannerViewFirstTime];
         }
     }
 }
