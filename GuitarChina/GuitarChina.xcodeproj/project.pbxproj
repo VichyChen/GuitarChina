@@ -2381,8 +2381,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.guitarchina.gcapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fc84924d-4223-4310-98a5-9ee532e6e26b";
-				PROVISIONING_PROFILE_SPECIFIER = GuitarChina_AdHoc_Profile;
+				PROVISIONING_PROFILE = "fc66428c-74ef-44f6-a4a9-44c27d9c4509";
+				PROVISIONING_PROFILE_SPECIFIER = GuitarChina_Distribution_Profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

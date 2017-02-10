@@ -10,6 +10,7 @@
 
 @interface GCAdBannerView : UIView
 
+@property (nonatomic, copy) void(^loadRequestCompleteBlock)(void);
 @property (nonatomic, copy) void(^beginRemoveFromSuperviewBlock)(void);
 @property (nonatomic, copy) void(^endRemoveFromSuperviewBlock)(void);
 

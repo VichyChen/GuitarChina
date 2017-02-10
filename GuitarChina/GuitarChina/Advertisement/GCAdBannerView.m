@@ -11,12 +11,15 @@
 
 @interface GCAdBannerView() <GADBannerViewDelegate>
 
+@property (nonatomic, strong) GADBannerView *bannerView;
+
 @end
 
 @implementation GCAdBannerView
 
 - (instancetype)initWithRootViewController:(UIViewController *)viewController {
     if (self = [super init]) {
+        self.clipsToBounds = YES;
         [self configureView:viewController];
     }
     return self;
@@ -24,6 +27,7 @@
 
 - (instancetype)initWithRootViewController:(UIViewController *)viewController countDown:(CGFloat)countDown {
     if (self = [super init]) {
+        self.clipsToBounds = YES;
         [self configureView:viewController];
         [self setupCountDown:countDown];
     }
@@ -35,12 +39,12 @@
 }
 
 - (void)configureView:(UIViewController *)viewController {
-    GADBannerView *bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
-    bannerView.delegate = self;
-    bannerView.adUnitID = kAdMobIDDetailBottom;
-    bannerView.rootViewController = viewController;
-    [bannerView loadRequest:[GADRequest request]];
-    [self addSubview:bannerView];
+    self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
+    self.bannerView.delegate = self;
+    self.bannerView.adUnitID = kAdMobIDDetailBottom;
+    self.bannerView.rootViewController = viewController;
+    [self.bannerView loadRequest:[GADRequest request]];
+    [self addSubview:self.bannerView];
 }
 
 - (void)setupCountDown:(CGFloat)countDown {
@@ -67,6 +71,9 @@
 
 - (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
     [GCStatistics event:GCStatisticsEventAdMobBannerShow extra:nil];
+    if (self.loadRequestCompleteBlock) {
+        self.loadRequestCompleteBlock();
+    }
 }
 
 - (void)adViewWillPresentScreen:(GADBannerView *)bannerView {

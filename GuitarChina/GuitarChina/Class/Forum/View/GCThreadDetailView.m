@@ -22,6 +22,9 @@
         self.adMobFlag = (kIsFree && (arc4random() % 100) < kAdMobThreadDetailBannerProbability) ? YES : NO;
         [self configureView];
         [self configureFrame];
+        if (self.adMobFlag) {
+            [self insertSubview:self.bannner aboveSubview:self.webView];
+        }
     }
     return self;
 }
@@ -51,6 +54,7 @@
                 self.bannner.alpha = 1.0f;
             }
             self.toolBarView.alpha = 1.0f;
+        } completion:^(BOOL finished) {
             self.pagePickerView.alpha = 1.0f;
         }];
     }
@@ -60,19 +64,24 @@
 
 - (void)configureView {
     [self addSubview:self.webView];
+    /*
     if (self.adMobFlag) {
         [self addSubview:self.bannner];
     }
+     */
     [self addSubview:self.pagePickerView];
     [self addSubview:self.toolBarView];
 }
 
 - (void)configureFrame {
+    /*
     if (self.adMobFlag) {
         self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 40 - 50);
     } else {
         self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 40);
     }
+     */
+    self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 40);
 }
 
 #pragma mark - Event Responses
@@ -167,8 +176,15 @@
     if (!_bannner) {
         _bannner = [[GCAdBannerView alloc] initWithRootViewController:APP.window.rootViewController countDown:15];
         _bannner.alpha = 0.0f;
-        _bannner.frame = CGRectMake(0, self.toolBarView.frame.origin.y - 50, ScreenWidth, 50);
         @weakify(self);
+        _bannner.loadRequestCompleteBlock = ^{
+            @strongify(self);
+            self.bannner.frame = CGRectMake(0, self.toolBarView.frame.origin.y, ScreenWidth, 50);
+            [UIView animateWithDuration:0.5 animations:^{
+                self.bannner.frame = CGRectMake(0, self.toolBarView.frame.origin.y - 50, ScreenWidth, 50);
+                self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 40 - 50);
+            }];
+        };
         _bannner.beginRemoveFromSuperviewBlock = ^{
             @strongify(self);
             [UIView animateWithDuration:0.5 animations:^{
