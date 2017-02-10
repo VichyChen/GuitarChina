@@ -57,17 +57,18 @@
 
 - (UIView *)separatorLineView {
     if (!_separatorLineView) {
-        _separatorLineView = [UIView createHorizontalLine:ScreenWidth originX:0 originY:0 color:[GCColor separatorLineColor]];
+        _separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+        _separatorLineView.backgroundColor = [GCColor separatorLineColor];
     }
     return _separatorLineView;
 }
 
 - (UIButton *)pageButton {
     if (!_pageButton) {
-        _pageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 40, 0, 80, 40)
-                                      text:@"1"
-                                    target:self
-                                    action:@selector(pageAction)];
+        _pageButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        _pageButton.frame = CGRectMake(ScreenWidth / 2 - 40, 0, 80, 40);
+        [_pageButton setTitle:@"1" forState:UIControlStateNormal];
+        [_pageButton addTarget:self action:@selector(pageAction) forControlEvents:UIControlEventTouchUpInside];
         _pageButton.tintColor = [GCColor grayColor1];
         _pageButton.titleLabel.font = [UIFont systemFontOfSize:16];
     }
@@ -76,9 +77,9 @@
 
 - (UIButton *)previousPageButton {
     if (!_previousPageButton) {
-        _previousPageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 - 40 - 60, 0, 60, 40)
-                                            target:self
-                                            action:@selector(backAction)];
+        _previousPageButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        _previousPageButton.frame = CGRectMake(ScreenWidth / 2 - 40 - 60, 0, 60, 40);
+        [_previousPageButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
         _previousPageButton.tintColor = [GCColor grayColor1];
         [_previousPageButton setTitle:NSLocalizedString(@"Prev", nil) forState:UIControlStateNormal];
     }
@@ -87,9 +88,9 @@
 
 - (UIButton *)nextPageButton {
     if (!_nextPageButton) {
-        _nextPageButton = [UIView createButton:CGRectMake(ScreenWidth / 2 + 40, 0, 60, 40)
-                                        target:self
-                                        action:@selector(forwardAction)];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        button.frame = CGRectMake(ScreenWidth / 2 + 40, 0, 60, 40);
+        [button addTarget:self action:@selector(forwardAction) forControlEvents:UIControlEventTouchUpInside];
         _nextPageButton.tintColor = [GCColor grayColor1];
         [_nextPageButton setTitle:NSLocalizedString(@"Next", nil) forState:UIControlStateNormal];
     }

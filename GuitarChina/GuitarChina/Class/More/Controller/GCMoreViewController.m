@@ -162,10 +162,10 @@
             } else {
                 UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
                 view.backgroundColor = [GCColor backgroundColor];
-                UILabel *label = [UIView createLabel:CGRectMake(15, 0, 200, 40)
-                                                text:@""
-                                                font:[UIFont systemFontOfSize:16]
-                                           textColor:[GCColor blueColor]];
+                UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 200, 40)];
+                label.font = [UIFont systemFontOfSize:16];
+                label.textColor = [GCColor blueColor];
+                
                 UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, ScreenWidth, 0.5)];
                 line.backgroundColor = [GCColor separatorLineColor];
                 [view addSubview:label];

@@ -83,7 +83,10 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     UIBarButtonItem *flexSpaceButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:self action:nil];
     flexSpaceButton.width = -10;
     
-    UIBarButtonItem *closeButton = [UIView createBarButtonItem:NSLocalizedString(@"Cancel", nil) target:self action:@selector(closeAction)];
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", nil)
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:@selector(closeAction)];
     closeButton.tintColor = [UIColor whiteColor];
     [closeButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:16], NSFontAttributeName, nil] forState:UIControlStateNormal];
 
@@ -96,7 +99,12 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     leftImageView.image = [[UIImage imageNamed:@"icon_search"] imageWithTintColor:[GCColor grayColor2]];
     [leftView addSubview:leftImageView];
     
-    self.searchTextField = [UIView createTextField:CGRectMake(0, 0, ScreenWidth, 28) borderStyle:UITextBorderStyleNone text:@"" textColor:[GCColor fontColor] placeholder:NSLocalizedString(@"Enter Keywords", nil) textAlignment:NSTextAlignmentLeft];
+    self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 28)];
+    self.searchTextField.borderStyle = UITextBorderStyleNone;
+    self.searchTextField.textColor = [GCColor fontColor];
+    self.searchTextField.placeholder = NSLocalizedString(@"Enter Keywords", nil);
+    self.searchTextField.textAlignment = NSTextAlignmentLeft;
+    self.searchTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.searchTextField.font = [UIFont systemFontOfSize:15];
     self.searchTextField.textColor = [GCColor fontColor];
     self.searchTextField.tintColor = [GCColor redColor];
@@ -283,12 +291,20 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         }
         
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
-        UILabel *label = [UIView createLabel:CGRectMake(13, 0, ScreenWidth - 30, 44) text:NSLocalizedString(@"Search History", nil) font:[UIFont systemFontOfSize:15] textColor:[GCColor grayColor1]];
+
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, ScreenWidth - 30, 44)];
+        label.text = NSLocalizedString(@"Search History", nil);
+        label.font = [UIFont systemFontOfSize:15];
+        label.textColor = [GCColor grayColor1];
+
         [headerView addSubview:label];
         _historyTableView.tableHeaderView = headerView;
         
         UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 80)];
-        UIButton *button = [UIView createButton:CGRectMake(0, 0, ScreenWidth - 60, 40) buttonType:UIButtonTypeSystem text:NSLocalizedString(@"Clean History", nil) target:self action:@selector(clearHistory)];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        button.frame = CGRectMake(0, 0, ScreenWidth - 60, 40);
+        [button setTitle:NSLocalizedString(@"Clean History", nil) forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(clearHistory) forControlEvents:UIControlEventTouchUpInside];
         button.tintColor = [GCColor redColor];
         button.layer.cornerRadius = 5;
         button.layer.borderColor = [GCColor redColor].CGColor;

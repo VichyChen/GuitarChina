@@ -49,28 +49,26 @@
 
 - (UIImageView *)leftImageView {
     if (!_leftImageView) {
-        _leftImageView = [UIView createImageView:CGRectZero
-                                   contentMode:UIViewContentModeScaleAspectFill];
+        _leftImageView = [[UIImageView alloc] init];
+        _leftImageView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _leftImageView;
 }
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [UIView createLabel:CGRectZero
-                                    text:@""
-                                    font:[UIFont systemFontOfSize:16]
-                               textColor:[GCColor fontColor]];
+        _titleLabel = [[UILabel alloc] init];
+        _titleLabel.font = [UIFont systemFontOfSize:16];
+        _titleLabel.textColor = [GCColor fontColor];
     }
     return _titleLabel;
 }
 
 - (UILabel *)valueLabel {
     if (!_valueLabel) {
-        _valueLabel = [UIView createLabel:CGRectZero
-                                     text:@""
-                                     font:[UIFont systemFontOfSize:16]
-                                textColor:[GCColor fontColor]];
+        _valueLabel = [[UILabel alloc] init];
+        _valueLabel.font = [UIFont systemFontOfSize:16];
+        _valueLabel.textColor = [GCColor fontColor];
         _valueLabel.textAlignment = NSTextAlignmentRight;
     }
     return _valueLabel;

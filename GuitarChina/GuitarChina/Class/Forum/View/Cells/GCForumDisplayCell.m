@@ -88,39 +88,37 @@
 
 - (UIImageView *)avatarImage {
     if (!_avatarImage) {
-        _avatarImage = [UIView createImageView:CGRectZero contentMode:UIViewContentModeScaleToFill];
+        _avatarImage = [[UIImageView alloc] init];
+        _avatarImage.contentMode = UIViewContentModeScaleToFill;
     }
     return _avatarImage;
 }
 
 - (UILabel *)authorLabel {
     if (!_authorLabel) {
-        _authorLabel = [UIView createLabel:CGRectZero
-                                      text:@""
-                                      font:[UIFont systemFontOfSize:15]
-                                 textColor:[GCColor fontColor]];
+        _authorLabel = [[UILabel alloc] init];
+        _authorLabel.font = [UIFont systemFontOfSize:15];
+        _authorLabel.textColor = [GCColor fontColor];
     }
     return _authorLabel;
 }
 
 - (UILabel *)datelineLabel {
     if (!_datelineLabel) {
-        _datelineLabel = [UIView createLabel:CGRectZero
-                                        text:@""
-                                        font:[UIFont systemFontOfSize:13]
-                                   textColor:[GCColor grayColor3]];
+        _datelineLabel = [[UILabel alloc] init];
+        _datelineLabel.font = [UIFont systemFontOfSize:13];
+        _datelineLabel.textColor = [GCColor grayColor3];
     }
     return _datelineLabel;
 }
 
 - (UILabel *)subjectLabel {
     if (!_subjectLabel) {
-        _subjectLabel = [UIView createLabel:CGRectZero
-                                       text:@""
-                                       font:[UIFont systemFontOfSize:16]
-                                  textColor:[GCColor fontColor]
-                              numberOfLines:0
-                    preferredMaxLayoutWidth:SubjectWidth];
+        _subjectLabel = [[UILabel alloc] init];
+        _subjectLabel.font = [UIFont systemFontOfSize:16];
+        _subjectLabel.textColor = [GCColor fontColor];
+        _subjectLabel.numberOfLines = 0;
+        _subjectLabel.preferredMaxLayoutWidth = SubjectWidth;
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _subjectLabel;
@@ -128,20 +126,18 @@
 
 - (UILabel *)lastPostDetailLabel {
     if (!_lastPostDetailLabel) {
-        _lastPostDetailLabel = [UIView createLabel:CGRectZero
-                                              text:@""
-                                              font:[UIFont systemFontOfSize:13]
-                                         textColor:[GCColor grayColor3]];
+        _lastPostDetailLabel = [[UILabel alloc] init];
+        _lastPostDetailLabel.font = [UIFont systemFontOfSize:13];
+        _lastPostDetailLabel.textColor = [GCColor grayColor3];
     }
     return _lastPostDetailLabel;
 }
 
 - (UILabel *)repliesLabel {
     if (!_repliesLabel) {
-        _repliesLabel = [UIView createLabel:CGRectZero
-                                       text:@""
-                                       font:[UIFont systemFontOfSize:13]
-                                  textColor:[GCColor grayColor3]];
+        _repliesLabel = [[UILabel alloc] init];
+        _repliesLabel.font = [UIFont systemFontOfSize:13];
+        _repliesLabel.textColor = [GCColor grayColor3];
         _repliesLabel.textAlignment = NSTextAlignmentRight;
     }
     return _repliesLabel;

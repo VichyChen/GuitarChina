@@ -70,12 +70,11 @@
 
 - (UILabel *)remarkLabel {
     if (!_remarkLabel) {
-        _remarkLabel = [UIView createLabel:CGRectZero
-                                       text:@""
-                                       font:[UIFont systemFontOfSize:14]
-                                  textColor:[GCColor grayColor2]
-                              numberOfLines:0
-                    preferredMaxLayoutWidth:ScreenWidth - 30];
+        _remarkLabel = [[UILabel alloc] init];
+        _remarkLabel.font = [UIFont systemFontOfSize:14];
+        _remarkLabel.textColor = [GCColor grayColor2];
+        _remarkLabel.numberOfLines = 0;
+        _remarkLabel.preferredMaxLayoutWidth = ScreenWidth - 30;
         _remarkLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _remarkLabel;
@@ -83,12 +82,11 @@
 
 - (UILabel *)subjectLabel {
     if (!_subjectLabel) {
-        _subjectLabel = [UIView createLabel:CGRectZero
-                                       text:@""
-                                       font:[UIFont systemFontOfSize:16]
-                                  textColor:[GCColor fontColor]
-                              numberOfLines:0
-                    preferredMaxLayoutWidth:ScreenWidth - 30];
+        _subjectLabel = [[UILabel alloc] init];
+        _subjectLabel.font = [UIFont systemFontOfSize:16];
+        _subjectLabel.textColor = [GCColor fontColor];
+        _subjectLabel.numberOfLines = 0;
+        _subjectLabel.preferredMaxLayoutWidth = ScreenWidth - 30;
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _subjectLabel;
@@ -96,12 +94,11 @@
 
 - (UILabel *)timeLabel {
     if (!_timeLabel) {
-        _timeLabel = [UIView createLabel:CGRectZero
-                                       text:@""
-                                       font:[UIFont systemFontOfSize:13]
-                                  textColor:[GCColor grayColor2]
-                              numberOfLines:0
-                    preferredMaxLayoutWidth:ScreenWidth - 30];
+        _timeLabel = [[UILabel alloc] init];
+        _timeLabel.font = [UIFont systemFontOfSize:13];
+        _timeLabel.textColor = [GCColor grayColor2];
+        _timeLabel.numberOfLines = 0;
+        _timeLabel.preferredMaxLayoutWidth = ScreenWidth - 30;
         _timeLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _timeLabel;

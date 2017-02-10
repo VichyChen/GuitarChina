@@ -138,10 +138,10 @@
 
 - (UIButton *)goButton {
     if (!_goButton) {
-        _goButton = [UIView createButton:CGRectMake(ScreenWidth - 13 - 60, 0, 60, 40)
-                                    text:NSLocalizedString(@"OK", nil)
-                                  target:self
-                                  action:@selector(goAction)];
+        _goButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        _goButton.frame = CGRectMake(ScreenWidth - 13 - 60, 0, 60, 40);
+        [_goButton setTitle:NSLocalizedString(@"OK", nil) forState:UIControlStateNormal];
+        [_goButton addTarget:self action:@selector(goAction) forControlEvents:UIControlEventTouchUpInside];
         _goButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         _goButton.tintColor = [GCColor grayColor1];
     }
@@ -150,10 +150,10 @@
 
 - (UIButton *)cancelButton {
     if (!_cancelButton) {
-        _cancelButton = [UIView createButton:CGRectMake(13, 0, 60, 40)
-                                        text:NSLocalizedString(@"Cancel", nil)
-                                      target:self
-                                      action:@selector(cancelAction)];
+        _cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        _cancelButton.frame = CGRectMake(13, 0, 60, 40);
+        [_cancelButton setTitle:NSLocalizedString(@"Cancel", nil) forState:UIControlStateNormal];
+        [_cancelButton addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];
         _cancelButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         _cancelButton.tintColor = [GCColor grayColor1];
     }

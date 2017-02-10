@@ -77,32 +77,29 @@
 
 - (UILabel *)nameLabel {
     if (!_nameLabel) {
-        _nameLabel = [UIView createLabel:CGRectZero
-                                    text:@""
-                                    font:[UIFont systemFontOfSize:16]
-                               textColor:[GCColor fontColor]];
+        _nameLabel = [[UILabel alloc] init];
+        _nameLabel.font = [UIFont systemFontOfSize:16];
+        _nameLabel.textColor = [GCColor fontColor];
     }
     return _nameLabel;
 }
 
 - (UILabel *)todayPostCountLabel {
     if (!_todayPostCountLabel) {
-        _todayPostCountLabel = [UIView createLabel:CGRectZero
-                                              text:@""
-                                              font:[UIFont systemFontOfSize:15]
-                                         textColor:[GCColor grayColor2]];
+        _todayPostCountLabel = [[UILabel alloc] init];
+        _todayPostCountLabel.font = [UIFont systemFontOfSize:15];
+        _todayPostCountLabel.textColor = [GCColor grayColor2];
     }
     return _todayPostCountLabel;
 }
 
 - (UILabel *)descriptLabel {
     if (!_descriptLabel) {
-        _descriptLabel = [UIView createLabel:CGRectZero
-                                        text:@""
-                                        font:[UIFont systemFontOfSize:14]
-                                   textColor:[GCColor grayColor3]
-                               numberOfLines:0
-                     preferredMaxLayoutWidth:ScreenWidth - 30];
+        _descriptLabel = [[UILabel alloc] init];
+        _descriptLabel.font = [UIFont systemFontOfSize:14];
+        _descriptLabel.textColor = [GCColor grayColor3];
+        _descriptLabel.numberOfLines = 0;
+        _descriptLabel.preferredMaxLayoutWidth = ScreenWidth - 30;
         _descriptLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _descriptLabel;

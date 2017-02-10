@@ -50,13 +50,13 @@
 
 
 - (UILabel *)label {
-    if (!_label) {
-        _label = [UIView createLabel:CGRectMake(15, 15, ScreenWidth - 30, 0)
-                                text:[Util getBundleTXTString:@"UserProtocol"]
-                                font:[UIFont systemFontOfSize:16]
-                           textColor:[GCColor grayColor1]
-                       numberOfLines:0
-             preferredMaxLayoutWidth:ScreenWidth - 30];
+    if (!_label) {        
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, ScreenWidth - 30, 0)];
+        _label.text = [Util getBundleTXTString:@"UserProtocol"];
+        _label.font = [UIFont systemFontOfSize:16];
+        _label.textColor = [GCColor grayColor1];
+        _label.numberOfLines = 0;
+        _label.preferredMaxLayoutWidth = ScreenWidth - 30;
     }
     return _label;
 }

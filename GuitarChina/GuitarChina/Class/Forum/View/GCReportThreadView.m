@@ -41,7 +41,7 @@
 
 - (UITextView *)textView {
     if (!_textView) {
-        _textView = [UIView createTextView:CGRectZero];
+        _textView = [[UITextView alloc] init];
         _textView.backgroundColor = [UIColor clearColor];
         _textView.font = [UIFont systemFontOfSize:16];
         _textView.placeholder = NSLocalizedString(@"Write report content.", nil);

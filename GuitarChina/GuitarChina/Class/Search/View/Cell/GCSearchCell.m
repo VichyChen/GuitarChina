@@ -70,21 +70,18 @@
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCSearchModel *)model {
-    UILabel *subjectLabel = [UIView createLabel:CGRectZero
-                                   text:@""
-                                   font:[UIFont systemFontOfSize:15]
-                              textColor:[GCColor grayColor1]
-                          numberOfLines:0
-                preferredMaxLayoutWidth:SubjectWidth];
+    UILabel *subjectLabel = [[UILabel alloc] init];
+    subjectLabel.font = [UIFont systemFontOfSize:15];
+    subjectLabel.numberOfLines = 0;
+    subjectLabel.preferredMaxLayoutWidth = SubjectWidth;
     subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
     subjectLabel.attributedText = model.attributedSubject;
     
-    UILabel *contentLabel = [UIView createLabel:CGRectZero
-                                   text:@""
-                                   font:[UIFont systemFontOfSize:15]
-                              textColor:[GCColor grayColor1]
-                          numberOfLines:0
-                preferredMaxLayoutWidth:SubjectWidth];
+    UILabel *contentLabel = [[UILabel alloc] init];
+    contentLabel.font = [UIFont systemFontOfSize:15];
+    contentLabel.textColor = [GCColor grayColor1];
+    contentLabel.numberOfLines = 0;
+    contentLabel.preferredMaxLayoutWidth = SubjectWidth;
     contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
     contentLabel.attributedText = model.attributedContent;
     
@@ -118,12 +115,11 @@
 
 - (UILabel *)subjectLabel {
     if (!_subjectLabel) {
-        _subjectLabel = [UIView createLabel:CGRectZero
-                                       text:@""
-                                       font:[UIFont systemFontOfSize:15]
-                                  textColor:[GCColor grayColor1]
-                              numberOfLines:0
-                    preferredMaxLayoutWidth:SubjectWidth];
+        _subjectLabel = [[UILabel alloc] init];
+        _subjectLabel.font = [UIFont systemFontOfSize:15];
+        _subjectLabel.textColor = [GCColor grayColor1];
+        _subjectLabel.numberOfLines = 0;
+        _subjectLabel.preferredMaxLayoutWidth = SubjectWidth;
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _subjectLabel;
@@ -131,10 +127,9 @@
 
 - (UILabel *)replyLabel {
     if (!_replyLabel) {
-        _replyLabel = [UIView createLabel:CGRectZero
-                                     text:@""
-                                     font:[UIFont systemFontOfSize:12]
-                                textColor:[GCColor grayColor3]];
+        _replyLabel = [[UILabel alloc] init];
+        _replyLabel.font = [UIFont systemFontOfSize:12];
+        _replyLabel.textColor = [GCColor grayColor3];
         _replyLabel.textAlignment = NSTextAlignmentLeft;
     }
     return _replyLabel;
@@ -142,12 +137,11 @@
 
 - (UILabel *)contentLabel {
     if (!_contentLabel) {
-        _contentLabel = [UIView createLabel:CGRectZero
-                                       text:@""
-                                       font:[UIFont systemFontOfSize:15]
-                                  textColor:[GCColor grayColor1]
-                              numberOfLines:0
-                    preferredMaxLayoutWidth:SubjectWidth];
+        _contentLabel = [[UILabel alloc] init];
+        _contentLabel.font = [UIFont systemFontOfSize:15];
+        _contentLabel.textColor = [GCColor grayColor1];
+        _contentLabel.numberOfLines = 0;
+        _contentLabel.preferredMaxLayoutWidth = SubjectWidth;
         _contentLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _contentLabel;
@@ -155,30 +149,27 @@
 
 - (UILabel *)datelineLabel {
     if (!_datelineLabel) {
-        _datelineLabel = [UIView createLabel:CGRectZero
-                                        text:@""
-                                        font:[UIFont systemFontOfSize:12]
-                                   textColor:[GCColor grayColor3]];
+        _datelineLabel = [[UILabel alloc] init];
+        _datelineLabel.font = [UIFont systemFontOfSize:12];
+        _datelineLabel.textColor = [GCColor grayColor3];
     }
     return _datelineLabel;
 }
 
 - (UILabel *)authorLabel {
     if (!_authorLabel) {
-        _authorLabel = [UIView createLabel:CGRectZero
-                                      text:@""
-                                      font:[UIFont systemFontOfSize:12]
-                                 textColor:[GCColor grayColor3]];
+        _authorLabel = [[UILabel alloc] init];
+        _authorLabel.font = [UIFont systemFontOfSize:12];
+        _authorLabel.textColor = [GCColor grayColor3];
     }
     return _authorLabel;
 }
 
 - (UILabel *)forumLabel {
     if (!_forumLabel) {
-        _forumLabel = [UIView createLabel:CGRectZero
-                                     text:@""
-                                     font:[UIFont systemFontOfSize:12]
-                                textColor:[GCColor grayColor3]];
+        _forumLabel = [[UILabel alloc] init];
+        _forumLabel.font = [UIFont systemFontOfSize:12];
+        _forumLabel.textColor = [GCColor grayColor3];
         _forumLabel.textAlignment = NSTextAlignmentRight;
     }
     return _forumLabel;
