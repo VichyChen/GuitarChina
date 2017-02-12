@@ -88,9 +88,9 @@
 
 - (UIButton *)nextPageButton {
     if (!_nextPageButton) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-        button.frame = CGRectMake(ScreenWidth / 2 + 40, 0, 60, 40);
-        [button addTarget:self action:@selector(forwardAction) forControlEvents:UIControlEventTouchUpInside];
+        _nextPageButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        _nextPageButton.frame = CGRectMake(ScreenWidth / 2 + 40, 0, 60, 40);
+        [_nextPageButton addTarget:self action:@selector(forwardAction) forControlEvents:UIControlEventTouchUpInside];
         _nextPageButton.tintColor = [GCColor grayColor1];
         [_nextPageButton setTitle:NSLocalizedString(@"Next", nil) forState:UIControlStateNormal];
     }
