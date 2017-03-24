@@ -17,13 +17,13 @@
 #define GCSeccode(idhash) [NSString stringWithFormat:@"http://bbs.guitarchina.com/misc.php?mod=seccode&action=update&idhash=%@&modid=member::logging", (idhash)]
 
 //论坛小头像
-#define GCNetworkAPI_URL_SmallAvtarImage(uid) [NSString stringWithFormat:@"http://auth.guitarchina.com/avatar.php?uid=%@&size=small", (uid)]
+#define GCNetworkAPI_URL_SmallAvatarImage(uid) [NSString stringWithFormat:@"http://auth.guitarchina.com/avatar.php?uid=%@&size=small", (uid)]
 
 //论坛中头像
-#define GCNetworkAPI_URL_MiddleAvtarImage(uid) [NSString stringWithFormat:@"http://auth.guitarchina.com/avatar.php?uid=%@&size=middle", (uid)]
+#define GCNetworkAPI_URL_MiddleAvatarImage(uid) [NSString stringWithFormat:@"http://auth.guitarchina.com/avatar.php?uid=%@&size=middle", (uid)]
 
 //论坛大头像
-#define GCNetworkAPI_URL_BigAvtarImage(uid) [NSString stringWithFormat:@"http://auth.guitarchina.com/avatar.php?uid=%@&size=big", (uid)]
+#define GCNetworkAPI_URL_BigAvatarImage(uid) [NSString stringWithFormat:@"http://auth.guitarchina.com/avatar.php?uid=%@&size=big", (uid)]
 
 //论坛帖子
 #define GCNetworkAPI_URL_Thread(tid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/thread-%@-1-1.html", (tid)]
@@ -102,7 +102,7 @@
 #define GCNetworkAPI_Get_GuideSofa(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=sofa&page=%ld", (pageIndex)]
 
 //个人资料
-#define GCNetworkAPI_Get_Profile(uid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/home.php?mod=space&uid=%ld&do=profile", (uid)]
+#define GCNetworkAPI_Get_Profile(uid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/home.php?mod=space&uid=%@&do=profile", (uid)]
 
 //优酷视频地址
 #define GCVideo_URL_Youku(id) [NSString stringWithFormat:@"http://v.youku.com/v_show/id_%@.html", (id)]

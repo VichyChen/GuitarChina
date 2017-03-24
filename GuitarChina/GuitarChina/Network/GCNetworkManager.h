@@ -173,7 +173,7 @@
                           failure:(void (^)(NSError *error))failure;
 
 //个人资料
-+ (void)getProfileWithUID:(NSInteger)uid
++ (void)getProfileWithUID:(NSString *)uid
                   success:(void (^)(NSData *htmlData))success
                   failure:(void (^)(NSError *error))failure;
 

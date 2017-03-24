@@ -242,4 +242,37 @@
     return array;
 }
 
++ (GCProfileModel *)parseProfile:(NSData *)htmlData {
+    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
+    
+    GCProfileModel *model = [[GCProfileModel alloc] init];
+    //用户名
+    TFHppleElement *usernameElement = [[xpathParser searchWithXPathQuery:@"//div[@class='hm']/h2[@class='xs2']/a"] firstObject];
+    model.username = usernameElement.content;
+    
+    //活动状态
+    NSArray *stateElementArray = [xpathParser searchWithXPathQuery:@"//ul[@id='pbbs']/li"];
+    NSMutableArray *stateArray = [NSMutableArray array];
+    for (TFHppleElement *stateElement in stateElementArray) {
+        NSString *key = ((TFHppleElement *)stateElement.children[0]).content;
+        NSString *value = ((TFHppleElement *)stateElement.children[1]).content;
+        if (![key isEqualToString:@"所在时区"]) {
+            [stateArray addObject:@{ @"key" : key, @"value" : value }];
+        }
+    }
+    model.state = stateArray;
+
+    NSArray *replyThreadElementArray = [xpathParser searchWithXPathQuery:@"//ul[@class='cl bbda pbm mbm']/li/a"];
+    //回帖数
+    model.replyCount = ((TFHppleElement *)replyThreadElementArray[1]).content;
+    //主题数
+    model.threadCount = ((TFHppleElement *)replyThreadElementArray[2]).content;
+    
+    //用户组
+    TFHppleElement *userGroupElement = [[xpathParser searchWithXPathQuery:@"//ul/li/span[@class='xi2']/a"] firstObject];
+    model.userGroup = userGroupElement.content;
+
+    return model;
+}
+
 @end

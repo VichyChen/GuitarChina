@@ -91,6 +91,8 @@
 		04C0D5001DD41A2A007A5113 /* ZLPhotoPickerGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4E21DD41A2A007A5113 /* ZLPhotoPickerGroupTableViewCell.m */; };
 		04C0D5011DD41A2A007A5113 /* ZLPhotoPickerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4E41DD41A2A007A5113 /* ZLPhotoPickerImageView.m */; };
 		04C0D5021DD41A2A007A5113 /* ZLPhotoLib.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C0D4E61DD41A2A007A5113 /* ZLPhotoLib.bundle */; };
+		04C112C21E6C1B39000E699C /* GCProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C112C11E6C1B39000E699C /* GCProfileModel.m */; };
+		04C112C61E6C4E61000E699C /* GCProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C112C41E6C4E61000E699C /* GCProfileCell.m */; };
 		04D350661E1273F500047725 /* GCAdInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350651E1273F500047725 /* GCAdInterstitial.m */; };
 		04D350691E13ACE900047725 /* GCAdBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350681E13ACE900047725 /* GCAdBannerView.m */; };
 		04D3506C1E1634A700047725 /* GCProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3506B1E1634A700047725 /* GCProfileViewController.m */; };
@@ -375,6 +377,10 @@
 		04C0D4E41DD41A2A007A5113 /* ZLPhotoPickerImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLPhotoPickerImageView.m; sourceTree = "<group>"; };
 		04C0D4E51DD41A2A007A5113 /* ZLPhotoPickerCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLPhotoPickerCommon.h; sourceTree = "<group>"; };
 		04C0D4E61DD41A2A007A5113 /* ZLPhotoLib.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ZLPhotoLib.bundle; sourceTree = "<group>"; };
+		04C112C01E6C1B39000E699C /* GCProfileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCProfileModel.h; sourceTree = "<group>"; };
+		04C112C11E6C1B39000E699C /* GCProfileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCProfileModel.m; sourceTree = "<group>"; };
+		04C112C31E6C4E61000E699C /* GCProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCProfileCell.h; sourceTree = "<group>"; };
+		04C112C41E6C4E61000E699C /* GCProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCProfileCell.m; sourceTree = "<group>"; };
 		04D350641E1273F500047725 /* GCAdInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAdInterstitial.h; sourceTree = "<group>"; };
 		04D350651E1273F500047725 /* GCAdInterstitial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCAdInterstitial.m; sourceTree = "<group>"; };
 		04D350671E13ACE900047725 /* GCAdBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCAdBannerView.h; sourceTree = "<group>"; };
@@ -1389,6 +1395,8 @@
 				421192EF1CE8617F00BCFF3E /* GCMyThreadModel.m */,
 				0416D7101E30BA080042BE66 /* GCMyPromptModel.h */,
 				0416D7111E30BA080042BE66 /* GCMyPromptModel.m */,
+				04C112C01E6C1B39000E699C /* GCProfileModel.h */,
+				04C112C11E6C1B39000E699C /* GCProfileModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1440,6 +1448,8 @@
 				421192B01CE85F2200BCFF3E /* GCMyThreadCell.m */,
 				0416D70D1E30AC130042BE66 /* GCMyPromptCell.h */,
 				0416D70E1E30AC130042BE66 /* GCMyPromptCell.m */,
+				04C112C31E6C4E61000E699C /* GCProfileCell.h */,
+				04C112C41E6C4E61000E699C /* GCProfileCell.m */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -2056,6 +2066,7 @@
 				421192711CE85D3200BCFF3E /* GCDiscoveryTableViewController.m in Sources */,
 				4238889B1BC57CA6002E1625 /* MJRefreshComponent.m in Sources */,
 				423888F21BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
+				04C112C21E6C1B39000E699C /* GCProfileModel.m in Sources */,
 				04C0D5001DD41A2A007A5113 /* ZLPhotoPickerGroupTableViewCell.m in Sources */,
 				04C0D4FC1DD41A2A007A5113 /* ZLPhotoPickerViewController.m in Sources */,
 				042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */,
@@ -2084,6 +2095,7 @@
 				423888A91BC57CA6002E1625 /* UIScrollView+MJExtension.m in Sources */,
 				04C0D4FF1DD41A2A007A5113 /* ZLPhotoPickerFooterCollectionReusableView.m in Sources */,
 				04C0D4F81DD41A2A007A5113 /* ZLPhotoPickerDatas.m in Sources */,
+				04C112C61E6C4E61000E699C /* GCProfileCell.m in Sources */,
 				421192D71CE8607100BCFF3E /* GCNavigationController.m in Sources */,
 				046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */,
 				421192B31CE85F2200BCFF3E /* GCMyFavThreadCell.m in Sources */,

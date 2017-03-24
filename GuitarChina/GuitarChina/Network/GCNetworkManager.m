@@ -431,7 +431,7 @@
 }
 
 //个人资料
-+ (void)getProfileWithUID:(NSInteger)uid
++ (void)getProfileWithUID:(NSString *)uid
                   success:(void (^)(NSData *htmlData))success
                   failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_Profile(uid)

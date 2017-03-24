@@ -13,6 +13,7 @@
 #import "GCHTMLParse.h"
 #import "GCForumDisplayViewController.h"
 #import "GCSearchViewController.h"
+#import "GCProfileViewController.h"
 
 @interface GCDiscoveryTableViewController ()
 
@@ -136,6 +137,12 @@
                 GCForumDisplayViewController *controller = [[GCForumDisplayViewController alloc] init];
                 controller.title = model.forum;
                 controller.fid = model.fid;
+                [self.navigationController pushViewController:controller animated:YES];
+            };
+            discoveryCell.avatarImageViewBlock = ^{
+                @strongify(self);
+                GCProfileViewController *controller = [[GCProfileViewController alloc] init];
+                controller.uid = model.authorid;
                 [self.navigationController pushViewController:controller animated:YES];
             };
         };

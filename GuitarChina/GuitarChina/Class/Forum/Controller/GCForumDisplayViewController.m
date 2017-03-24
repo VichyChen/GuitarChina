@@ -14,7 +14,7 @@
 #import "GCThreadDetailViewController.h"
 #import "GCNavigationController.h"
 #import "GCLoginViewController.h"
-#import <CoreText/CoreText.h>
+#import "GCProfileViewController.h"
 
 @interface GCForumDisplayViewController ()
 
@@ -184,9 +184,16 @@
             return self.data;
         };
         self.tableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
+            @strongify(self);
             GCForumDisplayCell *forumDisplayCell = (GCForumDisplayCell *)cell;
             GCForumThreadModel *forumThreadModel = (GCForumThreadModel *)item;
             forumDisplayCell.model = forumThreadModel;
+            forumDisplayCell.avatarImageViewBlock = ^{
+                @strongify(self);
+                GCProfileViewController *controller = [[GCProfileViewController alloc] init];
+                controller.uid = forumThreadModel.authorid;
+                [self.navigationController pushViewController:controller animated:YES];
+            };
         };
         self.tableViewKit.heightForRowBlock = ^(NSIndexPath *indexPath, id item) {
             @strongify(self);

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCBaseViewController.h"
 
-@interface GCProfileViewController : UIViewController
+@interface GCProfileViewController : GCBaseViewController
+
+@property (nonatomic, copy) NSString *uid;
 
 @end

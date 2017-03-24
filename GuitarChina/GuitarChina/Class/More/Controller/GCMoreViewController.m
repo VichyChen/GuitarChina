@@ -14,6 +14,7 @@
 #import "GCMyThreadViewController.h"
 #import "GCMyFavThreadViewController.h"
 #import "GCMyPromptViewController.h"
+#import "GCProfileViewController.h"
 
 @interface GCMoreViewController ()
 
@@ -140,7 +141,7 @@
                 [view addSubview:button];
                 if ([[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
                     [button setTitle:[NSUD stringForKey:kGCLoginName] forState:UIControlStateNormal];
-                    [imageView sd_setImageWithURL:[NSURL URLWithString:GCNetworkAPI_URL_BigAvtarImage([NSUD stringForKey:kGCLoginID])] placeholderImage:[UIImage imageNamed:@"default_avatar"]];
+                    [imageView sd_setImageWithURL:[NSURL URLWithString:GCNetworkAPI_URL_BigAvatarImage([NSUD stringForKey:kGCLoginID])] placeholderImage:[UIImage imageNamed:@"default_avatar"]];
                     button.titleLabel.font = [UIFont systemFontOfSize:16];
                 } else {
                     [button setTitle:@"未登录" forState:UIControlStateNormal];
@@ -155,7 +156,13 @@
                 @weakify(self);
                 [view bk_whenTapped:^{
                     @strongify(self);
-                    [self loginAction];
+                    if (![[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
+                        [self loginAction];
+                    } else {
+                        GCProfileViewController *controller = [[GCProfileViewController alloc] init];
+                        controller.uid = [NSUD stringForKey:kGCLoginID];
+                        [self.navigationController pushViewController:controller animated:YES];
+                    }
                 }];
                 
                 return view;

@@ -14,7 +14,7 @@
 
 @interface GCDiscoveryCell()
 
-@property (nonatomic, strong) UIImageView *avatarImage;
+@property (nonatomic, strong) UIImageView *avatarImageView;
 @property (nonatomic, strong) UILabel *authorLabel;
 @property (nonatomic, strong) UILabel *datelineLabel;
 @property (nonatomic, strong) UILabel *subjectLabel;
@@ -43,7 +43,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.avatarImage.frame = CGRectMake(15, 10, 40, 40);
+    self.avatarImageView.frame = CGRectMake(15, 10, 40, 40);
     self.authorLabel.frame = CGRectMake(65, 9, ScreenWidth - 65, 20);
     self.datelineLabel.frame = CGRectMake(65, 33, ScreenWidth - 65, 20);
     self.subjectLabel.frame = CGRectMake(15, 60, SubjectWidth, self.subjectLabelHeight);
@@ -56,7 +56,7 @@
 #pragma mark - Private Method
 
 - (void)configureView {
-    [self.contentView addSubview:self.avatarImage];
+    [self.contentView addSubview:self.avatarImageView];
     [self.contentView addSubview:self.authorLabel];
     [self.contentView addSubview:self.datelineLabel];
     [self.contentView addSubview:self.subjectLabel];
@@ -85,7 +85,7 @@
 - (void)setModel:(GCGuideThreadModel *)model {
     _model = model;
     
-    [self.avatarImage sd_setImageWithURL:[NSURL URLWithString:GCNetworkAPI_URL_SmallAvtarImage(model.authorid)]
+    [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:GCNetworkAPI_URL_SmallAvatarImage(model.authorid)]
                         placeholderImage:nil
                                  options:SDWebImageRetryFailed];
     self.authorLabel.text = model.author;
@@ -100,12 +100,22 @@
 
 #pragma mark - Getters
 
-- (UIImageView *)avatarImage {
-    if (!_avatarImage) {
-        _avatarImage = [[UIImageView alloc] init];
-        _avatarImage.contentMode = UIViewContentModeScaleToFill;
+- (UIImageView *)avatarImageView {
+    if (!_avatarImageView) {
+        _avatarImageView = [[UIImageView alloc] init];
+        _avatarImageView.contentMode = UIViewContentModeScaleToFill;
+        _avatarImageView.clipsToBounds = YES;
+        _avatarImageView.userInteractionEnabled = YES;
+        
+        @weakify(self);
+        [_avatarImageView bk_whenTapped:^{
+            @strongify(self);
+            if (self.avatarImageViewBlock) {
+                self.avatarImageViewBlock();
+            }
+        }];
     }
-    return _avatarImage;
+    return _avatarImageView;
 }
 
 - (UILabel *)authorLabel {

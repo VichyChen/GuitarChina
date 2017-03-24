@@ -15,4 +15,6 @@
 
 + (CGFloat)getCellHeightWithModel:(GCForumThreadModel *)model;
 
+@property (nonatomic, copy) void (^avatarImageViewBlock)(void);
+
 @end

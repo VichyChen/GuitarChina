@@ -16,6 +16,7 @@
 #import "GCThreadDetailMenuView.h"
 #import "GCSocial.h"
 #import "ZLPhoto.h"
+#import "GCProfileViewController.h"
 
 @interface GCThreadDetailViewController () <UIWebViewDelegate, ZLPhotoPickerBrowserViewControllerDataSource,ZLPhotoPickerBrowserViewControllerDelegate> {
     
@@ -122,6 +123,14 @@
         //登陆链接
         if ([request.mainDocumentURL.relativeString endsWith:@"GuitarChina.app/member.php?mod=logging&action=login"]) {
             [self presentLoginViewController];
+            
+            return false;
+        }
+        //个人资料
+        if ([request.mainDocumentURL.relativeString startsWith:@"http://guitarchina.app/?uid="]) {
+            GCProfileViewController *controller = [[GCProfileViewController alloc] init];
+            controller.uid = [Util parseURLQueryStringToDictionary:[NSURL URLWithString:request.mainDocumentURL.relativeString]][@"uid"];
+            [self.navigationController pushViewController:controller animated:YES];
             
             return false;
         }

@@ -56,6 +56,7 @@
     switch (self.configureStyle) {
         case ConfigureStyleSystem:
             if (self.numberOfRowsInSectionBlock) {
+                NSLog(@"%ld", self.numberOfRowsInSectionBlock(section));
                 return self.numberOfRowsInSectionBlock(section);
             }
             break;

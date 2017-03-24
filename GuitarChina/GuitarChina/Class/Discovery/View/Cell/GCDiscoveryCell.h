@@ -16,5 +16,6 @@
 + (CGFloat)getCellHeightWithModel:(GCGuideThreadModel *)model;
 
 @property (nonatomic, copy) void (^forumButtonBlock)(void);
+@property (nonatomic, copy) void (^avatarImageViewBlock)(void);
 
 @end

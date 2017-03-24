@@ -10,6 +10,7 @@
 #import "GCSearchModel.h"
 #import "GCGuideThreadModel.h"
 #import "GCMyPromptModel.h"
+#import "GCProfileModel.h"
 
 @interface GCHTMLParse : NSObject
 
@@ -32,5 +33,7 @@
                    result:(void (^)(NSString *formhash, NSString *posttime))result;
 
 + (GCMyPromptArray *)parseMyPrompt:(NSData *)htmlData;
+
++ (GCProfileModel *)parseProfile:(NSData *)htmlData;
 
 @end
