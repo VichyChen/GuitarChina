@@ -27,6 +27,7 @@
     if (self) {
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
         self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
+        self.clipsToBounds = YES;
         [self configureView];
     }
     return self;
@@ -56,8 +57,12 @@
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCForumModel *)model {
-    CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:14 width:ScreenWidth - 30];
-    return descriptLabelHeight + 45;
+    if ([model respondsToSelector:@selector(descript)]) {
+        CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:14 width:ScreenWidth - 30];
+        return descriptLabelHeight + 45;
+    } else {
+        return 0;
+    }
 }
 
 #pragma mark - Setters
