@@ -154,7 +154,7 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kAdMobCenterBannerViewFirstTime 300
 #define kAdMobCenterBannerViewSecondTime 600
 //帖子详情页banner出现概率
-#define kAdMobThreadDetailBannerProbability 50
+#define kAdMobThreadDetailBannerProbability 80
 
 //收费版
 #else
