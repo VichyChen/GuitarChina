@@ -104,7 +104,7 @@
             switch (type) {
                 case 0:
                     cell.state = GCProfileCellStateHeader;
-                    [cell.avatorImageView sd_setImageWithURL:[NSURL URLWithString:GCNetworkAPI_URL_MiddleAvatarImage(self.uid)] placeholderImage:nil];
+                    [cell.avatorImageView sd_setImageWithURL:[NSURL URLWithString:GCNetworkAPI_URL_MiddleAvatarImage(self.uid)] placeholderImage:DefaultAvator];
                     cell.titleLabel.text = dictionary[@"username"];
                     cell.descriptionLabel.text = dictionary[@"userGroup"];
                     

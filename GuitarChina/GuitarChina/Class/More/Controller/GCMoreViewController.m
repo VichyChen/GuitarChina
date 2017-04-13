@@ -141,7 +141,7 @@
                 [view addSubview:button];
                 if ([[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
                     [button setTitle:[NSUD stringForKey:kGCLoginName] forState:UIControlStateNormal];
-                    [imageView sd_setImageWithURL:[NSURL URLWithString:GCNetworkAPI_URL_BigAvatarImage([NSUD stringForKey:kGCLoginID])] placeholderImage:[UIImage imageNamed:@"default_avatar"]];
+                    [imageView sd_setImageWithURL:[NSURL URLWithString:GCNetworkAPI_URL_BigAvatarImage([NSUD stringForKey:kGCLoginID])] placeholderImage:DefaultAvator];
                     button.titleLabel.font = [UIFont systemFontOfSize:16];
                 } else {
                     [button setTitle:@"未登录" forState:UIControlStateNormal];

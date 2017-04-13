@@ -42,6 +42,8 @@
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] < 8.0f)
 #define NSNC [NSNotificationCenter defaultCenter]
 #define NSUD [NSUserDefaults standardUserDefaults]
+#define DefaultAvator [UIImage imageNamed:@"noavatar_big"]
+
 
 //区分免费or收费版
 #define kIsFree true

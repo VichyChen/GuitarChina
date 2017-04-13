@@ -65,4 +65,9 @@
 
 + (void)openAppInAppStore:(NSString *)appleID;
 
+#pragma mark - Business
+
+//用户ID转换为头像URL的一部分
++ (NSString *)getAvatorImageURL:(NSString *)url;
+
 @end

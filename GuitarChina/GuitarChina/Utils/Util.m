@@ -150,4 +150,24 @@
     [[UIApplication sharedApplication] openURL:url];
 }
 
+#pragma mark - Business
+
++ (NSString *)getAvatorImageURL:(NSString *)url {
+    if (url.length > 0) {
+        NSMutableArray *array = [NSMutableArray array];
+        [url enumerateSubstringsInRange:NSMakeRange(0, url.length) options:NSStringEnumerationByComposedCharacterSequences usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+            [array addObject:substring];
+        }];
+        while (array.count < 9) {
+            [array insertObject:@"0" atIndex:0];
+        }
+        [array insertObject:@"/" atIndex:3];
+        [array insertObject:@"/" atIndex:6];
+        [array insertObject:@"/" atIndex:9];
+
+        return [array componentsJoinedByString:@""];
+    }
+    return @"";
+}
+
 @end

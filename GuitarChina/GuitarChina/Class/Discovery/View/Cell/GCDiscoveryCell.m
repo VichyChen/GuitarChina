@@ -86,7 +86,7 @@
     _model = model;
     
     [self.avatarImageView sd_setImageWithURL:[NSURL URLWithString:GCNetworkAPI_URL_SmallAvatarImage(model.authorid)]
-                        placeholderImage:nil
+                        placeholderImage:DefaultAvator
                                  options:SDWebImageRetryFailed];
     self.authorLabel.text = model.author;
     self.datelineLabel.text = model.dateline;
