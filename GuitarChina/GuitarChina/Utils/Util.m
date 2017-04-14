@@ -126,6 +126,13 @@
     return dictionary;
 }
 
++ (NSString *)parseURLToHTTPS:(NSString *)url {
+    if ([url hasPrefix:@"http://"] && ![url hasPrefix:@"https"]) {
+        return [NSString stringWithFormat:@"https%@", [url substringFromIndex:4]];
+    }
+    return url;
+}
+
 #pragma mark - Cookie
 
 + (void)clearCookie {

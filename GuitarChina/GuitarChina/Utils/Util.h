@@ -53,6 +53,8 @@
 //url query转字典
 + (NSDictionary *)parseURLQueryStringToDictionary:(NSURL *)url;
 
++ (NSString *)parseURLToHTTPS:(NSString *)url;
+
 #pragma mark - Cookie
 
 //清除cookie

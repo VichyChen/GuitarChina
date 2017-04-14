@@ -354,16 +354,16 @@
                       success:(void (^)(NSString *html))success
                       failure:(void (^)(NSError *error))failure {
     NSDictionary *parameters = @{@"formhash" : formhash,
-                                 @"seccodehash" : seccodehash,
-                                 @"fastloginfield" : fastloginfield,
+                                 @"loginfield" : fastloginfield,
                                  @"username" : username,
                                  @"password" : password,
-                                 @"seccodeverify" : seccodeverify,
                                  @"questionid" : questionid,
                                  @"answer" : answer,
-                                 @"submit" : @"登陆",
+                                 @"seccodehash" : seccodehash,
+                                 @"seccodemodid" : @"member::logging",
+                                 @"seccodeverify" : seccodeverify,
                                  @"cookietime" : @"2592000"};
-    [[GCNetworkBase sharedInstance] postWap:postURL parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [[GCNetworkBase sharedInstance] postWap:[Util parseURLToHTTPS:postURL] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(operation.responseString);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         failure(error);

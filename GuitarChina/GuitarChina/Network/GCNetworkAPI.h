@@ -63,21 +63,21 @@
 #define GCNetworkAPI_Post_NewThread(fid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/api/mobile/index.php?mobile=no&version=1&module=newthread&seccodeverify=&sechash=&topicsubmit=yes&fid=%@", (fid)]
 
 //WEB上传图片
-#define GCNetworkAPI_Post_WebUploadImage(fid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/misc.php?mod=swfupload&action=swfupload&operation=upload&fid=%@", (fid)]
+#define GCNetworkAPI_Post_WebUploadImage(fid) [NSString stringWithFormat:@"https://bbs.guitarchina.com/misc.php?mod=swfupload&action=swfupload&operation=upload&fid=%@", (fid)]
 
 //WEB回复页面获取
 #define GCNetworkAPI_Get_WebReply(fid, tid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=reply&fid=%@&tid=%@", (fid), (tid)]
 //WEB回复前调用
 #define GCNetworkAPI_Get_WebReplySecure @"http://bbs.guitarchina.com/forum.php?mod=ajax&action=checkpostrule&ac=reply&inajax=yes"
 //WEB回复
-#define GCNetworkAPI_Post_WebReply(fid, tid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=reply&fid=%@&tid=%@&extra=&replysubmit=yes", (fid), (tid)]
+#define GCNetworkAPI_Post_WebReply(fid, tid) [NSString stringWithFormat:@"https://bbs.guitarchina.com/forum.php?mod=post&action=reply&fid=%@&tid=%@&extra=&replysubmit=yes", (fid), (tid)]
 
 //WEB发布主题页面获取
 #define GCNetworkAPI_Get_WebPostThread(fid, sortid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=newthread&fid=%@&sortid=%@&cedit=yes&extra=", (fid), (sortid)]
 //WEB发布主题前调用
 #define GCNetworkAPI_Get_WebPostThreadSecure @"http://bbs.guitarchina.com/forum.php?mod=ajax&action=checkpostrule&ac=newthread&inajax=yes"
 //WEB发布
-#define GCNetworkAPI_Post_WebPostThread(fid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=newthread&fid=%@&extra=&topicsubmit=yes", (fid)]
+#define GCNetworkAPI_Post_WebPostThread(fid) [NSString stringWithFormat:@"https://bbs.guitarchina.com/forum.php?mod=post&action=newthread&fid=%@&extra=&topicsubmit=yes", (fid)]
 
 
 //举报
