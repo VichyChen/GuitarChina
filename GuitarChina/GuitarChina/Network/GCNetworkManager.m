@@ -462,7 +462,7 @@
                                                                         @"srchtxt" : keyWord,
                                                                         @"searchsubmit" : @"yes"};
                                            
-                                           [[GCNetworkBase sharedInstance] postWeb:@"http://bbs.guitarchina.com/search.php?mod=forum" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                           [[GCNetworkBase sharedInstance] postWeb:@"https://bbs.guitarchina.com/search.php?mod=forum" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
                                                
                                                [NSUD setObject:operation.response.URL.absoluteString forKey:kGCSearchURL];
                                                [NSUD synchronize];
