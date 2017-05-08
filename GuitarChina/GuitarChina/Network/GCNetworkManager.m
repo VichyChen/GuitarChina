@@ -142,14 +142,14 @@
     
     [manager POST:GCNetworkAPI_Post_WebUploadImage(fid) parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
-        [formData appendPartWithFormData:[@"test1.jpg" dataUsingEncoding:NSUTF8StringEncoding] name:@"Filename"];
+        [formData appendPartWithFormData:[@"picture.jpg" dataUsingEncoding:NSUTF8StringEncoding] name:@"Filename"];
         [formData appendPartWithFormData:[formhash dataUsingEncoding:NSUTF8StringEncoding] name:@"hash"];
         [formData appendPartWithFormData:[@"image" dataUsingEncoding:NSUTF8StringEncoding] name:@"type"];
         [formData appendPartWithFormData:[@".jpg" dataUsingEncoding:NSUTF8StringEncoding] name:@"filetype"];
         [formData appendPartWithFormData:[[NSUD stringForKey:kGCLoginID] dataUsingEncoding:NSUTF8StringEncoding] name:@"uid"];
         [formData appendPartWithFormData:[@"Submit Query" dataUsingEncoding:NSUTF8StringEncoding] name:@"Upload"];
         
-        [formData appendPartWithFileData:UIImageJPEGRepresentation(image, 1) name:@"Filedata" fileName:@"test1.jpg" mimeType:@"application/octet-stream"];
+        [formData appendPartWithFileData:UIImageJPEGRepresentation(image, 1) name:@"Filedata" fileName:@"picture.jpg" mimeType:@"application/octet-stream"];
         
         
     }success:^(AFHTTPRequestOperation *operation,id responseObject) {
@@ -165,9 +165,11 @@
 
 + (void)getWebReplyWithFid:(NSString *)fid
                        tid:(NSString *)tid
+                      page:(NSString *)page
+                  repquote:(NSString *)repquote
                    success:(void (^)(NSData *htmlData))success
                    failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebReply(fid, tid)
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebReply(fid, tid, page, repquote)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        success(responseObject);
@@ -182,11 +184,31 @@
                     message:(NSString *)message
                 attachArray:(NSArray *)attachArray
                    formhash:(NSString *)formhash
+               noticeauthor:(NSString *)noticeauthor
+              noticetrimstr:(NSString *)noticetrimstr
+            noticeauthormsg:(NSString *)noticeauthormsg
+                     reppid:(NSString *)reppid
+                    reppost:(NSString *)reppost
                     success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebReplySecure parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{ @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash, @"posttime" : @"", @"wysiwyg" : @"0", @"noticeauthor" : @"", @"noticetrimstr" : @"", @"noticeauthormsg" : @"", @"subject" : @"", @"checkbox" : @"0", @"message" : message, @"usesig" : @"1", @"save" : @""}];
+        NSDictionary *dictionary = @{ @"mobiletype" : @"1",
+                                      @"formhash" : formhash,
+                                      @"posttime" : @"",
+                                      @"wysiwyg" : @"0",
+                                      @"noticeauthor" : noticeauthor,
+                                      @"noticetrimstr" : noticetrimstr,
+                                      @"noticeauthormsg" : noticeauthormsg,
+                                      @"reppid" : reppid.length > 0 ? reppid : @"",
+                                      @"reppost" : reppost.length > 0 ? reppost : @"",
+                                      @"subject" : @"",
+                                      @"checkbox" : @"0",
+                                      @"message" : message,
+                                      @"usesig" : @"1",
+                                      @"save" : @""};
+        
+        NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:dictionary];
         if (attachArray) {
             for (NSString *attach in attachArray) {
                 [parameters setObject:@"" forKey:[NSString stringWithFormat:@"attachnew[%@][description]", attach]];

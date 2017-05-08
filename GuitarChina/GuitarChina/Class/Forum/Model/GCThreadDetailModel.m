@@ -157,6 +157,8 @@
     NSMutableString *html = [[NSMutableString alloc] init];
     NSMutableString *htmlCellString = [[NSMutableString alloc] init];
     NSString *htmlCell = [Util getBundleHTMLString:@"GCThreadWebViewHtmlCell"];
+    NSData *pictureData = UIImageJPEGRepresentation([UIImage imageNamed:@"icon_ellipsis"], 0.5);
+    NSString *img = [NSString stringWithFormat:@"data:image/png;base64,%@", [pictureData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]];
     for (GCThreadDetailPostModel *item in self.postlist) {
         if ([item.number isEqualToString:@"1"] && self.optionlist.count > 0) {
             NSMutableString *tableString = [[NSMutableString alloc] init];
@@ -166,9 +168,9 @@
                 [tableRow appendFormat:@"<tr><td>%@</td><td>%@</td></tr>", option.title, option.value];
             }
             [tableString appendFormat:tableHtml, self.optionsortname, tableRow];
-            [htmlCellString appendFormat:htmlCell, item.authorid,GCNetworkAPI_URL_SmallAvatarImage(item.authorid), item.author, item.dateline, [item.number isEqualToString:@"1"] ? @"楼主" : [NSString stringWithFormat:@"%@楼", item.number], tableString, item.message];
+            [htmlCellString appendFormat:htmlCell, item.authorid,GCNetworkAPI_URL_SmallAvatarImage(item.authorid), item.author, [item.number isEqualToString:@"1"] ? @"楼主" : [NSString stringWithFormat:@"%@楼", item.number], item.dateline, [NSString stringWithFormat:@"repquote=%@&page=%d", item.pid, (item.number.intValue % 40 == 0 ? item.number.intValue / 40 : item.number.intValue /40 + 1)], img, tableString, item.message];
         } else {
-            [htmlCellString appendFormat:htmlCell, item.authorid, GCNetworkAPI_URL_SmallAvatarImage(item.authorid), item.author, item.dateline, [item.number isEqualToString:@"1"] ? @"楼主" : [NSString stringWithFormat:@"%@楼", item.number], @"", item.message];
+            [htmlCellString appendFormat:htmlCell, item.authorid, GCNetworkAPI_URL_SmallAvatarImage(item.authorid), item.author, [item.number isEqualToString:@"1"] ? @"楼主" : [NSString stringWithFormat:@"%@楼", item.number], item.dateline, [NSString stringWithFormat:@"repquote=%@&page=%d", item.pid, (item.number.intValue % 40 == 0 ? item.number.intValue / 40 : item.number.intValue /40 + 1)], img, @"", item.message];
         }
     }
     NSString *htmlPage = [Util getBundleHTMLString:@"GCThreadWebViewHtml"];

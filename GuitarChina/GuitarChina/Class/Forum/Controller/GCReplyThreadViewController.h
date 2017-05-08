@@ -15,6 +15,10 @@
 @property (nonatomic, copy) NSString *tid;
 @property (nonatomic, copy) NSString *formhash;
 
+//引用
+@property (nonatomic, copy) NSString *page;
+@property (nonatomic, copy) NSString *repquote;
+
 @property (nonatomic, copy) void(^replySuccessBlock)(void);
 
 @end

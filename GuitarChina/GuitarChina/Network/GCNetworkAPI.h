@@ -66,7 +66,7 @@
 #define GCNetworkAPI_Post_WebUploadImage(fid) [NSString stringWithFormat:@"https://bbs.guitarchina.com/misc.php?mod=swfupload&action=swfupload&operation=upload&fid=%@", (fid)]
 
 //WEB回复页面获取
-#define GCNetworkAPI_Get_WebReply(fid, tid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=reply&fid=%@&tid=%@", (fid), (tid)]
+#define GCNetworkAPI_Get_WebReply(fid, tid, page, repquote) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=post&action=reply&fid=%@&tid=%@&extra=page=%@&repquote=%@", (fid), (tid), (page), (repquote)]
 //WEB回复前调用
 #define GCNetworkAPI_Get_WebReplySecure @"http://bbs.guitarchina.com/forum.php?mod=ajax&action=checkpostrule&ac=reply&inajax=yes"
 //WEB回复

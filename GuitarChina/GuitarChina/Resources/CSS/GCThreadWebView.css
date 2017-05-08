@@ -37,11 +37,11 @@ body {
 .dateline {
     margin:4px 0px 0px 10px;
     color:#80888F;
-    font-size:13px;
+    font-size:12px;
 }
 
 .number {
-    margin:0 0 0 12px;
+    margin:0 0 0 0px;
     float:right;
     /*    font-weight:bold;*/
     color: #80888F;

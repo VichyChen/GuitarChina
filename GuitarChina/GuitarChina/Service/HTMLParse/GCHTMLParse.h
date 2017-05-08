@@ -27,7 +27,13 @@
 
 + (GCSearchArray *)parseSearch:(NSData *)htmlData;
 
-+ (NSString *)parseWebReply:(NSData *)htmlData;
++ (void)parseWebReply:(NSData *)htmlData
+               result:(void (^)(NSString *formhash,
+                                NSString *noticeauthor,
+                                NSString *noticetrimstr,
+                                NSString *noticeauthormsg,
+                                NSString *reppid,
+                                NSString *reppost))result;
 
 + (void)parseWebNewThread:(NSData *)htmlData
                    result:(void (^)(NSString *formhash, NSString *posttime))result;

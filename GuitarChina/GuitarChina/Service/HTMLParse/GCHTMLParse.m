@@ -188,12 +188,33 @@
     return array;
 }
 
-+ (NSString *)parseWebReply:(NSData *)htmlData {
++ (void)parseWebReply:(NSData *)htmlData
+               result:(void (^)(NSString *formhash,
+                                NSString *noticeauthor,
+                                NSString *noticetrimstr,
+                                NSString *noticeauthormsg,
+                                NSString *reppid,
+                                NSString *reppost))result {
     TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
-    TFHppleElement *element = [[xpathParser searchWithXPathQuery:@"//form[@id='imgattachform']/input[@name='hash']"] firstObject];
-    NSString *formhash = [element objectForKey:@"value"];
+    TFHppleElement *formhashElement = [[xpathParser searchWithXPathQuery:@"//form[@id='imgattachform']/input[@name='hash']"] firstObject];
+    NSString *formhash = [formhashElement objectForKey:@"value"];
     
-    return formhash;
+    TFHppleElement *noticeauthorElement = [[xpathParser searchWithXPathQuery:@"//input[@name='noticeauthor']"] firstObject];
+    NSString *noticeauthor = [noticeauthorElement objectForKey:@"value"];
+
+    TFHppleElement *noticetrimstrElement = [[xpathParser searchWithXPathQuery:@"//input[@name='noticetrimstr']"] firstObject];
+    NSString *noticetrimstr = [noticetrimstrElement objectForKey:@"value"];
+
+    TFHppleElement *noticeauthormsgElement = [[xpathParser searchWithXPathQuery:@"//input[@name='noticeauthormsg']"] firstObject];
+    NSString *noticeauthormsg = [noticeauthormsgElement objectForKey:@"value"];
+
+    TFHppleElement *reppidElement = [[xpathParser searchWithXPathQuery:@"//input[@name='reppid']"] firstObject];
+    NSString *reppid = [reppidElement objectForKey:@"value"];
+
+    TFHppleElement *reppostElement = [[xpathParser searchWithXPathQuery:@"//input[@name='reppost']"] firstObject];
+    NSString *reppost = [reppostElement objectForKey:@"value"];
+    
+    result(formhash, noticeauthor, noticetrimstr, noticeauthormsg, reppid, reppost);
 }
 
 + (void)parseWebNewThread:(NSData *)htmlData

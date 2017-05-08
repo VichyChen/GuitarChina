@@ -134,6 +134,23 @@
             
             return false;
         }
+        //引用回复
+        if ([request.mainDocumentURL.relativeString startsWith:@"http://guitarchina.app/?type=reference"]) {
+            UIActionSheet *actionSheet = [[UIActionSheet alloc] init];
+            @weakify(self);
+            [actionSheet bk_addButtonWithTitle:@"引用" handler:^{
+                @strongify(self);
+                self.replyBlock([Util parseURLQueryStringToDictionary:[NSURL URLWithString:request.mainDocumentURL.relativeString]][@"page"], [Util parseURLQueryStringToDictionary:[NSURL URLWithString:request.mainDocumentURL.relativeString]][@"repquote"]);
+            }];
+            [actionSheet bk_addButtonWithTitle:@"举报" handler:^{
+                @strongify(self);
+                self.reportBlock();
+            }];
+            [actionSheet bk_setCancelButtonWithTitle:@"取消" handler:^{
+            }];
+            [actionSheet showInView:self.view];
+            return false;
+        }
         //优酷视频
         if ([request.mainDocumentURL.relativeString startsWith:@"http://player.youku.com/player.php/sid/"] && [request.mainDocumentURL.relativeString endsWith:@".swf"]) {
             NSArray *array = [request.mainDocumentURL.relativeString split:@"/"];
@@ -258,7 +275,7 @@
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame = CGRectMake(0, 0, 25, 25);
     [leftButton setAdjustsImageWhenHighlighted:YES];
-    UIImage *image = [UIImage imageNamed:@"icon_ellipsis"];
+    UIImage *image = [UIImage imageNamed:@"icon_bigellipsis"];
     [leftButton setImage:[image imageWithTintColor:[UIColor whiteColor]] forState:UIControlStateNormal];
     [leftButton setImage:[image imageWithTintColor:[GCColor grayColor4]] forState:UIControlStateHighlighted];
     [leftButton addTarget:self action:@selector(openMenu:) forControlEvents:UIControlEventTouchUpInside];
@@ -308,7 +325,7 @@
         }];
     };
     
-    self.replyBlock = ^{
+    self.replyBlock = ^(NSString *page, NSString *repquote){
         @strongify(self);
         if ([self.uid isEqualToString:@"0"]) {
             [self presentLoginViewController];
@@ -317,6 +334,8 @@
             controller.fid = self.fid;
             controller.tid = self.tid;
             controller.formhash = self.formhash;
+            controller.page = page;
+            controller.repquote = repquote;
             @weakify(self);
             controller.replySuccessBlock = ^{
                 @strongify(self);
@@ -439,7 +458,7 @@
         };
         _threadDetailView.replyActionBlock = ^{
             @strongify(self);
-            self.replyBlock();
+            self.replyBlock(@"", @"");
         };
     }
     return _threadDetailView;
@@ -451,7 +470,10 @@
         GCThreadDetailMenuItem *replyItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Reply", nil)
                                                                    icon:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[GCColor grayColor1]]
                                                                     row:0
-                                                            actionBlock:self.replyBlock];
+                                                                      actionBlock:^{
+                                                                          @strongify(self);
+                                                                          self.replyBlock(@"", @"");
+                                                                      }];
         GCThreadDetailMenuItem *favoriteItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Favorite", nil)
                                                                       icon:[[UIImage imageNamed:@"icon_collect"] imageWithTintColor:[GCColor grayColor1]]
                                                                        row:0

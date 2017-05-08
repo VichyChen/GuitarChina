@@ -77,6 +77,8 @@
 //WEB回复页面获取
 + (void)getWebReplyWithFid:(NSString *)fid
                        tid:(NSString *)tid
+                      page:(NSString *)page
+                  repquote:(NSString *)repquote
                    success:(void (^)(NSData *htmlData))success
                    failure:(void (^)(NSError *error))failure;
 
@@ -86,6 +88,11 @@
                     message:(NSString *)message
                 attachArray:(NSArray *)attachArray
                    formhash:(NSString *)formhash
+               noticeauthor:(NSString *)noticeauthor
+              noticetrimstr:(NSString *)noticetrimstr
+            noticeauthormsg:(NSString *)noticeauthormsg
+                     reppid:(NSString *)reppid
+                    reppost:(NSString *)reppost
                     success:(void (^)(void))success
                     failure:(void (^)(NSError *error))failure;
 

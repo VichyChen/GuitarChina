@@ -48,9 +48,9 @@
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
     @weakify(self);
-    void (^postWebReplyBlock)(NSArray *) = ^(NSArray *attachArray){
+    void (^postWebReplyBlock)(NSArray *, NSString *, NSString *, NSString *, NSString *, NSString *) = ^(NSArray *attachArray, NSString *noticeauthor, NSString *noticetrimstr, NSString *noticeauthormsg, NSString *reppid, NSString *reppost){
         @strongify(self);
-        [GCNetworkManager postWebReplyWithTid:self.tid fid:self.fid message:[self.replyThreadView.textView.text stringByAppendingString:kSuffix] attachArray:attachArray formhash:self.formhash success:^{
+        [GCNetworkManager postWebReplyWithTid:self.tid fid:self.fid message:[self.replyThreadView.textView.text stringByAppendingString:kSuffix] attachArray:attachArray formhash:self.formhash noticeauthor:noticeauthor noticetrimstr:noticetrimstr noticeauthormsg:noticeauthormsg reppid:reppid reppost:reppost success:^{
             @strongify(self);
             [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
             if (self.replySuccessBlock) {
@@ -68,50 +68,37 @@
     NSArray *imageArray = self.replyThreadView.imageArray;
     NSUInteger imageCount = self.replyThreadView.imageArray.count;
     
-    if (imageCount > 0) {
-        [GCNetworkManager getWebReplyWithFid:self.fid tid:self.tid success:^(NSData *htmlData) {
+    [GCNetworkManager getWebReplyWithFid:self.fid tid:self.tid page:self.page repquote:self.repquote success:^(NSData *htmlData) {
+        @strongify(self);
+        //解析web页面
+        [GCHTMLParse parseWebReply:htmlData result:^(NSString *formhash, NSString *noticeauthor, NSString *noticetrimstr, NSString *noticeauthormsg, NSString *reppid, NSString *reppost) {
             @strongify(self);
-            //获取web页面formhash
-            NSString *formhash = [GCHTMLParse parseWebReply:htmlData];
-            __block int tempCount = 0;
-            NSMutableArray *attachArray = [NSMutableArray array];
-            for (int i = 0; i < imageCount; i++) {
-                [GCNetworkManager postWebReplyImageWithFid:self.fid image:imageArray[i] formhash:formhash success:^(NSString *imageID) {
-                    tempCount++;
-                    [attachArray addObject:imageID];
-                    if (tempCount == imageCount) {
-                        postWebReplyBlock(attachArray);
-                    }
-                } failure:^(NSError *error) {
-                    @strongify(self);
-                    [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Image Upload Error", nil)];
-                    self.navigationItem.rightBarButtonItem.enabled = YES;
-                }];
+            if (imageCount > 0) {
+                __block int tempCount = 0;
+                NSMutableArray *attachArray = [NSMutableArray array];
+                for (int i = 0; i < imageCount; i++) {
+                    [GCNetworkManager postWebReplyImageWithFid:self.fid image:imageArray[i] formhash:formhash success:^(NSString *imageID) {
+                        tempCount++;
+                        [attachArray addObject:imageID];
+                        if (tempCount == imageCount) {
+                            postWebReplyBlock(attachArray, noticeauthor, noticetrimstr, noticeauthormsg, reppid, reppost);
+                        }
+                    } failure:^(NSError *error) {
+                        @strongify(self);
+                        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Image Upload Error", nil)];
+                        self.navigationItem.rightBarButtonItem.enabled = YES;
+                    }];
+                }
             }
-        } failure:^(NSError *error) {
-            @strongify(self);
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
-            self.navigationItem.rightBarButtonItem.enabled = YES;
+            else {
+                postWebReplyBlock(nil, noticeauthor, noticetrimstr, noticeauthormsg, reppid, reppost);
+            }
         }];
-    } else {
-        postWebReplyBlock(nil);
-    }
-    
-    /*
-     ** old
-     [GCNetworkManager postReplyWithTid:self.tid message:[self.replyThreadView.textView.text stringByAppendingString:@"\n"] formhash:self.formhash success:^(GCSendReplyModel *model) {
-     self.navigationItem.rightBarButtonItem.enabled = YES;
-     if ([model.message.messageval isEqualToString:@"post_reply_succeed"]) {
-     [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
-     [self closeAction];
-     } else {
-     [SVProgressHUD showSuccessWithStatus:model.message.messagestr];
-     }
-     } failure:^(NSError *error) {
-     [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
-     self.navigationItem.rightBarButtonItem.enabled = YES;
-     }];
-     */
+    } failure:^(NSError *error) {
+        @strongify(self);
+        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }];
 }
 
 #pragma mark - Private Methods
