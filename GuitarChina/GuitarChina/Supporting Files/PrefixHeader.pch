@@ -46,7 +46,7 @@
 
 
 //区分免费or收费版
-#define kIsFree true
+#define kIsFree false
 
 #if kIsFree==true
 
@@ -67,7 +67,7 @@
 
 //Apple ID
 #define AppleID @"1193034315"
-#define kSuffix @"\n[size=1][url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305][color=Gray]发自吉他中国Pro iPhone客户端[/color][/url][/size]"
+#define kSuffix @"\n[size=1][url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1193034315][color=Gray]发自吉他中国Pro iPhone客户端[/color][/url][/size]"
 
 //微信appid
 #define kWechatAppID @"wx26165a2548b3611f"

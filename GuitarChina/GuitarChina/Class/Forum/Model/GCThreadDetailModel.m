@@ -178,6 +178,7 @@
 
     //处理尾巴样式
     html = [html replace:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305\" target=\"_blank\"><font color=\"Gray\">发自吉他中国iPhone客户端</font></a>" toNewString:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305\" target=\"_blank\" style='margin:10px 0px 8px -5px;font-size:13px'><font color=\"Gray\">发自吉他中国iPhone客户端</font></a>"];
+    html = [html replace:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1193034315\" target=\"_blank\"><font color=\"Gray\">发自吉他中国Pro iPhone客户端</font></a>" toNewString:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1193034315\" target=\"_blank\" style='margin:10px 0px 8px -5px;font-size:13px'><font color=\"Gray\">发自吉他中国Pro iPhone客户端</font></a>"];
     //替换表情链接
     html = [html replace:@"src=\"static/image/smiley/gc/em" toNewString:@"src=\"http://bbs.guitarchina.com/static/image/smiley/gc/em"];
     //替换视频
