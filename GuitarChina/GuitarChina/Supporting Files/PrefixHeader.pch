@@ -46,7 +46,7 @@
 
 
 //区分免费or收费版
-#define kIsFree false
+#define kIsFree true
 
 #if kIsFree==true
 
