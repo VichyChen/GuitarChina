@@ -54,11 +54,29 @@
 #define AppleID @"1089161305"
 #define kSuffix @"\n[size=1][url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305][color=Gray]发自吉他中国iPhone客户端[/color][/url][/size]"
 
+//微信appid
+#define kWechatAppID @"wx26165a2548b3611f"
+//微信appsecret
+#define kWechatAppSecret @"d4624c36b6795d1d99dcf0547af5443d"
+//QQappid
+#define kQQAppID @"1104956834"
+//QQappkey
+#define kQQAppKey @"rmLJuaY5d3Bs8uE4"
+
 #else
 
 //Apple ID
 #define AppleID @"1193034315"
-#define kSuffix @"\n[size=1][url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305][color=Gray]发自吉他中国iPhone Pro客户端[/color][/url][/size]"
+#define kSuffix @"\n[size=1][url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305][color=Gray]发自吉他中国Pro iPhone客户端[/color][/url][/size]"
+
+//微信appid
+#define kWechatAppID @"wx26165a2548b3611f"
+//微信appsecret
+#define kWechatAppSecret @"d4624c36b6795d1d99dcf0547af5443d"
+//QQappid
+#define kQQAppID @"1106166100"
+//QQappkey
+#define kQQAppKey @"3J3KUy9NV8W9VNnf"
 
 #endif
 
@@ -82,16 +100,6 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 
 //Network Cache
 #define kForumIndexCache @"ForumIndexCache"
-
-//微信appid
-#define kWechatAppID @"wx26165a2548b3611f"
-//微信appsecret
-#define kWechatAppSecret @"d4624c36b6795d1d99dcf0547af5443d"
-//QQappid
-#define kQQAppID @"1104956834"
-//QQappkey
-#define kQQAppKey @"rmLJuaY5d3Bs8uE4"
-
 
 //Debug
 #ifdef DEBUG
