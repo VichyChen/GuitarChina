@@ -204,23 +204,25 @@
                     if (![[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
                         [self loginAction];
                     }
-                    switch (indexPath.row) {
-                        case 0://我的主题
-                        {
-                            GCMyThreadViewController *userThreadViewController = [[GCMyThreadViewController alloc] init];
-                            [self.navigationController pushViewController:userThreadViewController animated:YES];
-                            break;
-                        }
-                        case 1://我的收藏
-                        {
-                            GCMyFavThreadViewController *myFavThreadViewController = [[GCMyFavThreadViewController alloc] init];
-                            [self.navigationController pushViewController:myFavThreadViewController animated:YES];
-                            break;
-                        }
-                        case 2://我的提醒
-                        {
-                            GCMyPromptViewController * myPromptViewController = [[GCMyPromptViewController alloc] init];
-                            [self.navigationController pushViewController:myPromptViewController animated:YES];
+                    else {
+                        switch (indexPath.row) {
+                            case 0://我的主题
+                            {
+                                GCMyThreadViewController *userThreadViewController = [[GCMyThreadViewController alloc] init];
+                                [self.navigationController pushViewController:userThreadViewController animated:YES];
+                                break;
+                            }
+                            case 1://我的收藏
+                            {
+                                GCMyFavThreadViewController *myFavThreadViewController = [[GCMyFavThreadViewController alloc] init];
+                                [self.navigationController pushViewController:myFavThreadViewController animated:YES];
+                                break;
+                            }
+                            case 2://我的提醒
+                            {
+                                GCMyPromptViewController * myPromptViewController = [[GCMyPromptViewController alloc] init];
+                                [self.navigationController pushViewController:myPromptViewController animated:YES];
+                            }
                         }
                     }
                     break;
