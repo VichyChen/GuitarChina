@@ -70,9 +70,9 @@
 #define kSuffix @"\n[size=1][url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1193034315][color=Gray]发自吉他中国Pro iPhone客户端[/color][/url][/size]"
 
 //微信appid
-#define kWechatAppID @"wx26165a2548b3611f"
+#define kWechatAppID @"wxf63a299389b5b7ce"
 //微信appsecret
-#define kWechatAppSecret @"d4624c36b6795d1d99dcf0547af5443d"
+#define kWechatAppSecret @"c50c73f99fc68d2492a4979ecd3b00a4"
 //QQappid
 #define kQQAppID @"1106166100"
 //QQappkey
