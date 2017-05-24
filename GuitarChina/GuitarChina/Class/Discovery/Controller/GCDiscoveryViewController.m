@@ -74,7 +74,11 @@
     
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(0, 0, 100, 44);
+#if kIsFree==true
     label.text = NSLocalizedString(@"GuitarChina", nil);
+#else
+    label.text = NSLocalizedString(@"GuitarChinaPro", nil);
+#endif
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont systemFontOfSize:18];
