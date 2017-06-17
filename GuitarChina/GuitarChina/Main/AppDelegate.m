@@ -36,6 +36,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+#if FREEVERSION
+    NSLog(@"1111");
+#else
+    NSLog(@"2222");
+#endif
+    
     if ([self firstStart]) {
         [NSUD setBool:YES forKey:kGCAutoSwitchNightMode];
         [NSUD setBool:YES forKey:kGCLoadImage];
@@ -63,13 +69,10 @@
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
-    if (kIsFree) {
-        [self setupADInterstitialTime];
-        self.adInterstitial = [[GCAdInterstitial alloc] init];
-
-//        self.adCenterBannerView = [[GCAdCenterBannerView alloc] init];
-//        [self.adCenterBannerView showAfterSecond:kAdMobCenterBannerViewFirstTime];
-    }
+#if FREEVERSION
+    [self setupADInterstitialTime];
+    self.adInterstitial = [[GCAdInterstitial alloc] init];
+#endif
     
     return YES;
 }
@@ -87,16 +90,14 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    if (kIsFree) {
-        NSDate *date = [Util getNSDateWithDateString:[NSUD stringForKey:kGCToday] format:@"yyyy-MM-dd HH:mm:ss"];
-        NSTimeInterval timeInterVal = -[date timeIntervalSinceDate:[Util getDate]];
-        if (timeInterVal > kAdMobEnterForegroundTimeInterval) {
-            [self setupADInterstitialTime];
-            [self.adInterstitial presentFromRootViewController];
-            
-//            [self.adCenterBannerView showAfterSecond:kAdMobCenterBannerViewFirstTime];
-        }
+#if FREEVERSION
+    NSDate *date = [Util getNSDateWithDateString:[NSUD stringForKey:kGCToday] format:@"yyyy-MM-dd HH:mm:ss"];
+    NSTimeInterval timeInterVal = -[date timeIntervalSinceDate:[Util getDate]];
+    if (timeInterVal > kAdMobEnterForegroundTimeInterval) {
+        [self setupADInterstitialTime];
+        [self.adInterstitial presentFromRootViewController];
     }
+#endif
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

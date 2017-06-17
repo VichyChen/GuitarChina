@@ -10,8 +10,6 @@
 
 @interface GCThreadDetailView ()
 
-@property (nonatomic, assign) BOOL adMobFlag;
-
 @end
 
 @implementation GCThreadDetailView
@@ -19,12 +17,11 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.adMobFlag = (kIsFree && (arc4random() % 100) < kAdMobThreadDetailBannerProbability) ? YES : NO;
         [self configureView];
         [self configureFrame];
-        if (self.adMobFlag) {
-            [self insertSubview:self.bannner aboveSubview:self.webView];
-        }
+#if FREEVERSION
+        [self insertSubview:self.bannner aboveSubview:self.webView];
+#endif
     }
     return self;
 }
@@ -50,9 +47,9 @@
 - (void)showOtherView {
     if (self.toolBarView.alpha == 0.0f) {
         [UIView animateWithDuration:1.0 animations:^{
-            if (self.adMobFlag) {
-                self.bannner.alpha = 1.0f;
-            }
+#if FREEVERSION
+            self.bannner.alpha = 1.0f;
+#endif
             self.toolBarView.alpha = 1.0f;
         } completion:^(BOOL finished) {
             self.pagePickerView.alpha = 1.0f;
@@ -64,23 +61,11 @@
 
 - (void)configureView {
     [self addSubview:self.webView];
-    /*
-    if (self.adMobFlag) {
-        [self addSubview:self.bannner];
-    }
-     */
     [self addSubview:self.pagePickerView];
     [self addSubview:self.toolBarView];
 }
 
 - (void)configureFrame {
-    /*
-    if (self.adMobFlag) {
-        self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 40 - 50);
-    } else {
-        self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 40);
-    }
-     */
     self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 40);
 }
 
@@ -174,7 +159,7 @@
 
 - (GCAdBannerView *)bannner {
     if (!_bannner) {
-        _bannner = [[GCAdBannerView alloc] initWithRootViewController:APP.window.rootViewController countDown:15];
+        _bannner = [[GCAdBannerView alloc] initWithRootViewController:APP.window.rootViewController];
         _bannner.alpha = 0.0f;
         @weakify(self);
         _bannner.loadRequestCompleteBlock = ^{

@@ -44,11 +44,7 @@
 #define NSUD [NSUserDefaults standardUserDefaults]
 #define DefaultAvator [UIImage imageNamed:@"noavatar_big"]
 
-
-//区分免费or收费版
-#define kIsFree true
-
-#if kIsFree==true
+#if FREEVERSION
 
 //Apple ID
 #define AppleID @"1089161305"
@@ -105,7 +101,7 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #ifdef DEBUG
 
 //免费版
-#if kIsFree==true
+#if FREEVERSION
 
 //友盟appkey
 #define kUmengAppKey @"56d7ec72e0f55a701a000937"
@@ -145,7 +141,7 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #else
 
 //免费版
-#if kIsFree==true
+#if FREEVERSION
 
 //友盟appkey
 #define kUmengAppKey @"56d7ecd4e0f55a7090001026"

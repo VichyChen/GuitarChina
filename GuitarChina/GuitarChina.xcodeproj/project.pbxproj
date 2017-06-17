@@ -28,6 +28,205 @@
 		0416D7121E30BA080042BE66 /* GCMyPromptModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7111E30BA080042BE66 /* GCMyPromptModel.m */; };
 		0416D7161E320FE40042BE66 /* GCLoginPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7151E320FE40042BE66 /* GCLoginPickerView.m */; };
 		0416D7191E3312E80042BE66 /* GCReplyPostThreadToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7181E3312E80042BE66 /* GCReplyPostThreadToolBarView.m */; };
+		041CD27C1EF4D43700BA3DC1 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150E71BF03B2A007A8890 /* SVIndefiniteAnimatedView.m */; };
+		041CD27D1EF4D43700BA3DC1 /* ZLCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4B51DD41A2A007A5113 /* ZLCameraViewController.m */; };
+		041CD27E1EF4D43700BA3DC1 /* GCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192CD1CE8607100BCFF3E /* GCBaseViewController.m */; };
+		041CD27F1EF4D43700BA3DC1 /* ZLPhotoPickerGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4D71DD41A2A007A5113 /* ZLPhotoPickerGroupViewController.m */; };
+		041CD2801EF4D43700BA3DC1 /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238887C1BC57CA6002E1625 /* MJRefreshAutoGifFooter.m */; };
+		041CD2811EF4D43700BA3DC1 /* UIImage+CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C3BBA1D583557000FCCFB /* UIImage+CommonMethods.m */; };
+		041CD2821EF4D43700BA3DC1 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150ED1BF03B2A007A8890 /* SVRadialGradientLayer.m */; };
+		041CD2831EF4D43700BA3DC1 /* GCThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211925A1CE85D3200BCFF3E /* GCThreadDetailViewController.m */; };
+		041CD2841EF4D43700BA3DC1 /* GCForumIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192E01CE860FC00BCFF3E /* GCForumIndexModel.m */; };
+		041CD2851EF4D43700BA3DC1 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3571D28E19F007F2350 /* WMProgressView.m */; };
+		041CD2861EF4D43700BA3DC1 /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4AA1DD41A2A007A5113 /* DALabeledCircularProgressView.m */; };
+		041CD2871EF4D43700BA3DC1 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888C71BC57D0F002E1625 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m */; };
+		041CD2881EF4D43700BA3DC1 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3591D28E19F007F2350 /* WMScrollView.m */; };
+		041CD2891EF4D43700BA3DC1 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC3921CB9FA9800B3B827 /* HMSegmentedControl.m */; };
+		041CD28A1EF4D43700BA3DC1 /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238888C1BC57CA6002E1625 /* MJRefreshNormalHeader.m */; };
+		041CD28B1EF4D43700BA3DC1 /* GCReplyPostThreadToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7181E3312E80042BE66 /* GCReplyPostThreadToolBarView.m */; };
+		041CD28C1EF4D43700BA3DC1 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888961BC57CA6002E1625 /* UIScrollView+MJRefresh.m */; };
+		041CD28D1EF4D43700BA3DC1 /* GCThreadDetailPagePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D48E6B1E28DC4100212137 /* GCThreadDetailPagePickerView.m */; };
+		041CD28E1EF4D43700BA3DC1 /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888771BC57CA6002E1625 /* MJRefreshHeader.m */; };
+		041CD28F1EF4D43700BA3DC1 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238887E1BC57CA6002E1625 /* MJRefreshAutoNormalFooter.m */; };
+		041CD2901EF4D43700BA3DC1 /* ZLPhotoPickerBrowserPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4C81DD41A2A007A5113 /* ZLPhotoPickerBrowserPhotoView.m */; };
+		041CD2911EF4D43700BA3DC1 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888D31BC57D0F002E1625 /* DGActivityIndicatorFiveDotsAnimation.m */; };
+		041CD2921EF4D43700BA3DC1 /* GCThreadDetailToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D48E681E28DC2800212137 /* GCThreadDetailToolBarView.m */; };
+		041CD2931EF4D43700BA3DC1 /* GCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 04091D7F1CFBECBC00B797B1 /* GCColor.m */; };
+		041CD2941EF4D43700BA3DC1 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4A81DD41A2A007A5113 /* DACircularProgressView.m */; };
+		041CD2951EF4D43700BA3DC1 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3551D28E19F007F2350 /* WMMenuView.m */; };
+		041CD2961EF4D43700BA3DC1 /* GCMyThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192EF1CE8617F00BCFF3E /* GCMyThreadModel.m */; };
+		041CD2971EF4D43700BA3DC1 /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF391E1237F9006DA6FA /* GCMoreViewController.m */; };
+		041CD2981EF4D43700BA3DC1 /* ZLPhotoPickerAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4D51DD41A2A007A5113 /* ZLPhotoPickerAssetsViewController.m */; };
+		041CD2991EF4D43700BA3DC1 /* GCForumDisplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192DE1CE860FC00BCFF3E /* GCForumDisplayModel.m */; };
+		041CD29A1EF4D43700BA3DC1 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623F1BAAC06800E66F03 /* UIImage+Tint.m */; };
+		041CD29B1EF4D43700BA3DC1 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A35C1D28E19F007F2350 /* WMPageController.m */; };
+		041CD29C1EF4D43700BA3DC1 /* GCReplyThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211929E1CE85EEE00BCFF3E /* GCReplyThreadView.m */; };
+		041CD29D1EF4D43700BA3DC1 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888E91BC57D0F002E1625 /* DGActivityIndicatorTriplePulseAnimation.m */; };
+		041CD29E1EF4D43700BA3DC1 /* GCNewPostThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF31E403F8E00D6FD20 /* GCNewPostThreadCell.m */; };
+		041CD29F1EF4D43700BA3DC1 /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888BD1BC57D0F002E1625 /* DGActivityIndicatorBallPulseSyncAnimation.m */; };
+		041CD2A01EF4D43700BA3DC1 /* GCHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A600A81CF9EECA002F709F /* GCHistoryCell.m */; };
+		041CD2A11EF4D43700BA3DC1 /* GCPostThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192541CE85D3200BCFF3E /* GCPostThreadViewController.m */; };
+		041CD2A21EF4D43700BA3DC1 /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211929C1CE85EEE00BCFF3E /* GCForumIndexCell.m */; };
+		041CD2A31EF4D43700BA3DC1 /* GCMyPromptModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7111E30BA080042BE66 /* GCMyPromptModel.m */; };
+		041CD2A41EF4D43700BA3DC1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E661BC6192F0044EB1D /* AppDelegate.m */; };
+		041CD2A51EF4D43700BA3DC1 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888CD1BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m */; };
+		041CD2A61EF4D43700BA3DC1 /* GCOfficialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040212331E06DC3F002D74F6 /* GCOfficialCell.m */; };
+		041CD2A71EF4D43700BA3DC1 /* GCThreadDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192A21CE85EEE00BCFF3E /* GCThreadDetailView.m */; };
+		041CD2A81EF4D43700BA3DC1 /* GCThreadDetailMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF331E111EB2006DA6FA /* GCThreadDetailMenuView.m */; };
+		041CD2A91EF4D43700BA3DC1 /* GCSendReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192E91CE8615400BCFF3E /* GCSendReplyModel.m */; };
+		041CD2AA1EF4D43700BA3DC1 /* GCForumDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192501CE85D3200BCFF3E /* GCForumDisplayViewController.m */; };
+		041CD2AB1EF4D43700BA3DC1 /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 421191D11CE8558B00BCFF3E /* GuitarChina.xcdatamodeld */; };
+		041CD2AC1EF4D43700BA3DC1 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888D11BC57D0F002E1625 /* DGActivityIndicatorDoubleBounceAnimation.m */; };
+		041CD2AD1EF4D43700BA3DC1 /* GCMyThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192B01CE85F2200BCFF3E /* GCMyThreadCell.m */; };
+		041CD2AE1EF4D43700BA3DC1 /* GCMyPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D70B1E30AB270042BE66 /* GCMyPromptViewController.m */; };
+		041CD2AF1EF4D43700BA3DC1 /* DGActivityIndicatorBallPulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888BB1BC57D0F002E1625 /* DGActivityIndicatorBallPulseAnimation.m */; };
+		041CD2B01EF4D43700BA3DC1 /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888851BC57CA6002E1625 /* MJRefreshBackNormalFooter.m */; };
+		041CD2B11EF4D43700BA3DC1 /* ZLPhotoPickerBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4C11DD41A2A007A5113 /* ZLPhotoPickerBrowserViewController.m */; };
+		041CD2B21EF4D43700BA3DC1 /* GCForumIndexCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479424C1DA0076900E810DF /* GCForumIndexCollectionViewCell.m */; };
+		041CD2B31EF4D43700BA3DC1 /* GCAdCenterBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0464A93E1E1B771E00B9E1C9 /* GCAdCenterBannerView.m */; };
+		041CD2B41EF4D43700BA3DC1 /* DGActivityIndicatorBallBeatAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888AF1BC57D0F002E1625 /* DGActivityIndicatorBallBeatAnimation.m */; };
+		041CD2B51EF4D43700BA3DC1 /* GCTableViewKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 049085131E03EE8000CF5C1C /* GCTableViewKit.m */; };
+		041CD2B61EF4D43700BA3DC1 /* GCProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3506B1E1634A700047725 /* GCProfileViewController.m */; };
+		041CD2B71EF4D43700BA3DC1 /* ZLCameraImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4B11DD41A2A007A5113 /* ZLCameraImageView.m */; };
+		041CD2B81EF4D43700BA3DC1 /* ZLCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4B31DD41A2A007A5113 /* ZLCameraView.m */; };
+		041CD2B91EF4D43700BA3DC1 /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0464A93B1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m */; };
+		041CD2BA1EF4D43700BA3DC1 /* UIView+ZLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4A51DD41A2A007A5113 /* UIView+ZLExtension.m */; };
+		041CD2BB1EF4D43700BA3DC1 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888D71BC57D0F002E1625 /* DGActivityIndicatorLineScalePartyAnimation.m */; };
+		041CD2BC1EF4D43700BA3DC1 /* GCBaseNoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192F81CE861AF00BCFF3E /* GCBaseNoticeModel.m */; };
+		041CD2BD1EF4D43700BA3DC1 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888E11BC57D0F002E1625 /* DGActivityIndicatorRotatingSquaresAnimation.m */; };
+		041CD2BE1EF4D43700BA3DC1 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888DF1BC57D0F002E1625 /* DGActivityIndicatorRotatingSandglassAnimation.m */; };
+		041CD2BF1EF4D43700BA3DC1 /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888871BC57CA6002E1625 /* MJRefreshBackStateFooter.m */; };
+		041CD2C01EF4D43700BA3DC1 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB7661BFC6F9700E05E17 /* TFHpple.m */; };
+		041CD2C11EF4D43700BA3DC1 /* ZLPhotoPickerBrowserViewController+SignlePhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4BF1DD41A2A007A5113 /* ZLPhotoPickerBrowserViewController+SignlePhotoBrowser.m */; };
+		041CD2C21EF4D43700BA3DC1 /* GCLoginPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7151E320FE40042BE66 /* GCLoginPickerView.m */; };
+		041CD2C31EF4D43700BA3DC1 /* UIImage+ZLPhotoLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4A31DD41A2A007A5113 /* UIImage+ZLPhotoLib.m */; };
+		041CD2C41EF4D43700BA3DC1 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888D91BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutAnimation.m */; };
+		041CD2C51EF4D43700BA3DC1 /* GCStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 046365C61E1F6E8B002E1744 /* GCStatistics.m */; };
+		041CD2C61EF4D43700BA3DC1 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888EB1BC57D0F002E1625 /* DGActivityIndicatorTripleRingsAnimation.m */; };
+		041CD2C71EF4D43700BA3DC1 /* GCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192D11CE8607100BCFF3E /* GCTabBarController.m */; };
+		041CD2C81EF4D43700BA3DC1 /* GCSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF431E1237F9006DA6FA /* GCSettingCell.m */; };
+		041CD2C91EF4D43700BA3DC1 /* GCDiscoveryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192461CE85D3200BCFF3E /* GCDiscoveryTableViewController.m */; };
+		041CD2CA1EF4D43700BA3DC1 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888731BC57CA6002E1625 /* MJRefreshComponent.m */; };
+		041CD2CB1EF4D43700BA3DC1 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888B11BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateAnimation.m */; };
+		041CD2CC1EF4D43700BA3DC1 /* GCProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C112C11E6C1B39000E699C /* GCProfileModel.m */; };
+		041CD2CD1EF4D43700BA3DC1 /* ZLPhotoPickerGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4E21DD41A2A007A5113 /* ZLPhotoPickerGroupTableViewCell.m */; };
+		041CD2CE1EF4D43700BA3DC1 /* ZLPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4D91DD41A2A007A5113 /* ZLPhotoPickerViewController.m */; };
+		041CD2CF1EF4D43700BA3DC1 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
+		041CD2D01EF4D43700BA3DC1 /* ZLPhotoRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4BC1DD41A2A007A5113 /* ZLPhotoRect.m */; };
+		041CD2D11EF4D43700BA3DC1 /* GCThreadDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192E21CE860FC00BCFF3E /* GCThreadDetailModel.m */; };
+		041CD2D21EF4D43700BA3DC1 /* GCForumIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192521CE85D3200BCFF3E /* GCForumIndexViewController.m */; };
+		041CD2D31EF4D43700BA3DC1 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB76A1BFC6F9700E05E17 /* XPathQuery.m */; };
+		041CD2D41EF4D43700BA3DC1 /* ZLPhotoPickerBrowserPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4C61DD41A2A007A5113 /* ZLPhotoPickerBrowserPhotoScrollView.m */; };
+		041CD2D51EF4D43700BA3DC1 /* GCNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAED1E3F7A8700D6FD20 /* GCNewsViewController.m */; };
+		041CD2D61EF4D43700BA3DC1 /* GCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192C51CE8601E00BCFF3E /* GCLoginViewController.m */; };
+		041CD2D71EF4D43700BA3DC1 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A6671B9A7C78005D2164 /* EXTScope.m */; };
+		041CD2D81EF4D43700BA3DC1 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888711BC57CA6002E1625 /* MJRefreshBackFooter.m */; };
+		041CD2D91EF4D43700BA3DC1 /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888B91BC57D0F002E1625 /* DGActivityIndicatorBallGridPulseAnimation.m */; };
+		041CD2DA1EF4D43700BA3DC1 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888ED1BC57D0F002E1625 /* DGActivityIndicatorTwoDotsAnimation.m */; };
+		041CD2DB1EF4D43700BA3DC1 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888E51BC57D0F002E1625 /* DGActivityIndicatorThreeDotsAnimation.m */; };
+		041CD2DC1EF4D43700BA3DC1 /* ZLPhotoPickerBrowserPhotoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4C41DD41A2A007A5113 /* ZLPhotoPickerBrowserPhotoImageView.m */; };
+		041CD2DD1EF4D43700BA3DC1 /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888751BC57CA6002E1625 /* MJRefreshFooter.m */; };
+		041CD2DE1EF4D43700BA3DC1 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888B71BC57D0F002E1625 /* DGActivityIndicatorBallGridBeatAnimation.m */; };
+		041CD2DF1EF4D43700BA3DC1 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150EB1BF03B2A007A8890 /* SVProgressHUD.m */; };
+		041CD2E01EF4D43700BA3DC1 /* GCGuideThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192F31CE8619900BCFF3E /* GCGuideThreadModel.m */; };
+		041CD2E11EF4D43700BA3DC1 /* GCMyFavThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192ED1CE8617F00BCFF3E /* GCMyFavThreadModel.m */; };
+		041CD2E21EF4D43700BA3DC1 /* DGActivityIndicatorLineScaleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888D51BC57D0F002E1625 /* DGActivityIndicatorLineScaleAnimation.m */; };
+		041CD2E31EF4D43700BA3DC1 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888E31BC57D0F002E1625 /* DGActivityIndicatorRotatingTrigonAnimation.m */; };
+		041CD2E41EF4D43700BA3DC1 /* GCMyFavThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211927C1CE85D7D00BCFF3E /* GCMyFavThreadViewController.m */; };
+		041CD2E51EF4D43700BA3DC1 /* ZLPhotoPickerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4E41DD41A2A007A5113 /* ZLPhotoPickerImageView.m */; };
+		041CD2E61EF4D43700BA3DC1 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888941BC57CA6002E1625 /* UIScrollView+MJExtension.m */; };
+		041CD2E71EF4D43700BA3DC1 /* ZLPhotoPickerFooterCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4E01DD41A2A007A5113 /* ZLPhotoPickerFooterCollectionReusableView.m */; };
+		041CD2E81EF4D43700BA3DC1 /* ZLPhotoPickerDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4D01DD41A2A007A5113 /* ZLPhotoPickerDatas.m */; };
+		041CD2E91EF4D43700BA3DC1 /* GCProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C112C41E6C4E61000E699C /* GCProfileCell.m */; };
+		041CD2EA1EF4D43700BA3DC1 /* GCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192CF1CE8607100BCFF3E /* GCNavigationController.m */; };
+		041CD2EB1EF4D43700BA3DC1 /* UIView+UICreateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */; };
+		041CD2EC1EF4D43700BA3DC1 /* GCMyFavThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192AE1CE85F2200BCFF3E /* GCMyFavThreadCell.m */; };
+		041CD2ED1EF4D43700BA3DC1 /* DGActivityIndicatorNineDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888DD1BC57D0F002E1625 /* DGActivityIndicatorNineDotsAnimation.m */; };
+		041CD2EE1EF4D43700BA3DC1 /* GCMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF411E1237F9006DA6FA /* GCMoreCell.m */; };
+		041CD2EF1EF4D43700BA3DC1 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF71E45D84A00D6FD20 /* UITextView+Placeholder.m */; };
+		041CD2F01EF4D43700BA3DC1 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888981BC57CA6002E1625 /* UIView+MJExtension.m */; };
+		041CD2F11EF4D43700BA3DC1 /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */; };
+		041CD2F21EF4D43700BA3DC1 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888B31BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m */; };
+		041CD2F31EF4D43700BA3DC1 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238886F1BC57CA6002E1625 /* MJRefreshAutoFooter.m */; };
+		041CD2F41EF4D43700BA3DC1 /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888C51BC57D0F002E1625 /* DGActivityIndicatorBallScaleRippleAnimation.m */; };
+		041CD2F51EF4D43700BA3DC1 /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211929A1CE85EEE00BCFF3E /* GCForumDisplayCell.m */; };
+		041CD2F61EF4D43700BA3DC1 /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888C91BC57D0F002E1625 /* DGActivityIndicatorBallTrianglePathAnimation.m */; };
+		041CD2F71EF4D43700BA3DC1 /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3511D28E19F007F2350 /* WMFooldView.m */; };
+		041CD2F81EF4D43700BA3DC1 /* GCNewPostThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF01E4039C100D6FD20 /* GCNewPostThreadViewController.m */; };
+		041CD2F91EF4D43700BA3DC1 /* GCAddImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D45071DD1BE1500A7824F /* GCAddImageCell.m */; };
+		041CD2FA1EF4D43700BA3DC1 /* NSString+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623C1BAAC06800E66F03 /* NSString+Tools.m */; };
+		041CD2FB1EF4D43700BA3DC1 /* ZLPhotoPickerGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4D21DD41A2A007A5113 /* ZLPhotoPickerGroup.m */; };
+		041CD2FC1EF4D43700BA3DC1 /* DGActivityIndicatorBallClipRotatePulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888B51BC57D0F002E1625 /* DGActivityIndicatorBallClipRotatePulseAnimation.m */; };
+		041CD2FD1EF4D43700BA3DC1 /* GCReportThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192A01CE85EEE00BCFF3E /* GCReportThreadView.m */; };
+		041CD2FE1EF4D43700BA3DC1 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888CB1BC57D0F002E1625 /* DGActivityIndicatorBallZigZagAnimation.m */; };
+		041CD2FF1EF4D43700BA3DC1 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888E71BC57D0F002E1625 /* DGActivityIndicatorTriangleSkewSpinAnimation.m */; };
+		041CD3001EF4D43700BA3DC1 /* GCBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192F61CE861AF00BCFF3E /* GCBaseModel.m */; };
+		041CD3011EF4D43700BA3DC1 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB7681BFC6F9700E05E17 /* TFHppleElement.m */; };
+		041CD3021EF4D43700BA3DC1 /* GCNetworkBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 421191C61CE6D16600BCFF3E /* GCNetworkBase.m */; };
+		041CD3031EF4D43700BA3DC1 /* GCReportThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192581CE85D3200BCFF3E /* GCReportThreadViewController.m */; };
+		041CD3041EF4D43700BA3DC1 /* GCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF3B1E1237F9006DA6FA /* GCSettingViewController.m */; };
+		041CD3051EF4D43700BA3DC1 /* GCPostThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AB191E486D8000D6FD20 /* GCPostThreadModel.m */; };
+		041CD3061EF4D43700BA3DC1 /* GCSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421193001CF0AAD300BCFF3E /* GCSearchModel.m */; };
+		041CD3071EF4D43700BA3DC1 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888DB1BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m */; };
+		041CD3081EF4D43700BA3DC1 /* GCAdBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350681E13ACE900047725 /* GCAdBannerView.m */; };
+		041CD3091EF4D43700BA3DC1 /* GCDiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192921CE85EB700BCFF3E /* GCDiscoveryCell.m */; };
+		041CD30A1EF4D43700BA3DC1 /* DGActivityIndicatorBallScaleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888C11BC57D0F002E1625 /* DGActivityIndicatorBallScaleAnimation.m */; };
+		041CD30B1EF4D43700BA3DC1 /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF3D1E1237F9006DA6FA /* GCUserProtocolViewController.m */; };
+		041CD30C1EF4D43700BA3DC1 /* GCDiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192481CE85D3200BCFF3E /* GCDiscoveryViewController.m */; };
+		041CD30D1EF4D43700BA3DC1 /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888801BC57CA6002E1625 /* MJRefreshAutoStateFooter.m */; };
+		041CD30E1EF4D43700BA3DC1 /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238888A1BC57CA6002E1625 /* MJRefreshGifHeader.m */; };
+		041CD30F1EF4D43700BA3DC1 /* GCReplyThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192561CE85D3200BCFF3E /* GCReplyThreadViewController.m */; };
+		041CD3101EF4D43700BA3DC1 /* ZLPhotoAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4CE1DD41A2A007A5113 /* ZLPhotoAssets.m */; };
+		041CD3111EF4D43700BA3DC1 /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888CF1BC57D0F002E1625 /* DGActivityIndicatorCookieTerminatorAnimation.m */; };
+		041CD3121EF4D43700BA3DC1 /* DGActivityIndicatorBallScaleMultipleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888C31BC57D0F002E1625 /* DGActivityIndicatorBallScaleMultipleAnimation.m */; };
+		041CD3131EF4D43700BA3DC1 /* JsonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A91C795E7200920E72 /* JsonTool.m */; };
+		041CD3141EF4D43700BA3DC1 /* GCMyThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211927E1CE85D7D00BCFF3E /* GCMyThreadViewController.m */; };
+		041CD3151EF4D43700BA3DC1 /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888831BC57CA6002E1625 /* MJRefreshBackGifFooter.m */; };
+		041CD3161EF4D43700BA3DC1 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3531D28E19F007F2350 /* WMMenuItem.m */; };
+		041CD3171EF4D43700BA3DC1 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 4260C6961BB64AB700705BE0 /* Util.m */; };
+		041CD3181EF4D43700BA3DC1 /* GCOfficialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040212301E058E2D002D74F6 /* GCOfficialViewController.m */; };
+		041CD3191EF4D43700BA3DC1 /* ZLPhotoPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4DE1DD41A2A007A5113 /* ZLPhotoPickerCollectionViewCell.m */; };
+		041CD31A1EF4D43700BA3DC1 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
+		041CD31B1EF4D43700BA3DC1 /* GCAdInterstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350651E1273F500047725 /* GCAdInterstitial.m */; };
+		041CD31C1EF4D43700BA3DC1 /* GCForumIndexCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047942511DA00A5B00E810DF /* GCForumIndexCollectionReusableView.m */; };
+		041CD31D1EF4D43700BA3DC1 /* ZLPhotoPickerBrowserPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4BA1DD41A2A007A5113 /* ZLPhotoPickerBrowserPhoto.m */; };
+		041CD31E1EF4D43700BA3DC1 /* GCNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 049085081E0395CF00CF5C1C /* GCNetworkCache.m */; };
+		041CD31F1EF4D43700BA3DC1 /* GCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 428260671B84CE03007CBCF4 /* GCNetworkManager.m */; };
+		041CD3201EF4D43700BA3DC1 /* GCHTMLParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192311CE85D0800BCFF3E /* GCHTMLParse.m */; };
+		041CD3211EF4D43700BA3DC1 /* UITableViewCell+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 049085111E03EE8000CF5C1C /* UITableViewCell+Extension.m */; };
+		041CD3221EF4D43700BA3DC1 /* ZLPhotoPickerCustomToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4CA1DD41A2A007A5113 /* ZLPhotoPickerCustomToolBarView.m */; };
+		041CD3231EF4D43700BA3DC1 /* DGActivityIndicatorBallRotateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888BF1BC57D0F002E1625 /* DGActivityIndicatorBallRotateAnimation.m */; };
+		041CD3241EF4D43700BA3DC1 /* ZLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4AF1DD41A2A007A5113 /* ZLCamera.m */; };
+		041CD3251EF4D43700BA3DC1 /* GCSocial.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192341CE85D0800BCFF3E /* GCSocial.m */; };
+		041CD3261EF4D43700BA3DC1 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888921BC57CA6002E1625 /* MJRefreshConst.m */; };
+		041CD3271EF4D43700BA3DC1 /* GCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192D31CE8607100BCFF3E /* GCWebViewController.m */; };
+		041CD3281EF4D43700BA3DC1 /* GCNewThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192E71CE8615400BCFF3E /* GCNewThreadModel.m */; };
+		041CD3291EF4D43700BA3DC1 /* DGActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888F01BC57D0F002E1625 /* DGActivityIndicatorView.m */; };
+		041CD32A1EF4D43700BA3DC1 /* ZLPhotoPickerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4DC1DD41A2A007A5113 /* ZLPhotoPickerCollectionView.m */; };
+		041CD32B1EF4D43700BA3DC1 /* GCMyPromptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D70E1E30AC130042BE66 /* GCMyPromptCell.m */; };
+		041CD32C1EF4D43700BA3DC1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E671BC6192F0044EB1D /* main.m */; };
+		041CD32D1EF4D43700BA3DC1 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238888E1BC57CA6002E1625 /* MJRefreshStateHeader.m */; };
+		041CD32F1EF4D43700BA3DC1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
+		041CD3301EF4D43700BA3DC1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 045F2F291BDFBAAE0024C9FC /* libxml2.dylib */; };
+		041CD3311EF4D43700BA3DC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F829F5DD46C688C9B2385EC /* libPods.a */; };
+		041CD3331EF4D43700BA3DC1 /* ZLPhotoLib.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C0D4E61DD41A2A007A5113 /* ZLPhotoLib.bundle */; };
+		041CD3341EF4D43700BA3DC1 /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
+		041CD3351EF4D43700BA3DC1 /* GCThreadWebViewTableHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */; };
+		041CD3361EF4D43700BA3DC1 /* GCThreadWebViewHtmlCell.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */; };
+		041CD3371EF4D43700BA3DC1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */; };
+		041CD3381EF4D43700BA3DC1 /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42FFF5B11BF1C24A0061029B /* ForumList.plist */; };
+		041CD3391EF4D43700BA3DC1 /* GCPostThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4211924D1CE85D3200BCFF3E /* GCPostThreadViewController.xib */; };
+		041CD33A1EF4D43700BA3DC1 /* GCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421192C21CE8601E00BCFF3E /* GCLoginViewController.xib */; };
+		041CD33B1EF4D43700BA3DC1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043648DF1BCF9BD80005162D /* Images.xcassets */; };
+		041CD33C1EF4D43700BA3DC1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C554691C878334000AF010 /* Default-568h@2x.png */; };
+		041CD33D1EF4D43700BA3DC1 /* GCForumIndexCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0479424D1DA0076900E810DF /* GCForumIndexCollectionViewCell.xib */; };
+		041CD33E1EF4D43700BA3DC1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04100E251DC743E4006639F3 /* Info.plist */; };
+		041CD33F1EF4D43700BA3DC1 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 047150E91BF03B2A007A8890 /* SVProgressHUD.bundle */; };
+		041CD3401EF4D43700BA3DC1 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4238888F1BC57CA6002E1625 /* MJRefresh.bundle */; };
+		041CD3411EF4D43700BA3DC1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42657DDE1B99CAA2001F8DFC /* Localizable.strings */; };
+		041CD3421EF4D43700BA3DC1 /* GCForumIndexCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047942521DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib */; };
+		041CD3431EF4D43700BA3DC1 /* GCThreadWebView.css in Resources */ = {isa = PBXBuildFile; fileRef = 047125901BCDF478000C8BC1 /* GCThreadWebView.css */; };
+		041CD3441EF4D43700BA3DC1 /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
 		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
 		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
 		043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
@@ -260,6 +459,8 @@
 		0416D7151E320FE40042BE66 /* GCLoginPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLoginPickerView.m; sourceTree = "<group>"; };
 		0416D7171E3312E80042BE66 /* GCReplyPostThreadToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCReplyPostThreadToolBarView.h; sourceTree = "<group>"; };
 		0416D7181E3312E80042BE66 /* GCReplyPostThreadToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReplyPostThreadToolBarView.m; sourceTree = "<group>"; };
+		041CD34A1EF4D43700BA3DC1 /* GuitarChinaPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarChinaPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		041CD34B1EF4D43900BA3DC1 /* GuitarChinaPro-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GuitarChinaPro-Info.plist"; path = "/Users/mac/Desktop/GuitarChina/GuitarChina最新版不修改用于复制的副本/GuitarChina-iOS-APP/GuitarChina/GuitarChinaPro-Info.plist"; sourceTree = "<absolute>"; };
 		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
 		042F84261CF83F7800102949 /* GCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchViewController.m; sourceTree = "<group>"; };
 		042F84291CF83FA600102949 /* GCSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchCell.h; sourceTree = "<group>"; };
@@ -617,6 +818,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		041CD32E1EF4D43700BA3DC1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				041CD32F1EF4D43700BA3DC1 /* libz.dylib in Frameworks */,
+				041CD3301EF4D43700BA3DC1 /* libxml2.dylib in Frameworks */,
+				041CD3311EF4D43700BA3DC1 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		425FB2DC1B84C23B00B6A89B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1725,6 +1936,7 @@
 				425FB2E01B84C23B00B6A89B /* Products */,
 				AB640BEDEDAD0ED6AD1E1485 /* Pods */,
 				0F41C248D61EFD30EA073F7A /* Frameworks */,
+				041CD34B1EF4D43900BA3DC1 /* GuitarChinaPro-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1733,6 +1945,7 @@
 			children = (
 				425FB2DF1B84C23B00B6A89B /* GuitarChina.app */,
 				425FB2FB1B84C23B00B6A89B /* GuitarChinaTests.xctest */,
+				041CD34A1EF4D43700BA3DC1 /* GuitarChinaPro.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1820,6 +2033,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		041CD2791EF4D43700BA3DC1 /* GuitarChinaPro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 041CD3471EF4D43700BA3DC1 /* Build configuration list for PBXNativeTarget "GuitarChinaPro" */;
+			buildPhases = (
+				041CD27A1EF4D43700BA3DC1 /* Check Pods Manifest.lock */,
+				041CD27B1EF4D43700BA3DC1 /* Sources */,
+				041CD32E1EF4D43700BA3DC1 /* Frameworks */,
+				041CD3321EF4D43700BA3DC1 /* Resources */,
+				041CD3451EF4D43700BA3DC1 /* Copy Pods Resources */,
+				041CD3461EF4D43700BA3DC1 /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GuitarChinaPro;
+			productName = GuitarChina;
+			productReference = 041CD34A1EF4D43700BA3DC1 /* GuitarChinaPro.app */;
+			productType = "com.apple.product-type.application";
+		};
 		425FB2DE1B84C23B00B6A89B /* GuitarChina */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 425FB3051B84C23B00B6A89B /* Build configuration list for PBXNativeTarget "GuitarChina" */;
@@ -1867,6 +2100,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "陈大捷";
 				TargetAttributes = {
+					041CD2791EF4D43700BA3DC1 = {
+						DevelopmentTeam = VJ9XJ78H9K;
+					};
 					425FB2DE1B84C23B00B6A89B = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = VJ9XJ78H9K;
@@ -1893,12 +2129,38 @@
 			projectRoot = "";
 			targets = (
 				425FB2DE1B84C23B00B6A89B /* GuitarChina */,
+				041CD2791EF4D43700BA3DC1 /* GuitarChinaPro */,
 				425FB2FA1B84C23B00B6A89B /* GuitarChinaTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		041CD3321EF4D43700BA3DC1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				041CD3331EF4D43700BA3DC1 /* ZLPhotoLib.bundle in Resources */,
+				041CD3341EF4D43700BA3DC1 /* UserProtocol.txt in Resources */,
+				041CD3351EF4D43700BA3DC1 /* GCThreadWebViewTableHtml.html in Resources */,
+				041CD3361EF4D43700BA3DC1 /* GCThreadWebViewHtmlCell.html in Resources */,
+				041CD3371EF4D43700BA3DC1 /* LaunchScreen.xib in Resources */,
+				041CD3381EF4D43700BA3DC1 /* ForumList.plist in Resources */,
+				041CD3391EF4D43700BA3DC1 /* GCPostThreadViewController.xib in Resources */,
+				041CD33A1EF4D43700BA3DC1 /* GCLoginViewController.xib in Resources */,
+				041CD33B1EF4D43700BA3DC1 /* Images.xcassets in Resources */,
+				041CD33C1EF4D43700BA3DC1 /* Default-568h@2x.png in Resources */,
+				041CD33D1EF4D43700BA3DC1 /* GCForumIndexCollectionViewCell.xib in Resources */,
+				041CD33E1EF4D43700BA3DC1 /* Info.plist in Resources */,
+				041CD33F1EF4D43700BA3DC1 /* SVProgressHUD.bundle in Resources */,
+				041CD3401EF4D43700BA3DC1 /* MJRefresh.bundle in Resources */,
+				041CD3411EF4D43700BA3DC1 /* Localizable.strings in Resources */,
+				041CD3421EF4D43700BA3DC1 /* GCForumIndexCollectionReusableView.xib in Resources */,
+				041CD3431EF4D43700BA3DC1 /* GCThreadWebView.css in Resources */,
+				041CD3441EF4D43700BA3DC1 /* GCThreadWebViewHtml.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		425FB2DD1B84C23B00B6A89B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1934,6 +2196,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		041CD27A1EF4D43700BA3DC1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		041CD3451EF4D43700BA3DC1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		041CD3461EF4D43700BA3DC1 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5E174959A530DAA782C4E091 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1982,6 +2289,191 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		041CD27B1EF4D43700BA3DC1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				041CD27C1EF4D43700BA3DC1 /* SVIndefiniteAnimatedView.m in Sources */,
+				041CD27D1EF4D43700BA3DC1 /* ZLCameraViewController.m in Sources */,
+				041CD27E1EF4D43700BA3DC1 /* GCBaseViewController.m in Sources */,
+				041CD27F1EF4D43700BA3DC1 /* ZLPhotoPickerGroupViewController.m in Sources */,
+				041CD2801EF4D43700BA3DC1 /* MJRefreshAutoGifFooter.m in Sources */,
+				041CD2811EF4D43700BA3DC1 /* UIImage+CommonMethods.m in Sources */,
+				041CD2821EF4D43700BA3DC1 /* SVRadialGradientLayer.m in Sources */,
+				041CD2831EF4D43700BA3DC1 /* GCThreadDetailViewController.m in Sources */,
+				041CD2841EF4D43700BA3DC1 /* GCForumIndexModel.m in Sources */,
+				041CD2851EF4D43700BA3DC1 /* WMProgressView.m in Sources */,
+				041CD2861EF4D43700BA3DC1 /* DALabeledCircularProgressView.m in Sources */,
+				041CD2871EF4D43700BA3DC1 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
+				041CD2881EF4D43700BA3DC1 /* WMScrollView.m in Sources */,
+				041CD2891EF4D43700BA3DC1 /* HMSegmentedControl.m in Sources */,
+				041CD28A1EF4D43700BA3DC1 /* MJRefreshNormalHeader.m in Sources */,
+				041CD28B1EF4D43700BA3DC1 /* GCReplyPostThreadToolBarView.m in Sources */,
+				041CD28C1EF4D43700BA3DC1 /* UIScrollView+MJRefresh.m in Sources */,
+				041CD28D1EF4D43700BA3DC1 /* GCThreadDetailPagePickerView.m in Sources */,
+				041CD28E1EF4D43700BA3DC1 /* MJRefreshHeader.m in Sources */,
+				041CD28F1EF4D43700BA3DC1 /* MJRefreshAutoNormalFooter.m in Sources */,
+				041CD2901EF4D43700BA3DC1 /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
+				041CD2911EF4D43700BA3DC1 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
+				041CD2921EF4D43700BA3DC1 /* GCThreadDetailToolBarView.m in Sources */,
+				041CD2931EF4D43700BA3DC1 /* GCColor.m in Sources */,
+				041CD2941EF4D43700BA3DC1 /* DACircularProgressView.m in Sources */,
+				041CD2951EF4D43700BA3DC1 /* WMMenuView.m in Sources */,
+				041CD2961EF4D43700BA3DC1 /* GCMyThreadModel.m in Sources */,
+				041CD2971EF4D43700BA3DC1 /* GCMoreViewController.m in Sources */,
+				041CD2981EF4D43700BA3DC1 /* ZLPhotoPickerAssetsViewController.m in Sources */,
+				041CD2991EF4D43700BA3DC1 /* GCForumDisplayModel.m in Sources */,
+				041CD29A1EF4D43700BA3DC1 /* UIImage+Tint.m in Sources */,
+				041CD29B1EF4D43700BA3DC1 /* WMPageController.m in Sources */,
+				041CD29C1EF4D43700BA3DC1 /* GCReplyThreadView.m in Sources */,
+				041CD29D1EF4D43700BA3DC1 /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
+				041CD29E1EF4D43700BA3DC1 /* GCNewPostThreadCell.m in Sources */,
+				041CD29F1EF4D43700BA3DC1 /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */,
+				041CD2A01EF4D43700BA3DC1 /* GCHistoryCell.m in Sources */,
+				041CD2A11EF4D43700BA3DC1 /* GCPostThreadViewController.m in Sources */,
+				041CD2A21EF4D43700BA3DC1 /* GCForumIndexCell.m in Sources */,
+				041CD2A31EF4D43700BA3DC1 /* GCMyPromptModel.m in Sources */,
+				041CD2A41EF4D43700BA3DC1 /* AppDelegate.m in Sources */,
+				041CD2A51EF4D43700BA3DC1 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
+				041CD2A61EF4D43700BA3DC1 /* GCOfficialCell.m in Sources */,
+				041CD2A71EF4D43700BA3DC1 /* GCThreadDetailView.m in Sources */,
+				041CD2A81EF4D43700BA3DC1 /* GCThreadDetailMenuView.m in Sources */,
+				041CD2A91EF4D43700BA3DC1 /* GCSendReplyModel.m in Sources */,
+				041CD2AA1EF4D43700BA3DC1 /* GCForumDisplayViewController.m in Sources */,
+				041CD2AB1EF4D43700BA3DC1 /* GuitarChina.xcdatamodeld in Sources */,
+				041CD2AC1EF4D43700BA3DC1 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
+				041CD2AD1EF4D43700BA3DC1 /* GCMyThreadCell.m in Sources */,
+				041CD2AE1EF4D43700BA3DC1 /* GCMyPromptViewController.m in Sources */,
+				041CD2AF1EF4D43700BA3DC1 /* DGActivityIndicatorBallPulseAnimation.m in Sources */,
+				041CD2B01EF4D43700BA3DC1 /* MJRefreshBackNormalFooter.m in Sources */,
+				041CD2B11EF4D43700BA3DC1 /* ZLPhotoPickerBrowserViewController.m in Sources */,
+				041CD2B21EF4D43700BA3DC1 /* GCForumIndexCollectionViewCell.m in Sources */,
+				041CD2B31EF4D43700BA3DC1 /* GCAdCenterBannerView.m in Sources */,
+				041CD2B41EF4D43700BA3DC1 /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
+				041CD2B51EF4D43700BA3DC1 /* GCTableViewKit.m in Sources */,
+				041CD2B61EF4D43700BA3DC1 /* GCProfileViewController.m in Sources */,
+				041CD2B71EF4D43700BA3DC1 /* ZLCameraImageView.m in Sources */,
+				041CD2B81EF4D43700BA3DC1 /* ZLCameraView.m in Sources */,
+				041CD2B91EF4D43700BA3DC1 /* UIScrollView+Extension.m in Sources */,
+				041CD2BA1EF4D43700BA3DC1 /* UIView+ZLExtension.m in Sources */,
+				041CD2BB1EF4D43700BA3DC1 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
+				041CD2BC1EF4D43700BA3DC1 /* GCBaseNoticeModel.m in Sources */,
+				041CD2BD1EF4D43700BA3DC1 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
+				041CD2BE1EF4D43700BA3DC1 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */,
+				041CD2BF1EF4D43700BA3DC1 /* MJRefreshBackStateFooter.m in Sources */,
+				041CD2C01EF4D43700BA3DC1 /* TFHpple.m in Sources */,
+				041CD2C11EF4D43700BA3DC1 /* ZLPhotoPickerBrowserViewController+SignlePhotoBrowser.m in Sources */,
+				041CD2C21EF4D43700BA3DC1 /* GCLoginPickerView.m in Sources */,
+				041CD2C31EF4D43700BA3DC1 /* UIImage+ZLPhotoLib.m in Sources */,
+				041CD2C41EF4D43700BA3DC1 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
+				041CD2C51EF4D43700BA3DC1 /* GCStatistics.m in Sources */,
+				041CD2C61EF4D43700BA3DC1 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
+				041CD2C71EF4D43700BA3DC1 /* GCTabBarController.m in Sources */,
+				041CD2C81EF4D43700BA3DC1 /* GCSettingCell.m in Sources */,
+				041CD2C91EF4D43700BA3DC1 /* GCDiscoveryTableViewController.m in Sources */,
+				041CD2CA1EF4D43700BA3DC1 /* MJRefreshComponent.m in Sources */,
+				041CD2CB1EF4D43700BA3DC1 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
+				041CD2CC1EF4D43700BA3DC1 /* GCProfileModel.m in Sources */,
+				041CD2CD1EF4D43700BA3DC1 /* ZLPhotoPickerGroupTableViewCell.m in Sources */,
+				041CD2CE1EF4D43700BA3DC1 /* ZLPhotoPickerViewController.m in Sources */,
+				041CD2CF1EF4D43700BA3DC1 /* GCSearchCell.m in Sources */,
+				041CD2D01EF4D43700BA3DC1 /* ZLPhotoRect.m in Sources */,
+				041CD2D11EF4D43700BA3DC1 /* GCThreadDetailModel.m in Sources */,
+				041CD2D21EF4D43700BA3DC1 /* GCForumIndexViewController.m in Sources */,
+				041CD2D31EF4D43700BA3DC1 /* XPathQuery.m in Sources */,
+				041CD2D41EF4D43700BA3DC1 /* ZLPhotoPickerBrowserPhotoScrollView.m in Sources */,
+				041CD2D51EF4D43700BA3DC1 /* GCNewsViewController.m in Sources */,
+				041CD2D61EF4D43700BA3DC1 /* GCLoginViewController.m in Sources */,
+				041CD2D71EF4D43700BA3DC1 /* EXTScope.m in Sources */,
+				041CD2D81EF4D43700BA3DC1 /* MJRefreshBackFooter.m in Sources */,
+				041CD2D91EF4D43700BA3DC1 /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */,
+				041CD2DA1EF4D43700BA3DC1 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
+				041CD2DB1EF4D43700BA3DC1 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
+				041CD2DC1EF4D43700BA3DC1 /* ZLPhotoPickerBrowserPhotoImageView.m in Sources */,
+				041CD2DD1EF4D43700BA3DC1 /* MJRefreshFooter.m in Sources */,
+				041CD2DE1EF4D43700BA3DC1 /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
+				041CD2DF1EF4D43700BA3DC1 /* SVProgressHUD.m in Sources */,
+				041CD2E01EF4D43700BA3DC1 /* GCGuideThreadModel.m in Sources */,
+				041CD2E11EF4D43700BA3DC1 /* GCMyFavThreadModel.m in Sources */,
+				041CD2E21EF4D43700BA3DC1 /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
+				041CD2E31EF4D43700BA3DC1 /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
+				041CD2E41EF4D43700BA3DC1 /* GCMyFavThreadViewController.m in Sources */,
+				041CD2E51EF4D43700BA3DC1 /* ZLPhotoPickerImageView.m in Sources */,
+				041CD2E61EF4D43700BA3DC1 /* UIScrollView+MJExtension.m in Sources */,
+				041CD2E71EF4D43700BA3DC1 /* ZLPhotoPickerFooterCollectionReusableView.m in Sources */,
+				041CD2E81EF4D43700BA3DC1 /* ZLPhotoPickerDatas.m in Sources */,
+				041CD2E91EF4D43700BA3DC1 /* GCProfileCell.m in Sources */,
+				041CD2EA1EF4D43700BA3DC1 /* GCNavigationController.m in Sources */,
+				041CD2EB1EF4D43700BA3DC1 /* UIView+UICreateFactory.m in Sources */,
+				041CD2EC1EF4D43700BA3DC1 /* GCMyFavThreadCell.m in Sources */,
+				041CD2ED1EF4D43700BA3DC1 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
+				041CD2EE1EF4D43700BA3DC1 /* GCMoreCell.m in Sources */,
+				041CD2EF1EF4D43700BA3DC1 /* UITextView+Placeholder.m in Sources */,
+				041CD2F01EF4D43700BA3DC1 /* UIView+MJExtension.m in Sources */,
+				041CD2F11EF4D43700BA3DC1 /* UIView+LayoutHelper.m in Sources */,
+				041CD2F21EF4D43700BA3DC1 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */,
+				041CD2F31EF4D43700BA3DC1 /* MJRefreshAutoFooter.m in Sources */,
+				041CD2F41EF4D43700BA3DC1 /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */,
+				041CD2F51EF4D43700BA3DC1 /* GCForumDisplayCell.m in Sources */,
+				041CD2F61EF4D43700BA3DC1 /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */,
+				041CD2F71EF4D43700BA3DC1 /* WMFooldView.m in Sources */,
+				041CD2F81EF4D43700BA3DC1 /* GCNewPostThreadViewController.m in Sources */,
+				041CD2F91EF4D43700BA3DC1 /* GCAddImageCell.m in Sources */,
+				041CD2FA1EF4D43700BA3DC1 /* NSString+Tools.m in Sources */,
+				041CD2FB1EF4D43700BA3DC1 /* ZLPhotoPickerGroup.m in Sources */,
+				041CD2FC1EF4D43700BA3DC1 /* DGActivityIndicatorBallClipRotatePulseAnimation.m in Sources */,
+				041CD2FD1EF4D43700BA3DC1 /* GCReportThreadView.m in Sources */,
+				041CD2FE1EF4D43700BA3DC1 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
+				041CD2FF1EF4D43700BA3DC1 /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
+				041CD3001EF4D43700BA3DC1 /* GCBaseModel.m in Sources */,
+				041CD3011EF4D43700BA3DC1 /* TFHppleElement.m in Sources */,
+				041CD3021EF4D43700BA3DC1 /* GCNetworkBase.m in Sources */,
+				041CD3031EF4D43700BA3DC1 /* GCReportThreadViewController.m in Sources */,
+				041CD3041EF4D43700BA3DC1 /* GCSettingViewController.m in Sources */,
+				041CD3051EF4D43700BA3DC1 /* GCPostThreadModel.m in Sources */,
+				041CD3061EF4D43700BA3DC1 /* GCSearchModel.m in Sources */,
+				041CD3071EF4D43700BA3DC1 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
+				041CD3081EF4D43700BA3DC1 /* GCAdBannerView.m in Sources */,
+				041CD3091EF4D43700BA3DC1 /* GCDiscoveryCell.m in Sources */,
+				041CD30A1EF4D43700BA3DC1 /* DGActivityIndicatorBallScaleAnimation.m in Sources */,
+				041CD30B1EF4D43700BA3DC1 /* GCUserProtocolViewController.m in Sources */,
+				041CD30C1EF4D43700BA3DC1 /* GCDiscoveryViewController.m in Sources */,
+				041CD30D1EF4D43700BA3DC1 /* MJRefreshAutoStateFooter.m in Sources */,
+				041CD30E1EF4D43700BA3DC1 /* MJRefreshGifHeader.m in Sources */,
+				041CD30F1EF4D43700BA3DC1 /* GCReplyThreadViewController.m in Sources */,
+				041CD3101EF4D43700BA3DC1 /* ZLPhotoAssets.m in Sources */,
+				041CD3111EF4D43700BA3DC1 /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */,
+				041CD3121EF4D43700BA3DC1 /* DGActivityIndicatorBallScaleMultipleAnimation.m in Sources */,
+				041CD3131EF4D43700BA3DC1 /* JsonTool.m in Sources */,
+				041CD3141EF4D43700BA3DC1 /* GCMyThreadViewController.m in Sources */,
+				041CD3151EF4D43700BA3DC1 /* MJRefreshBackGifFooter.m in Sources */,
+				041CD3161EF4D43700BA3DC1 /* WMMenuItem.m in Sources */,
+				041CD3171EF4D43700BA3DC1 /* Util.m in Sources */,
+				041CD3181EF4D43700BA3DC1 /* GCOfficialViewController.m in Sources */,
+				041CD3191EF4D43700BA3DC1 /* ZLPhotoPickerCollectionViewCell.m in Sources */,
+				041CD31A1EF4D43700BA3DC1 /* GCSearchViewController.m in Sources */,
+				041CD31B1EF4D43700BA3DC1 /* GCAdInterstitial.m in Sources */,
+				041CD31C1EF4D43700BA3DC1 /* GCForumIndexCollectionReusableView.m in Sources */,
+				041CD31D1EF4D43700BA3DC1 /* ZLPhotoPickerBrowserPhoto.m in Sources */,
+				041CD31E1EF4D43700BA3DC1 /* GCNetworkCache.m in Sources */,
+				041CD31F1EF4D43700BA3DC1 /* GCNetworkManager.m in Sources */,
+				041CD3201EF4D43700BA3DC1 /* GCHTMLParse.m in Sources */,
+				041CD3211EF4D43700BA3DC1 /* UITableViewCell+Extension.m in Sources */,
+				041CD3221EF4D43700BA3DC1 /* ZLPhotoPickerCustomToolBarView.m in Sources */,
+				041CD3231EF4D43700BA3DC1 /* DGActivityIndicatorBallRotateAnimation.m in Sources */,
+				041CD3241EF4D43700BA3DC1 /* ZLCamera.m in Sources */,
+				041CD3251EF4D43700BA3DC1 /* GCSocial.m in Sources */,
+				041CD3261EF4D43700BA3DC1 /* MJRefreshConst.m in Sources */,
+				041CD3271EF4D43700BA3DC1 /* GCWebViewController.m in Sources */,
+				041CD3281EF4D43700BA3DC1 /* GCNewThreadModel.m in Sources */,
+				041CD3291EF4D43700BA3DC1 /* DGActivityIndicatorView.m in Sources */,
+				041CD32A1EF4D43700BA3DC1 /* ZLPhotoPickerCollectionView.m in Sources */,
+				041CD32B1EF4D43700BA3DC1 /* GCMyPromptCell.m in Sources */,
+				041CD32C1EF4D43700BA3DC1 /* main.m in Sources */,
+				041CD32D1EF4D43700BA3DC1 /* MJRefreshStateHeader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		425FB2DB1B84C23B00B6A89B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2227,6 +2719,90 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		041CD3481EF4D43700BA3DC1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaProAppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = VJ9XJ78H9K;
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/DKNightVersion\"",
+					"\"${PODS_ROOT}/Headers/Public/FDFullscreenPopGesture\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/NJKWebViewProgress\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengSocial\"",
+					/usr/include/libxml2,
+				);
+				INFOPLIST_FILE = "GuitarChinaPro-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GuitarChina/Additions/UMAnalytics",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.guitarchina.gcapppro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "345667db-db3e-4c25-a487-a1626f84d611";
+				PROVISIONING_PROFILE_SPECIFIER = GuitarChinaPro_Development_Profile;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		041CD3491EF4D43700BA3DC1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaProAppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = VJ9XJ78H9K;
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/DKNightVersion\"",
+					"\"${PODS_ROOT}/Headers/Public/FDFullscreenPopGesture\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/NJKWebViewProgress\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengSocial\"",
+					/usr/include/libxml2,
+				);
+				INFOPLIST_FILE = "GuitarChinaPro-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GuitarChina/Additions/UMAnalytics",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.guitarchina.gcapppro;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "05e5c189-2cfb-41b1-9979-04d1761301bb";
+				PROVISIONING_PROFILE_SPECIFIER = GuitarChinaPro_Distribution_Profile;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 		425FB3031B84C23B00B6A89B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2319,7 +2895,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaAppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
@@ -2328,6 +2904,11 @@
 				DEVELOPMENT_TEAM = VJ9XJ78H9K;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"FREEVERSION=1",
+					"COCOAPODS=1",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -2361,7 +2942,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaAppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
@@ -2370,6 +2951,11 @@
 				DEVELOPMENT_TEAM = VJ9XJ78H9K;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"FREEVERSION=1",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -2440,6 +3026,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		041CD3471EF4D43700BA3DC1 /* Build configuration list for PBXNativeTarget "GuitarChinaPro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				041CD3481EF4D43700BA3DC1 /* Debug */,
+				041CD3491EF4D43700BA3DC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		425FB2DA1B84C23B00B6A89B /* Build configuration list for PBXProject "GuitarChina" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

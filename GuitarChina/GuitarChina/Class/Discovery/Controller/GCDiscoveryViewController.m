@@ -74,7 +74,7 @@
     
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(0, 0, 100, 44);
-#if kIsFree==true
+#if FREEVERSION
     label.text = NSLocalizedString(@"GuitarChina", nil);
 #else
     label.text = NSLocalizedString(@"GuitarChinaPro", nil);
@@ -86,9 +86,6 @@
     
     [self.view addSubview:self.segmentedControl];
     [self.view addSubview:self.scrollView];
-//    if (kIsFree) {
-//        [self.view addSubview:self.bannner];
-//    }
     
     GCDiscoveryTableViewController *hot = [[GCDiscoveryTableViewController alloc] init];
     hot.discoveryTableViewType = GCDiscoveryTableViewTypeHot;

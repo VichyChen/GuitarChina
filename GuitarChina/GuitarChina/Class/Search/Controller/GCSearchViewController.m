@@ -225,10 +225,6 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         [NSUD setObject:array forKey:kGCSearchHistory];
         [NSUD synchronize];
         
-//        if (kIsFree) {
-//            [APP.adInterstitial presentFromViewController:self];
-//        }
-        
         self.pageIndex = 1;
         self.searchBlock();
         [GCStatistics event:GCStatisticsEventSearch extra:@{@"searchText" : text}];
