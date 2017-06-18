@@ -68,14 +68,16 @@
 #pragma mark - Setters
 
 - (void)setModel:(GCForumModel *)model {
-    _model = model;
-    
-    self.nameLabel.text = model.name;
-    self.todayPostCountLabel.text = [model.todayposts isEqualToString:@"0"] ? @"" : [NSString stringWithFormat:@"(%@)" , model.todayposts ];
-    self.descriptLabel.text = model.descript;
-    CGFloat labelHeight = [UIView calculateLabelHeightWithText:self.descriptLabel.text fontSize:self.descriptLabel.font.pointSize width:ScreenWidth - 30];
-    self.descriptLabelHeight = labelHeight;
-    //    self.forumDetailLabel.attributedText = model.forumDetailString;
+    if ([model respondsToSelector:@selector(descript)]) {
+        _model = model;
+        
+        self.nameLabel.text = model.name;
+        self.todayPostCountLabel.text = [model.todayposts isEqualToString:@"0"] ? @"" : [NSString stringWithFormat:@"(%@)" , model.todayposts ];
+        self.descriptLabel.text = model.descript;
+        CGFloat labelHeight = [UIView calculateLabelHeightWithText:self.descriptLabel.text fontSize:self.descriptLabel.font.pointSize width:ScreenWidth - 30];
+        self.descriptLabelHeight = labelHeight;
+        //    self.forumDetailLabel.attributedText = model.forumDetailString;
+    }
 }
 
 #pragma mark - Getters

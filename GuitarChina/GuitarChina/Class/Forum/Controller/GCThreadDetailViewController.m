@@ -124,7 +124,7 @@
         if ([request.mainDocumentURL.relativeString endsWith:@"GuitarChina.app/member.php?mod=logging&action=login"]) {
             [self presentLoginViewController];
             
-            return false;
+            return NO;
         }
         //个人资料
         if ([request.mainDocumentURL.relativeString startsWith:@"http://guitarchina.app/?uid="]) {
@@ -132,7 +132,7 @@
             controller.uid = [Util parseURLQueryStringToDictionary:[NSURL URLWithString:request.mainDocumentURL.relativeString]][@"uid"];
             [self.navigationController pushViewController:controller animated:YES];
             
-            return false;
+            return NO;
         }
         //引用回复
         if ([request.mainDocumentURL.relativeString startsWith:@"http://guitarchina.app/?type=reference"]) {
@@ -149,7 +149,7 @@
             [actionSheet bk_setCancelButtonWithTitle:@"取消" handler:^{
             }];
             [actionSheet showInView:self.view];
-            return false;
+            return NO;
         }
         //优酷视频
         if ([request.mainDocumentURL.relativeString startsWith:@"http://player.youku.com/player.php/sid/"] && [request.mainDocumentURL.relativeString endsWith:@".swf"]) {
@@ -158,7 +158,7 @@
             controller.urlString = GCVideo_URL_Youku([array objectAtIndex:5]);
             [self.navigationController pushViewController:controller animated:YES];
             
-            return false;
+            return NO;
         }
         //土豆视频
         if ([request.mainDocumentURL.relativeString startsWith:@"http://www.tudou.com/v/"] && [request.mainDocumentURL.relativeString endsWith:@".swf"]) {
@@ -167,7 +167,7 @@
             controller.urlString = GCVideo_URL_Tudou([array objectAtIndex:4]);
             [self.navigationController pushViewController:controller animated:YES];
             
-            return false;
+            return NO;
         }
         //GC帖子
         if ([request.mainDocumentURL.relativeString startsWith:@"http://bbs.guitarchina.com/thread-"] && [request.mainDocumentURL.relativePath endsWith:@".html"]) {
@@ -176,7 +176,7 @@
             controller.tid = [array objectAtIndex:1];
             [self.navigationController pushViewController:controller animated:YES];
             
-            return false;
+            return NO;
         }
         //附件图片大图
         if ([request.mainDocumentURL.relativeString startsWith:@"http://bbs.guitarchina.com/"] &&
@@ -194,10 +194,10 @@
             pickerBrowser.currentIndexPath = [NSIndexPath indexPathForItem:[index integerValue] inSection:0];
             [pickerBrowser showPickerVc:self];
             
-            return false;
+            return NO;
         }
         //苹果商店地址
-        if ([request.mainDocumentURL.relativeString isEqualToString:@"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305"]) {
+        if ([request.mainDocumentURL.relativeString startsWith:@"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/"]) {
 
             return YES;
         }
@@ -206,7 +206,7 @@
         controller.urlString = request.mainDocumentURL.absoluteString;
         [self.navigationController pushViewController:controller animated:YES];
         
-        return false;
+        return NO;
     }
     
     return YES;

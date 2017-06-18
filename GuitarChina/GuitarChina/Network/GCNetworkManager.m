@@ -252,10 +252,10 @@
                         failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebPostThreadSecure parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        NSDictionary *dictionary = @{@"formhash" : formhash,
-                                     @"posttime" : posttime,
-                                     @"subject" : subject,
-                                     @"message" : message,
+        NSDictionary *dictionary = @{@"formhash" : (formhash ? formhash : @""),
+                                     @"posttime" : (posttime ? posttime : @""),
+                                     @"subject" : (subject ? subject : @""),
+                                     @"message" : (message ? message : @""),
                                      @"wysiwyg" : @"1",//???
                                      @"replycredit_extcredits" : @"0",
                                      @"replycredit_times" : @"1",
