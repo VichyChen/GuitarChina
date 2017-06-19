@@ -166,7 +166,32 @@
                 }];
                 
                 return view;
-            } else {
+            }
+            else if (section == 2) {
+                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
+                view.backgroundColor = [GCColor backgroundColor];
+                
+                UIImageView *imageView = [[UIImageView alloc] init];
+                imageView.frame = CGRectMake(12, 2, 36, 36);
+                imageView.image = [UIImage imageNamed:@"icon_new"];
+                
+                UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 200, 40)];
+                label.font = [UIFont systemFontOfSize:16];
+                label.textColor = [GCColor blueColor];
+                
+                UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, ScreenWidth, 0.5)];
+                line.backgroundColor = [GCColor separatorLineColor];
+                
+                [view addSubview:imageView];
+                [view addSubview:label];
+//                [view addSubview:line];
+                
+                NSDictionary *dictionary = self.array[section];
+                label.text = [dictionary allKeys][0];
+                
+                return view;
+            }
+            else {
                 UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
                 view.backgroundColor = [GCColor backgroundColor];
                 UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 200, 40)];
@@ -176,7 +201,7 @@
                 UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, ScreenWidth, 0.5)];
                 line.backgroundColor = [GCColor separatorLineColor];
                 [view addSubview:label];
-                [view addSubview:line];
+//                [view addSubview:line];
                 
                 NSDictionary *dictionary = self.array[section];
                 label.text = [dictionary allKeys][0];
@@ -187,10 +212,12 @@
         self.tableViewKit.heightForHeaderInSectionBlock = ^CGFloat(NSInteger section) {
             if (section == 0) {
                 return 80.0f;
+            } else if (section == 1) {
+                return 13.0f;
             } else {
                 return 40.0f;
             }
-        };
+         };
         self.tableViewKit.viewForFooterInSectionBlock = ^(NSInteger section) {
             return [[UIView alloc] init];
         };
@@ -237,17 +264,17 @@
                             
                             break;
                         }
-                        case 1://意见反馈
+                        case 1://给五星好评
+                        {
+                            [Util openScorePageInAppStore:AppleID];
+                            
+                            break;
+                        }
+                        case 2://意见反馈
                         {
                             GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
                             controller.tid = @"2036853";
                             [self.navigationController pushViewController:controller animated:YES];
-                            
-                            break;
-                        }
-                        case 2://评分
-                        {
-                            [Util openScorePageInAppStore:AppleID];
                             
                             break;
                         }
@@ -256,6 +283,15 @@
                             GCSettingViewController *userOtherViewController = [[GCSettingViewController alloc] init];
                             [self.navigationController pushViewController:userOtherViewController animated:YES];
                             
+                            break;
+                        }
+                    }
+                    break;
+                case 2:
+                    switch (indexPath.row) {
+                        case 0://吉他中国Pro - 无广告清爽版
+                        {
+                            [Util openAppInAppStore:ProAppleID];
                             break;
                         }
                     }
@@ -273,14 +309,21 @@
     NSDictionary *myPromtpt = @{@"title" : NSLocalizedString(@"My Promtpt", nil), @"enable" : @YES, @"redCount" : [NSString stringWithFormat:@"%ld", [NSUD integerForKey:kGCNewMyPost]] };
     
     NSDictionary *developer = @{@"title" : NSLocalizedString(@"Information Development", nil), @"enable" : @YES, @"redCount" : @"0" };
-    NSDictionary *feedback = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES, @"redCount" : @"0" };
     NSDictionary *score = @{@"title" : NSLocalizedString(@"To Score", nil), @"enable" : @YES, @"redCount" : @"0" };
+    NSDictionary *feedback = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES, @"redCount" : @"0" };
     NSDictionary *setting = @{@"title" : NSLocalizedString(@"Setting", nil), @"enable" : @YES, @"redCount" : @"0" };
     
-    NSDictionary *meDictionary = @{NSLocalizedString(@"Me", nil) : @[myTheme, myFavour, myPromtpt] };
-    NSDictionary *othersDictionary = @{ NSLocalizedString(@"Others", nil) : @[developer, feedback, score, setting] };
+    NSDictionary *pro = @{@"title" : NSLocalizedString(@"吉他中国Pro - 无广告清爽版", nil), @"enable" : @YES, @"redCount" : @"0" };
     
+    NSDictionary *meDictionary = @{NSLocalizedString(@"Me", nil) : @[myTheme, myFavour, myPromtpt] };
+    NSDictionary *othersDictionary = @{ @" " : @[developer, score, feedback, setting] };
+    NSDictionary *proDictionary = @{ @" " : @[pro] };
+    
+#if FREEVERSION
+    return @[meDictionary, othersDictionary, proDictionary];
+#else
     return @[meDictionary, othersDictionary];
+#endif
 }
 
 @end

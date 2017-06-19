@@ -44,10 +44,13 @@
 #define NSUD [NSUserDefaults standardUserDefaults]
 #define DefaultAvator [UIImage imageNamed:@"noavatar_big"]
 
+#define FreeAppleID @"1089161305"
+#define ProAppleID @"1193034315"
+
 #if FREEVERSION
 
 //Apple ID
-#define AppleID @"1089161305"
+#define AppleID FreeAppleID
 #define kSuffix @"\n[size=1][url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305][color=Gray]发自吉他中国iPhone客户端[/color][/url][/size]"
 
 //微信appid
@@ -62,7 +65,7 @@
 #else
 
 //Apple ID
-#define AppleID @"1193034315"
+#define AppleID ProAppleID
 #define kSuffix @"\n[size=1][url=https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1193034315][color=Gray]发自吉他中国Pro iPhone客户端[/color][/url][/size]"
 
 //微信appid
