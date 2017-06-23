@@ -227,6 +227,7 @@
 		041CD3421EF4D43700BA3DC1 /* GCForumIndexCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047942521DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib */; };
 		041CD3431EF4D43700BA3DC1 /* GCThreadWebView.css in Resources */ = {isa = PBXBuildFile; fileRef = 047125901BCDF478000C8BC1 /* GCThreadWebView.css */; };
 		041CD3441EF4D43700BA3DC1 /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
+		042C1E901EFD014A00A6D05D /* GCDiscoveryPromptProView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042C1E8F1EFD014A00A6D05D /* GCDiscoveryPromptProView.m */; };
 		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
 		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
 		043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
@@ -461,6 +462,8 @@
 		0416D7181E3312E80042BE66 /* GCReplyPostThreadToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReplyPostThreadToolBarView.m; sourceTree = "<group>"; };
 		041CD34A1EF4D43700BA3DC1 /* GuitarChinaPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarChinaPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041CD34B1EF4D43900BA3DC1 /* GuitarChinaPro-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GuitarChinaPro-Info.plist"; path = "/Users/mac/Desktop/GuitarChina/GuitarChina最新版不修改用于复制的副本/GuitarChina-iOS-APP/GuitarChina/GuitarChinaPro-Info.plist"; sourceTree = "<absolute>"; };
+		042C1E8E1EFD014A00A6D05D /* GCDiscoveryPromptProView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscoveryPromptProView.h; sourceTree = "<group>"; };
+		042C1E8F1EFD014A00A6D05D /* GCDiscoveryPromptProView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscoveryPromptProView.m; sourceTree = "<group>"; };
 		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
 		042F84261CF83F7800102949 /* GCSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchViewController.m; sourceTree = "<group>"; };
 		042F84291CF83FA600102949 /* GCSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchCell.h; sourceTree = "<group>"; };
@@ -1495,6 +1498,8 @@
 			isa = PBXGroup;
 			children = (
 				421192901CE85EB700BCFF3E /* Cell */,
+				042C1E8E1EFD014A00A6D05D /* GCDiscoveryPromptProView.h */,
+				042C1E8F1EFD014A00A6D05D /* GCDiscoveryPromptProView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2552,6 +2557,7 @@
 				04C0D4E71DD41A2A007A5113 /* UIImage+ZLPhotoLib.m in Sources */,
 				423889061BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
 				046365C71E1F6E8B002E1744 /* GCStatistics.m in Sources */,
+				042C1E901EFD014A00A6D05D /* GCDiscoveryPromptProView.m in Sources */,
 				4238890F1BC57D0F002E1625 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
 				421192D81CE8607100BCFF3E /* GCTabBarController.m in Sources */,
 				040FEF481E1237F9006DA6FA /* GCSettingCell.m in Sources */,

@@ -93,6 +93,7 @@
 #define kGCNightMode @"GCNightMode"
 #define kGCAutoSwitchNightMode @"GCAutoSwitchNightMode"
 #define kGCNewMyPost @"GCNewMyPost"
+#define kGCFirstPromptPro @"kGCFirstPromptPro"
 
 //Notification
 static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSuccess";

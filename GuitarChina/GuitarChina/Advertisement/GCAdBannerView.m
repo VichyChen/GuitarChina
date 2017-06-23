@@ -79,6 +79,7 @@
 - (void)adViewWillPresentScreen:(GADBannerView *)bannerView {
     
 }
+
 - (void)adViewWillDismissScreen:(GADBannerView *)bannerView {
     
 }

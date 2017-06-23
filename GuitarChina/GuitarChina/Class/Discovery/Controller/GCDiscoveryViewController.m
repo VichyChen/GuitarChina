@@ -12,6 +12,7 @@
 #import "GCNavigationController.h"
 #import "GCSearchViewController.h"
 #import "GCAdBannerView.h"
+#import "GCDiscoveryPromptProView.h"
 
 @interface GCDiscoveryViewController () <UIScrollViewDelegate>
 
@@ -103,6 +104,16 @@
     
     hot.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - self.segmentedControl.frame.size.height - 48);
     [self.scrollView addSubview:hot.view];
+    
+    //提示无广告版
+#if FREEVERSION
+    if ([NSUD integerForKey:kGCFirstPromptPro] == 0) {
+        GCDiscoveryPromptProView *promptProView = [[GCDiscoveryPromptProView alloc] initWithFrame:CGRectMake(0,ScreenHeight - 50 - 88, ScreenWidth, 88)];
+        [self.view addSubview:promptProView];
+    }
+#else
+
+#endif
 }
 
 //延迟加载tableview
