@@ -23,6 +23,8 @@ typedef NS_ENUM(NSInteger, GCStatisticsEvent) {
     GCStatisticsEventPostThread,
     GCStatisticsEventReplyThread,
     GCStatisticsEventSearch,
+    GCStatisticsEventDiscoveryGoToAppStore,
+    GCStatisticsEventDiscoveryClose,
 };
 
 @interface GCStatistics : NSObject

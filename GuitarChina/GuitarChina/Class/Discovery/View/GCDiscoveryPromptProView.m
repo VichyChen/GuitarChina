@@ -60,11 +60,13 @@
 }
 
 - (void)goToAppStore {
+    [GCStatistics event:GCStatisticsEventDiscoveryGoToAppStore extra:nil];
     [Util openAppInAppStore:ProAppleID];
     [self close];
 }
 
 - (void)close {
+    [GCStatistics event:GCStatisticsEventDiscoveryClose extra:nil];
     self.alpha = 1;
     [UIView animateWithDuration:0.5 animations:^{
         self.alpha = 0;
