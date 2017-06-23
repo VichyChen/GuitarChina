@@ -194,12 +194,12 @@
     [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebReplySecure parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSDictionary *dictionary = @{ @"mobiletype" : @"1",
-                                      @"formhash" : formhash,
+                                      @"formhash" : (formhash ? formhash : @""),
                                       @"posttime" : @"",
                                       @"wysiwyg" : @"0",
-                                      @"noticeauthor" : noticeauthor,
-                                      @"noticetrimstr" : noticetrimstr,
-                                      @"noticeauthormsg" : noticeauthormsg,
+                                      @"noticeauthor" : (noticeauthor ? noticeauthor : @""),
+                                      @"noticetrimstr" : (noticetrimstr ? noticetrimstr : @""),
+                                      @"noticeauthormsg" : (noticeauthormsg ? noticeauthormsg : @""),
                                       @"reppid" : reppid.length > 0 ? reppid : @"",
                                       @"reppost" : reppost.length > 0 ? reppost : @"",
                                       @"subject" : @"",
