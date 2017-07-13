@@ -11,6 +11,8 @@
 #import "GCGuideThreadModel.h"
 #import "GCMyPromptModel.h"
 #import "GCProfileModel.h"
+#import "GCNewsModel.h"
+#import "GCNewsRecommendModel.h"
 
 @interface GCHTMLParse : NSObject
 
@@ -41,5 +43,9 @@
 + (GCMyPromptArray *)parseMyPrompt:(NSData *)htmlData;
 
 + (GCProfileModel *)parseProfile:(NSData *)htmlData;
+
++ (GCNewsRecommendModel *)parseNews:(NSData *)htmlData;
+
++ (GCNewsArray *)parseNewsList:(NSData *)htmlData;
 
 @end

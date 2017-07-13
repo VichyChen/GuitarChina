@@ -465,6 +465,41 @@
                                    }];
 }
 
++ (void)getNewsSuccess:(void (^)(NSData *htmlData))success
+               failure:(void (^)(NSError *error))failure {
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_News
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
+}
+
++ (void)getNewsWithID:(NSString *)catID
+            pageIndex:(NSInteger)pageIndex
+              success:(void (^)(NSData *htmlData))success
+              failure:(void (^)(NSError *error))failure {
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_NewsWithCatID(catID)
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
+}
+
++ (void)getNewsWithPID:(NSString *)pid
+               success:(void (^)(NSData *htmlData))success
+               failure:(void (^)(NSError *error))failure {
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_NewsWithPID(pid)
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
+}
 
 + (void)getSearchWithKeyWord:(NSString *)keyWord
                    pageIndex:(NSInteger)pageIndex

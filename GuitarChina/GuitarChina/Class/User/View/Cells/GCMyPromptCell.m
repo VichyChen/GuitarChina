@@ -7,7 +7,6 @@
 //
 
 #import "GCMyPromptCell.h"
-#import "UIView+LayoutHelper.h"
 
 @interface GCMyPromptCell()
 

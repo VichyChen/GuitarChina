@@ -104,6 +104,11 @@
 //个人资料
 #define GCNetworkAPI_Get_Profile(uid) [NSString stringWithFormat:@"http://bbs.guitarchina.com/home.php?mod=space&uid=%@&do=profile", (uid)]
 
+//新闻
+#define GCNetworkAPI_Get_News @"https://news.guitarchina.com"
+#define GCNetworkAPI_Get_NewsWithCatID(catID) [NSString stringWithFormat:@"https://news.guitarchina.com/?cat=%@", (catID)]
+#define GCNetworkAPI_Get_NewsWithPID(pid) [NSString stringWithFormat:@"https://news.guitarchina.com/?p=%@", (pid)]
+
 //优酷视频地址
 #define GCVideo_URL_Youku(id) [NSString stringWithFormat:@"http://v.youku.com/v_show/id_%@.html", (id)]
 //土豆视频地址

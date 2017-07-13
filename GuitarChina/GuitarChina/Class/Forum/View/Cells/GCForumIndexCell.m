@@ -7,7 +7,6 @@
 //
 
 #import "GCForumIndexCell.h"
-#import "UIView+LayoutHelper.h"
 
 @interface GCForumIndexCell()
 

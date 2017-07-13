@@ -7,7 +7,6 @@
 //
 
 #import "GCDiscoveryCell.h"
-#import "UIView+LayoutHelper.h"
 #import "GCForumDisplayViewController.h"
 
 #define SubjectWidth ScreenWidth - 30

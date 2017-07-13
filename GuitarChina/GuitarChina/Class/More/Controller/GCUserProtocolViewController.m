@@ -7,7 +7,6 @@
 //
 
 #import "GCUserProtocolViewController.h"
-#import "UIView+LayoutHelper.h"
 
 @interface GCUserProtocolViewController ()
 

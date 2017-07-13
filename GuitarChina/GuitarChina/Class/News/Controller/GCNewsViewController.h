@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCBaseViewController.h"
 
-@interface GCNewsViewController : UIViewController
+@interface GCNewsViewController : GCBaseViewController
 
 @end

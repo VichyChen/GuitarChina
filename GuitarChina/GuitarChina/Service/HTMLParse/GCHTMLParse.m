@@ -296,4 +296,164 @@
     return model;
 }
 
++ (GCNewsRecommendModel *)parseNews:(NSData *)htmlData {
+    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
+
+    GCNewsRecommendModel *model = [[GCNewsRecommendModel alloc] init];
+    //菜单
+    model.menuArray = [NSMutableArray array];
+    NSArray *menuArray = [xpathParser searchWithXPathQuery:@"//div[@id='et-navigation']/ul[@id='et-menu']/li"];
+    for (TFHppleElement *element in menuArray) {
+        TFHppleElement *menuElement = [[[[TFHpple alloc] initWithHTMLData:[element.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//a"] firstObject];
+
+        GCNewsMenuModel *newsMenuModel = [[GCNewsMenuModel alloc] init];
+        newsMenuModel.catID = [Util parseURLQueryStringToDictionary:[NSURL URLWithString:[menuElement objectForKey:@"href"]]][@"cat"];
+        newsMenuModel.value = menuElement.content;
+        newsMenuModel.subMenuArray = [NSMutableArray array];
+        
+        NSArray *subMenuArray = [[[TFHpple alloc] initWithHTMLData:[element.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//ul[@class='sub-menu']/li/a"];
+        for (TFHppleElement *subMenuElement in subMenuArray) {
+            GCNewsMenuModel *subNewsMenuModel = [[GCNewsMenuModel alloc] init];
+            subNewsMenuModel.catID = [Util parseURLQueryStringToDictionary:[NSURL URLWithString:[subMenuElement objectForKey:@"href"]]][@"cat"];
+            subNewsMenuModel.value = subMenuElement.content;
+            [newsMenuModel.subMenuArray addObject:subNewsMenuModel];
+        }
+        
+        [model.menuArray addObject:newsMenuModel];
+    }
+    
+    //轮播
+    model.carouselArray = [NSMutableArray array];
+    NSArray *carouselArray = [xpathParser searchWithXPathQuery:@"//div[@class='posts-slider-module-items carousel-items et_pb_slides']/article"];
+    for (TFHppleElement *carouselElement in carouselArray) {
+        GCNewsModulePostModel *carouselModel = [[GCNewsModulePostModel alloc] init];
+        carouselModel.pid = [Util parseURLQueryStringToDictionary:[NSURL URLWithString:[((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[carouselElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-content-box']/div[@class='post-content']/h3/a"] firstObject]) objectForKey:@"href"]]][@"p"];
+        carouselModel.content = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[carouselElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-content-box']/div[@class='post-content']/h3/a"] firstObject]).content;
+        carouselModel.remark = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[carouselElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-content-box']/div[@class='post-content']/div[@class='post-meta vcard']/p"] firstObject]).content;
+        carouselModel.summary = @"";
+        
+        NSString *style = [carouselElement objectForKey:@"style"];
+        carouselModel.img = [style substringFrom:22 toIndex:style.length - 2];
+        [model.carouselArray addObject:carouselModel];
+    }
+    model.moduleArray = [NSMutableArray array];
+    
+    //本站新闻、新闻中心
+    NSArray *mainModuleArray = [xpathParser searchWithXPathQuery:@"//div[@class='tab-contents']/div[contains(@class,'tab-content tab-content-')]"];
+    for (int i = 0; i < mainModuleArray.count; i++) {
+        GCNewsModuleModel *newsModuleModel = [[GCNewsModuleModel alloc] init];
+        newsModuleModel.name = i == 0 ? @"本站新闻" : (i == 1 ? @"新闻中心" : @"");
+        newsModuleModel.postArray = [NSMutableArray array];
+        
+        //分类标题
+        GCNewsModulePostModel *newsModulePostModel = [[GCNewsModulePostModel alloc] init];
+        newsModulePostModel.pid = [Util parseURLQueryStringToDictionary:[NSURL URLWithString:[((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[((TFHppleElement *)mainModuleArray[i]).raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='post-content']/h2/a"] firstObject]) objectForKey:@"href"]]][@"p"];
+        newsModulePostModel.content = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[((TFHppleElement *)mainModuleArray[i]).raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='post-content']/h2/a"] firstObject]).content;
+        newsModulePostModel.time = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[((TFHppleElement *)mainModuleArray[i]).raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='post-content']/div[@class='post-meta vcard']/p/span[@class='updated']"] firstObject]).content;;
+        TFHppleElement *readCountElement = [[[[TFHpple alloc] initWithHTMLData:[((TFHppleElement *)mainModuleArray[i]).raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='post-content']/div[@class='post-meta vcard']/p"] firstObject];
+        NSArray *remarkArray = [readCountElement.content split:@"|"];
+        newsModulePostModel.readCount = remarkArray[remarkArray.count - 1];
+        newsModulePostModel.remark = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[((TFHppleElement *)mainModuleArray[i]).raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='post-content']/div[@class='post-meta vcard']/p"] firstObject]).content;
+        newsModulePostModel.summary = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[((TFHppleElement *)mainModuleArray[i]).raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='post-content']/div[@class='excerpt entry-summary']/p"] firstObject]).content;
+        newsModulePostModel.img = [((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[((TFHppleElement *)mainModuleArray[i]).raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='header']/a/img"] firstObject]) objectForKey:@"src"];
+        [newsModuleModel.postArray addObject:newsModulePostModel];
+        //分类列表
+        NSArray *postListElementArray = [[[TFHpple alloc] initWithHTMLData:[((TFHppleElement *)mainModuleArray[i]).raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//ul[@class='posts-list']/li/article"];
+        for (TFHppleElement *postListElement in postListElementArray) {
+            GCNewsModulePostModel *postModel = [[GCNewsModulePostModel alloc] init];
+            postModel.pid = [Util parseURLQueryStringToDictionary:[NSURL URLWithString:[((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[postListElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-content']/h3/a"] firstObject]) objectForKey:@"href"]]][@"p"];
+            postModel.content = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[postListElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-content']/h3/a"] firstObject]).content;
+            postModel.remark = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[postListElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-meta vcard']/p"] firstObject]).content;
+            postModel.time = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[postListElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-meta vcard']/p/span[@class='updated']"] firstObject]).content;;
+            TFHppleElement *readCountElement = [[[[TFHpple alloc] initWithHTMLData:[postListElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-meta vcard']/p"] firstObject];
+            NSArray *remarkArray = [readCountElement.content split:@"|"];
+            postModel.readCount = remarkArray[remarkArray.count - 1];
+            postModel.summary = @"";
+            postModel.img = [((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[postListElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//a[@class='post-thumbnail']/img"] firstObject]) objectForKey:@"src"];
+            [newsModuleModel.postArray addObject:postModel];
+        }
+        
+        [model.moduleArray addObject:newsModuleModel];
+    }
+    
+    //分类模块
+    NSArray *moduleArray = [xpathParser searchWithXPathQuery:@"//div[contains(@class,'module post-module et_pb_extra_module  et_pb_posts_')]"];
+    for (TFHppleElement *moduleElement in moduleArray) {
+        TFHppleElement *nameElement = [[[[TFHpple alloc] initWithHTMLData:[moduleElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='module-head']/h1"] firstObject];
+        
+        GCNewsModuleModel *newsModuleModel = [[GCNewsModuleModel alloc] init];
+        newsModuleModel.name = nameElement.content;
+        newsModuleModel.postArray = [NSMutableArray array];
+        
+        //分类标题
+        GCNewsModulePostModel *newsModulePostModel = [[GCNewsModulePostModel alloc] init];
+        newsModulePostModel.pid = [Util parseURLQueryStringToDictionary:[NSURL URLWithString:[((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[moduleElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='post-content']/h2/a"] firstObject]) objectForKey:@"href"]]][@"p"];
+        newsModulePostModel.content = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[moduleElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='post-content']/h2/a"] firstObject]).content;
+        newsModulePostModel.time = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[moduleElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='post-content']/div[@class='post-meta vcard']/p/span[@class='updated']"] firstObject]).content;;
+        TFHppleElement *readCountElement = [[[[TFHpple alloc] initWithHTMLData:[moduleElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='post-content']/div[@class='post-meta vcard']/p"] firstObject];
+        NSArray *remarkArray = [readCountElement.content split:@"|"];
+        newsModulePostModel.readCount = remarkArray[remarkArray.count - 1];
+        newsModulePostModel.remark = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[moduleElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='post-content']/div[@class='post-meta vcard']/p"] firstObject]).content;
+        newsModulePostModel.summary = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[moduleElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='post-content']/div[@class='excerpt entry-summary']/p"] firstObject]).content;
+        newsModulePostModel.img = [((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[moduleElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='main-post']/article/div[@class='header']/a/img"] firstObject]) objectForKey:@"src"];
+        [newsModuleModel.postArray addObject:newsModulePostModel];
+        //分类列表
+        NSArray *postListElementArray = [[[TFHpple alloc] initWithHTMLData:[moduleElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//ul[@class='posts-list']/li/article"];
+        for (TFHppleElement *postListElement in postListElementArray) {
+            GCNewsModulePostModel *postModel = [[GCNewsModulePostModel alloc] init];
+            postModel.pid = [Util parseURLQueryStringToDictionary:[NSURL URLWithString:[((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[postListElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-content']/h3/a"] firstObject]) objectForKey:@"href"]]][@"p"];
+            postModel.content = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[postListElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-content']/h3/a"] firstObject]).content;
+            postModel.remark = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[postListElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-meta vcard']/p"] firstObject]).content;
+            postModel.time = ((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[postListElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-meta vcard']/p/span[@class='updated']"] firstObject]).content;;
+            TFHppleElement *readCountElement = [[[[TFHpple alloc] initWithHTMLData:[postListElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-meta vcard']/p"] firstObject];
+            NSArray *remarkArray = [readCountElement.content split:@"|"];
+            postModel.readCount = remarkArray[remarkArray.count - 1];
+            postModel.summary = @"";
+            postModel.img = [((TFHppleElement *)[[[[TFHpple alloc] initWithHTMLData:[postListElement.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//a[@class='post-thumbnail']/img"] firstObject]) objectForKey:@"src"];
+            [newsModuleModel.postArray addObject:postModel];
+        }
+        
+        [model.moduleArray addObject:newsModuleModel];
+    }
+
+    return model;
+}
+
++ (GCNewsArray *)parseNewsList:(NSData *)htmlData {
+    TFHpple *xpathParser = [[TFHpple alloc] initWithHTMLData:htmlData];
+    
+    GCNewsArray *model = [[GCNewsArray alloc] init];
+
+    //新闻内容
+    model.newsArray = [NSMutableArray array];
+    NSArray *newsArray = [xpathParser searchWithXPathQuery:@"//div[@class='paginated_page paginated_page_1 active']/article"];
+    for (TFHppleElement *element in newsArray) {
+        GCNewsModel *newsModel = [[GCNewsModel alloc] init];
+        //标题
+        TFHppleElement *contentElement = [[[[TFHpple alloc] initWithHTMLData:[element.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-content']/h2/a"] firstObject];
+        newsModel.pid = [Util parseURLQueryStringToDictionary:[NSURL URLWithString:[contentElement objectForKey:@"href"]]][@"p"];
+        newsModel.content = contentElement.content;
+        //时间、板块、阅读量
+        TFHppleElement *remarkElement = [[[[TFHpple alloc] initWithHTMLData:[element.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-meta vcard']/p"] firstObject];
+        newsModel.remark = remarkElement.content;
+        //时间
+        TFHppleElement *timeElement = [[[[TFHpple alloc] initWithHTMLData:[element.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-meta vcard']/p/span[@class='updated']"] firstObject];
+        newsModel.time = timeElement.content;
+        //阅读量
+        TFHppleElement *readCountElement = [[[[TFHpple alloc] initWithHTMLData:[element.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='post-meta vcard']/p"] firstObject];
+        newsModel.readCount = [readCountElement.content split:@"|"][2];
+        //内容
+        TFHppleElement *summaryElement = [[[[TFHpple alloc] initWithHTMLData:[element.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='excerpt entry-summary']/p"] firstObject];
+        newsModel.summary = summaryElement.content;
+        //图片
+        TFHppleElement *imgElement = [[[[TFHpple alloc] initWithHTMLData:[element.raw dataUsingEncoding:NSUTF8StringEncoding]] searchWithXPathQuery:@"//div[@class='header']/a/img"] firstObject];
+        newsModel.img = [imgElement objectForKey:@"src"];
+        
+        [model.newsArray addObject:newsModel];
+    }
+    
+    return model;
+}
+
+
 @end

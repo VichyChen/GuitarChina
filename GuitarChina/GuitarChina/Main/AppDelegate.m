@@ -36,6 +36,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+//    [GCNetworkManager getNewsWithSuccess:^(NSData *htmlData) {
+//        
+//    } failure:^(NSError *error) {
+//        
+//    }];
+    
 #if FREEVERSION
     NSLog(@"1111");
 #else

@@ -19,7 +19,7 @@
     
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc]init];
     if (!iOS7) {
-        [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backArrow"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+        [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backArrow2"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     }
     [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-500, 0)
                                      forBarMetrics:UIBarMetricsDefault];

@@ -227,12 +227,50 @@
 		041CD3421EF4D43700BA3DC1 /* GCForumIndexCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047942521DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib */; };
 		041CD3431EF4D43700BA3DC1 /* GCThreadWebView.css in Resources */ = {isa = PBXBuildFile; fileRef = 047125901BCDF478000C8BC1 /* GCThreadWebView.css */; };
 		041CD3441EF4D43700BA3DC1 /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
+		0422FAE61F14BCC2009F3BD5 /* GCNewsCatLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAE11F14BCC2009F3BD5 /* GCNewsCatLeftMenuCell.m */; };
+		0422FAE71F14BCC2009F3BD5 /* GCNewsCatRightMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAE31F14BCC2009F3BD5 /* GCNewsCatRightMenuCell.m */; };
+		0422FAE81F14BCC2009F3BD5 /* GCNewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAE51F14BCC2009F3BD5 /* GCNewsListCell.m */; };
+		0422FAE91F14BD1A009F3BD5 /* GCNewsCatLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAE11F14BCC2009F3BD5 /* GCNewsCatLeftMenuCell.m */; };
+		0422FAEA1F14BD1C009F3BD5 /* GCNewsCatRightMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAE31F14BCC2009F3BD5 /* GCNewsCatRightMenuCell.m */; };
+		0422FAEB1F15CF34009F3BD5 /* GCNewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAE51F14BCC2009F3BD5 /* GCNewsListCell.m */; };
+		0422FAEE1F15F35F009F3BD5 /* GCNewsRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAED1F15F35F009F3BD5 /* GCNewsRecommendCell.m */; };
+		0422FAEF1F15F35F009F3BD5 /* GCNewsRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAED1F15F35F009F3BD5 /* GCNewsRecommendCell.m */; };
+		0422FAF21F15FD15009F3BD5 /* GCNewsRecommendCarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAF11F15FD15009F3BD5 /* GCNewsRecommendCarouselCell.m */; };
+		0422FAF31F15FD15009F3BD5 /* GCNewsRecommendCarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAF11F15FD15009F3BD5 /* GCNewsRecommendCarouselCell.m */; };
+		0422FB061F161AFF009F3BD5 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAF61F161AFF009F3BD5 /* NSData+SDDataCache.m */; };
+		0422FB071F161AFF009F3BD5 /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAF61F161AFF009F3BD5 /* NSData+SDDataCache.m */; };
+		0422FB081F161AFF009F3BD5 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAF91F161AFF009F3BD5 /* TAAbstractDotView.m */; };
+		0422FB091F161AFF009F3BD5 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAF91F161AFF009F3BD5 /* TAAbstractDotView.m */; };
+		0422FB0A1F161AFF009F3BD5 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAFB1F161AFF009F3BD5 /* TAAnimatedDotView.m */; };
+		0422FB0B1F161AFF009F3BD5 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAFB1F161AFF009F3BD5 /* TAAnimatedDotView.m */; };
+		0422FB0C1F161AFF009F3BD5 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAFD1F161AFF009F3BD5 /* TADotView.m */; };
+		0422FB0D1F161AFF009F3BD5 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAFD1F161AFF009F3BD5 /* TADotView.m */; };
+		0422FB0E1F161AFF009F3BD5 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAFF1F161AFF009F3BD5 /* TAPageControl.m */; };
+		0422FB0F1F161AFF009F3BD5 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAFF1F161AFF009F3BD5 /* TAPageControl.m */; };
+		0422FB101F161AFF009F3BD5 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FB011F161AFF009F3BD5 /* SDCollectionViewCell.m */; };
+		0422FB111F161AFF009F3BD5 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FB011F161AFF009F3BD5 /* SDCollectionViewCell.m */; };
+		0422FB121F161AFF009F3BD5 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FB031F161AFF009F3BD5 /* SDCycleScrollView.m */; };
+		0422FB131F161AFF009F3BD5 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FB031F161AFF009F3BD5 /* SDCycleScrollView.m */; };
+		0422FB141F161AFF009F3BD5 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FB051F161AFF009F3BD5 /* UIView+SDExtension.m */; };
+		0422FB151F161AFF009F3BD5 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FB051F161AFF009F3BD5 /* UIView+SDExtension.m */; };
 		042C1E901EFD014A00A6D05D /* GCDiscoveryPromptProView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042C1E8F1EFD014A00A6D05D /* GCDiscoveryPromptProView.m */; };
 		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
 		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
 		043648DB1BCF8D0E0005162D /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
 		043648DD1BCF90740005162D /* GCThreadWebViewHtmlCell.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */; };
 		043648E01BCF9BD80005162D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043648DF1BCF9BD80005162D /* Images.xcassets */; };
+		043AD1611F0E1EE200C1500D /* GCNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD1601F0E1EE200C1500D /* GCNewsModel.m */; };
+		043AD1621F0E3F7E00C1500D /* GCNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD1601F0E1EE200C1500D /* GCNewsModel.m */; };
+		043AD1651F0F64CF00C1500D /* GCNewsRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD1641F0F64CF00C1500D /* GCNewsRecommendViewController.m */; };
+		043AD1681F0F64E500C1500D /* GCNewsCatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD1671F0F64E500C1500D /* GCNewsCatViewController.m */; };
+		043AD16B1F0F650500C1500D /* GCNewsCatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD16A1F0F650500C1500D /* GCNewsCatListViewController.m */; };
+		043AD16E1F0F651100C1500D /* GCNewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD16D1F0F651100C1500D /* GCNewsDetailViewController.m */; };
+		043AD1771F0F675300C1500D /* GCNewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD16D1F0F651100C1500D /* GCNewsDetailViewController.m */; };
+		043AD1781F0F675A00C1500D /* GCNewsCatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD16A1F0F650500C1500D /* GCNewsCatListViewController.m */; };
+		043AD1791F0F675D00C1500D /* GCNewsCatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD1671F0F64E500C1500D /* GCNewsCatViewController.m */; };
+		043AD17A1F0F675F00C1500D /* GCNewsRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD1641F0F64CF00C1500D /* GCNewsRecommendViewController.m */; };
+		043AD17D1F0F75CF00C1500D /* GCNewsRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD17C1F0F75CF00C1500D /* GCNewsRecommendModel.m */; };
+		043AD17E1F0F75CF00C1500D /* GCNewsRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD17C1F0F75CF00C1500D /* GCNewsRecommendModel.m */; };
 		045F2F2A1BDFBAAE0024C9FC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 045F2F291BDFBAAE0024C9FC /* libxml2.dylib */; };
 		046262441BAAC06800E66F03 /* NSString+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623C1BAAC06800E66F03 /* NSString+Tools.m */; };
 		046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623F1BAAC06800E66F03 /* UIImage+Tint.m */; };
@@ -462,6 +500,32 @@
 		0416D7181E3312E80042BE66 /* GCReplyPostThreadToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReplyPostThreadToolBarView.m; sourceTree = "<group>"; };
 		041CD34A1EF4D43700BA3DC1 /* GuitarChinaPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarChinaPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041CD34B1EF4D43900BA3DC1 /* GuitarChinaPro-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GuitarChinaPro-Info.plist"; path = "/Users/mac/Desktop/GuitarChina/GuitarChina最新版不修改用于复制的副本/GuitarChina-iOS-APP/GuitarChina/GuitarChinaPro-Info.plist"; sourceTree = "<absolute>"; };
+		0422FAE01F14BCC2009F3BD5 /* GCNewsCatLeftMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsCatLeftMenuCell.h; sourceTree = "<group>"; };
+		0422FAE11F14BCC2009F3BD5 /* GCNewsCatLeftMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewsCatLeftMenuCell.m; sourceTree = "<group>"; };
+		0422FAE21F14BCC2009F3BD5 /* GCNewsCatRightMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsCatRightMenuCell.h; sourceTree = "<group>"; };
+		0422FAE31F14BCC2009F3BD5 /* GCNewsCatRightMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewsCatRightMenuCell.m; sourceTree = "<group>"; };
+		0422FAE41F14BCC2009F3BD5 /* GCNewsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsListCell.h; sourceTree = "<group>"; };
+		0422FAE51F14BCC2009F3BD5 /* GCNewsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewsListCell.m; sourceTree = "<group>"; };
+		0422FAEC1F15F35F009F3BD5 /* GCNewsRecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsRecommendCell.h; sourceTree = "<group>"; };
+		0422FAED1F15F35F009F3BD5 /* GCNewsRecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewsRecommendCell.m; sourceTree = "<group>"; };
+		0422FAF01F15FD15009F3BD5 /* GCNewsRecommendCarouselCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsRecommendCarouselCell.h; sourceTree = "<group>"; };
+		0422FAF11F15FD15009F3BD5 /* GCNewsRecommendCarouselCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewsRecommendCarouselCell.m; sourceTree = "<group>"; };
+		0422FAF51F161AFF009F3BD5 /* NSData+SDDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDDataCache.h"; sourceTree = "<group>"; };
+		0422FAF61F161AFF009F3BD5 /* NSData+SDDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDDataCache.m"; sourceTree = "<group>"; };
+		0422FAF81F161AFF009F3BD5 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		0422FAF91F161AFF009F3BD5 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		0422FAFA1F161AFF009F3BD5 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		0422FAFB1F161AFF009F3BD5 /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		0422FAFC1F161AFF009F3BD5 /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		0422FAFD1F161AFF009F3BD5 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		0422FAFE1F161AFF009F3BD5 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		0422FAFF1F161AFF009F3BD5 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		0422FB001F161AFF009F3BD5 /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
+		0422FB011F161AFF009F3BD5 /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
+		0422FB021F161AFF009F3BD5 /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
+		0422FB031F161AFF009F3BD5 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
+		0422FB041F161AFF009F3BD5 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		0422FB051F161AFF009F3BD5 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		042C1E8E1EFD014A00A6D05D /* GCDiscoveryPromptProView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscoveryPromptProView.h; sourceTree = "<group>"; };
 		042C1E8F1EFD014A00A6D05D /* GCDiscoveryPromptProView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscoveryPromptProView.m; sourceTree = "<group>"; };
 		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
@@ -471,6 +535,18 @@
 		043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewHtml.html; sourceTree = "<group>"; };
 		043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = GCThreadWebViewHtmlCell.html; sourceTree = "<group>"; };
 		043648DF1BCF9BD80005162D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Image/Images.xcassets; sourceTree = "<group>"; };
+		043AD15F1F0E1EE200C1500D /* GCNewsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsModel.h; sourceTree = "<group>"; };
+		043AD1601F0E1EE200C1500D /* GCNewsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewsModel.m; sourceTree = "<group>"; };
+		043AD1631F0F64CF00C1500D /* GCNewsRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsRecommendViewController.h; sourceTree = "<group>"; };
+		043AD1641F0F64CF00C1500D /* GCNewsRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewsRecommendViewController.m; sourceTree = "<group>"; };
+		043AD1661F0F64E500C1500D /* GCNewsCatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsCatViewController.h; sourceTree = "<group>"; };
+		043AD1671F0F64E500C1500D /* GCNewsCatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewsCatViewController.m; sourceTree = "<group>"; };
+		043AD1691F0F650500C1500D /* GCNewsCatListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsCatListViewController.h; sourceTree = "<group>"; };
+		043AD16A1F0F650500C1500D /* GCNewsCatListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewsCatListViewController.m; sourceTree = "<group>"; };
+		043AD16C1F0F651100C1500D /* GCNewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsDetailViewController.h; sourceTree = "<group>"; };
+		043AD16D1F0F651100C1500D /* GCNewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewsDetailViewController.m; sourceTree = "<group>"; };
+		043AD17B1F0F75CF00C1500D /* GCNewsRecommendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsRecommendModel.h; sourceTree = "<group>"; };
+		043AD17C1F0F75CF00C1500D /* GCNewsRecommendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewsRecommendModel.m; sourceTree = "<group>"; };
 		045F2F291BDFBAAE0024C9FC /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		0462623B1BAAC06800E66F03 /* NSString+Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Tools.h"; sourceTree = "<group>"; };
 		0462623C1BAAC06800E66F03 /* NSString+Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Tools.m"; sourceTree = "<group>"; };
@@ -909,6 +985,14 @@
 			children = (
 				0403AAEC1E3F7A8700D6FD20 /* GCNewsViewController.h */,
 				0403AAED1E3F7A8700D6FD20 /* GCNewsViewController.m */,
+				043AD1631F0F64CF00C1500D /* GCNewsRecommendViewController.h */,
+				043AD1641F0F64CF00C1500D /* GCNewsRecommendViewController.m */,
+				043AD1661F0F64E500C1500D /* GCNewsCatViewController.h */,
+				043AD1671F0F64E500C1500D /* GCNewsCatViewController.m */,
+				043AD1691F0F650500C1500D /* GCNewsCatListViewController.h */,
+				043AD16A1F0F650500C1500D /* GCNewsCatListViewController.m */,
+				043AD16C1F0F651100C1500D /* GCNewsDetailViewController.h */,
+				043AD16D1F0F651100C1500D /* GCNewsDetailViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -916,6 +1000,10 @@
 		0403AAE91E3F7A5C00D6FD20 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				043AD17B1F0F75CF00C1500D /* GCNewsRecommendModel.h */,
+				043AD17C1F0F75CF00C1500D /* GCNewsRecommendModel.m */,
+				043AD15F1F0E1EE200C1500D /* GCNewsModel.h */,
+				043AD1601F0E1EE200C1500D /* GCNewsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -923,16 +1011,9 @@
 		0403AAEA1E3F7A5C00D6FD20 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0403AAEB1E3F7A5C00D6FD20 /* Cells */,
+				0422FADF1F14BCC2009F3BD5 /* Cell */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		0403AAEB1E3F7A5C00D6FD20 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		0403AAF51E45D84A00D6FD20 /* UITextView+Placeholder */ = {
@@ -1005,6 +1086,54 @@
 				0416D7151E320FE40042BE66 /* GCLoginPickerView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0422FADF1F14BCC2009F3BD5 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0422FAF01F15FD15009F3BD5 /* GCNewsRecommendCarouselCell.h */,
+				0422FAF11F15FD15009F3BD5 /* GCNewsRecommendCarouselCell.m */,
+				0422FAEC1F15F35F009F3BD5 /* GCNewsRecommendCell.h */,
+				0422FAED1F15F35F009F3BD5 /* GCNewsRecommendCell.m */,
+				0422FAE01F14BCC2009F3BD5 /* GCNewsCatLeftMenuCell.h */,
+				0422FAE11F14BCC2009F3BD5 /* GCNewsCatLeftMenuCell.m */,
+				0422FAE21F14BCC2009F3BD5 /* GCNewsCatRightMenuCell.h */,
+				0422FAE31F14BCC2009F3BD5 /* GCNewsCatRightMenuCell.m */,
+				0422FAE41F14BCC2009F3BD5 /* GCNewsListCell.h */,
+				0422FAE51F14BCC2009F3BD5 /* GCNewsListCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		0422FAF41F161AFF009F3BD5 /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				0422FAF51F161AFF009F3BD5 /* NSData+SDDataCache.h */,
+				0422FAF61F161AFF009F3BD5 /* NSData+SDDataCache.m */,
+				0422FAF71F161AFF009F3BD5 /* PageControl */,
+				0422FB001F161AFF009F3BD5 /* SDCollectionViewCell.h */,
+				0422FB011F161AFF009F3BD5 /* SDCollectionViewCell.m */,
+				0422FB021F161AFF009F3BD5 /* SDCycleScrollView.h */,
+				0422FB031F161AFF009F3BD5 /* SDCycleScrollView.m */,
+				0422FB041F161AFF009F3BD5 /* UIView+SDExtension.h */,
+				0422FB051F161AFF009F3BD5 /* UIView+SDExtension.m */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		0422FAF71F161AFF009F3BD5 /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				0422FAF81F161AFF009F3BD5 /* TAAbstractDotView.h */,
+				0422FAF91F161AFF009F3BD5 /* TAAbstractDotView.m */,
+				0422FAFA1F161AFF009F3BD5 /* TAAnimatedDotView.h */,
+				0422FAFB1F161AFF009F3BD5 /* TAAnimatedDotView.m */,
+				0422FAFC1F161AFF009F3BD5 /* TADotView.h */,
+				0422FAFD1F161AFF009F3BD5 /* TADotView.m */,
+				0422FAFE1F161AFF009F3BD5 /* TAPageControl.h */,
+				0422FAFF1F161AFF009F3BD5 /* TAPageControl.m */,
+			);
+			path = PageControl;
 			sourceTree = "<group>";
 		};
 		042F84231CF83F4500102949 /* Controller */ = {
@@ -1392,6 +1521,7 @@
 		420D985D1B9297F600AEAED3 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
+				0422FAF41F161AFF009F3BD5 /* SDCycleScrollView */,
 				0403AAF51E45D84A00D6FD20 /* UITextView+Placeholder */,
 				04C0D49E1DD41A2A007A5113 /* ZLPhotoLib */,
 				04F8A34E1D28E19F007F2350 /* WMPageController */,
@@ -2305,20 +2435,25 @@
 				041CD2801EF4D43700BA3DC1 /* MJRefreshAutoGifFooter.m in Sources */,
 				041CD2811EF4D43700BA3DC1 /* UIImage+CommonMethods.m in Sources */,
 				041CD2821EF4D43700BA3DC1 /* SVRadialGradientLayer.m in Sources */,
+				0422FB0D1F161AFF009F3BD5 /* TADotView.m in Sources */,
 				041CD2831EF4D43700BA3DC1 /* GCThreadDetailViewController.m in Sources */,
+				0422FAF31F15FD15009F3BD5 /* GCNewsRecommendCarouselCell.m in Sources */,
 				041CD2841EF4D43700BA3DC1 /* GCForumIndexModel.m in Sources */,
 				041CD2851EF4D43700BA3DC1 /* WMProgressView.m in Sources */,
 				041CD2861EF4D43700BA3DC1 /* DALabeledCircularProgressView.m in Sources */,
 				041CD2871EF4D43700BA3DC1 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
 				041CD2881EF4D43700BA3DC1 /* WMScrollView.m in Sources */,
 				041CD2891EF4D43700BA3DC1 /* HMSegmentedControl.m in Sources */,
+				043AD17E1F0F75CF00C1500D /* GCNewsRecommendModel.m in Sources */,
 				041CD28A1EF4D43700BA3DC1 /* MJRefreshNormalHeader.m in Sources */,
 				041CD28B1EF4D43700BA3DC1 /* GCReplyPostThreadToolBarView.m in Sources */,
 				041CD28C1EF4D43700BA3DC1 /* UIScrollView+MJRefresh.m in Sources */,
 				041CD28D1EF4D43700BA3DC1 /* GCThreadDetailPagePickerView.m in Sources */,
 				041CD28E1EF4D43700BA3DC1 /* MJRefreshHeader.m in Sources */,
 				041CD28F1EF4D43700BA3DC1 /* MJRefreshAutoNormalFooter.m in Sources */,
+				043AD1771F0F675300C1500D /* GCNewsDetailViewController.m in Sources */,
 				041CD2901EF4D43700BA3DC1 /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
+				0422FAE91F14BD1A009F3BD5 /* GCNewsCatLeftMenuCell.m in Sources */,
 				041CD2911EF4D43700BA3DC1 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
 				041CD2921EF4D43700BA3DC1 /* GCThreadDetailToolBarView.m in Sources */,
 				041CD2931EF4D43700BA3DC1 /* GCColor.m in Sources */,
@@ -2344,6 +2479,7 @@
 				041CD2A71EF4D43700BA3DC1 /* GCThreadDetailView.m in Sources */,
 				041CD2A81EF4D43700BA3DC1 /* GCThreadDetailMenuView.m in Sources */,
 				041CD2A91EF4D43700BA3DC1 /* GCSendReplyModel.m in Sources */,
+				0422FB071F161AFF009F3BD5 /* NSData+SDDataCache.m in Sources */,
 				041CD2AA1EF4D43700BA3DC1 /* GCForumDisplayViewController.m in Sources */,
 				041CD2AB1EF4D43700BA3DC1 /* GuitarChina.xcdatamodeld in Sources */,
 				041CD2AC1EF4D43700BA3DC1 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
@@ -2362,9 +2498,12 @@
 				041CD2B91EF4D43700BA3DC1 /* UIScrollView+Extension.m in Sources */,
 				041CD2BA1EF4D43700BA3DC1 /* UIView+ZLExtension.m in Sources */,
 				041CD2BB1EF4D43700BA3DC1 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
+				0422FB151F161AFF009F3BD5 /* UIView+SDExtension.m in Sources */,
 				041CD2BC1EF4D43700BA3DC1 /* GCBaseNoticeModel.m in Sources */,
+				0422FAEB1F15CF34009F3BD5 /* GCNewsListCell.m in Sources */,
 				041CD2BD1EF4D43700BA3DC1 /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
 				041CD2BE1EF4D43700BA3DC1 /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */,
+				043AD17A1F0F675F00C1500D /* GCNewsRecommendViewController.m in Sources */,
 				041CD2BF1EF4D43700BA3DC1 /* MJRefreshBackStateFooter.m in Sources */,
 				041CD2C01EF4D43700BA3DC1 /* TFHpple.m in Sources */,
 				041CD2C11EF4D43700BA3DC1 /* ZLPhotoPickerBrowserViewController+SignlePhotoBrowser.m in Sources */,
@@ -2375,7 +2514,9 @@
 				041CD2C61EF4D43700BA3DC1 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
 				041CD2C71EF4D43700BA3DC1 /* GCTabBarController.m in Sources */,
 				041CD2C81EF4D43700BA3DC1 /* GCSettingCell.m in Sources */,
+				043AD1791F0F675D00C1500D /* GCNewsCatViewController.m in Sources */,
 				041CD2C91EF4D43700BA3DC1 /* GCDiscoveryTableViewController.m in Sources */,
+				0422FAEA1F14BD1C009F3BD5 /* GCNewsCatRightMenuCell.m in Sources */,
 				041CD2CA1EF4D43700BA3DC1 /* MJRefreshComponent.m in Sources */,
 				041CD2CB1EF4D43700BA3DC1 /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
 				041CD2CC1EF4D43700BA3DC1 /* GCProfileModel.m in Sources */,
@@ -2393,6 +2534,7 @@
 				041CD2D81EF4D43700BA3DC1 /* MJRefreshBackFooter.m in Sources */,
 				041CD2D91EF4D43700BA3DC1 /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */,
 				041CD2DA1EF4D43700BA3DC1 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
+				0422FB0B1F161AFF009F3BD5 /* TAAnimatedDotView.m in Sources */,
 				041CD2DB1EF4D43700BA3DC1 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
 				041CD2DC1EF4D43700BA3DC1 /* ZLPhotoPickerBrowserPhotoImageView.m in Sources */,
 				041CD2DD1EF4D43700BA3DC1 /* MJRefreshFooter.m in Sources */,
@@ -2414,9 +2556,11 @@
 				041CD2ED1EF4D43700BA3DC1 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				041CD2EE1EF4D43700BA3DC1 /* GCMoreCell.m in Sources */,
 				041CD2EF1EF4D43700BA3DC1 /* UITextView+Placeholder.m in Sources */,
+				0422FB131F161AFF009F3BD5 /* SDCycleScrollView.m in Sources */,
 				041CD2F01EF4D43700BA3DC1 /* UIView+MJExtension.m in Sources */,
 				041CD2F11EF4D43700BA3DC1 /* UIView+LayoutHelper.m in Sources */,
 				041CD2F21EF4D43700BA3DC1 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */,
+				043AD1781F0F675A00C1500D /* GCNewsCatListViewController.m in Sources */,
 				041CD2F31EF4D43700BA3DC1 /* MJRefreshAutoFooter.m in Sources */,
 				041CD2F41EF4D43700BA3DC1 /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */,
 				041CD2F51EF4D43700BA3DC1 /* GCForumDisplayCell.m in Sources */,
@@ -2445,6 +2589,7 @@
 				041CD30C1EF4D43700BA3DC1 /* GCDiscoveryViewController.m in Sources */,
 				041CD30D1EF4D43700BA3DC1 /* MJRefreshAutoStateFooter.m in Sources */,
 				041CD30E1EF4D43700BA3DC1 /* MJRefreshGifHeader.m in Sources */,
+				0422FB0F1F161AFF009F3BD5 /* TAPageControl.m in Sources */,
 				041CD30F1EF4D43700BA3DC1 /* GCReplyThreadViewController.m in Sources */,
 				041CD3101EF4D43700BA3DC1 /* ZLPhotoAssets.m in Sources */,
 				041CD3111EF4D43700BA3DC1 /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */,
@@ -2457,10 +2602,12 @@
 				041CD3181EF4D43700BA3DC1 /* GCOfficialViewController.m in Sources */,
 				041CD3191EF4D43700BA3DC1 /* ZLPhotoPickerCollectionViewCell.m in Sources */,
 				041CD31A1EF4D43700BA3DC1 /* GCSearchViewController.m in Sources */,
+				0422FB091F161AFF009F3BD5 /* TAAbstractDotView.m in Sources */,
 				041CD31B1EF4D43700BA3DC1 /* GCAdInterstitial.m in Sources */,
 				041CD31C1EF4D43700BA3DC1 /* GCForumIndexCollectionReusableView.m in Sources */,
 				041CD31D1EF4D43700BA3DC1 /* ZLPhotoPickerBrowserPhoto.m in Sources */,
 				041CD31E1EF4D43700BA3DC1 /* GCNetworkCache.m in Sources */,
+				043AD1621F0E3F7E00C1500D /* GCNewsModel.m in Sources */,
 				041CD31F1EF4D43700BA3DC1 /* GCNetworkManager.m in Sources */,
 				041CD3201EF4D43700BA3DC1 /* GCHTMLParse.m in Sources */,
 				041CD3211EF4D43700BA3DC1 /* UITableViewCell+Extension.m in Sources */,
@@ -2471,9 +2618,11 @@
 				041CD3261EF4D43700BA3DC1 /* MJRefreshConst.m in Sources */,
 				041CD3271EF4D43700BA3DC1 /* GCWebViewController.m in Sources */,
 				041CD3281EF4D43700BA3DC1 /* GCNewThreadModel.m in Sources */,
+				0422FB111F161AFF009F3BD5 /* SDCollectionViewCell.m in Sources */,
 				041CD3291EF4D43700BA3DC1 /* DGActivityIndicatorView.m in Sources */,
 				041CD32A1EF4D43700BA3DC1 /* ZLPhotoPickerCollectionView.m in Sources */,
 				041CD32B1EF4D43700BA3DC1 /* GCMyPromptCell.m in Sources */,
+				0422FAEF1F15F35F009F3BD5 /* GCNewsRecommendCell.m in Sources */,
 				041CD32C1EF4D43700BA3DC1 /* main.m in Sources */,
 				041CD32D1EF4D43700BA3DC1 /* MJRefreshStateHeader.m in Sources */,
 			);
@@ -2497,6 +2646,7 @@
 				423888FD1BC57D0F002E1625 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
 				04F8A3611D28E19F007F2350 /* WMScrollView.m in Sources */,
 				426BC3931CB9FA9800B3B827 /* HMSegmentedControl.m in Sources */,
+				0422FAE81F14BCC2009F3BD5 /* GCNewsListCell.m in Sources */,
 				423888A51BC57CA6002E1625 /* MJRefreshNormalHeader.m in Sources */,
 				0416D7191E3312E80042BE66 /* GCReplyPostThreadToolBarView.m in Sources */,
 				423888AA1BC57CA6002E1625 /* UIScrollView+MJRefresh.m in Sources */,
@@ -2505,6 +2655,7 @@
 				4238889F1BC57CA6002E1625 /* MJRefreshAutoNormalFooter.m in Sources */,
 				04C0D4F51DD41A2A007A5113 /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
 				423889031BC57D0F002E1625 /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
+				0422FAF21F15FD15009F3BD5 /* GCNewsRecommendCarouselCell.m in Sources */,
 				04D48E691E28DC2800212137 /* GCThreadDetailToolBarView.m in Sources */,
 				04091D801CFBECBC00B797B1 /* GCColor.m in Sources */,
 				04C0D4E91DD41A2A007A5113 /* DACircularProgressView.m in Sources */,
@@ -2513,6 +2664,7 @@
 				040FEF441E1237F9006DA6FA /* GCMoreViewController.m in Sources */,
 				04C0D4FA1DD41A2A007A5113 /* ZLPhotoPickerAssetsViewController.m in Sources */,
 				421192E31CE860FC00BCFF3E /* GCForumDisplayModel.m in Sources */,
+				0422FB0E1F161AFF009F3BD5 /* TAPageControl.m in Sources */,
 				046262451BAAC06800E66F03 /* UIImage+Tint.m in Sources */,
 				04F8A3621D28E19F007F2350 /* WMPageController.m in Sources */,
 				421192A51CE85EEE00BCFF3E /* GCReplyThreadView.m in Sources */,
@@ -2543,7 +2695,9 @@
 				049085151E03EE8000CF5C1C /* GCTableViewKit.m in Sources */,
 				04D3506C1E1634A700047725 /* GCProfileViewController.m in Sources */,
 				04C0D4EC1DD41A2A007A5113 /* ZLCameraImageView.m in Sources */,
+				043AD1681F0F64E500C1500D /* GCNewsCatViewController.m in Sources */,
 				04C0D4ED1DD41A2A007A5113 /* ZLCameraView.m in Sources */,
+				0422FB0A1F161AFF009F3BD5 /* TAAnimatedDotView.m in Sources */,
 				0464A93C1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m in Sources */,
 				04C0D4E81DD41A2A007A5113 /* UIView+ZLExtension.m in Sources */,
 				423889051BC57D0F002E1625 /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
@@ -2558,8 +2712,11 @@
 				423889061BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
 				046365C71E1F6E8B002E1744 /* GCStatistics.m in Sources */,
 				042C1E901EFD014A00A6D05D /* GCDiscoveryPromptProView.m in Sources */,
+				0422FB0C1F161AFF009F3BD5 /* TADotView.m in Sources */,
 				4238890F1BC57D0F002E1625 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
+				0422FB061F161AFF009F3BD5 /* NSData+SDDataCache.m in Sources */,
 				421192D81CE8607100BCFF3E /* GCTabBarController.m in Sources */,
+				043AD1651F0F64CF00C1500D /* GCNewsRecommendViewController.m in Sources */,
 				040FEF481E1237F9006DA6FA /* GCSettingCell.m in Sources */,
 				421192711CE85D3200BCFF3E /* GCDiscoveryTableViewController.m in Sources */,
 				4238889B1BC57CA6002E1625 /* MJRefreshComponent.m in Sources */,
@@ -2575,9 +2732,13 @@
 				04C0D4F41DD41A2A007A5113 /* ZLPhotoPickerBrowserPhotoScrollView.m in Sources */,
 				0403AAEE1E3F7A8700D6FD20 /* GCNewsViewController.m in Sources */,
 				421192C81CE8601E00BCFF3E /* GCLoginViewController.m in Sources */,
+				0422FAEE1F15F35F009F3BD5 /* GCNewsRecommendCell.m in Sources */,
 				4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */,
 				4238889A1BC57CA6002E1625 /* MJRefreshBackFooter.m in Sources */,
+				0422FB141F161AFF009F3BD5 /* UIView+SDExtension.m in Sources */,
+				0422FB121F161AFF009F3BD5 /* SDCycleScrollView.m in Sources */,
 				423888F61BC57D0F002E1625 /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */,
+				043AD1611F0E1EE200C1500D /* GCNewsModel.m in Sources */,
 				423889101BC57D0F002E1625 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
 				4238890C1BC57D0F002E1625 /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
 				04C0D4F31DD41A2A007A5113 /* ZLPhotoPickerBrowserPhotoImageView.m in Sources */,
@@ -2597,10 +2758,12 @@
 				421192D71CE8607100BCFF3E /* GCNavigationController.m in Sources */,
 				046262471BAAC06800E66F03 /* UIView+UICreateFactory.m in Sources */,
 				421192B31CE85F2200BCFF3E /* GCMyFavThreadCell.m in Sources */,
+				0422FB081F161AFF009F3BD5 /* TAAbstractDotView.m in Sources */,
 				423889081BC57D0F002E1625 /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
 				040FEF471E1237F9006DA6FA /* GCMoreCell.m in Sources */,
 				0403AAF81E45D84A00D6FD20 /* UITextView+Placeholder.m in Sources */,
 				423888AB1BC57CA6002E1625 /* UIView+MJExtension.m in Sources */,
+				043AD16B1F0F650500C1500D /* GCNewsCatListViewController.m in Sources */,
 				046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */,
 				423888F31BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */,
 				423888991BC57CA6002E1625 /* MJRefreshAutoFooter.m in Sources */,
@@ -2612,6 +2775,8 @@
 				048D45081DD1BE1500A7824F /* GCAddImageCell.m in Sources */,
 				046262441BAAC06800E66F03 /* NSString+Tools.m in Sources */,
 				04C0D4F91DD41A2A007A5113 /* ZLPhotoPickerGroup.m in Sources */,
+				043AD17D1F0F75CF00C1500D /* GCNewsRecommendModel.m in Sources */,
+				0422FAE71F14BCC2009F3BD5 /* GCNewsCatRightMenuCell.m in Sources */,
 				423888F41BC57D0F002E1625 /* DGActivityIndicatorBallClipRotatePulseAnimation.m in Sources */,
 				421192A61CE85EEE00BCFF3E /* GCReportThreadView.m in Sources */,
 				423888FF1BC57D0F002E1625 /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
@@ -2632,9 +2797,11 @@
 				423888A01BC57CA6002E1625 /* MJRefreshAutoStateFooter.m in Sources */,
 				423888A41BC57CA6002E1625 /* MJRefreshGifHeader.m in Sources */,
 				421192771CE85D3200BCFF3E /* GCReplyThreadViewController.m in Sources */,
+				0422FB101F161AFF009F3BD5 /* SDCollectionViewCell.m in Sources */,
 				04C0D4F71DD41A2A007A5113 /* ZLPhotoAssets.m in Sources */,
 				423889011BC57D0F002E1625 /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */,
 				423888FB1BC57D0F002E1625 /* DGActivityIndicatorBallScaleMultipleAnimation.m in Sources */,
+				0422FAE61F14BCC2009F3BD5 /* GCNewsCatLeftMenuCell.m in Sources */,
 				0488C0AA1C795E7200920E72 /* JsonTool.m in Sources */,
 				421192881CE85D7D00BCFF3E /* GCMyThreadViewController.m in Sources */,
 				423888A11BC57CA6002E1625 /* MJRefreshBackGifFooter.m in Sources */,
@@ -2649,6 +2816,7 @@
 				049085091E0395CF00CF5C1C /* GCNetworkCache.m in Sources */,
 				428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */,
 				421192351CE85D0800BCFF3E /* GCHTMLParse.m in Sources */,
+				043AD16E1F0F651100C1500D /* GCNewsDetailViewController.m in Sources */,
 				049085141E03EE8000CF5C1C /* UITableViewCell+Extension.m in Sources */,
 				04C0D4F61DD41A2A007A5113 /* ZLPhotoPickerCustomToolBarView.m in Sources */,
 				423888F91BC57D0F002E1625 /* DGActivityIndicatorBallRotateAnimation.m in Sources */,

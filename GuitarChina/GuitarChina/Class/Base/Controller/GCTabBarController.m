@@ -10,6 +10,7 @@
 #import "GCNavigationController.h"
 #import "GCLoginViewController.h"
 #import "WMPageController.h"
+#import "GCNewsViewController.h"
 #import "GCDiscoveryTableViewController.h"
 #import "GCForumIndexViewController.h"
 #import "GCMoreViewController.h"
@@ -58,6 +59,12 @@
     forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_forum"] imageWithTintColor:[GCColor grayColor4]];
     forumIndexNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_forum"] imageWithTintColor:[GCColor redColor]];
     
+    GCNewsViewController *newsViewController = [[GCNewsViewController alloc] init];
+    GCNavigationController *newsNavigationController = [[GCNavigationController alloc] initWithRootViewController:newsViewController];
+    newsNavigationController.tabBarItem.title = NSLocalizedString(@"News", nil);
+    newsNavigationController.tabBarItem.image = [[UIImage imageNamed:@"icon_wave"] imageWithTintColor:[GCColor grayColor4]];
+    newsNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_wave"] imageWithTintColor:[GCColor redColor]];
+    
     GCOfficialViewController *officialViewController = [[GCOfficialViewController alloc] init];
     GCNavigationController *officialNavigationController = [[GCNavigationController alloc] initWithRootViewController:officialViewController];
     officialViewController.tabBarItem.title = NSLocalizedString(@"Official", nil);
@@ -70,15 +77,15 @@
     moreNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor grayColor4]];
     moreNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor redColor]];
     
-    self.viewControllers = @[discoveryNavigationController, forumIndexNavigationController, officialNavigationController, moreNavigationController];
+    self.viewControllers = @[discoveryNavigationController, forumIndexNavigationController, newsNavigationController, officialNavigationController, moreNavigationController];
 }
 
 - (void)updateMorePromptRedCount {
     NSInteger redCount = [NSUD integerForKey:kGCNewMyPost];
     if (redCount == 0) {
-        self.viewControllers[3].tabBarItem.badgeValue = nil;
+        self.viewControllers[4].tabBarItem.badgeValue = nil;
     } else {
-        self.viewControllers[3].tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", redCount];
+        self.viewControllers[4].tabBarItem.badgeValue = [NSString stringWithFormat:@"%ld", redCount];
     }
 }
 

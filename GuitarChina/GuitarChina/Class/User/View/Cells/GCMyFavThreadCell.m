@@ -7,7 +7,6 @@
 //
 
 #import "GCMyFavThreadCell.h"
-#import "UIView+LayoutHelper.h"
 
 #define SubjectWidth ScreenWidth - 30
 

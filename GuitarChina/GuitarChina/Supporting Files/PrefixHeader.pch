@@ -28,6 +28,7 @@
 #import "NSString+Tools.h"
 #import "UIImage+Tint.h"
 #import "Util.h"
+#import "UIView+LayoutHelper.h"
 #import "JsonTool.h"
 #import "GCHTMLParse.h"
 #import "BlocksKit+UIKit.h"
