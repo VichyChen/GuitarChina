@@ -39,7 +39,7 @@
     self.timeLabel.text = model.time;
     self.readCountLabel.text = model.readCount;
     if (model.img.length > 0) {
-        [self.leftImageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:nil];
+        [self.leftImageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:DefaultImage];
     }
 
     if (index == 0) {

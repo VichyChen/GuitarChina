@@ -42,10 +42,12 @@
 - (void)refresh:(NSArray<GCNewsMenuModel *> *)menuArray {
     self.menuArray = menuArray;
     
-    [self.leftTableView reloadData];
-    [self.rightTableView reloadData];
-    
-    [self.leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectIndex inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+    if (menuArray.count > 0) {
+        [self.leftTableView reloadData];
+        [self.rightTableView reloadData];
+        
+        [self.leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:self.selectIndex inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+    }
 }
 
 - (UITableView *)leftTableView {
@@ -98,8 +100,8 @@
         @weakify(self);
         self.rightTableViewKit.getItemsBlock = ^{
             @strongify(self);
-            GCNewsMenuModel *model = self.menuArray[self.selectIndex];
-            if (model) {
+            if (self.menuArray.count > 0) {
+                GCNewsMenuModel *model = self.menuArray[self.selectIndex];
                 NSMutableArray *array = [NSMutableArray arrayWithArray:model.subMenuArray];
                 [array insertObject:model atIndex:0];
                 return array;

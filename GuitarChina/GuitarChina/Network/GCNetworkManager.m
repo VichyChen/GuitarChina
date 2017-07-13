@@ -465,15 +465,36 @@
                                    }];
 }
 
-+ (void)getNewsSuccess:(void (^)(NSData *htmlData))success
-               failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_News
-                                parameters:nil
-                                   success:^(NSURLSessionDataTask *task, id responseObject) {
-                                       success(responseObject);
-                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                       failure(error);
-                                   }];
++ (void)getNewsWithMode:(GCNetworkMode)mode
+                success:(void (^)(NSData *htmlData))success
+                failure:(void (^)(NSError *error))failure {
+    switch (mode) {
+        case GCNetworkModeInterface:
+        {
+            [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_News
+                                        parameters:nil
+                                           success:^(NSURLSessionDataTask *task, id responseObject) {
+                                               
+                                               [NSUD setObject:[[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding] forKey:kNewsCache];
+                                               [NSUD synchronize];
+                                               
+                                               success(responseObject);
+                                           } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                               failure(error);
+                                           }];
+        }
+            break;
+            
+        case GCNetworkModeLocal:
+        {
+            NSString *cache = [NSUD objectForKey:kNewsCache];
+            success([cache dataUsingEncoding:NSUTF8StringEncoding]);
+        }
+            break;
+
+        default:
+            break;
+    }
 }
 
 + (void)getNewsWithID:(NSString *)catID

@@ -31,7 +31,8 @@
 
 
     [self configureView];
-
+    [self getNews:GCNetworkModeLocal];
+    
     [self.newsRecommendViewController beginRefresh];
 }
 
@@ -47,7 +48,7 @@
     @weakify(self);
     self.newsRecommendViewController.refreshBlock = ^{
         @strongify(self);
-        [self getNews];
+        [self getNews:GCNetworkModeInterface];
     };
     self.newsRecommendViewController.view.frame = CGRectMake(0, 0, ScreenWidth, self.scrollView.frame.size.height);
    
@@ -77,9 +78,9 @@
 
 #pragma mark - HTTP
 
-- (void)getNews {
+- (void)getNews:(GCNetworkMode)mode {
     @weakify(self);
-    [GCNetworkManager getNewsSuccess:^(NSData *htmlData) {
+    [GCNetworkManager getNewsWithMode:mode success:^(NSData *htmlData) {
         @strongify(self);
         GCNewsRecommendModel *model = [GCHTMLParse parseNews:htmlData];
         [self.newsCatViewController refresh:model.menuArray];

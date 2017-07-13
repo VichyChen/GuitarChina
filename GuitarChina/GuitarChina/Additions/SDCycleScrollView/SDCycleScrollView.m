@@ -76,8 +76,7 @@ NSString * const ID = @"cycleCell";
     _pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
     _hidesForSinglePage = YES;
     _viewContentMode = UIViewContentModeScaleToFill;
-    self.backgroundColor = [UIColor lightGrayColor];
-    
+    self.backgroundColor = [UIColor whiteColor];
 }
 
 + (instancetype)cycleScrollViewWithFrame:(CGRect)frame imagesGroup:(NSArray *)imagesGroup

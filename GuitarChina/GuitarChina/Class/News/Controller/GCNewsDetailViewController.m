@@ -52,6 +52,11 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    //#if FREEVERSION
+    //    [UIView animateWithDuration:1.0 animations:^{
+    //        self.bannner.alpha = 1.0f;
+    //    }];
+    //#endif
     [self.webView.scrollView headerEndRefresh];
 }
 
@@ -77,6 +82,8 @@
         @strongify(self);
         [self.webView.scrollView headerEndRefresh];
     }];
+    
+    //    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@", GCNetworkAPI_Get_NewsWithPID(self.pid)]]]];
 }
 
 #pragma mark - Getters

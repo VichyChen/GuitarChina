@@ -44,6 +44,7 @@
 #define NSNC [NSNotificationCenter defaultCenter]
 #define NSUD [NSUserDefaults standardUserDefaults]
 #define DefaultAvator [UIImage imageNamed:@"noavatar_big"]
+#define DefaultImage [UIImage imageNamed:@"default_image"]
 
 #define FreeAppleID @"1089161305"
 #define ProAppleID @"1193034315"
@@ -101,6 +102,7 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 
 //Network Cache
 #define kForumIndexCache @"ForumIndexCache"
+#define kNewsCache @"kNewsCache"
 
 //Debug
 #ifdef DEBUG

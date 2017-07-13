@@ -30,7 +30,7 @@
     self.imgScrollView.delegate = self;
     self.imgScrollView.autoScroll = NO;
     self.imgScrollView.titleLabelTextFont = [UIFont systemFontOfSize:16];
-    //    _imgScrollView.placeholderImage = [UIImage imageNamed:@"image_default"];
+        _imgScrollView.placeholderImage = DefaultImage;
     self.imgScrollView.contentMode = UIViewContentModeScaleAspectFill;
     
     [self.contentView addSubview:self.imgScrollView];

@@ -19,6 +19,11 @@
 #import "GCNewThreadModel.h"
 #import "GCGuideThreadModel.h"
 
+typedef NS_OPTIONS(NSUInteger, GCNetworkMode) {
+    GCNetworkModeInterface                  = 0,
+    GCNetworkModeLocal                      = 1
+};
+
 @interface GCNetworkManager : NSObject
 
 //获取论坛模块列表
@@ -184,8 +189,9 @@
                   success:(void (^)(NSData *htmlData))success
                   failure:(void (^)(NSError *error))failure;
 
-+ (void)getNewsSuccess:(void (^)(NSData *htmlData))success
-               failure:(void (^)(NSError *error))failure;
++ (void)getNewsWithMode:(GCNetworkMode)mode
+                success:(void (^)(NSData *htmlData))success
+                failure:(void (^)(NSError *error))failure;
 
 + (void)getNewsWithID:(NSString *)catID
             pageIndex:(NSInteger)pageIndex
