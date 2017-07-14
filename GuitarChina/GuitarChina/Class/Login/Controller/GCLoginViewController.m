@@ -254,7 +254,7 @@
             
             if (loginID.length > 0) {
                 NSLog(@"login success");
-                APP.tabBarController.selectedIndex = 3;
+                APP.tabBarController.selectedIndex = 4;
                 [NSUD setObject:@"1" forKey:kGCLogin];
                 [NSUD setObject:loginID forKey:kGCLoginID];
                 [NSUD setObject:self.usernameTextField.text forKey:kGCLoginName];

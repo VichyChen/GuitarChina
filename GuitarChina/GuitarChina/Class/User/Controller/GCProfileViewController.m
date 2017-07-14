@@ -147,6 +147,8 @@
         };
         self.tableViewKit.didSelectRowAtIndexPathBlock = ^(NSIndexPath *indexPath) {
             @strongify(self);
+            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
             NSArray *array = self.array[indexPath.section];
             NSDictionary *dictionary = array[indexPath.row];
             void (^block)(void) = dictionary[@"block"];

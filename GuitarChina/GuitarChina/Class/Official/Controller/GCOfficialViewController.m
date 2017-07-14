@@ -65,6 +65,8 @@
         };
         self.tableViewKit.didSelectCellBlock = ^(NSIndexPath *indexPath, id item) {
             @strongify(self);
+            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
             NSDictionary *dictionary = item;
             if ([dictionary[@"type"] isEqualToString:@"0"]) {
                 GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];

@@ -95,6 +95,8 @@
         };
         self.tableViewKit.didSelectCellBlock = ^(NSIndexPath *indexPath, id item) {
             @strongify(self);
+            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
             GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
             GCMyThreadModel *model = item;
             controller.tid = model.tid;

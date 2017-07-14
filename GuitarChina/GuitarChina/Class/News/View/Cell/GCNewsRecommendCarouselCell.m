@@ -28,7 +28,7 @@
     self.imgScrollView.frame = CGRectMake(0, 0, ScreenWidth, ScreenWidth * 0.6);
     self.imgScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleNone;
     self.imgScrollView.delegate = self;
-    self.imgScrollView.autoScroll = NO;
+    self.imgScrollView.autoScroll = YES;
     self.imgScrollView.titleLabelTextFont = [UIFont systemFontOfSize:16];
         _imgScrollView.placeholderImage = DefaultImage;
     self.imgScrollView.contentMode = UIViewContentModeScaleAspectFill;

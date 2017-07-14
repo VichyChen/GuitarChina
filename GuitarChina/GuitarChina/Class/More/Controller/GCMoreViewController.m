@@ -226,6 +226,8 @@
         };
         self.tableViewKit.didSelectRowAtIndexPathBlock = ^(NSIndexPath *indexPath) {
             @strongify(self);
+            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
             switch (indexPath.section) {
                 case 0:
                     if (![[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {

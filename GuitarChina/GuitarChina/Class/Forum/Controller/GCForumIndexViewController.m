@@ -187,6 +187,8 @@
         };
         self.tableViewKit.didSelectRowAtIndexPathBlock = ^(NSIndexPath *indexPath) {
             @strongify(self);
+            [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
             GCForumDisplayViewController *controller = [[GCForumDisplayViewController alloc] init];
             GCForumGroupModel *forumGroupModel = [self.data objectAtIndex:indexPath.section];
             GCForumModel *forumModel = [forumGroupModel.forums objectAtIndex:indexPath.row];

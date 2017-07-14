@@ -375,6 +375,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         };
         self.searchTableViewKit.didSelectCellBlock = ^(NSIndexPath *indexPath, id item) {
             @strongify(self);
+            [self.searchTableView deselectRowAtIndexPath:indexPath animated:YES];
             [self.searchTextField endEditing:YES];
             GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
             GCSearchModel *model = item;

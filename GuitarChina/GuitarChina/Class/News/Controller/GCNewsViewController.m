@@ -86,7 +86,7 @@
         [self.newsCatViewController refresh:model.menuArray];
         [self.newsRecommendViewController refresh:model];
     } failure:^(NSError *error) {
-        [self.newsRecommendViewController refresh:nil];
+        [self.newsRecommendViewController endRefresh];
     }];
 }
 
