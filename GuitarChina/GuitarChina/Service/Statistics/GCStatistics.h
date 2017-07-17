@@ -17,6 +17,7 @@ typedef NS_ENUM(NSInteger, GCStatisticsEvent) {
     GCStatisticsEventAdMobInterstitialClick,
     GCStatisticsEventDiscovery,
     GCStatisticsEventThreadDetail,
+    GCStatisticsEventNewsDetail,
     GCStatisticsEventLogin,
     GCStatisticsEventForumIndex,
     GCStatisticsEventForumDisplay,

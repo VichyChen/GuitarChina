@@ -32,6 +32,8 @@
     [self configureView];
     
     [self.webView.scrollView headerBeginRefresh];
+    
+    [GCStatistics event:GCStatisticsEventNewsDetail extra:nil];
 }
 
 - (void)configureView {
