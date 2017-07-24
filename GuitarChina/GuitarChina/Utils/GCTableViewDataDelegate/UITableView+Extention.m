@@ -51,11 +51,11 @@
 }
 
 - (void)initHeaderView {
-    self.tableHeaderView = [[UIView alloc] init];
+    self.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
 }
 
 - (void)initFooterView {
-    self.tableFooterView = [[UIView alloc] init];
+    self.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
 }
 
 - (void)initHeaderViewWithFrame:(CGRect)frame {
