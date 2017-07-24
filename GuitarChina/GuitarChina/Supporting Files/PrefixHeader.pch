@@ -107,7 +107,7 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 //Debug
 #ifdef DEBUG
 
-//免费版
+//*********************  免费版  ***********************
 #if FREEVERSION
 
 //友盟appkey
@@ -122,8 +122,11 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kAdMobIDCenter @"ca-app-pub-3940256099942544/2934735716"
 //进入前台展示广告间隔
 #define kAdMobEnterForegroundTimeInterval 120
+//广点通
+#define kGDTAppKey @"1105344611"
+#define kGDTBanner @"4090812164690039"
 
-//收费版
+//*********************  收费版  ***********************
 #else
 
 //友盟appkey
@@ -133,13 +136,16 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kAdMobIDEnterForeground @""
 #define kAdMobIDCenter @""
 #define kAdMobEnterForegroundTimeInterval 0
+//广点通
+#define kGDTAppKey @""
+#define kGDTBanner @""
 
 #endif
 
 //Release
 #else
 
-//免费版
+//*********************  免费版  ***********************
 #if FREEVERSION
 
 //友盟appkey
@@ -154,8 +160,11 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kAdMobIDCenter @"ca-app-pub-3276115365350448/3458629418"
 //进入前台展示广告间隔
 #define kAdMobEnterForegroundTimeInterval 1800
+//广点通
+#define kGDTAppKey @"1106228271"
+#define kGDTBanner @"1070929464612712"
 
-//收费版
+//*********************  收费版  ***********************
 #else
 
 //友盟appkey
@@ -165,6 +174,9 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kAdMobIDEnterForeground @""
 #define kAdMobIDCenter @""
 #define kAdMobEnterForegroundTimeInterval 0
+//广点通
+#define kGDTAppKey @""
+#define kGDTBanner @""
 
 #endif
 

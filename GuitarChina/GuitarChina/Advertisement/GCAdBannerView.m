@@ -8,10 +8,13 @@
 
 #import "GCAdBannerView.h"
 #import <GoogleMobileAds/GADBannerView.h>
+#import "GDTMobBannerView.h"
 
-@interface GCAdBannerView() <GADBannerViewDelegate>
+@interface GCAdBannerView() <GADBannerViewDelegate, GDTMobBannerViewDelegate>
 
 @property (nonatomic, strong) GADBannerView *bannerView;
+
+@property (nonatomic, strong) GDTMobBannerView *gdtBannerView;
 
 @end
 
@@ -39,12 +42,21 @@
 }
 
 - (void)configureView:(UIViewController *)viewController {
+    /*
     self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
     self.bannerView.delegate = self;
     self.bannerView.adUnitID = kAdMobIDDetailBottom;
     self.bannerView.rootViewController = viewController;
     [self.bannerView loadRequest:[GADRequest request]];
     [self addSubview:self.bannerView];
+     */
+    self.gdtBannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, GDTMOB_AD_SUGGEST_SIZE_320x50.height) appkey:kGDTAppKey placementId:kGDTBanner];
+    self.gdtBannerView.delegate = self;
+    self.gdtBannerView.interval = 30;
+    self.gdtBannerView.currentViewController = viewController;
+    self.gdtBannerView.showCloseBtn = NO;
+    [self addSubview:self.gdtBannerView];
+    [self.gdtBannerView loadAdAndShow];
 }
 
 - (void)setupCountDown:(CGFloat)countDown {
@@ -66,6 +78,23 @@
         }];
     });
 }
+
+#pragma mark - GDTMobBannerViewDelegate
+
+- (void)bannerViewDidReceived {
+    if (self.loadRequestCompleteBlock) {
+        self.loadRequestCompleteBlock();
+    }
+}
+
+- (void)bannerViewFailToReceived:(NSError *)error {
+
+}
+
+- (void)bannerViewClicked {
+
+}
+
 
 #pragma mark - GADBannerViewDelegate
 
