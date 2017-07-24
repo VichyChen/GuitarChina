@@ -15,7 +15,7 @@
     return self.separatorInset.left;
 }
 
-- (void)setseparatorLeftInset:(CGFloat)separatorLeftInset {
+- (void)setSeparatorLeftInset:(CGFloat)separatorLeftInset {
     if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
         [self setSeparatorInset:UIEdgeInsetsMake(self.separatorInset.top,
                                                  separatorLeftInset,
@@ -28,7 +28,7 @@
     return self.separatorInset.right;
 }
 
-- (void)setseparatorRightInset:(CGFloat)separatorRightInset {
+- (void)setSeparatorRightInset:(CGFloat)separatorRightInset {
     if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
         [self setSeparatorInset:UIEdgeInsetsMake(self.separatorInset.top,
                                                  self.separatorInset.left,
@@ -41,7 +41,7 @@
     return UIEdgeInsetsMake(0, self.separatorInset.left, 0, self.separatorInset.right);
 }
 
-- (void)setseparatorHorizontalInset:(UIEdgeInsets)separatorHorizontalInset {
+- (void)setSeparatorHorizontalInset:(UIEdgeInsets)separatorHorizontalInset {
     if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
         [self setSeparatorInset:UIEdgeInsetsMake(self.separatorInset.top,
                                                  separatorHorizontalInset.left,
