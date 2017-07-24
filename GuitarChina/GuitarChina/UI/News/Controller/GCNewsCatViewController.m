@@ -87,7 +87,7 @@
     if (!_rightTableView) {
         _rightTableView = [[UITableView alloc] init];
         _rightTableView.frame = CGRectMake(self.leftTableView.frame.size.width, 0, ScreenWidth - self.leftTableView.frame.size.width, ScreenHeight - 64 - 48);
-        _rightTableView.leftSeparatorInset = 13;
+        _rightTableView.separatorLeftInset = 13;
         _rightTableView.showsVerticalScrollIndicator = NO;
         [_rightTableView initFooterView];
 

@@ -234,7 +234,7 @@
         //        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         _tableView.backgroundColor = [GCColor backgroundColor];
-        _tableView.leftSeparatorInset = 0;
+        _tableView.separatorLeftInset = 0;
 
         self.tableViewKit = [[GCTableViewKit alloc] initWithSystem];
         @weakify(self);

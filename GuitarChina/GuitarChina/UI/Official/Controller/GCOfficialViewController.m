@@ -40,7 +40,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
         _tableView.backgroundColor = [GCColor backgroundColor];
         [_tableView initFooterView];
-        _tableView.leftSeparatorInset = 13;
+        _tableView.separatorLeftInset = 13;
 
         self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCOfficialCell"];
         @weakify(self);

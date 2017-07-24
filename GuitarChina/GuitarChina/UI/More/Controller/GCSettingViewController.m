@@ -81,7 +81,7 @@
         }
         _tableView.tableFooterView = footerView;
         
-        _tableView.leftSeparatorInset = 13;
+        _tableView.separatorLeftInset = 13;
 
         self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCSettingCell"];
         @weakify(self);

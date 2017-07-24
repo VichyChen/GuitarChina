@@ -70,7 +70,7 @@
         _tableView.backgroundColor = [UIColor whiteColor];
         [_tableView initHeaderView];
         [_tableView initFooterView];
-        _tableView.leftSeparatorInset = 13;
+        _tableView.separatorLeftInset = 13;
 
         @weakify(self);
         [_tableView setHeaderRefreshBlock:^{

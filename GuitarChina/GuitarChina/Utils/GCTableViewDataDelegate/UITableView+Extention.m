@@ -11,42 +11,42 @@
 
 @implementation UITableView (Extension)
 
-- (CGFloat)leftSeparatorInset {
+- (CGFloat)separatorLeftInset {
     return self.separatorInset.left;
 }
 
-- (void)setLeftSeparatorInset:(CGFloat)leftSeparatorInset {
+- (void)setseparatorLeftInset:(CGFloat)separatorLeftInset {
     if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
         [self setSeparatorInset:UIEdgeInsetsMake(self.separatorInset.top,
-                                                 leftSeparatorInset,
+                                                 separatorLeftInset,
                                                  self.separatorInset.bottom,
                                                  self.separatorInset.right)];
     }
 }
 
-- (CGFloat)rightSeparatorInset {
+- (CGFloat)separatorRightInset {
     return self.separatorInset.right;
 }
 
-- (void)setRightSeparatorInset:(CGFloat)rightSeparatorInset {
+- (void)setseparatorRightInset:(CGFloat)separatorRightInset {
     if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
         [self setSeparatorInset:UIEdgeInsetsMake(self.separatorInset.top,
                                                  self.separatorInset.left,
                                                  self.separatorInset.bottom,
-                                                 rightSeparatorInset)];
+                                                 separatorRightInset)];
     }
 }
 
-- (UIEdgeInsets)horizontalSeparatorInset {
+- (UIEdgeInsets)separatorHorizontalInset {
     return UIEdgeInsetsMake(0, self.separatorInset.left, 0, self.separatorInset.right);
 }
 
-- (void)setHorizontalSeparatorInset:(UIEdgeInsets)horizontalSeparatorInset {
+- (void)setseparatorHorizontalInset:(UIEdgeInsets)separatorHorizontalInset {
     if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
         [self setSeparatorInset:UIEdgeInsetsMake(self.separatorInset.top,
-                                                 horizontalSeparatorInset.left,
+                                                 separatorHorizontalInset.left,
                                                  self.separatorInset.bottom,
-                                                 horizontalSeparatorInset.right)];
+                                                 separatorHorizontalInset.right)];
     }
 }
 

@@ -10,9 +10,9 @@
 
 @interface UITableView (Extension)
 
-@property (nonatomic, assign) CGFloat leftSeparatorInset;
-@property (nonatomic, assign) CGFloat rightSeparatorInset;
-@property (nonatomic, assign) UIEdgeInsets horizontalSeparatorInset;
+@property (nonatomic, assign) CGFloat separatorLeftInset;
+@property (nonatomic, assign) CGFloat separatorRightInset;
+@property (nonatomic, assign) UIEdgeInsets separatorHorizontalInset;
 
 - (void)initHeaderView;
 - (void)initFooterView;

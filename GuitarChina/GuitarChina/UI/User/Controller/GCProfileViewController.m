@@ -69,7 +69,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
         _tableView.backgroundColor = [GCColor backgroundColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        _tableView.leftSeparatorInset = 0;
+        _tableView.separatorLeftInset = 0;
         [_tableView initHeaderView];
 
         self.tableViewKit = [[GCTableViewKit alloc] initWithSystem];
