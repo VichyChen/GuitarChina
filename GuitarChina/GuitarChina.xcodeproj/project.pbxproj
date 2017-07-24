@@ -1628,7 +1628,7 @@
 			path = SocialShare;
 			sourceTree = "<group>";
 		};
-		421192371CE85D3200BCFF3E /* Class */ = {
+		421192371CE85D3200BCFF3E /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				421192381CE85D3200BCFF3E /* Base */,
@@ -1641,7 +1641,7 @@
 				421192FB1CE863CE00BCFF3E /* Search */,
 				421192B91CE85FC200BCFF3E /* Login */,
 			);
-			path = Class;
+			path = UI;
 			sourceTree = "<group>";
 		};
 		421192381CE85D3200BCFF3E /* Base */ = {
@@ -2149,7 +2149,7 @@
 			children = (
 				046F9E641BC6192F0044EB1D /* Main */,
 				04B692B91C4643BB00913629 /* Supporting Files */,
-				421192371CE85D3200BCFF3E /* Class */,
+				421192371CE85D3200BCFF3E /* UI */,
 				421191D01CE8558300BCFF3E /* Core Data */,
 				4282605C1B84CA51007CBCF4 /* Network */,
 				4211922E1CE85D0800BCFF3E /* Service */,
