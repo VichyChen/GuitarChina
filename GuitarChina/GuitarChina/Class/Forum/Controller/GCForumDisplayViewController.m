@@ -151,12 +151,7 @@
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
         _tableView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
-        if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
-        }
-        if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-            [_tableView setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
-        }
+        _tableView.leftSeparatorInset = 0;
 //        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
 //        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, ScreenWidth, 44)];
 //        label.font = [UIFont systemFontOfSize:15];
@@ -175,14 +170,14 @@
 //        [headerView addSubview:label];
 //        _tableView.tableHeaderView = headerView;
 
-        _tableView.tableFooterView = [[UIView alloc] init];
+        [_tableView initFooterView];
         
         self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCForumDisplayCell"];
         @weakify(self);
-        self.tableViewKit.getItemsBlock = ^{
+        [self.tableViewKit setGetItemsBlock:^NSArray *{
             @strongify(self);
             return self.data;
-        };
+        }];
         self.tableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
             @strongify(self);
             GCForumDisplayCell *forumDisplayCell = (GCForumDisplayCell *)cell;
@@ -211,16 +206,16 @@
         };
         [self.tableViewKit configureTableView:_tableView];
         
-        _tableView.headerRefreshBlock = ^{
+        [_tableView setHeaderRefreshBlock:^{
             @strongify(self);
             self.pageIndex = 1;
             [self getForumDisplay];
-        };
-        _tableView.footerRefreshBlock = ^{
+        }];
+        [_tableView setFooterRefreshBlock:^{
             @strongify(self);
             self.pageIndex++;
             [self getForumDisplay];
-        };
+        }];
     }
     return _tableView;
 }

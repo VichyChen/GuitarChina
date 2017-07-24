@@ -7,6 +7,7 @@
 #import <UIKit/UIKit.h>
 #import "UITableViewCell+Extension.h"
 #import "UIScrollView+Extension.h"
+#import "UITableView+Extention.h"
 
 typedef NS_ENUM(NSInteger, ConfigureStyle) {
     ConfigureStyleSystem,
@@ -18,26 +19,6 @@ typedef NS_ENUM(NSInteger, ConfigureCellType) {
     ConfigureCellTypeClass
 };
 
-//Custom
-typedef NSArray* (^GetItemsBlock)(void);
-typedef void (^CellForRowBlock)(NSIndexPath *indexPath, id item, UITableViewCell *cell);
-typedef CGFloat (^HeightForRowBlock)(NSIndexPath *indexPath, id item);
-typedef void (^DidSelectRowBlock)(NSIndexPath *indexPath, id item);
-
-//System
-//UITableViewDataSource
-typedef NSInteger (^NumberOfSectionsInTableViewBlock)(void);
-typedef NSInteger (^NumberOfRowsInSectionBlock)(NSInteger section);
-typedef UITableViewCell* (^CellForRowAtIndexPathBlock)(NSIndexPath *indexPath);
-//UITableViewDelegate
-typedef CGFloat (^HeightForRowAtIndexPathBlock)(NSIndexPath *indexPath);
-typedef UIView* (^ViewForHeaderInSectionBlock)(NSInteger section);
-typedef CGFloat (^HeightForHeaderInSectionBlock)(NSInteger section);
-typedef UIView* (^ViewForFooterInSectionBlock)(NSInteger section);
-typedef CGFloat (^HeightForFooterInSectionBlock)(NSInteger section);
-typedef void (^DidSelectRowAtIndexPathBlock)(NSIndexPath *indexPath);
-
-
 @interface GCTableViewKit : NSObject <UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, assign) ConfigureStyle configureStyle;
@@ -46,23 +27,23 @@ typedef void (^DidSelectRowAtIndexPathBlock)(NSIndexPath *indexPath);
 @property (nonatomic, assign) ConfigureCellType configureCellType;
 @property (nonatomic, copy) NSString *cellIdentifier;
 
-@property (nonatomic, copy) GetItemsBlock getItemsBlock;
-@property (nonatomic, copy) CellForRowBlock cellForRowBlock;
-@property (nonatomic, copy) HeightForRowBlock heightForRowBlock;
-@property (nonatomic, copy) DidSelectRowBlock didSelectCellBlock;
+@property (nonatomic, copy) NSArray *(^getItemsBlock)(void);
+@property (nonatomic, copy) void (^cellForRowBlock)(NSIndexPath *indexPath, id item, UITableViewCell *cell);
+@property (nonatomic, copy) CGFloat (^heightForRowBlock)(NSIndexPath *indexPath, id item);
+@property (nonatomic, copy) void (^didSelectCellBlock)(NSIndexPath *indexPath, id item);
 
 //System
 //UITableViewDataSource
-@property (nonatomic, copy) NumberOfSectionsInTableViewBlock numberOfSectionsInTableViewBlock;
-@property (nonatomic, copy) NumberOfRowsInSectionBlock numberOfRowsInSectionBlock;
-@property (nonatomic, copy) CellForRowAtIndexPathBlock cellForRowAtIndexPathBlock;
+@property (nonatomic, copy) NSInteger (^numberOfSectionsInTableViewBlock)(void);
+@property (nonatomic, copy) NSInteger (^numberOfRowsInSectionBlock)(NSInteger section);
+@property (nonatomic, copy) UITableViewCell *(^cellForRowAtIndexPathBlock)(NSIndexPath *indexPath);
 //UITableViewDelegate
-@property (nonatomic, copy) HeightForRowAtIndexPathBlock heightForRowAtIndexPathBlock;
-@property (nonatomic, copy) ViewForHeaderInSectionBlock viewForHeaderInSectionBlock;
-@property (nonatomic, copy) HeightForHeaderInSectionBlock heightForHeaderInSectionBlock;
-@property (nonatomic, copy) ViewForFooterInSectionBlock viewForFooterInSectionBlock;
-@property (nonatomic, copy) HeightForFooterInSectionBlock heightForFooterInSectionBlock;
-@property (nonatomic, copy) DidSelectRowAtIndexPathBlock didSelectRowAtIndexPathBlock;
+@property (nonatomic, copy) CGFloat (^heightForRowAtIndexPathBlock)(NSIndexPath *indexPath);
+@property (nonatomic, copy) UIView *(^viewForHeaderInSectionBlock)(NSInteger section);
+@property (nonatomic, copy) CGFloat (^heightForHeaderInSectionBlock)(NSInteger section);
+@property (nonatomic, copy) UIView *(^viewForFooterInSectionBlock)(NSInteger section);
+@property (nonatomic, copy) CGFloat (^heightForFooterInSectionBlock)(NSInteger section);
+@property (nonatomic, copy) void (^didSelectRowAtIndexPathBlock)(NSIndexPath *indexPath);
 
 - (id)initWithSystem;
 

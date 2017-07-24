@@ -17,7 +17,7 @@
 
 - (void)setHeaderRefreshBlock:(void (^)(void))headerRefreshBlock {
     objc_setAssociatedObject(self, @selector(headerRefreshBlock), headerRefreshBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    
+
     if (headerRefreshBlock) {
         self.header = ({
             MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{

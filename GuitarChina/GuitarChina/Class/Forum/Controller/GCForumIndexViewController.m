@@ -122,10 +122,10 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor whiteColor];
         @weakify(self);
-        _tableView.headerRefreshBlock = ^{
+        [_tableView setHeaderRefreshBlock:^{
             @strongify(self);
             [self getForumIndex];
-        };
+        }];
 
         self.tableViewKit = [[GCTableViewKit alloc] initWithSystem];
         self.tableViewKit.numberOfSectionsInTableViewBlock = ^{

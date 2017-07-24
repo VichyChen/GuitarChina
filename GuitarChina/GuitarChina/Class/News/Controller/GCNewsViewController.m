@@ -16,7 +16,6 @@
 @interface GCNewsViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) HMSegmentedControl *segmentedControl;
-
 @property (nonatomic, strong) UIScrollView *scrollView;
 
 @property (nonatomic, strong) GCNewsRecommendViewController *newsRecommendViewController;

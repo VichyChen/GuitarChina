@@ -68,22 +68,17 @@
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - 48) style:UITableViewStyleGrouped];
         _tableView.backgroundColor = [UIColor whiteColor];
-        _tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
-        _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, CGFLOAT_MIN)];
-        if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 13, 0, 0)];
-        }
-        if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-            [_tableView setLayoutMargins:UIEdgeInsetsMake(0, 13, 0, 0)];
-        }
+        [_tableView initHeaderView];
+        [_tableView initFooterView];
+        _tableView.leftSeparatorInset = 13;
 
         @weakify(self);
-        _tableView.headerRefreshBlock = ^{
+        [_tableView setHeaderRefreshBlock:^{
             @strongify(self);
             if (self.refreshBlock) {
                 self.refreshBlock();
             }
-        };
+        }];
         
         self.tableViewKit = [[GCTableViewKit alloc] initWithSystem];
         self.tableViewKit.numberOfSectionsInTableViewBlock = ^NSInteger{
@@ -175,14 +170,6 @@
                 label.textColor = [GCColor blueColor];
                 
                 [view addSubview:label];
-                
-//                UIView *lineView1 = [[UIView alloc] initWithFrame:CGRectMake(13, 10, ScreenWidth - 13, 0.5)];
-//                lineView1.backgroundColor = [GCColor separatorLineColor];
-//                [view addSubview:lineView1];
-
-//                UIView *lineView2 = [[UIView alloc] initWithFrame:CGRectMake(13, 49.5, ScreenWidth - 13, 0.5)];
-//                lineView2.backgroundColor = [GCColor separatorLineColor];
-//                [view addSubview:lineView2];
                 
                 return view;
             }

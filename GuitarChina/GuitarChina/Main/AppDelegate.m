@@ -36,18 +36,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-//    [GCNetworkManager getNewsWithSuccess:^(NSData *htmlData) {
-//        
-//    } failure:^(NSError *error) {
-//        
-//    }];
-    
-#if FREEVERSION
-    NSLog(@"1111");
-#else
-    NSLog(@"2222");
-#endif
-    
     if ([self firstStart]) {
         [NSUD setBool:YES forKey:kGCAutoSwitchNightMode];
         [NSUD setBool:YES forKey:kGCLoadImage];
@@ -67,8 +55,6 @@
     [self configureForumDictionary];
     [self configureSVProgressHUD];
     [self configureTabBarController];
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];

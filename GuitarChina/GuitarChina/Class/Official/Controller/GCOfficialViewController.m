@@ -39,20 +39,15 @@
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
         _tableView.backgroundColor = [GCColor backgroundColor];
-        _tableView.tableFooterView = [[UIView alloc] init];
-        if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 13, 0, 0)];
-        }
-        if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-            [_tableView setLayoutMargins:UIEdgeInsetsMake(0, 13, 0, 0)];
-        }
+        [_tableView initFooterView];
+        _tableView.leftSeparatorInset = 13;
 
         self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCOfficialCell"];
         @weakify(self);
-        self.tableViewKit.getItemsBlock = ^{
+        [self.tableViewKit setGetItemsBlock:^NSArray *{
             @strongify(self);
             return self.array;
-        };
+        }];
         self.tableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
             GCOfficialCell *officialCell = (GCOfficialCell *)cell;
             NSDictionary *dictionary = item;

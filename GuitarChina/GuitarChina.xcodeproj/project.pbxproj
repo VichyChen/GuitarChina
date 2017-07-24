@@ -14,6 +14,7 @@
 		0403AAF41E403F8E00D6FD20 /* GCNewPostThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF31E403F8E00D6FD20 /* GCNewPostThreadCell.m */; };
 		0403AAF81E45D84A00D6FD20 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF71E45D84A00D6FD20 /* UITextView+Placeholder.m */; };
 		0403AB1A1E486D8000D6FD20 /* GCPostThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AB191E486D8000D6FD20 /* GCPostThreadModel.m */; };
+		040740091F25A978005A32D2 /* UITableView+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 040740081F25A978005A32D2 /* UITableView+Extention.m */; };
 		0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
 		04091D801CFBECBC00B797B1 /* GCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 04091D7F1CFBECBC00B797B1 /* GCColor.m */; };
 		040FEF341E111EB2006DA6FA /* GCThreadDetailMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF331E111EB2006DA6FA /* GCThreadDetailMenuView.m */; };
@@ -480,6 +481,8 @@
 		0403AAF71E45D84A00D6FD20 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		0403AB181E486D8000D6FD20 /* GCPostThreadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCPostThreadModel.h; sourceTree = "<group>"; };
 		0403AB191E486D8000D6FD20 /* GCPostThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPostThreadModel.m; sourceTree = "<group>"; };
+		040740071F25A978005A32D2 /* UITableView+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Extention.h"; sourceTree = "<group>"; };
+		040740081F25A978005A32D2 /* UITableView+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Extention.m"; sourceTree = "<group>"; };
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
 		04091D7E1CFBECBC00B797B1 /* GCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColor.h; sourceTree = "<group>"; };
 		04091D7F1CFBECBC00B797B1 /* GCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColor.m; sourceTree = "<group>"; };
@@ -1329,6 +1332,8 @@
 				049085111E03EE8000CF5C1C /* UITableViewCell+Extension.m */,
 				0464A93A1E1B4F3B00B9E1C9 /* UIScrollView+Extension.h */,
 				0464A93B1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m */,
+				040740071F25A978005A32D2 /* UITableView+Extention.h */,
+				040740081F25A978005A32D2 /* UITableView+Extention.m */,
 			);
 			path = GCTableViewDataDelegate;
 			sourceTree = "<group>";
@@ -2733,6 +2738,7 @@
 				423889001BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
 				040212341E06DC3F002D74F6 /* GCOfficialCell.m in Sources */,
 				421192A71CE85EEE00BCFF3E /* GCThreadDetailView.m in Sources */,
+				040740091F25A978005A32D2 /* UITableView+Extention.m in Sources */,
 				040FEF341E111EB2006DA6FA /* GCThreadDetailMenuView.m in Sources */,
 				421192EB1CE8615400BCFF3E /* GCSendReplyModel.m in Sources */,
 				421192741CE85D3200BCFF3E /* GCForumDisplayViewController.m in Sources */,

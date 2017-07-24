@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GCBaseViewController.h"
 
 typedef NS_ENUM(NSInteger, GCDiscoveryTableViewType) {
     GCDiscoveryTableViewTypeHot,

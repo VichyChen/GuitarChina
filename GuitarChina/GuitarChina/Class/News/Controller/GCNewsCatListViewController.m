@@ -77,20 +77,15 @@
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
         _tableView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64);
-        if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 13, 0, 0)];
-        }
-        if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-            [_tableView setLayoutMargins:UIEdgeInsetsMake(0, 13, 0, 0)];
-        }
-        _tableView.tableFooterView = [[UIView alloc] init];
+        _tableView.leftSeparatorInset = 13;
+        [_tableView initFooterView];
         
         self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCNewsListCell"];
         @weakify(self);
-        self.tableViewKit.getItemsBlock = ^{
+        [self.tableViewKit setGetItemsBlock:^NSArray *{
             @strongify(self);
             return self.model.newsArray;
-        };
+        }];
         self.tableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
             GCNewsListCell *newsCell = (GCNewsListCell *)cell;
             GCNewsModel *model = (GCNewsModel *)item;
@@ -113,16 +108,17 @@
         };
         [self.tableViewKit configureTableView:_tableView];
         
-        _tableView.headerRefreshBlock = ^{
+        [_tableView setHeaderRefreshBlock:^{
             @strongify(self);
             self.pageIndex = 1;
             [self getNews];
-        };
-//        _tableView.footerRefreshBlock = ^{
+        }];
+
+//        [_tableView setFooterRefreshBlock:^{
 //            @strongify(self);
 //            self.pageIndex++;
 //            [self getNews];
-//        };
+//        }];
     }
     return _tableView;
 }

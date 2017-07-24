@@ -70,20 +70,15 @@
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
         _tableView.backgroundColor = [GCColor backgroundColor];
-        _tableView.tableFooterView = [[UIView alloc] init];
-        if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
-        }
-        if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-            [_tableView setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
-        }
-        
+        [_tableView initFooterView];
+        _tableView.leftSeparatorInset = 0;
+
         self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCMyThreadCell"];
         @weakify(self);
-        self.tableViewKit.getItemsBlock = ^{
+        [self.tableViewKit setGetItemsBlock:^NSArray *{
             @strongify(self);
             return self.data;
-        };
+        }];
         self.tableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
             GCMyThreadCell *myThreadCell = (GCMyThreadCell *)cell;
             myThreadCell.model = item;
@@ -104,10 +99,10 @@
         };
         [self.tableViewKit configureTableView:_tableView];
         
-        _tableView.headerRefreshBlock = ^{
+        [_tableView setHeaderRefreshBlock:^{
             @strongify(self);
             [self getMyThread];
-        };
+        }];
     }
     return _tableView;
 }

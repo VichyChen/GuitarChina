@@ -69,14 +69,8 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64) style:UITableViewStyleGrouped];
         _tableView.backgroundColor = [GCColor backgroundColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
-        }
-        if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-            [_tableView setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
-        }
-        
-        _tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.01)];
+        _tableView.leftSeparatorInset = 0;
+        [_tableView initHeaderView];
 
         self.tableViewKit = [[GCTableViewKit alloc] initWithSystem];
         @weakify(self);

@@ -185,11 +185,11 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             [self.searchTableView reloadData];
             
             if (searchArray.datas.count == 50) {
-                self.searchTableView.footerRefreshBlock = ^{
+                [self.searchTableView setFooterRefreshBlock:^{
                     @strongify(self);
                     self.pageIndex++;
                     self.searchBlock();
-                };
+                }];
             }
             else {
                 self.searchTableView.footerRefreshBlock = nil;
@@ -279,13 +279,8 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         _historyTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
         _historyTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _historyTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-        if ([_historyTableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [_historyTableView setSeparatorInset:UIEdgeInsetsMake(0, 10, 0, 10)];
-        }
-        if ([_historyTableView respondsToSelector:@selector(setLayoutMargins:)]) {
-            [_historyTableView setLayoutMargins:UIEdgeInsetsMake(0, 10, 0, 10)];
-        }
-        
+        _historyTableView.horizontalSeparatorInset = UIEdgeInsetsMake(0, 10, 0, 10);
+
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
 
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, ScreenWidth - 30, 44)];
@@ -308,7 +303,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         button.center = footerView.center;
         [footerView addSubview:button];
         _historyTableView.tableFooterView = footerView;
-        
+
         @weakify(self);
         [_historyTableView bk_whenTapped:^{
             @strongify(self);
@@ -347,22 +342,16 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     if (!_searchTableView) {
         _searchTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
         _searchTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-        if ([_searchTableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [_searchTableView setSeparatorInset:UIEdgeInsetsMake(0, 0, 0, 0)];
-        }
-        if ([_searchTableView respondsToSelector:@selector(setLayoutMargins:)]) {
-            [_searchTableView setLayoutMargins:UIEdgeInsetsMake(0, 0, 0, 0)];
-        }
-        
-        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
-        _searchTableView.tableFooterView = footerView;
-        
+        _searchTableView.leftSeparatorInset = 0;
+
+        [_searchTableView initFooterViewWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+
         self.searchTableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCSearchCell"];
         @weakify(self);
-        self.searchTableViewKit.getItemsBlock = ^{
+        [self.searchTableViewKit setGetItemsBlock:^NSArray *{
             @strongify(self);
             return self.searchArray;
-        };
+        }];
         self.searchTableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
             GCSearchCell *searchCell = (GCSearchCell *)cell;
             GCSearchModel *model = item;

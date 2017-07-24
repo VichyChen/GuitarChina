@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GCBaseViewController.h"
 
 @interface GCForumIndexViewController : GCBaseViewController
 

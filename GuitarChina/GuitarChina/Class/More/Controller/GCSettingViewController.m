@@ -68,7 +68,6 @@
         _tableView.backgroundColor = [GCColor backgroundColor];
 
         UIView *footerView = [[UIView alloc] init];
-        
         if ([[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
             footerView.frame = CGRectMake(0, 0, ScreenWidth, 80);
             UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -80,23 +79,16 @@
             [button addTarget:self action:@selector(logoutAction) forControlEvents:UIControlEventTouchUpInside];
             [footerView addSubview:button];
         }
-        
         _tableView.tableFooterView = footerView;
+        
+        _tableView.leftSeparatorInset = 13;
 
-        
-        if ([_tableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [_tableView setSeparatorInset:UIEdgeInsetsMake(0, 13, 0, 0)];
-        }
-        if ([_tableView respondsToSelector:@selector(setLayoutMargins:)]) {
-            [_tableView setLayoutMargins:UIEdgeInsetsMake(0, 13, 0, 0)];
-        }
-        
         self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCSettingCell"];
         @weakify(self);
-        self.tableViewKit.getItemsBlock = ^{
+        [self.tableViewKit setGetItemsBlock:^NSArray *{
             @strongify(self);
             return self.array;
-        };
+        }];
         self.tableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
             @strongify(self);
             GCSettingCell *settingCell = (GCSettingCell *)cell;

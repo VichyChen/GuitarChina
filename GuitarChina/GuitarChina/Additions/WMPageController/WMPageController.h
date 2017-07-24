@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "WMMenuView.h"
 #import "WMScrollView.h"
-#import "GCBaseViewController.h"
 
 @class WMPageController;
 

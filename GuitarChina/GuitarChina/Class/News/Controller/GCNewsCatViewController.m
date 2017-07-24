@@ -57,14 +57,14 @@
         _leftTableView.frame = CGRectMake(0, 0, 120, ScreenHeight - 64 - 48);
         _leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _leftTableView.showsVerticalScrollIndicator = NO;
-        _leftTableView.tableFooterView = [[UIView alloc] init];
-        
+        [_leftTableView initFooterView];
+
         self.leftTableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCNewsCatLeftMenuCell"];
         @weakify(self);
-        self.leftTableViewKit.getItemsBlock = ^{
+        [self.leftTableViewKit setGetItemsBlock:^NSArray *{
             @strongify(self);
             return self.menuArray;
-        };
+        }];
         self.leftTableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
             GCNewsCatLeftMenuCell *newsCatLeftMenuCell = (GCNewsCatLeftMenuCell *)cell;
             GCNewsMenuModel *model = (GCNewsMenuModel *)item;
@@ -87,18 +87,13 @@
     if (!_rightTableView) {
         _rightTableView = [[UITableView alloc] init];
         _rightTableView.frame = CGRectMake(self.leftTableView.frame.size.width, 0, ScreenWidth - self.leftTableView.frame.size.width, ScreenHeight - 64 - 48);
-        if ([_rightTableView respondsToSelector:@selector(setSeparatorInset:)]) {
-            [_rightTableView setSeparatorInset:UIEdgeInsetsMake(0, 13, 0, 0)];
-        }
-        if ([_rightTableView respondsToSelector:@selector(setLayoutMargins:)]) {
-            [_rightTableView setLayoutMargins:UIEdgeInsetsMake(0, 13, 0, 0)];
-        }
+        _rightTableView.leftSeparatorInset = 13;
         _rightTableView.showsVerticalScrollIndicator = NO;
-        _rightTableView.tableFooterView = [[UIView alloc] init];
-        
+        [_rightTableView initFooterView];
+
         self.rightTableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCNewsCatRightMenuCell"];
         @weakify(self);
-        self.rightTableViewKit.getItemsBlock = ^{
+        [self.rightTableViewKit setGetItemsBlock:^NSArray *{
             @strongify(self);
             if (self.menuArray.count > 0) {
                 GCNewsMenuModel *model = self.menuArray[self.selectIndex];
@@ -108,7 +103,7 @@
             } else {
                 return [NSMutableArray array];
             }
-        };
+        }];
         self.rightTableViewKit.cellForRowBlock = ^(NSIndexPath *indexPath, id item, UITableViewCell *cell) {
             GCNewsCatRightMenuCell *newsCatRightMenuCell = (GCNewsCatRightMenuCell *)cell;
             GCNewsMenuModel *model = (GCNewsMenuModel *)item;
