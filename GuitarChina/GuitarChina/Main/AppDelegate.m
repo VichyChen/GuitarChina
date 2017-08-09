@@ -11,7 +11,8 @@
 #import "GCDiscoveryViewController.h"
 #import "GCForumIndexViewController.h"
 #import "GCMoreViewController.h"
-#import "MobClick.h"
+//#import "MobClick.h"
+#import <UMengAnalytics/UMMobClick/MobClick.h>
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
 #import "UMSocialQQHandler.h"
@@ -20,6 +21,7 @@
 #import "GCReplyThreadViewController.h"
 #import "GCReportThreadViewController.h"
 #import "GCHTMLParse.h"
+#import <InMobiSDK/InMobiSDK.h>
 
 @interface AppDelegate ()
 
@@ -66,6 +68,14 @@
     self.adInterstitial = [[GCAdInterstitial alloc] init];
 #endif
     
+    
+    
+//    print(ASIdentifierManager.shared().advertisingIdentifier.uuidString)
+//    ASIdentifierManager 
+//    IMSdk.initWithAccountID("29f896d6472c467b9dc53606adf192e6");
+
+//    [IMSdk initWithAccountID:@"87384c4f17394a6eb2f3c9cd8ca51618"];
+
     return YES;
 }
 
@@ -144,14 +154,11 @@
 #pragma mark - UMengAnalytics
 
 - (void)UMengAnalytics {
-    [MobClick startWithAppkey:kUmengAppKey reportPolicy:BATCH channelId:@""];
-    //version标识
-    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    [MobClick setAppVersion:version];
-    //日志加密
+    UMAnalyticsConfig *config = [[UMAnalyticsConfig alloc] init];
+    config.appKey = kUmengAppKey;
+    [MobClick startWithConfigure:config];
+    [MobClick setAppVersion:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]];
     [MobClick setEncryptEnabled:YES];
-    //禁止后台模式
-    [MobClick setBackgroundTaskEnabled:NO];
 }
 
 #pragma mark - UMengSocial

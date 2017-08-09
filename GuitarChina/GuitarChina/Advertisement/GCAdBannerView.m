@@ -9,12 +9,14 @@
 #import "GCAdBannerView.h"
 #import <GoogleMobileAds/GADBannerView.h>
 #import "GDTMobBannerView.h"
+#import <InMobiSDK/InMobiSDK.h>
 
-@interface GCAdBannerView() <GADBannerViewDelegate, GDTMobBannerViewDelegate>
+@interface GCAdBannerView() <GADBannerViewDelegate, GDTMobBannerViewDelegate, IMBannerDelegate>
 
 @property (nonatomic, strong) GADBannerView *bannerView;
 
 @property (nonatomic, strong) GDTMobBannerView *gdtBannerView;
+@property (nonatomic, strong) IMBanner *imBannerView;
 
 @end
 
@@ -57,6 +59,13 @@
     self.gdtBannerView.showCloseBtn = NO;
     [self addSubview:self.gdtBannerView];
     [self.gdtBannerView loadAdAndShow];
+    
+//    self.imBannerView = [[IMBanner alloc] init];
+//    self.imBannerView.frame = CGRectMake(0, 0, ([UIScreen mainScreen].bounds.size.width), 50);
+//    self.imBannerView.placementId = 1501225532268;
+//    self.imBannerView.delegate = self;
+//    [self.imBannerView load];
+//    [self addSubview:self.imBannerView];
 }
 
 - (void)setupCountDown:(CGFloat)countDown {
@@ -119,6 +128,44 @@
 
 - (void)adViewWillLeaveApplication:(GADBannerView *)bannerView {
     [GCStatistics event:GCStatisticsEventAdMobBannerClick extra:nil];
+}
+
+#pragma mark - IMBannerDelegate
+
+-(void)bannerDidFinishLoading:(IMBanner*)banner {
+    
+}
+
+-(void)banner:(IMBanner*)banner didFailToLoadWithError:(IMRequestStatus*)error {
+    
+}
+
+-(void)banner:(IMBanner*)banner didInteractWithParams:(NSDictionary*)params {
+    
+}
+
+-(void)userWillLeaveApplicationFromBanner:(IMBanner*)banner {
+    
+}
+
+-(void)bannerWillPresentScreen:(IMBanner*)banner {
+    
+}
+
+-(void)bannerDidPresentScreen:(IMBanner*)banner {
+    
+}
+
+-(void)bannerWillDismissScreen:(IMBanner*)banner {
+    
+}
+
+-(void)bannerDidDismissScreen:(IMBanner*)banner {
+    
+}
+
+-(void)banner:(IMBanner*)banner rewardActionCompletedWithRewards:(NSDictionary*)rewards {
+    
 }
 
 @end

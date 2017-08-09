@@ -7,7 +7,7 @@
 //
 
 #import "GCStatistics.h"
-#import "MobClick.h"
+#import <UMengAnalytics/UMMobClick/MobClick.h>
 
 @implementation GCStatistics
 

@@ -209,7 +209,6 @@
 		041CD32D1EF4D43700BA3DC1 /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238888E1BC57CA6002E1625 /* MJRefreshStateHeader.m */; };
 		041CD32F1EF4D43700BA3DC1 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
 		041CD3301EF4D43700BA3DC1 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 045F2F291BDFBAAE0024C9FC /* libxml2.dylib */; };
-		041CD3311EF4D43700BA3DC1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F829F5DD46C688C9B2385EC /* libPods.a */; };
 		041CD3331EF4D43700BA3DC1 /* ZLPhotoLib.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C0D4E61DD41A2A007A5113 /* ZLPhotoLib.bundle */; };
 		041CD3341EF4D43700BA3DC1 /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
 		041CD3351EF4D43700BA3DC1 /* GCThreadWebViewTableHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */; };
@@ -351,6 +350,7 @@
 		04F8A3601D28E19F007F2350 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3571D28E19F007F2350 /* WMProgressView.m */; };
 		04F8A3611D28E19F007F2350 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3591D28E19F007F2350 /* WMScrollView.m */; };
 		04F8A3621D28E19F007F2350 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A35C1D28E19F007F2350 /* WMPageController.m */; };
+		069769E23C16D29429DD57F5 /* libPods-GuitarChina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9598BB9F7AE8C65712FAF8F /* libPods-GuitarChina.a */; };
 		421191C71CE6D16600BCFF3E /* GCNetworkBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 421191C61CE6D16600BCFF3E /* GCNetworkBase.m */; };
 		421191D31CE8558B00BCFF3E /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 421191D11CE8558B00BCFF3E /* GuitarChina.xcdatamodeld */; };
 		421192351CE85D0800BCFF3E /* GCHTMLParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192311CE85D0800BCFF3E /* GCHTMLParse.m */; };
@@ -453,7 +453,6 @@
 		42A600A91CF9EECA002F709F /* GCHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A600A81CF9EECA002F709F /* GCHistoryCell.m */; };
 		42C5546A1C878334000AF010 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C554691C878334000AF010 /* Default-568h@2x.png */; };
 		42FFF5B21BF1C24A0061029B /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42FFF5B11BF1C24A0061029B /* ForumList.plist */; };
-		CEFC34C235C11966848A8595 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F829F5DD46C688C9B2385EC /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -483,6 +482,7 @@
 		0403AB191E486D8000D6FD20 /* GCPostThreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCPostThreadModel.m; sourceTree = "<group>"; };
 		040740071F25A978005A32D2 /* UITableView+Extention.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Extention.h"; sourceTree = "<group>"; };
 		040740081F25A978005A32D2 /* UITableView+Extention.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Extention.m"; sourceTree = "<group>"; };
+		040741391F2892E5005A32D2 /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UMMobClick.framework; path = Pods/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4/UMMobClick.framework; sourceTree = "<group>"; };
 		0408D0931BE205C100B3825A /* UserProtocol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = UserProtocol.txt; sourceTree = "<group>"; };
 		04091D7E1CFBECBC00B797B1 /* GCColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCColor.h; sourceTree = "<group>"; };
 		04091D7F1CFBECBC00B797B1 /* GCColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCColor.m; sourceTree = "<group>"; };
@@ -710,8 +710,6 @@
 		04F8A35A1D28E19F007F2350 /* WMPageConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageConst.h; sourceTree = "<group>"; };
 		04F8A35B1D28E19F007F2350 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
 		04F8A35C1D28E19F007F2350 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
-		2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		2F829F5DD46C688C9B2385EC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		421191C51CE6D16600BCFF3E /* GCNetworkBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkBase.h; sourceTree = "<group>"; };
 		421191C61CE6D16600BCFF3E /* GCNetworkBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNetworkBase.m; sourceTree = "<group>"; };
 		421191D21CE8558B00BCFF3E /* GuitarChina.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GuitarChina.xcdatamodel; sourceTree = "<group>"; };
@@ -919,7 +917,9 @@
 		42CB56B51C888BA100F304CD /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		42DA94FF1BA3B23B001A79B9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		42FFF5B11BF1C24A0061029B /* ForumList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForumList.plist; sourceTree = "<group>"; };
-		AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		57799C0424A91ADDD0AC92B6 /* Pods-GuitarChina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuitarChina.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GuitarChina/Pods-GuitarChina.debug.xcconfig"; sourceTree = "<group>"; };
+		80E95800524FCE765F3E6E65 /* Pods-GuitarChina.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuitarChina.release.xcconfig"; path = "Pods/Target Support Files/Pods-GuitarChina/Pods-GuitarChina.release.xcconfig"; sourceTree = "<group>"; };
+		A9598BB9F7AE8C65712FAF8F /* libPods-GuitarChina.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GuitarChina.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -929,7 +929,6 @@
 			files = (
 				041CD32F1EF4D43700BA3DC1 /* libz.dylib in Frameworks */,
 				041CD3301EF4D43700BA3DC1 /* libxml2.dylib in Frameworks */,
-				041CD3311EF4D43700BA3DC1 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,8 +945,8 @@
 				0439F4F21F21FF1400935847 /* StoreKit.framework in Frameworks */,
 				04AF910E1BE8FAF10030AEEB /* libz.dylib in Frameworks */,
 				045F2F2A1BDFBAAE0024C9FC /* libxml2.dylib in Frameworks */,
-				CEFC34C235C11966848A8595 /* libPods.a in Frameworks */,
 				0439F4F01F21FDC400935847 /* libGDTMobSDK.a in Frameworks */,
+				069769E23C16D29429DD57F5 /* libPods-GuitarChina.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1059,9 +1058,17 @@
 			path = "UITextView+Placeholder";
 			sourceTree = "<group>";
 		};
+		0407413B1F2896D7005A32D2 /* InMobi */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InMobi;
+			sourceTree = "<group>";
+		};
 		040FEF351E12192A006DA6FA /* Advertisement */ = {
 			isa = PBXGroup;
 			children = (
+				0407413B1F2896D7005A32D2 /* InMobi */,
 				0439F4E71F21FDAC00935847 /* GDT */,
 				04D350671E13ACE900047725 /* GCAdBannerView.h */,
 				04D350681E13ACE900047725 /* GCAdBannerView.m */,
@@ -1563,6 +1570,7 @@
 		0F41C248D61EFD30EA073F7A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				040741391F2892E5005A32D2 /* UMMobClick.framework */,
 				0439F4FD1F21FF4B00935847 /* AdSupport.framework */,
 				0439F4FB1F21FF4200935847 /* CoreLocation.framework */,
 				0439F4F91F21FF3D00935847 /* QuartzCore.framework */,
@@ -1572,9 +1580,18 @@
 				0439F4F11F21FF1400935847 /* StoreKit.framework */,
 				04AF910D1BE8FAF10030AEEB /* libz.dylib */,
 				045F2F291BDFBAAE0024C9FC /* libxml2.dylib */,
-				2F829F5DD46C688C9B2385EC /* libPods.a */,
+				A9598BB9F7AE8C65712FAF8F /* libPods-GuitarChina.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		259EE02174C5950AA2E65F51 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				57799C0424A91ADDD0AC92B6 /* Pods-GuitarChina.debug.xcconfig */,
+				80E95800524FCE765F3E6E65 /* Pods-GuitarChina.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		420D985D1B9297F600AEAED3 /* Additions */ = {
@@ -2128,9 +2145,9 @@
 				425FB2E11B84C23B00B6A89B /* GuitarChina */,
 				425FB2FE1B84C23B00B6A89B /* GuitarChinaTests */,
 				425FB2E01B84C23B00B6A89B /* Products */,
-				AB640BEDEDAD0ED6AD1E1485 /* Pods */,
 				0F41C248D61EFD30EA073F7A /* Frameworks */,
 				041CD34B1EF4D43900BA3DC1 /* GuitarChinaPro-Info.plist */,
+				259EE02174C5950AA2E65F51 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2215,15 +2232,6 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		AB640BEDEDAD0ED6AD1E1485 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */,
-				AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2231,12 +2239,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 041CD3471EF4D43700BA3DC1 /* Build configuration list for PBXNativeTarget "GuitarChinaPro" */;
 			buildPhases = (
-				041CD27A1EF4D43700BA3DC1 /* Check Pods Manifest.lock */,
 				041CD27B1EF4D43700BA3DC1 /* Sources */,
 				041CD32E1EF4D43700BA3DC1 /* Frameworks */,
 				041CD3321EF4D43700BA3DC1 /* Resources */,
-				041CD3451EF4D43700BA3DC1 /* Copy Pods Resources */,
-				041CD3461EF4D43700BA3DC1 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2251,12 +2256,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 425FB3051B84C23B00B6A89B /* Build configuration list for PBXNativeTarget "GuitarChina" */;
 			buildPhases = (
-				E62AB1768536757AA62111BF /* Check Pods Manifest.lock */,
+				91FFD27F8EB400CEBEC44F8E /* [CP] Check Pods Manifest.lock */,
 				425FB2DB1B84C23B00B6A89B /* Sources */,
 				425FB2DC1B84C23B00B6A89B /* Frameworks */,
 				425FB2DD1B84C23B00B6A89B /* Resources */,
-				5E174959A530DAA782C4E091 /* Copy Pods Resources */,
-				FF2807AD1FCC5166E5E990A0 /* Embed Pods Frameworks */,
+				7E3E06D5660A909EFE6D9F1D /* [CP] Embed Pods Frameworks */,
+				218CB27B7F49EB9109B79DD8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2390,94 +2395,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		041CD27A1EF4D43700BA3DC1 /* Check Pods Manifest.lock */ = {
+		218CB27B7F49EB9109B79DD8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GuitarChina/Pods-GuitarChina-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		041CD3451EF4D43700BA3DC1 /* Copy Pods Resources */ = {
+		7E3E06D5660A909EFE6D9F1D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GuitarChina/Pods-GuitarChina-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		041CD3461EF4D43700BA3DC1 /* Embed Pods Frameworks */ = {
+		91FFD27F8EB400CEBEC44F8E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5E174959A530DAA782C4E091 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E62AB1768536757AA62111BF /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FF2807AD1FCC5166E5E990A0 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2955,7 +2915,6 @@
 /* Begin XCBuildConfiguration section */
 		041CD3481EF4D43700BA3DC1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaProAppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
@@ -2997,7 +2956,6 @@
 		};
 		041CD3491EF4D43700BA3DC1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaProAppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
@@ -3127,7 +3085,7 @@
 		};
 		425FB3061B84C23B00B6A89B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2C73355A6429B32FC1969A32 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 57799C0424A91ADDD0AC92B6 /* Pods-GuitarChina.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaAppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
@@ -3137,6 +3095,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = VJ9XJ78H9K;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3175,7 +3137,7 @@
 		};
 		425FB3071B84C23B00B6A89B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AFDC071C669AEB06233DAB0B /* Pods.release.xcconfig */;
+			baseConfigurationReference = 80E95800524FCE765F3E6E65 /* Pods-GuitarChina.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaAppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
@@ -3185,6 +3147,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = VJ9XJ78H9K;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",

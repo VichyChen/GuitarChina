@@ -1,5 +1,7 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
+target "GuitarChina" do
+
 pod 'AFNetworking', '~> 2.5'
 pod 'SDWebImage'
 pod 'FMDB'
@@ -12,3 +14,6 @@ pod 'IQKeyboardManager'
 pod 'MagicalRecord'
 pod 'BlocksKit'
 pod 'Google-Mobile-Ads-SDK'
+pod 'InMobiSDK'
+
+end

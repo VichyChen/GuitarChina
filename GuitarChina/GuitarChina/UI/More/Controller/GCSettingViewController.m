@@ -110,7 +110,7 @@
 
             switch (indexPath.row) {
                 case 0:
-                    [[SDImageCache sharedImageCache] clearDisk];
+//                    [[SDImageCache sharedImageCache] clearDisk];                    
                     [self.tableView reloadData];
                     break;
                 case 1:
@@ -124,7 +124,7 @@
 }
 
 - (NSArray *)array {
-    return @[@{@"image" : @"", @"title" : NSLocalizedString(@"Clear Cache", nil), @"value" : [NSString stringWithFormat:@"%.2fMB", [[SDImageCache sharedImageCache] getSize] / 1000.0 / 1000.0]}, @{@"image" : @"", @"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]],  @"value" : @""}];
+    return @[@{@"image" : @"", @"title" : NSLocalizedString(@"Clear Cache", nil), @"value" : @"0"}, @{@"image" : @"", @"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]],  @"value" : @""}];
 }
 
 @end

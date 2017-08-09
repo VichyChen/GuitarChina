@@ -153,9 +153,21 @@
             }
 
             // 网络URL
-            [_photoImageView sd_setImageWithURL:photo.photoURL placeholderImage:thumbImage options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                [self setProgress:(double)receivedSize / expectedSize];
-            } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//            [_photoImageView sd_setImageWithURL:photo.photoURL placeholderImage:thumbImage options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//                [self setProgress:(double)receivedSize / expectedSize];
+//            } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//                if (image) {
+//                    [self setProgress:1.0];
+//                }
+//                self.isLoadingDone = YES;
+//                if (image) {
+//                    _photoImageView.image = image;
+//                    [weakSelf displayImage];
+//                }else{
+//                    [_photoImageView removeScaleBigTap];
+//                }
+//            }];
+            [_photoImageView sd_setImageWithURL:photo.photoURL placeholderImage:thumbImage options:SDWebImageRetryFailed completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                 if (image) {
                     [self setProgress:1.0];
                 }
