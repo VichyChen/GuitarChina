@@ -54,10 +54,6 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     [self configureBlock];
     
     self.historyBlock();
-
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.05 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-//        [self.searchTextField becomeFirstResponder];
-//    });
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -70,7 +66,6 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     [super viewDidAppear:animated];
     
     self.navigationItem.hidesBackButton = YES;
-    [self.searchTextField becomeFirstResponder];
 }
 
 - (void)dealloc {
@@ -114,7 +109,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     self.searchTextField.leftViewMode = UITextFieldViewModeAlways;
     self.searchTextField.leftView = leftView;
     self.searchTextField.returnKeyType = UIReturnKeySearch;
-    [self.searchTextField addTarget:self action:@selector(searchTextFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
+//    [self.searchTextField addTarget:self action:@selector(searchTextFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
     @weakify(self);
     self.searchTextField.bk_shouldReturnBlock = ^(UITextField *textField) {
         @strongify(self);

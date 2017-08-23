@@ -7,7 +7,6 @@
 //
 
 #import "GCNavigationController.h"
-#import "DKNightVersion.h"
 
 @interface GCNavigationController ()
 

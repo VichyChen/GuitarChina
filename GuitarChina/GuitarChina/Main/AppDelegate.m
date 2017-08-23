@@ -21,7 +21,6 @@
 #import "GCReplyThreadViewController.h"
 #import "GCReportThreadViewController.h"
 #import "GCHTMLParse.h"
-#import <InMobiSDK/InMobiSDK.h>
 
 @interface AppDelegate ()
 
@@ -63,13 +62,6 @@
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
-#if FREEVERSION
-    [self setupADInterstitialTime];
-    self.adInterstitial = [[GCAdInterstitial alloc] init];
-#endif
-    
-    
-    
 //    print(ASIdentifierManager.shared().advertisingIdentifier.uuidString)
 //    ASIdentifierManager 
 //    IMSdk.initWithAccountID("29f896d6472c467b9dc53606adf192e6");
@@ -92,14 +84,7 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-#if FREEVERSION
-    NSDate *date = [Util getNSDateWithDateString:[NSUD stringForKey:kGCToday] format:@"yyyy-MM-dd HH:mm:ss"];
-    NSTimeInterval timeInterVal = -[date timeIntervalSinceDate:[Util getDate]];
-    if (timeInterVal > kAdMobEnterForegroundTimeInterval) {
-        [self setupADInterstitialTime];
-        [self.adInterstitial presentFromRootViewController];
-    }
-#endif
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

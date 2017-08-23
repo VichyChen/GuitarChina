@@ -1,11 +1,11 @@
 source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '7.0'
 
 target "GuitarChina" do
 
 pod 'AFNetworking', '~> 2.5'
 pod 'SDWebImage'
 pod 'FMDB'
-pod "DKNightVersion", "~> 0.8.1"
 pod 'FDFullscreenPopGesture', '~> 1.1'
 pod 'UMengSocial'
 pod 'UMengAnalytics'
@@ -13,7 +13,20 @@ pod 'NJKWebViewProgress'
 pod 'IQKeyboardManager'
 pod 'MagicalRecord'
 pod 'BlocksKit'
-pod 'Google-Mobile-Ads-SDK'
-pod 'InMobiSDK'
 
+end
+
+target "GuitarChinaPro" do
+    
+    pod 'AFNetworking', '~> 2.5'
+    pod 'SDWebImage'
+    pod 'FMDB'
+    pod 'FDFullscreenPopGesture', '~> 1.1'
+    pod 'UMengSocial'
+    pod 'UMengAnalytics'
+    pod 'NJKWebViewProgress'
+    pod 'IQKeyboardManager'
+    pod 'MagicalRecord'
+    pod 'BlocksKit'
+    
 end

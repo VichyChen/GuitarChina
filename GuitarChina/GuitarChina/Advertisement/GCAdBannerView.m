@@ -7,16 +7,11 @@
 //
 
 #import "GCAdBannerView.h"
-#import <GoogleMobileAds/GADBannerView.h>
 #import "GDTMobBannerView.h"
-#import <InMobiSDK/InMobiSDK.h>
 
-@interface GCAdBannerView() <GADBannerViewDelegate, GDTMobBannerViewDelegate, IMBannerDelegate>
-
-@property (nonatomic, strong) GADBannerView *bannerView;
+@interface GCAdBannerView() <GDTMobBannerViewDelegate>
 
 @property (nonatomic, strong) GDTMobBannerView *gdtBannerView;
-@property (nonatomic, strong) IMBanner *imBannerView;
 
 @end
 
@@ -44,14 +39,6 @@
 }
 
 - (void)configureView:(UIViewController *)viewController {
-    /*
-    self.bannerView = [[GADBannerView alloc] initWithAdSize:kGADAdSizeSmartBannerPortrait];
-    self.bannerView.delegate = self;
-    self.bannerView.adUnitID = kAdMobIDDetailBottom;
-    self.bannerView.rootViewController = viewController;
-    [self.bannerView loadRequest:[GADRequest request]];
-    [self addSubview:self.bannerView];
-     */
     self.gdtBannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, GDTMOB_AD_SUGGEST_SIZE_320x50.height) appkey:kGDTAppKey placementId:kGDTBanner];
     self.gdtBannerView.delegate = self;
     self.gdtBannerView.interval = 30;
@@ -59,13 +46,6 @@
     self.gdtBannerView.showCloseBtn = NO;
     [self addSubview:self.gdtBannerView];
     [self.gdtBannerView loadAdAndShow];
-    
-//    self.imBannerView = [[IMBanner alloc] init];
-//    self.imBannerView.frame = CGRectMake(0, 0, ([UIScreen mainScreen].bounds.size.width), 50);
-//    self.imBannerView.placementId = 1501225532268;
-//    self.imBannerView.delegate = self;
-//    [self.imBannerView load];
-//    [self addSubview:self.imBannerView];
 }
 
 - (void)setupCountDown:(CGFloat)countDown {
@@ -91,6 +71,7 @@
 #pragma mark - GDTMobBannerViewDelegate
 
 - (void)bannerViewDidReceived {
+    [GCStatistics event:GCStatisticsEventGDTBannerShow extra:nil];
     if (self.loadRequestCompleteBlock) {
         self.loadRequestCompleteBlock();
     }
@@ -101,71 +82,7 @@
 }
 
 - (void)bannerViewClicked {
-
-}
-
-
-#pragma mark - GADBannerViewDelegate
-
-- (void)adViewDidReceiveAd:(GADBannerView *)bannerView {
-    [GCStatistics event:GCStatisticsEventAdMobBannerShow extra:nil];
-    if (self.loadRequestCompleteBlock) {
-        self.loadRequestCompleteBlock();
-    }
-}
-
-- (void)adViewWillPresentScreen:(GADBannerView *)bannerView {
-    
-}
-
-- (void)adViewWillDismissScreen:(GADBannerView *)bannerView {
-    
-}
-
-- (void)adViewDidDismissScreen:(GADBannerView *)bannerView {
-    
-}
-
-- (void)adViewWillLeaveApplication:(GADBannerView *)bannerView {
-    [GCStatistics event:GCStatisticsEventAdMobBannerClick extra:nil];
-}
-
-#pragma mark - IMBannerDelegate
-
--(void)bannerDidFinishLoading:(IMBanner*)banner {
-    
-}
-
--(void)banner:(IMBanner*)banner didFailToLoadWithError:(IMRequestStatus*)error {
-    
-}
-
--(void)banner:(IMBanner*)banner didInteractWithParams:(NSDictionary*)params {
-    
-}
-
--(void)userWillLeaveApplicationFromBanner:(IMBanner*)banner {
-    
-}
-
--(void)bannerWillPresentScreen:(IMBanner*)banner {
-    
-}
-
--(void)bannerDidPresentScreen:(IMBanner*)banner {
-    
-}
-
--(void)bannerWillDismissScreen:(IMBanner*)banner {
-    
-}
-
--(void)bannerDidDismissScreen:(IMBanner*)banner {
-    
-}
-
--(void)banner:(IMBanner*)banner rewardActionCompletedWithRewards:(NSDictionary*)rewards {
-    
+    [GCStatistics event:GCStatisticsEventGDTBannerClick extra:nil];
 }
 
 @end

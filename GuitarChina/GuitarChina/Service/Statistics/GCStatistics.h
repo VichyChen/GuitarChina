@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, GCStatisticsEvent) {
+    GCStatisticsEventGDTBannerShow,
+    GCStatisticsEventGDTBannerClick,
     GCStatisticsEventAdMobBannerShow,
     GCStatisticsEventAdMobBannerClick,
     GCStatisticsEventAdMobCenterBannerShow,

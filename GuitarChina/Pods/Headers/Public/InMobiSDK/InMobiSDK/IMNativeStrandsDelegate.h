@@ -1,1 +1,0 @@
-../../../../InMobiSDK/InMobiSDK.framework/Headers/IMNativeStrandsDelegate.h

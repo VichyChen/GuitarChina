@@ -170,7 +170,7 @@
             return NO;
         }
         //GC帖子
-        if ([request.mainDocumentURL.relativeString startsWith:@"http://bbs.guitarchina.com/thread-"] && [request.mainDocumentURL.relativePath endsWith:@".html"]) {
+        if ([request.mainDocumentURL.relativeString startsWith:@"https://bbs.guitarchina.com/thread-"] && [request.mainDocumentURL.relativePath endsWith:@".html"]) {
             NSArray *array = [request.mainDocumentURL.relativeString split:@"-"];
             GCThreadDetailViewController *controller = [[GCThreadDetailViewController alloc] init];
             controller.tid = [array objectAtIndex:1];

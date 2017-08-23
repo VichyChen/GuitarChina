@@ -11,7 +11,6 @@
 #import "GCDiscoveryTableViewController.h"
 #import "GCNavigationController.h"
 #import "GCSearchViewController.h"
-#import "GCAdBannerView.h"
 #import "GCDiscoveryPromptProView.h"
 
 @interface GCDiscoveryViewController () <UIScrollViewDelegate>
@@ -22,7 +21,6 @@
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 
-@property (nonatomic, strong) GCAdBannerView *bannner;
 
 @end
 
@@ -165,14 +163,6 @@
         _scrollView.delegate = self;
     }
     return _scrollView;
-}
-
-- (GCAdBannerView *)bannner {
-    if (!_bannner) {
-        _bannner = [[GCAdBannerView alloc] initWithRootViewController:self countDown:100.0];
-        _bannner.frame = CGRectMake(0, ScreenHeight - 48 - 50, ScreenWidth, 50);
-    }
-    return _bannner;
 }
 
 @end
