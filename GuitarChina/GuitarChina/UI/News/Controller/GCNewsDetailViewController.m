@@ -37,6 +37,9 @@
 }
 
 - (void)configureView {
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.webView];
 #if FREEVERSION
@@ -95,7 +98,7 @@
 
 - (UIWebView *)webView {
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64)];
         _webView.opaque = NO;
         _webView.backgroundColor = [UIColor whiteColor];
         _webView.delegate = self;

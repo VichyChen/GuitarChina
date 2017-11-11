@@ -19,4 +19,9 @@
 //圆角图片
 - (UIImage *)cutCircleImage;
 
+- (UIImage *)resize:(CGSize)resize;
+
+//裁剪图片
+- (UIImage *)cutWithRect:(CGRect)rect;
+
 @end

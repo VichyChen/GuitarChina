@@ -10,6 +10,7 @@
 #import "GCNewPostThreadCell.h"
 #import "GCLoginPickerView.h"
 #import "ZLPhoto.h"
+#import "VCValidateUtil.h"
 
 #define SortIDArray @[@"182", @"192"]
 #define ChengSeDataArray @[@"9成新", @"8成新", @"7成新", @"6成新", @"5成新", @"4成新", @"3成新"]
@@ -83,7 +84,7 @@
 }
 
 - (void)sendAction {
-    if ([self.subject trim].length == 0) {
+    if (StringIsEmpty(self.subject)) {
         [self showAlertView:@"请输入标题！"];
         return;
     }
@@ -91,40 +92,44 @@
         [self showAlertView:@"回复内容要多于8个字！"];
         return;
     }
-    if (self.threadTypes && self.selectedType.length == 0) {
+    if (self.threadTypes && StringIsEmpty(self.selectedType)) {
         [self showAlertView:@"请选择帖子分类！"];
         return;
     }
     
     if (!self.threadTypes) {
-        NSString *sortid = (self.sortid ? self.sortid : SortIDArray[0]);
+        NSString *sortid = StringIfEmptyWithDefault(self.sortid, SortIDArray[0]);
         if ([sortid isEqualToString:SortIDArray[0]]) {
-            if ([self.sPinPai trim].length == 0) {
+            if (StringIsEmpty(self.sPinPai)) {
                 [self showAlertView:@"请输入品牌！"];
                 return;
             }
-            if ([self.sPinPai trim].length == 0) {
+            if (StringIsEmpty(self.sPinPai)) {
                 [self showAlertView:@"请选择成色！"];
                 return;
             }
-            if ([self.sJiaGe trim].length == 0) {
+            if (StringIsEmpty(self.sJiaGe)) {
                 [self showAlertView:@"请输入价格！"];
                 return;
             }
-            if ([self.sXiangXi trim].length == 0) {
+            if (StringIsEmpty(self.sXiangXi)) {
                 [self showAlertView:@"请输入详细描述！"];
                 return;
             }
-            if ([self.sName trim].length == 0) {
+            if (StringIsEmpty(self.sName)) {
                 [self showAlertView:@"请输入姓名！"];
                 return;
             }
-            if ([self.sPhone trim].length == 0) {
+            if (StringIsEmpty(self.sPhone)) {
                 [self showAlertView:@"请输入电话！"];
                 return;
             }
-            if ([self.sAddress trim].length == 0) {
+            if (StringIsEmpty(self.sAddress)) {
                 [self showAlertView:@"请输入商品所在地！"];
+                return;
+            }
+            if (!StringIsEmpty(self.sEmail) && ![VCValidateUtil isValidateEmail:String(self.sEmail)]) {
+                [self showAlertView:@"请输入正确的邮箱格式！"];
                 return;
             }
         }
@@ -132,7 +137,7 @@
             
         }
     }
-
+    
     [self.view endEditing:YES];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
@@ -142,26 +147,23 @@
         
         NSMutableDictionary *tableDictionary = [NSMutableDictionary dictionary];
         if (!self.threadTypes) {
-            NSString *sortid = (self.sortid ? self.sortid : SortIDArray[0]);
+            NSString *sortid = StringIfEmptyWithDefault(self.sortid, SortIDArray[0]);
             if ([sortid isEqualToString:SortIDArray[0]]) {
                 [tableDictionary addEntriesFromDictionary:@{@"selectsortid" : sortid,
                                                             @"sortid" : sortid,
-                                                            @"typeoption[pinpai]" : (self.sPinPai ? self.sPinPai : @""),
-                                                           @"typeoption[xinghao]" : (self.sXingHao ? self.sXingHao : @""),
-                                                           @"typeoption[chengse]" : (self.sChengSe ? self.sChengSe : ChengSeValueArray[0]),
-                                                           @"typeoption[trade_num]" : (self.sTrade_num ? self.sTrade_num : @""),
-                                                           @"typeoption[jiage]" : (self.sJiaGe ? self.sJiaGe : @""),
-                                                           @"typeoption[xiangxi]" : (self.sXiangXi ? self.sXiangXi : @""),
-                                                           @"typeoption[name]" : (self.sName ? self.sName : @""),
-                                                           @"typeoption[phone]" : (self.sPhone ? self.sPhone : @""),
-                                                           @"typeoption[QQ]" : (self.sQQ ? self.sQQ : @""),
-                                                           @"typeoption[email1]" : (self.sEmail ? self.sEmail : @""),
-                                                           @"typeoption[address]" : (self.sAddress ? self.sAddress : @""),
-                                                           @"typeoption[zhongjie]" : (self.sZhongJie ? self.sZhongJie : ZhongJieValueArray[2])}];
-                if (self.sFuKuangFangShi.count > 0) {
-//                    for (NSString *string in self.sFuKuangFangShi) {
-//                        [tableDictionary setObject:string forKey:@"typeoption[fukangfang][]"];
-//                    }
+                                                            @"typeoption[pinpai]" : String(self.sPinPai),
+                                                            @"typeoption[xinghao]" : String(self.sXingHao),
+                                                            @"typeoption[chengse]" : StringIfEmptyWithDefault(self.sChengSe, ChengSeValueArray[0]),
+                                                            @"typeoption[trade_num]" : String(self.sTrade_num),
+                                                            @"typeoption[jiage]" : String(self.sJiaGe),
+                                                            @"typeoption[xiangxi]" : String(self.sXiangXi),
+                                                            @"typeoption[name]" : String(self.sName),
+                                                            @"typeoption[phone]" : String(self.sPhone),
+                                                            @"typeoption[QQ]" : String(self.sQQ),
+                                                            @"typeoption[email1]" : String(self.sEmail),
+                                                            @"typeoption[address]" : String(self.sAddress),
+                                                            @"typeoption[zhongjie]" : StringIfEmptyWithDefault(self.sZhongJie, ZhongJieValueArray[2])}];
+                if (ArrayHasObject(self.sFuKuangFangShi)) {
                     [tableDictionary setObject:[NSSet setWithArray:self.sFuKuangFangShi] forKey:@"typeoption[fukangfang][]"];
                 } else {
                     [tableDictionary setObject:FuKuangFangShiValueArray[4] forKey:@"typeoption[fukangfang][]"];
@@ -170,11 +172,11 @@
             else if ([sortid isEqualToString:SortIDArray[1]]) {
                 [tableDictionary addEntriesFromDictionary:@{@"selectsortid" : sortid,
                                                             @"sortid" : sortid,
-                                    @"typeoption[pinpai]" : (self.bPinPai ? self.bPinPai : @""),
-                                    @"typeoption[chengse]" : (self.bChengSe ? self.bChengSe : ChengSeValueArray[0]),
-                                    @"typeoption[xinghao]" : (self.bXingHao ? self.bXingHao : @""),
-                                    @"typeoption[QQ]" : (self.bQQ ? self.bQQ : @""),
-                                    @"typeoption[address]" : (self.bAddress ? self.bAddress : @"")}];
+                                                            @"typeoption[pinpai]" : String(self.bPinPai),
+                                                            @"typeoption[chengse]" : StringIfEmptyWithDefault(self.bChengSe, ChengSeValueArray[0]),
+                                                            @"typeoption[xinghao]" : String(self.bXingHao),
+                                                            @"typeoption[QQ]" : String(self.bQQ),
+                                                            @"typeoption[address]" : String(self.bAddress)}];
             }
         }
         
@@ -190,7 +192,7 @@
             self.navigationItem.rightBarButtonItem.enabled = YES;
         }];
     };
-
+    
     [GCNetworkManager getWebNewThreadWithFid:self.fid sortid:self.sortid success:^(NSData *htmlData) {
         [GCHTMLParse parseWebNewThread:htmlData result:^(NSString *formhash, NSString *posttime) {
             @strongify(self);
@@ -235,7 +237,7 @@
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         _tableView.backgroundColor = [GCColor backgroundColor];
         _tableView.separatorLeftInset = 0;
-
+        
         self.tableViewKit = [[GCTableViewKit alloc] initWithSystem];
         @weakify(self);
         self.tableViewKit.numberOfSectionsInTableViewBlock = ^NSInteger{
@@ -317,7 +319,7 @@
                 {
                     cell.titleLabel.text = dictionary[@"title"];
                     cell.textView.text = dictionary[@"value"];
-
+                    
                     void (^block)(NSString *text) = dictionary[@"block"];
                     cell.textViewValueChangeBlock = ^(UITextView *textView) {
                         if (block) {
@@ -456,7 +458,7 @@
             @strongify(self);
             NSArray *array = [self.data objectAtIndex:indexPath.section];
             NSDictionary *dictionary = array[indexPath.row];
-
+            
             if ([dictionary.allKeys containsObject:@"rowHeight"]) {
                 CGFloat (^block)(void) = dictionary[@"rowHeight"];
                 CGFloat height = block();
@@ -520,7 +522,7 @@
                           @"type" : @0,
                           @"dataArray" : @[@"诚意转让", @"我要求购"],
                           @"valueArray" : SortIDArray,
-                          @"value" : (self.sortid ? self.sortid : SortIDArray[0]),
+                          @"value" : StringIfEmptyWithDefault(self.sortid, SortIDArray[0]),
                           @"block" : ^(NSInteger selectedIndex){
                               @strongify(self);
                               self.sortid = SortIDArray[selectedIndex];
@@ -528,19 +530,25 @@
                           }}];
     NSArray *array1 = @[@{@"title" : @"品牌",
                           @"type" : @1,
-                          @"value" : (self.sPinPai ? self.sPinPai : @""),
+                          @"value" : String(self.sPinPai),
                           @"keyboardType" : @(UIKeyboardTypeDefault),
-                          @"block" : ^(NSString *text){@strongify(self); self.sPinPai = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.sPinPai = text;
+                          }},
                         @{@"title" : @"型号",
                           @"type" : @1,
-                          @"value" : (self.sXingHao ? self.sXingHao : @""),
+                          @"value" : String(self.sXingHao),
                           @"keyboardType" : @(UIKeyboardTypeDefault),
-                          @"block" : ^(NSString *text){@strongify(self); self.sXingHao = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.sXingHao = text;
+                          }},
                         @{@"title" : @"成色",
                           @"type" : @5,
                           @"dataArray" : ChengSeDataArray,
                           @"valueArray" : ChengSeValueArray,
-                          @"value" : (self.sChengSe ? self.sChengSe : @""),
+                          @"value" : String(self.sChengSe),
                           @"block" : ^(NSString *text){
                               @strongify(self);
                               for (int i = 0; i < ChengSeDataArray.count; i++) {
@@ -552,48 +560,72 @@
                           },
                         @{@"title" : @"数量",
                           @"type" : @1,
-                          @"value" : (self.sTrade_num ? self.sTrade_num : @""),
+                          @"value" : String(self.sTrade_num),
                           @"keyboardType" : @(UIKeyboardTypeNumberPad),
-                          @"block" : ^(NSString *text){@strongify(self); self.sTrade_num = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.sTrade_num = text;
+                          }},
                         @{@"title" : @"价格",
                           @"type" : @1,
-                          @"value" : (self.sJiaGe ? self.sJiaGe : @""),
+                          @"value" : String(self.sJiaGe),
                           @"keyboardType" : @(UIKeyboardTypeDecimalPad),
-                          @"block" : ^(NSString *text){@strongify(self); self.sJiaGe = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.sJiaGe = text;
+                          }},
                         @{@"title" : @"详细描述",
                           @"type" : @3,
-                          @"value" : (self.sXiangXi ? self.sXiangXi : @""),
-                          @"block" : ^(NSString *text){@strongify(self); self.sXiangXi = text;}},
+                          @"value" : String(self.sXiangXi),
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.sXiangXi = text;
+                          }},
                         @{@"title" : @"姓名",
                           @"type" : @1,
-                          @"value" : (self.sName ? self.sName : @""),
+                          @"value" : String(self.sName),
                           @"keyboardType" : @(UIKeyboardTypeDefault),
-                          @"block" : ^(NSString *text){@strongify(self); self.sName = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.sName = text;
+                          }},
                         @{@"title" : @"电话",
                           @"type" : @1,
-                          @"value" : (self.sPhone ? self.sPhone : @""),
+                          @"value" : String(self.sPhone),
                           @"keyboardType" : @(UIKeyboardTypePhonePad),
-                          @"block" : ^(NSString *text){@strongify(self); self.sPhone = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.sPhone = text;
+                          }},
                         @{@"title" : @"QQ",
                           @"type" : @1,
-                          @"value" : (self.sQQ ? self.sQQ : @""),
+                          @"value" : String(self.sQQ),
                           @"keyboardType" : @(UIKeyboardTypeNumberPad),
-                          @"block" : ^(NSString *text){@strongify(self); self.sQQ = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.sQQ = text;
+                          }},
                         @{@"title" : @"电子邮件",
                           @"type" : @1,
-                          @"value" : (self.sEmail ? self.sEmail : @""),
+                          @"value" : String(self.sEmail),
                           @"keyboardType" : @(UIKeyboardTypeEmailAddress),
-                          @"block" : ^(NSString *text){@strongify(self); self.sEmail = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.sEmail = text;
+                          }},
                         @{@"title" : @"商品所在地",
                           @"type" : @1,
-                          @"value" : (self.sAddress ? self.sAddress : @""),
+                          @"value" : String(self.sAddress),
                           @"keyboardType" : @(UIKeyboardTypeDefault),
-                          @"block" : ^(NSString *text){@strongify(self); self.sAddress = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.sAddress = text;
+                          }},
                         @{@"title" : @"是否中介",
                           @"type" : @5,
                           @"dataArray" : ZhongJieDataArray,
                           @"valueArray" : ZhongJieValueArray,
-                          @"value" : (self.sZhongJie ? self.sZhongJie : @""),
+                          @"value" : String(self.sZhongJie),
                           @"block" : ^(NSString *text){
                               @strongify(self);
                               for (int i = 0; i < ZhongJieDataArray.count; i++) {
@@ -608,17 +640,23 @@
                           @"dataArray" : FuKuangFangShiDataArray,
                           @"valueArray" : FuKuangFangShiValueArray,
                           @"value" : (self.sFuKuangFangShi ? self.sFuKuangFangShi : @[]),
-                          @"block" : ^(NSArray *array){@strongify(self); self.sFuKuangFangShi = array;}}];
+                          @"block" : ^(NSArray *array){
+                              @strongify(self);
+                              self.sFuKuangFangShi = array;
+                          }}];
     NSArray *array2 = @[@{@"title" : @"品牌",
                           @"type" : @1,
-                          @"value" : (self.bPinPai ? self.bPinPai : @""),
+                          @"value" : String(self.bPinPai),
                           @"keyboardType" : @(UIKeyboardTypeDefault),
-                          @"block" : ^(NSString *text){@strongify(self); self.bPinPai = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.bPinPai = text;
+                          }},
                         @{@"title" : @"成色",
                           @"type" : @5,
                           @"dataArray" : ChengSeDataArray,
                           @"valueArray" : ChengSeValueArray,
-                          @"value" : (self.bChengSe ? self.bChengSe : @""),
+                          @"value" : String(self.bChengSe),
                           @"block" : ^(NSString *text){
                               @strongify(self);
                               for (int i = 0; i < ChengSeDataArray.count; i++) {
@@ -630,28 +668,40 @@
                           },
                         @{@"title" : @"型号",
                           @"type" : @1,
-                          @"value" : (self.bXingHao ? self.bXingHao : @""),
+                          @"value" : String(self.bXingHao),
                           @"keyboardType" : @(UIKeyboardTypeDefault),
-                          @"block" : ^(NSString *text){@strongify(self); self.bXingHao = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.bXingHao = text;
+                          }},
                         @{@"title" : @"QQ",
                           @"type" : @1,
-                          @"value" : (self.bQQ ? self.bQQ : @""),
+                          @"value" : String(self.bQQ),
                           @"keyboardType" : @(UIKeyboardTypeNumberPad),
-                          @"block" : ^(NSString *text){@strongify(self); self.bQQ = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.bQQ = text;
+                          }},
                         @{@"title" : @"商品所在地",
                           @"type" : @1,
-                          @"value" : (self.bAddress ? self.bAddress : @""),
+                          @"value" : String(self.bAddress),
                           @"keyboardType" : @(UIKeyboardTypeDefault),
-                          @"block" : ^(NSString *text){@strongify(self); self.bAddress = text;}}];
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.bAddress = text;
+                          }}];
     NSArray *array3 = @[@{@"title" : @"请输入标题",
                           @"type" : @2,
-                          @"value" : (self.subject ? self.subject : @""),
+                          @"value" : String(self.subject),
                           @"keyboardType" : @(UIKeyboardTypeDefault),
-                          @"block" : ^(NSString *text){@strongify(self); self.subject = text;}},
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.subject = text;
+                          }},
                         @{@"title" : @"选择主题分类",
                           @"type" : @7,
                           @"dictionary" : self.threadTypes ? self.threadTypes : @{},
-                          @"value" : (self.selectedType ? self.selectedType : @""),
+                          @"value" : String(self.selectedType),
                           @"block" : ^{
                               @strongify(self);
                               if (!self.threadTypes) {
@@ -661,7 +711,6 @@
                               
                               GCLoginPickerView *questionPickerView = [[GCLoginPickerView alloc] init];
                               questionPickerView.array = self.threadTypes.allValues;
-                              @weakify(self);
                               questionPickerView.okActionBlock = ^(NSInteger index){
                                   @strongify(self);
                                   NSString *value = self.threadTypes.allValues[index];
@@ -675,7 +724,7 @@
                               };
                               [questionPickerView showInView:self.view];
                           },
-                          @"rowHeight" : ^(CGFloat rowHeight){
+                          @"rowHeight" : ^CGFloat {
                               @strongify(self);
                               if (self.threadTypes) {
                                   return 44.0;
@@ -685,8 +734,11 @@
                           }},
                         @{@"title" : @"内容",
                           @"type" : @4,
-                          @"value" : (self.message ? self.message : @""),
-                          @"block" : ^(NSString *text){@strongify(self); self.message = text;}}];
+                          @"value" : String(self.message),
+                          @"block" : ^(NSString *text){
+                              @strongify(self);
+                              self.message = text;
+                          }}];
     NSArray *array4 = @[@{@"type" : @8,
                           @"value" : (self.imageArray.count > 0 ? self.imageArray : @[])}];
     _data = @[array0, array1, array2, array3, array4];

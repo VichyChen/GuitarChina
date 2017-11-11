@@ -194,22 +194,22 @@
     [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebReplySecure parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSDictionary *dictionary = @{ @"mobiletype" : @"1",
-                                      @"formhash" : (formhash ? formhash : @""),
+                                      @"formhash" : String(formhash),
                                       @"posttime" : @"",
                                       @"wysiwyg" : @"0",
-                                      @"noticeauthor" : (noticeauthor ? noticeauthor : @""),
-                                      @"noticetrimstr" : (noticetrimstr ? noticetrimstr : @""),
-                                      @"noticeauthormsg" : (noticeauthormsg ? noticeauthormsg : @""),
-                                      @"reppid" : reppid.length > 0 ? reppid : @"",
-                                      @"reppost" : reppost.length > 0 ? reppost : @"",
+                                      @"noticeauthor" : String(noticeauthor),
+                                      @"noticetrimstr" : String(noticetrimstr),
+                                      @"noticeauthormsg" : String(noticeauthormsg),
+                                      @"reppid" : String(reppid),
+                                      @"reppost" : String(reppost),
                                       @"subject" : @"",
                                       @"checkbox" : @"0",
-                                      @"message" : message,
+                                      @"message" : String(message),
                                       @"usesig" : @"1",
                                       @"save" : @""};
         
         NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:dictionary];
-        if (attachArray) {
+        if (ArrayHasObject(attachArray)) {
             for (NSString *attach in attachArray) {
                 [parameters setObject:@"" forKey:[NSString stringWithFormat:@"attachnew[%@][description]", attach]];
             }
@@ -252,10 +252,10 @@
                         failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_WebPostThreadSecure parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        NSDictionary *dictionary = @{@"formhash" : (formhash ? formhash : @""),
-                                     @"posttime" : (posttime ? posttime : @""),
-                                     @"subject" : (subject ? subject : @""),
-                                     @"message" : (message ? message : @""),
+        NSDictionary *dictionary = @{@"formhash" : String(formhash),
+                                     @"posttime" : String(posttime),
+                                     @"subject" : String(subject),
+                                     @"message" : String(message),
                                      @"wysiwyg" : @"1",//???
                                      @"replycredit_extcredits" : @"0",
                                      @"replycredit_times" : @"1",
@@ -266,13 +266,13 @@
                                      @"save" : @"", };
         
         NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:dictionary];
-        if (type.length > 0) {
+        if (!StringIsEmpty(type)) {
             [parameters setObject:type forKey:@"typeid"];
         }
-        if (tableDictionary.allKeys.count > 0) {
+        if (ArrayHasObject(tableDictionary.allKeys)) {
             [parameters addEntriesFromDictionary:tableDictionary];
         }
-        if (attachArray) {
+        if (ArrayHasObject(attachArray)) {
             for (NSString *attach in attachArray) {
                 [parameters setObject:@"" forKey:[NSString stringWithFormat:@"attachnew[%@][description]", attach]];
             }

@@ -70,4 +70,9 @@
     [self.footer endRefreshing];
 }
 
+- (BOOL)isRefreshing {
+    return [self.header isRefreshing] || [self.footer isRefreshing];
+}
+
+
 @end

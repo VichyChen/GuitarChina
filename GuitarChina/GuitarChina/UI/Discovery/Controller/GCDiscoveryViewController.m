@@ -64,7 +64,7 @@
 
 - (void)searchAction {
     GCSearchViewController *controller = [[GCSearchViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:controller animated:NO];
 }
 
 #pragma mark - Private Methods

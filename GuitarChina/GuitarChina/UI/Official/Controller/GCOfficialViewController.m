@@ -83,7 +83,7 @@
     if (!_array) {
         _array = @[@{@"image" : @"official_guitarchina", @"title" : @"吉他中国", @"description" : @"吉他中国-华语第一吉他世界！", @"type" : @"0", @"id" : @"58664"},
                    @{@"image" : @"official_musical", @"title" : @"琴国乐器", @"description" : @"吉他中国唯一下属专业网络乐器选购平台，中国第一电声乐器在线电子商务平台！", @"type" : @"0", @"id" : @"1790525"},
-                   @{@"image" : @"official_mushroom", @"title" : @"蘑菇音乐", @"description" : @"吉他中国旗下致力于现代音乐教育推广的联合机构，中国第一吉他教育在线联盟！", @"type" : @"0", @"id" : @"2040865"},
+                   @{@"image" : @"official_mushroom", @"title" : @"魔菇音乐", @"description" : @"吉他中国旗下致力于现代音乐教育推广的联合机构，中国第一吉他教育在线联盟！", @"type" : @"0", @"id" : @"2040865"},
                    @{@"image" : @"official_taobao", @"title" : @"琴国淘宝", @"description" : @"吉他中国琴国乐器官方唯一淘宝店。", @"type" : @"1", @"id" : @"https://shop33023113.m.taobao.com"},
                    @{@"image" : @"official_weidian", @"title" : @"琴国微店", @"description" : @"吉他中国琴国乐器官方唯一微店。", @"type" : @"1", @"id" : @"https://weidian.com/?userid=374043907&wfr=c"},
                    @{@"image" : @"official_weibo", @"title" : @"官方微博", @"description" : @"吉他中国新浪官方微博@吉他中国，微博互动吉他平台。", @"type" : @"1", @"id" : @"http://weibo.com/84037131"}];

@@ -59,12 +59,14 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.hidesBackButton = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.hidesBackButton = YES;
 }
 
@@ -76,16 +78,16 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 
 - (void)configureNavigationBar {
     UIBarButtonItem *flexSpaceButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:self action:nil];
-    flexSpaceButton.width = -10;
+    flexSpaceButton.width = -20;
     
-    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Cancel", nil)
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"  %@", NSLocalizedString(@"Cancel", nil)]
                                                                 style:UIBarButtonItemStylePlain
                                                                target:self
                                                                action:@selector(closeAction)];
     closeButton.tintColor = [UIColor whiteColor];
     [closeButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:16], NSFontAttributeName, nil] forState:UIControlStateNormal];
 
-    self.navigationItem.rightBarButtonItems = @[flexSpaceButton, closeButton];
+    self.navigationItem.rightBarButtonItems = @[closeButton];
     self.navigationItem.hidesBackButton = YES;
     self.navigationController.interactivePopGestureRecognizer.delegate = nil;
 

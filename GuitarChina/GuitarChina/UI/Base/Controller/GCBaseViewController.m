@@ -17,13 +17,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc]init];
-    if (!iOS7) {
-        [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backArrow2"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    UIBarButtonItem *backItem = [[UIBarButtonItem alloc]init];
+////    if (!iOS7) {
+//        [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"icon_backArrow2"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+////    }
+//    [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-500, 0)
+//                                     forBarMetrics:UIBarMetricsDefault];
+//    self.navigationItem.backBarButtonItem = backItem;
+
+    if (self.navigationController.childViewControllers.count > 1) {
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        button.frame = CGRectMake(0, -10, 44, 44);
+        [button setImage:[UIImage imageNamed:@"icon_backArrow2"] forState:UIControlStateNormal];
+        [button setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
+        [button setTintColor:[UIColor whiteColor]];
+        [button setTitle:@"" forState:UIControlStateNormal];
+        @weakify(self);
+        [button bk_whenTapped:^{
+            @strongify(self);
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+        
+        self.navigationController.interactivePopGestureRecognizer.delegate=(id)self;
     }
-    [backItem setBackButtonTitlePositionAdjustment:UIOffsetMake(-500, 0)
-                                     forBarMetrics:UIBarMetricsDefault];
-    self.navigationItem.backBarButtonItem = backItem;
+
     
     self.view.backgroundColor = [UIColor whiteColor];
 }

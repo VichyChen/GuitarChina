@@ -39,7 +39,7 @@
 }
 
 - (void)configureView:(UIViewController *)viewController {
-    self.gdtBannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, GDTMOB_AD_SUGGEST_SIZE_320x50.height) appkey:kGDTAppKey placementId:kGDTBanner];
+    self.gdtBannerView = [[GDTMobBannerView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, GDTMOB_AD_SUGGEST_SIZE_320x50.height) appkey:kGDTAppKey  placementId:kGDTBannerPlacementID];
     self.gdtBannerView.delegate = self;
     self.gdtBannerView.interval = 30;
     self.gdtBannerView.currentViewController = viewController;

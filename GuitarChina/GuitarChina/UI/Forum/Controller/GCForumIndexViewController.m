@@ -42,7 +42,7 @@
         [self calculateRowHeight];
         [self.tableView reloadData];
     }];
-
+    
     [self.tableView headerBeginRefresh];
     
     [GCStatistics event:GCStatisticsEventForumIndex extra:nil];
@@ -51,6 +51,9 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     [self.view addSubview:self.tableView];
 }
 
@@ -67,8 +70,8 @@
 }
 
 - (GCForumGroupModel *)getForumBrowseRecord:(GCForumIndexArray *)array {
-    NSArray *browseArray = [NSUD arrayForKey:kGCForumBrowseRecord] ? [NSUD arrayForKey:kGCForumBrowseRecord] : @[];
-    if (browseArray.count > 0) {
+    NSArray *browseArray = [NSUD arrayForKey:kGCForumBrowseRecord];
+    if (ArrayHasObject(browseArray)) {
         GCForumGroupModel *forumGroupModel = [[GCForumGroupModel alloc] init];
         forumGroupModel.fid = @"0";
         forumGroupModel.name = @"最近浏览";
@@ -118,7 +121,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64 - 48) style:UITableViewStyleGrouped];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor whiteColor];
         @weakify(self);
@@ -126,7 +129,7 @@
             @strongify(self);
             [self getForumIndex];
         }];
-
+        
         self.tableViewKit = [[GCTableViewKit alloc] initWithSystem];
         self.tableViewKit.numberOfSectionsInTableViewBlock = ^{
             @strongify(self);
@@ -167,7 +170,7 @@
             label.text = [NSString stringWithFormat:@"%@", model.name];
             label.font = [UIFont systemFontOfSize:16];
             label.textColor = [GCColor blueColor];
-
+            
             [view addSubview:label];
             
             UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, ScreenWidth, 0.5)];
@@ -188,7 +191,7 @@
         self.tableViewKit.didSelectRowAtIndexPathBlock = ^(NSIndexPath *indexPath) {
             @strongify(self);
             [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+            
             GCForumDisplayViewController *controller = [[GCForumDisplayViewController alloc] init];
             GCForumGroupModel *forumGroupModel = [self.data objectAtIndex:indexPath.section];
             GCForumModel *forumModel = [forumGroupModel.forums objectAtIndex:indexPath.row];

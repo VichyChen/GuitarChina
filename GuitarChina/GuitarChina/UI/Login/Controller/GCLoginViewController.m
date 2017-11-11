@@ -221,7 +221,9 @@
                 
                 self.questionPickerView.array = questionArray;
                 
-                self.getSeccodeVerifyImageBlock(seccode);
+                if (!StringIsEmpty(seccode)) {
+                    self.getSeccodeVerifyImageBlock(seccode);
+                }
             }];
         } failure:^(NSError *error) {
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];

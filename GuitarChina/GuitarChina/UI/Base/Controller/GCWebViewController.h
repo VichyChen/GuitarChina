@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GCWebViewController : UIViewController
+@interface GCWebViewController : GCBaseViewController
 
 @property (nonatomic, strong) UIWebView *webView;
 

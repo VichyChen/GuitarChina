@@ -19,4 +19,6 @@
 - (void)footerBeginRefresh;
 - (void)footerEndRefresh;
 
+- (BOOL)isRefreshing;
+
 @end

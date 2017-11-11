@@ -21,8 +21,12 @@
 #import "GCReplyThreadViewController.h"
 #import "GCReportThreadViewController.h"
 #import "GCHTMLParse.h"
+#import "GDTSplashAd.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <GDTSplashAdDelegate>
+
+@property (strong, nonatomic) GDTSplashAd *splash;
+@property (retain, nonatomic) UIView *bottomView;
 
 //相机
 @property (nonatomic, strong) UIImagePickerController *cameraImagePicker;
@@ -36,7 +40,7 @@
 #pragma mark - UIApplicationDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+
     if ([self firstStart]) {
         [NSUD setBool:YES forKey:kGCAutoSwitchNightMode];
         [NSUD setBool:YES forKey:kGCLoadImage];
@@ -62,14 +66,15 @@
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     
-//    print(ASIdentifierManager.shared().advertisingIdentifier.uuidString)
-//    ASIdentifierManager 
-//    IMSdk.initWithAccountID("29f896d6472c467b9dc53606adf192e6");
-
-//    [IMSdk initWithAccountID:@"87384c4f17394a6eb2f3c9cd8ca51618"];
-
+#if FREEVERSION
+    [self setupADInterstitialTime];
+    [self configureSplashAd];
+#endif
+    
+    
     return YES;
 }
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     
@@ -84,7 +89,14 @@
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-
+#if FREEVERSION
+    NSDate *date = [Util getNSDateWithDateString:[NSUD stringForKey:kGCToday] format:@"yyyy-MM-dd HH:mm:ss"];
+    NSTimeInterval timeInterVal = -[date timeIntervalSinceDate:[Util getDate]];
+    if (timeInterVal > kGDTSplashTShowTimeInterVal) {
+        [self setupADInterstitialTime];
+        [self configureSplashAd];
+    }
+#endif
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -101,6 +113,90 @@
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
     return [UMSocialSnsService handleOpenURL:url];
+}
+
+#pragma mark - GDTSplashAdDelegate
+
+/**
+ *  开屏广告成功展示
+ */
+-(void)splashAdSuccessPresentScreen:(GDTSplashAd *)splashAd {
+    NSLog(@"GDT开屏广告成功展示");
+    [GCStatistics event:GCStatisticsEventGDTSplashShowSuccess extra:nil];
+}
+
+/**
+ *  开屏广告展示失败
+ */
+- (void)splashAdFailToPresent:(GDTSplashAd *)splashAd withError:(NSError *)error {
+    NSLog(@"GDT开屏广告展示失败");
+    NSString *errorInfo = error.userInfo[@"NSLocalizedDescription"];
+    [GCStatistics event:GCStatisticsEventGDTSplashShowFailure extra:@{ @"error" : String(errorInfo)}];
+}
+
+/**
+ *  应用进入后台时回调
+ *  详解: 当点击下载应用时会调用系统程序打开，应用切换到后台
+ */
+- (void)splashAdApplicationWillEnterBackground:(GDTSplashAd *)splashAd {
+    NSLog(@"GDT应用进入后台时回调");}
+
+/**
+ *  开屏广告点击回调
+ */
+- (void)splashAdClicked:(GDTSplashAd *)splashAd {
+    NSLog(@"GDT开屏广告点击回调");
+    [GCStatistics event:GCStatisticsEventGDTSplashClick extra:nil];
+}
+
+/**
+ *  开屏广告将要关闭回调
+ */
+- (void)splashAdWillClosed:(GDTSplashAd *)splashAd {
+    NSLog(@"GDT开屏广告将要关闭回调");
+}
+
+/**
+ *  开屏广告关闭回调
+ */
+- (void)splashAdClosed:(GDTSplashAd *)splashAd {
+    NSLog(@"GDT开屏广告关闭回调");
+    self.splash = nil;
+}
+
+/**
+ *  开屏广告点击以后即将弹出全屏广告页
+ */
+- (void)splashAdWillPresentFullScreenModal:(GDTSplashAd *)splashAd {
+    NSLog(@"GDT开屏广告点击以后即将弹出全屏广告页");
+}
+
+/**
+ *  开屏广告点击以后弹出全屏广告页
+ */
+- (void)splashAdDidPresentFullScreenModal:(GDTSplashAd *)splashAd {
+    NSLog(@"GDT开屏广告点击以后弹出全屏广告页");
+}
+
+/**
+ *  点击以后全屏广告页将要关闭
+ */
+- (void)splashAdWillDismissFullScreenModal:(GDTSplashAd *)splashAd  {
+    NSLog(@"GDT点击以后全屏广告页将要关闭");
+}
+
+/**
+ *  点击以后全屏广告页已经关闭
+ */
+- (void)splashAdDidDismissFullScreenModal:(GDTSplashAd *)splashAd  {
+    NSLog(@"GDT点击以后全屏广告页已经关闭");
+}
+
+/**
+ * 开屏广告剩余时间回调
+ */
+- (void)splashAdLifeTime:(NSUInteger)time {
+    NSLog(@"GDT开屏广告剩余时间回调 %ld", time);
 }
 
 #pragma mark - Public Methods
@@ -158,6 +254,57 @@
 
 - (void)configureTabBarController {
     self.tabBarController = [[GCTabBarController alloc]init];
+}
+
+- (void)configureSplashAd {
+    NSString *imageName;
+    CGRect defaultImageRect;
+    CGRect bottomViewImageRect;
+    //4
+    if (ScreenWidth == 320) {
+        imageName = @"AdLaunchImage_640_1136";
+        defaultImageRect = CGRectMake(0, 0, 640, 1136);
+        bottomViewImageRect = CGRectMake(0, 1136 - 200, 640, 200);
+    }
+    //4.7
+    else if (ScreenWidth == 375 && ScreenHeight == 667) {
+        imageName = @"AdLaunchImage_750_1334";
+        defaultImageRect = CGRectMake(0, 0, 750, 1334);
+        bottomViewImageRect = CGRectMake(0, 1334 - 200, 750, 200);
+    }
+    //5.5
+    else if (ScreenWidth == 414) {
+        imageName = @"AdLaunchImage_1242_2208";
+        defaultImageRect = CGRectMake(0, 0, 1242, 2208);
+        bottomViewImageRect = CGRectMake(0, 2208 - 300, 1242, 300);
+    }
+    //5.8
+    else if (ScreenWidth == 375 && ScreenHeight == 812) {
+        imageName = @"AdLaunchImage_750_1334";
+        defaultImageRect = CGRectMake(0, 0, 750, 1334);
+        bottomViewImageRect = CGRectMake(0, 1334 - 200, 750, 200);
+    }
+    //!@#$%^&*()
+    else {
+        imageName = @"AdLaunchImage_640_1136";
+        defaultImageRect = CGRectMake(0, 0, 640, 1136);
+        bottomViewImageRect = CGRectMake(0, 1136 - 200, 640, 200);
+    }
+    
+    self.splash = [[GDTSplashAd alloc] initWithAppkey:kGDTAppKey placementId:kGDTSplashPlacementID];
+    self.splash.fetchDelay = 3;
+    self.splash.delegate = self;
+    UIImage *defaultImage = [[[UIImage imageNamed:imageName] cutWithRect:defaultImageRect] resize:CGSizeMake(ScreenWidth, ScreenHeight)];
+    self.splash.backgroundColor = [UIColor colorWithPatternImage:defaultImage];
+    
+    self.bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 100, ScreenWidth, 100)];
+    UIImage *bottomImage = [[[UIImage imageNamed:imageName] cutWithRect:bottomViewImageRect] resize:self.bottomView.frame.size];
+    self.bottomView.backgroundColor = [UIColor colorWithPatternImage:bottomImage];
+    
+    [self.splash loadAdAndShowInWindow:APP.window withBottomView:self.bottomView];
+    
+    //    [APP.window addSubview:self.bottomView];
+    //    [self.splash loadAdAndShowInWindow:APP.window];
 }
 
 - (void)configureSVProgressHUD {

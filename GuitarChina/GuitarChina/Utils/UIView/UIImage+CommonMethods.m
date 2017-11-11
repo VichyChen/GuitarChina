@@ -67,4 +67,28 @@
     return image;
 }
 
+- (UIImage *)resize:(CGSize)resize
+{
+    UIGraphicsBeginImageContextWithOptions(resize, NO, [[UIScreen mainScreen] scale]);
+    [self drawInRect:CGRectMake(0, 0, resize.width, resize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+- (UIImage *)cutWithRect:(CGRect)rect {
+    CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, rect);
+    CGRect smallBounds = CGRectMake(0, 0, CGImageGetWidth(imageRef), CGImageGetHeight(imageRef));
+    
+    UIGraphicsBeginImageContext(smallBounds.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextDrawImage(context, smallBounds, imageRef);
+    UIImage* smallImage = [UIImage imageWithCGImage:imageRef];
+    UIGraphicsEndImageContext();
+    
+    return smallImage;
+}
+
+
 @end

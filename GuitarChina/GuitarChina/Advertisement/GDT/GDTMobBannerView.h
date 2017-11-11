@@ -113,10 +113,10 @@
  *       appkey是应用id
  *       placementId是广告位id
  */
-- (id) initWithFrame:(CGRect)frame appkey:(NSString *)appkey placementId:(NSString *)placementId;
+- (id)initWithFrame:(CGRect)frame appkey:(NSString *)appkey placementId:(NSString *)placementId;
 
 /**
  *  拉取并展示广告
  */
-- (void) loadAdAndShow;
+- (void)loadAdAndShow;
 @end

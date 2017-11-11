@@ -34,6 +34,7 @@
 #import "BlocksKit+UIKit.h"
 #import "GCTableViewKit.h"
 #import "GCStatistics.h"
+#import "UIImage+CommonMethods.h"
 
 #define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
 #define ScreenWidth ([UIScreen mainScreen].bounds.size.width)
@@ -43,6 +44,13 @@
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] < 8.0f)
 #define NSNC [NSNotificationCenter defaultCenter]
 #define NSUD [NSUserDefaults standardUserDefaults]
+
+#define String(obj) ((!(obj) || ![(obj) isKindOfClass:[NSString class]]  || ([(obj) isKindOfClass:[NSString class]] && [(obj) length] == 0)) ? @"" : (obj))
+#define StringIsEmpty(obj) (!(obj) || ![(obj) isKindOfClass:[NSString class]] || ([(obj) isKindOfClass:[NSString class]] && [[(obj) trim] length] == 0))
+#define StringIfEmptyWithDefault(obj, default) (StringIsEmpty((obj)) ? default : (obj))
+
+#define ArrayHasObject(obj) ((obj) && [(obj) isKindOfClass:[NSArray class]] && [(obj) count] > 0)
+
 #define DefaultAvator [UIImage imageNamed:@"noavatar_big"]
 #define DefaultImage [UIImage imageNamed:@"default_image"]
 
@@ -115,7 +123,12 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 
 //广点通
 #define kGDTAppKey @"1105344611"
-#define kGDTBanner @"4090812164690039"
+#define kGDTBannerPlacementID @"4090812164690039"
+#define kGDTSplashPlacementID @"9040714184494018"
+#define kGDTNativeExpressPlacementID @"9090529359814184"
+
+#define kGDTSplashTShowTimeInterVal 5
+
 
 //*********************  收费版  ***********************
 #else
@@ -124,8 +137,10 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kUmengAppKey @"5871afc3677baa1aef002ab4"
 
 //广点通
-#define kGDTAppKey @""
-#define kGDTBanner @""
+#define kGDTAppKey  @""
+#define kGDTBannerPlacementID @""
+#define kGDTSplashPlacementID @""
+#define kGDTNativeExpressPlacementID @""
 
 #endif
 
@@ -140,7 +155,11 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 
 //广点通
 #define kGDTAppKey @"1106228271"
-#define kGDTBanner @"1070929464612712"
+#define kGDTBannerPlacementID @"1070929464612712"
+#define kGDTSplashPlacementID @"7020926734878896"
+#define kGDTNativeExpressPlacementID @"6090921745954300"
+
+#define kGDTSplashTShowTimeInterVal 1800
 
 //*********************  收费版  ***********************
 #else
@@ -149,8 +168,10 @@ static NSString * const kGCNotificationLoginSuccess = @"GCNotificationLoginSucce
 #define kUmengAppKey @"5871affbae1bf868920026ed"
 
 //广点通
-#define kGDTAppKey @""
-#define kGDTBanner @""
+#define kGDTAppKey  @""
+#define kGDTBannerPlacementID @""
+#define kGDTSplashPlacementID @""
+#define kGDTNativeExpressPlacementID @""
 
 #endif
 

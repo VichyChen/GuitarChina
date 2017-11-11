@@ -18,7 +18,7 @@
     if (extra) {
         [attributes addEntriesFromDictionary:extra];
     }
-    NSArray *array = @[@"GDTBannerShow", @"GDTBannerClick", @"AdMobBannerShow", @"AdMobBannerClick", @"AdMobCenterBannerShow", @"AdMobCenterBannerClick", @"AdMobInterstitialShow", @"AdMobInterstitialClick", @"Discovery", @"ThreadDetail", @"NewsDetail", @"Login", @"ForumIndex", @"ForumDisplay", @"PostThread", @"ReplyThread", @"Search", @"DiscoveryGoToAppStore", @"DiscoveryClose"];
+    NSArray *array = @[@"GDTBannerShow", @"GDTBannerClick", @"AdMobBannerShow", @"AdMobBannerClick", @"AdMobCenterBannerShow", @"AdMobCenterBannerClick", @"AdMobInterstitialShow", @"AdMobInterstitialClick", @"Discovery", @"ThreadDetail", @"NewsDetail", @"Login", @"ForumIndex", @"ForumDisplay", @"PostThread", @"ReplyThread", @"Search", @"DiscoveryGoToAppStore", @"DiscoveryClose", @"GDTSplashShowSuccess", @"GDTSplashShowFailure", @"GDTSplashClick"];
 
     [MobClick event:array[event] attributes:attributes];
 }

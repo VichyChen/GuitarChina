@@ -56,7 +56,8 @@
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCForumModel *)model {
-    if ([model respondsToSelector:@selector(descript)]) {
+//    if ([model respondsToSelector:@selector(descript)]) {
+        if (model && [model isKindOfClass:[GCForumModel class]]) {
         CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:14 width:ScreenWidth - 30];
         return descriptLabelHeight + 45;
     } else {

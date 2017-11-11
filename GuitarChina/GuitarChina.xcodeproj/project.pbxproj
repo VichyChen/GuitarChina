@@ -214,7 +214,6 @@
 		041CD3381EF4D43700BA3DC1 /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42FFF5B11BF1C24A0061029B /* ForumList.plist */; };
 		041CD3391EF4D43700BA3DC1 /* GCPostThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4211924D1CE85D3200BCFF3E /* GCPostThreadViewController.xib */; };
 		041CD33A1EF4D43700BA3DC1 /* GCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421192C21CE8601E00BCFF3E /* GCLoginViewController.xib */; };
-		041CD33B1EF4D43700BA3DC1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043648DF1BCF9BD80005162D /* Images.xcassets */; };
 		041CD33C1EF4D43700BA3DC1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C554691C878334000AF010 /* Default-568h@2x.png */; };
 		041CD33D1EF4D43700BA3DC1 /* GCForumIndexCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0479424D1DA0076900E810DF /* GCForumIndexCollectionViewCell.xib */; };
 		041CD33E1EF4D43700BA3DC1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04100E251DC743E4006639F3 /* Info.plist */; };
@@ -250,6 +249,10 @@
 		0422FB131F161AFF009F3BD5 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FB031F161AFF009F3BD5 /* SDCycleScrollView.m */; };
 		0422FB141F161AFF009F3BD5 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FB051F161AFF009F3BD5 /* UIView+SDExtension.m */; };
 		0422FB151F161AFF009F3BD5 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FB051F161AFF009F3BD5 /* UIView+SDExtension.m */; };
+		0427793C1FB4335900D3B320 /* GCGDTNativeExpressAd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0427793A1FB4335900D3B320 /* GCGDTNativeExpressAd.m */; };
+		042779641FB596C800D3B320 /* VCValidateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 042779631FB596C800D3B320 /* VCValidateUtil.m */; };
+		042779651FB5A23E00D3B320 /* VCValidateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 042779631FB596C800D3B320 /* VCValidateUtil.m */; };
+		042779661FB5A42700D3B320 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043648DF1BCF9BD80005162D /* Images.xcassets */; };
 		042C1E901EFD014A00A6D05D /* GCDiscoveryPromptProView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042C1E8F1EFD014A00A6D05D /* GCDiscoveryPromptProView.m */; };
 		042F84271CF83F7800102949 /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
 		042F842B1CF83FA600102949 /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
@@ -536,6 +539,10 @@
 		0422FB031F161AFF009F3BD5 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
 		0422FB041F161AFF009F3BD5 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
 		0422FB051F161AFF009F3BD5 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		0427793A1FB4335900D3B320 /* GCGDTNativeExpressAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCGDTNativeExpressAd.m; sourceTree = "<group>"; };
+		0427793B1FB4335900D3B320 /* GCGDTNativeExpressAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCGDTNativeExpressAd.h; sourceTree = "<group>"; };
+		042779621FB596C800D3B320 /* VCValidateUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCValidateUtil.h; sourceTree = "<group>"; };
+		042779631FB596C800D3B320 /* VCValidateUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCValidateUtil.m; sourceTree = "<group>"; };
 		042C1E8E1EFD014A00A6D05D /* GCDiscoveryPromptProView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDiscoveryPromptProView.h; sourceTree = "<group>"; };
 		042C1E8F1EFD014A00A6D05D /* GCDiscoveryPromptProView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDiscoveryPromptProView.m; sourceTree = "<group>"; };
 		042F84251CF83F7800102949 /* GCSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchViewController.h; sourceTree = "<group>"; };
@@ -1064,6 +1071,8 @@
 				0439F4E71F21FDAC00935847 /* GDT */,
 				04D350671E13ACE900047725 /* GCAdBannerView.h */,
 				04D350681E13ACE900047725 /* GCAdBannerView.m */,
+				0427793B1FB4335900D3B320 /* GCGDTNativeExpressAd.h */,
+				0427793A1FB4335900D3B320 /* GCGDTNativeExpressAd.m */,
 			);
 			path = Advertisement;
 			sourceTree = "<group>";
@@ -1941,6 +1950,8 @@
 				4219A6651B9A7C78005D2164 /* EXTScope */,
 				4260C6951BB64AB700705BE0 /* Util.h */,
 				4260C6961BB64AB700705BE0 /* Util.m */,
+				042779621FB596C800D3B320 /* VCValidateUtil.h */,
+				042779631FB596C800D3B320 /* VCValidateUtil.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -2341,8 +2352,8 @@
 				041CD3381EF4D43700BA3DC1 /* ForumList.plist in Resources */,
 				041CD3391EF4D43700BA3DC1 /* GCPostThreadViewController.xib in Resources */,
 				041CD33A1EF4D43700BA3DC1 /* GCLoginViewController.xib in Resources */,
-				041CD33B1EF4D43700BA3DC1 /* Images.xcassets in Resources */,
 				041CD33C1EF4D43700BA3DC1 /* Default-568h@2x.png in Resources */,
+				042779661FB5A42700D3B320 /* Images.xcassets in Resources */,
 				041CD33D1EF4D43700BA3DC1 /* GCForumIndexCollectionViewCell.xib in Resources */,
 				041CD33E1EF4D43700BA3DC1 /* Info.plist in Resources */,
 				041CD33F1EF4D43700BA3DC1 /* SVProgressHUD.bundle in Resources */,
@@ -2391,7 +2402,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		03D4E028D6AFAAFBCE33369B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -2399,14 +2410,13 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GuitarChinaPro/Pods-GuitarChinaPro-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		218CB27B7F49EB9109B79DD8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -2430,14 +2440,13 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GuitarChina/Pods-GuitarChina-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		7E3E06D5660A909EFE6D9F1D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -2445,10 +2454,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GuitarChina/Pods-GuitarChina-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		91FFD27F8EB400CEBEC44F8E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2488,7 +2496,7 @@
 		};
 		C0F4F06B5CB0419465AEBAD1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -2512,10 +2520,9 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GuitarChinaPro/Pods-GuitarChinaPro-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2569,6 +2576,7 @@
 				041CD2A11EF4D43700BA3DC1 /* GCPostThreadViewController.m in Sources */,
 				041CD2A21EF4D43700BA3DC1 /* GCForumIndexCell.m in Sources */,
 				041CD2A31EF4D43700BA3DC1 /* GCMyPromptModel.m in Sources */,
+				042779651FB5A23E00D3B320 /* VCValidateUtil.m in Sources */,
 				041CD2A41EF4D43700BA3DC1 /* AppDelegate.m in Sources */,
 				041CD2A51EF4D43700BA3DC1 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
 				041CD2A61EF4D43700BA3DC1 /* GCOfficialCell.m in Sources */,
@@ -2774,6 +2782,7 @@
 				423889001BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
 				040212341E06DC3F002D74F6 /* GCOfficialCell.m in Sources */,
 				421192A71CE85EEE00BCFF3E /* GCThreadDetailView.m in Sources */,
+				0427793C1FB4335900D3B320 /* GCGDTNativeExpressAd.m in Sources */,
 				040740091F25A978005A32D2 /* UITableView+Extention.m in Sources */,
 				040FEF341E111EB2006DA6FA /* GCThreadDetailMenuView.m in Sources */,
 				421192EB1CE8615400BCFF3E /* GCSendReplyModel.m in Sources */,
@@ -2790,6 +2799,7 @@
 				049085151E03EE8000CF5C1C /* GCTableViewKit.m in Sources */,
 				04D3506C1E1634A700047725 /* GCProfileViewController.m in Sources */,
 				04C0D4EC1DD41A2A007A5113 /* ZLCameraImageView.m in Sources */,
+				042779641FB596C800D3B320 /* VCValidateUtil.m in Sources */,
 				043AD1681F0F64E500C1500D /* GCNewsCatViewController.m in Sources */,
 				04C0D4ED1DD41A2A007A5113 /* ZLCameraView.m in Sources */,
 				0422FB0A1F161AFF009F3BD5 /* TAAnimatedDotView.m in Sources */,
@@ -2992,7 +3002,7 @@
 			baseConfigurationReference = 5FF5E458B2E0F75910A13E79 /* Pods-GuitarChinaPro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaProAppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -3015,7 +3025,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "GuitarChinaPro-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3035,7 +3045,7 @@
 			baseConfigurationReference = D17B72FC5D82E19547917414 /* Pods-GuitarChinaPro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaProAppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -3058,7 +3068,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = "GuitarChinaPro-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3166,10 +3176,11 @@
 			baseConfigurationReference = 57799C0424A91ADDD0AC92B6 /* Pods-GuitarChina.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaAppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = VJ9XJ78H9K;
 				ENABLE_BITCODE = NO;
@@ -3198,7 +3209,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = GuitarChina/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3207,7 +3218,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.guitarchina.gcapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "18f70002-bae9-44c7-b56e-441507a6946a";
+				PROVISIONING_PROFILE = "3ba914c2-feb5-43d9-8d17-cbbf06fbd7fd";
 				PROVISIONING_PROFILE_SPECIFIER = GuitarChina_Development_Profile;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -3218,10 +3229,11 @@
 			baseConfigurationReference = 80E95800524FCE765F3E6E65 /* Pods-GuitarChina.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaAppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = VJ9XJ78H9K;
 				ENABLE_BITCODE = NO;
@@ -3250,7 +3262,7 @@
 					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = GuitarChina/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
