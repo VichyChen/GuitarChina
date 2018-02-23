@@ -1,30 +1,30 @@
-### 吉他中国iOS客户端
+## 吉他中国 iOS 客户端
 吉他中国 GuitarChina 是吉他中国论坛 https://bbs.guitarchina.com/forum.php 的 iOS 客户端。
 
 其中，吉他中国Pro 是无广告收费版。
 
-### AppStore 下载链接
+## AppStore
 吉他中国：https://itunes.apple.com/cn/app/ji-ta-zhong-guo/id1089161305?mt=8
 
 吉他中国Pro：https://itunes.apple.com/cn/app/ji-ta-zhong-guo-pro/id1193034315?mt=8
 
 
-### 项目描述
-#### 主要功能
+## 项目描述
+### 主要功能
 - 首页热帖
 - 论坛板块
 - 新闻模块 https://news.guitarchina.com/?cat=1
-- 帖子展示，收藏、分享等。
+- 帖子展示，收藏、分享
 - 回复、发帖
 - 用户模块
 
-#### 数据来源
+### 数据来源
 部分API通过原先的官方APP抓包分析获得，个别页面通过抓取网页获取，XPath 解析数据获得。
 
-#### 技术难点
+### 技术难点
 帖子详情页的展示。由于 API 数据每个帖子的回复都是返回 HTML，由于 iOS 列表页面的高度计算是一个大问题，这种场景下（html+列表）用原生似乎难以实现。尝试过几种方案，后面通过 UIWebview 拼接加载 HTML 完成。
 
-#### 运行
+### 运行
 ```
 1、git clone https://github.com/VichyChen/GuitarChina-iOS-APP.git
 ```
