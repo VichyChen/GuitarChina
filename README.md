@@ -4,11 +4,15 @@
 其中，吉他中国Pro 是无广告收费版。
 
 ## AppStore
-吉他中国：https://itunes.apple.com/cn/app/ji-ta-zhong-guo/id1089161305?mt=8
-![吉他中国](http://ow8x4rvvt.bkt.clouddn.com/%E5%90%89%E4%BB%96%E4%B8%AD%E5%9B%BD%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.png)
 
+
+吉他中国：https://itunes.apple.com/cn/app/ji-ta-zhong-guo/id1089161305?mt=8
+
+ <img src="http://ow8x4rvvt.bkt.clouddn.com/%E5%90%89%E4%BB%96%E4%B8%AD%E5%9B%BD%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.png" width = "200" height = "200" alt="吉他中国" align=center />
+ 
 吉他中国Pro：https://itunes.apple.com/cn/app/ji-ta-zhong-guo-pro/id1193034315?mt=8
-![吉他中国Pro](http://ow8x4rvvt.bkt.clouddn.com/%E5%90%89%E4%BB%96%E4%B8%AD%E5%9B%BDPro%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.png)
+
+ <img src="http://ow8x4rvvt.bkt.clouddn.com/%E5%90%89%E4%BB%96%E4%B8%AD%E5%9B%BDPro%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.png" width = "200" height = "200" alt="吉他中国Pro" align=center />
 
 
 ## 项目描述
