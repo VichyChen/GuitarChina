@@ -19,13 +19,13 @@
 ### 主要功能
 - 首页热帖
 - 论坛板块
-- 新闻模块 [来源](https://news.guitarchina.com/?cat=1)
+- 新闻
 - 帖子展示，收藏、分享
 - 回复、发帖
 - 用户模块
 
 ### 数据来源
-部分API通过原先的官方APP抓包分析获得，个别页面通过抓取网页获取，XPath 解析数据获得。
+部分API通过原先的官方APP抓包分析获得，个别页面通过抓取网页（[首页](https://bbs.guitarchina.com/forum.php?mod=guide&view=hot)、[新闻](https://news.guitarchina.com/?cat=1)、[个人资料](https://bbs.guitarchina.com/space-uid-1627015.html)），XPath 解析数据获得。
 
 ### 技术难点
 帖子详情页的展示。由于 API 数据每个帖子的回复都是返回 HTML，由于 iOS 列表页面的高度计算是一个大问题，这种场景下（html+列表）用原生似乎难以实现。尝试过几种方案，后面通过 UIWebview 拼接加载 HTML 完成。
