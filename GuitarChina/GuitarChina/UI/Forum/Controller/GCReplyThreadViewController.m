@@ -119,7 +119,7 @@
 
 - (GCReplyThreadView *)replyThreadView {
     if (!_replyThreadView) {
-        _replyThreadView = [[GCReplyThreadView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
+        _replyThreadView = [[GCReplyThreadView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight)];
         _replyThreadView.viewController = self;
     }
     return _replyThreadView;

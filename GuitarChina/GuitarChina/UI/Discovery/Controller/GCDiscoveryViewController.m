@@ -100,13 +100,13 @@
     [self addChildViewController:sofa];
     [self addChildViewController:digest];
     
-    hot.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64 - self.segmentedControl.frame.size.height - 48);
+    hot.view.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight - self.segmentedControl.frame.size.height - kTabBarHeight);
     [self.scrollView addSubview:hot.view];
     
     //提示无广告版
 #if FREEVERSION
     if ([NSUD integerForKey:kGCFirstPromptPro] == 0) {
-        GCDiscoveryPromptProView *promptProView = [[GCDiscoveryPromptProView alloc] initWithFrame:CGRectMake(0,ScreenHeight - 50 - 88, ScreenWidth, 88)];
+        GCDiscoveryPromptProView *promptProView = [[GCDiscoveryPromptProView alloc] initWithFrame:CGRectMake(0,ScreenHeight - kTabBarHeight - 88, ScreenWidth, 88)];
         [self.view addSubview:promptProView];
     }
 #else
@@ -119,7 +119,7 @@
     if (![self.controllerArray containsObject:[NSNumber numberWithInteger:index]] && index >= 0) {
         [self.controllerArray addObject:[NSNumber numberWithInteger:index]];
         GCDiscoveryTableViewController *controller = (GCDiscoveryTableViewController *)[self.childViewControllers objectAtIndex:index];
-        controller.view.frame = CGRectMake(ScreenWidth * index, 0, ScreenWidth, ScreenHeight - 64 - self.segmentedControl.frame.size.height - 48);
+        controller.view.frame = CGRectMake(ScreenWidth * index, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight - self.segmentedControl.frame.size.height - kTabBarHeight);
         [self.scrollView addSubview:controller.view];
     }
 }
@@ -137,7 +137,7 @@
 - (HMSegmentedControl *)segmentedControl {
     if (!_segmentedControl) {
         _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[[NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Hottest", nil)], [NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Newest", nil)], [NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Sofa", nil)], [NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Essence", nil)]]];
-        _segmentedControl.frame = CGRectMake(0, 64, ScreenWidth, 40);
+        _segmentedControl.frame = CGRectMake(0, kNavigatioinBarHeight, ScreenWidth, 40);
         _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationNone;
         _segmentedControl.backgroundColor = [GCColor cellSelectedColor];
         _segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : [GCColor grayColor1],
@@ -152,8 +152,8 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.frame = CGRectMake(0, 64 + self.segmentedControl.frame.size.height, ScreenWidth, ScreenHeight - 64 - self.segmentedControl.frame.size.height - 48);
-        _scrollView.contentSize = CGSizeMake(ScreenWidth * 4, ScreenHeight - 64 - self.segmentedControl.frame.size.height - 48);
+        _scrollView.frame = CGRectMake(0, kNavigatioinBarHeight + self.segmentedControl.frame.size.height, ScreenWidth, ScreenHeight - kNavigatioinBarHeight - self.segmentedControl.frame.size.height - kTabBarHeight);
+        _scrollView.contentSize = CGSizeMake(ScreenWidth * 4, ScreenHeight - kNavigatioinBarHeight - self.segmentedControl.frame.size.height - kTabBarHeight);
         _scrollView.pagingEnabled = YES;
         _scrollView.scrollEnabled = YES;
         _scrollView.backgroundColor = [UIColor whiteColor];

@@ -98,7 +98,7 @@
 
 - (UIWebView *)webView {
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, kNavigatioinBarHeight, ScreenWidth, ScreenHeight - kNavigatioinBarHeight)];
         _webView.opaque = NO;
         _webView.backgroundColor = [UIColor whiteColor];
         _webView.delegate = self;

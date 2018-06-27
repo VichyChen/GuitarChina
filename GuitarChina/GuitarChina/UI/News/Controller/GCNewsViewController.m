@@ -112,7 +112,7 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.frame = CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64 - 48);
+        _scrollView.frame = CGRectMake(0, kNavigatioinBarHeight, ScreenWidth, ScreenHeight - kNavigatioinBarHeight - kTabBarHeight);
         _scrollView.contentSize = CGSizeMake(ScreenWidth * 2, _scrollView.frame.size.height);
         _scrollView.pagingEnabled = YES;
         _scrollView.scrollEnabled = YES;

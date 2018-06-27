@@ -54,7 +54,7 @@
     if (!_leftTableView) {
         _leftTableView = [[UITableView alloc] init];
         _leftTableView.backgroundColor = [GCColor backgroundColor];
-        _leftTableView.frame = CGRectMake(0, 0, 120, ScreenHeight - 64 - 48);
+        _leftTableView.frame = CGRectMake(0, 0, 120, ScreenHeight - kNavigatioinBarHeight - kTabBarHeight);
         _leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _leftTableView.showsVerticalScrollIndicator = NO;
         [_leftTableView initFooterView];
@@ -86,7 +86,7 @@
 - (UITableView *)rightTableView {
     if (!_rightTableView) {
         _rightTableView = [[UITableView alloc] init];
-        _rightTableView.frame = CGRectMake(self.leftTableView.frame.size.width, 0, ScreenWidth - self.leftTableView.frame.size.width, ScreenHeight - 64 - 48);
+        _rightTableView.frame = CGRectMake(self.leftTableView.frame.size.width, 0, ScreenWidth - self.leftTableView.frame.size.width, ScreenHeight - kNavigatioinBarHeight - kTabBarHeight);
         _rightTableView.separatorLeftInset = 13;
         _rightTableView.showsVerticalScrollIndicator = NO;
         [_rightTableView initFooterView];

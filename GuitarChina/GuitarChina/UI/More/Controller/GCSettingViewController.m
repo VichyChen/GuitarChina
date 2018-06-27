@@ -64,7 +64,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight)];
         _tableView.backgroundColor = [GCColor backgroundColor];
 
         UIView *footerView = [[UIView alloc] init];

@@ -78,7 +78,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavigatioinBarHeight, ScreenWidth, ScreenHeight - kNavigatioinBarHeight)];
         _tableView.backgroundColor = [GCColor backgroundColor];
         [_tableView initFooterView];
         _tableView.separatorLeftInset = 0;

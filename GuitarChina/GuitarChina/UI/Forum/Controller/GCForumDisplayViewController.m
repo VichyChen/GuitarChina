@@ -153,7 +153,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, 64, ScreenWidth, ScreenHeight - 64);
+        _tableView.frame = CGRectMake(0, kNavigatioinBarHeight, ScreenWidth, ScreenHeight - kNavigatioinBarHeight);
         _tableView.separatorLeftInset = 0;
 //        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
 //        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, ScreenWidth, 44)];

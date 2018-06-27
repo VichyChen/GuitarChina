@@ -45,7 +45,7 @@
     self.messageTextView.textColor = [GCColor grayColor1];
     self.selectTypeCompleteButton.tintColor = [GCColor grayColor3];
     
-    self.scrollViewHeight.constant = ScreenHeight - 64 + 1;
+    self.scrollViewHeight.constant = ScreenHeight - kNavigatioinBarHeight + 1;
 }
 
 #pragma mark - UIScrollViewDelegate

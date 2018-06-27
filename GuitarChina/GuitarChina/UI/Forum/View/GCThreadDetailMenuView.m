@@ -56,7 +56,7 @@
         }
         _topScrollViewHeight = _width + _interval / 2 + 20 + 10;
         _bottomScrollViewHeight = _width + _interval / 2 + 30 + 10;
-        _menuViewHeight = 64 + _topScrollViewHeight + _bottomScrollViewHeight + 1;
+        _menuViewHeight = kNavigatioinBarHeight + _topScrollViewHeight + _bottomScrollViewHeight + 1;
         
         self.frame = CGRectMake(self.frame.origin.x, -_menuViewHeight, self.frame.size.width, _menuViewHeight);
         _beforeAnimationFrame = self.frame;
@@ -85,12 +85,12 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    UIScrollView *topScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, self.frame.size.width, self.topScrollViewHeight)];
+    UIScrollView *topScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, kNavigatioinBarHeight, self.frame.size.width, self.topScrollViewHeight)];
     topScrollView.backgroundColor = [UIColor clearColor];
     topScrollView.showsHorizontalScrollIndicator = NO;
     [self addSubview:topScrollView];
     
-    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, 64 + topScrollView.frame.size.height, self.frame.size.width, 0.5)];
+    UIView *seperator = [[UIView alloc] initWithFrame:CGRectMake(0, kNavigatioinBarHeight + topScrollView.frame.size.height, self.frame.size.width, 0.5)];
     seperator.backgroundColor = self.separatarColor;
     [self addSubview:seperator];
     

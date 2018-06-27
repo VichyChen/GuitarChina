@@ -273,7 +273,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 
 - (UITableView *)historyTableView {
     if (!_historyTableView) {
-        _historyTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
+        _historyTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight)];
         _historyTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _historyTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         _historyTableView.separatorHorizontalInset = UIEdgeInsetsMake(0, 10, 0, 10);
@@ -337,7 +337,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 
 - (UITableView *)searchTableView {
     if (!_searchTableView) {
-        _searchTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 64)];
+        _searchTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight)];
         _searchTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         _searchTableView.separatorLeftInset = 0;
 
