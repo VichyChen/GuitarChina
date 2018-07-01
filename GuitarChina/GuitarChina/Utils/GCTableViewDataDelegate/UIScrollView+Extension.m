@@ -46,7 +46,7 @@
             }];
             footer.automaticallyRefresh = YES;
             footer.refreshingTitleHidden = YES;
-            [footer setTitle:NSLocalizedString(@"Load More", nil) forState:MJRefreshStateIdle];
+            [footer setTitle:@"加载更多" forState:MJRefreshStateIdle];
             footer;
         });
     } else {

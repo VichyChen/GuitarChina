@@ -31,7 +31,7 @@
     
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(54, 13, ScreenWidth - 26, 20);
-    label.text = NSLocalizedString(@"吉他中国Pro - 无广告清爽版 上线啦！", nil);
+    label.text = @"吉他中国Pro - 无广告清爽版 上线啦！";
     label.font = [UIFont systemFontOfSize:15];
     label.textColor = [GCColor fontColor];
     [self addSubview:label];

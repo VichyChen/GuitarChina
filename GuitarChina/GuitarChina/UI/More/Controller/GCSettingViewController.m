@@ -32,7 +32,7 @@
     [super viewDidLoad];
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.title = NSLocalizedString(@"Setting", nil);
+    self.title = @"设置";
     
     [self configureView];
 }
@@ -46,7 +46,7 @@
 #pragma mark - Event Responses
 
 - (void)logoutAction {
-    [UIAlertView bk_showAlertViewWithTitle:NSLocalizedString(@"Are you sure you want to exit?", nil) message:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:@[NSLocalizedString(@"OK", nil)] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+    [UIAlertView bk_showAlertViewWithTitle:@"确定要退出登录吗？" message:nil cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
         if (buttonIndex == 1) {
             [Util clearCookie];
             [NSUD setObject:@"0" forKey:kGCLogin];
@@ -75,7 +75,7 @@
             button.backgroundColor = [UIColor whiteColor];
             [button setTitleColor:[GCColor redColor] forState:UIControlStateNormal];
             button.titleLabel.font = [UIFont systemFontOfSize:16];
-            [button setTitle:NSLocalizedString(@"Logout Account", nil) forState:UIControlStateNormal];
+            [button setTitle:@"退出登录" forState:UIControlStateNormal];
             [button addTarget:self action:@selector(logoutAction) forControlEvents:UIControlEventTouchUpInside];
             [footerView addSubview:button];
         }
@@ -124,7 +124,7 @@
 }
 
 - (NSArray *)array {
-    return @[@{@"image" : @"", @"title" : NSLocalizedString(@"Clear Cache", nil), @"value" : @"0"}, @{@"image" : @"", @"title" : [NSString stringWithFormat:@"%@ %@", NSLocalizedString(@"CurrentVersion:", nil), [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]],  @"value" : @""}];
+    return @[@{@"image" : @"", @"title" : @"清除缓存", @"value" : @"0"}, @{@"image" : @"", @"title" : [NSString stringWithFormat:@"%@ %@", @"当前版本：", [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]],  @"value" : @""}];
 }
 
 @end

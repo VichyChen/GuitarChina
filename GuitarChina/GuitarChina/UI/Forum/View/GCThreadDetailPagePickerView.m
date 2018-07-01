@@ -142,7 +142,7 @@
     if (!_goButton) {
         _goButton = [UIButton buttonWithType:UIButtonTypeSystem];
         _goButton.frame = CGRectMake(ScreenWidth - 13 - 60, 0, 60, 40);
-        [_goButton setTitle:NSLocalizedString(@"Go", nil) forState:UIControlStateNormal];
+        [_goButton setTitle:@"跳转" forState:UIControlStateNormal];
         [_goButton addTarget:self action:@selector(goAction) forControlEvents:UIControlEventTouchUpInside];
         _goButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         _goButton.tintColor = [GCColor grayColor1];
@@ -154,7 +154,7 @@
     if (!_cancelButton) {
         _cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
         _cancelButton.frame = CGRectMake(13, 0, 60, 40);
-        [_cancelButton setTitle:NSLocalizedString(@"Cancel", nil) forState:UIControlStateNormal];
+        [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
         [_cancelButton addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];
         _cancelButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         _cancelButton.tintColor = [GCColor grayColor1];

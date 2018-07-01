@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"Profile", nil);
+    self.title = @"个人资料";
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     [self configureView];
@@ -58,7 +58,7 @@
         self.model = [GCHTMLParse parseProfile:htmlData];
         [self.tableView reloadData];
     } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
     }];
 }
 

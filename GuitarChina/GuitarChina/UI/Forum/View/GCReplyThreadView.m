@@ -299,7 +299,7 @@
         _textView.backgroundColor = [UIColor clearColor];
         _textView.font = [UIFont systemFontOfSize:16];
         _textView.scrollEnabled = NO;
-        _textView.placeholder = NSLocalizedString(@"Write reply.", nil);
+        _textView.placeholder = @"输入内容...";
         _textView.delegate = self;
  }
     return _textView;

@@ -81,7 +81,7 @@
         _previousPageButton.frame = CGRectMake(ScreenWidth / 2 - 40 - 60, 0, 60, 40);
         [_previousPageButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
         _previousPageButton.tintColor = [GCColor grayColor1];
-        [_previousPageButton setTitle:NSLocalizedString(@"Prev", nil) forState:UIControlStateNormal];
+        [_previousPageButton setTitle:@"上一页" forState:UIControlStateNormal];
     }
     return _previousPageButton;
 }
@@ -92,7 +92,7 @@
         _nextPageButton.frame = CGRectMake(ScreenWidth / 2 + 40, 0, 60, 40);
         [_nextPageButton addTarget:self action:@selector(forwardAction) forControlEvents:UIControlEventTouchUpInside];
         _nextPageButton.tintColor = [GCColor grayColor1];
-        [_nextPageButton setTitle:NSLocalizedString(@"Next", nil) forState:UIControlStateNormal];
+        [_nextPageButton setTitle:@"下一页" forState:UIControlStateNormal];
     }
     return _nextPageButton;
 }

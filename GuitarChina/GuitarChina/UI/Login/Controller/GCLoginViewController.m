@@ -190,7 +190,7 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
-    self.title = NSLocalizedString(@"GuitarChina", nil);
+    self.title = @"吉他中国";
     
     [self.usernameTextField addTarget:self action:@selector(textFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
     [self.passwordTextField addTarget:self action:@selector(textFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
@@ -226,7 +226,7 @@
                 }
             }];
         } failure:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+            [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
         }];
     };
     
@@ -238,11 +238,11 @@
             [GCNetworkManager downloadSeccodeVerifyImageWithURL:image success:^(UIImage *image) {
                 self.seccodeVerifyImageView.image = image;
             } failure:^(NSError *error) {
-                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+                [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
             }];
             
         } failure:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+            [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
         }];
     };
     
@@ -262,36 +262,36 @@
                 [NSUD setObject:self.usernameTextField.text forKey:kGCLoginName];
                 [NSUD synchronize];
                 
-                [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Login Success", nil)];
+                [SVProgressHUD showSuccessWithStatus:@"登陆成功"];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kGCNotificationLoginSuccess object:nil];
                 [self closeAction];
                 [GCStatistics event:GCStatisticsEventLogin extra:@{ @"username" : self.usernameTextField.text}];
             } else if ([html rangeOfString:@"抱歉，验证码填写错误"].location != NSNotFound) {
-                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"SecCode Error", nil)];
+                [SVProgressHUD showErrorWithStatus:@"验证码错误"];
                 NSLog(@"seccodeverify error");
             } else if ([html rangeOfString:@"登录失败，您还可以尝试"].location != NSNotFound) {
-                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Password Error", nil)];
+                [SVProgressHUD showErrorWithStatus:@"密码错误"];
                 NSLog(@"password error");
             } else if ([html rangeOfString:@"请选择安全提问以及填写正确的答案"].location != NSNotFound) {
-                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Question or Answer Error", nil)];
+                [SVProgressHUD showErrorWithStatus:@"请选择安全提问以及填写正确的答案"];
                 NSLog(@"Question or Answer Error");
             } else if ([html rangeOfString:@"密码错误次数过多，请 15 分钟后重新登录"].location != NSNotFound) {
-                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Login after 15 minute", nil)];
+                [SVProgressHUD showErrorWithStatus:@"密码错误次数过多，请 15 分钟后重新登录"];
                 NSLog(@"Login after 15 minute");
             } else {
-                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Other Error", nil)];
+                [SVProgressHUD showErrorWithStatus:@"其他未知错误"];
                 NSLog(@"other error ????");
             }
             
         } failure:^(NSError *error) {
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+            [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
         }];
     };
     
     self.webLoginBlock = ^{
         @strongify(self);
         GCWebViewController *controller = [[GCWebViewController alloc] init];
-        controller.title = NSLocalizedString(@"Web Secure Login", nil);
+        controller.title = @"网页安全登陆";
         controller.urlString = GCNetworkAPI_URL_Login;
         [self.navigationController pushViewController:controller animated:YES];
     };

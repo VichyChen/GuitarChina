@@ -93,7 +93,7 @@
 
 - (HMSegmentedControl *)segmentedControl {
     if (!_segmentedControl) {
-        _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[[NSString stringWithFormat:@" %@ ", NSLocalizedString(@"First", nil)], [NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Cat", nil)]]];
+        _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[[NSString stringWithFormat:@" %@ ", @"主页"], [NSString stringWithFormat:@" %@ ", @"分类"]]];
         _segmentedControl.frame = CGRectMake(0, 0, 120, 44);
         _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
         _segmentedControl.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;

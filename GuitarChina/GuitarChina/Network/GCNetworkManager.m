@@ -312,9 +312,9 @@
         success(@"");
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if ([operation.responseString containString:@"信息收藏成功"]) {
-            success(NSLocalizedString(@"Collect Success", nil));
+            success(@"已收藏");
         } else if ([operation.responseString containString:@"请勿重复收藏"]) {
-            success(NSLocalizedString(@"Collect Repeat", nil));
+            success(@"请勿重复收藏");
         } else {
             failure(error);
         }

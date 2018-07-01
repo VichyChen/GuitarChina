@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"Home", nil);
+    self.title = @"首页";
     
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_search"
                                                                      normalColor:[UIColor whiteColor]
@@ -74,9 +74,9 @@
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(0, 0, 100, 44);
 #if FREEVERSION
-    label.text = NSLocalizedString(@"GuitarChina", nil);
+    label.text = @"吉他中国";
 #else
-    label.text = NSLocalizedString(@"GuitarChinaPro", nil);
+    label.text = @"吉他中国Pro";
 #endif
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
@@ -136,7 +136,7 @@
 
 - (HMSegmentedControl *)segmentedControl {
     if (!_segmentedControl) {
-        _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[[NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Hottest", nil)], [NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Newest", nil)], [NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Sofa", nil)], [NSString stringWithFormat:@" %@ ", NSLocalizedString(@"Essence", nil)]]];
+        _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[[NSString stringWithFormat:@" %@ ", @"最热"], [NSString stringWithFormat:@" %@ ", @"最新"], [NSString stringWithFormat:@" %@ ", @"抢沙发"], [NSString stringWithFormat:@" %@ ", @"精华"]]];
         _segmentedControl.frame = CGRectMake(0, kNavigatioinBarHeight, ScreenWidth, 40);
         _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationNone;
         _segmentedControl.backgroundColor = [GCColor cellSelectedColor];

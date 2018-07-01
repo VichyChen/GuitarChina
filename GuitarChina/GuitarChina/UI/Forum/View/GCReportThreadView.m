@@ -44,7 +44,7 @@
         _textView = [[UITextView alloc] init];
         _textView.backgroundColor = [UIColor clearColor];
         _textView.font = [UIFont systemFontOfSize:16];
-        _textView.placeholder = NSLocalizedString(@"Write report content.", nil);
+        _textView.placeholder = @"输入举报内容。";
         _textView.delegate = self;
     }
     return _textView;

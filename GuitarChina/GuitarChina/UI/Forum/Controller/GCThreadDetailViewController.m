@@ -270,7 +270,7 @@
 - (void)configureView {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeAll;
-    self.title = NSLocalizedString(@"Detail", nil);//@"详情";
+    self.title = @"详情";//@"详情";
     
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame = CGRectMake(0, 0, 25, 25);
@@ -321,7 +321,7 @@
             @strongify(self);
             [self.threadDetailView webViewEndRefresh];
             [self.threadDetailView webViewEndFetchMore];
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+            [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
         }];
     };
     
@@ -353,7 +353,7 @@
             [GCNetworkManager getCollectionWithTid:self.tid formhash:self.formhash success:^(NSString *string){
                 [SVProgressHUD showSuccessWithStatus:string];
             } failure:^(NSError *error) {
-                [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Collect Failure", nil)];
+                [SVProgressHUD showErrorWithStatus:@"收藏失败"];
             }];
         }
     };
@@ -467,38 +467,38 @@
 - (GCThreadDetailMenuView *)menu {
     if (!_menu) {
         @weakify(self);
-        GCThreadDetailMenuItem *replyItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Reply", nil)
+        GCThreadDetailMenuItem *replyItem = [GCThreadDetailMenuItem itemWithTitle:@"回复"
                                                                    icon:[[UIImage imageNamed:@"icon_reply"] imageWithTintColor:[GCColor grayColor1]]
                                                                     row:0
                                                                       actionBlock:^{
                                                                           @strongify(self);
                                                                           self.replyBlock(@"", @"");
                                                                       }];
-        GCThreadDetailMenuItem *favoriteItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Favorite", nil)
+        GCThreadDetailMenuItem *favoriteItem = [GCThreadDetailMenuItem itemWithTitle:@"收藏"
                                                                       icon:[[UIImage imageNamed:@"icon_collect"] imageWithTintColor:[GCColor grayColor1]]
                                                                        row:0
                                                                actionBlock:self.favoriteBlock];
-        GCThreadDetailMenuItem *copyItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Copy URL", nil)
+        GCThreadDetailMenuItem *copyItem = [GCThreadDetailMenuItem itemWithTitle:@"复制链接"
                                                                   icon:[[UIImage imageNamed:@"icon_link"] imageWithTintColor:[GCColor grayColor1]]
                                                                    row:0
                                                            actionBlock:^{
                                                                @strongify(self);
                                                                [Util copyToPasteboard:GCNetworkAPI_URL_Thread(self.tid)];
-                                                               [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Copy Complete", nil)];
+                                                               [SVProgressHUD showSuccessWithStatus:@"已复制"];
                                                            }];
-        GCThreadDetailMenuItem *refreshItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Refresh", nil)
+        GCThreadDetailMenuItem *refreshItem = [GCThreadDetailMenuItem itemWithTitle:@"刷新"
                                                                      icon:[[UIImage imageNamed:@"icon_refresh"] imageWithTintColor:[GCColor grayColor1]]
                                                                       row:0
                                                               actionBlock:^{
                                                                   @strongify(self);
                                                                   [self.threadDetailView webViewStartRefresh];
                                                               }];
-        GCThreadDetailMenuItem *reportItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Report", nil)
+        GCThreadDetailMenuItem *reportItem = [GCThreadDetailMenuItem itemWithTitle:@"举报"
                                                                     icon:[[UIImage imageNamed:@"icon_error"] imageWithTintColor:[GCColor grayColor1]]
                                                                      row:0
                                                              actionBlock:self.reportBlock];
         
-        GCThreadDetailMenuItem *safariItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Open in Safari", nil)
+        GCThreadDetailMenuItem *safariItem = [GCThreadDetailMenuItem itemWithTitle:@"在Safari中打开"
                                                                     icon:[UIImage imageNamed:@"icon_safari"]
                                                                      row:1
                                                              actionBlock:^{
@@ -509,7 +509,7 @@
         NSMutableArray *shareArray = [NSMutableArray arrayWithObjects:replyItem, favoriteItem, copyItem, refreshItem, reportItem, safariItem, nil];
 
         if ([GCSocial WXAppInstalled]) {
-            GCThreadDetailMenuItem *wechatSessionItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Wechat Session", nil)
+            GCThreadDetailMenuItem *wechatSessionItem = [GCThreadDetailMenuItem itemWithTitle:@"微信好友"
                                                                                icon:[UIImage imageNamed:@"icon_wechatSession"]
                                                                                 row:1
                                                                         actionBlock:^{
@@ -524,7 +524,7 @@
             [shareArray addObject:wechatSessionItem];
         }
         if ([GCSocial WXAppInstalled]) {
-            GCThreadDetailMenuItem *wechatTimelineItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"Wechat Timeline", nil)
+            GCThreadDetailMenuItem *wechatTimelineItem = [GCThreadDetailMenuItem itemWithTitle:@"朋友圈"
                                                                                 icon:[UIImage imageNamed:@"icon_wechatTimeline"]
                                                                                  row:1
                                                                          actionBlock:^{
@@ -539,7 +539,7 @@
             [shareArray addObject:wechatTimelineItem];
         }
         if ([GCSocial QQInstalled]) {
-            GCThreadDetailMenuItem *qqItem = [GCThreadDetailMenuItem itemWithTitle:NSLocalizedString(@"QQ", nil)
+            GCThreadDetailMenuItem *qqItem = [GCThreadDetailMenuItem itemWithTitle:@"QQ好友"
                                                                     icon:[UIImage imageNamed:@"icon_qq"]
                                                                      row:1
                                                              actionBlock:^{

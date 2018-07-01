@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = NSLocalizedString(@"Official", nil);
+    self.title = @"官方";
     [self configureView];
 }
 

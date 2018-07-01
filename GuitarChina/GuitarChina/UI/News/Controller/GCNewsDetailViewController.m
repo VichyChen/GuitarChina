@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"Detail", nil);
+    self.title = @"详情";
     [self configureView];
     
     [self.webView.scrollView headerBeginRefresh];

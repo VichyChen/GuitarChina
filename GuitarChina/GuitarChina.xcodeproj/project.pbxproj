@@ -392,6 +392,234 @@
 		421192F91CE861AF00BCFF3E /* GCBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192F61CE861AF00BCFF3E /* GCBaseModel.m */; };
 		421192FA1CE861AF00BCFF3E /* GCBaseNoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192F81CE861AF00BCFF3E /* GCBaseNoticeModel.m */; };
 		421193011CF0AAD300BCFF3E /* GCSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421193001CF0AAD300BCFF3E /* GCSearchModel.m */; };
+		4211C82B20DFE4FB0042961F /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150E71BF03B2A007A8890 /* SVIndefiniteAnimatedView.m */; };
+		4211C82C20DFE4FB0042961F /* ZLCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4B51DD41A2A007A5113 /* ZLCameraViewController.m */; };
+		4211C82D20DFE4FB0042961F /* GCBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192CD1CE8607100BCFF3E /* GCBaseViewController.m */; };
+		4211C82E20DFE4FB0042961F /* ZLPhotoPickerGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4D71DD41A2A007A5113 /* ZLPhotoPickerGroupViewController.m */; };
+		4211C82F20DFE4FB0042961F /* MJRefreshAutoGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238887C1BC57CA6002E1625 /* MJRefreshAutoGifFooter.m */; };
+		4211C83020DFE4FB0042961F /* UIImage+CommonMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C3BBA1D583557000FCCFB /* UIImage+CommonMethods.m */; };
+		4211C83120DFE4FB0042961F /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150ED1BF03B2A007A8890 /* SVRadialGradientLayer.m */; };
+		4211C83220DFE4FB0042961F /* GCThreadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211925A1CE85D3200BCFF3E /* GCThreadDetailViewController.m */; };
+		4211C83320DFE4FB0042961F /* GCForumIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192E01CE860FC00BCFF3E /* GCForumIndexModel.m */; };
+		4211C83420DFE4FB0042961F /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3571D28E19F007F2350 /* WMProgressView.m */; };
+		4211C83520DFE4FB0042961F /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4AA1DD41A2A007A5113 /* DALabeledCircularProgressView.m */; };
+		4211C83620DFE4FB0042961F /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888C71BC57D0F002E1625 /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m */; };
+		4211C83720DFE4FB0042961F /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3591D28E19F007F2350 /* WMScrollView.m */; };
+		4211C83820DFE4FB0042961F /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC3921CB9FA9800B3B827 /* HMSegmentedControl.m */; };
+		4211C83920DFE4FB0042961F /* GCNewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAE51F14BCC2009F3BD5 /* GCNewsListCell.m */; };
+		4211C83A20DFE4FB0042961F /* MJRefreshNormalHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238888C1BC57CA6002E1625 /* MJRefreshNormalHeader.m */; };
+		4211C83B20DFE4FB0042961F /* GCReplyPostThreadToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7181E3312E80042BE66 /* GCReplyPostThreadToolBarView.m */; };
+		4211C83C20DFE4FB0042961F /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888961BC57CA6002E1625 /* UIScrollView+MJRefresh.m */; };
+		4211C83D20DFE4FB0042961F /* GCThreadDetailPagePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D48E6B1E28DC4100212137 /* GCThreadDetailPagePickerView.m */; };
+		4211C83E20DFE4FB0042961F /* MJRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888771BC57CA6002E1625 /* MJRefreshHeader.m */; };
+		4211C83F20DFE4FB0042961F /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238887E1BC57CA6002E1625 /* MJRefreshAutoNormalFooter.m */; };
+		4211C84020DFE4FB0042961F /* ZLPhotoPickerBrowserPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4C81DD41A2A007A5113 /* ZLPhotoPickerBrowserPhotoView.m */; };
+		4211C84120DFE4FB0042961F /* DGActivityIndicatorFiveDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888D31BC57D0F002E1625 /* DGActivityIndicatorFiveDotsAnimation.m */; };
+		4211C84220DFE4FB0042961F /* GCNewsRecommendCarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAF11F15FD15009F3BD5 /* GCNewsRecommendCarouselCell.m */; };
+		4211C84320DFE4FB0042961F /* GCThreadDetailToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D48E681E28DC2800212137 /* GCThreadDetailToolBarView.m */; };
+		4211C84420DFE4FB0042961F /* GCColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 04091D7F1CFBECBC00B797B1 /* GCColor.m */; };
+		4211C84520DFE4FB0042961F /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4A81DD41A2A007A5113 /* DACircularProgressView.m */; };
+		4211C84620DFE4FB0042961F /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3551D28E19F007F2350 /* WMMenuView.m */; };
+		4211C84720DFE4FB0042961F /* GCMyThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192EF1CE8617F00BCFF3E /* GCMyThreadModel.m */; };
+		4211C84820DFE4FB0042961F /* GCMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF391E1237F9006DA6FA /* GCMoreViewController.m */; };
+		4211C84920DFE4FB0042961F /* ZLPhotoPickerAssetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4D51DD41A2A007A5113 /* ZLPhotoPickerAssetsViewController.m */; };
+		4211C84A20DFE4FB0042961F /* GCForumDisplayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192DE1CE860FC00BCFF3E /* GCForumDisplayModel.m */; };
+		4211C84B20DFE4FB0042961F /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAFF1F161AFF009F3BD5 /* TAPageControl.m */; };
+		4211C84C20DFE4FB0042961F /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623F1BAAC06800E66F03 /* UIImage+Tint.m */; };
+		4211C84D20DFE4FB0042961F /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A35C1D28E19F007F2350 /* WMPageController.m */; };
+		4211C84E20DFE4FB0042961F /* GCReplyThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211929E1CE85EEE00BCFF3E /* GCReplyThreadView.m */; };
+		4211C84F20DFE4FB0042961F /* DGActivityIndicatorTriplePulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888E91BC57D0F002E1625 /* DGActivityIndicatorTriplePulseAnimation.m */; };
+		4211C85020DFE4FB0042961F /* GCNewPostThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF31E403F8E00D6FD20 /* GCNewPostThreadCell.m */; };
+		4211C85120DFE4FB0042961F /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888BD1BC57D0F002E1625 /* DGActivityIndicatorBallPulseSyncAnimation.m */; };
+		4211C85220DFE4FB0042961F /* GCHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A600A81CF9EECA002F709F /* GCHistoryCell.m */; };
+		4211C85320DFE4FB0042961F /* GCPostThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192541CE85D3200BCFF3E /* GCPostThreadViewController.m */; };
+		4211C85420DFE4FB0042961F /* GCForumIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211929C1CE85EEE00BCFF3E /* GCForumIndexCell.m */; };
+		4211C85520DFE4FB0042961F /* GCMyPromptModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7111E30BA080042BE66 /* GCMyPromptModel.m */; };
+		4211C85620DFE4FB0042961F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E661BC6192F0044EB1D /* AppDelegate.m */; };
+		4211C85720DFE4FB0042961F /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888CD1BC57D0F002E1625 /* DGActivityIndicatorBallZigZagDeflectAnimation.m */; };
+		4211C85820DFE4FB0042961F /* GCOfficialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040212331E06DC3F002D74F6 /* GCOfficialCell.m */; };
+		4211C85920DFE4FB0042961F /* GCThreadDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192A21CE85EEE00BCFF3E /* GCThreadDetailView.m */; };
+		4211C85A20DFE4FB0042961F /* GCGDTNativeExpressAd.m in Sources */ = {isa = PBXBuildFile; fileRef = 0427793A1FB4335900D3B320 /* GCGDTNativeExpressAd.m */; };
+		4211C85B20DFE4FB0042961F /* UITableView+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 040740081F25A978005A32D2 /* UITableView+Extention.m */; };
+		4211C85C20DFE4FB0042961F /* GCThreadDetailMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF331E111EB2006DA6FA /* GCThreadDetailMenuView.m */; };
+		4211C85D20DFE4FB0042961F /* GCSendReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192E91CE8615400BCFF3E /* GCSendReplyModel.m */; };
+		4211C85E20DFE4FB0042961F /* GCForumDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192501CE85D3200BCFF3E /* GCForumDisplayViewController.m */; };
+		4211C85F20DFE4FB0042961F /* GuitarChina.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 421191D11CE8558B00BCFF3E /* GuitarChina.xcdatamodeld */; };
+		4211C86020DFE4FB0042961F /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888D11BC57D0F002E1625 /* DGActivityIndicatorDoubleBounceAnimation.m */; };
+		4211C86120DFE4FB0042961F /* GCMyThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192B01CE85F2200BCFF3E /* GCMyThreadCell.m */; };
+		4211C86220DFE4FB0042961F /* GCMyPromptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D70B1E30AB270042BE66 /* GCMyPromptViewController.m */; };
+		4211C86320DFE4FB0042961F /* DGActivityIndicatorBallPulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888BB1BC57D0F002E1625 /* DGActivityIndicatorBallPulseAnimation.m */; };
+		4211C86420DFE4FB0042961F /* MJRefreshBackNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888851BC57CA6002E1625 /* MJRefreshBackNormalFooter.m */; };
+		4211C86520DFE4FB0042961F /* ZLPhotoPickerBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4C11DD41A2A007A5113 /* ZLPhotoPickerBrowserViewController.m */; };
+		4211C86620DFE4FB0042961F /* GCForumIndexCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0479424C1DA0076900E810DF /* GCForumIndexCollectionViewCell.m */; };
+		4211C86720DFE4FB0042961F /* DGActivityIndicatorBallBeatAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888AF1BC57D0F002E1625 /* DGActivityIndicatorBallBeatAnimation.m */; };
+		4211C86820DFE4FB0042961F /* GCTableViewKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 049085131E03EE8000CF5C1C /* GCTableViewKit.m */; };
+		4211C86920DFE4FB0042961F /* GCProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D3506B1E1634A700047725 /* GCProfileViewController.m */; };
+		4211C86A20DFE4FB0042961F /* ZLCameraImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4B11DD41A2A007A5113 /* ZLCameraImageView.m */; };
+		4211C86B20DFE4FB0042961F /* VCValidateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 042779631FB596C800D3B320 /* VCValidateUtil.m */; };
+		4211C86C20DFE4FB0042961F /* GCNewsCatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD1671F0F64E500C1500D /* GCNewsCatViewController.m */; };
+		4211C86D20DFE4FB0042961F /* ZLCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4B31DD41A2A007A5113 /* ZLCameraView.m */; };
+		4211C86E20DFE4FB0042961F /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAFB1F161AFF009F3BD5 /* TAAnimatedDotView.m */; };
+		4211C86F20DFE4FB0042961F /* UIScrollView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0464A93B1E1B4F3B00B9E1C9 /* UIScrollView+Extension.m */; };
+		4211C87020DFE4FB0042961F /* UIView+ZLExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4A51DD41A2A007A5113 /* UIView+ZLExtension.m */; };
+		4211C87120DFE4FB0042961F /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888D71BC57D0F002E1625 /* DGActivityIndicatorLineScalePartyAnimation.m */; };
+		4211C87220DFE4FB0042961F /* GCBaseNoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192F81CE861AF00BCFF3E /* GCBaseNoticeModel.m */; };
+		4211C87320DFE4FB0042961F /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888E11BC57D0F002E1625 /* DGActivityIndicatorRotatingSquaresAnimation.m */; };
+		4211C87420DFE4FB0042961F /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888DF1BC57D0F002E1625 /* DGActivityIndicatorRotatingSandglassAnimation.m */; };
+		4211C87520DFE4FB0042961F /* MJRefreshBackStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888871BC57CA6002E1625 /* MJRefreshBackStateFooter.m */; };
+		4211C87620DFE4FB0042961F /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB7661BFC6F9700E05E17 /* TFHpple.m */; };
+		4211C87720DFE4FB0042961F /* ZLPhotoPickerBrowserViewController+SignlePhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4BF1DD41A2A007A5113 /* ZLPhotoPickerBrowserViewController+SignlePhotoBrowser.m */; };
+		4211C87820DFE4FB0042961F /* GCLoginPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D7151E320FE40042BE66 /* GCLoginPickerView.m */; };
+		4211C87920DFE4FB0042961F /* UIImage+ZLPhotoLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4A31DD41A2A007A5113 /* UIImage+ZLPhotoLib.m */; };
+		4211C87A20DFE4FB0042961F /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888D91BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutAnimation.m */; };
+		4211C87B20DFE4FB0042961F /* GCStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 046365C61E1F6E8B002E1744 /* GCStatistics.m */; };
+		4211C87C20DFE4FB0042961F /* GCDiscoveryPromptProView.m in Sources */ = {isa = PBXBuildFile; fileRef = 042C1E8F1EFD014A00A6D05D /* GCDiscoveryPromptProView.m */; };
+		4211C87D20DFE4FB0042961F /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAFD1F161AFF009F3BD5 /* TADotView.m */; };
+		4211C87E20DFE4FB0042961F /* DGActivityIndicatorTripleRingsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888EB1BC57D0F002E1625 /* DGActivityIndicatorTripleRingsAnimation.m */; };
+		4211C87F20DFE4FB0042961F /* NSData+SDDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAF61F161AFF009F3BD5 /* NSData+SDDataCache.m */; };
+		4211C88020DFE4FB0042961F /* GCTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192D11CE8607100BCFF3E /* GCTabBarController.m */; };
+		4211C88120DFE4FB0042961F /* GCNewsRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD1641F0F64CF00C1500D /* GCNewsRecommendViewController.m */; };
+		4211C88220DFE4FB0042961F /* GCSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF431E1237F9006DA6FA /* GCSettingCell.m */; };
+		4211C88320DFE4FB0042961F /* GCDiscoveryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192461CE85D3200BCFF3E /* GCDiscoveryTableViewController.m */; };
+		4211C88420DFE4FB0042961F /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888731BC57CA6002E1625 /* MJRefreshComponent.m */; };
+		4211C88520DFE4FB0042961F /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888B11BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateAnimation.m */; };
+		4211C88620DFE4FB0042961F /* GCProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C112C11E6C1B39000E699C /* GCProfileModel.m */; };
+		4211C88720DFE4FB0042961F /* ZLPhotoPickerGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4E21DD41A2A007A5113 /* ZLPhotoPickerGroupTableViewCell.m */; };
+		4211C88820DFE4FB0042961F /* ZLPhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4D91DD41A2A007A5113 /* ZLPhotoPickerViewController.m */; };
+		4211C88920DFE4FB0042961F /* GCSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F842A1CF83FA600102949 /* GCSearchCell.m */; };
+		4211C88A20DFE4FB0042961F /* ZLPhotoRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4BC1DD41A2A007A5113 /* ZLPhotoRect.m */; };
+		4211C88B20DFE4FB0042961F /* GCThreadDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192E21CE860FC00BCFF3E /* GCThreadDetailModel.m */; };
+		4211C88C20DFE4FB0042961F /* GCForumIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192521CE85D3200BCFF3E /* GCForumIndexViewController.m */; };
+		4211C88D20DFE4FB0042961F /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB76A1BFC6F9700E05E17 /* XPathQuery.m */; };
+		4211C88E20DFE4FB0042961F /* ZLPhotoPickerBrowserPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4C61DD41A2A007A5113 /* ZLPhotoPickerBrowserPhotoScrollView.m */; };
+		4211C88F20DFE4FB0042961F /* GCNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAED1E3F7A8700D6FD20 /* GCNewsViewController.m */; };
+		4211C89020DFE4FB0042961F /* GCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192C51CE8601E00BCFF3E /* GCLoginViewController.m */; };
+		4211C89120DFE4FB0042961F /* GCNewsRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAED1F15F35F009F3BD5 /* GCNewsRecommendCell.m */; };
+		4211C89220DFE4FB0042961F /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A6671B9A7C78005D2164 /* EXTScope.m */; };
+		4211C89320DFE4FB0042961F /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888711BC57CA6002E1625 /* MJRefreshBackFooter.m */; };
+		4211C89420DFE4FB0042961F /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FB051F161AFF009F3BD5 /* UIView+SDExtension.m */; };
+		4211C89520DFE4FB0042961F /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FB031F161AFF009F3BD5 /* SDCycleScrollView.m */; };
+		4211C89620DFE4FB0042961F /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888B91BC57D0F002E1625 /* DGActivityIndicatorBallGridPulseAnimation.m */; };
+		4211C89720DFE4FB0042961F /* GCNewsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD1601F0E1EE200C1500D /* GCNewsModel.m */; };
+		4211C89820DFE4FB0042961F /* DGActivityIndicatorTwoDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888ED1BC57D0F002E1625 /* DGActivityIndicatorTwoDotsAnimation.m */; };
+		4211C89920DFE4FB0042961F /* DGActivityIndicatorThreeDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888E51BC57D0F002E1625 /* DGActivityIndicatorThreeDotsAnimation.m */; };
+		4211C89A20DFE4FB0042961F /* ZLPhotoPickerBrowserPhotoImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4C41DD41A2A007A5113 /* ZLPhotoPickerBrowserPhotoImageView.m */; };
+		4211C89B20DFE4FB0042961F /* MJRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888751BC57CA6002E1625 /* MJRefreshFooter.m */; };
+		4211C89C20DFE4FB0042961F /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888B71BC57D0F002E1625 /* DGActivityIndicatorBallGridBeatAnimation.m */; };
+		4211C89D20DFE4FB0042961F /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 047150EB1BF03B2A007A8890 /* SVProgressHUD.m */; };
+		4211C89E20DFE4FB0042961F /* GCGuideThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192F31CE8619900BCFF3E /* GCGuideThreadModel.m */; };
+		4211C89F20DFE4FB0042961F /* GCMyFavThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192ED1CE8617F00BCFF3E /* GCMyFavThreadModel.m */; };
+		4211C8A020DFE4FB0042961F /* DGActivityIndicatorLineScaleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888D51BC57D0F002E1625 /* DGActivityIndicatorLineScaleAnimation.m */; };
+		4211C8A120DFE4FB0042961F /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888E31BC57D0F002E1625 /* DGActivityIndicatorRotatingTrigonAnimation.m */; };
+		4211C8A220DFE4FB0042961F /* GCMyFavThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211927C1CE85D7D00BCFF3E /* GCMyFavThreadViewController.m */; };
+		4211C8A320DFE4FB0042961F /* ZLPhotoPickerImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4E41DD41A2A007A5113 /* ZLPhotoPickerImageView.m */; };
+		4211C8A420DFE4FB0042961F /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888941BC57CA6002E1625 /* UIScrollView+MJExtension.m */; };
+		4211C8A520DFE4FB0042961F /* ZLPhotoPickerFooterCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4E01DD41A2A007A5113 /* ZLPhotoPickerFooterCollectionReusableView.m */; };
+		4211C8A620DFE4FB0042961F /* ZLPhotoPickerDatas.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4D01DD41A2A007A5113 /* ZLPhotoPickerDatas.m */; };
+		4211C8A720DFE4FB0042961F /* GCProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C112C41E6C4E61000E699C /* GCProfileCell.m */; };
+		4211C8A820DFE4FB0042961F /* GCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192CF1CE8607100BCFF3E /* GCNavigationController.m */; };
+		4211C8A920DFE4FB0042961F /* UIView+UICreateFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262431BAAC06800E66F03 /* UIView+UICreateFactory.m */; };
+		4211C8AA20DFE4FB0042961F /* GCMyFavThreadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192AE1CE85F2200BCFF3E /* GCMyFavThreadCell.m */; };
+		4211C8AB20DFE4FB0042961F /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAF91F161AFF009F3BD5 /* TAAbstractDotView.m */; };
+		4211C8AC20DFE4FB0042961F /* DGActivityIndicatorNineDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888DD1BC57D0F002E1625 /* DGActivityIndicatorNineDotsAnimation.m */; };
+		4211C8AD20DFE4FB0042961F /* GCMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF411E1237F9006DA6FA /* GCMoreCell.m */; };
+		4211C8AE20DFE4FB0042961F /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF71E45D84A00D6FD20 /* UITextView+Placeholder.m */; };
+		4211C8AF20DFE4FB0042961F /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888981BC57CA6002E1625 /* UIView+MJExtension.m */; };
+		4211C8B020DFE4FB0042961F /* GCNewsCatListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD16A1F0F650500C1500D /* GCNewsCatListViewController.m */; };
+		4211C8B120DFE4FB0042961F /* UIView+LayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 046262411BAAC06800E66F03 /* UIView+LayoutHelper.m */; };
+		4211C8B220DFE4FB0042961F /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888B31BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m */; };
+		4211C8B320DFE4FB0042961F /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238886F1BC57CA6002E1625 /* MJRefreshAutoFooter.m */; };
+		4211C8B420DFE4FB0042961F /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888C51BC57D0F002E1625 /* DGActivityIndicatorBallScaleRippleAnimation.m */; };
+		4211C8B520DFE4FB0042961F /* GCForumDisplayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211929A1CE85EEE00BCFF3E /* GCForumDisplayCell.m */; };
+		4211C8B620DFE4FB0042961F /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888C91BC57D0F002E1625 /* DGActivityIndicatorBallTrianglePathAnimation.m */; };
+		4211C8B720DFE4FB0042961F /* WMFooldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3511D28E19F007F2350 /* WMFooldView.m */; };
+		4211C8B820DFE4FB0042961F /* GCNewPostThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AAF01E4039C100D6FD20 /* GCNewPostThreadViewController.m */; };
+		4211C8B920DFE4FB0042961F /* GCAddImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048D45071DD1BE1500A7824F /* GCAddImageCell.m */; };
+		4211C8BA20DFE4FB0042961F /* NSString+Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0462623C1BAAC06800E66F03 /* NSString+Tools.m */; };
+		4211C8BB20DFE4FB0042961F /* ZLPhotoPickerGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4D21DD41A2A007A5113 /* ZLPhotoPickerGroup.m */; };
+		4211C8BC20DFE4FB0042961F /* GCNewsRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD17C1F0F75CF00C1500D /* GCNewsRecommendModel.m */; };
+		4211C8BD20DFE4FB0042961F /* GCNewsCatRightMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAE31F14BCC2009F3BD5 /* GCNewsCatRightMenuCell.m */; };
+		4211C8BE20DFE4FB0042961F /* DGActivityIndicatorBallClipRotatePulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888B51BC57D0F002E1625 /* DGActivityIndicatorBallClipRotatePulseAnimation.m */; };
+		4211C8BF20DFE4FB0042961F /* GCReportThreadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192A01CE85EEE00BCFF3E /* GCReportThreadView.m */; };
+		4211C8C020DFE4FB0042961F /* DGActivityIndicatorBallZigZagAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888CB1BC57D0F002E1625 /* DGActivityIndicatorBallZigZagAnimation.m */; };
+		4211C8C120DFE4FB0042961F /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888E71BC57D0F002E1625 /* DGActivityIndicatorTriangleSkewSpinAnimation.m */; };
+		4211C8C220DFE4FB0042961F /* GCBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192F61CE861AF00BCFF3E /* GCBaseModel.m */; };
+		4211C8C320DFE4FB0042961F /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 046DB7681BFC6F9700E05E17 /* TFHppleElement.m */; };
+		4211C8C420DFE4FB0042961F /* GCNetworkBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 421191C61CE6D16600BCFF3E /* GCNetworkBase.m */; };
+		4211C8C520DFE4FB0042961F /* GCReportThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192581CE85D3200BCFF3E /* GCReportThreadViewController.m */; };
+		4211C8C620DFE4FB0042961F /* GCSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF3B1E1237F9006DA6FA /* GCSettingViewController.m */; };
+		4211C8C720DFE4FB0042961F /* GCPostThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0403AB191E486D8000D6FD20 /* GCPostThreadModel.m */; };
+		4211C8C820DFE4FB0042961F /* GCSearchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421193001CF0AAD300BCFF3E /* GCSearchModel.m */; };
+		4211C8C920DFE4FB0042961F /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888DB1BC57D0F002E1625 /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m */; };
+		4211C8CA20DFE4FB0042961F /* GCAdBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D350681E13ACE900047725 /* GCAdBannerView.m */; };
+		4211C8CB20DFE4FB0042961F /* GCDiscoveryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192921CE85EB700BCFF3E /* GCDiscoveryCell.m */; };
+		4211C8CC20DFE4FB0042961F /* DGActivityIndicatorBallScaleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888C11BC57D0F002E1625 /* DGActivityIndicatorBallScaleAnimation.m */; };
+		4211C8CD20DFE4FB0042961F /* GCUserProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040FEF3D1E1237F9006DA6FA /* GCUserProtocolViewController.m */; };
+		4211C8CE20DFE4FB0042961F /* GCDiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192481CE85D3200BCFF3E /* GCDiscoveryViewController.m */; };
+		4211C8CF20DFE4FB0042961F /* MJRefreshAutoStateFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888801BC57CA6002E1625 /* MJRefreshAutoStateFooter.m */; };
+		4211C8D020DFE4FB0042961F /* MJRefreshGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238888A1BC57CA6002E1625 /* MJRefreshGifHeader.m */; };
+		4211C8D120DFE4FB0042961F /* GCReplyThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192561CE85D3200BCFF3E /* GCReplyThreadViewController.m */; };
+		4211C8D220DFE4FB0042961F /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FB011F161AFF009F3BD5 /* SDCollectionViewCell.m */; };
+		4211C8D320DFE4FB0042961F /* ZLPhotoAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4CE1DD41A2A007A5113 /* ZLPhotoAssets.m */; };
+		4211C8D420DFE4FB0042961F /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888CF1BC57D0F002E1625 /* DGActivityIndicatorCookieTerminatorAnimation.m */; };
+		4211C8D520DFE4FB0042961F /* DGActivityIndicatorBallScaleMultipleAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888C31BC57D0F002E1625 /* DGActivityIndicatorBallScaleMultipleAnimation.m */; };
+		4211C8D620DFE4FB0042961F /* GCNewsCatLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0422FAE11F14BCC2009F3BD5 /* GCNewsCatLeftMenuCell.m */; };
+		4211C8D720DFE4FB0042961F /* JsonTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0488C0A91C795E7200920E72 /* JsonTool.m */; };
+		4211C8D820DFE4FB0042961F /* GCMyThreadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4211927E1CE85D7D00BCFF3E /* GCMyThreadViewController.m */; };
+		4211C8D920DFE4FB0042961F /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888831BC57CA6002E1625 /* MJRefreshBackGifFooter.m */; };
+		4211C8DA20DFE4FB0042961F /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F8A3531D28E19F007F2350 /* WMMenuItem.m */; };
+		4211C8DB20DFE4FB0042961F /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 4260C6961BB64AB700705BE0 /* Util.m */; };
+		4211C8DC20DFE4FB0042961F /* GCOfficialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040212301E058E2D002D74F6 /* GCOfficialViewController.m */; };
+		4211C8DD20DFE4FB0042961F /* ZLPhotoPickerCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4DE1DD41A2A007A5113 /* ZLPhotoPickerCollectionViewCell.m */; };
+		4211C8DE20DFE4FB0042961F /* GCSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042F84261CF83F7800102949 /* GCSearchViewController.m */; };
+		4211C8DF20DFE4FB0042961F /* GCForumIndexCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047942511DA00A5B00E810DF /* GCForumIndexCollectionReusableView.m */; };
+		4211C8E020DFE4FB0042961F /* ZLPhotoPickerBrowserPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4BA1DD41A2A007A5113 /* ZLPhotoPickerBrowserPhoto.m */; };
+		4211C8E120DFE4FB0042961F /* GCNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 049085081E0395CF00CF5C1C /* GCNetworkCache.m */; };
+		4211C8E220DFE4FB0042961F /* GCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 428260671B84CE03007CBCF4 /* GCNetworkManager.m */; };
+		4211C8E320DFE4FB0042961F /* GCHTMLParse.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192311CE85D0800BCFF3E /* GCHTMLParse.m */; };
+		4211C8E420DFE4FB0042961F /* GCNewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 043AD16D1F0F651100C1500D /* GCNewsDetailViewController.m */; };
+		4211C8E520DFE4FB0042961F /* UITableViewCell+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 049085111E03EE8000CF5C1C /* UITableViewCell+Extension.m */; };
+		4211C8E620DFE4FB0042961F /* ZLPhotoPickerCustomToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4CA1DD41A2A007A5113 /* ZLPhotoPickerCustomToolBarView.m */; };
+		4211C8E720DFE4FB0042961F /* DGActivityIndicatorBallRotateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888BF1BC57D0F002E1625 /* DGActivityIndicatorBallRotateAnimation.m */; };
+		4211C8E820DFE4FB0042961F /* ZLCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4AF1DD41A2A007A5113 /* ZLCamera.m */; };
+		4211C8E920DFE4FB0042961F /* GCSocial.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192341CE85D0800BCFF3E /* GCSocial.m */; };
+		4211C8EA20DFE4FB0042961F /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888921BC57CA6002E1625 /* MJRefreshConst.m */; };
+		4211C8EB20DFE4FB0042961F /* GCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192D31CE8607100BCFF3E /* GCWebViewController.m */; };
+		4211C8EC20DFE4FB0042961F /* GCNewThreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 421192E71CE8615400BCFF3E /* GCNewThreadModel.m */; };
+		4211C8ED20DFE4FB0042961F /* DGActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888F01BC57D0F002E1625 /* DGActivityIndicatorView.m */; };
+		4211C8EE20DFE4FB0042961F /* ZLPhotoPickerCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0D4DC1DD41A2A007A5113 /* ZLPhotoPickerCollectionView.m */; };
+		4211C8EF20DFE4FB0042961F /* GCMyPromptCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0416D70E1E30AC130042BE66 /* GCMyPromptCell.m */; };
+		4211C8F020DFE4FB0042961F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046F9E671BC6192F0044EB1D /* main.m */; };
+		4211C8F120DFE4FB0042961F /* MJRefreshStateHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238888E1BC57CA6002E1625 /* MJRefreshStateHeader.m */; };
+		4211C8F320DFE4FB0042961F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0439F4FD1F21FF4B00935847 /* AdSupport.framework */; };
+		4211C8F420DFE4FB0042961F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0439F4FB1F21FF4200935847 /* CoreLocation.framework */; };
+		4211C8F520DFE4FB0042961F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0439F4F91F21FF3D00935847 /* QuartzCore.framework */; };
+		4211C8F620DFE4FB0042961F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0439F4F71F21FF3600935847 /* SystemConfiguration.framework */; };
+		4211C8F720DFE4FB0042961F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0439F4F51F21FF3000935847 /* CoreTelephony.framework */; };
+		4211C8F820DFE4FB0042961F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0439F4F31F21FF1A00935847 /* Security.framework */; };
+		4211C8F920DFE4FB0042961F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0439F4F11F21FF1400935847 /* StoreKit.framework */; };
+		4211C8FA20DFE4FB0042961F /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AF910D1BE8FAF10030AEEB /* libz.dylib */; };
+		4211C8FB20DFE4FB0042961F /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 045F2F291BDFBAAE0024C9FC /* libxml2.dylib */; };
+		4211C8FC20DFE4FB0042961F /* libGDTMobSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0439F4EF1F21FDC400935847 /* libGDTMobSDK.a */; };
+		4211C8FD20DFE4FB0042961F /* libPods-GuitarChina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9598BB9F7AE8C65712FAF8F /* libPods-GuitarChina.a */; };
+		4211C8FF20DFE4FB0042961F /* ZLPhotoLib.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04C0D4E61DD41A2A007A5113 /* ZLPhotoLib.bundle */; };
+		4211C90020DFE4FB0042961F /* UserProtocol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0408D0931BE205C100B3825A /* UserProtocol.txt */; };
+		4211C90120DFE4FB0042961F /* GCThreadWebViewTableHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 0463E6FB1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html */; };
+		4211C90220DFE4FB0042961F /* GCThreadWebViewHtmlCell.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DC1BCF90740005162D /* GCThreadWebViewHtmlCell.html */; };
+		4211C90320DFE4FB0042961F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */; };
+		4211C90420DFE4FB0042961F /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42FFF5B11BF1C24A0061029B /* ForumList.plist */; };
+		4211C90520DFE4FB0042961F /* GCPostThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4211924D1CE85D3200BCFF3E /* GCPostThreadViewController.xib */; };
+		4211C90620DFE4FB0042961F /* GCLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421192C21CE8601E00BCFF3E /* GCLoginViewController.xib */; };
+		4211C90720DFE4FB0042961F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043648DF1BCF9BD80005162D /* Images.xcassets */; };
+		4211C90820DFE4FB0042961F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C554691C878334000AF010 /* Default-568h@2x.png */; };
+		4211C90920DFE4FB0042961F /* GCForumIndexCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0479424D1DA0076900E810DF /* GCForumIndexCollectionViewCell.xib */; };
+		4211C90A20DFE4FB0042961F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04100E251DC743E4006639F3 /* Info.plist */; };
+		4211C90B20DFE4FB0042961F /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 047150E91BF03B2A007A8890 /* SVProgressHUD.bundle */; };
+		4211C90C20DFE4FB0042961F /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4238888F1BC57CA6002E1625 /* MJRefresh.bundle */; };
+		4211C90D20DFE4FB0042961F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42657DDE1B99CAA2001F8DFC /* Localizable.strings */; };
+		4211C90E20DFE4FB0042961F /* GCForumIndexCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 047942521DA00A5B00E810DF /* GCForumIndexCollectionReusableView.xib */; };
+		4211C90F20DFE4FB0042961F /* GCThreadWebView.css in Resources */ = {isa = PBXBuildFile; fileRef = 047125901BCDF478000C8BC1 /* GCThreadWebView.css */; };
+		4211C91020DFE4FB0042961F /* GCThreadWebViewHtml.html in Resources */ = {isa = PBXBuildFile; fileRef = 043648DA1BCF8D0E0005162D /* GCThreadWebViewHtml.html */; };
 		4219A6691B9A7C78005D2164 /* EXTScope.m in Sources */ = {isa = PBXBuildFile; fileRef = 4219A6671B9A7C78005D2164 /* EXTScope.m */; };
 		423888991BC57CA6002E1625 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4238886F1BC57CA6002E1625 /* MJRefreshAutoFooter.m */; };
 		4238889A1BC57CA6002E1625 /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888711BC57CA6002E1625 /* MJRefreshBackFooter.m */; };
@@ -791,6 +1019,8 @@
 		421192F81CE861AF00BCFF3E /* GCBaseNoticeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseNoticeModel.m; sourceTree = "<group>"; };
 		421192FF1CF0AAD300BCFF3E /* GCSearchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCSearchModel.h; sourceTree = "<group>"; };
 		421193001CF0AAD300BCFF3E /* GCSearchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCSearchModel.m; sourceTree = "<group>"; };
+		4211C91620DFE4FB0042961F /* GuitarChina iPad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GuitarChina iPad.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4211C91720DFE4FC0042961F /* GuitarChina copy2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GuitarChina copy2-Info.plist"; path = "/Users/chendajie/Desktop/project/GuitarChina-iOS-APP/GuitarChina/GuitarChina copy2-Info.plist"; sourceTree = "<absolute>"; };
 		4219A6661B9A7C78005D2164 /* EXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EXTScope.h; sourceTree = "<group>"; };
 		4219A6671B9A7C78005D2164 /* EXTScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EXTScope.m; sourceTree = "<group>"; };
 		4219A6681B9A7C78005D2164 /* metamacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = metamacros.h; sourceTree = "<group>"; };
@@ -936,6 +1166,24 @@
 				041CD3301EF4D43700BA3DC1 /* libxml2.dylib in Frameworks */,
 				C816F5671E1064066FA4EDBE /* libPods-GuitarChinaPro.a in Frameworks */,
 				04E50D0E1F4D125900157E4E /* libGDTMobSDK.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4211C8F220DFE4FB0042961F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4211C8F320DFE4FB0042961F /* AdSupport.framework in Frameworks */,
+				4211C8F420DFE4FB0042961F /* CoreLocation.framework in Frameworks */,
+				4211C8F520DFE4FB0042961F /* QuartzCore.framework in Frameworks */,
+				4211C8F620DFE4FB0042961F /* SystemConfiguration.framework in Frameworks */,
+				4211C8F720DFE4FB0042961F /* CoreTelephony.framework in Frameworks */,
+				4211C8F820DFE4FB0042961F /* Security.framework in Frameworks */,
+				4211C8F920DFE4FB0042961F /* StoreKit.framework in Frameworks */,
+				4211C8FA20DFE4FB0042961F /* libz.dylib in Frameworks */,
+				4211C8FB20DFE4FB0042961F /* libxml2.dylib in Frameworks */,
+				4211C8FC20DFE4FB0042961F /* libGDTMobSDK.a in Frameworks */,
+				4211C8FD20DFE4FB0042961F /* libPods-GuitarChina.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2150,6 +2398,7 @@
 				0F41C248D61EFD30EA073F7A /* Frameworks */,
 				041CD34B1EF4D43900BA3DC1 /* GuitarChinaPro-Info.plist */,
 				259EE02174C5950AA2E65F51 /* Pods */,
+				4211C91720DFE4FC0042961F /* GuitarChina copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2159,6 +2408,7 @@
 				425FB2DF1B84C23B00B6A89B /* GuitarChina.app */,
 				425FB2FB1B84C23B00B6A89B /* GuitarChinaTests.xctest */,
 				041CD34A1EF4D43700BA3DC1 /* GuitarChinaPro.app */,
+				4211C91620DFE4FB0042961F /* GuitarChina iPad.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2257,6 +2507,26 @@
 			productReference = 041CD34A1EF4D43700BA3DC1 /* GuitarChinaPro.app */;
 			productType = "com.apple.product-type.application";
 		};
+		4211C82820DFE4FB0042961F /* GuitarChina iPad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4211C91320DFE4FB0042961F /* Build configuration list for PBXNativeTarget "GuitarChina iPad" */;
+			buildPhases = (
+				4211C82920DFE4FB0042961F /* [CP] Check Pods Manifest.lock */,
+				4211C82A20DFE4FB0042961F /* Sources */,
+				4211C8F220DFE4FB0042961F /* Frameworks */,
+				4211C8FE20DFE4FB0042961F /* Resources */,
+				4211C91120DFE4FB0042961F /* [CP] Embed Pods Frameworks */,
+				4211C91220DFE4FB0042961F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GuitarChina iPad";
+			productName = GuitarChina;
+			productReference = 4211C91620DFE4FB0042961F /* GuitarChina iPad.app */;
+			productType = "com.apple.product-type.application";
+		};
 		425FB2DE1B84C23B00B6A89B /* GuitarChina */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 425FB3051B84C23B00B6A89B /* Build configuration list for PBXNativeTarget "GuitarChina" */;
@@ -2307,6 +2577,10 @@
 					041CD2791EF4D43700BA3DC1 = {
 						DevelopmentTeam = VJ9XJ78H9K;
 					};
+					4211C82820DFE4FB0042961F = {
+						DevelopmentTeam = VJ9XJ78H9K;
+						ProvisioningStyle = Automatic;
+					};
 					425FB2DE1B84C23B00B6A89B = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = VJ9XJ78H9K;
@@ -2335,6 +2609,7 @@
 				425FB2DE1B84C23B00B6A89B /* GuitarChina */,
 				041CD2791EF4D43700BA3DC1 /* GuitarChinaPro */,
 				425FB2FA1B84C23B00B6A89B /* GuitarChinaTests */,
+				4211C82820DFE4FB0042961F /* GuitarChina iPad */,
 			);
 		};
 /* End PBXProject section */
@@ -2362,6 +2637,31 @@
 				041CD3421EF4D43700BA3DC1 /* GCForumIndexCollectionReusableView.xib in Resources */,
 				041CD3431EF4D43700BA3DC1 /* GCThreadWebView.css in Resources */,
 				041CD3441EF4D43700BA3DC1 /* GCThreadWebViewHtml.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4211C8FE20DFE4FB0042961F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4211C8FF20DFE4FB0042961F /* ZLPhotoLib.bundle in Resources */,
+				4211C90020DFE4FB0042961F /* UserProtocol.txt in Resources */,
+				4211C90120DFE4FB0042961F /* GCThreadWebViewTableHtml.html in Resources */,
+				4211C90220DFE4FB0042961F /* GCThreadWebViewHtmlCell.html in Resources */,
+				4211C90320DFE4FB0042961F /* LaunchScreen.xib in Resources */,
+				4211C90420DFE4FB0042961F /* ForumList.plist in Resources */,
+				4211C90520DFE4FB0042961F /* GCPostThreadViewController.xib in Resources */,
+				4211C90620DFE4FB0042961F /* GCLoginViewController.xib in Resources */,
+				4211C90720DFE4FB0042961F /* Images.xcassets in Resources */,
+				4211C90820DFE4FB0042961F /* Default-568h@2x.png in Resources */,
+				4211C90920DFE4FB0042961F /* GCForumIndexCollectionViewCell.xib in Resources */,
+				4211C90A20DFE4FB0042961F /* Info.plist in Resources */,
+				4211C90B20DFE4FB0042961F /* SVProgressHUD.bundle in Resources */,
+				4211C90C20DFE4FB0042961F /* MJRefresh.bundle in Resources */,
+				4211C90D20DFE4FB0042961F /* Localizable.strings in Resources */,
+				4211C90E20DFE4FB0042961F /* GCForumIndexCollectionReusableView.xib in Resources */,
+				4211C90F20DFE4FB0042961F /* GCThreadWebView.css in Resources */,
+				4211C91020DFE4FB0042961F /* GCThreadWebViewHtml.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2415,6 +2715,68 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GuitarChinaPro/Pods-GuitarChinaPro-frameworks.sh\"\n";
 		};
 		218CB27B7F49EB9109B79DD8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GuitarChina/Pods-GuitarChina-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyBoardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/UMengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_5.0/UMSocialSDKResourcesNew.bundle",
+				"${PODS_ROOT}/UMengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenApi_IOS_Bundle.bundle",
+				"${PODS_ROOT}/UMengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_Extra_Frameworks/SinaSSO/WeiboSDK.bundle",
+				"${PODS_ROOT}/UMengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_5.0/SocialSDKXib/UMSCommentDetailController.xib",
+				"${PODS_ROOT}/UMengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_5.0/SocialSDKXib/UMSCommentInputController.xib",
+				"${PODS_ROOT}/UMengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_5.0/SocialSDKXib/UMSCommentInputControlleriPad.xib",
+				"${PODS_ROOT}/UMengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_5.0/SocialSDKXib/UMShareEditViewController.xib",
+				"${PODS_ROOT}/UMengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_5.0/SocialSDKXib/UMShareEditViewControlleriPad.xib",
+				"${PODS_ROOT}/UMengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_5.0/SocialSDKXib/UMSLoginViewController.xib",
+				"${PODS_ROOT}/UMengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_5.0/SocialSDKXib/UMSnsAccountViewController.xib",
+				"${PODS_ROOT}/UMengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_5.0/SocialSDKXib/UMSShareListController.xib",
+				"${PODS_ROOT}/UMengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_5.0/en.lproj",
+				"${PODS_ROOT}/UMengSocial/Umeng_SDK_Social_iOS_ARM64_5.0/UMSocial_Sdk_5.0/zh-Hans.lproj",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GuitarChina/Pods-GuitarChina-resources.sh\"\n";
+		};
+		4211C82920DFE4FB0042961F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GuitarChina-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4211C91120DFE4FB0042961F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GuitarChina/Pods-GuitarChina-frameworks.sh\"\n";
+		};
+		4211C91220DFE4FB0042961F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
 			files = (
@@ -2728,6 +3090,212 @@
 				0422FAEF1F15F35F009F3BD5 /* GCNewsRecommendCell.m in Sources */,
 				041CD32C1EF4D43700BA3DC1 /* main.m in Sources */,
 				041CD32D1EF4D43700BA3DC1 /* MJRefreshStateHeader.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4211C82A20DFE4FB0042961F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4211C82B20DFE4FB0042961F /* SVIndefiniteAnimatedView.m in Sources */,
+				4211C82C20DFE4FB0042961F /* ZLCameraViewController.m in Sources */,
+				4211C82D20DFE4FB0042961F /* GCBaseViewController.m in Sources */,
+				4211C82E20DFE4FB0042961F /* ZLPhotoPickerGroupViewController.m in Sources */,
+				4211C82F20DFE4FB0042961F /* MJRefreshAutoGifFooter.m in Sources */,
+				4211C83020DFE4FB0042961F /* UIImage+CommonMethods.m in Sources */,
+				4211C83120DFE4FB0042961F /* SVRadialGradientLayer.m in Sources */,
+				4211C83220DFE4FB0042961F /* GCThreadDetailViewController.m in Sources */,
+				4211C83320DFE4FB0042961F /* GCForumIndexModel.m in Sources */,
+				4211C83420DFE4FB0042961F /* WMProgressView.m in Sources */,
+				4211C83520DFE4FB0042961F /* DALabeledCircularProgressView.m in Sources */,
+				4211C83620DFE4FB0042961F /* DGActivityIndicatorBallScaleRippleMultipleAnimation.m in Sources */,
+				4211C83720DFE4FB0042961F /* WMScrollView.m in Sources */,
+				4211C83820DFE4FB0042961F /* HMSegmentedControl.m in Sources */,
+				4211C83920DFE4FB0042961F /* GCNewsListCell.m in Sources */,
+				4211C83A20DFE4FB0042961F /* MJRefreshNormalHeader.m in Sources */,
+				4211C83B20DFE4FB0042961F /* GCReplyPostThreadToolBarView.m in Sources */,
+				4211C83C20DFE4FB0042961F /* UIScrollView+MJRefresh.m in Sources */,
+				4211C83D20DFE4FB0042961F /* GCThreadDetailPagePickerView.m in Sources */,
+				4211C83E20DFE4FB0042961F /* MJRefreshHeader.m in Sources */,
+				4211C83F20DFE4FB0042961F /* MJRefreshAutoNormalFooter.m in Sources */,
+				4211C84020DFE4FB0042961F /* ZLPhotoPickerBrowserPhotoView.m in Sources */,
+				4211C84120DFE4FB0042961F /* DGActivityIndicatorFiveDotsAnimation.m in Sources */,
+				4211C84220DFE4FB0042961F /* GCNewsRecommendCarouselCell.m in Sources */,
+				4211C84320DFE4FB0042961F /* GCThreadDetailToolBarView.m in Sources */,
+				4211C84420DFE4FB0042961F /* GCColor.m in Sources */,
+				4211C84520DFE4FB0042961F /* DACircularProgressView.m in Sources */,
+				4211C84620DFE4FB0042961F /* WMMenuView.m in Sources */,
+				4211C84720DFE4FB0042961F /* GCMyThreadModel.m in Sources */,
+				4211C84820DFE4FB0042961F /* GCMoreViewController.m in Sources */,
+				4211C84920DFE4FB0042961F /* ZLPhotoPickerAssetsViewController.m in Sources */,
+				4211C84A20DFE4FB0042961F /* GCForumDisplayModel.m in Sources */,
+				4211C84B20DFE4FB0042961F /* TAPageControl.m in Sources */,
+				4211C84C20DFE4FB0042961F /* UIImage+Tint.m in Sources */,
+				4211C84D20DFE4FB0042961F /* WMPageController.m in Sources */,
+				4211C84E20DFE4FB0042961F /* GCReplyThreadView.m in Sources */,
+				4211C84F20DFE4FB0042961F /* DGActivityIndicatorTriplePulseAnimation.m in Sources */,
+				4211C85020DFE4FB0042961F /* GCNewPostThreadCell.m in Sources */,
+				4211C85120DFE4FB0042961F /* DGActivityIndicatorBallPulseSyncAnimation.m in Sources */,
+				4211C85220DFE4FB0042961F /* GCHistoryCell.m in Sources */,
+				4211C85320DFE4FB0042961F /* GCPostThreadViewController.m in Sources */,
+				4211C85420DFE4FB0042961F /* GCForumIndexCell.m in Sources */,
+				4211C85520DFE4FB0042961F /* GCMyPromptModel.m in Sources */,
+				4211C85620DFE4FB0042961F /* AppDelegate.m in Sources */,
+				4211C85720DFE4FB0042961F /* DGActivityIndicatorBallZigZagDeflectAnimation.m in Sources */,
+				4211C85820DFE4FB0042961F /* GCOfficialCell.m in Sources */,
+				4211C85920DFE4FB0042961F /* GCThreadDetailView.m in Sources */,
+				4211C85A20DFE4FB0042961F /* GCGDTNativeExpressAd.m in Sources */,
+				4211C85B20DFE4FB0042961F /* UITableView+Extention.m in Sources */,
+				4211C85C20DFE4FB0042961F /* GCThreadDetailMenuView.m in Sources */,
+				4211C85D20DFE4FB0042961F /* GCSendReplyModel.m in Sources */,
+				4211C85E20DFE4FB0042961F /* GCForumDisplayViewController.m in Sources */,
+				4211C85F20DFE4FB0042961F /* GuitarChina.xcdatamodeld in Sources */,
+				4211C86020DFE4FB0042961F /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
+				4211C86120DFE4FB0042961F /* GCMyThreadCell.m in Sources */,
+				4211C86220DFE4FB0042961F /* GCMyPromptViewController.m in Sources */,
+				4211C86320DFE4FB0042961F /* DGActivityIndicatorBallPulseAnimation.m in Sources */,
+				4211C86420DFE4FB0042961F /* MJRefreshBackNormalFooter.m in Sources */,
+				4211C86520DFE4FB0042961F /* ZLPhotoPickerBrowserViewController.m in Sources */,
+				4211C86620DFE4FB0042961F /* GCForumIndexCollectionViewCell.m in Sources */,
+				4211C86720DFE4FB0042961F /* DGActivityIndicatorBallBeatAnimation.m in Sources */,
+				4211C86820DFE4FB0042961F /* GCTableViewKit.m in Sources */,
+				4211C86920DFE4FB0042961F /* GCProfileViewController.m in Sources */,
+				4211C86A20DFE4FB0042961F /* ZLCameraImageView.m in Sources */,
+				4211C86B20DFE4FB0042961F /* VCValidateUtil.m in Sources */,
+				4211C86C20DFE4FB0042961F /* GCNewsCatViewController.m in Sources */,
+				4211C86D20DFE4FB0042961F /* ZLCameraView.m in Sources */,
+				4211C86E20DFE4FB0042961F /* TAAnimatedDotView.m in Sources */,
+				4211C86F20DFE4FB0042961F /* UIScrollView+Extension.m in Sources */,
+				4211C87020DFE4FB0042961F /* UIView+ZLExtension.m in Sources */,
+				4211C87120DFE4FB0042961F /* DGActivityIndicatorLineScalePartyAnimation.m in Sources */,
+				4211C87220DFE4FB0042961F /* GCBaseNoticeModel.m in Sources */,
+				4211C87320DFE4FB0042961F /* DGActivityIndicatorRotatingSquaresAnimation.m in Sources */,
+				4211C87420DFE4FB0042961F /* DGActivityIndicatorRotatingSandglassAnimation.m in Sources */,
+				4211C87520DFE4FB0042961F /* MJRefreshBackStateFooter.m in Sources */,
+				4211C87620DFE4FB0042961F /* TFHpple.m in Sources */,
+				4211C87720DFE4FB0042961F /* ZLPhotoPickerBrowserViewController+SignlePhotoBrowser.m in Sources */,
+				4211C87820DFE4FB0042961F /* GCLoginPickerView.m in Sources */,
+				4211C87920DFE4FB0042961F /* UIImage+ZLPhotoLib.m in Sources */,
+				4211C87A20DFE4FB0042961F /* DGActivityIndicatorLineScalePulseOutAnimation.m in Sources */,
+				4211C87B20DFE4FB0042961F /* GCStatistics.m in Sources */,
+				4211C87C20DFE4FB0042961F /* GCDiscoveryPromptProView.m in Sources */,
+				4211C87D20DFE4FB0042961F /* TADotView.m in Sources */,
+				4211C87E20DFE4FB0042961F /* DGActivityIndicatorTripleRingsAnimation.m in Sources */,
+				4211C87F20DFE4FB0042961F /* NSData+SDDataCache.m in Sources */,
+				4211C88020DFE4FB0042961F /* GCTabBarController.m in Sources */,
+				4211C88120DFE4FB0042961F /* GCNewsRecommendViewController.m in Sources */,
+				4211C88220DFE4FB0042961F /* GCSettingCell.m in Sources */,
+				4211C88320DFE4FB0042961F /* GCDiscoveryTableViewController.m in Sources */,
+				4211C88420DFE4FB0042961F /* MJRefreshComponent.m in Sources */,
+				4211C88520DFE4FB0042961F /* DGActivityIndicatorBallClipRotateAnimation.m in Sources */,
+				4211C88620DFE4FB0042961F /* GCProfileModel.m in Sources */,
+				4211C88720DFE4FB0042961F /* ZLPhotoPickerGroupTableViewCell.m in Sources */,
+				4211C88820DFE4FB0042961F /* ZLPhotoPickerViewController.m in Sources */,
+				4211C88920DFE4FB0042961F /* GCSearchCell.m in Sources */,
+				4211C88A20DFE4FB0042961F /* ZLPhotoRect.m in Sources */,
+				4211C88B20DFE4FB0042961F /* GCThreadDetailModel.m in Sources */,
+				4211C88C20DFE4FB0042961F /* GCForumIndexViewController.m in Sources */,
+				4211C88D20DFE4FB0042961F /* XPathQuery.m in Sources */,
+				4211C88E20DFE4FB0042961F /* ZLPhotoPickerBrowserPhotoScrollView.m in Sources */,
+				4211C88F20DFE4FB0042961F /* GCNewsViewController.m in Sources */,
+				4211C89020DFE4FB0042961F /* GCLoginViewController.m in Sources */,
+				4211C89120DFE4FB0042961F /* GCNewsRecommendCell.m in Sources */,
+				4211C89220DFE4FB0042961F /* EXTScope.m in Sources */,
+				4211C89320DFE4FB0042961F /* MJRefreshBackFooter.m in Sources */,
+				4211C89420DFE4FB0042961F /* UIView+SDExtension.m in Sources */,
+				4211C89520DFE4FB0042961F /* SDCycleScrollView.m in Sources */,
+				4211C89620DFE4FB0042961F /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */,
+				4211C89720DFE4FB0042961F /* GCNewsModel.m in Sources */,
+				4211C89820DFE4FB0042961F /* DGActivityIndicatorTwoDotsAnimation.m in Sources */,
+				4211C89920DFE4FB0042961F /* DGActivityIndicatorThreeDotsAnimation.m in Sources */,
+				4211C89A20DFE4FB0042961F /* ZLPhotoPickerBrowserPhotoImageView.m in Sources */,
+				4211C89B20DFE4FB0042961F /* MJRefreshFooter.m in Sources */,
+				4211C89C20DFE4FB0042961F /* DGActivityIndicatorBallGridBeatAnimation.m in Sources */,
+				4211C89D20DFE4FB0042961F /* SVProgressHUD.m in Sources */,
+				4211C89E20DFE4FB0042961F /* GCGuideThreadModel.m in Sources */,
+				4211C89F20DFE4FB0042961F /* GCMyFavThreadModel.m in Sources */,
+				4211C8A020DFE4FB0042961F /* DGActivityIndicatorLineScaleAnimation.m in Sources */,
+				4211C8A120DFE4FB0042961F /* DGActivityIndicatorRotatingTrigonAnimation.m in Sources */,
+				4211C8A220DFE4FB0042961F /* GCMyFavThreadViewController.m in Sources */,
+				4211C8A320DFE4FB0042961F /* ZLPhotoPickerImageView.m in Sources */,
+				4211C8A420DFE4FB0042961F /* UIScrollView+MJExtension.m in Sources */,
+				4211C8A520DFE4FB0042961F /* ZLPhotoPickerFooterCollectionReusableView.m in Sources */,
+				4211C8A620DFE4FB0042961F /* ZLPhotoPickerDatas.m in Sources */,
+				4211C8A720DFE4FB0042961F /* GCProfileCell.m in Sources */,
+				4211C8A820DFE4FB0042961F /* GCNavigationController.m in Sources */,
+				4211C8A920DFE4FB0042961F /* UIView+UICreateFactory.m in Sources */,
+				4211C8AA20DFE4FB0042961F /* GCMyFavThreadCell.m in Sources */,
+				4211C8AB20DFE4FB0042961F /* TAAbstractDotView.m in Sources */,
+				4211C8AC20DFE4FB0042961F /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
+				4211C8AD20DFE4FB0042961F /* GCMoreCell.m in Sources */,
+				4211C8AE20DFE4FB0042961F /* UITextView+Placeholder.m in Sources */,
+				4211C8AF20DFE4FB0042961F /* UIView+MJExtension.m in Sources */,
+				4211C8B020DFE4FB0042961F /* GCNewsCatListViewController.m in Sources */,
+				4211C8B120DFE4FB0042961F /* UIView+LayoutHelper.m in Sources */,
+				4211C8B220DFE4FB0042961F /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */,
+				4211C8B320DFE4FB0042961F /* MJRefreshAutoFooter.m in Sources */,
+				4211C8B420DFE4FB0042961F /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */,
+				4211C8B520DFE4FB0042961F /* GCForumDisplayCell.m in Sources */,
+				4211C8B620DFE4FB0042961F /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */,
+				4211C8B720DFE4FB0042961F /* WMFooldView.m in Sources */,
+				4211C8B820DFE4FB0042961F /* GCNewPostThreadViewController.m in Sources */,
+				4211C8B920DFE4FB0042961F /* GCAddImageCell.m in Sources */,
+				4211C8BA20DFE4FB0042961F /* NSString+Tools.m in Sources */,
+				4211C8BB20DFE4FB0042961F /* ZLPhotoPickerGroup.m in Sources */,
+				4211C8BC20DFE4FB0042961F /* GCNewsRecommendModel.m in Sources */,
+				4211C8BD20DFE4FB0042961F /* GCNewsCatRightMenuCell.m in Sources */,
+				4211C8BE20DFE4FB0042961F /* DGActivityIndicatorBallClipRotatePulseAnimation.m in Sources */,
+				4211C8BF20DFE4FB0042961F /* GCReportThreadView.m in Sources */,
+				4211C8C020DFE4FB0042961F /* DGActivityIndicatorBallZigZagAnimation.m in Sources */,
+				4211C8C120DFE4FB0042961F /* DGActivityIndicatorTriangleSkewSpinAnimation.m in Sources */,
+				4211C8C220DFE4FB0042961F /* GCBaseModel.m in Sources */,
+				4211C8C320DFE4FB0042961F /* TFHppleElement.m in Sources */,
+				4211C8C420DFE4FB0042961F /* GCNetworkBase.m in Sources */,
+				4211C8C520DFE4FB0042961F /* GCReportThreadViewController.m in Sources */,
+				4211C8C620DFE4FB0042961F /* GCSettingViewController.m in Sources */,
+				4211C8C720DFE4FB0042961F /* GCPostThreadModel.m in Sources */,
+				4211C8C820DFE4FB0042961F /* GCSearchModel.m in Sources */,
+				4211C8C920DFE4FB0042961F /* DGActivityIndicatorLineScalePulseOutRapidAnimation.m in Sources */,
+				4211C8CA20DFE4FB0042961F /* GCAdBannerView.m in Sources */,
+				4211C8CB20DFE4FB0042961F /* GCDiscoveryCell.m in Sources */,
+				4211C8CC20DFE4FB0042961F /* DGActivityIndicatorBallScaleAnimation.m in Sources */,
+				4211C8CD20DFE4FB0042961F /* GCUserProtocolViewController.m in Sources */,
+				4211C8CE20DFE4FB0042961F /* GCDiscoveryViewController.m in Sources */,
+				4211C8CF20DFE4FB0042961F /* MJRefreshAutoStateFooter.m in Sources */,
+				4211C8D020DFE4FB0042961F /* MJRefreshGifHeader.m in Sources */,
+				4211C8D120DFE4FB0042961F /* GCReplyThreadViewController.m in Sources */,
+				4211C8D220DFE4FB0042961F /* SDCollectionViewCell.m in Sources */,
+				4211C8D320DFE4FB0042961F /* ZLPhotoAssets.m in Sources */,
+				4211C8D420DFE4FB0042961F /* DGActivityIndicatorCookieTerminatorAnimation.m in Sources */,
+				4211C8D520DFE4FB0042961F /* DGActivityIndicatorBallScaleMultipleAnimation.m in Sources */,
+				4211C8D620DFE4FB0042961F /* GCNewsCatLeftMenuCell.m in Sources */,
+				4211C8D720DFE4FB0042961F /* JsonTool.m in Sources */,
+				4211C8D820DFE4FB0042961F /* GCMyThreadViewController.m in Sources */,
+				4211C8D920DFE4FB0042961F /* MJRefreshBackGifFooter.m in Sources */,
+				4211C8DA20DFE4FB0042961F /* WMMenuItem.m in Sources */,
+				4211C8DB20DFE4FB0042961F /* Util.m in Sources */,
+				4211C8DC20DFE4FB0042961F /* GCOfficialViewController.m in Sources */,
+				4211C8DD20DFE4FB0042961F /* ZLPhotoPickerCollectionViewCell.m in Sources */,
+				4211C8DE20DFE4FB0042961F /* GCSearchViewController.m in Sources */,
+				4211C8DF20DFE4FB0042961F /* GCForumIndexCollectionReusableView.m in Sources */,
+				4211C8E020DFE4FB0042961F /* ZLPhotoPickerBrowserPhoto.m in Sources */,
+				4211C8E120DFE4FB0042961F /* GCNetworkCache.m in Sources */,
+				4211C8E220DFE4FB0042961F /* GCNetworkManager.m in Sources */,
+				4211C8E320DFE4FB0042961F /* GCHTMLParse.m in Sources */,
+				4211C8E420DFE4FB0042961F /* GCNewsDetailViewController.m in Sources */,
+				4211C8E520DFE4FB0042961F /* UITableViewCell+Extension.m in Sources */,
+				4211C8E620DFE4FB0042961F /* ZLPhotoPickerCustomToolBarView.m in Sources */,
+				4211C8E720DFE4FB0042961F /* DGActivityIndicatorBallRotateAnimation.m in Sources */,
+				4211C8E820DFE4FB0042961F /* ZLCamera.m in Sources */,
+				4211C8E920DFE4FB0042961F /* GCSocial.m in Sources */,
+				4211C8EA20DFE4FB0042961F /* MJRefreshConst.m in Sources */,
+				4211C8EB20DFE4FB0042961F /* GCWebViewController.m in Sources */,
+				4211C8EC20DFE4FB0042961F /* GCNewThreadModel.m in Sources */,
+				4211C8ED20DFE4FB0042961F /* DGActivityIndicatorView.m in Sources */,
+				4211C8EE20DFE4FB0042961F /* ZLPhotoPickerCollectionView.m in Sources */,
+				4211C8EF20DFE4FB0042961F /* GCMyPromptCell.m in Sources */,
+				4211C8F020DFE4FB0042961F /* main.m in Sources */,
+				4211C8F120DFE4FB0042961F /* MJRefreshStateHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3083,6 +3651,112 @@
 			};
 			name = Release;
 		};
+		4211C91420DFE4FB0042961F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 57799C0424A91ADDD0AC92B6 /* Pods-GuitarChina.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaAppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = VJ9XJ78H9K;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"FREEVERSION=1",
+					"COCOAPODS=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/DKNightVersion\"",
+					"\"${PODS_ROOT}/Headers/Public/FDFullscreenPopGesture\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/NJKWebViewProgress\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengSocial\"",
+					/usr/include/libxml2,
+				);
+				INFOPLIST_FILE = "GuitarChina copy2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GuitarChina/Additions/UMAnalytics",
+					"$(PROJECT_DIR)/GuitarChina/Advertisement/GDT",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.guitarchina.gcapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		4211C91520DFE4FB0042961F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80E95800524FCE765F3E6E65 /* Pods-GuitarChina.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = GuitarChinaAppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchScreen;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Dajie Chen (VJ9XJ78H9K)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = VJ9XJ78H9K;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/UMengAnalytics/umsdk_IOS_analyics_idfa_v4.2.4",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/GuitarChina/Supporting Files/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"FREEVERSION=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/DKNightVersion\"",
+					"\"${PODS_ROOT}/Headers/Public/FDFullscreenPopGesture\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/IQKeyboardManager\"",
+					"\"${PODS_ROOT}/Headers/Public/NJKWebViewProgress\"",
+					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengAnalytics\"",
+					"\"${PODS_ROOT}/Headers/Public/UMengSocial\"",
+					/usr/include/libxml2,
+				);
+				INFOPLIST_FILE = "GuitarChina copy2-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/GuitarChina/Additions/UMAnalytics",
+					"$(PROJECT_DIR)/GuitarChina/Advertisement/GDT",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.guitarchina.gcapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
 		425FB3031B84C23B00B6A89B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3323,6 +3997,15 @@
 			buildConfigurations = (
 				041CD3481EF4D43700BA3DC1 /* Debug */,
 				041CD3491EF4D43700BA3DC1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4211C91320DFE4FB0042961F /* Build configuration list for PBXNativeTarget "GuitarChina iPad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4211C91420DFE4FB0042961F /* Debug */,
+				4211C91520DFE4FB0042961F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -52,7 +52,7 @@
         @strongify(self);
         [GCNetworkManager postWebReplyWithTid:self.tid fid:self.fid message:[self.replyThreadView.textView.text stringByAppendingString:kSuffix] attachArray:attachArray formhash:self.formhash noticeauthor:noticeauthor noticetrimstr:noticetrimstr noticeauthormsg:noticeauthormsg reppid:reppid reppost:reppost success:^{
             @strongify(self);
-            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Reply Success", nil)];
+            [SVProgressHUD showSuccessWithStatus:@"回复成功"];
             if (self.replySuccessBlock) {
                 self.replySuccessBlock();
             }
@@ -60,7 +60,7 @@
             [self closeAction];
         } failure:^(NSError *error) {
             @strongify(self);
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+            [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
             self.navigationItem.rightBarButtonItem.enabled = YES;
         }];
     };
@@ -85,7 +85,7 @@
                         }
                     } failure:^(NSError *error) {
                         @strongify(self);
-                        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Image Upload Error", nil)];
+                        [SVProgressHUD showErrorWithStatus:@"图片上传错误！"];
                         self.navigationItem.rightBarButtonItem.enabled = YES;
                     }];
                 }
@@ -96,7 +96,7 @@
         }];
     } failure:^(NSError *error) {
         @strongify(self);
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }];
 }
@@ -104,7 +104,7 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
-    self.title = NSLocalizedString(@"Write reply", nil);
+    self.title = @"写回复";
     
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_checkmark"
                                                                    normalColor:[UIColor whiteColor]

@@ -60,7 +60,7 @@
         [GCStatistics event:GCStatisticsEventDiscovery extra:@{ @"index" : [NSString stringWithFormat:@"%ld", self.discoveryTableViewType]}];
     };
     void (^failureBlock)() = ^{
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
         [self.tableView headerEndRefresh];
     };
     

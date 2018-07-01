@@ -49,31 +49,31 @@
 - (void)configureView {
     GCDiscoveryViewController *discoveryViewController = [[GCDiscoveryViewController alloc] init];
     GCNavigationController *discoveryNavigationController = [[GCNavigationController alloc] initWithRootViewController:discoveryViewController];
-    discoveryNavigationController.tabBarItem.title = NSLocalizedString(@"Home", nil);
+    discoveryNavigationController.tabBarItem.title = @"首页";
     discoveryNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_home"] imageWithTintColor:[GCColor grayColor4]];
     discoveryNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_home"] imageWithTintColor:[GCColor redColor]];
     
     GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] init];
     GCNavigationController *forumIndexNavigationController = [[GCNavigationController alloc] initWithRootViewController:forumIndexViewController];
-    forumIndexNavigationController.tabBarItem.title = NSLocalizedString(@"Forum", nil);
+    forumIndexNavigationController.tabBarItem.title = @"论坛";
     forumIndexNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_forum"] imageWithTintColor:[GCColor grayColor4]];
     forumIndexNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_forum"] imageWithTintColor:[GCColor redColor]];
     
     GCNewsViewController *newsViewController = [[GCNewsViewController alloc] init];
     GCNavigationController *newsNavigationController = [[GCNavigationController alloc] initWithRootViewController:newsViewController];
-    newsNavigationController.tabBarItem.title = NSLocalizedString(@"News", nil);
+    newsNavigationController.tabBarItem.title = @"新闻";
     newsNavigationController.tabBarItem.image = [[UIImage imageNamed:@"icon_wave"] imageWithTintColor:[GCColor grayColor4]];
     newsNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_wave"] imageWithTintColor:[GCColor redColor]];
     
     GCOfficialViewController *officialViewController = [[GCOfficialViewController alloc] init];
     GCNavigationController *officialNavigationController = [[GCNavigationController alloc] initWithRootViewController:officialViewController];
-    officialViewController.tabBarItem.title = NSLocalizedString(@"Official", nil);
+    officialViewController.tabBarItem.title = @"官方";
     officialViewController.tabBarItem.image = [[UIImage imageNamed:@"icon_guitar"] imageWithTintColor:[GCColor grayColor4]];
     officialViewController.tabBarItem.selectedImage = [[UIImage imageNamed:@"icon_guitar"] imageWithTintColor:[GCColor redColor]];
 
     GCMoreViewController *moreViewController = [[GCMoreViewController alloc] init];
     GCNavigationController *moreNavigationController = [[GCNavigationController alloc] initWithRootViewController:moreViewController];
-    moreNavigationController.tabBarItem.title = NSLocalizedString(@"More", nil);
+    moreNavigationController.tabBarItem.title = @"更多";
     moreNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor grayColor4]];
     moreNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_about"] imageWithTintColor:[GCColor redColor]];
     
@@ -101,7 +101,7 @@
 #pragma mark - UITabBarControllerDelegate
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
-    if ([viewController.tabBarItem.title isEqualToString:NSLocalizedString(@"Me", nil)]) {
+    if ([viewController.tabBarItem.title isEqualToString:@"我"]) {
         if (![[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
             GCLoginViewController *loginViewController = [[GCLoginViewController alloc] initWithNibName:@"GCLoginViewController" bundle:nil];
             GCNavigationController *navigationController = [[GCNavigationController alloc] initWithRootViewController:loginViewController];
@@ -128,7 +128,7 @@
 
 - (WMPageController *)wmPageController {
     NSArray *viewControllers = @[[GCDiscoveryTableViewController class], [GCDiscoveryTableViewController class], [GCDiscoveryTableViewController class], [GCDiscoveryTableViewController class]];
-    NSArray *titles = @[NSLocalizedString(@"Hottest", nil), NSLocalizedString(@"Newest", nil), NSLocalizedString(@"Sofa", nil), NSLocalizedString(@"Essence", nil)];
+    NSArray *titles = @[@"最热", @"最新", @"抢沙发", @"精华"];
     
     WMPageController *pageVC = [[WMPageController alloc] initWithViewControllerClasses:viewControllers andTheirTitles:titles];
     pageVC.dataSource = self;
@@ -146,7 +146,7 @@
     
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(0, 0, 100, 44);
-    label.text = NSLocalizedString(@"GuitarChina", nil);
+    label.text = @"吉他中国";
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont systemFontOfSize:17];

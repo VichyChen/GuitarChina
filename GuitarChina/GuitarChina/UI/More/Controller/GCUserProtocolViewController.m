@@ -21,7 +21,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = NSLocalizedString(@"User Protocol", nil);
+    self.title = @"用户协议";
     self.edgesForExtendedLayout = UIRectEdgeAll;
     
     [self configureView];

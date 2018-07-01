@@ -144,7 +144,7 @@
         @strongify(self);
         [self.tableView headerEndRefresh];
         [self.tableView footerEndRefresh];
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
     }];
 }
 

@@ -62,7 +62,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"Post Thread", nil);
+    self.title = @"发布帖子";
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.imageArray = [NSMutableArray array];
     
@@ -182,13 +182,13 @@
         
         [GCNetworkManager postWebNewThreadWithFid:self.fid typeid:self.selectedType subject:self.subject message:[self.message stringByAppendingString:kSuffix] attachArray:attachArray tableDictionary:tableDictionary posttime:posttime formhash:self.formhash success:^{
             @strongify(self);
-            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Post Success", nil)];
+            [SVProgressHUD showSuccessWithStatus:@"发帖成功"];
             [GCStatistics event:GCStatisticsEventPostThread extra:@{ @"fid" : self.fid, @"subjectText" : self.subject}];
             [self closeAction];
             
         } failure:^(NSError *error) {
             @strongify(self);
-            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+            [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
             self.navigationItem.rightBarButtonItem.enabled = YES;
         }];
     };
@@ -211,7 +211,7 @@
                         }
                     } failure:^(NSError *error) {
                         @strongify(self);
-                        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"Image Upload Error", nil)];
+                        [SVProgressHUD showErrorWithStatus:@"图片上传错误！"];
                         self.navigationItem.rightBarButtonItem.enabled = YES;
                     }];
                 }
@@ -221,7 +221,7 @@
         }];
     } failure:^(NSError *error) {
         @strongify(self);
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }];
 }

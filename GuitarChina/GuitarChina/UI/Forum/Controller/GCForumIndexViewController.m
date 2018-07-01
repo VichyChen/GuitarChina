@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"Forum", nil);
+    self.title = @"论坛";
     [self configureView];
     
     @weakify(self);
@@ -113,7 +113,7 @@
         [self.tableView headerEndRefresh];
     } failure:^(NSError *error) {
         [self.tableView headerEndRefresh];
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
     }];
 }
 

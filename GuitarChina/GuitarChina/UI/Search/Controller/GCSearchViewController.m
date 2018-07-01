@@ -80,7 +80,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     UIBarButtonItem *flexSpaceButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:self action:nil];
     flexSpaceButton.width = -20;
     
-    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"  %@", NSLocalizedString(@"Cancel", nil)]
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"  %@", @"取消"]
                                                                 style:UIBarButtonItemStylePlain
                                                                target:self
                                                                action:@selector(closeAction)];
@@ -99,7 +99,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 28)];
     self.searchTextField.borderStyle = UITextBorderStyleNone;
     self.searchTextField.textColor = [GCColor fontColor];
-    self.searchTextField.placeholder = NSLocalizedString(@"Enter Keywords", nil);
+    self.searchTextField.placeholder = @"输入搜索内容";
     self.searchTextField.textAlignment = NSTextAlignmentLeft;
     self.searchTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.searchTextField.font = [UIFont systemFontOfSize:15];
@@ -158,7 +158,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
             GCSearchArray *searchArray = [GCHTMLParse parseSearch:htmlData];
             if (self.pageIndex == 1 && searchArray.datas.count == 0) {
                 [self.searchTableView headerEndRefresh];
-                [SVProgressHUD showInfoWithStatus:NSLocalizedString(@"对不起，没有找到匹配结果。", nil)];
+                [SVProgressHUD showInfoWithStatus:@"对不起，没有找到匹配结果。"];
                 return;
             }
             if (self.pageIndex == 1) {
@@ -281,7 +281,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
 
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, ScreenWidth - 30, 44)];
-        label.text = NSLocalizedString(@"Search History", nil);
+        label.text = @"搜索历史";
         label.font = [UIFont systemFontOfSize:15];
         label.textColor = [GCColor grayColor1];
 
@@ -291,7 +291,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 80)];
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
         button.frame = CGRectMake(0, 0, ScreenWidth - 60, 40);
-        [button setTitle:NSLocalizedString(@"Clean History", nil) forState:UIControlStateNormal];
+        [button setTitle:@"清除搜索历史" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(clearHistory) forControlEvents:UIControlEventTouchUpInside];
         button.tintColor = [GCColor redColor];
         button.layer.cornerRadius = 5;

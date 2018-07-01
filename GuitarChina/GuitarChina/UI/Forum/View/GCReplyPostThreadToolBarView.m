@@ -82,7 +82,7 @@
 - (UIButton *)closeButton {
     if (!_closeButton) {
         _closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_closeButton setTitle:NSLocalizedString(@"Close", nil) forState:UIControlStateNormal];
+        [_closeButton setTitle:@"关闭" forState:UIControlStateNormal];
         [_closeButton setTitleColor:[GCColor grayColor1] forState:UIControlStateNormal];
         [_closeButton addTarget:self action:@selector(closeAction) forControlEvents:UIControlEventTouchUpInside];
     }

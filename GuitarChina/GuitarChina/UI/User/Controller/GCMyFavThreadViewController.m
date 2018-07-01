@@ -33,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"My Favour", nil);
+    self.title = @"我的收藏";
     [self configureView];
     
     [self.tableView headerBeginRefresh];
@@ -63,7 +63,7 @@
     } failure:^(NSError *error) {
         @strongify(self);
         [self.tableView headerEndRefresh];
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
     }];
 }
 

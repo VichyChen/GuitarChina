@@ -35,9 +35,9 @@
     [super viewDidLoad];
 
     [self configureView];
-    self.subjectTextField.placeholder = NSLocalizedString(@"Title (Required)", nil);
-    self.typeLabel.text = NSLocalizedString(@"Select thread type.", nil);
-    self.placeHoldLabel.text = NSLocalizedString(@"Write reply.", nil);
+    self.subjectTextField.placeholder = @"标题(必填)";
+    self.typeLabel.text = @"选择主题类型";
+    self.placeHoldLabel.text = @"输入内容...";
     
     self.subjectTextField.textColor = [GCColor grayColor1];
     self.typeLabel.textColor = [GCColor placeHolderColor];
@@ -109,7 +109,7 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
-    self.title = NSLocalizedString(@"Post Thread", nil);
+    self.title = @"发布帖子";
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
     self.navigationItem.rightBarButtonItem = [UIView createCustomBarButtonItem:@"icon_checkmark"
@@ -131,14 +131,14 @@
     [GCNetworkManager postNewThreadWithFid:self.fid subject:self.subjectTextField.text message:self.messageTextView.text type:self.selectedType formhash:self.formhash success:^(GCNewThreadModel *model) {
         self.navigationItem.rightBarButtonItem.enabled = YES;
         if ([model.message.messageval isEqualToString:@"post_newthread_succeed"]) {
-            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Post Success", nil)];
+            [SVProgressHUD showSuccessWithStatus:@"发帖成功"];
             [GCStatistics event:GCStatisticsEventPostThread extra:@{ @"fid" : self.fid, @"subjectText" : self.subjectTextField.text}];
             [self.navigationController popViewControllerAnimated:YES];
         } else {
             [SVProgressHUD showSuccessWithStatus:model.message.messagestr];
         }
     } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }];
 }

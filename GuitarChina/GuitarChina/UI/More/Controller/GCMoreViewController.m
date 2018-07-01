@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = NSLocalizedString(@"More", nil);
+    self.title = @"更多";
     self.edgesForExtendedLayout = UIRectEdgeAll;
     
     [self configureView];
@@ -306,18 +306,18 @@
 }
 
 - (NSArray *)array {
-    NSDictionary *myTheme = @{@"title" : NSLocalizedString(@"My Theme", nil), @"enable" : @YES, @"redCount" : @"0" };
-    NSDictionary *myFavour = @{@"title" : NSLocalizedString(@"My Favour", nil), @"enable" : @YES, @"redCount" : @"0" };
-    NSDictionary *myPromtpt = @{@"title" : NSLocalizedString(@"My Promtpt", nil), @"enable" : @YES, @"redCount" : [NSString stringWithFormat:@"%ld", [NSUD integerForKey:kGCNewMyPost]] };
+    NSDictionary *myTheme = @{@"title" : @"我的主题", @"enable" : @YES, @"redCount" : @"0" };
+    NSDictionary *myFavour = @{@"title" : @"我的收藏", @"enable" : @YES, @"redCount" : @"0" };
+    NSDictionary *myPromtpt = @{@"title" : @"我的提醒", @"enable" : @YES, @"redCount" : [NSString stringWithFormat:@"%ld", [NSUD integerForKey:kGCNewMyPost]] };
     
-    NSDictionary *developer = @{@"title" : NSLocalizedString(@"Information Development", nil), @"enable" : @YES, @"redCount" : @"0" };
-    NSDictionary *score = @{@"title" : NSLocalizedString(@"To Score", nil), @"enable" : @YES, @"redCount" : @"0" };
-    NSDictionary *feedback = @{@"title" : NSLocalizedString(@"Feedback", nil), @"enable" : @YES, @"redCount" : @"0" };
-    NSDictionary *setting = @{@"title" : NSLocalizedString(@"Setting", nil), @"enable" : @YES, @"redCount" : @"0" };
+    NSDictionary *developer = @{@"title" : @"开发信息", @"enable" : @YES, @"redCount" : @"0" };
+    NSDictionary *score = @{@"title" : @"给五星好评", @"enable" : @YES, @"redCount" : @"0" };
+    NSDictionary *feedback = @{@"title" : @"意见反馈", @"enable" : @YES, @"redCount" : @"0" };
+    NSDictionary *setting = @{@"title" : @"设置", @"enable" : @YES, @"redCount" : @"0" };
     
-    NSDictionary *pro = @{@"title" : NSLocalizedString(@"吉他中国Pro - 无广告清爽版", nil), @"enable" : @YES, @"redCount" : @"0" };
+    NSDictionary *pro = @{@"title" : @"吉他中国Pro - 无广告清爽版", @"enable" : @YES, @"redCount" : @"0" };
     
-    NSDictionary *meDictionary = @{NSLocalizedString(@"Me", nil) : @[myTheme, myFavour, myPromtpt] };
+    NSDictionary *meDictionary = @{@"我" : @[myTheme, myFavour, myPromtpt] };
     NSDictionary *othersDictionary = @{ @" " : @[developer, score, feedback, setting] };
     NSDictionary *proDictionary = @{ @" " : @[pro] };
     

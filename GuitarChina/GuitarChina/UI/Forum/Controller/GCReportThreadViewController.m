@@ -36,10 +36,10 @@
     }
     [self.reportThreadView.textView resignFirstResponder];
     [GCNetworkManager postReportWithTid:self.tid text:self.reportThreadView.textView.text success:^{
-        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"Report Success", nil)];
+        [SVProgressHUD showSuccessWithStatus:@"举报成功"];
         [self closeAction];
     } failure:^(NSError *error) {
-        [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"No Network Connection", nil)];
+        [SVProgressHUD showErrorWithStatus:@"没有网络连接！"];
     }];
 }
 
@@ -58,7 +58,7 @@
                                                                         target:self
                                                                         action:@selector(sendAction)];
     
-    self.title = NSLocalizedString(@"Report", nil);
+    self.title = @"举报";
     
     [self.view addSubview:self.reportThreadView];
 }
