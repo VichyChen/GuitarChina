@@ -2,10 +2,12 @@ body {
     word-wrap:break-word;
     word-break:break-word;
     overflow:hidden;
+    margin:0px 0px 0px 0px;
+    padding:0px 0px 0px 0px;
 }
 
 #subject {
-    margin:10px 10px 5px 10px;
+    margin:15px 15px 0px 15px;
     color:#161819;
     font-size:17px;
 }
@@ -17,13 +19,13 @@ body {
 }
 
 #datelineDetail {
-    margin:0px 10px 0px 10px;
+    margin:5px 15px 5px 15px;
     color:#80888F;
     font-size:13px;
 }
 
 #replyDetail {
-    margin:0px 10px 0px 10px;
+    margin:0px 15px 0px 15px;
     color:#80888F;
     font-size:13px;
 }
@@ -54,7 +56,8 @@ body {
 }
 
 .message {
-    margin:10px 8px 0 8px;
+    margin:15px 15px 0px 15px;
+    padding:0px 0px 0px 0px;
     color:#161819;
     font-size:16px;
     overflow:hidden;
@@ -62,15 +65,22 @@ body {
 
 .message a {
     display: inline-block;
-    padding:0px 5px 0px 5px;
+    padding:0px 0px 0px 0px;
+    margin:0px 0px 0px 0px;
     color:#4C85A3;
+}
+
+.tall {
+    margin:15px 0px 0px 0px;
+    padding:0px;
+    font-size:9px'
 }
 
 .separator {
     height:0.5px;
     background:#D3DCE2;
     overflow:hidden;
-    margin:10px -5px 10px -5px;
+    margin:15px 15px 0px 15px;
 }
 
 .quote {
@@ -85,11 +95,11 @@ body {
 }
 
 .image {
-    margin:5px 0px 5px 0px;
+    margin:15px 0px 0px 0px;
 }
 
 .options {
-    margin:10px 8px 0px 8px;
+    margin:15px 15px 0px 15px;
 }
 
 .optionHeader {

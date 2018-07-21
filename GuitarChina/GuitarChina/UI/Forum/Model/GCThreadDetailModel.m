@@ -134,7 +134,7 @@
                 //附件图片url
                 NSString *imageURL = [NSString stringWithFormat:@"http://bbs.guitarchina.com/%@%@%@", [imageInfo objectForKey:@"url"], [imageInfo objectForKey:@"attachment"], [NSString stringWithFormat:@"?type=%@&pid=%@&index=%d", @"GuitarChinaImage", model.pid, i]];
                 //<img>
-                NSString *imageHTML = [NSString stringWithFormat:@"<a href=\"%@\"><img class=\"image\" width=\"%.f\" src=\"%@\"></a>", imageURL, ScreenWidth - 30, imageURL];
+                NSString *imageHTML = [NSString stringWithFormat:@"<a href=\"%@\"><img class=\"image\" width=\"%.f\" src=\"%@\"></a>", imageURL, kScreenWidth - 30, imageURL];
                 //替换[attach]
                 if ([model.message containString:[NSString stringWithFormat:@"[attach]%@[/attach]", model.attachImageURLArray[i]]]) {
                     model.message = [model.message replace:[NSString stringWithFormat:@"[attach]%@[/attach]", model.attachImageURLArray[i]] toNewString:imageHTML];
@@ -174,11 +174,11 @@
         }
     }
     NSString *htmlPage = [Util getBundleHTMLString:@"GCThreadWebViewHtml"];
-    [html appendFormat:htmlPage, ScreenWidth - 30, self.subject, [Util getDateStringWithTimeStamp:self.dateline format:@"yyyy-MM-dd HH:mm"], [NSString stringWithFormat:@"%@，%@回复 %@浏览", [APP.forumDictionary objectForKey: self.fid], self.replies, self.views], htmlCellString];
+    [html appendFormat:htmlPage, kScreenWidth - 30, self.subject, [Util getDateStringWithTimeStamp:self.dateline format:@"yyyy-MM-dd HH:mm"], [NSString stringWithFormat:@"%@，%@回复 %@浏览", [APP.forumDictionary objectForKey: self.fid], self.replies, self.views], htmlCellString];
 
     //处理尾巴样式
-    html = [html replace:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305\" target=\"_blank\"><font color=\"Gray\">发自吉他中国iPhone客户端</font></a>" toNewString:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305\" target=\"_blank\" style='margin:10px 0px 8px -5px;font-size:13px'><font color=\"Gray\">发自吉他中国iPhone客户端</font></a>"];
-    html = [html replace:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1193034315\" target=\"_blank\"><font color=\"Gray\">发自吉他中国Pro iPhone客户端</font></a>" toNewString:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1193034315\" target=\"_blank\" style='margin:10px 0px 8px -5px;font-size:13px'><font color=\"Gray\">发自吉他中国Pro iPhone客户端</font></a>"];
+    html = [html replace:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305\" target=\"_blank\"><font color=\"Gray\">发自吉他中国iPhone客户端</font></a>" toNewString:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305\" target=\"_blank\" style='margin-top:10px;font-size:13px'><font color=\"Gray\">发自吉他中国iPhone客户端</font></a>"];
+    html = [html replace:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1193034315\" target=\"_blank\"><font color=\"Gray\">发自吉他中国Pro iPhone客户端</font></a>" toNewString:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1193034315\" target=\"_blank\" style='margin-top:10px;font-size:13px'><font color=\"Gray\">发自吉他中国Pro iPhone客户端</font></a>"];
     //替换表情链接
     html = [html replace:@"src=\"static/image/smiley/gc/em" toNewString:@"src=\"http://bbs.guitarchina.com/static/image/smiley/gc/em"];
     //替换视频

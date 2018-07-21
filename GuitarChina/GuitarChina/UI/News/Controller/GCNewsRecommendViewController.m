@@ -66,11 +66,11 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight - kTabBarHeight) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - kTabBarHeight) style:UITableViewStyleGrouped];
         _tableView.backgroundColor = [UIColor whiteColor];
         [_tableView initHeaderView];
         [_tableView initFooterView];
-        _tableView.separatorLeftInset = 13;
+        _tableView.separatorHorizontalInset = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
 
         @weakify(self);
         [_tableView setHeaderRefreshBlock:^{
@@ -141,7 +141,7 @@
         self.tableViewKit.heightForRowAtIndexPathBlock = ^CGFloat(NSIndexPath *indexPath) {
             @strongify(self);
             if (indexPath.section == 0) {
-                return ScreenWidth * 0.6;
+                return kScreenWidth * 0.6;
             }
             else {
                 NSArray *heightArray = [self.rowHeightDictionary objectForKey:[NSNumber numberWithInteger:indexPath.section - 1]];
@@ -155,16 +155,16 @@
                 return [[UIView alloc] init];
             }
             else {
-                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 50)];
+                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 50)];
                 view.backgroundColor = [UIColor whiteColor];
                 
-                UIView *grayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 10)];
+                UIView *grayView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 10)];
                 grayView.backgroundColor = [GCColor backgroundColor];
                 [view addSubview:grayView];
                 
                 GCNewsModuleModel *model = self.model.moduleArray[section - 1];
                 
-                UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, ScreenWidth, 40)];
+                UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 10, kScreenWidth, 40)];
                 label.text = [NSString stringWithFormat:@"%@", model.name];
                 label.font = [UIFont systemFontOfSize:16];
                 label.textColor = [GCColor blueColor];

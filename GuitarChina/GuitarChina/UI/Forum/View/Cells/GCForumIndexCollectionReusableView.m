@@ -14,7 +14,7 @@
     [super awakeFromNib];
 
     self.titleLabel.textColor = [GCColor blueColor];
-    if (ScreenWidth == 320) {
+    if (kScreenWidth == 320) {
         self.titleLabel.font = [UIFont systemFontOfSize:15];
     }
 }

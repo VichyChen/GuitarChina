@@ -66,7 +66,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight) style:UITableViewStyleGrouped];
         _tableView.backgroundColor = [GCColor backgroundColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.separatorLeftInset = 0;
@@ -127,7 +127,7 @@
             return [dictionary[@"rowHeight"] floatValue];
         };
         self.tableViewKit.viewForHeaderInSectionBlock = ^(NSInteger section) {
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 13)];
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 13)];
             return view;
         };
         self.tableViewKit.heightForHeaderInSectionBlock = ^CGFloat(NSInteger section) {

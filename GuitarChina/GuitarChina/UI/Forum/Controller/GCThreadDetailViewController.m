@@ -430,7 +430,7 @@
 
 - (GCThreadDetailView *)threadDetailView {
     if (!_threadDetailView) {
-        _threadDetailView = [[GCThreadDetailView alloc] initWithFrame:CGRectMake(0, kNavigatioinBarHeight, ScreenWidth, ScreenHeight - kNavigatioinBarHeight)];
+        _threadDetailView = [[GCThreadDetailView alloc] initWithFrame:CGRectMake(0, kNavigatioinBarHeight, kScreenWidth, kScreenHeight - kNavigatioinBarHeight)];
         _threadDetailView.webView.delegate = self;
         @weakify(self);
         _threadDetailView.webViewRefreshBlock = ^{

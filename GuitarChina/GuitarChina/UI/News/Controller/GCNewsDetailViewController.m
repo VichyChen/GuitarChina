@@ -98,7 +98,7 @@
 
 - (UIWebView *)webView {
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, kNavigatioinBarHeight, ScreenWidth, ScreenHeight - kNavigatioinBarHeight)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, kNavigatioinBarHeight, kScreenWidth, kScreenHeight - kNavigatioinBarHeight)];
         _webView.opaque = NO;
         _webView.backgroundColor = [UIColor whiteColor];
         _webView.delegate = self;
@@ -119,10 +119,10 @@
         @weakify(self);
         _bannner.loadRequestCompleteBlock = ^{
             @strongify(self);
-            self.bannner.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 50);
+            self.bannner.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 50);
             [UIView animateWithDuration:0.5 animations:^{
-                self.bannner.frame = CGRectMake(0, ScreenHeight - 50, ScreenWidth, 50);
-                self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - 50);
+                self.bannner.frame = CGRectMake(0, kScreenHeight - 50, kScreenWidth, 50);
+                self.webView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - 50);
             }];
         };
     }

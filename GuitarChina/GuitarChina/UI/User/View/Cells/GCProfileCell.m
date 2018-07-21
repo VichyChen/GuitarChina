@@ -23,7 +23,7 @@
         self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
         self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
 
-        self.containView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 100)];
+        self.containView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 100)];
         [self.contentView addSubview:self.containView];
     }
     return self;
@@ -54,7 +54,7 @@
         {
             [self.containView addSubview:self.titleLabel];
             
-            self.titleLabel.frame = CGRectMake(13, 0, ScreenWidth - 26, 44);
+            self.titleLabel.frame = CGRectMake(13, 0, kScreenWidth - 26, 44);
             
             self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
@@ -65,8 +65,8 @@
             [self.containView addSubview:self.titleLabel];
             [self.containView addSubview:self.valueLabel];
 
-            self.titleLabel.frame = CGRectMake(13, 0, ScreenWidth - 26, 44);
-            self.valueLabel.frame = CGRectMake(13, 0, ScreenWidth - 26, 44);
+            self.titleLabel.frame = CGRectMake(13, 0, kScreenWidth - 26, 44);
+            self.valueLabel.frame = CGRectMake(13, 0, kScreenWidth - 26, 44);
             
             self.accessoryType = UITableViewCellAccessoryNone;
         }

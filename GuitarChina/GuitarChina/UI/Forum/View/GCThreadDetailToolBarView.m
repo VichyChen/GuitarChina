@@ -57,7 +57,7 @@
 
 - (UIView *)separatorLineView {
     if (!_separatorLineView) {
-        _separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+        _separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0.5)];
         _separatorLineView.backgroundColor = [GCColor separatorLineColor];
     }
     return _separatorLineView;
@@ -66,7 +66,7 @@
 - (UIButton *)pageButton {
     if (!_pageButton) {
         _pageButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        _pageButton.frame = CGRectMake(ScreenWidth / 2 - 40, 0, 80, 40);
+        _pageButton.frame = CGRectMake(kScreenWidth / 2 - 40, 0, 80, 40);
         [_pageButton setTitle:@"1" forState:UIControlStateNormal];
         [_pageButton addTarget:self action:@selector(pageAction) forControlEvents:UIControlEventTouchUpInside];
         _pageButton.tintColor = [GCColor grayColor1];
@@ -78,7 +78,7 @@
 - (UIButton *)previousPageButton {
     if (!_previousPageButton) {
         _previousPageButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        _previousPageButton.frame = CGRectMake(ScreenWidth / 2 - 40 - 60, 0, 60, 40);
+        _previousPageButton.frame = CGRectMake(kScreenWidth / 2 - 40 - 60, 0, 60, 40);
         [_previousPageButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
         _previousPageButton.tintColor = [GCColor grayColor1];
         [_previousPageButton setTitle:@"上一页" forState:UIControlStateNormal];
@@ -89,7 +89,7 @@
 - (UIButton *)nextPageButton {
     if (!_nextPageButton) {
         _nextPageButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        _nextPageButton.frame = CGRectMake(ScreenWidth / 2 + 40, 0, 60, 40);
+        _nextPageButton.frame = CGRectMake(kScreenWidth / 2 + 40, 0, 60, 40);
         [_nextPageButton addTarget:self action:@selector(forwardAction) forControlEvents:UIControlEventTouchUpInside];
         _nextPageButton.tintColor = [GCColor grayColor1];
         [_nextPageButton setTitle:@"下一页" forState:UIControlStateNormal];
@@ -99,7 +99,7 @@
 
 - (UIView *)replyView {
     if (!_replyView) {
-        _replyView = [[UIView alloc] initWithFrame:CGRectMake(ScreenWidth - 50, 0, 50, 40)];
+        _replyView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth - 50, 0, 50, 40)];
         
         UIImageView *replyImageView = [[UIImageView alloc] initWithFrame:CGRectMake(14, 9, 22, 22)];
         replyImageView.image = [UIImage imageNamed:@"icon_reply"];

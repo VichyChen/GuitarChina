@@ -82,13 +82,13 @@
     [super viewDidLayoutSubviews];
     
     //4,4s
-    if (ScreenHeight == 480) {
+    if (kScreenHeight == 480) {
     } else {
         self.contentOriginY.constant = 20;
     }
     if (iPhone) {
         //iphone
-        self.contentWidth.constant = ScreenWidth - 30;
+        self.contentWidth.constant = kScreenWidth - 30;
     } else {
         //ipad
         self.contentWidth.constant = 414;
@@ -148,14 +148,14 @@
 - (IBAction)backgroundClickAction:(UITapGestureRecognizer *)sender {
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
     [UIView animateWithDuration:0.5 animations:^{
-        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 240);
+        self.pickerBackgroundView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 240);
     }];
 }
 
 - (IBAction)showQuestionAction:(UITapGestureRecognizer *)sender {
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 //    [UIView animateWithDuration:0.3 animations:^{
-//        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight - 240, ScreenWidth, 240);
+//        self.pickerBackgroundView.frame = CGRectMake(0, kScreenHeight - 240, kScreenWidth, 240);
 //    }];
     [self.questionPickerView showInView:self.view];
 }
@@ -171,7 +171,7 @@
     self.questionIndex = index;
     self.questionTextLabel.text = [self.questionArray objectAtIndex:[self.pickerView selectedRowInComponent:0]];
     [UIView animateWithDuration:0.3 animations:^{
-        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 240);
+        self.pickerBackgroundView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 240);
     }];
     [self textFieldValueChange:nil];
 }

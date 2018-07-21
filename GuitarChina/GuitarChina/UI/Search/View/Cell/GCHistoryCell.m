@@ -51,7 +51,7 @@
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         
         buttonWidth = [button sizeThatFits:CGSizeMake(1, 1)].width;
-        if (buttonWidth + rowOriginX + ButtonHorizontalSpace > ScreenWidth - ButtonHorizontalSpace * 2) {
+        if (buttonWidth + rowOriginX + ButtonHorizontalSpace > kScreenWidth - ButtonHorizontalSpace * 2) {
             rowOriginY += (ButtonHeight + ButtonVerticalSpace);
             rowOriginX = 0;
         }
@@ -77,7 +77,7 @@
         [button setTitle:array[i] forState:UIControlStateNormal];
         
         buttonWidth = [button sizeThatFits:CGSizeMake(1, 1)].width;
-        if (buttonWidth + rowOriginX + ButtonHorizontalSpace > ScreenWidth - ButtonHorizontalSpace * 2) {
+        if (buttonWidth + rowOriginX + ButtonHorizontalSpace > kScreenWidth - ButtonHorizontalSpace * 2) {
             rowOriginY += (ButtonHeight + ButtonVerticalSpace);
             rowOriginX = 0;
         }
@@ -85,7 +85,7 @@
         rowOriginX += (ButtonHorizontalSpace + buttonWidth);
     }
     
-    return  CGSizeMake(ScreenWidth, rowOriginY + ButtonHeight);
+    return  CGSizeMake(kScreenWidth, rowOriginY + ButtonHeight);
 }
 
 #pragma mark - Getters

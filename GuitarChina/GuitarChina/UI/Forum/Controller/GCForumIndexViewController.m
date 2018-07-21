@@ -121,9 +121,10 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavigatioinBarHeight, ScreenWidth, ScreenHeight - kNavigatioinBarHeight - kTabBarHeight) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavigatioinBarHeight, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - kTabBarHeight) style:UITableViewStylePlain];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor whiteColor];
+        _tableView.separatorHorizontalInset = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
         @weakify(self);
         [_tableView setHeaderRefreshBlock:^{
             @strongify(self);
@@ -162,20 +163,20 @@
         };
         self.tableViewKit.viewForHeaderInSectionBlock = ^(NSInteger section) {
             @strongify(self);
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
             view.backgroundColor = [UIColor whiteColor];
             GCForumGroupModel *model = [self.data objectAtIndex:section];
             
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, ScreenWidth, 40)];
+            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(kMargin, 0, kSubScreenWidth, 40)];
             label.text = [NSString stringWithFormat:@"%@", model.name];
             label.font = [UIFont systemFontOfSize:16];
             label.textColor = [GCColor blueColor];
             
             [view addSubview:label];
             
-            UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, ScreenWidth, 0.5)];
-            lineView.backgroundColor = [GCColor separatorLineColor];
-            [view addSubview:lineView];
+//            UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(kMargin, 39, kSubScreenWidth, 1)];
+//            lineView.backgroundColor = [GCColor separatorLineColor];
+//            [view addSubview:lineView];
             
             return view;
         };

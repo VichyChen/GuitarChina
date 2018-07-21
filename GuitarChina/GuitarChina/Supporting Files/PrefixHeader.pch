@@ -36,8 +36,8 @@
 #import "GCStatistics.h"
 #import "UIImage+CommonMethods.h"
 
-#define ScreenHeight ([UIScreen mainScreen].bounds.size.height)
-#define ScreenWidth ([UIScreen mainScreen].bounds.size.width)
+#define kScreenHeight ([UIScreen mainScreen].bounds.size.height)
+#define kScreenWidth ([UIScreen mainScreen].bounds.size.width)
 #define APP ((AppDelegate *)[UIApplication sharedApplication].delegate)
 #define iPhone UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone
 #define iPad UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
@@ -51,6 +51,12 @@
 #define kTabBarHeight (iPhoneX ? (49.f+34.f) : 49.f)
 #define kSAVE_ARE_TOP        (iPhoneX ? 24.0f : 0.0f)
 #define kSAVE_ARE_BOTTOM     (iPhoneX ? 34.0f : 0.0f)
+
+#define kMargin 15
+#define kSubScreenWidth (kScreenWidth - kMargin * 2)
+
+#define kCornerRadius 5
+
 
 #define String(obj) ((!(obj) || ![(obj) isKindOfClass:[NSString class]]  || ([(obj) isKindOfClass:[NSString class]] && [(obj) length] == 0)) ? @"" : (obj))
 #define StringIsEmpty(obj) (!(obj) || ![(obj) isKindOfClass:[NSString class]] || ([(obj) isKindOfClass:[NSString class]] && [[(obj) trim] length] == 0))

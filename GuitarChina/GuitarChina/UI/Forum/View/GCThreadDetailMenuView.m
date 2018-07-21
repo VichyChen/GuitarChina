@@ -45,10 +45,10 @@
 @implementation GCThreadDetailMenuView
 
 - (instancetype)initWithRowItems:(NSArray *)rowItems {
-    self = [super initWithFrame:CGRectMake(0, 0, ScreenWidth, 0)];
+    self = [super initWithFrame:CGRectMake(0, 0, kScreenWidth, 0)];
     if (self) {
         _interval = 15;
-        if (ScreenWidth == 320) {
+        if (kScreenWidth == 320) {
             //3.5inch、4inch
             _width = (self.frame.size.width - _interval - 30) / 4;
         } else {

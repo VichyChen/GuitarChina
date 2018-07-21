@@ -261,25 +261,25 @@
     CGRect defaultImageRect;
     CGRect bottomViewImageRect;
     //4
-    if (ScreenWidth == 320) {
+    if (kScreenWidth == 320) {
         imageName = @"AdLaunchImage_640_1136";
         defaultImageRect = CGRectMake(0, 0, 640, 1136);
         bottomViewImageRect = CGRectMake(0, 1136 - 200, 640, 200);
     }
     //4.7
-    else if (ScreenWidth == 375 && ScreenHeight == 667) {
+    else if (kScreenWidth == 375 && kScreenHeight == 667) {
         imageName = @"AdLaunchImage_750_1334";
         defaultImageRect = CGRectMake(0, 0, 750, 1334);
         bottomViewImageRect = CGRectMake(0, 1334 - 200, 750, 200);
     }
     //5.5
-    else if (ScreenWidth == 414) {
+    else if (kScreenWidth == 414) {
         imageName = @"AdLaunchImage_1242_2208";
         defaultImageRect = CGRectMake(0, 0, 1242, 2208);
         bottomViewImageRect = CGRectMake(0, 2208 - 300, 1242, 300);
     }
     //5.8
-    else if (ScreenWidth == 375 && ScreenHeight == 812) {
+    else if (kScreenWidth == 375 && kScreenHeight == 812) {
         imageName = @"AdLaunchImage_750_1334";
         defaultImageRect = CGRectMake(0, 0, 750, 1334);
         bottomViewImageRect = CGRectMake(0, 1334 - 200, 750, 200);
@@ -294,10 +294,10 @@
     self.splash = [[GDTSplashAd alloc] initWithAppkey:kGDTAppKey placementId:kGDTSplashPlacementID];
     self.splash.fetchDelay = 3;
     self.splash.delegate = self;
-    UIImage *defaultImage = [[[UIImage imageNamed:imageName] cutWithRect:defaultImageRect] resize:CGSizeMake(ScreenWidth, ScreenHeight)];
+    UIImage *defaultImage = [[[UIImage imageNamed:imageName] cutWithRect:defaultImageRect] resize:CGSizeMake(kScreenWidth, kScreenHeight)];
     self.splash.backgroundColor = [UIColor colorWithPatternImage:defaultImage];
     
-    self.bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenHeight - 100, ScreenWidth, 100)];
+    self.bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, kScreenHeight - 100, kScreenWidth, 100)];
     UIImage *bottomImage = [[[UIImage imageNamed:imageName] cutWithRect:bottomViewImageRect] resize:self.bottomView.frame.size];
     self.bottomView.backgroundColor = [UIColor colorWithPatternImage:bottomImage];
     

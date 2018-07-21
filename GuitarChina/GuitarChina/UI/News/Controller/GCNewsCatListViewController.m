@@ -76,7 +76,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight);
+        _tableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight);
         _tableView.separatorLeftInset = 13;
         [_tableView initFooterView];
         

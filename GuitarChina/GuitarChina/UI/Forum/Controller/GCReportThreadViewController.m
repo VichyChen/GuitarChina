@@ -67,7 +67,7 @@
 
 - (GCReportThreadView *)reportThreadView {
     if (!_reportThreadView) {
-        _reportThreadView = [[GCReportThreadView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight)];
+        _reportThreadView = [[GCReportThreadView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight)];
     }
     return _reportThreadView;
 }

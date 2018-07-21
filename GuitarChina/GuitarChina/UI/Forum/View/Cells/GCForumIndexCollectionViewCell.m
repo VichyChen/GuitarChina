@@ -27,7 +27,7 @@
     self.buttonArray = [NSMutableArray array];
     self.titleLabel.adjustsFontSizeToFitWidth = YES;
     
-    if (ScreenWidth == 320) {
+    if (kScreenWidth == 320) {
         self.titleLabel.font = [UIFont systemFontOfSize:14];
     }
 }
@@ -63,9 +63,9 @@
         button.tag = i;
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         
-        buttonWidth = (ScreenWidth - ButtonHorizontalSpace * 3) / 2;
+        buttonWidth = (kScreenWidth - ButtonHorizontalSpace * 3) / 2;
 
-        if (buttonWidth + rowOriginX + ButtonHorizontalSpace > ScreenWidth) {
+        if (buttonWidth + rowOriginX + ButtonHorizontalSpace > kScreenWidth) {
             rowOriginY += (ButtonHeight + ButtonVerticalSpace);
             rowOriginX = 13;
         }
@@ -96,9 +96,9 @@
         
         [button setTitle:title forState:UIControlStateNormal];
         
-        buttonWidth = (ScreenWidth - ButtonHorizontalSpace * 3) / 2;
+        buttonWidth = (kScreenWidth - ButtonHorizontalSpace * 3) / 2;
         
-        if (buttonWidth + rowOriginX + ButtonHorizontalSpace > ScreenWidth) {
+        if (buttonWidth + rowOriginX + ButtonHorizontalSpace > kScreenWidth) {
             rowOriginY += (ButtonHeight + ButtonVerticalSpace);
             rowOriginX = 13;
         }
@@ -106,7 +106,7 @@
         rowOriginX += (ButtonHorizontalSpace + buttonWidth);
     }
     
-    return  CGSizeMake(ScreenWidth, rowOriginY + ButtonHeight);
+    return  CGSizeMake(kScreenWidth, rowOriginY + ButtonHeight);
 }
 
 @end

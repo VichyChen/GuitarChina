@@ -66,7 +66,7 @@
 }
 
 - (void)configureFrame {
-    self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight - 40);
+    self.webView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - 40);
 }
 
 #pragma mark - Event Responses
@@ -87,12 +87,12 @@
 
 - (UIWebView *)webView {
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight - 40)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - 40)];
         _webView.dataDetectorTypes = UIDataDetectorTypeLink;
         _webView.opaque = NO;
         _webView.backgroundColor = [UIColor clearColor];
         _webView.scrollView.showsHorizontalScrollIndicator = NO;
-        _webView.scrollView.contentSize = CGSizeMake(ScreenWidth, ScreenHeight);
+        _webView.scrollView.contentSize = CGSizeMake(kScreenWidth, kScreenHeight);
         @weakify(self);
         _webView.scrollView.headerRefreshBlock = ^{
             @strongify(self);
@@ -104,7 +104,7 @@
 
 - (GCThreadDetailToolBarView *)toolBarView {
     if (!_toolBarView) {
-        _toolBarView = [[GCThreadDetailToolBarView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 40 - kSAVE_ARE_BOTTOM, ScreenWidth, 40 + kSAVE_ARE_BOTTOM)];
+        _toolBarView = [[GCThreadDetailToolBarView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - 40 - kSAVE_ARE_BOTTOM, kScreenWidth, 40 + kSAVE_ARE_BOTTOM)];
         _toolBarView.alpha = 0.0f;
         @weakify(self);
         _toolBarView.pageActionBlock = ^{
@@ -145,7 +145,7 @@
 
 - (GCThreadDetailPagePickerView *)pagePickerView {
     if (!_pagePickerView) {
-        _pagePickerView = [[GCThreadDetailPagePickerView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - self.toolBarView.frame.size.height, ScreenWidth, self.frame.size.height - self.toolBarView.frame.size.height)];
+        _pagePickerView = [[GCThreadDetailPagePickerView alloc] initWithFrame:CGRectMake(0, self.frame.size.height - self.toolBarView.frame.size.height, kScreenWidth, self.frame.size.height - self.toolBarView.frame.size.height)];
         _pagePickerView.alpha = 0.0f;
         @weakify(self);
         _pagePickerView.goActionBlock = ^(NSInteger page) {
@@ -164,17 +164,17 @@
         @weakify(self);
         _bannner.loadRequestCompleteBlock = ^{
             @strongify(self);
-            self.bannner.frame = CGRectMake(0, self.toolBarView.frame.origin.y, ScreenWidth, 50);
+            self.bannner.frame = CGRectMake(0, self.toolBarView.frame.origin.y, kScreenWidth, 50);
             [UIView animateWithDuration:0.5 animations:^{
-                self.bannner.frame = CGRectMake(0, self.toolBarView.frame.origin.y - 50, ScreenWidth, 50);
-                self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight - 40 - 50);
+                self.bannner.frame = CGRectMake(0, self.toolBarView.frame.origin.y - 50, kScreenWidth, 50);
+                self.webView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - 40 - 50 - kSAVE_ARE_BOTTOM);
             }];
         };
         _bannner.beginRemoveFromSuperviewBlock = ^{
             @strongify(self);
             [UIView animateWithDuration:0.5 animations:^{
-                self.bannner.frame = CGRectMake(0, self.toolBarView.frame.origin.y, ScreenWidth, 50);
-                self.webView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight - 40);
+                self.bannner.frame = CGRectMake(0, self.toolBarView.frame.origin.y, kScreenWidth, 50);
+                self.webView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - 40);
             }];
         };
     }

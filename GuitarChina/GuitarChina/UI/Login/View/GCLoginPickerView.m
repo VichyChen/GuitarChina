@@ -21,9 +21,9 @@
     self = [super init];
     if (self) {
         self.show = NO;
-        self.frame = CGRectMake(0, ScreenHeight - 64, ScreenWidth, ScreenHeight - 64);
+        self.frame = CGRectMake(0, kScreenHeight - 64, kScreenWidth, kScreenHeight - 64);
         self.originFrame = self.frame;
-        self.afterMoveFrame = CGRectMake(0, 0, ScreenWidth, self.frame.size.height);
+        self.afterMoveFrame = CGRectMake(0, 0, kScreenWidth, self.frame.size.height);
         [self configureView];
     }
     return self;
@@ -50,7 +50,7 @@
 - (void)dismiss {
     if (self.isShow) {
         [UIView animateWithDuration:0.3 animations:^{
-            self.contentView.frame = CGRectMake(0, self.frame.size.height, ScreenWidth, 210);
+            self.contentView.frame = CGRectMake(0, self.frame.size.height, kScreenWidth, 210);
             self.transparentView.alpha = 0.0f;
         } completion:^(BOOL finished) {
             self.frame = self.originFrame;
@@ -64,7 +64,7 @@
     if (!self.isShow) {
         [view addSubview:self];
         self.frame = self.afterMoveFrame;
-        self.contentView.frame = CGRectMake(0, self.frame.size.height, ScreenWidth, 210);
+        self.contentView.frame = CGRectMake(0, self.frame.size.height, kScreenWidth, 210);
         self.transparentView.alpha = 0.0f;
         [UIView animateWithDuration:0.4
                               delay:0.0
@@ -72,7 +72,7 @@
               initialSpringVelocity:0.0
                             options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut
                          animations:^{
-                             self.contentView.frame = CGRectMake(0, self.frame.size.height - 200, ScreenWidth, 210);
+                             self.contentView.frame = CGRectMake(0, self.frame.size.height - 200, kScreenWidth, 210);
                              self.transparentView.alpha = 0.3f;
                          } completion:^(BOOL finished) {
                              self.show = YES;
@@ -139,7 +139,7 @@
 - (UIButton *)goButton {
     if (!_goButton) {
         _goButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        _goButton.frame = CGRectMake(ScreenWidth - 13 - 60, 0, 60, 40);
+        _goButton.frame = CGRectMake(kScreenWidth - 13 - 60, 0, 60, 40);
         [_goButton setTitle:@"确定" forState:UIControlStateNormal];
         [_goButton addTarget:self action:@selector(goAction) forControlEvents:UIControlEventTouchUpInside];
         _goButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -162,7 +162,7 @@
 
 - (UIView *)separatorLineView {
     if (!_separatorLineView) {
-        _separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, ScreenWidth, 0.5)];
+        _separatorLineView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, kScreenWidth, 0.5)];
         _separatorLineView.backgroundColor = [GCColor separatorLineColor];
     }
     return _separatorLineView;
@@ -170,7 +170,7 @@
 
 - (UIPickerView *)pickerView {
     if (!_pickerView) {
-        _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 40.5, ScreenWidth, 160)];
+        _pickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 40.5, kScreenWidth, 160)];
         _pickerView.dataSource = self;
         _pickerView.delegate = self;
         _pickerView.backgroundColor = [UIColor whiteColor];

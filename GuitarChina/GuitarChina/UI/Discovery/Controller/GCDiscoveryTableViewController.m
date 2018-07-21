@@ -112,8 +112,8 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight - 40 - kTabBarHeight);
-        _tableView.separatorLeftInset = 13;
+        _tableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - 40 - kTabBarHeight);
+        _tableView.separatorHorizontalInset = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
         [_tableView initFooterView];
 
         self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCDiscoveryCell"];

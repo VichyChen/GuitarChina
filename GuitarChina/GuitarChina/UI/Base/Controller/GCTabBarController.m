@@ -141,7 +141,7 @@
     pageVC.titleColorNormal = [GCColor grayColor1];
     pageVC.progressColor = [GCColor redColor];
     pageVC.menuBGColor = [GCColor cellSelectedColor];
-    pageVC.menuItemWidth = ScreenWidth / 4;
+    pageVC.menuItemWidth = kScreenWidth / 4;
     pageVC.preloadPolicy = WMPageControllerPreloadPolicyNever;
     
     UILabel *label = [[UILabel alloc] init];

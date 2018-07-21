@@ -45,7 +45,7 @@
     self.messageTextView.textColor = [GCColor grayColor1];
     self.selectTypeCompleteButton.tintColor = [GCColor grayColor3];
     
-    self.scrollViewHeight.constant = ScreenHeight - kNavigatioinBarHeight + 1;
+    self.scrollViewHeight.constant = kScreenHeight - kNavigatioinBarHeight + 1;
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -58,7 +58,7 @@
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     [UIView animateWithDuration:0.3 animations:^{
-        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 240);
+        self.pickerBackgroundView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 240);
     }];
 }
 
@@ -73,7 +73,7 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
     [UIView animateWithDuration:0.3 animations:^{
-        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 240);
+        self.pickerBackgroundView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 240);
     }];
  
 }
@@ -146,7 +146,7 @@
 - (IBAction)selectTypeAction:(UITapGestureRecognizer *)sender {
     [self.pickerView selectRow:self.pickerViewSelectedIndex inComponent:0 animated:YES];
     [UIView animateWithDuration:0.3 animations:^{
-        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight - 240, ScreenWidth, 240);
+        self.pickerBackgroundView.frame = CGRectMake(0, kScreenHeight - 240, kScreenWidth, 240);
     }];
     [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
@@ -157,7 +157,7 @@
     self.selectedType = [NSString stringWithFormat:@"%@", [[self.threadTypes allKeys] objectAtIndex:[self.pickerView selectedRowInComponent:0]]];
     self.typeLabel.text = [[self.threadTypes allValues] objectAtIndex:[self.pickerView selectedRowInComponent:0]];
     [UIView animateWithDuration:0.3 animations:^{
-        self.pickerBackgroundView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 240);
+        self.pickerBackgroundView.frame = CGRectMake(0, kScreenHeight, kScreenWidth, 240);
     }];
 }
 @end

@@ -30,14 +30,14 @@
     [self addSubview:imageView];
     
     UILabel *label = [[UILabel alloc] init];
-    label.frame = CGRectMake(54, 13, ScreenWidth - 26, 20);
+    label.frame = CGRectMake(54, 13, kScreenWidth - 26, 20);
     label.text = @"吉他中国Pro - 无广告清爽版 上线啦！";
     label.font = [UIFont systemFontOfSize:15];
     label.textColor = [GCColor fontColor];
     [self addSubview:label];
     
     UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button1.frame = CGRectMake(ScreenWidth - 13 - 60 - 13 - 60, 46, 60, 28);
+    button1.frame = CGRectMake(kScreenWidth - 13 - 60 - 13 - 60, 46, 60, 28);
     button1.backgroundColor = [GCColor redColor];
     button1.titleLabel.font = [UIFont systemFontOfSize:14];
     [button1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -47,7 +47,7 @@
     [self addSubview:button1];
     
     UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    button2.frame = CGRectMake(ScreenWidth - 13 - 60, 46, 60, 28);
+    button2.frame = CGRectMake(kScreenWidth - 13 - 60, 46, 60, 28);
     button2.backgroundColor = [UIColor whiteColor];
     button2.titleLabel.font = [UIFont systemFontOfSize:14];
     [button2 setTitleColor:[GCColor redColor] forState:UIControlStateNormal];

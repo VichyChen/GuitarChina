@@ -64,14 +64,14 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight)];
         _tableView.backgroundColor = [GCColor backgroundColor];
 
         UIView *footerView = [[UIView alloc] init];
         if ([[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
-            footerView.frame = CGRectMake(0, 0, ScreenWidth, 80);
+            footerView.frame = CGRectMake(0, 0, kScreenWidth, 80);
             UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-            button.frame = CGRectMake(0, 20, ScreenWidth, 40);
+            button.frame = CGRectMake(0, 20, kScreenWidth, 40);
             button.backgroundColor = [UIColor whiteColor];
             [button setTitleColor:[GCColor redColor] forState:UIControlStateNormal];
             button.titleLabel.font = [UIFont systemFontOfSize:16];

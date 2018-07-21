@@ -49,10 +49,10 @@
         @strongify(self);
         [self getNews:GCNetworkModeInterface];
     };
-    self.newsRecommendViewController.view.frame = CGRectMake(0, 0, ScreenWidth, self.scrollView.frame.size.height);
+    self.newsRecommendViewController.view.frame = CGRectMake(0, 0, kScreenWidth, self.scrollView.frame.size.height);
    
     self.newsCatViewController = [[GCNewsCatViewController alloc] init];
-    self.newsCatViewController.view.frame = CGRectMake(ScreenWidth, 0, ScreenWidth, self.scrollView.frame.size.height);
+    self.newsCatViewController.view.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, self.scrollView.frame.size.height);
 
     [self addChildViewController:self.newsRecommendViewController];
     [self addChildViewController:self.newsCatViewController];
@@ -64,7 +64,7 @@
 #pragma mark - Event Responses
 
 - (void)segmentedControlChangedValue {
-    [self.scrollView setContentOffset:CGPointMake(self.segmentedControl.selectedSegmentIndex * ScreenWidth, 0) animated:NO];
+    [self.scrollView setContentOffset:CGPointMake(self.segmentedControl.selectedSegmentIndex * kScreenWidth, 0) animated:NO];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -112,8 +112,8 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.frame = CGRectMake(0, kNavigatioinBarHeight, ScreenWidth, ScreenHeight - kNavigatioinBarHeight - kTabBarHeight);
-        _scrollView.contentSize = CGSizeMake(ScreenWidth * 2, _scrollView.frame.size.height);
+        _scrollView.frame = CGRectMake(0, kNavigatioinBarHeight, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - kTabBarHeight);
+        _scrollView.contentSize = CGSizeMake(kScreenWidth * 2, _scrollView.frame.size.height);
         _scrollView.pagingEnabled = YES;
         _scrollView.scrollEnabled = YES;
         _scrollView.showsHorizontalScrollIndicator = NO;

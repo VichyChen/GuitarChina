@@ -14,8 +14,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.clipsToBounds = YES;
         [self configureView];
     }
@@ -34,14 +33,14 @@
 
 - (void)setModel:(GCNewsModulePostModel *)model index:(NSInteger)index {
     _model = model;
-
+    
     self.titleLabel.text = model.content;
     self.timeLabel.text = model.time;
     self.readCountLabel.text = model.readCount;
     if (model.img.length > 0) {
         [self.leftImageView sd_setImageWithURL:[NSURL URLWithString:model.img] placeholderImage:DefaultImage];
     }
-
+    
     if (index == 0) {
         if (model.img.length > 0) {
             self.titleLabel.numberOfLines = 0;
@@ -49,51 +48,51 @@
             self.timeLabel.textColor = [UIColor whiteColor];
             self.timeLabel.text = model.remark;
             
-            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:16 width:ScreenWidth - 36];
+            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:16 width:kScreenWidth - 40];
             
-            self.leftImageView.frame = CGRectMake(13, 10, ScreenWidth - 26, ScreenWidth * 0.5);
-            self.titleLabel.frame = CGRectMake(18, self.leftImageView.frame.origin.y + self.leftImageView.frame.size.height - titleLabelHeight - 10 - 20, ScreenWidth - 36, titleLabelHeight + 10);
-            self.blackTransparentView.frame = CGRectMake(13, self.leftImageView.frame.origin.y + self.leftImageView.frame.size.height - titleLabelHeight - 10 - 20, ScreenWidth - 26, titleLabelHeight + 10 + 20);
-            self.timeLabel.frame = CGRectMake(18, self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height - 5, ScreenWidth - 36, 20);
+            self.leftImageView.frame = CGRectMake(kMargin, kMargin, kSubScreenWidth, kScreenWidth * 0.5);
+            self.titleLabel.frame = CGRectMake(20, self.leftImageView.frame.origin.y + self.leftImageView.frame.size.height - titleLabelHeight - 10 - 20, kScreenWidth - 40, titleLabelHeight + 10);
+            self.blackTransparentView.frame = CGRectMake(kMargin, self.leftImageView.frame.origin.y + self.leftImageView.frame.size.height - titleLabelHeight - 10 - 20, kSubScreenWidth, titleLabelHeight + 10 + 20);
+            self.timeLabel.frame = CGRectMake(20, self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height - 5, kScreenWidth - 40, 20);
             self.readCountLabel.frame = CGRectZero;
         }
         else {
             self.titleLabel.numberOfLines = 0;
-            self.titleLabel.preferredMaxLayoutWidth = ScreenWidth - 26;
+            self.titleLabel.preferredMaxLayoutWidth = kSubScreenWidth;
             self.titleLabel.textColor = [GCColor fontColor];
             self.timeLabel.textColor = [GCColor grayColor3];
-
-            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:16 width:ScreenWidth - 26];
+            
+            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:16 width:kSubScreenWidth];
             
             self.leftImageView.frame = CGRectZero;
-            self.titleLabel.frame = CGRectMake(13, 10, ScreenWidth - 26, titleLabelHeight);
-            self.timeLabel.frame = CGRectMake(13, 10 + titleLabelHeight + 10, ScreenWidth - 26, 20);
-            self.readCountLabel.frame = CGRectMake(13, 10 + titleLabelHeight + 10, ScreenWidth - 29, 20);
+            self.titleLabel.frame = CGRectMake(kMargin, kMargin, kSubScreenWidth, titleLabelHeight);
+            self.timeLabel.frame = CGRectMake(kMargin, kMargin + titleLabelHeight + 10, kSubScreenWidth, 20);
+            self.readCountLabel.frame = CGRectMake(kMargin, kMargin + titleLabelHeight + kMargin, kSubScreenWidth, 20);
         }
     }
     else {
         self.blackTransparentView.frame = CGRectZero;
         self.titleLabel.textColor = [GCColor fontColor];
         self.timeLabel.textColor = [GCColor grayColor3];
-
+        
         if (self.model.img.length > 0) {
             self.titleLabel.numberOfLines = 2;
             
-            self.leftImageView.frame = CGRectMake(13, 8, 80, 74);
-            self.titleLabel.frame = CGRectMake(13 + 80 + 10, 10, ScreenWidth - 13 - 80 - 20, 45);
-            self.timeLabel.frame = CGRectMake(13 + 80 + 10, 55, ScreenWidth - 13 - 80 - 20, 35);
-            self.readCountLabel.frame = CGRectMake(13 + 80 + 10, 55, ScreenWidth - 13 - 80 - 26, 35);
+            self.leftImageView.frame = CGRectMake(kMargin, kMargin, 80, 74);
+            self.titleLabel.frame = CGRectMake(kMargin + 80 + 10, 17, kScreenWidth - kMargin - 80 - 20, 45);
+            self.timeLabel.frame = CGRectMake(kMargin + 80 + 10, 62, kScreenWidth - kMargin - 80 - 20, 35);
+            self.readCountLabel.frame = CGRectMake(kMargin + 80 + 10, 62, kSubScreenWidth - kMargin - 80, 35);
         }
         else {
             self.titleLabel.numberOfLines = 0;
-            self.titleLabel.preferredMaxLayoutWidth = ScreenWidth - 26;
+            self.titleLabel.preferredMaxLayoutWidth = kSubScreenWidth;
             
-            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:16 width:ScreenWidth - 26];
+            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:16 width:kSubScreenWidth];
             
             self.leftImageView.frame = CGRectZero;
-            self.titleLabel.frame = CGRectMake(13, 10, ScreenWidth - 26, titleLabelHeight);
-            self.timeLabel.frame = CGRectMake(13, 10 + titleLabelHeight + 10, ScreenWidth - 26, 20);
-            self.readCountLabel.frame = CGRectMake(13, 10 + titleLabelHeight + 10, ScreenWidth - 29, 20);
+            self.titleLabel.frame = CGRectMake(kMargin, kMargin, kSubScreenWidth, titleLabelHeight);
+            self.timeLabel.frame = CGRectMake(kMargin, kMargin + titleLabelHeight + 10, kSubScreenWidth, 20);
+            self.readCountLabel.frame = CGRectMake(kMargin, kMargin + titleLabelHeight + kMargin, kSubScreenWidth, 20);
         }
     }
 }
@@ -101,23 +100,23 @@
 + (CGFloat)getCellHeightWithModel:(GCNewsModulePostModel *)model index:(NSInteger)index {
     if (index == 0) {
         if (model.img.length > 0) {
-            return 10 + ScreenWidth * 0.5 + 10;
+            return kMargin + kScreenWidth * 0.5 + kMargin;
         }
         else {
-            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:model.content fontSize:16 width:ScreenWidth - 26];
-            return titleLabelHeight + 50;
+            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:model.content fontSize:16 width:kSubScreenWidth];
+            return titleLabelHeight + 60;
         }
     }
     else {
         if (model.img.length > 0) {
-            return 90;
+            return 104;
         }
         else {
-            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:model.content fontSize:16 width:ScreenWidth - 26];
-            return titleLabelHeight + 50;
+            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:model.content fontSize:16 width:kSubScreenWidth];
+            return titleLabelHeight + 60;
         }
     }
-
+    
     return 100;
 }
 

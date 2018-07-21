@@ -25,7 +25,7 @@
 }
 
 - (void)configureFrame {
-    self.imageView.frame = CGRectMake(0, 0, (ScreenWidth - 10 * 4) / 3, (ScreenWidth - 10 * 4) / 3);
+    self.imageView.frame = CGRectMake(0, 0, (kScreenWidth - 10 * 4) / 3, (kScreenWidth - 10 * 4) / 3);
     self.deleteButton.frame = CGRectMake(self.frame.size.width - 28, 3, 25, 25);
     self.deleteButton.layer.cornerRadius = 12.5;
 }

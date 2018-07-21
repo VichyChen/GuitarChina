@@ -12,7 +12,7 @@
 #import "GCReplyPostThreadToolBarView.h"
 
 #define AddImage @"upload_img"
-#define ImageViewWidth ((ScreenWidth - 10 * 4) / 3)
+#define ImageViewWidth ((kScreenWidth - 10 * 4) / 3)
 
 @interface GCNewPostThreadCell() <UITextViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -63,8 +63,8 @@
             button.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
             button.titleLabel.font = [UIFont systemFontOfSize:14];
 
-            buttonWidth = (ScreenWidth - 13 - 100 - 13 - 10 * 2) / 3;
-            if (buttonWidth + rowOriginX > ScreenWidth - 13 - 100 - 13) {
+            buttonWidth = (kScreenWidth - 13 - 100 - 13 - 10 * 2) / 3;
+            if (buttonWidth + rowOriginX > kScreenWidth - 13 - 100 - 13) {
                 rowOriginY += (buttonHeight + buttonVerticalSpace);
                 rowOriginX = 0;
             }
@@ -195,7 +195,7 @@
 
 - (void)createButtonsWithStringArray:(NSArray *)stringArray {
     UIView *buttonContentView = [[UIView alloc] init];
-    buttonContentView.frame = CGRectMake(13 + 100, 0, ScreenWidth - 13 - 100 - 13, 0);
+    buttonContentView.frame = CGRectMake(13 + 100, 0, kScreenWidth - 13 - 100 - 13, 0);
     [self.containView addSubview:buttonContentView];
     
     CGFloat rowOriginX = 0;
@@ -232,8 +232,8 @@
         rowOriginX += (buttonHorizontalSpace + buttonWidth);
     }
     
-    buttonContentView.frame = CGRectMake(13 + 100, 0, ScreenWidth - 13 - 100 - 13, rowOriginY + buttonHeight + buttonVerticalSpace);
-    self.containView.frame = CGRectMake(0, 0, ScreenWidth, rowOriginY + buttonHeight + buttonVerticalSpace);
+    buttonContentView.frame = CGRectMake(13 + 100, 0, kScreenWidth - 13 - 100 - 13, rowOriginY + buttonHeight + buttonVerticalSpace);
+    self.containView.frame = CGRectMake(0, 0, kScreenWidth, rowOriginY + buttonHeight + buttonVerticalSpace);
 }
 
 - (CGFloat)calculateCollectionViewHeight {
@@ -265,18 +265,18 @@
             [self.containView addSubview:self.titleLabel];
             [self.containView addSubview:self.segmentedControl];
             
-            self.containView.frame = CGRectMake(0, 0, ScreenWidth, 44);
+            self.containView.frame = CGRectMake(0, 0, kScreenWidth, 44);
             self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
-            self.segmentedControl.frame = CGRectMake(ScreenWidth - 13 - 160, 6, 160, 30);
+            self.segmentedControl.frame = CGRectMake(kScreenWidth - 13 - 160, 6, 160, 30);
             break;
             
         case GCNewPostThreadCellStyleTextField:
             [self.containView addSubview:self.titleLabel];
             [self.containView addSubview:self.textField];
 
-            self.containView.frame = CGRectMake(0, 0, ScreenWidth, 44);
+            self.containView.frame = CGRectMake(0, 0, kScreenWidth, 44);
             self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
-            self.textField.frame = CGRectMake(13 + 100 + 13, 0, ScreenWidth - 100 - 13 * 3, 44);
+            self.textField.frame = CGRectMake(13 + 100 + 13, 0, kScreenWidth - 100 - 13 * 3, 44);
             
             self.textField.textAlignment = NSTextAlignmentRight;
             break;
@@ -284,8 +284,8 @@
         case GCNewPostThreadCellStyleOnlyTextField:
             [self.containView addSubview:self.textField];
 
-            self.containView.frame = CGRectMake(0, 0, ScreenWidth, 44);
-            self.textField.frame = CGRectMake(13, 0, ScreenWidth - 26, 44);
+            self.containView.frame = CGRectMake(0, 0, kScreenWidth, 44);
+            self.textField.frame = CGRectMake(13, 0, kScreenWidth - 26, 44);
             self.textField.textAlignment = NSTextAlignmentLeft;
             break;
             
@@ -294,30 +294,30 @@
             [self.containView addSubview:self.textView];
             self.textView.inputAccessoryView = nil;
 
-            self.containView.frame = CGRectMake(0, 0, ScreenWidth, 100);
+            self.containView.frame = CGRectMake(0, 0, kScreenWidth, 100);
             self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
-            self.textView.frame = CGRectMake(13 + 100, 3, ScreenWidth - 26 - 100, 100 - 6);
+            self.textView.frame = CGRectMake(13 + 100, 3, kScreenWidth - 26 - 100, 100 - 6);
             break;
             
         case GCNewPostThreadCellStyleOnlyTextView:
             [self.containView addSubview:self.textView];
             self.textView.inputAccessoryView = self.toolBarView;
             
-            self.containView.frame = CGRectMake(0, 0, ScreenWidth, 100);
-            self.textView.frame = CGRectMake(10, 3, ScreenWidth - 20, 100 - 6);
+            self.containView.frame = CGRectMake(0, 0, kScreenWidth, 100);
+            self.textView.frame = CGRectMake(10, 3, kScreenWidth - 20, 100 - 6);
             break;
             
         case GCNewPostThreadCellStyleRadioButton:
             [self.containView addSubview:self.titleLabel];
 
-            self.containView.frame = CGRectMake(0, 0, ScreenWidth, 44);
+            self.containView.frame = CGRectMake(0, 0, kScreenWidth, 44);
             self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
             break;
             
         case GCNewPostThreadCellStyleCheckButton:
             [self.containView addSubview:self.titleLabel];
 
-            self.containView.frame = CGRectMake(0, 0, ScreenWidth, 44);
+            self.containView.frame = CGRectMake(0, 0, kScreenWidth, 44);
             self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
             break;
 
@@ -330,10 +330,10 @@
             [self.containView addSubview:self.valueLabel];
             [self.containView addSubview:self.arrowImageView];
             
-            self.containView.frame = CGRectMake(0, 0, ScreenWidth, 44);
+            self.containView.frame = CGRectMake(0, 0, kScreenWidth, 44);
             self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
-            self.valueLabel.frame = CGRectMake(13 + 100, 0, ScreenWidth - 13 - 100 - 13 - 7 - 5, 44);
-            self.arrowImageView.frame = CGRectMake(ScreenWidth - 13 - 7, 12, 14, 20);
+            self.valueLabel.frame = CGRectMake(13 + 100, 0, kScreenWidth - 13 - 100 - 13 - 7 - 5, 44);
+            self.arrowImageView.frame = CGRectMake(kScreenWidth - 13 - 7, 12, 14, 20);
             @weakify(self);
             [self.contentView bk_whenTapped:^{
                 @strongify(self);
@@ -347,8 +347,8 @@
         case GCNewPostThreadCellStyleCollectionView:
             [self.containView addSubview:self.collectionView];
             
-            self.containView.frame = CGRectMake(0, 0, ScreenWidth, 44);
-            self.collectionView.frame = CGRectMake(0, 0, ScreenWidth, [self calculateCollectionViewHeight]);
+            self.containView.frame = CGRectMake(0, 0, kScreenWidth, 44);
+            self.collectionView.frame = CGRectMake(0, 0, kScreenWidth, [self calculateCollectionViewHeight]);
             break;
     }
 }
@@ -388,7 +388,7 @@
     _imageArray = imageArray;
     
     [self.collectionView reloadData];
-    self.collectionView.frame = CGRectMake(0, 0, ScreenWidth, [self calculateCollectionViewHeight]);
+    self.collectionView.frame = CGRectMake(0, 0, kScreenWidth, [self calculateCollectionViewHeight]);
     self.containView.frame = CGRectMake(self.containView.frame.origin.x, self.containView.frame.origin.y, self.containView.frame.size.width, self.collectionView.frame.size.height);
 }
 

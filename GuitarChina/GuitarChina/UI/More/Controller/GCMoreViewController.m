@@ -67,7 +67,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) style:UITableViewStyleGrouped];
         _tableView.backgroundColor = [GCColor backgroundColor];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
@@ -124,7 +124,7 @@
         self.tableViewKit.viewForHeaderInSectionBlock = ^(NSInteger section) {
             @strongify(self);
             if (section == 0) {
-                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 80)];
+                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 80)];
                 view.backgroundColor = [UIColor whiteColor];
                 
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 50, 50)];
@@ -149,7 +149,7 @@
                     imageView.image = [UIImage imageNamed:@"default_avatar"];
                 }
                 
-                UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 79.5, ScreenWidth, 0.5)];
+                UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 79.5, kScreenWidth, 0.5)];
                 line.backgroundColor = [GCColor separatorLineColor];
                 [view addSubview:line];
                 
@@ -168,7 +168,7 @@
                 return view;
             }
             else if (section == 2) {
-                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
+                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
                 view.backgroundColor = [GCColor backgroundColor];
                 
                 UIImageView *imageView = [[UIImageView alloc] init];
@@ -179,7 +179,7 @@
                 label.font = [UIFont systemFontOfSize:16];
                 label.textColor = [GCColor blueColor];
                 
-                UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, ScreenWidth, 0.5)];
+                UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, kScreenWidth, 0.5)];
                 line.backgroundColor = [GCColor separatorLineColor];
                 
                 [view addSubview:imageView];
@@ -192,13 +192,13 @@
                 return view;
             }
             else {
-                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];
+                UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
                 view.backgroundColor = [GCColor backgroundColor];
                 UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 200, 40)];
                 label.font = [UIFont systemFontOfSize:16];
                 label.textColor = [GCColor blueColor];
                 
-                UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, ScreenWidth, 0.5)];
+                UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, kScreenWidth, 0.5)];
                 line.backgroundColor = [GCColor separatorLineColor];
                 [view addSubview:label];
 //                [view addSubview:line];

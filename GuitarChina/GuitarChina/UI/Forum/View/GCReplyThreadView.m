@@ -11,7 +11,7 @@
 #import "ZLPhoto.h"
 
 #define AddImage @"upload_img"
-#define ImageViewWidth ((ScreenWidth - 10 * 4) / 3)
+#define ImageViewWidth ((kScreenWidth - 10 * 4) / 3)
 
 @interface GCReplyThreadView() <UITextViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, ZLPhotoPickerBrowserViewControllerDelegate, ZLPhotoPickerBrowserViewControllerDataSource>
 
@@ -57,16 +57,16 @@
 }
 
 - (void)configureFrame {
-    self.scrollView.frame = CGRectMake(0, 0, ScreenWidth, self.frame.size.height - 44);
-    self.toolBarView.frame = CGRectMake(0, self.frame.size.height - 44, ScreenWidth, 44);
-    self.textView.frame = CGRectMake(6, 0, ScreenWidth - 12, 100);
-    self.collectionView.frame = CGRectMake(0, self.textView.frame.size.height, ScreenWidth, [self calculateCollectionViewHeight]);
+    self.scrollView.frame = CGRectMake(0, 0, kScreenWidth, self.frame.size.height - 44);
+    self.toolBarView.frame = CGRectMake(0, self.frame.size.height - 44, kScreenWidth, 44);
+    self.textView.frame = CGRectMake(6, 0, kScreenWidth - 12, 100);
+    self.collectionView.frame = CGRectMake(0, self.textView.frame.size.height, kScreenWidth, [self calculateCollectionViewHeight]);
     
     CGFloat scrollViewContentSizeHeight = self.collectionView.frame.origin.y + self.collectionView.frame.size.height + 10;
     if (scrollViewContentSizeHeight <= self.scrollView.frame.size.height) {
-        self.scrollView.contentSize = CGSizeMake(ScreenWidth, self.scrollView.frame.size.height + 1);
+        self.scrollView.contentSize = CGSizeMake(kScreenWidth, self.scrollView.frame.size.height + 1);
     } else {
-        self.scrollView.contentSize = CGSizeMake(ScreenWidth, scrollViewContentSizeHeight);
+        self.scrollView.contentSize = CGSizeMake(kScreenWidth, scrollViewContentSizeHeight);
     }
 }
 
@@ -80,7 +80,7 @@
     } else {
         self.textView.frame = CGRectMake(self.textView.frame.origin.x, self.textView.frame.origin.y, self.textView.frame.size.width, 100);
     }
-    self.collectionView.frame = CGRectMake(0, self.textView.frame.size.height, ScreenWidth, [self calculateCollectionViewHeight]);
+    self.collectionView.frame = CGRectMake(0, self.textView.frame.size.height, kScreenWidth, [self calculateCollectionViewHeight]);
 
     [self updateScrollViewContentSizeWithoutKeyboard];
     [self updateScrollViewContentOffset];
@@ -108,9 +108,9 @@
 - (void)updateScrollViewContentSizeWithoutKeyboard {
     CGFloat scrollViewContentSizeHeight = self.collectionView.frame.origin.y + self.collectionView.frame.size.height + 10;
     if (scrollViewContentSizeHeight <= self.scrollView.frame.size.height) {
-        self.scrollView.contentSize = CGSizeMake(ScreenWidth, self.scrollView.frame.size.height + 1);
+        self.scrollView.contentSize = CGSizeMake(kScreenWidth, self.scrollView.frame.size.height + 1);
     } else {
-        self.scrollView.contentSize = CGSizeMake(ScreenWidth, scrollViewContentSizeHeight);
+        self.scrollView.contentSize = CGSizeMake(kScreenWidth, scrollViewContentSizeHeight);
     }
 }
 
@@ -134,7 +134,7 @@
     CGRect keyboardRect = [aValue CGRectValue];
     
     self.keyboardHeight = keyboardRect.size.height ;
-    self.scrollView.contentSize = CGSizeMake(ScreenWidth, self.scrollView.contentSize.height + self.keyboardHeight);
+    self.scrollView.contentSize = CGSizeMake(kScreenWidth, self.scrollView.contentSize.height + self.keyboardHeight);
 
     CGFloat delayInSeconds = 0.15;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -151,7 +151,7 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:animationDuration];
     
-    self.toolBarView.frame = CGRectMake(0, self.frame.size.height - 44 - self.keyboardHeight, ScreenWidth, 44);
+    self.toolBarView.frame = CGRectMake(0, self.frame.size.height - 44 - self.keyboardHeight, kScreenWidth, 44);
 
     [UIView commitAnimations];
 }
@@ -167,7 +167,7 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:animationDuration];
     
-    self.toolBarView.frame = CGRectMake(0, self.frame.size.height - 44, ScreenWidth, 44);
+    self.toolBarView.frame = CGRectMake(0, self.frame.size.height - 44, kScreenWidth, 44);
 
     [UIView commitAnimations];
 }
@@ -186,7 +186,7 @@
         @strongify(self);
         [self.imageArray removeObjectAtIndex:indexPath.row];
         [self.collectionView reloadData];
-        self.collectionView.frame = CGRectMake(0, self.textView.frame.size.height, ScreenWidth, [self calculateCollectionViewHeight]);
+        self.collectionView.frame = CGRectMake(0, self.textView.frame.size.height, kScreenWidth, [self calculateCollectionViewHeight]);
         [self updateScrollViewContentSizeWithoutKeyboard];
     };
     return cell;
@@ -343,7 +343,7 @@
                         [self.imageArray addObject:asset.originImage];
                     }
                     [self.collectionView reloadData];
-                    self.collectionView.frame = CGRectMake(0, self.textView.frame.size.height, ScreenWidth, [self calculateCollectionViewHeight]);
+                    self.collectionView.frame = CGRectMake(0, self.textView.frame.size.height, kScreenWidth, [self calculateCollectionViewHeight]);
                     [self updateScrollViewContentSizeWithoutKeyboard];
                 }
             };

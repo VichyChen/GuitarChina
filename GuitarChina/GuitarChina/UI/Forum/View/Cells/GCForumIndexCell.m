@@ -24,8 +24,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.clipsToBounds = YES;
         [self configureView];
     }
@@ -35,12 +34,12 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.nameLabel.frame = CGRectMake(15, 10, ScreenWidth - 30, 20);
+    self.nameLabel.frame = CGRectMake(kMargin, kMargin, kSubScreenWidth, 20);
     [self.nameLabel sizeToFit];
-    self.todayPostCountLabel.frame = CGRectMake(15 + self.nameLabel.frame.size.width + 5, 10, 100, 20);
-    self.descriptLabel.frame = CGRectMake(15, 35, ScreenWidth - 30, self.descriptLabelHeight);
+    self.todayPostCountLabel.frame = CGRectMake(self.nameLabel.frame.origin.x + self.nameLabel.frame.size.width + 5, kMargin, 100, 20);
+    self.descriptLabel.frame = CGRectMake(kMargin, self.nameLabel.frame.origin.y + self.nameLabel.frame.size.height + 6, kSubScreenWidth, self.descriptLabelHeight);
     [self.descriptLabel sizeToFit];
-    self.separatorView.frame = CGRectMake(0, 35 + self.descriptLabelHeight + 9.5, ScreenWidth, 0.5);
+    self.separatorView.frame = CGRectMake(kMargin, self.descriptLabel.frame.origin.y + self.descriptLabelHeight + kMargin, kSubScreenWidth, 1);
 }
 
 #pragma mark - Private Method
@@ -57,9 +56,9 @@
 
 + (CGFloat)getCellHeightWithModel:(GCForumModel *)model {
 //    if ([model respondsToSelector:@selector(descript)]) {
-        if (model && [model isKindOfClass:[GCForumModel class]]) {
-        CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:14 width:ScreenWidth - 30];
-        return descriptLabelHeight + 45;
+    if (model && [model isKindOfClass:[GCForumModel class]]) {
+        CGFloat descriptLabelHeight = [UIView calculateLabelHeightWithText:model.descript fontSize:14 width:kSubScreenWidth];
+        return kMargin + 20 + 6 + descriptLabelHeight + kMargin;
     } else {
         return 0;
     }
@@ -74,7 +73,7 @@
         self.nameLabel.text = model.name;
         self.todayPostCountLabel.text = [model.todayposts isEqualToString:@"0"] ? @"" : [NSString stringWithFormat:@"(%@)" , model.todayposts ];
         self.descriptLabel.text = model.descript;
-        CGFloat labelHeight = [UIView calculateLabelHeightWithText:self.descriptLabel.text fontSize:self.descriptLabel.font.pointSize width:ScreenWidth - 30];
+        CGFloat labelHeight = [UIView calculateLabelHeightWithText:self.descriptLabel.text fontSize:self.descriptLabel.font.pointSize width:kSubScreenWidth];
         self.descriptLabelHeight = labelHeight;
         //    self.forumDetailLabel.attributedText = model.forumDetailString;
     }
@@ -106,7 +105,7 @@
         _descriptLabel.font = [UIFont systemFontOfSize:14];
         _descriptLabel.textColor = [GCColor grayColor3];
         _descriptLabel.numberOfLines = 0;
-        _descriptLabel.preferredMaxLayoutWidth = ScreenWidth - 30;
+        _descriptLabel.preferredMaxLayoutWidth = kScreenWidth - 30;
         _descriptLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _descriptLabel;

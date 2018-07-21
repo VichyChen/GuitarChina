@@ -34,7 +34,7 @@
 }
 
 - (void)configureFrame {
-    self.textView.frame = CGRectMake(5, 10, ScreenWidth - 10, ScreenHeight - 20);
+    self.textView.frame = CGRectMake(5, 10, kScreenWidth - 10, kScreenHeight - 20);
 }
 
 #pragma mark - Getters

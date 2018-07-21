@@ -37,10 +37,10 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         _tableView.backgroundColor = [GCColor backgroundColor];
         [_tableView initFooterView];
-        _tableView.separatorLeftInset = 13;
+        _tableView.separatorHorizontalInset = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
 
         self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCOfficialCell"];
         @weakify(self);
@@ -56,7 +56,7 @@
             officialCell.descriptionLabel.text = dictionary[@"description"];
         };
         self.tableViewKit.heightForRowBlock = ^CGFloat(NSIndexPath *indexPath, id item) {
-            return 76.0f;
+            return kMargin * 2 + 55;
         };
         self.tableViewKit.didSelectCellBlock = ^(NSIndexPath *indexPath, id item) {
             @strongify(self);

@@ -13,18 +13,16 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
 
 - (UIImageView *)leftImageView {
     if (!_leftImageView) {
-        _leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(13, 10, 56, 56)];
-        _leftImageView.layer.cornerRadius = 10;
+        _leftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(kMargin, kMargin, 55, 55)];
+        _leftImageView.layer.cornerRadius = 4;
         _leftImageView.clipsToBounds = YES;
-        _leftImageView.backgroundColor = [GCColor grayColor4];
         [self.contentView addSubview:_leftImageView];
     }
     return _leftImageView;
@@ -32,7 +30,7 @@
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(82, 14, ScreenWidth - 82 - 13, 15)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kMargin + self.leftImageView.frame.size.width + 10, kMargin, 100, 20)];
         _titleLabel.font = [UIFont systemFontOfSize:15];
         _titleLabel.textColor = [GCColor fontColor];
         [self.contentView addSubview:_titleLabel];
@@ -42,7 +40,7 @@
 
 - (UILabel *)descriptionLabel {
     if (!_descriptionLabel) {
-        _descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(82, 28, ScreenWidth - 82 - 13, 40)];
+        _descriptionLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.titleLabel.frame.origin.x, kMargin + 20, kScreenWidth - self.titleLabel.frame.origin.x - kMargin, 35)];
         _descriptionLabel.font = [UIFont systemFontOfSize:12];
         _descriptionLabel.textColor = [GCColor grayColor2];
         _descriptionLabel.numberOfLines = 2;

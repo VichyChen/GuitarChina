@@ -25,7 +25,7 @@
 
 - (void)configureView {
     self.imgScrollView = [[SDCycleScrollView alloc] init];
-    self.imgScrollView.frame = CGRectMake(0, 0, ScreenWidth, ScreenWidth * 0.6);
+    self.imgScrollView.frame = CGRectMake(0, 0, kScreenWidth, kScreenWidth * 0.6);
     self.imgScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleNone;
     self.imgScrollView.delegate = self;
     self.imgScrollView.autoScroll = YES;

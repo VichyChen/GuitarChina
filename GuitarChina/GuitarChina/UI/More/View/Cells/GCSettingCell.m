@@ -33,9 +33,9 @@
     [super layoutSubviews];
     
 //    self.leftImageView.frame = CGRectMake(15, 12, 20, 20);
-    self.titleLabel.frame = CGRectMake(15, 0, ScreenWidth - 30, 44);
-    self.valueLabel.frame = CGRectMake(15, 0, ScreenWidth - 30 - 20, 44);
-    self.separatorViewBottom.frame = CGRectMake(0, 43.5, ScreenWidth, 0.5);
+    self.titleLabel.frame = CGRectMake(15, 0, kScreenWidth - 30, 44);
+    self.valueLabel.frame = CGRectMake(15, 0, kScreenWidth - 30 - 20, 44);
+    self.separatorViewBottom.frame = CGRectMake(0, 43.5, kScreenWidth, 0.5);
 }
 
 - (void)configureView {

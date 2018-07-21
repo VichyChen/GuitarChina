@@ -53,7 +53,7 @@
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 14, ScreenWidth - 80, 16)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 14, kScreenWidth - 80, 16)];
         _titleLabel.font = [UIFont systemFontOfSize:16];
         _titleLabel.textColor = [GCColor fontColor];
     }
@@ -74,7 +74,7 @@
 
 - (UIView *)separatorViewBottom {
     if (!_separatorViewBottom) {
-        _separatorViewBottom = [[UIView alloc] initWithFrame:CGRectMake(13, 43.5, ScreenWidth - 13, 0.5)];
+        _separatorViewBottom = [[UIView alloc] initWithFrame:CGRectMake(13, 43.5, kScreenWidth - 13, 0.5)];
         _separatorViewBottom.backgroundColor = [GCColor separatorLineColor];
     }
     return _separatorViewBottom;

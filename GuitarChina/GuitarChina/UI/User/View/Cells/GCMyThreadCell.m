@@ -8,7 +8,7 @@
 
 #import "GCMyThreadCell.h"
 
-#define SubjectWidth ScreenWidth - 30
+#define SubjectWidth kScreenWidth - 30
 
 @interface GCMyThreadCell()
 

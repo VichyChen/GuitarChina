@@ -9,8 +9,6 @@
 #import "GCDiscoveryCell.h"
 #import "GCForumDisplayViewController.h"
 
-#define SubjectWidth ScreenWidth - 30
-
 @interface GCDiscoveryCell()
 
 @property (nonatomic, strong) UIImageView *avatarImageView;
@@ -32,8 +30,9 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+//        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+//        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
         [self configureView];
     }
     return self;
@@ -42,14 +41,14 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.avatarImageView.frame = CGRectMake(15, 10, 40, 40);
-    self.authorLabel.frame = CGRectMake(65, 9, ScreenWidth - 65, 20);
-    self.datelineLabel.frame = CGRectMake(65, 33, ScreenWidth - 65, 20);
-    self.subjectLabel.frame = CGRectMake(15, 60, SubjectWidth, self.subjectLabelHeight);
-    self.forumButton.frame = CGRectMake(15, 60 + self.subjectLabelHeight + 2, 150, 26);
+    self.avatarImageView.frame = CGRectMake(kMargin, kMargin, 40, 40);
+    self.authorLabel.frame = CGRectMake(kMargin + 40 + 10, kMargin, kScreenWidth - (kMargin + 40 + 10), 20);
+    self.datelineLabel.frame = CGRectMake(self.authorLabel.frame.origin.x, 35, self.authorLabel.frame.size.width, 20);
+    self.repliesLabel.frame = CGRectMake(kMargin, kMargin, kSubScreenWidth, 20);
+    self.subjectLabel.frame = CGRectMake(kMargin, self.avatarImageView.frame.origin.y + self.avatarImageView.frame.size.height + 10, kSubScreenWidth, self.subjectLabelHeight);
+    self.forumButton.frame = CGRectMake(kMargin, self.subjectLabel.frame.origin.y + self.subjectLabelHeight + 2, kSubScreenWidth, 26);
     [self.forumButton sizeToFit];
-    self.lastPostDetailLabel.frame = CGRectMake(15, self.forumButton.frame.origin.y + self.forumButton.frame.size.height, SubjectWidth, 20);
-    self.repliesLabel.frame = CGRectMake(15, 8, SubjectWidth, 20);
+    self.lastPostDetailLabel.frame = CGRectMake(kMargin, self.forumButton.frame.origin.y + self.forumButton.frame.size.height + 2, kSubScreenWidth, 16);
 }
 
 #pragma mark - Private Method
@@ -67,8 +66,8 @@
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCGuideThreadModel *)model {
-    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.subject fontSize:16 width:SubjectWidth];
-    return subjectLabelHeight + 117;
+    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.subject fontSize:15 width:kSubScreenWidth];
+    return subjectLabelHeight + 115 + 10;
 }
 
 #pragma mark - Event Responses
@@ -90,7 +89,7 @@
     self.authorLabel.text = model.author;
     self.datelineLabel.text = model.dateline;
     self.subjectLabel.text = model.subject;
-    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:self.subjectLabel.text fontSize:self.subjectLabel.font.pointSize width:SubjectWidth];
+    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:self.subjectLabel.text fontSize:self.subjectLabel.font.pointSize width:kSubScreenWidth];
     self.subjectLabelHeight = subjectLabelHeight;
     [self.forumButton setTitle:model.forum forState:UIControlStateNormal];
     self.lastPostDetailLabel.attributedText = model.lastPosterDetailString;
@@ -104,6 +103,7 @@
         _avatarImageView = [[UIImageView alloc] init];
         _avatarImageView.contentMode = UIViewContentModeScaleToFill;
         _avatarImageView.clipsToBounds = YES;
+        _avatarImageView.layer.cornerRadius = kCornerRadius;
         _avatarImageView.userInteractionEnabled = YES;
         
         @weakify(self);
@@ -129,7 +129,7 @@
 - (UILabel *)datelineLabel {
     if (!_datelineLabel) {
         _datelineLabel = [[UILabel alloc] init];
-        _datelineLabel.font = [UIFont systemFontOfSize:13];
+        _datelineLabel.font = [UIFont systemFontOfSize:12];
         _datelineLabel.textColor = [GCColor grayColor3];
     }
     return _datelineLabel;
@@ -138,10 +138,10 @@
 - (UILabel *)subjectLabel {
     if (!_subjectLabel) {
         _subjectLabel = [[UILabel alloc] init];
-        _subjectLabel.font = [UIFont systemFontOfSize:16];
+        _subjectLabel.font = [UIFont systemFontOfSize:15];
         _subjectLabel.textColor = [GCColor fontColor];
         _subjectLabel.numberOfLines = 0;
-        _subjectLabel.preferredMaxLayoutWidth = SubjectWidth;
+        _subjectLabel.preferredMaxLayoutWidth = kSubScreenWidth;
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _subjectLabel;
@@ -153,7 +153,7 @@
         [_forumButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [_forumButton setTitleColor:[GCColor blueColor] forState:UIControlStateNormal];
         [_forumButton setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-        _forumButton.titleLabel.font = [UIFont systemFontOfSize:13];
+        _forumButton.titleLabel.font = [UIFont systemFontOfSize:12];
     }
     return _forumButton;
 }
@@ -161,7 +161,7 @@
 - (UILabel *)lastPostDetailLabel {
     if (!_lastPostDetailLabel) {
         _lastPostDetailLabel = [[UILabel alloc] init];
-        _lastPostDetailLabel.font = [UIFont systemFontOfSize:13];
+        _lastPostDetailLabel.font = [UIFont systemFontOfSize:12];
         _lastPostDetailLabel.textColor = [GCColor grayColor3];
     }
     return _lastPostDetailLabel;
@@ -170,7 +170,7 @@
 - (UILabel *)repliesLabel {
     if (!_repliesLabel) {
         _repliesLabel = [[UILabel alloc] init];
-        _repliesLabel.font = [UIFont systemFontOfSize:13];
+        _repliesLabel.font = [UIFont systemFontOfSize:12];
         _repliesLabel.textColor = [GCColor grayColor3];
         _repliesLabel.textAlignment = NSTextAlignmentRight;
     }

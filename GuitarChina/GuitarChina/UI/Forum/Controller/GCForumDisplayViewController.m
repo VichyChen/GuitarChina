@@ -153,10 +153,10 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, kNavigatioinBarHeight, ScreenWidth, ScreenHeight - kNavigatioinBarHeight);
+        _tableView.frame = CGRectMake(0, kNavigatioinBarHeight, kScreenWidth, kScreenHeight - kNavigatioinBarHeight);
         _tableView.separatorLeftInset = 0;
-//        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
-//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, ScreenWidth, 44)];
+//        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
+//        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, kScreenWidth, 44)];
 //        label.font = [UIFont systemFontOfSize:15];
 //        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] init];
 //        [string appendAttributedString:[[NSAttributedString alloc] initWithString:@"XXX"

@@ -33,14 +33,14 @@
     [self.view addSubview:self.scrollView];
     [self.scrollView addSubview:self.label];
     [self.label sizeToFit];
-    self.scrollView.contentSize = CGSizeMake(ScreenWidth, self.label.frame.size.height + 30);
+    self.scrollView.contentSize = CGSizeMake(kScreenWidth, self.label.frame.size.height + 30);
 }
 
 #pragma mark - Getters
 
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         _scrollView.showsVerticalScrollIndicator = YES;
     }
     
@@ -50,12 +50,12 @@
 
 - (UILabel *)label {
     if (!_label) {        
-        _label = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, ScreenWidth - 30, 0)];
+        _label = [[UILabel alloc] initWithFrame:CGRectMake(15, 15, kScreenWidth - 30, 0)];
         _label.text = [Util getBundleTXTString:@"UserProtocol"];
         _label.font = [UIFont systemFontOfSize:16];
         _label.textColor = [GCColor grayColor1];
         _label.numberOfLines = 0;
-        _label.preferredMaxLayoutWidth = ScreenWidth - 30;
+        _label.preferredMaxLayoutWidth = kScreenWidth - 30;
     }
     return _label;
 }

@@ -232,7 +232,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight) style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight) style:UITableViewStyleGrouped];
         //        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         _tableView.backgroundColor = [GCColor backgroundColor];
@@ -481,10 +481,10 @@
         self.tableViewKit.viewForHeaderInSectionBlock = ^(NSInteger section) {
             UIView *view = [[UIView alloc] init];
             if (section == 3) {
-                view.frame = CGRectMake(0, 0, ScreenWidth, 13);
+                view.frame = CGRectMake(0, 0, kScreenWidth, 13);
                 view.backgroundColor = [GCColor backgroundColor];
             } else {
-                view.frame = CGRectMake(0, 0, ScreenWidth, 0);
+                view.frame = CGRectMake(0, 0, kScreenWidth, 0);
                 view.backgroundColor = [UIColor clearColor];
             }
             

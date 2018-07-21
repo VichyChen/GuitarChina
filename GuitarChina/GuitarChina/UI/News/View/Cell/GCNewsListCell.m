@@ -32,7 +32,7 @@
         return 90;
     }
     else {
-        CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:model.content fontSize:16 width:ScreenWidth - 26];
+        CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:model.content fontSize:16 width:kScreenWidth - 26];
         return titleLabelHeight + 50;
     }
 }
@@ -66,20 +66,20 @@
         self.titleLabel.numberOfLines = 2;
 
         self.leftImageView.frame = CGRectMake(13, 8, 80, 74);
-        self.titleLabel.frame = CGRectMake(13 + 80 + 10, 10, ScreenWidth - 13 - 80 - 20, 45);
-        self.timeLabel.frame = CGRectMake(13 + 80 + 10, 55, ScreenWidth - 13 - 80 - 20, 35);
-        self.readCountLabel.frame = CGRectMake(13 + 80 + 10, 55, ScreenWidth - 13 - 80 - 26, 35);
+        self.titleLabel.frame = CGRectMake(13 + 80 + 10, 10, kScreenWidth - 13 - 80 - 20, 45);
+        self.timeLabel.frame = CGRectMake(13 + 80 + 10, 55, kScreenWidth - 13 - 80 - 20, 35);
+        self.readCountLabel.frame = CGRectMake(13 + 80 + 10, 55, kScreenWidth - 13 - 80 - 26, 35);
     }
     else {
         self.titleLabel.numberOfLines = 0;
-        self.titleLabel.preferredMaxLayoutWidth = ScreenWidth - 26;
+        self.titleLabel.preferredMaxLayoutWidth = kScreenWidth - 26;
 
-        CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:16 width:ScreenWidth - 26];
+        CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:16 width:kScreenWidth - 26];
         
         self.leftImageView.frame = CGRectMake(0, 0, 0, 0);
-        self.titleLabel.frame = CGRectMake(13, 10, ScreenWidth - 26, titleLabelHeight);
-        self.timeLabel.frame = CGRectMake(13, 10 + titleLabelHeight + 10, ScreenWidth - 26, 20);
-        self.readCountLabel.frame = CGRectMake(13, 10 + titleLabelHeight + 10, ScreenWidth - 29, 20);
+        self.titleLabel.frame = CGRectMake(13, 10, kScreenWidth - 26, titleLabelHeight);
+        self.timeLabel.frame = CGRectMake(13, 10 + titleLabelHeight + 10, kScreenWidth - 26, 20);
+        self.readCountLabel.frame = CGRectMake(13, 10 + titleLabelHeight + 10, kScreenWidth - 29, 20);
     }
 
 }

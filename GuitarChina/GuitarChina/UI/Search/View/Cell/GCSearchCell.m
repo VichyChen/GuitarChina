@@ -8,7 +8,7 @@
 
 #import "GCSearchCell.h"
 
-#define SubjectWidth ScreenWidth - 26
+#define SubjectWidth kScreenWidth - 26
 
 @interface GCSearchCell()
 

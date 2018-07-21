@@ -8,7 +8,7 @@
 
 #import "GCForumDisplayCell.h"
 
-#define SubjectWidth ScreenWidth - 30
+#define SubjectWidth kScreenWidth - 30
 
 @interface GCForumDisplayCell()
 
@@ -41,8 +41,8 @@
     [super layoutSubviews];
     
     self.avatarImageView.frame = CGRectMake(15, 10, 40, 40);
-    self.authorLabel.frame = CGRectMake(65, 9, ScreenWidth - 65, 20);
-    self.datelineLabel.frame = CGRectMake(65, 33, ScreenWidth - 65, 20);
+    self.authorLabel.frame = CGRectMake(65, 9, kScreenWidth - 65, 20);
+    self.datelineLabel.frame = CGRectMake(65, 33, kScreenWidth - 65, 20);
     self.subjectLabel.frame = CGRectMake(15, 60, SubjectWidth, self.subjectLabelHeight);
     self.lastPostDetailLabel.frame = CGRectMake(15, 65 + self.subjectLabelHeight, SubjectWidth, 20);
     self.repliesLabel.frame = CGRectMake(15, 8, SubjectWidth, 20);

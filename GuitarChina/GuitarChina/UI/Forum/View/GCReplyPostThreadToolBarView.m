@@ -22,7 +22,7 @@
     self = [super init];
     if (self) {
         self.backgroundColor = [GCColor cellSelectedColor];
-        self.frame = CGRectMake(0, 0, ScreenWidth, 44);
+        self.frame = CGRectMake(0, 0, kScreenWidth, 44);
         [self configureView];
         [self configureFrame];
     }
@@ -32,7 +32,7 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 0.5)];
     view.backgroundColor = [GCColor separatorLineColor];
     [self addSubview:view];
 //    [self addSubview:self.closeButton];
@@ -41,7 +41,7 @@
 }
 
 - (void)configureFrame {
-    self.closeButton.frame = CGRectMake(ScreenWidth - 60, 0, 50, 44);
+    self.closeButton.frame = CGRectMake(kScreenWidth - 60, 0, 50, 44);
     self.selectImageButton.frame = CGRectMake(10, 0, 44, 44);
     self.inputImageURLButton.frame = CGRectMake(64, 0, 44, 44);
 }

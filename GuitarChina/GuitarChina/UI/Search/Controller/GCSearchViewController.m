@@ -96,7 +96,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     leftImageView.image = [[UIImage imageNamed:@"icon_search"] imageWithTintColor:[GCColor grayColor2]];
     [leftView addSubview:leftImageView];
     
-    self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 28)];
+    self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 28)];
     self.searchTextField.borderStyle = UITextBorderStyleNone;
     self.searchTextField.textColor = [GCColor fontColor];
     self.searchTextField.placeholder = @"输入搜索内容";
@@ -273,14 +273,14 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 
 - (UITableView *)historyTableView {
     if (!_historyTableView) {
-        _historyTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight)];
+        _historyTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight)];
         _historyTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _historyTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         _historyTableView.separatorHorizontalInset = UIEdgeInsetsMake(0, 10, 0, 10);
 
-        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 44)];
+        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
 
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, ScreenWidth - 30, 44)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, kScreenWidth - 30, 44)];
         label.text = @"搜索历史";
         label.font = [UIFont systemFontOfSize:15];
         label.textColor = [GCColor grayColor1];
@@ -288,9 +288,9 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         [headerView addSubview:label];
         _historyTableView.tableHeaderView = headerView;
         
-        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 80)];
+        UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 80)];
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-        button.frame = CGRectMake(0, 0, ScreenWidth - 60, 40);
+        button.frame = CGRectMake(0, 0, kScreenWidth - 60, 40);
         [button setTitle:@"清除搜索历史" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(clearHistory) forControlEvents:UIControlEventTouchUpInside];
         button.tintColor = [GCColor redColor];
@@ -337,11 +337,11 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 
 - (UITableView *)searchTableView {
     if (!_searchTableView) {
-        _searchTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - kNavigatioinBarHeight)];
+        _searchTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight)];
         _searchTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
         _searchTableView.separatorLeftInset = 0;
 
-        [_searchTableView initFooterViewWithFrame:CGRectMake(0, 0, ScreenWidth, 0.5)];
+        [_searchTableView initFooterViewWithFrame:CGRectMake(0, 0, kScreenWidth, 0.5)];
 
         self.searchTableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCSearchCell"];
         @weakify(self);

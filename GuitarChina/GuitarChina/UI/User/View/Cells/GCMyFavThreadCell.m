@@ -8,7 +8,7 @@
 
 #import "GCMyFavThreadCell.h"
 
-#define SubjectWidth ScreenWidth - 30
+#define SubjectWidth kScreenWidth - 30
 
 @interface GCMyFavThreadCell()
 
@@ -38,8 +38,8 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.authorLabel.frame = CGRectMake(15, 8, ScreenWidth - 70, 20);
-    self.datelineLabel.frame = CGRectMake(15, 33, ScreenWidth - 70, 20);
+    self.authorLabel.frame = CGRectMake(15, 8, kScreenWidth - 70, 20);
+    self.datelineLabel.frame = CGRectMake(15, 33, kScreenWidth - 70, 20);
     self.subjectLabel.frame = CGRectMake(15, 60, SubjectWidth, self.subjectLabelHeight);
     self.repliesLabel.frame = CGRectMake(15, 8, SubjectWidth, 20);
 }
