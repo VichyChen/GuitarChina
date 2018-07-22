@@ -71,17 +71,17 @@
         if ([[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
             footerView.frame = CGRectMake(0, 0, kScreenWidth, 80);
             UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-            button.frame = CGRectMake(0, 20, kScreenWidth, 40);
+            button.frame = CGRectMake(0, 10, kScreenWidth, 40);
             button.backgroundColor = [UIColor whiteColor];
             [button setTitleColor:[GCColor redColor] forState:UIControlStateNormal];
-            button.titleLabel.font = [UIFont systemFontOfSize:16];
+            button.titleLabel.font = [UIFont systemFontOfSize:15];
             [button setTitle:@"退出登录" forState:UIControlStateNormal];
             [button addTarget:self action:@selector(logoutAction) forControlEvents:UIControlEventTouchUpInside];
             [footerView addSubview:button];
         }
         _tableView.tableFooterView = footerView;
         
-        _tableView.separatorLeftInset = 13;
+        _tableView.separatorHorizontalInset = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
 
         self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCSettingCell"];
         @weakify(self);
@@ -102,7 +102,7 @@
             }
         };
         self.tableViewKit.heightForRowBlock = ^CGFloat(NSIndexPath *indexPath, id item) {
-            return 44.0f;
+            return 48.0f;
         };
         self.tableViewKit.didSelectCellBlock = ^(NSIndexPath *indexPath, id item) {
             @strongify(self);

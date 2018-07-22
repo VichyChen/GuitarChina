@@ -77,7 +77,7 @@
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
         _tableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight);
-        _tableView.separatorLeftInset = 13;
+        _tableView.separatorHorizontalInset = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
         [_tableView initFooterView];
         
         self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCNewsListCell"];

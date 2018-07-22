@@ -54,7 +54,6 @@
 
 #define kMargin 15
 #define kSubScreenWidth (kScreenWidth - kMargin * 2)
-
 #define kCornerRadius 5
 
 

@@ -179,7 +179,7 @@
 - (void)textFieldValueChange:(UITextField *)textField {
     if (self.usernameTextField.text.length > 0 &&
         self.passwordTextField.text.length > 0 &&
-        self.seccodeVerifyTextField.text.length > 0 &&
+//        self.seccodeVerifyTextField.text.length > 0 &&
         (self.questionIndex == 0 ? YES : self.answerTextField.text.length > 0)) {
         self.loginButton.enabled = YES;
     } else {

@@ -48,7 +48,7 @@
             self.timeLabel.textColor = [UIColor whiteColor];
             self.timeLabel.text = model.remark;
             
-            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:16 width:kScreenWidth - 40];
+            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:15 width:kScreenWidth - 40];
             
             self.leftImageView.frame = CGRectMake(kMargin, kMargin, kSubScreenWidth, kScreenWidth * 0.5);
             self.titleLabel.frame = CGRectMake(20, self.leftImageView.frame.origin.y + self.leftImageView.frame.size.height - titleLabelHeight - 10 - 20, kScreenWidth - 40, titleLabelHeight + 10);
@@ -62,7 +62,7 @@
             self.titleLabel.textColor = [GCColor fontColor];
             self.timeLabel.textColor = [GCColor grayColor3];
             
-            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:16 width:kSubScreenWidth];
+            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:15 width:kSubScreenWidth];
             
             self.leftImageView.frame = CGRectZero;
             self.titleLabel.frame = CGRectMake(kMargin, kMargin, kSubScreenWidth, titleLabelHeight);
@@ -87,7 +87,7 @@
             self.titleLabel.numberOfLines = 0;
             self.titleLabel.preferredMaxLayoutWidth = kSubScreenWidth;
             
-            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:16 width:kSubScreenWidth];
+            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:15 width:kSubScreenWidth];
             
             self.leftImageView.frame = CGRectZero;
             self.titleLabel.frame = CGRectMake(kMargin, kMargin, kSubScreenWidth, titleLabelHeight);
@@ -103,7 +103,7 @@
             return kMargin + kScreenWidth * 0.5 + kMargin;
         }
         else {
-            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:model.content fontSize:16 width:kSubScreenWidth];
+            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:model.content fontSize:15 width:kSubScreenWidth];
             return titleLabelHeight + 60;
         }
     }
@@ -112,7 +112,7 @@
             return 104;
         }
         else {
-            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:model.content fontSize:16 width:kSubScreenWidth];
+            CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:model.content fontSize:15 width:kSubScreenWidth];
             return titleLabelHeight + 60;
         }
     }
@@ -143,7 +143,7 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:16];
+        _titleLabel.font = [UIFont systemFontOfSize:15];
         _titleLabel.textColor = [GCColor fontColor];
     }
     return _titleLabel;
@@ -152,7 +152,7 @@
 - (UILabel *)timeLabel {
     if (!_timeLabel) {
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.font = [UIFont systemFontOfSize:13];
+        _timeLabel.font = [UIFont systemFontOfSize:12];
         _timeLabel.textColor = [GCColor grayColor3];
         _timeLabel.textAlignment = NSTextAlignmentLeft;
     }
@@ -162,7 +162,7 @@
 - (UILabel *)readCountLabel {
     if (!_readCountLabel) {
         _readCountLabel = [[UILabel alloc] init];
-        _readCountLabel.font = [UIFont systemFontOfSize:13];
+        _readCountLabel.font = [UIFont systemFontOfSize:12];
         _readCountLabel.textColor = [GCColor grayColor3];
         _readCountLabel.textAlignment = NSTextAlignmentRight;
     }

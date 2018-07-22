@@ -8,7 +8,7 @@
 
 #import "GCForumDisplayCell.h"
 
-#define SubjectWidth kScreenWidth - 30
+#define kSubScreenWidth kScreenWidth - 30
 
 @interface GCForumDisplayCell()
 
@@ -40,12 +40,12 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.avatarImageView.frame = CGRectMake(15, 10, 40, 40);
-    self.authorLabel.frame = CGRectMake(65, 9, kScreenWidth - 65, 20);
-    self.datelineLabel.frame = CGRectMake(65, 33, kScreenWidth - 65, 20);
-    self.subjectLabel.frame = CGRectMake(15, 60, SubjectWidth, self.subjectLabelHeight);
-    self.lastPostDetailLabel.frame = CGRectMake(15, 65 + self.subjectLabelHeight, SubjectWidth, 20);
-    self.repliesLabel.frame = CGRectMake(15, 8, SubjectWidth, 20);
+    self.avatarImageView.frame = CGRectMake(kMargin, kMargin, 40, 40);
+    self.authorLabel.frame = CGRectMake(65, 14, kScreenWidth - 65, 20);
+    self.datelineLabel.frame = CGRectMake(65, 38, kScreenWidth - 65, 20);
+    self.subjectLabel.frame = CGRectMake(kMargin, 65, kSubScreenWidth, self.subjectLabelHeight);
+    self.lastPostDetailLabel.frame = CGRectMake(kMargin, 72 + self.subjectLabelHeight, kSubScreenWidth, 16);
+    self.repliesLabel.frame = CGRectMake(kMargin, 13, kSubScreenWidth, 20);
 }
 
 #pragma mark - Private Method
@@ -62,8 +62,8 @@
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCForumThreadModel *)model {
-    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.subject fontSize:16 width:SubjectWidth];
-    return subjectLabelHeight + 95;
+    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.subject fontSize:15 width:kSubScreenWidth];
+    return subjectLabelHeight + 103;
 }
 
 #pragma mark - Setters
@@ -77,7 +77,7 @@
     self.authorLabel.text = model.author;
     self.datelineLabel.text = model.dateline;
     self.subjectLabel.text = model.subject;
-    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:self.subjectLabel.text fontSize:self.subjectLabel.font.pointSize width:SubjectWidth];
+    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:self.subjectLabel.text fontSize:self.subjectLabel.font.pointSize width:kSubScreenWidth];
     self.subjectLabelHeight = subjectLabelHeight;
     self.lastPostDetailLabel.attributedText = model.lastPosterDetailString;
     self.repliesLabel.attributedText = model.replyAndViewDetailString;
@@ -90,6 +90,7 @@
         _avatarImageView = [[UIImageView alloc] init];
         _avatarImageView.contentMode = UIViewContentModeScaleToFill;
         _avatarImageView.clipsToBounds = YES;
+        _avatarImageView.layer.cornerRadius = kCornerRadius;
         _avatarImageView.userInteractionEnabled = YES;
 
         @weakify(self);
@@ -115,7 +116,7 @@
 - (UILabel *)datelineLabel {
     if (!_datelineLabel) {
         _datelineLabel = [[UILabel alloc] init];
-        _datelineLabel.font = [UIFont systemFontOfSize:13];
+        _datelineLabel.font = [UIFont systemFontOfSize:12];
         _datelineLabel.textColor = [GCColor grayColor3];
     }
     return _datelineLabel;
@@ -124,10 +125,10 @@
 - (UILabel *)subjectLabel {
     if (!_subjectLabel) {
         _subjectLabel = [[UILabel alloc] init];
-        _subjectLabel.font = [UIFont systemFontOfSize:16];
+        _subjectLabel.font = [UIFont systemFontOfSize:15];
         _subjectLabel.textColor = [GCColor fontColor];
         _subjectLabel.numberOfLines = 0;
-        _subjectLabel.preferredMaxLayoutWidth = SubjectWidth;
+        _subjectLabel.preferredMaxLayoutWidth = kSubScreenWidth;
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _subjectLabel;
@@ -136,7 +137,7 @@
 - (UILabel *)lastPostDetailLabel {
     if (!_lastPostDetailLabel) {
         _lastPostDetailLabel = [[UILabel alloc] init];
-        _lastPostDetailLabel.font = [UIFont systemFontOfSize:13];
+        _lastPostDetailLabel.font = [UIFont systemFontOfSize:12];
         _lastPostDetailLabel.textColor = [GCColor grayColor3];
     }
     return _lastPostDetailLabel;
@@ -145,7 +146,7 @@
 - (UILabel *)repliesLabel {
     if (!_repliesLabel) {
         _repliesLabel = [[UILabel alloc] init];
-        _repliesLabel.font = [UIFont systemFontOfSize:13];
+        _repliesLabel.font = [UIFont systemFontOfSize:12];
         _repliesLabel.textColor = [GCColor grayColor3];
         _repliesLabel.textAlignment = NSTextAlignmentRight;
     }

@@ -988,7 +988,6 @@
 		421192C31CE8601E00BCFF3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GCLoginViewController.xib; sourceTree = "<group>"; };
 		421192C41CE8601E00BCFF3E /* GCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCLoginViewController.h; sourceTree = "<group>"; };
 		421192C51CE8601E00BCFF3E /* GCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCLoginViewController.m; sourceTree = "<group>"; };
-		421192C61CE8601E00BCFF3E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/GCLoginViewController.xib"; sourceTree = "<group>"; };
 		421192CC1CE8607100BCFF3E /* GCBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCBaseViewController.h; sourceTree = "<group>"; };
 		421192CD1CE8607100BCFF3E /* GCBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCBaseViewController.m; sourceTree = "<group>"; };
 		421192CE1CE8607100BCFF3E /* GCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNavigationController.h; sourceTree = "<group>"; };
@@ -3537,7 +3536,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				421192C31CE8601E00BCFF3E /* Base */,
-				421192C61CE8601E00BCFF3E /* zh-Hans */,
 			);
 			name = GCLoginViewController.xib;
 			sourceTree = "<group>";

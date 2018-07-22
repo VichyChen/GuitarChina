@@ -154,7 +154,7 @@
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
         _tableView.frame = CGRectMake(0, kNavigatioinBarHeight, kScreenWidth, kScreenHeight - kNavigatioinBarHeight);
-        _tableView.separatorLeftInset = 0;
+        _tableView.separatorHorizontalInset = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
 //        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
 //        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, kScreenWidth, 44)];
 //        label.font = [UIFont systemFontOfSize:15];

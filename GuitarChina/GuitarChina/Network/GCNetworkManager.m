@@ -90,7 +90,10 @@
                  failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] get:GCNetworkAPI_Get_PostSecure parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSDictionary *parameters = @{ @"message" : message, @"noticetrimstr" : @"", @"mobiletype" : @"1", @"formhash" : formhash };
+        NSDictionary *parameters = @{ @"message" : String(message),
+                                      @"noticetrimstr" : @"",
+                                      @"mobiletype" : @"1",
+                                      @"formhash" : String(formhash) };
         [[GCNetworkBase sharedInstance] post:GCNetworkAPI_Post_SendReply(tid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSDictionary *dictionary = [JsonTool jsonToDictionary:operation.responseString];
             GCSendReplyModel *model = [[GCSendReplyModel alloc] initWithDictionary:dictionary];
@@ -113,7 +116,12 @@
                      failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] get:GCNetworkAPI_Get_PostSecure parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        NSDictionary *parameters = @{ @"allownoticeauthor" : @"1", @"message" : message, @"subject" : subject, @"mobiletype" : @"1", @"formhash" : formhash, @"typeid" : type };
+        NSDictionary *parameters = @{ @"allownoticeauthor" : @"1",
+                                      @"message" : String(message),
+                                      @"subject" : String(subject),
+                                      @"mobiletype" : @"1",
+                                      @"formhash" : String(formhash),
+                                      @"typeid" : String(type) };
         [[GCNetworkBase sharedInstance] post:GCNetworkAPI_Post_NewThread(fid) parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSDictionary *dictionary = [JsonTool jsonToDictionary:operation.responseString];
             GCNewThreadModel *model = [[GCNewThreadModel alloc] initWithDictionary:dictionary];
@@ -375,15 +383,15 @@
                       postURL:(NSString *)postURL
                       success:(void (^)(NSString *html))success
                       failure:(void (^)(NSError *error))failure {
-    NSDictionary *parameters = @{@"formhash" : formhash,
-                                 @"loginfield" : fastloginfield,
-                                 @"username" : username,
-                                 @"password" : password,
-                                 @"questionid" : questionid,
-                                 @"answer" : answer,
-                                 @"seccodehash" : seccodehash,
+    NSDictionary *parameters = @{@"formhash" : String(formhash),
+                                 @"loginfield" : String(fastloginfield),
+                                 @"username" : String(username),
+                                 @"password" : String(password),
+                                 @"questionid" : String(questionid),
+                                 @"answer" : String(answer),
+                                 @"seccodehash" : String(seccodehash),
                                  @"seccodemodid" : @"member::logging",
-                                 @"seccodeverify" : seccodeverify,
+                                 @"seccodeverify" : String(seccodeverify),
                                  @"cookietime" : @"2592000"};
     [[GCNetworkBase sharedInstance] postWap:[Util parseURLToHTTPS:postURL] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(operation.responseString);

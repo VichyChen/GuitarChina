@@ -66,7 +66,7 @@
 }
 
 - (void)configureFrame {
-    self.webView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - 40);
+    self.webView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - 40 - kSAVE_ARE_BOTTOM);
 }
 
 #pragma mark - Event Responses
@@ -87,7 +87,7 @@
 
 - (UIWebView *)webView {
     if (!_webView) {
-        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - 40)];
+        _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - 40 - kSAVE_ARE_BOTTOM)];
         _webView.dataDetectorTypes = UIDataDetectorTypeLink;
         _webView.opaque = NO;
         _webView.backgroundColor = [UIColor clearColor];

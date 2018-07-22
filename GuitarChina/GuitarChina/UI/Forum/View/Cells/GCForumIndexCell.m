@@ -39,7 +39,7 @@
     self.todayPostCountLabel.frame = CGRectMake(self.nameLabel.frame.origin.x + self.nameLabel.frame.size.width + 5, kMargin, 100, 20);
     self.descriptLabel.frame = CGRectMake(kMargin, self.nameLabel.frame.origin.y + self.nameLabel.frame.size.height + 6, kSubScreenWidth, self.descriptLabelHeight);
     [self.descriptLabel sizeToFit];
-    self.separatorView.frame = CGRectMake(kMargin, self.descriptLabel.frame.origin.y + self.descriptLabelHeight + kMargin, kSubScreenWidth, 1);
+    self.separatorView.frame = CGRectMake(kMargin, self.descriptLabel.frame.origin.y + self.descriptLabelHeight + kMargin, kSubScreenWidth, 0.5);
 }
 
 #pragma mark - Private Method
@@ -84,7 +84,7 @@
 - (UILabel *)nameLabel {
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.font = [UIFont systemFontOfSize:16];
+        _nameLabel.font = [UIFont systemFontOfSize:15];
         _nameLabel.textColor = [GCColor fontColor];
     }
     return _nameLabel;

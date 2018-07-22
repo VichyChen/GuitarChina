@@ -29,11 +29,11 @@
 
 + (CGFloat)getCellHeightWithModel:(GCNewsModel *)model {
     if (model.img.length > 0) {
-        return 90;
+        return 104;
     }
     else {
-        CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:model.content fontSize:16 width:kScreenWidth - 26];
-        return titleLabelHeight + 50;
+        CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:model.content fontSize:15 width:kScreenWidth - 26];
+        return titleLabelHeight + 55;
     }
 }
 
@@ -65,21 +65,21 @@
     if (self.model.img.length > 0) {
         self.titleLabel.numberOfLines = 2;
 
-        self.leftImageView.frame = CGRectMake(13, 8, 80, 74);
-        self.titleLabel.frame = CGRectMake(13 + 80 + 10, 10, kScreenWidth - 13 - 80 - 20, 45);
-        self.timeLabel.frame = CGRectMake(13 + 80 + 10, 55, kScreenWidth - 13 - 80 - 20, 35);
-        self.readCountLabel.frame = CGRectMake(13 + 80 + 10, 55, kScreenWidth - 13 - 80 - 26, 35);
+        self.leftImageView.frame = CGRectMake(kMargin, kMargin, 80, 74);
+        self.titleLabel.frame = CGRectMake(kMargin + 80 + 10, 17, kScreenWidth - 13 - 80 - 20, 45);
+        self.timeLabel.frame = CGRectMake(kMargin + 80 + 10, 62, kScreenWidth - 13 - 80 - 20, 35);
+        self.readCountLabel.frame = CGRectMake(kMargin + 80 + 10, 62, kScreenWidth - 13 - 80 - 26, 35);
     }
     else {
         self.titleLabel.numberOfLines = 0;
-        self.titleLabel.preferredMaxLayoutWidth = kScreenWidth - 26;
+        self.titleLabel.preferredMaxLayoutWidth = kSubScreenWidth;
 
-        CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:16 width:kScreenWidth - 26];
+        CGFloat titleLabelHeight = [UIView calculateLabelHeightWithText:self.model.content fontSize:15 width:kSubScreenWidth];
         
         self.leftImageView.frame = CGRectMake(0, 0, 0, 0);
-        self.titleLabel.frame = CGRectMake(13, 10, kScreenWidth - 26, titleLabelHeight);
-        self.timeLabel.frame = CGRectMake(13, 10 + titleLabelHeight + 10, kScreenWidth - 26, 20);
-        self.readCountLabel.frame = CGRectMake(13, 10 + titleLabelHeight + 10, kScreenWidth - 29, 20);
+        self.titleLabel.frame = CGRectMake(kMargin, kMargin, kSubScreenWidth, titleLabelHeight);
+        self.timeLabel.frame = CGRectMake(kMargin, 10 + titleLabelHeight + 10, kSubScreenWidth, 20);
+        self.readCountLabel.frame = CGRectMake(kMargin, 10 + titleLabelHeight + 10, kScreenWidth - 29, 20);
     }
 
 }
@@ -96,7 +96,7 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:16];
+        _titleLabel.font = [UIFont systemFontOfSize:15];
         _titleLabel.textColor = [GCColor fontColor];
     }
     return _titleLabel;
@@ -105,7 +105,7 @@
 - (UILabel *)timeLabel {
     if (!_timeLabel) {
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.font = [UIFont systemFontOfSize:13];
+        _timeLabel.font = [UIFont systemFontOfSize:12];
         _timeLabel.textColor = [GCColor grayColor3];
         _timeLabel.textAlignment = NSTextAlignmentLeft;
     }
@@ -115,7 +115,7 @@
 - (UILabel *)readCountLabel {
     if (!_readCountLabel) {
         _readCountLabel = [[UILabel alloc] init];
-        _readCountLabel.font = [UIFont systemFontOfSize:13];
+        _readCountLabel.font = [UIFont systemFontOfSize:12];
         _readCountLabel.textColor = [GCColor grayColor3];
         _readCountLabel.textAlignment = NSTextAlignmentRight;
     }

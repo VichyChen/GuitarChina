@@ -26,10 +26,10 @@
 //    self.navigationItem.backBarButtonItem = backItem;
 
     if (self.navigationController.childViewControllers.count > 1) {
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(0, -10, 44, 44);
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+        button.frame = CGRectMake(0, -5, 44, 44);
         [button setImage:[UIImage imageNamed:@"icon_backArrow2"] forState:UIControlStateNormal];
-        [button setImageEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
+        [button setImageEdgeInsets:UIEdgeInsetsMake(0, -20, 0, 0)];
         [button setTintColor:[UIColor whiteColor]];
         [button setTitle:@"" forState:UIControlStateNormal];
         @weakify(self);

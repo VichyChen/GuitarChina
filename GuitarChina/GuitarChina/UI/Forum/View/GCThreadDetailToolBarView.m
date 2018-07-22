@@ -70,7 +70,7 @@
         [_pageButton setTitle:@"1" forState:UIControlStateNormal];
         [_pageButton addTarget:self action:@selector(pageAction) forControlEvents:UIControlEventTouchUpInside];
         _pageButton.tintColor = [GCColor grayColor1];
-        _pageButton.titleLabel.font = [UIFont systemFontOfSize:16];
+        _pageButton.titleLabel.font = [UIFont systemFontOfSize:15];
     }
     return _pageButton;
 }
@@ -81,6 +81,7 @@
         _previousPageButton.frame = CGRectMake(kScreenWidth / 2 - 40 - 60, 0, 60, 40);
         [_previousPageButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
         _previousPageButton.tintColor = [GCColor grayColor1];
+        _previousPageButton.titleLabel.font = [UIFont systemFontOfSize:15];
         [_previousPageButton setTitle:@"上一页" forState:UIControlStateNormal];
     }
     return _previousPageButton;
@@ -92,6 +93,7 @@
         _nextPageButton.frame = CGRectMake(kScreenWidth / 2 + 40, 0, 60, 40);
         [_nextPageButton addTarget:self action:@selector(forwardAction) forControlEvents:UIControlEventTouchUpInside];
         _nextPageButton.tintColor = [GCColor grayColor1];
+        _nextPageButton.titleLabel.font = [UIFont systemFontOfSize:15];
         [_nextPageButton setTitle:@"下一页" forState:UIControlStateNormal];
     }
     return _nextPageButton;

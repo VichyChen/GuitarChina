@@ -20,8 +20,9 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
+//        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+//        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         [self configureView];
     }
@@ -53,8 +54,8 @@
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 14, kScreenWidth - 80, 16)];
-        _titleLabel.font = [UIFont systemFontOfSize:16];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(kMargin, 14, kSubScreenWidth, 16)];
+        _titleLabel.font = [UIFont systemFontOfSize:15];
         _titleLabel.textColor = [GCColor fontColor];
     }
     return _titleLabel;
@@ -74,7 +75,7 @@
 
 - (UIView *)separatorViewBottom {
     if (!_separatorViewBottom) {
-        _separatorViewBottom = [[UIView alloc] initWithFrame:CGRectMake(13, 43.5, kScreenWidth - 13, 0.5)];
+        _separatorViewBottom = [[UIView alloc] initWithFrame:CGRectMake(kMargin, 47.5, kSubScreenWidth, 0.5)];
         _separatorViewBottom.backgroundColor = [GCColor separatorLineColor];
     }
     return _separatorViewBottom;

@@ -21,9 +21,10 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
 //        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.clipsToBounds = YES;
-        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
+//        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+//        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
         [self configureView];
     }
     return self;
@@ -33,9 +34,9 @@
     [super layoutSubviews];
     
 //    self.leftImageView.frame = CGRectMake(15, 12, 20, 20);
-    self.titleLabel.frame = CGRectMake(15, 0, kScreenWidth - 30, 44);
-    self.valueLabel.frame = CGRectMake(15, 0, kScreenWidth - 30 - 20, 44);
-    self.separatorViewBottom.frame = CGRectMake(0, 43.5, kScreenWidth, 0.5);
+    self.titleLabel.frame = CGRectMake(kMargin, 0, kSubScreenWidth, 48);
+    self.valueLabel.frame = CGRectMake(kMargin, 0, kSubScreenWidth - 20, 48);
+    self.separatorViewBottom.frame = CGRectMake(0, 47.5, kScreenWidth, 0.5);
 }
 
 - (void)configureView {
@@ -58,7 +59,7 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:16];
+        _titleLabel.font = [UIFont systemFontOfSize:15];
         _titleLabel.textColor = [GCColor fontColor];
     }
     return _titleLabel;
@@ -67,7 +68,7 @@
 - (UILabel *)valueLabel {
     if (!_valueLabel) {
         _valueLabel = [[UILabel alloc] init];
-        _valueLabel.font = [UIFont systemFontOfSize:16];
+        _valueLabel.font = [UIFont systemFontOfSize:15];
         _valueLabel.textColor = [GCColor fontColor];
         _valueLabel.textAlignment = NSTextAlignmentRight;
     }

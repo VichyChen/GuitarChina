@@ -29,7 +29,7 @@
     self.imgScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleNone;
     self.imgScrollView.delegate = self;
     self.imgScrollView.autoScroll = YES;
-    self.imgScrollView.titleLabelTextFont = [UIFont systemFontOfSize:16];
+    self.imgScrollView.titleLabelTextFont = [UIFont systemFontOfSize:15];
         _imgScrollView.placeholderImage = DefaultImage;
     self.imgScrollView.contentMode = UIViewContentModeScaleAspectFill;
     

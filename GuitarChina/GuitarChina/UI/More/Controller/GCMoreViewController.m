@@ -119,7 +119,7 @@
             return cell;
         };
         self.tableViewKit.heightForRowAtIndexPathBlock = ^CGFloat(NSIndexPath *indexPath) {
-            return 44.0f;
+            return 48.0f;
         };
         self.tableViewKit.viewForHeaderInSectionBlock = ^(NSInteger section) {
             @strongify(self);
@@ -129,7 +129,7 @@
                 
                 UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 50, 50)];
                 imageView.clipsToBounds = YES;
-                imageView.layer.cornerRadius = 8;
+                imageView.layer.cornerRadius = kCornerRadius;
                 [view addSubview:imageView];
                 
                 UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -142,14 +142,14 @@
                 if ([[NSUD stringForKey:kGCLogin] isEqualToString:@"1"]) {
                     [button setTitle:[NSUD stringForKey:kGCLoginName] forState:UIControlStateNormal];
                     [imageView sd_setImageWithURL:[NSURL URLWithString:GCNetworkAPI_URL_BigAvatarImage([NSUD stringForKey:kGCLoginID])] placeholderImage:DefaultAvator];
-                    button.titleLabel.font = [UIFont systemFontOfSize:16];
+                    button.titleLabel.font = [UIFont systemFontOfSize:15];
                 } else {
                     [button setTitle:@"未登录" forState:UIControlStateNormal];
                     button.titleLabel.font = [UIFont systemFontOfSize:15];
                     imageView.image = [UIImage imageNamed:@"default_avatar"];
                 }
                 
-                UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 79.5, kScreenWidth, 0.5)];
+                UIView *line = [[UIView alloc] initWithFrame:CGRectMake(kMargin, 79.5, kSubScreenWidth, 0.5)];
                 line.backgroundColor = [GCColor separatorLineColor];
                 [view addSubview:line];
                 
@@ -176,7 +176,7 @@
                 imageView.image = [UIImage imageNamed:@"icon_new"];
                 
                 UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 200, 40)];
-                label.font = [UIFont systemFontOfSize:16];
+                label.font = [UIFont systemFontOfSize:15];
                 label.textColor = [GCColor blueColor];
                 
                 UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, kScreenWidth, 0.5)];
@@ -195,7 +195,7 @@
                 UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 40)];
                 view.backgroundColor = [GCColor backgroundColor];
                 UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15, 0, 200, 40)];
-                label.font = [UIFont systemFontOfSize:16];
+                label.font = [UIFont systemFontOfSize:15];
                 label.textColor = [GCColor blueColor];
                 
                 UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 39.5, kScreenWidth, 0.5)];
