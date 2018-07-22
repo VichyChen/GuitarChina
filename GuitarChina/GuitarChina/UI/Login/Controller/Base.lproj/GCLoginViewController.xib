@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -265,11 +265,20 @@
                                         <constraint firstItem="L6g-Jx-xyW" firstAttribute="leading" secondItem="JWc-Ef-Hh6" secondAttribute="leading" id="zmf-mV-zXj"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOn-MU-YdW">
+                                    <rect key="frame" x="110.5" y="574" width="153" height="30"/>
+                                    <state key="normal" title="没有帐号？点这里注册"/>
+                                    <connections>
+                                        <action selector="registAction:" destination="-1" eventType="touchUpInside" id="nO0-KR-Kux"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="JWc-Ef-Hh6" secondAttribute="bottom" id="3BR-Ag-PQy"/>
+                                <constraint firstAttribute="bottom" secondItem="QOn-MU-YdW" secondAttribute="bottom" constant="64" id="Ani-qa-wjK"/>
                                 <constraint firstItem="JWc-Ef-Hh6" firstAttribute="top" secondItem="VZO-Hv-gKf" secondAttribute="top" constant="20" id="dEJ-NM-tTT"/>
+                                <constraint firstItem="QOn-MU-YdW" firstAttribute="centerX" secondItem="VZO-Hv-gKf" secondAttribute="centerX" id="g3D-hF-Clp"/>
                                 <constraint firstItem="JWc-Ef-Hh6" firstAttribute="centerX" secondItem="VZO-Hv-gKf" secondAttribute="centerX" id="qVO-QY-ie7"/>
                             </constraints>
                         </view>

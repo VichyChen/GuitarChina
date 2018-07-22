@@ -137,6 +137,10 @@
     self.loginBlock();
 }
 
+- (IBAction)registAction:(UIButton *)sender {
+    [Util openUrlInSafari:@"https://bbs.guitarchina.com/member.php?mod=register"];
+}
+
 - (IBAction)closeAction:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
