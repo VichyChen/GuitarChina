@@ -9,8 +9,8 @@
 #import "GCHistoryCell.h"
 
 #define ButtonHeight 35
-#define ButtonVerticalSpace 13
-#define ButtonHorizontalSpace 13
+#define ButtonVerticalSpace kMargin
+#define ButtonHorizontalSpace kMargin
 
 @interface GCHistoryCell()
 
@@ -44,7 +44,7 @@
         button.contentEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 15);
         button.titleLabel.font = [UIFont systemFontOfSize:14];
         button.backgroundColor = [UIColor colorWithRed:0.961 green:0.961 blue:0.961 alpha:1.00];
-        button.layer.cornerRadius = 3;
+        button.layer.cornerRadius = kCornerRadius;
         [self addSubview:button];
         [self.buttonArray addObject:button];
         button.tag = i;
@@ -55,7 +55,7 @@
             rowOriginY += (ButtonHeight + ButtonVerticalSpace);
             rowOriginX = 0;
         }
-        button.frame = CGRectMake(13 + rowOriginX, rowOriginY, buttonWidth, ButtonHeight);
+        button.frame = CGRectMake(kMargin + rowOriginX, rowOriginY, buttonWidth, ButtonHeight);
         rowOriginX += (ButtonHorizontalSpace + buttonWidth);
     }
 }
@@ -81,7 +81,7 @@
             rowOriginY += (ButtonHeight + ButtonVerticalSpace);
             rowOriginX = 0;
         }
-        button.frame = CGRectMake(13 + rowOriginX, rowOriginY, buttonWidth, ButtonHeight);
+        button.frame = CGRectMake(kMargin + rowOriginX, rowOriginY, buttonWidth, ButtonHeight);
         rowOriginX += (ButtonHorizontalSpace + buttonWidth);
     }
     

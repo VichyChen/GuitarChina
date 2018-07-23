@@ -81,6 +81,7 @@
         _avatorImageView = [[UIImageView alloc] init];
         _avatorImageView.contentMode = UIViewContentModeScaleAspectFill;
         _avatorImageView.clipsToBounds = YES;
+        _avatorImageView.layer.cornerRadius = kCornerRadius;
     }
     return _avatorImageView;
 }

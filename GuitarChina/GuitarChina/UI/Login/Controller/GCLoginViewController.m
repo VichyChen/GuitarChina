@@ -134,6 +134,7 @@
 }
 
 - (IBAction)loginAction:(UIButton *)sender {
+    [self.view endEditing:YES];
     self.loginBlock();
 }
 

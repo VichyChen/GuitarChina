@@ -18,9 +18,8 @@
 @property (nonatomic, strong) NSMutableArray *controllerArray;
 
 @property (nonatomic, strong) HMSegmentedControl *segmentedControl;
-
+@property (nonatomic, strong) UIView *separatorView;
 @property (nonatomic, strong) UIScrollView *scrollView;
-
 
 @end
 
@@ -84,6 +83,7 @@
     self.navigationItem.titleView = label;
     
     [self.view addSubview:self.segmentedControl];
+    [self.view addSubview:self.separatorView];
     [self.view addSubview:self.scrollView];
     
     GCDiscoveryTableViewController *hot = [[GCDiscoveryTableViewController alloc] init];
@@ -139,7 +139,7 @@
         _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[[NSString stringWithFormat:@" %@ ", @"最热"], [NSString stringWithFormat:@" %@ ", @"最新"], [NSString stringWithFormat:@" %@ ", @"抢沙发"], [NSString stringWithFormat:@" %@ ", @"精华"]]];
         _segmentedControl.frame = CGRectMake(0, kNavigatioinBarHeight, kScreenWidth, 40);
         _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationNone;
-        _segmentedControl.backgroundColor = [GCColor cellSelectedColor];
+        _segmentedControl.backgroundColor = [UIColor whiteColor];
         _segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : [GCColor grayColor1],
                                                   NSFontAttributeName : [UIFont systemFontOfSize:15]};
         _segmentedControl.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : [GCColor redColor],
@@ -149,10 +149,19 @@
     return _segmentedControl;
 }
 
+- (UIView *)separatorView {
+    if (!_separatorView) {
+        _separatorView = [[UIView alloc] init];
+        _separatorView.frame = CGRectMake(0, _segmentedControl.frame.origin.y + _segmentedControl.frame.size.height, kScreenWidth, 0.5);
+        _separatorView.backgroundColor = [GCColor separatorLineColor];
+    }
+    return _separatorView;
+}
+
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.frame = CGRectMake(0, kNavigatioinBarHeight + self.segmentedControl.frame.size.height, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - self.segmentedControl.frame.size.height - kTabBarHeight);
+        _scrollView.frame = CGRectMake(0, kNavigatioinBarHeight + self.segmentedControl.frame.size.height + self.separatorView.frame.size.height, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - self.segmentedControl.frame.size.height - kTabBarHeight);
         _scrollView.contentSize = CGSizeMake(kScreenWidth * 4, kScreenHeight - kNavigatioinBarHeight - self.segmentedControl.frame.size.height - kTabBarHeight);
         _scrollView.pagingEnabled = YES;
         _scrollView.scrollEnabled = YES;

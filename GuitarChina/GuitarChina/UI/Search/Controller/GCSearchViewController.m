@@ -111,7 +111,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     self.searchTextField.leftViewMode = UITextFieldViewModeAlways;
     self.searchTextField.leftView = leftView;
     self.searchTextField.returnKeyType = UIReturnKeySearch;
-//    [self.searchTextField addTarget:self action:@selector(searchTextFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.searchTextField addTarget:self action:@selector(searchTextFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
     @weakify(self);
     self.searchTextField.bk_shouldReturnBlock = ^(UITextField *textField) {
         @strongify(self);
@@ -257,9 +257,11 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 //    });
 }
 
-- (void)searchTextFieldValueChange:(UITextField *)TextField {
-    [self showView:GCSearchViewTypeHistory];
-    self.historyBlock();
+- (void)searchTextFieldValueChange:(UITextField *)textField {
+    if (textField.text.length == 0) {
+        [self showView:GCSearchViewTypeHistory];
+        self.historyBlock();
+    }
 }
 
 - (void)clearHistory {
@@ -280,7 +282,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
 
         UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
 
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, kScreenWidth - 30, 44)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(kMargin, 0, kSubScreenWidth, 44)];
         label.text = @"搜索历史";
         label.font = [UIFont systemFontOfSize:15];
         label.textColor = [GCColor grayColor1];
@@ -290,7 +292,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
         
         UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 80)];
         UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-        button.frame = CGRectMake(0, 0, kScreenWidth - 60, 40);
+        button.frame = CGRectMake(0, 0, kSubScreenWidth, 40);
         [button setTitle:@"清除搜索历史" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(clearHistory) forControlEvents:UIControlEventTouchUpInside];
         button.tintColor = [GCColor redColor];

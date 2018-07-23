@@ -146,7 +146,7 @@
         NSArray *pArray = [searchParser searchWithXPathQuery:@"//p"];
         //回复、查看
         TFHppleElement *replyElement = [pArray objectAtIndex:0];
-        NSString *reply = replyElement.content;
+        NSString *reply = [[[replyElement.content replace:@" 个回复" toNewString:@"回复"] replace:@" 次查看" toNewString:@"浏览"] replace:@" - " toNewString:@" "];
         //内容
         TFHppleElement *contentElement = [pArray objectAtIndex:1];
         NSMutableString *content = [[NSMutableString alloc] init];

@@ -169,7 +169,7 @@
             
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(kMargin, 0, kSubScreenWidth, 40)];
             label.text = [NSString stringWithFormat:@"%@", model.name];
-            label.font = [UIFont systemFontOfSize:16];
+            label.font = [UIFont systemFontOfSize:15];
             label.textColor = [GCColor blueColor];
             
             [view addSubview:label];

@@ -301,10 +301,26 @@
     UIImage *bottomImage = [[[UIImage imageNamed:imageName] cutWithRect:bottomViewImageRect] resize:self.bottomView.frame.size];
     self.bottomView.backgroundColor = [UIColor colorWithPatternImage:bottomImage];
     
-    [self.splash loadAdAndShowInWindow:APP.window withBottomView:self.bottomView];
+    UIView *skipView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth - 15 - 50, kNavigatioinBarHeight, 50, 30)];
+    skipView.backgroundColor = [UIColor clearColor];
+    skipView.clipsToBounds = YES;
+    skipView.layer.cornerRadius = kCornerRadius;
     
-    //    [APP.window addSubview:self.bottomView];
-    //    [self.splash loadAdAndShowInWindow:APP.window];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    view.backgroundColor = [UIColor blackColor];
+    view.alpha = 0.40;
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.frame = view.frame;
+    label.text = @"跳过";
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:14];
+    
+    [skipView addSubview:view];
+    [skipView addSubview:label];
+    
+    [self.splash loadAdAndShowInWindow:APP.window withBottomView:self.bottomView skipView:skipView];
 }
 
 - (void)configureSVProgressHUD {
