@@ -74,7 +74,7 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
-    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
 
     [self.view addSubview:self.tableView];
@@ -153,7 +153,7 @@
 - (UITableView *)tableView {
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
-        _tableView.frame = CGRectMake(0, kNavigatioinBarHeight, kScreenWidth, kScreenHeight - kNavigatioinBarHeight);
+        _tableView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight);
         _tableView.separatorHorizontalInset = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
 //        UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 44)];
 //        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(13, 0, kScreenWidth, 44)];

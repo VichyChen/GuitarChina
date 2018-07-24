@@ -37,7 +37,7 @@
 }
 
 - (void)configureView {
-    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
 
     self.view.backgroundColor = [UIColor whiteColor];

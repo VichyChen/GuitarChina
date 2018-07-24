@@ -14,10 +14,14 @@
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) UIButton *goButton;
 @property (nonatomic, strong) UIButton *cancelButton;
+@property (nonatomic, strong) UIButton *firstButton;
+@property (nonatomic, strong) UIButton *lastButton;
 @property (nonatomic, strong) UIView *separatorLineView;
 @property (nonatomic, strong) UIPickerView *pickerView;
 
 @property (nonatomic, copy) void (^goActionBlock)(NSInteger page);
+@property (nonatomic, copy) void (^selectFirstBlock)(NSInteger page);
+@property (nonatomic, copy) void (^selectLastBlock)(NSInteger page);
 
 @property (nonatomic, assign) NSInteger pickerViewCount;
 @property (nonatomic, assign) NSInteger pickerViewIndex;

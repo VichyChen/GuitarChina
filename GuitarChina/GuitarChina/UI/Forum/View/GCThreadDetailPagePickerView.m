@@ -41,6 +41,18 @@
     }
 }
 
+- (void)selectFirstAction {
+    if (self.selectFirstBlock) {
+        self.selectFirstBlock(1);
+    }
+}
+
+- (void)selectLastAction {
+    if (self.selectLastBlock) {
+        self.selectLastBlock(self.pickerViewCount);
+    }
+}
+
 - (void)cancelAction {
     [self dismiss];
 }
@@ -131,6 +143,8 @@
         _contentView.backgroundColor = [UIColor whiteColor];
         
         [_contentView addSubview:self.cancelButton];
+        [_contentView addSubview:self.firstButton];
+        [_contentView addSubview:self.lastButton];
         [_contentView addSubview:self.goButton];
         [_contentView addSubview:self.separatorLineView];
         [_contentView addSubview:self.pickerView];
@@ -141,7 +155,7 @@
 - (UIButton *)goButton {
     if (!_goButton) {
         _goButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        _goButton.frame = CGRectMake(kScreenWidth - 13 - 60, 0, 60, 40);
+        _goButton.frame = CGRectMake(kScreenWidth - kMargin - 60, 0, 60, 40);
         [_goButton setTitle:@"跳转" forState:UIControlStateNormal];
         [_goButton addTarget:self action:@selector(goAction) forControlEvents:UIControlEventTouchUpInside];
         _goButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -153,13 +167,37 @@
 - (UIButton *)cancelButton {
     if (!_cancelButton) {
         _cancelButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        _cancelButton.frame = CGRectMake(13, 0, 60, 40);
+        _cancelButton.frame = CGRectMake(kMargin, 0, 60, 40);
         [_cancelButton setTitle:@"取消" forState:UIControlStateNormal];
         [_cancelButton addTarget:self action:@selector(cancelAction) forControlEvents:UIControlEventTouchUpInside];
         _cancelButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
         _cancelButton.tintColor = [GCColor grayColor1];
     }
     return _cancelButton;
+}
+
+- (UIButton *)firstButton {
+    if (!_firstButton) {
+        _firstButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        _firstButton.frame = CGRectMake(kMargin + kSubScreenWidth / 3 - 30, 0, 60, 40);
+        [_firstButton setTitle:@"首页" forState:UIControlStateNormal];
+        [_firstButton addTarget:self action:@selector(selectFirstAction) forControlEvents:UIControlEventTouchUpInside];
+        _firstButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        _firstButton.tintColor = [GCColor grayColor1];
+    }
+    return _firstButton;
+}
+
+- (UIButton *)lastButton {
+    if (!_lastButton) {
+        _lastButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        _lastButton.frame = CGRectMake(kMargin + kSubScreenWidth / 3 * 2 - 30, 0, 60, 40);
+        [_lastButton setTitle:@"末页" forState:UIControlStateNormal];
+        [_lastButton addTarget:self action:@selector(selectLastAction) forControlEvents:UIControlEventTouchUpInside];
+        _lastButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        _lastButton.tintColor = [GCColor grayColor1];
+    }
+    return _lastButton;
 }
 
 - (UIView *)separatorLineView {

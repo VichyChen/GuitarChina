@@ -19,6 +19,7 @@
     
     self.navigationBar.barTintColor = [GCColor redColor];
     self.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationBar.translucent = NO;
     self.navigationBar.titleTextAttributes = @{ NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont systemFontOfSize:17]};
 }
 

@@ -341,7 +341,7 @@ typedef NS_ENUM(NSInteger, GCSearchViewType) {
     if (!_searchTableView) {
         _searchTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight)];
         _searchTableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-        _searchTableView.separatorLeftInset = 0;
+        _searchTableView.separatorHorizontalInset = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
 
         [_searchTableView initFooterViewWithFrame:CGRectMake(0, 0, kScreenWidth, 0.5)];
 

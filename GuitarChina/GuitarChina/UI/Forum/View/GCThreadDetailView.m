@@ -153,6 +153,16 @@
             self.goActionBlock(page);
             [self.pagePickerView dismiss];
         };
+        _pagePickerView.selectFirstBlock = ^(NSInteger page) {
+            @strongify(self);
+            self.goActionBlock(page);
+            [self.pagePickerView dismiss];
+        };
+        _pagePickerView.selectLastBlock = ^(NSInteger page) {
+            @strongify(self);
+            self.goActionBlock(page);
+            [self.pagePickerView dismiss];
+        };
     }
     return _pagePickerView;
 }

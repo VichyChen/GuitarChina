@@ -36,7 +36,7 @@
 }
 
 - (void)configureView {
-    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.navigationItem.titleView = self.segmentedControl;
@@ -112,7 +112,7 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.frame = CGRectMake(0, kNavigatioinBarHeight, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - kTabBarHeight);
+        _scrollView.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - kTabBarHeight);
         _scrollView.contentSize = CGSizeMake(kScreenWidth * 2, _scrollView.frame.size.height);
         _scrollView.pagingEnabled = YES;
         _scrollView.scrollEnabled = YES;

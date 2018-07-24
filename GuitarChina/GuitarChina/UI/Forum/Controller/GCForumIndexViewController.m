@@ -51,7 +51,7 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
-    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.view addSubview:self.tableView];
@@ -121,7 +121,7 @@
 
 - (UITableView *)tableView {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, kNavigatioinBarHeight, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - kTabBarHeight) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - kTabBarHeight) style:UITableViewStylePlain];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.separatorHorizontalInset = UIEdgeInsetsMake(0, kMargin, 0, kMargin);

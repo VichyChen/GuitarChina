@@ -69,7 +69,8 @@
 #pragma mark - Private Methods
 
 - (void)configureView {
-    
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+
     UILabel *label = [[UILabel alloc] init];
     label.frame = CGRectMake(0, 0, 100, 44);
 #if FREEVERSION
@@ -137,7 +138,7 @@
 - (HMSegmentedControl *)segmentedControl {
     if (!_segmentedControl) {
         _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[[NSString stringWithFormat:@" %@ ", @"最热"], [NSString stringWithFormat:@" %@ ", @"最新"], [NSString stringWithFormat:@" %@ ", @"抢沙发"], [NSString stringWithFormat:@" %@ ", @"精华"]]];
-        _segmentedControl.frame = CGRectMake(0, kNavigatioinBarHeight, kScreenWidth, 40);
+        _segmentedControl.frame = CGRectMake(0, 0, kScreenWidth, 40);
         _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationNone;
         _segmentedControl.backgroundColor = [UIColor whiteColor];
         _segmentedControl.titleTextAttributes = @{NSForegroundColorAttributeName : [GCColor grayColor1],
@@ -161,7 +162,7 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.frame = CGRectMake(0, kNavigatioinBarHeight + self.segmentedControl.frame.size.height + self.separatorView.frame.size.height, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - self.segmentedControl.frame.size.height - kTabBarHeight);
+        _scrollView.frame = CGRectMake(0, self.segmentedControl.frame.size.height + self.separatorView.frame.size.height, kScreenWidth, kScreenHeight - kNavigatioinBarHeight - self.segmentedControl.frame.size.height - kTabBarHeight);
         _scrollView.contentSize = CGSizeMake(kScreenWidth * 4, kScreenHeight - kNavigatioinBarHeight - self.segmentedControl.frame.size.height - kTabBarHeight);
         _scrollView.pagingEnabled = YES;
         _scrollView.scrollEnabled = YES;

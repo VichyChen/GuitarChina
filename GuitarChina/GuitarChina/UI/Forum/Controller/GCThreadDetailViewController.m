@@ -269,7 +269,7 @@
 
 - (void)configureView {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.edgesForExtendedLayout = UIRectEdgeAll;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title = @"详情";//@"详情";
     
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -430,7 +430,7 @@
 
 - (GCThreadDetailView *)threadDetailView {
     if (!_threadDetailView) {
-        _threadDetailView = [[GCThreadDetailView alloc] initWithFrame:CGRectMake(0, kNavigatioinBarHeight, kScreenWidth, kScreenHeight - kNavigatioinBarHeight)];
+        _threadDetailView = [[GCThreadDetailView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight)];
         _threadDetailView.webView.delegate = self;
         @weakify(self);
         _threadDetailView.webViewRefreshBlock = ^{
