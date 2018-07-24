@@ -25,8 +25,9 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        //        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+        //        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
         [self configureView];
     }
     return self;
@@ -35,9 +36,9 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.remarkLabel.frame = CGRectMake(15, 8, kScreenWidth - 30, 20);
-    self.subjectLabel.frame = CGRectMake(15, 35, kScreenWidth - 30, self.subjectLabelHeight);
-    self.timeLabel.frame = CGRectMake(15, 36 + self.subjectLabelHeight + 8, kScreenWidth - 30, 15);
+    self.remarkLabel.frame = CGRectMake(kMargin, 8, kSubScreenWidth, 20);
+    self.subjectLabel.frame = CGRectMake(kMargin, 35, kSubScreenWidth, self.subjectLabelHeight);
+    self.timeLabel.frame = CGRectMake(kMargin, 36 + self.subjectLabelHeight + 8, kSubScreenWidth, 15);
 }
 
 #pragma mark - Private Method
@@ -55,13 +56,13 @@
     
     self.remarkLabel.text = [NSString stringWithFormat:@"%@ %@", model.name, model.remarkString];
     self.subjectLabel.text = model.threadTitle;
-    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:self.subjectLabel.text fontSize:self.subjectLabel.font.pointSize width:kScreenWidth - 30];
+    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:self.subjectLabel.text fontSize:self.subjectLabel.font.pointSize width:kSubScreenWidth];
     self.subjectLabelHeight = subjectLabelHeight;
     self.timeLabel.text = model.time;
 }
 
 + (CGFloat)getCellHeightWithModel:(GCMyPromptModel *)model {
-    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.threadTitle fontSize:16 width:kScreenWidth - 30];
+    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.threadTitle fontSize:16 width:kSubScreenWidth];
     return subjectLabelHeight + 66;
 }
 
@@ -73,7 +74,7 @@
         _remarkLabel.font = [UIFont systemFontOfSize:14];
         _remarkLabel.textColor = [GCColor grayColor2];
         _remarkLabel.numberOfLines = 0;
-        _remarkLabel.preferredMaxLayoutWidth = kScreenWidth - 30;
+        _remarkLabel.preferredMaxLayoutWidth = kSubScreenWidth;
         _remarkLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _remarkLabel;
@@ -85,7 +86,7 @@
         _subjectLabel.font = [UIFont systemFontOfSize:16];
         _subjectLabel.textColor = [GCColor fontColor];
         _subjectLabel.numberOfLines = 0;
-        _subjectLabel.preferredMaxLayoutWidth = kScreenWidth - 30;
+        _subjectLabel.preferredMaxLayoutWidth = kSubScreenWidth;
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _subjectLabel;
@@ -97,7 +98,7 @@
         _timeLabel.font = [UIFont systemFontOfSize:13];
         _timeLabel.textColor = [GCColor grayColor2];
         _timeLabel.numberOfLines = 0;
-        _timeLabel.preferredMaxLayoutWidth = kScreenWidth - 30;
+        _timeLabel.preferredMaxLayoutWidth = kSubScreenWidth;
         _timeLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _timeLabel;

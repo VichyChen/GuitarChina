@@ -8,7 +8,7 @@
 
 #import "GCMyThreadCell.h"
 
-#define SubjectWidth kScreenWidth - 30
+#define kSubScreenWidth kScreenWidth - 30
 
 @interface GCMyThreadCell()
 
@@ -27,8 +27,9 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
-        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+        //        self.selectedBackgroundView = [[UIView alloc] initWithFrame:self.frame];
+        //        self.selectedBackgroundView.backgroundColor = [GCColor cellSelectedColor];
         [self configureView];
     }
     return self;
@@ -37,9 +38,9 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     
-    self.datelineLabel.frame = CGRectMake(15, 10, SubjectWidth, 20);
-    self.repliesLabel.frame = CGRectMake(15, 10, SubjectWidth, 20);
-    self.subjectLabel.frame = CGRectMake(15, 40, SubjectWidth, self.subjectLabelHeight);
+    self.datelineLabel.frame = CGRectMake(kMargin, 10, kSubScreenWidth, 20);
+    self.repliesLabel.frame = CGRectMake(kMargin, 10, kSubScreenWidth, 20);
+    self.subjectLabel.frame = CGRectMake(kMargin, 40, kSubScreenWidth, self.subjectLabelHeight);
 }
 
 #pragma mark - Private Method
@@ -53,7 +54,7 @@
 #pragma mark - Class Method
 
 + (CGFloat)getCellHeightWithModel:(GCMyThreadModel *)model {
-    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.subject fontSize:16 width:SubjectWidth];
+    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:model.subject fontSize:15 width:kSubScreenWidth];
     return subjectLabelHeight + 50;
 }
 
@@ -64,7 +65,7 @@
     
     self.datelineLabel.text = model.dateline;
     self.subjectLabel.text = model.subject;
-    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:self.subjectLabel.text fontSize:self.subjectLabel.font.pointSize width:SubjectWidth];
+    CGFloat subjectLabelHeight = [UIView calculateLabelHeightWithText:self.subjectLabel.text fontSize:self.subjectLabel.font.pointSize width:kSubScreenWidth];
     self.subjectLabelHeight = subjectLabelHeight;
     self.repliesLabel.attributedText = model.replyAndViewDetailString;
 }
@@ -74,10 +75,10 @@
 - (UILabel *)subjectLabel {
     if (!_subjectLabel) {
         _subjectLabel = [[UILabel alloc] init];
-        _subjectLabel.font = [UIFont systemFontOfSize:16];
+        _subjectLabel.font = [UIFont systemFontOfSize:15];
         _subjectLabel.textColor = [GCColor fontColor];
         _subjectLabel.numberOfLines = 0;
-        _subjectLabel.preferredMaxLayoutWidth = SubjectWidth;
+        _subjectLabel.preferredMaxLayoutWidth = kSubScreenWidth;
         _subjectLabel.lineBreakMode = NSLineBreakByWordWrapping;
     }
     return _subjectLabel;
@@ -86,7 +87,7 @@
 - (UILabel *)datelineLabel {
     if (!_datelineLabel) {
         _datelineLabel = [[UILabel alloc] init];
-        _datelineLabel.font = [UIFont systemFontOfSize:14];
+        _datelineLabel.font = [UIFont systemFontOfSize:13];
         _datelineLabel.textColor = [GCColor grayColor2];
     }
     return _datelineLabel;
@@ -95,7 +96,7 @@
 - (UILabel *)repliesLabel {
     if (!_repliesLabel) {
         _repliesLabel = [[UILabel alloc] init];
-        _repliesLabel.font = [UIFont systemFontOfSize:14];
+        _repliesLabel.font = [UIFont systemFontOfSize:13];
         _repliesLabel.textColor = [GCColor grayColor2];
         _repliesLabel.textAlignment = NSTextAlignmentRight;
     }

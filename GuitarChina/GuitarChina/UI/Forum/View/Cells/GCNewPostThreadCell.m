@@ -12,7 +12,7 @@
 #import "GCReplyPostThreadToolBarView.h"
 
 #define AddImage @"upload_img"
-#define ImageViewWidth ((kScreenWidth - 10 * 4) / 3)
+#define ImageViewWidth floor((kScreenWidth-kMargin*2-10*3)/4)
 
 @interface GCNewPostThreadCell() <UITextViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -63,8 +63,8 @@
             button.contentEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
             button.titleLabel.font = [UIFont systemFontOfSize:14];
 
-            buttonWidth = (kScreenWidth - 13 - 100 - 13 - 10 * 2) / 3;
-            if (buttonWidth + rowOriginX > kScreenWidth - 13 - 100 - 13) {
+            buttonWidth = (kScreenWidth - kMargin - 100 - kMargin - 10 * 2) / 3;
+            if (buttonWidth + rowOriginX > kScreenWidth - kMargin - 100 - kMargin) {
                 rowOriginY += (buttonHeight + buttonVerticalSpace);
                 rowOriginX = 0;
             }
@@ -172,11 +172,11 @@
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(10, 10, 10, 10);
+    return UIEdgeInsetsMake(kMargin, kMargin, kMargin, kMargin);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 0;
+    return 10;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
@@ -195,7 +195,7 @@
 
 - (void)createButtonsWithStringArray:(NSArray *)stringArray {
     UIView *buttonContentView = [[UIView alloc] init];
-    buttonContentView.frame = CGRectMake(13 + 100, 0, kScreenWidth - 13 - 100 - 13, 0);
+    buttonContentView.frame = CGRectMake(kMargin + 100, 0, kScreenWidth - kMargin - 100 - kMargin, 0);
     [self.containView addSubview:buttonContentView];
     
     CGFloat rowOriginX = 0;
@@ -232,7 +232,7 @@
         rowOriginX += (buttonHorizontalSpace + buttonWidth);
     }
     
-    buttonContentView.frame = CGRectMake(13 + 100, 0, kScreenWidth - 13 - 100 - 13, rowOriginY + buttonHeight + buttonVerticalSpace);
+    buttonContentView.frame = CGRectMake(kMargin + 100, 0, kScreenWidth - kMargin - 100 - kMargin, rowOriginY + buttonHeight + buttonVerticalSpace);
     self.containView.frame = CGRectMake(0, 0, kScreenWidth, rowOriginY + buttonHeight + buttonVerticalSpace);
 }
 
@@ -266,8 +266,8 @@
             [self.containView addSubview:self.segmentedControl];
             
             self.containView.frame = CGRectMake(0, 0, kScreenWidth, 44);
-            self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
-            self.segmentedControl.frame = CGRectMake(kScreenWidth - 13 - 160, 6, 160, 30);
+            self.titleLabel.frame = CGRectMake(kMargin, 0, 100, 44);
+            self.segmentedControl.frame = CGRectMake(kScreenWidth - kMargin - 160, 6, 160, 30);
             break;
             
         case GCNewPostThreadCellStyleTextField:
@@ -275,8 +275,8 @@
             [self.containView addSubview:self.textField];
 
             self.containView.frame = CGRectMake(0, 0, kScreenWidth, 44);
-            self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
-            self.textField.frame = CGRectMake(13 + 100 + 13, 0, kScreenWidth - 100 - 13 * 3, 44);
+            self.titleLabel.frame = CGRectMake(kMargin, 0, 100, 44);
+            self.textField.frame = CGRectMake(kMargin + 100 + kMargin, 0, kScreenWidth - 100 - kMargin * 3, 44);
             
             self.textField.textAlignment = NSTextAlignmentRight;
             break;
@@ -285,7 +285,7 @@
             [self.containView addSubview:self.textField];
 
             self.containView.frame = CGRectMake(0, 0, kScreenWidth, 44);
-            self.textField.frame = CGRectMake(13, 0, kScreenWidth - 26, 44);
+            self.textField.frame = CGRectMake(kMargin, 0, kSubScreenWidth, 44);
             self.textField.textAlignment = NSTextAlignmentLeft;
             break;
             
@@ -295,8 +295,8 @@
             self.textView.inputAccessoryView = nil;
 
             self.containView.frame = CGRectMake(0, 0, kScreenWidth, 100);
-            self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
-            self.textView.frame = CGRectMake(13 + 100, 3, kScreenWidth - 26 - 100, 100 - 6);
+            self.titleLabel.frame = CGRectMake(kMargin, 0, 100, 44);
+            self.textView.frame = CGRectMake(kMargin + 100, 3, kSubScreenWidth - 100, 100 - 6);
             break;
             
         case GCNewPostThreadCellStyleOnlyTextView:
@@ -311,14 +311,14 @@
             [self.containView addSubview:self.titleLabel];
 
             self.containView.frame = CGRectMake(0, 0, kScreenWidth, 44);
-            self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
+            self.titleLabel.frame = CGRectMake(kMargin, 0, 100, 44);
             break;
             
         case GCNewPostThreadCellStyleCheckButton:
             [self.containView addSubview:self.titleLabel];
 
             self.containView.frame = CGRectMake(0, 0, kScreenWidth, 44);
-            self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
+            self.titleLabel.frame = CGRectMake(kMargin, 0, 100, 44);
             break;
 
 
@@ -331,9 +331,9 @@
             [self.containView addSubview:self.arrowImageView];
             
             self.containView.frame = CGRectMake(0, 0, kScreenWidth, 44);
-            self.titleLabel.frame = CGRectMake(13, 0, 100, 44);
-            self.valueLabel.frame = CGRectMake(13 + 100, 0, kScreenWidth - 13 - 100 - 13 - 7 - 5, 44);
-            self.arrowImageView.frame = CGRectMake(kScreenWidth - 13 - 7, 12, 14, 20);
+            self.titleLabel.frame = CGRectMake(kMargin, 0, 100, 44);
+            self.valueLabel.frame = CGRectMake(kMargin + 100, 0, kScreenWidth - kMargin - 100 - kMargin - 7 - 5, 44);
+            self.arrowImageView.frame = CGRectMake(kScreenWidth - kMargin - 7, 12, 14, 20);
             @weakify(self);
             [self.contentView bk_whenTapped:^{
                 @strongify(self);
@@ -405,7 +405,7 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:16];
+        _titleLabel.font = [UIFont systemFontOfSize:15];
         _titleLabel.textColor = [GCColor fontColor];
     }
     return _titleLabel;
@@ -423,7 +423,7 @@
 - (UITextField *)textField {
     if (!_textField) {
         _textField = [[UITextField alloc] init];
-        _textField.font = [UIFont systemFontOfSize:16];
+        _textField.font = [UIFont systemFontOfSize:15];
         _textField.textColor = [GCColor fontColor];
         _textField.placeholder = @"请输入";
         [_textField addTarget:self action:@selector(textFieldValueChange:) forControlEvents:UIControlEventEditingChanged];
@@ -434,7 +434,7 @@
 - (UITextView *)textView {
     if (!_textView) {
         _textView = [[UITextView alloc] init];
-        _textView.font = [UIFont systemFontOfSize:16];
+        _textView.font = [UIFont systemFontOfSize:15];
         _textView.textColor = [GCColor fontColor];
         _textView.placeholder = @"请输入";
         _textView.delegate = self;
@@ -445,7 +445,7 @@
 - (UILabel *)valueLabel {
     if (!_valueLabel) {
         _valueLabel = [[UILabel alloc] init];
-        _valueLabel.font = [UIFont systemFontOfSize:16];
+        _valueLabel.font = [UIFont systemFontOfSize:15];
         _valueLabel.textColor = [GCColor fontColor];
         _valueLabel.textAlignment = NSTextAlignmentRight;
         _valueLabel.text = @"请选择";

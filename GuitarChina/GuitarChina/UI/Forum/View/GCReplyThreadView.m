@@ -11,7 +11,7 @@
 #import "ZLPhoto.h"
 
 #define AddImage @"upload_img"
-#define ImageViewWidth ((kScreenWidth - 10 * 4) / 3)
+#define ImageViewWidth floor((kScreenWidth-kMargin*2-10*3)/4)
 
 @interface GCReplyThreadView() <UITextViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, ZLPhotoPickerBrowserViewControllerDelegate, ZLPhotoPickerBrowserViewControllerDataSource>
 
@@ -58,9 +58,9 @@
 
 - (void)configureFrame {
     self.scrollView.frame = CGRectMake(0, 0, kScreenWidth, self.frame.size.height - 44);
-    self.toolBarView.frame = CGRectMake(0, self.frame.size.height - 44, kScreenWidth, 44);
-    self.textView.frame = CGRectMake(6, 0, kScreenWidth - 12, 100);
-    self.collectionView.frame = CGRectMake(0, self.textView.frame.size.height, kScreenWidth, [self calculateCollectionViewHeight]);
+    self.toolBarView.frame = CGRectMake(0, self.frame.size.height - 44 - kSAVE_ARE_BOTTOM, kScreenWidth, 44 + kSAVE_ARE_BOTTOM);
+    self.textView.frame = CGRectMake(10, 10, kScreenWidth - 20, 100);
+    self.collectionView.frame = CGRectMake(0, self.textView.frame.origin.y + self.textView.frame.size.height, kScreenWidth, [self calculateCollectionViewHeight]);
     
     CGFloat scrollViewContentSizeHeight = self.collectionView.frame.origin.y + self.collectionView.frame.size.height + 10;
     if (scrollViewContentSizeHeight <= self.scrollView.frame.size.height) {
@@ -117,7 +117,7 @@
 - (CGFloat)calculateTextViewHeightWithText:(NSString *)text {
     UITextView *textView = [[UITextView alloc] init];
     textView.text = text;
-    textView.font = [UIFont systemFontOfSize:16];
+    textView.font = [UIFont systemFontOfSize:15];
     return [textView sizeThatFits:CGSizeMake(self.textView.frame.size.width, 9999)].height;
 }
 
@@ -167,7 +167,7 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:animationDuration];
     
-    self.toolBarView.frame = CGRectMake(0, self.frame.size.height - 44, kScreenWidth, 44);
+    self.toolBarView.frame = CGRectMake(0, self.frame.size.height - 44 - kSAVE_ARE_BOTTOM, kScreenWidth, 44 + kSAVE_ARE_BOTTOM);
 
     [UIView commitAnimations];
 }
@@ -199,11 +199,11 @@
 }
 
 -(UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(10, 10, 10, 10);
+    return UIEdgeInsetsMake(kMargin, kMargin, kMargin, kMargin);
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-    return 0;
+    return 10;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
@@ -297,7 +297,7 @@
     if (!_textView) {
         _textView = [[UITextView alloc] init];
         _textView.backgroundColor = [UIColor clearColor];
-        _textView.font = [UIFont systemFontOfSize:16];
+        _textView.font = [UIFont systemFontOfSize:15];
         _textView.scrollEnabled = NO;
         _textView.placeholder = @"输入内容...";
         _textView.delegate = self;

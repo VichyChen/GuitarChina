@@ -81,7 +81,7 @@
                             options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut
                          animations:^{
                              self.contentView.frame = CGRectMake(0, self.frame.size.height - 200, kScreenWidth, 210);
-                             self.transparentView.alpha = 0.3f;
+                             self.transparentView.alpha = 0.4f;
                          } completion:^(BOOL finished) {
                              self.show = YES;
                          }];

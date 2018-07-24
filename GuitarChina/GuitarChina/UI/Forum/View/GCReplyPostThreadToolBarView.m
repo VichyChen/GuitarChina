@@ -21,7 +21,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.backgroundColor = [GCColor cellSelectedColor];
+        self.backgroundColor = [UIColor whiteColor];
         self.frame = CGRectMake(0, 0, kScreenWidth, 44);
         [self configureView];
         [self configureFrame];

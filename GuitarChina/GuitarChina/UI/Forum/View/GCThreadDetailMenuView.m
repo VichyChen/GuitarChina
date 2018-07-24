@@ -64,7 +64,7 @@
         
         _transparentView = [[UIView alloc] initWithFrame:CGRectZero];
         _transparentView.backgroundColor = [UIColor blackColor];
-        _transparentView.alpha = 0.3f;
+        _transparentView.alpha = 0.0f;
         UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissMenu)];
         [_transparentView addGestureRecognizer:gesture];
         
@@ -164,6 +164,7 @@
         self.afterAnimationFrame = tempFrame;
     }
     self.transparentView.frame = navigationController.view.frame;
+    self.transparentView.alpha = 0.0f;
     [UIView animateWithDuration:0.4
                           delay:0.0
          usingSpringWithDamping:0.8
@@ -173,6 +174,7 @@
                          CGRect tempFrame = self.frame;
                          tempFrame.origin.y = self.afterAnimationFrame.origin.y;
                          self.frame = tempFrame;
+                         self.transparentView.alpha = 0.4f;
                      } completion:^(BOOL finished) {
                          self.open = YES;
                      }];
@@ -183,6 +185,7 @@
         CGRect tempFrame = self.frame;
         tempFrame.origin.y = self.beforeAnimationFrame.origin.y;
         self.frame = tempFrame;
+        self.transparentView.alpha = 0.0f;
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
         [self.transparentView removeFromSuperview];
