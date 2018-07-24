@@ -81,7 +81,7 @@
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight)];
         _tableView.backgroundColor = [GCColor backgroundColor];
         [_tableView initFooterView];
-        _tableView.separatorLeftInset = 0;
+        _tableView.separatorHorizontalInset = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
 
         self.tableViewKit = [[GCTableViewKit alloc] initWithCellType:ConfigureCellTypeClass cellIdentifier:@"GCMyPromptCell"];
         @weakify(self);

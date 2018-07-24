@@ -68,7 +68,7 @@
     if (!_tableView) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kNavigatioinBarHeight) style:UITableViewStyleGrouped];
         _tableView.backgroundColor = [GCColor backgroundColor];
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+//        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         _tableView.separatorHorizontalInset = UIEdgeInsetsMake(0, kMargin, 0, kMargin);
         [_tableView initHeaderView];
 
