@@ -107,7 +107,7 @@
     //提示无广告版
 #if FREEVERSION
     if ([NSUD integerForKey:kGCFirstPromptPro] == 0) {
-        GCDiscoveryPromptProView *promptProView = [[GCDiscoveryPromptProView alloc] initWithFrame:CGRectMake(0,kScreenHeight - kTabBarHeight - 88, kScreenWidth, 88)];
+        GCDiscoveryPromptProView *promptProView = [[GCDiscoveryPromptProView alloc] initWithFrame:CGRectMake(0,kScreenHeight - kTabBarHeight - kNavigatioinBarHeight - 88, kScreenWidth, 88)];
         [self.view addSubview:promptProView];
     }
 #else
