@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, GCDiscoveryTableViewType) {
+    GCDiscoveryTableViewTypeNew = 0,
+    GCDiscoveryTableViewTypeNewThread,
     GCDiscoveryTableViewTypeHot,
-    GCDiscoveryTableViewTypeNew,
-    GCDiscoveryTableViewTypeSofa,
     GCDiscoveryTableViewTypeDigest
 };
 
 @interface GCDiscoveryTableViewController : GCBaseViewController
 
 @property (nonatomic, assign) GCDiscoveryTableViewType discoveryTableViewType;
+
+- (void)refresh;
 
 @end

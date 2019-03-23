@@ -10,6 +10,8 @@
 
 @interface GCThreadDetailView ()
 
+@property (nonatomic, assign) BOOL adFlag;
+
 @end
 
 @implementation GCThreadDetailView
@@ -20,7 +22,11 @@
         [self configureView];
         [self configureFrame];
 #if FREEVERSION
-        [self insertSubview:self.bannner aboveSubview:self.webView];
+//        self.adFlag = (arc4random() % 100) < 100 ? YES : NO;
+        self.adFlag = YES;
+        if (self.adFlag) {
+            [self insertSubview:self.bannner aboveSubview:self.webView];
+        }
 #endif
     }
     return self;
@@ -48,7 +54,9 @@
     if (self.toolBarView.alpha == 0.0f) {
         [UIView animateWithDuration:1.0 animations:^{
 #if FREEVERSION
-            self.bannner.alpha = 1.0f;
+            if (self.adFlag) {
+                self.bannner.alpha = 1.0f;
+            }
 #endif
             self.toolBarView.alpha = 1.0f;
         } completion:^(BOOL finished) {
@@ -93,6 +101,8 @@
         _webView.backgroundColor = [UIColor clearColor];
         _webView.scrollView.showsHorizontalScrollIndicator = NO;
         _webView.scrollView.contentSize = CGSizeMake(kScreenWidth, kScreenHeight);
+        _webView.allowsInlineMediaPlayback = YES;
+        _webView.mediaPlaybackRequiresUserAction = NO;
         @weakify(self);
         _webView.scrollView.headerRefreshBlock = ^{
             @strongify(self);

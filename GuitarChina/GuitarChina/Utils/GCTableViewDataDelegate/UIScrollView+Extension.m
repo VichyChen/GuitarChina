@@ -74,5 +74,12 @@
     return [self.header isRefreshing] || [self.footer isRefreshing];
 }
 
+- (void)noticeNoMoreData {
+    [self.footer noticeNoMoreData];
+}
+
+- (void)resetNoMoreData {
+    [self.footer resetNoMoreData];
+}
 
 @end

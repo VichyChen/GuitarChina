@@ -400,30 +400,6 @@
     }];
 }
 
-+ (void)getGuideHotWithPageIndex:(NSInteger)pageIndex
-                         success:(void (^)(NSData *htmlData))success
-                         failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideHot(pageIndex)
-                                parameters:nil
-                                   success:^(NSURLSessionDataTask *task, id responseObject) {
-                                       success(responseObject);
-                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                       failure(error);
-                                   }];
-}
-
-+ (void)getGuideDigestWithPageIndex:(NSInteger)pageIndex
-                            success:(void (^)(NSData *htmlData))success
-                            failure:(void (^)(NSError *error))failure {
-    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideDigest(pageIndex)
-                                parameters:nil
-                                   success:^(NSURLSessionDataTask *task, id responseObject) {
-                                       success(responseObject);
-                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
-                                       failure(error);
-                                   }];
-}
-
 + (void)getGuideNewWithPageIndex:(NSInteger)pageIndex
                          success:(void (^)(NSData *htmlData))success
                          failure:(void (^)(NSError *error))failure {
@@ -440,6 +416,30 @@
                                success:(void (^)(NSData *htmlData))success
                                failure:(void (^)(NSError *error))failure {
     [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideNewThread(pageIndex)
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
+}
+
++ (void)getGuideHotWithPageIndex:(NSInteger)pageIndex
+                         success:(void (^)(NSData *htmlData))success
+                         failure:(void (^)(NSError *error))failure {
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideHot(pageIndex)
+                                parameters:nil
+                                   success:^(NSURLSessionDataTask *task, id responseObject) {
+                                       success(responseObject);
+                                   } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                                       failure(error);
+                                   }];
+}
+
++ (void)getGuideDigestWithPageIndex:(NSInteger)pageIndex
+                            success:(void (^)(NSData *htmlData))success
+                            failure:(void (^)(NSError *error))failure {
+    [[GCNetworkBase sharedInstance] getWeb:GCNetworkAPI_Get_GuideDigest(pageIndex)
                                 parameters:nil
                                    success:^(NSURLSessionDataTask *task, id responseObject) {
                                        success(responseObject);

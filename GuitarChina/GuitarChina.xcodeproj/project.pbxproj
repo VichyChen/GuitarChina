@@ -673,6 +673,7 @@
 		4238890F1BC57D0F002E1625 /* DGActivityIndicatorTripleRingsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888EB1BC57D0F002E1625 /* DGActivityIndicatorTripleRingsAnimation.m */; };
 		423889101BC57D0F002E1625 /* DGActivityIndicatorTwoDotsAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888ED1BC57D0F002E1625 /* DGActivityIndicatorTwoDotsAnimation.m */; };
 		423889111BC57D0F002E1625 /* DGActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 423888F01BC57D0F002E1625 /* DGActivityIndicatorView.m */; };
+		424EDD3D21BFA08A008F2A66 /* GDTNativeExpressAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 424EDD3C21BFA089008F2A66 /* GDTNativeExpressAdManager.m */; };
 		425FB2F61B84C23B00B6A89B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425FB2F41B84C23B00B6A89B /* LaunchScreen.xib */; };
 		425FB3021B84C23B00B6A89B /* GuitarChinaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 425FB3011B84C23B00B6A89B /* GuitarChinaTests.m */; };
 		4260C6971BB64AB700705BE0 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 4260C6961BB64AB700705BE0 /* Util.m */; };
@@ -681,6 +682,8 @@
 		428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 428260671B84CE03007CBCF4 /* GCNetworkManager.m */; };
 		42A600A91CF9EECA002F709F /* GCHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A600A81CF9EECA002F709F /* GCHistoryCell.m */; };
 		42C5546A1C878334000AF010 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C554691C878334000AF010 /* Default-568h@2x.png */; };
+		42D774AD2246007200E5350D /* UITabBarItem+DoubleTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D774AC2246007200E5350D /* UITabBarItem+DoubleTap.m */; };
+		42D774AE2246007200E5350D /* UITabBarItem+DoubleTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D774AC2246007200E5350D /* UITabBarItem+DoubleTap.m */; };
 		42FFF5B21BF1C24A0061029B /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42FFF5B11BF1C24A0061029B /* ForumList.plist */; };
 		C816F5671E1064066FA4EDBE /* libPods-GuitarChinaPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D61DFE0FE33652DC9295885 /* libPods-GuitarChinaPro.a */; };
 /* End PBXBuildFile section */
@@ -1130,6 +1133,8 @@
 		423888F01BC57D0F002E1625 /* DGActivityIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DGActivityIndicatorView.m; sourceTree = "<group>"; };
 		423E89DD2109ECF000246928 /* GDTSDKConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSDKConfig.h; sourceTree = "<group>"; };
 		423E89DE2109ECF000246928 /* GDTSDKDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSDKDefines.h; sourceTree = "<group>"; };
+		424EDD3B21BFA089008F2A66 /* GDTNativeExpressAdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeExpressAdManager.h; sourceTree = "<group>"; };
+		424EDD3C21BFA089008F2A66 /* GDTNativeExpressAdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDTNativeExpressAdManager.m; sourceTree = "<group>"; };
 		425FB2DF1B84C23B00B6A89B /* GuitarChina.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarChina.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		425FB2F51B84C23B00B6A89B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		425FB2FB1B84C23B00B6A89B /* GuitarChinaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GuitarChinaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1148,6 +1153,8 @@
 		42A600A81CF9EECA002F709F /* GCHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHistoryCell.m; sourceTree = "<group>"; };
 		42C554691C878334000AF010 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		42CB56B51C888BA100F304CD /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		42D774AB2246007100E5350D /* UITabBarItem+DoubleTap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+DoubleTap.h"; sourceTree = "<group>"; };
+		42D774AC2246007200E5350D /* UITabBarItem+DoubleTap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+DoubleTap.m"; sourceTree = "<group>"; };
 		42DA94FF1BA3B23B001A79B9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		42FFF5B11BF1C24A0061029B /* ForumList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ForumList.plist; sourceTree = "<group>"; };
 		57799C0424A91ADDD0AC92B6 /* Pods-GuitarChina.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuitarChina.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GuitarChina/Pods-GuitarChina.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1318,6 +1325,8 @@
 			isa = PBXGroup;
 			children = (
 				0439F4E71F21FDAC00935847 /* GDT */,
+				424EDD3B21BFA089008F2A66 /* GDTNativeExpressAdManager.h */,
+				424EDD3C21BFA089008F2A66 /* GDTNativeExpressAdManager.m */,
 				04D350671E13ACE900047725 /* GCAdBannerView.h */,
 				04D350681E13ACE900047725 /* GCAdBannerView.m */,
 				0427793B1FB4335900D3B320 /* GCGDTNativeExpressAd.h */,
@@ -2203,6 +2212,8 @@
 				4260C6961BB64AB700705BE0 /* Util.m */,
 				042779621FB596C800D3B320 /* VCValidateUtil.h */,
 				042779631FB596C800D3B320 /* VCValidateUtil.m */,
+				42D774AB2246007100E5350D /* UITabBarItem+DoubleTap.h */,
+				42D774AC2246007200E5350D /* UITabBarItem+DoubleTap.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -3228,6 +3239,7 @@
 				4211C8A720DFE4FB0042961F /* GCProfileCell.m in Sources */,
 				4211C8A820DFE4FB0042961F /* GCNavigationController.m in Sources */,
 				4211C8A920DFE4FB0042961F /* UIView+UICreateFactory.m in Sources */,
+				42D774AE2246007200E5350D /* UITabBarItem+DoubleTap.m in Sources */,
 				4211C8AA20DFE4FB0042961F /* GCMyFavThreadCell.m in Sources */,
 				4211C8AB20DFE4FB0042961F /* TAAbstractDotView.m in Sources */,
 				4211C8AC20DFE4FB0042961F /* DGActivityIndicatorNineDotsAnimation.m in Sources */,
@@ -3307,6 +3319,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42D774AD2246007200E5350D /* UITabBarItem+DoubleTap.m in Sources */,
 				047150EE1BF03B2A007A8890 /* SVIndefiniteAnimatedView.m in Sources */,
 				04C0D4EE1DD41A2A007A5113 /* ZLCameraViewController.m in Sources */,
 				421192D61CE8607100BCFF3E /* GCBaseViewController.m in Sources */,
@@ -3444,6 +3457,7 @@
 				046262461BAAC06800E66F03 /* UIView+LayoutHelper.m in Sources */,
 				423888F31BC57D0F002E1625 /* DGActivityIndicatorBallClipRotateMultipleAnimation.m in Sources */,
 				423888991BC57CA6002E1625 /* MJRefreshAutoFooter.m in Sources */,
+				424EDD3D21BFA08A008F2A66 /* GDTNativeExpressAdManager.m in Sources */,
 				423888FC1BC57D0F002E1625 /* DGActivityIndicatorBallScaleRippleAnimation.m in Sources */,
 				421192A31CE85EEE00BCFF3E /* GCForumDisplayCell.m in Sources */,
 				423888FE1BC57D0F002E1625 /* DGActivityIndicatorBallTrianglePathAnimation.m in Sources */,

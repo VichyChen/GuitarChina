@@ -37,6 +37,11 @@
                                                                           action:@selector(searchAction)];
     
     [self configureView];
+    [self configureNotification];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -88,11 +93,11 @@
     [self.view addSubview:self.scrollView];
     
     GCDiscoveryTableViewController *hot = [[GCDiscoveryTableViewController alloc] init];
-    hot.discoveryTableViewType = GCDiscoveryTableViewTypeHot;
+    hot.discoveryTableViewType = GCDiscoveryTableViewTypeNew;
     GCDiscoveryTableViewController *new = [[GCDiscoveryTableViewController alloc] init];
-    new.discoveryTableViewType = GCDiscoveryTableViewTypeNew;
+    new.discoveryTableViewType = GCDiscoveryTableViewTypeNewThread;
     GCDiscoveryTableViewController *sofa = [[GCDiscoveryTableViewController alloc] init];
-    sofa.discoveryTableViewType = GCDiscoveryTableViewTypeSofa;
+    sofa.discoveryTableViewType = GCDiscoveryTableViewTypeHot;
     GCDiscoveryTableViewController *digest = [[GCDiscoveryTableViewController alloc] init];
     digest.discoveryTableViewType = GCDiscoveryTableViewTypeDigest;
     
@@ -113,6 +118,15 @@
 #else
 
 #endif
+}
+
+- (void)configureNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doubleTapAction) name:kGCNotificationDiscoveryDoubleTap object:nil];
+}
+
+- (void)doubleTapAction {
+    GCDiscoveryTableViewController *controller = (GCDiscoveryTableViewController *)self.childViewControllers[self.segmentedControl.selectedSegmentIndex];
+    [controller refresh];
 }
 
 //延迟加载tableview
@@ -137,7 +151,7 @@
 
 - (HMSegmentedControl *)segmentedControl {
     if (!_segmentedControl) {
-        _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[[NSString stringWithFormat:@" %@ ", @"最热"], [NSString stringWithFormat:@" %@ ", @"最新"], [NSString stringWithFormat:@" %@ ", @"抢沙发"], [NSString stringWithFormat:@" %@ ", @"精华"]]];
+        _segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[[NSString stringWithFormat:@" %@ ", @"回复"], [NSString stringWithFormat:@" %@ ", @"发表"], [NSString stringWithFormat:@" %@ ", @"热门"], [NSString stringWithFormat:@" %@ ", @"精华"]]];
         _segmentedControl.frame = CGRectMake(0, 0, kScreenWidth, 40);
         _segmentedControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationNone;
         _segmentedControl.backgroundColor = [UIColor whiteColor];

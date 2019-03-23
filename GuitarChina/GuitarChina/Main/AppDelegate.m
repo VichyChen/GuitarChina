@@ -26,12 +26,16 @@
 @interface AppDelegate () <GDTSplashAdDelegate>
 
 @property (strong, nonatomic) GDTSplashAd *splash;
+@property (strong, nonatomic) UILabel *skipLabel;
 @property (retain, nonatomic) UIView *bottomView;
 
 //相机
 @property (nonatomic, strong) UIImagePickerController *cameraImagePicker;
 //相册
 @property (nonatomic, strong) UIImagePickerController *albumImagePicker;
+
+@property (nonatomic, strong) GDTNativeExpressAdManager *nativeExpressAdManager0; //上文下一图
+@property (nonatomic, strong) GDTNativeExpressAdManager *nativeExpressAdManager1; //纯图
 
 @end
 
@@ -61,17 +65,27 @@
     [self configureSVProgressHUD];
     [self configureTabBarController];
     
+#if FREEVERSION
+    [self setupADInterstitialTime];
+    [self configureSplashAd];
+    
+//    self.nativeExpressAdManager0 = [[GDTNativeExpressAdManager alloc] initWithAppId:@"1106228271" placementId:@"7050848727998406" adSize:CGSizeMake(ScreenWidth, 1)];
+//    [self.nativeExpressAdManager0 loadAd];
+//
+//    self.nativeExpressAdManager1 = [[GDTNativeExpressAdManager alloc] initWithAppId:@"1106228271" placementId:@"2040545787793464" adSize:CGSizeMake(ScreenWidth, 1)];
+//    [self.nativeExpressAdManager1 loadAd];
+//
+//    self.nativeExpressAdManagerArray = [NSMutableArray array];
+//    [self.nativeExpressAdManagerArray addObject:self.nativeExpressAdManager0];
+//    [self.nativeExpressAdManagerArray addObject:self.nativeExpressAdManager1];
+#endif
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
-    
-#if FREEVERSION
-    [self setupADInterstitialTime];
-    [self configureSplashAd];
-#endif
-    
-    
+
     return YES;
 }
 
@@ -197,6 +211,7 @@
  */
 - (void)splashAdLifeTime:(NSUInteger)time {
     NSLog(@"GDT开屏广告剩余时间回调 %ld", time);
+    self.skipLabel.text = [NSString stringWithFormat:@"跳过 %ld", time - 1];
 }
 
 #pragma mark - Public Methods
@@ -301,12 +316,12 @@
     UIImage *bottomImage = [[[UIImage imageNamed:imageName] cutWithRect:bottomViewImageRect] resize:self.bottomView.frame.size];
     self.bottomView.backgroundColor = [UIColor colorWithPatternImage:bottomImage];
     
-    UIView *skipView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth - 15 - 50, kNavigatioinBarHeight, 50, 30)];
+    UIView *skipView = [[UIView alloc] initWithFrame:CGRectMake(kScreenWidth - 15 - 60, kNavigatioinBarHeight, 60, 30)];
     skipView.backgroundColor = [UIColor clearColor];
     skipView.clipsToBounds = YES;
     skipView.layer.cornerRadius = kCornerRadius;
     
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 30)];
     view.backgroundColor = [UIColor blackColor];
     view.alpha = 0.40;
     
@@ -319,8 +334,9 @@
     
     [skipView addSubview:view];
     [skipView addSubview:label];
+    self.skipLabel = label;
     
-    [self.splash loadAdAndShowInWindow:APP.window withBottomView:self.bottomView skipView:skipView];
+    [self.splash loadAdAndShowInWindow:APP.window withBottomView:nil skipView:skipView];
 }
 
 - (void)configureSVProgressHUD {

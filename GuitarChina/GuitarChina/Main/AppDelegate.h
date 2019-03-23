@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "GCTabBarController.h"
+#import "GDTNativeExpressAdManager.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -21,6 +22,8 @@
 - (void)saveContext;
 
 - (void)selectImage:(UIViewController *)controller success:(void(^)(UIImage *image, NSDictionary *info))success;
+
+@property (nonatomic, strong) NSMutableArray <GDTNativeExpressAdManager *>*nativeExpressAdManagerArray;
 
 @end
 

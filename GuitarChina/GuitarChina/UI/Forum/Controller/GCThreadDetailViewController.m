@@ -17,6 +17,7 @@
 #import "GCSocial.h"
 #import "ZLPhoto.h"
 #import "GCProfileViewController.h"
+#import "GCForumDisplayViewController.h"
 
 @interface GCThreadDetailViewController () <UIWebViewDelegate, ZLPhotoPickerBrowserViewControllerDataSource,ZLPhotoPickerBrowserViewControllerDelegate> {
     
@@ -94,7 +95,7 @@
 
 - (void)dealloc {
     NSLog(@"GCThreadDetailViewController dealloc");
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kGCNotificationLoginSuccess object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UIWebViewDelegate
@@ -244,6 +245,19 @@
 
 - (void)configureNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshAction) name:kGCNotificationLoginSuccess object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(windowDidBecomeHidden:) name:UIWindowDidBecomeHiddenNotification object:nil];
+}
+
+-(void)windowDidBecomeHidden:(NSNotification *)nitice
+{
+    UIWindow * window = (UIWindow *)nitice.object;
+    if(window){
+        UIViewController *rootViewController = window.rootViewController;
+        NSArray<__kindof UIViewController *> *viewVCArray = rootViewController.childViewControllers;
+        if([viewVCArray.firstObject isKindOfClass:NSClassFromString(@"AVPlayerViewController")]){
+            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+        }
+    }
 }
 
 #pragma mark - Event Responses
@@ -270,7 +284,7 @@
 - (void)configureView {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.title = @"详情";//@"详情";
+    self.title = @"";
     
     UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
     leftButton.frame = CGRectMake(0, 0, 25, 25);
@@ -315,6 +329,25 @@
             
             self.threadDetailView.pagePickerView.pickerViewCount = self.pageCount;
             self.threadDetailView.pagePickerView.pickerViewIndex = self.pageIndex - 1;
+            
+            UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
+            UILabel *label = [[UILabel alloc] init];
+            label.frame = CGRectMake(0, 0, 200, 44);
+            label.text = [APP.forumDictionary objectForKey: self.model.fid];
+            label.textColor = [UIColor whiteColor];
+            label.textAlignment = NSTextAlignmentCenter;
+            label.font = [UIFont systemFontOfSize:17];
+            [titleView addSubview:label];
+            self.navigationItem.titleView = titleView;
+            @weakify(self);
+            [titleView bk_whenTapped:^{
+                @strongify(self);
+                GCForumDisplayViewController *controller = [[GCForumDisplayViewController alloc] init];
+                controller.title = [APP.forumDictionary objectForKey: self.model.fid];
+                controller.fid = self.model.fid;
+                [self.navigationController pushViewController:controller animated:YES];
+            }];
+            
             success(model);
             [self.threadDetailView showOtherView];
         } failure:^(NSError *error) {

@@ -144,7 +144,9 @@
                 //imageList有排序，里面的id替换成url，用于看大图
                 [model.attachImageURLArray replaceObjectAtIndex:i withObject:imageURL];
             }
-            
+            //替换优酷视频script成iframe
+            model.message = [self covertYoukuVideo:model.message];
+
             [postArray addObject:model];
         }
         self.postlist = postArray;
@@ -174,7 +176,7 @@
         }
     }
     NSString *htmlPage = [Util getBundleHTMLString:@"GCThreadWebViewHtml"];
-    [html appendFormat:htmlPage, kScreenWidth - 30, self.subject, [Util getDateStringWithTimeStamp:self.dateline format:@"yyyy-MM-dd HH:mm"], [NSString stringWithFormat:@"%@，%@回复 %@浏览", [APP.forumDictionary objectForKey: self.fid], self.replies, self.views], htmlCellString];
+    [html appendFormat:htmlPage, kScreenWidth - 30, self.subject, [NSString stringWithFormat:@"%@回复 %@浏览", self.replies, self.views], htmlCellString];
 
     //处理尾巴样式
     html = [html replace:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305\" target=\"_blank\"><font color=\"Gray\">发自吉他中国iPhone客户端</font></a>" toNewString:@"<a href=\"https://itunes.apple.com/cn/app/ji-ta-zhong-guo-hua-yu-di/id1089161305\" target=\"_blank\" style='margin-top:10px;font-size:13px'><font color=\"Gray\">发自吉他中国iPhone客户端</font></a>"];
@@ -184,8 +186,65 @@
     //替换视频
     html = [html replace:@"[media]" toNewString:@""];
     html = [html replace:@"[/media]" toNewString:@""];
-    
+
     return html;
+}
+
+- (NSString *)covertYoukuVideo:(NSString *)message {
+    NSString *origin = message;
+    NSArray *array;
+    /*
+     <script type=\"text/javascript\" src=\"//player.youku.com/jsapi\"></script>
+     <div id=\"youkuplayer_flv_fz5\" ></div>
+     <script type=\"text/javascript\">var player = new YKU.Player('youkuplayer_flv_fz5',{styleid: '0',client_id:'d0177e05f77cc8fd',vid: 'XMzg1ODMwNzQyMA==',width:120,height:100,newPlayer: true});</script><br />\r\n
+     */
+    
+    if ([message containString:@"<script type=\"text/javascript\" src=\"//player.youku.com/jsapi\"></script>"]) {
+        //第一步:replace替换<script type=\"text/javascript\" src=\"//player.youku.com/jsapi\"></script>
+        message = [message replace:@"<script type=\"text/javascript\" src=\"//player.youku.com/jsapi\"></script>" toNewString:@""];
+        //第二步:解析去掉<div id=\"youkuplayer_flv_fz5\" ></div>
+        array = [message componentsSeparatedByString:@"<div id=\"youkuplayer_flv_"];
+        if (array.count > 0) {
+            NSMutableArray *newArray = [NSMutableArray array];
+            [newArray addObject:array[0]];
+            for (int i = 1; i < array.count; i++) {
+                NSString *string = [array[i] substringToIndex:12];
+                if ([string hasSuffix:@"\" ></div>"]){
+                    [newArray addObject:[array[i] substringFromIndex:12]];
+                }
+                else {
+                    //????
+                }
+            }
+            message = [newArray componentsJoinedByString:@""];
+        }
+        //第三步:解析去掉<script type=\"text/javascript\">var player = new YKU.Player('youkuplayer_flv_fz5
+        array = [message componentsSeparatedByString:@"<script type=\"text/javascript\">var player = new YKU.Player('youkuplayer_flv_"];
+        if (array.count > 0) {
+            NSMutableArray *newArray = [NSMutableArray array];
+            [newArray addObject:array[0]];
+            for (int i = 1; i < array.count; i++) {
+                [newArray addObject:[array[i] substringFromIndex:3]];
+            }
+            message = [newArray componentsJoinedByString:@""];
+        }
+        //第四步:',{styleid: '0',client_id:'
+        array = [message componentsSeparatedByString:@"',{styleid: '0',client_id:'"];
+        if (array.count > 0) {
+            NSMutableArray *newArray = [NSMutableArray array];
+            [newArray addObject:array[0]];
+            for (int i = 1; i < array.count; i++) {
+                NSString *string = [[array[i] substringFromIndex:16] replace:@"',vid: '" toNewString:[NSString stringWithFormat:@"<iframe height='%.f' width='%.f' style='margin-top:15' src='http://player.youku.com/embed/", (ScreenWidth - 30) * 180 / 320, ScreenWidth - 30]];
+                string = [string replace:@",width:120,height:100,newPlayer: true});</script>" toNewString:@" frameborder=0 ></iframe>"];
+                [newArray addObject:string];
+            }
+            message = [newArray componentsJoinedByString:@""];
+        }
+        
+        return message;
+    }
+    
+    return origin;
 }
 
 @end

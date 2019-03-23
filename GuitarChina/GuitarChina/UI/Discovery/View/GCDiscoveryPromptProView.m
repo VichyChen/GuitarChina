@@ -50,9 +50,9 @@
     button2.frame = CGRectMake(kScreenWidth - 13 - 60, 46, 60, 28);
     button2.backgroundColor = [UIColor whiteColor];
     button2.titleLabel.font = [UIFont systemFontOfSize:14];
-    [button2 setTitleColor:[GCColor redColor] forState:UIControlStateNormal];
+    [button2 setTitleColor:[GCColor grayColor2] forState:UIControlStateNormal];
     button2.layer.cornerRadius = 3;
-    button2.layer.borderColor = [GCColor redColor].CGColor;
+    button2.layer.borderColor = [GCColor grayColor2].CGColor;
     button2.layer.borderWidth = 1;
     [button2 setTitle:@"关闭" forState:UIControlStateNormal];
     [button2 addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];

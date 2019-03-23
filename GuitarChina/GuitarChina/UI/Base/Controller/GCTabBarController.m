@@ -17,6 +17,7 @@
 #import "GCSearchViewController.h"
 #import "GCOfficialViewController.h"
 #import "GCDiscoveryViewController.h"
+#import "UITabBarItem+DoubleTap.h"
 
 @interface GCTabBarController () <UITabBarControllerDelegate, WMPageControllerDataSource>
 
@@ -30,7 +31,8 @@
     [super viewDidLoad];
     
     self.delegate = self;
-    
+    self.tabBar.translucent = NO;
+
     self.tabBar.tintColor = [UIColor whiteColor];
     self.tabBar.barTintColor = [UIColor colorWithRed:0.100 green:0.100 blue:0.100 alpha:1.00];
 
@@ -52,6 +54,9 @@
     discoveryNavigationController.tabBarItem.title = @"首页";
     discoveryNavigationController.tabBarItem.image = [[UIImage imageNamed:@"tabbar_home"] imageWithTintColor:[GCColor grayColor4]];
     discoveryNavigationController.tabBarItem.selectedImage = [[UIImage imageNamed:@"tabbar_home"] imageWithTintColor:[GCColor redColor]];
+    discoveryNavigationController.tabBarItem.doubleTapBlock = ^(UITabBarItem *tabBarItem, NSInteger index) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kGCNotificationDiscoveryDoubleTap object:nil];
+    };
     
     GCForumIndexViewController *forumIndexViewController = [[GCForumIndexViewController alloc] init];
     GCNavigationController *forumIndexNavigationController = [[GCNavigationController alloc] initWithRootViewController:forumIndexViewController];

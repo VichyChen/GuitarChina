@@ -49,7 +49,7 @@
     [super prepare];
     
     // 默认底部控件100%出现时才会自动刷新
-    self.triggerAutomaticallyRefreshPercent = 1.0;
+    self.triggerAutomaticallyRefreshPercent = -4;
     
     // 设置为默认状态
     self.automaticallyRefresh = YES;

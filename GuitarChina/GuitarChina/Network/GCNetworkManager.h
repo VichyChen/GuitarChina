@@ -159,16 +159,6 @@ typedef NS_OPTIONS(NSUInteger, GCNetworkMode) {
                       success:(void (^)(NSString *html))success
                       failure:(void (^)(NSError *error))failure;
 
-//导读－最新热门
-+ (void)getGuideHotWithPageIndex:(NSInteger)pageIndex
-                         success:(void (^)(NSData *htmlData))success
-                         failure:(void (^)(NSError *error))failure;
-
-//导读－最新精华
-+ (void)getGuideDigestWithPageIndex:(NSInteger)pageIndex
-                            success:(void (^)(NSData *htmlData))success
-                            failure:(void (^)(NSError *error))failure;
-
 //导读－最新回复
 + (void)getGuideNewWithPageIndex:(NSInteger)pageIndex
                          success:(void (^)(NSData *htmlData))success
@@ -178,6 +168,16 @@ typedef NS_OPTIONS(NSUInteger, GCNetworkMode) {
 + (void)getGuideNewThreadWithPageIndex:(NSInteger)pageIndex
                                success:(void (^)(NSData *htmlData))success
                                failure:(void (^)(NSError *error))failure;
+
+//导读－最新热门
++ (void)getGuideHotWithPageIndex:(NSInteger)pageIndex
+                         success:(void (^)(NSData *htmlData))success
+                         failure:(void (^)(NSError *error))failure;
+
+//导读－最新精华
++ (void)getGuideDigestWithPageIndex:(NSInteger)pageIndex
+                            success:(void (^)(NSData *htmlData))success
+                            failure:(void (^)(NSError *error))failure;
 
 //导读－抢沙发
 + (void)getGuideSofaWithPageIndex:(NSInteger)pageIndex

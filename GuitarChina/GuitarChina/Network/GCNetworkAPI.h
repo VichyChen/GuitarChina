@@ -86,17 +86,17 @@
 //收藏帖子
 #define GCNetworkAPI_Get_Collection(tid, formhash) [NSString stringWithFormat:@"http://bbs.guitarchina.com/home.php?mod=spacecp&ac=favorite&type=thread&id=%@&formhash=%@&infloat=yes&handlekey=k_favorite&inajax=1&ajaxtarget=fwin_content_k_favorite",(tid),(formhash)]
 
-//最新热门
-#define GCNetworkAPI_Get_GuideHot(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=hot&page=%ld", (pageIndex)]
-
-//最新精华
-#define GCNetworkAPI_Get_GuideDigest(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=digest&page=%ld", (pageIndex)]
-
 //最新回复
 #define GCNetworkAPI_Get_GuideNew(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=new&page=%ld", (pageIndex)]
 
 //最新发表
 #define GCNetworkAPI_Get_GuideNewThread(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=newthread&page=%ld", (pageIndex)]
+
+//最新热门
+#define GCNetworkAPI_Get_GuideHot(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=hot&page=%ld", (pageIndex)]
+
+//最新精华
+#define GCNetworkAPI_Get_GuideDigest(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=digest&page=%ld", (pageIndex)]
 
 //抢沙发
 #define GCNetworkAPI_Get_GuideSofa(pageIndex) [NSString stringWithFormat:@"http://bbs.guitarchina.com/forum.php?mod=guide&view=sofa&page=%ld", (pageIndex)]

@@ -29,6 +29,8 @@
 
 @interface GCGuideThreadArray : NSObject
 
+@property (nonatomic, assign) NSInteger totalPage;
+
 @property (nonatomic, strong) NSMutableArray *data;
 
 @end
