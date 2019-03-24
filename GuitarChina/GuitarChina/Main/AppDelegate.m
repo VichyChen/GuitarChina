@@ -65,26 +65,26 @@
     [self configureSVProgressHUD];
     [self configureTabBarController];
     
-#if FREEVERSION
-    [self setupADInterstitialTime];
-    [self configureSplashAd];
-    
-//    self.nativeExpressAdManager0 = [[GDTNativeExpressAdManager alloc] initWithAppId:@"1106228271" placementId:@"7050848727998406" adSize:CGSizeMake(ScreenWidth, 1)];
-//    [self.nativeExpressAdManager0 loadAd];
-//
-//    self.nativeExpressAdManager1 = [[GDTNativeExpressAdManager alloc] initWithAppId:@"1106228271" placementId:@"2040545787793464" adSize:CGSizeMake(ScreenWidth, 1)];
-//    [self.nativeExpressAdManager1 loadAd];
-//
-//    self.nativeExpressAdManagerArray = [NSMutableArray array];
-//    [self.nativeExpressAdManagerArray addObject:self.nativeExpressAdManager0];
-//    [self.nativeExpressAdManagerArray addObject:self.nativeExpressAdManager1];
-#endif
-    
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+
+#if FREEVERSION
+    [self setupADInterstitialTime];
+    [self configureSplashAd];
+    
+    //    self.nativeExpressAdManager0 = [[GDTNativeExpressAdManager alloc] initWithAppId:@"1106228271" placementId:@"7050848727998406" adSize:CGSizeMake(ScreenWidth, 1)];
+    //    [self.nativeExpressAdManager0 loadAd];
+    //
+    //    self.nativeExpressAdManager1 = [[GDTNativeExpressAdManager alloc] initWithAppId:@"1106228271" placementId:@"2040545787793464" adSize:CGSizeMake(ScreenWidth, 1)];
+    //    [self.nativeExpressAdManager1 loadAd];
+    //
+    //    self.nativeExpressAdManagerArray = [NSMutableArray array];
+    //    [self.nativeExpressAdManagerArray addObject:self.nativeExpressAdManager0];
+    //    [self.nativeExpressAdManagerArray addObject:self.nativeExpressAdManager1];
+#endif
 
     return YES;
 }

@@ -684,6 +684,7 @@
 		42C5546A1C878334000AF010 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C554691C878334000AF010 /* Default-568h@2x.png */; };
 		42D774AD2246007200E5350D /* UITabBarItem+DoubleTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D774AC2246007200E5350D /* UITabBarItem+DoubleTap.m */; };
 		42D774AE2246007200E5350D /* UITabBarItem+DoubleTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D774AC2246007200E5350D /* UITabBarItem+DoubleTap.m */; };
+		42D774AF22466B2F00E5350D /* UITabBarItem+DoubleTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D774AC2246007200E5350D /* UITabBarItem+DoubleTap.m */; };
 		42FFF5B21BF1C24A0061029B /* ForumList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 42FFF5B11BF1C24A0061029B /* ForumList.plist */; };
 		C816F5671E1064066FA4EDBE /* libPods-GuitarChinaPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D61DFE0FE33652DC9295885 /* libPods-GuitarChinaPro.a */; };
 /* End PBXBuildFile section */
@@ -2965,6 +2966,7 @@
 				041CD2AB1EF4D43700BA3DC1 /* GuitarChina.xcdatamodeld in Sources */,
 				041CD2AC1EF4D43700BA3DC1 /* DGActivityIndicatorDoubleBounceAnimation.m in Sources */,
 				041CD2AD1EF4D43700BA3DC1 /* GCMyThreadCell.m in Sources */,
+				42D774AF22466B2F00E5350D /* UITabBarItem+DoubleTap.m in Sources */,
 				041CD2AE1EF4D43700BA3DC1 /* GCMyPromptViewController.m in Sources */,
 				041CD2AF1EF4D43700BA3DC1 /* DGActivityIndicatorBallPulseAnimation.m in Sources */,
 				041CD2B01EF4D43700BA3DC1 /* MJRefreshBackNormalFooter.m in Sources */,
