@@ -680,6 +680,8 @@
 		42657DDC1B99CAA2001F8DFC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 42657DDE1B99CAA2001F8DFC /* Localizable.strings */; };
 		426BC3931CB9FA9800B3B827 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 426BC3921CB9FA9800B3B827 /* HMSegmentedControl.m */; };
 		428260681B84CE03007CBCF4 /* GCNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 428260671B84CE03007CBCF4 /* GCNetworkManager.m */; };
+		4289D4E222524B6C002EFE04 /* GuitarChinaPro-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4289D4E122524B6C002EFE04 /* GuitarChinaPro-Info.plist */; };
+		4289D4E322524B6C002EFE04 /* GuitarChinaPro-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4289D4E122524B6C002EFE04 /* GuitarChinaPro-Info.plist */; };
 		42A600A91CF9EECA002F709F /* GCHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42A600A81CF9EECA002F709F /* GCHistoryCell.m */; };
 		42C5546A1C878334000AF010 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C554691C878334000AF010 /* Default-568h@2x.png */; };
 		42D774AD2246007200E5350D /* UITabBarItem+DoubleTap.m in Sources */ = {isa = PBXBuildFile; fileRef = 42D774AC2246007200E5350D /* UITabBarItem+DoubleTap.m */; };
@@ -744,7 +746,6 @@
 		0416D7171E3312E80042BE66 /* GCReplyPostThreadToolBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCReplyPostThreadToolBarView.h; sourceTree = "<group>"; };
 		0416D7181E3312E80042BE66 /* GCReplyPostThreadToolBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCReplyPostThreadToolBarView.m; sourceTree = "<group>"; };
 		041CD34A1EF4D43700BA3DC1 /* GuitarChinaPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuitarChinaPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		041CD34B1EF4D43900BA3DC1 /* GuitarChinaPro-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GuitarChinaPro-Info.plist"; path = "/Users/mac/Desktop/GuitarChina/GuitarChina最新版不修改用于复制的副本/GuitarChina-iOS-APP/GuitarChina/GuitarChinaPro-Info.plist"; sourceTree = "<absolute>"; };
 		0422FAE01F14BCC2009F3BD5 /* GCNewsCatLeftMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsCatLeftMenuCell.h; sourceTree = "<group>"; };
 		0422FAE11F14BCC2009F3BD5 /* GCNewsCatLeftMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNewsCatLeftMenuCell.m; sourceTree = "<group>"; };
 		0422FAE21F14BCC2009F3BD5 /* GCNewsCatRightMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNewsCatRightMenuCell.h; sourceTree = "<group>"; };
@@ -1150,6 +1151,7 @@
 		428260631B84CDCF007CBCF4 /* GCNetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkAPI.h; sourceTree = "<group>"; };
 		428260661B84CE03007CBCF4 /* GCNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCNetworkManager.h; sourceTree = "<group>"; };
 		428260671B84CE03007CBCF4 /* GCNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCNetworkManager.m; sourceTree = "<group>"; };
+		4289D4E122524B6C002EFE04 /* GuitarChinaPro-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GuitarChinaPro-Info.plist"; sourceTree = SOURCE_ROOT; };
 		42A600A71CF9EECA002F709F /* GCHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCHistoryCell.h; sourceTree = "<group>"; };
 		42A600A81CF9EECA002F709F /* GCHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCHistoryCell.m; sourceTree = "<group>"; };
 		42C554691C878334000AF010 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -2411,8 +2413,8 @@
 				425FB2FE1B84C23B00B6A89B /* GuitarChinaTests */,
 				425FB2E01B84C23B00B6A89B /* Products */,
 				0F41C248D61EFD30EA073F7A /* Frameworks */,
-				041CD34B1EF4D43900BA3DC1 /* GuitarChinaPro-Info.plist */,
 				259EE02174C5950AA2E65F51 /* Pods */,
+				4289D4E122524B6C002EFE04 /* GuitarChinaPro-Info.plist */,
 				4211C91720DFE4FC0042961F /* GuitarChina copy2-Info.plist */,
 			);
 			sourceTree = "<group>";
@@ -2637,6 +2639,7 @@
 			files = (
 				041CD3331EF4D43700BA3DC1 /* ZLPhotoLib.bundle in Resources */,
 				041CD3341EF4D43700BA3DC1 /* UserProtocol.txt in Resources */,
+				4289D4E322524B6C002EFE04 /* GuitarChinaPro-Info.plist in Resources */,
 				041CD3351EF4D43700BA3DC1 /* GCThreadWebViewTableHtml.html in Resources */,
 				041CD3361EF4D43700BA3DC1 /* GCThreadWebViewHtmlCell.html in Resources */,
 				041CD3371EF4D43700BA3DC1 /* LaunchScreen.xib in Resources */,
@@ -2687,6 +2690,7 @@
 			files = (
 				04C0D5021DD41A2A007A5113 /* ZLPhotoLib.bundle in Resources */,
 				0408D0941BE205C100B3825A /* UserProtocol.txt in Resources */,
+				4289D4E222524B6C002EFE04 /* GuitarChinaPro-Info.plist in Resources */,
 				0463E6FC1BD5E6B0001F7290 /* GCThreadWebViewTableHtml.html in Resources */,
 				043648DD1BCF90740005162D /* GCThreadWebViewHtmlCell.html in Resources */,
 				425FB2F61B84C23B00B6A89B /* LaunchScreen.xib in Resources */,
